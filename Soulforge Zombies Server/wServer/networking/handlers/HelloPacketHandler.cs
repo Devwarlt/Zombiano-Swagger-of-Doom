@@ -17,13 +17,14 @@ namespace wServer.networking.handlers
             Account acc = client.Manager.Database.Verify(packet.GUID, packet.Password);
             if (acc == null)
             {
-                acc = client.Manager.Database.Register(packet.GUID, packet.Password, true);
-                if (acc == null)
-                {
-                    SendFailure(client, "Invalid account.");
-                    client.Disconnect();
-                    return;
-                }
+                SendFailure(client, "No guest accounts pl0x");
+                //acc = client.Manager.Database.Register(packet.GUID, packet.Password, true);
+                //if (acc == null)
+                //{
+                //    SendFailure(client, "Invalid account.");
+                //    client.Disconnect();
+                //    return;
+                //}
             }
 
             client.Account = acc;
@@ -60,6 +61,7 @@ namespace wServer.networking.handlers
                         Background = world.Background,
                         AllowTeleport = world.AllowTeleport,
                         ShowDisplays = world.ShowDisplays,
+                        Music = "",
                         ClientXML = client.Manager.GameData.AdditionXml,
                         ExtraXML = world.ExtraXML
                     });

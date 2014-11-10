@@ -99,7 +99,11 @@ namespace wServer.networking
         {
             try
             {
-                if (!skt.Connected) return;
+                if (!skt.Connected)
+                {
+                    parent.Disconnect();
+                    return;
+                }
 
                 if (e.SocketError != SocketError.Success)
                     throw new SocketException((int)e.SocketError);

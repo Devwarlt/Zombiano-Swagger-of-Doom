@@ -14,6 +14,7 @@ namespace wServer.networking.svrPackets
         public int Background { get; set; }
         public bool AllowTeleport { get; set; }
         public bool ShowDisplays { get; set; }
+        public string Music { get; set; }
         public string[] ClientXML { get; set; }
         public string[] ExtraXML { get; set; }
 
@@ -29,6 +30,7 @@ namespace wServer.networking.svrPackets
             Background = rdr.ReadInt32();
             AllowTeleport = rdr.ReadBoolean();
             ShowDisplays = rdr.ReadBoolean();
+            Music = rdr.ReadUTF();
 
             ClientXML = new string[rdr.ReadInt16()];
             for (int i = 0; i < ClientXML.Length; i++)
@@ -48,6 +50,7 @@ namespace wServer.networking.svrPackets
             wtr.Write(Background);
             wtr.Write(AllowTeleport);
             wtr.Write(ShowDisplays);
+            wtr.WriteUTF(Music);
 
             wtr.Write((short)ClientXML.Length);
             foreach (var i in ClientXML)

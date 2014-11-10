@@ -4,12 +4,12 @@
 //_011._05F_
 
 package _011{
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
     public class AOE extends _01Q_ {
 
-        public var pos_:_Q_0;
+        public var pos_:Position;
         public var radius_:Number;
         public var damage_:int;
         public var effect_:int;
@@ -17,7 +17,7 @@ package _011{
         public var origType_:int;
 
         public function AOE(_arg1:uint){
-            this.pos_ = new _Q_0();
+            this.pos_ = new Position();
             super(_arg1);
         }
         override public function parseFromInput(_arg1:IDataInput):void{

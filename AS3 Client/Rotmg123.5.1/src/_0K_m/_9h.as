@@ -6,7 +6,7 @@
 package _0K_m{
     import flash.geom.Point;
     import com.company.assembleegameclient.objects.GameObject;
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import com.company.assembleegameclient.util._04d;
 
     public class _9h extends _I_b {
@@ -16,7 +16,7 @@ package _0K_m{
         public var color_:int;
         public var _wp:int;
 
-        public function _9h(_arg1:GameObject, _arg2:_Q_0, _arg3:int, _arg4:int){
+        public function _9h(_arg1:GameObject, _arg2:Position, _arg3:int, _arg4:int){
             this.start_ = new Point(_arg1.x_, _arg1.y_);
             this.end_ = new Point(_arg2.x_, _arg2.y_);
             this.color_ = _arg3;

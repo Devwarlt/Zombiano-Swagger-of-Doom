@@ -9,7 +9,7 @@ package com.company.assembleegameclient.objects{
     import com.company.assembleegameclient.map.Square;
     import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.map._X_l;
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.util.ConditionEffect;
     import com.company.assembleegameclient.util.TextureRedrawer;
@@ -478,7 +478,7 @@ package com.company.assembleegameclient.objects{
             this._og = ((this._og + 1) % 128);
             return (_local1);
         }
-        public function _F_Y_(_arg1:_Q_0):Number{
+        public function _F_Y_(_arg1:Position):Number{
             var _local2:Number = (_arg1.x_ - x_);
             var _local3:Number = (_arg1.y_ - y_);
             return (Math.sqrt(((_local2 * _local2) + (_local3 * _local3))));

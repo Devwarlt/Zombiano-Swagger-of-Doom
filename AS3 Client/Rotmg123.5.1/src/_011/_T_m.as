@@ -4,7 +4,7 @@
 //_011._T_m
 
 package _011{
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
     public class _T_m extends _01Q_ {
@@ -12,12 +12,12 @@ package _011{
         public var bulletId_:uint;
         public var ownerId_:int;
         public var containerType_:int;
-        public var startingPos_:_Q_0;
+        public var startingPos_:Position;
         public var angle_:Number;
         public var damage_:int;
 
         public function _T_m(_arg1:uint){
-            this.startingPos_ = new _Q_0();
+            this.startingPos_ = new Position();
             super(_arg1);
         }
         override public function parseFromInput(_arg1:IDataInput):void{

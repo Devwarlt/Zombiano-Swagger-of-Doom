@@ -4,16 +4,16 @@
 //_0A_g._bG_
 
 package _0A_g{
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataOutput;
 
     public class _bG_ extends _R_q {
 
         public var time_:int;
-        public var position_:_Q_0;
+        public var position_:Position;
 
         public function _bG_(_arg1:uint){
-            this.position_ = new _Q_0();
+            this.position_ = new Position();
             super(_arg1);
         }
         override public function writeToOutput(_arg1:IDataOutput):void{

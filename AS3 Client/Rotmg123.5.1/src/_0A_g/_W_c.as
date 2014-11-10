@@ -4,7 +4,7 @@
 //_0A_g._W_c
 
 package _0A_g{
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
 
     import com.company.assembleegameclient.net.messages.data._jg;
     import flash.utils.IDataOutput;
@@ -14,11 +14,11 @@ package _0A_g{
 
         public var tickId_:int;
         public var time_:int;
-        public var newPosition_:_Q_0;
+        public var newPosition_:Position;
         public var records_:Vector.<_jg>;
 
         public function _W_c(_arg1:uint){
-            this.newPosition_ = new _Q_0();
+            this.newPosition_ = new Position();
             this.records_ = new Vector.<_jg>();
             super(_arg1);
         }

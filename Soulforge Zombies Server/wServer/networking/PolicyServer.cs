@@ -20,10 +20,11 @@ namespace wServer.networking
 
         static void ServePolicyFile(IAsyncResult ar)
         {
-            TcpClient cli = (ar.AsyncState as TcpListener).EndAcceptTcpClient(ar);
-            (ar.AsyncState as TcpListener).BeginAcceptTcpClient(ServePolicyFile, ar.AsyncState);
             try
             {
+                TcpClient cli = (ar.AsyncState as TcpListener).EndAcceptTcpClient(ar);
+                (ar.AsyncState as TcpListener).BeginAcceptTcpClient(ServePolicyFile, ar.AsyncState);
+
                 var s = cli.GetStream();
                 NReader rdr = new NReader(s);
                 NWriter wtr = new NWriter(s);

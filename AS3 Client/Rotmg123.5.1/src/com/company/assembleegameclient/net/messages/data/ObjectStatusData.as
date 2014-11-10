@@ -13,11 +13,11 @@ package com.company.assembleegameclient.net.messages.data{
     public class ObjectStatusData {
 
         public var objectId_:int;
-        public var pos_:_Q_0;
+        public var pos_:Position;
         public var _086:Vector.<StatData>;
 
         public function ObjectStatusData(){
-            this.pos_ = new _Q_0();
+            this.pos_ = new Position();
             this._086 = new Vector.<StatData>();
             super();
         }

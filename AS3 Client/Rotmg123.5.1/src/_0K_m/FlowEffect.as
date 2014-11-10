@@ -6,7 +6,7 @@
 package _0K_m{
     import flash.geom.Point;
     import com.company.assembleegameclient.objects.GameObject;
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
 
     public class FlowEffect extends _I_b {
 
@@ -14,7 +14,7 @@ package _0K_m{
         public var go_:GameObject;
         public var color_:int;
 
-        public function FlowEffect(_arg1:_Q_0, _arg2:GameObject, _arg3:int){
+        public function FlowEffect(_arg1:Position, _arg2:GameObject, _arg3:int){
             this.start_ = new Point(_arg1.x_, _arg1.y_);
             this.go_ = _arg2;
             this.color_ = _arg3;

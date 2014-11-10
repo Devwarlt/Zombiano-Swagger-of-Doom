@@ -4,7 +4,7 @@
 //_0A_g._0L_P_
 
 package _0A_g{
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataOutput;
 
     public class _0L_P_ extends _R_q {
@@ -12,11 +12,11 @@ package _0A_g{
         public var time_:int;
         public var bulletId_:uint;
         public var containerType_:int;
-        public var startingPos_:_Q_0;
+        public var startingPos_:Position;
         public var angle_:Number;
 
         public function _0L_P_(_arg1:uint){
-            this.startingPos_ = new _Q_0();
+            this.startingPos_ = new Position();
             super(_arg1);
         }
         override public function writeToOutput(_arg1:IDataOutput):void{

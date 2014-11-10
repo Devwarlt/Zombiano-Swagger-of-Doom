@@ -55,7 +55,10 @@ public class ReadOnlyDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
         get
         {
-            return _dictionary[key];
+            if(_dictionary.ContainsKey(key))
+                return _dictionary[key];
+            else
+                return default(TValue);
         }
     }
 

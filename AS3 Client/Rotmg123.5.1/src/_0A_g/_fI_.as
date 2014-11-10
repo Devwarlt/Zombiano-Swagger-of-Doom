@@ -5,18 +5,18 @@
 
 package _0A_g{
     import com.company.assembleegameclient.net.messages.data._0_3;
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataOutput;
 
     public class _fI_ extends _R_q {
 
         public var time_:int;
         public var slotObject_:_0_3;
-        public var itemUsePos_:_Q_0;
+        public var itemUsePos_:Position;
 
         public function _fI_(_arg1:uint){
             this.slotObject_ = new _0_3();
-            this.itemUsePos_ = new _Q_0();
+            this.itemUsePos_ = new Position();
             super(_arg1);
         }
         override public function writeToOutput(_arg1:IDataOutput):void{

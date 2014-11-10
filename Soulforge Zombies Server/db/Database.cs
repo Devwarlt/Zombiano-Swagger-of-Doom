@@ -120,6 +120,14 @@ AND characters.charId=death.chrId;";
             };
         }
 
+        public bool HasEmail(string email)
+        {
+            MySqlCommand cmd = CreateQuery();
+            cmd.CommandText = "SELECT COUNT(id) FROM accounts WHERE email=@email;";
+            cmd.Parameters.AddWithValue("@email", email);
+            return (int)(long)cmd.ExecuteScalar() > 0;
+        }
+
         public Account Verify(string uuid, string password)
         {
             var cmd = CreateQuery();
@@ -147,18 +155,20 @@ AND characters.charId=death.chrId;";
             ReadStats(ret);
             return ret;
         }
-        public Account Register(string uuid, string password, bool isGuest)
+        public Account Register(string uuid, string password, string email, bool isGuest)
         {
-            var cmd = CreateQuery();
+            MySqlCommand cmd = CreateQuery();
             cmd.CommandText = "SELECT COUNT(id) FROM accounts WHERE uuid=@uuid;";
             cmd.Parameters.AddWithValue("@uuid", uuid);
             if ((int)(long)cmd.ExecuteScalar() > 0) return null;
 
             cmd = CreateQuery();
-            cmd.CommandText = "INSERT INTO accounts(uuid, password, name, guest, maxCharSlot) VALUES(@uuid, SHA1(@password), @name, @guest, 1);";
+            cmd.CommandText =
+                "INSERT INTO accounts(uuid, password, name, email, guest, maxCharSlot, regTime) VALUES(@uuid, SHA1(@password), @name, @email, @guest, 1, now());";
             cmd.Parameters.AddWithValue("@uuid", uuid);
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@name", names[(uint)uuid.GetHashCode() % names.Length]);
+            cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@guest", isGuest);
             int v = cmd.ExecuteNonQuery();
             bool ret = v > 0;
@@ -167,15 +177,17 @@ AND characters.charId=death.chrId;";
             {
                 cmd = CreateQuery();
                 cmd.CommandText = "SELECT last_insert_id();";
-                int accId = (int)(long)cmd.ExecuteScalar();
+                int accId = Convert.ToInt32(cmd.ExecuteScalar());
 
                 cmd = CreateQuery();
-                cmd.CommandText = "INSERT INTO stats(accId, fame, totalFame, credits, totalCredits) VALUES(@accId, 0, 0, 1000, 1000);";
+                cmd.CommandText =
+                    "INSERT INTO stats(accId, fame, totalFame, credits, totalCredits) VALUES(@accId, 0, 0, 1000, 1000);";
                 cmd.Parameters.AddWithValue("@accId", accId);
                 cmd.ExecuteNonQuery();
 
                 cmd = CreateQuery();
-                cmd.CommandText = "INSERT INTO vaults(accId, items) VALUES(@accId, '-1, -1, -1, -1, -1, -1, -1, -1');";
+                cmd.CommandText =
+                    "INSERT INTO vaults(accId, items) VALUES(@accId, '-1, -1, -1, -1, -1, -1, -1, -1');";
                 cmd.Parameters.AddWithValue("@accId", accId);
                 cmd.ExecuteNonQuery();
             }

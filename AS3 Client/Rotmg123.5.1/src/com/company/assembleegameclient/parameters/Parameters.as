@@ -82,7 +82,7 @@ import flash.display.DisplayObject;
         }
         public static function _fK_():String{
             if (_I_O_()) {
-                return ("localhost:8080"); // _I_O_() -> TRUE -- Testing Enabled
+                return ("localhost:80"); // _I_O_() -> TRUE -- Testing Enabled
             }
             return ("213.112.253.104:8080"); // _I_O_() -> FALSE -- Testing Disabled
         }

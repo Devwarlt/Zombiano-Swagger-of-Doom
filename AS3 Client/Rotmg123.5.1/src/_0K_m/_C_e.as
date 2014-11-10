@@ -6,7 +6,7 @@
 package _0K_m{
     import flash.geom.Point;
     import com.company.assembleegameclient.objects.GameObject;
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
 
     public class _C_e extends _I_b {
 
@@ -14,7 +14,7 @@ package _0K_m{
         public var _H_S_:Point;
         public var color_:int;
 
-        public function _C_e(_arg1:GameObject, _arg2:_Q_0, _arg3:_Q_0, _arg4:int){
+        public function _C_e(_arg1:GameObject, _arg2:Position, _arg3:Position, _arg4:int){
             this.center_ = new Point(_arg2.x_, _arg2.y_);
             this._H_S_ = new Point(_arg3.x_, _arg3.y_);
             this.color_ = _arg4;

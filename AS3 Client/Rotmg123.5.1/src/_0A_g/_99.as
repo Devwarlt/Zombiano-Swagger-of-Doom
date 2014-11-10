@@ -4,19 +4,19 @@
 //_0A_g._99
 
 package _0A_g{
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import com.company.assembleegameclient.net.messages.data._0_3;
     import flash.utils.IDataOutput;
 
     public class _99 extends _R_q {
 
         public var time_:int;
-        public var position_:_Q_0;
+        public var position_:Position;
         public var slotObject1_:_0_3;
         public var slotObject2_:_0_3;
 
         public function _99(_arg1:uint){
-            this.position_ = new _Q_0();
+            this.position_ = new Position();
             this.slotObject1_ = new _0_3();
             this.slotObject2_ = new _0_3();
             super(_arg1);

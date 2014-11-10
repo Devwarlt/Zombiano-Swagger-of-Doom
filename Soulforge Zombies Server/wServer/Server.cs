@@ -32,14 +32,18 @@ namespace wServer
 
         void Listen(IAsyncResult ar)
         {
-            if (!Socket.IsBound) return;
-            var cliSkt = Socket.EndAccept(ar);
-            Socket.BeginAccept(Listen, null);
-            if (cliSkt != null)
+            try
             {
-                var client = new Client(Manager, cliSkt);
-                client.BeginProcess();
+                if (!Socket.IsBound) return;
+                var cliSkt = Socket.EndAccept(ar);
+                Socket.BeginAccept(Listen, null);
+                if (cliSkt != null)
+                {
+                    var client = new Client(Manager, cliSkt);
+                    client.BeginProcess();
+                }
             }
+            catch (ObjectDisposedException) { }
         }
 
         public void Stop()

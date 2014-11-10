@@ -7,6 +7,7 @@ namespace wServer.networking.cliPackets
 {
     public class HelloPacket : ClientPacket
     {
+        public string Copyright { get; set; }
         public string BuildVersion { get; set; }
         public int GameId { get; set; }
         public string GUID { get; set; }
@@ -25,6 +26,7 @@ namespace wServer.networking.cliPackets
 
         protected override void Read(NReader rdr)
         {
+            Copyright = rdr.ReadUTF();
             BuildVersion = rdr.ReadUTF();
             GameId = rdr.ReadInt32();
             GUID = RSA.Instance.Decrypt(rdr.ReadUTF());
@@ -41,6 +43,7 @@ namespace wServer.networking.cliPackets
 
         protected override void Write(NWriter wtr)
         {
+            wtr.WriteUTF(Copyright);
             wtr.WriteUTF(BuildVersion);
             wtr.Write(GameId);
             wtr.WriteUTF(RSA.Instance.Encrypt(GUID));

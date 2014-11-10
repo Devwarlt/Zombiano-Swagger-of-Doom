@@ -5,17 +5,17 @@
 
 package _0K_m{
     import flash.geom.Point;
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+    import com.company.assembleegameclient.net.messages.data.Position;
     import com.company.assembleegameclient.objects.GameObject;
 
     public class _mn extends _I_b {
 
         public var start_:Point;
-        public var _0A_2:_Q_0;
+        public var _0A_2:Position;
         public var _0K_e:Number;
         public var color_:int;
 
-        public function _mn(_arg1:GameObject, _arg2:_Q_0, _arg3:Number, _arg4:int){
+        public function _mn(_arg1:GameObject, _arg2:Position, _arg3:Number, _arg4:int){
             this.start_ = new Point(_arg1.x_, _arg1.y_);
             this._0A_2 = _arg2;
             this._0K_e = _arg3;
