@@ -18,6 +18,16 @@ namespace server.picture
             using (StreamReader rdr = new StreamReader(context.Request.InputStream))
                 query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
 
+            if (query.AllKeys.Length == 0)
+            {
+                string currurl = context.Request.RawUrl;
+                int iqs = currurl.IndexOf('?');
+                if (iqs >= 0)
+                {
+                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
+                }
+            }
+
             //warning: maybe has hidden url injection
             string id = query["id"];
             foreach (var i in id)

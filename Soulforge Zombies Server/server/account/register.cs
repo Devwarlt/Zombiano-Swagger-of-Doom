@@ -27,8 +27,18 @@ namespace server.account
         public void HandleRequest(HttpListenerContext context)
         {
             NameValueCollection query;
-            using (var rdr = new StreamReader(context.Request.InputStream))
+            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
                 query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
+
+            if (query.AllKeys.Length == 0)
+            {
+                string currurl = context.Request.RawUrl;
+                int iqs = currurl.IndexOf('?');
+                if (iqs >= 0)
+                {
+                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
+                }
+            }
 
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
