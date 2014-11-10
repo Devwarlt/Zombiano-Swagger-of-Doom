@@ -20,6 +20,17 @@ namespace server.@char
             NameValueCollection query;
             using (StreamReader rdr = new StreamReader(context.Request.InputStream))
                 query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
+
+            if (query.AllKeys.Length == 0)
+            {
+                string currurl = context.Request.RawUrl;
+                int iqs = currurl.IndexOf('?');
+                if (iqs >= 0)
+                {
+                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
+                }
+            }
+
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
                 var acc = db.GetAccount(int.Parse(query["accountId"]));
