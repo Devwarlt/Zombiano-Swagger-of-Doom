@@ -23,13 +23,13 @@ package com.company.assembleegameclient.net{
         public function _06m():void{
             switch (this.currency_)
             {
-                case Currency._class:
+                case Currency.GOLD:
                     GA.global().trackEvent("credits", ((this.converted_) ? "buyConverted" : "buy"), this.id_, this.price_);
                     return;
                 case Currency.FAME:
                     GA.global().trackEvent("credits", "buyFame", this.id_, this.price_);
                     return;
-                case Currency._A_h:
+                case Currency.GUILDFAME:
                     GA.global().trackEvent("credits", "buyGuildFame", this.id_, this.price_);
                     return;
             }

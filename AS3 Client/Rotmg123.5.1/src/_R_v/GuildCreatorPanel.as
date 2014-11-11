@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._04X_
+//_R_v.GuildCreatorPanel
 
 package _R_v{
     import com.company.ui.SimpleText;
@@ -21,12 +21,12 @@ package _R_v{
     import com.company.assembleegameclient.ui.FrameHolder;
     import _0D_d._lx;
 
-    public class _04X_ extends Panel {
+    public class GuildCreatorPanel extends Panel {
 
         private var _O_k:SimpleText;
         private var _ek:Sprite;
 
-        public function _04X_(_arg1:GameSprite){
+        public function GuildCreatorPanel(_arg1:GameSprite){
             var _local3:String;
             var _local4:_u5;
             super(_arg1);

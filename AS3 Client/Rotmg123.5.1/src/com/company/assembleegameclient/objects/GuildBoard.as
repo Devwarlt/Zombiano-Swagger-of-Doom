@@ -4,18 +4,18 @@
 //com.company.assembleegameclient.objects.GuildBoard
 
 package com.company.assembleegameclient.objects{
-    import _R_v._S_p;
+    import _R_v.GuildBoardPanel;
     import com.company.assembleegameclient.game.GameSprite;
     import _R_v.Panel;
 
-    public class GuildBoard extends GameObject implements _G_4 {
+    public class GuildBoard extends GameObject implements IPanelProvider {
 
         public function GuildBoard(_arg1:XML){
             super(_arg1);
             _064 = true;
         }
-        public function _C_s(_arg1:GameSprite):Panel{
-            return (new _S_p(_arg1));
+        public function GetPanel(_arg1:GameSprite):Panel{
+            return (new GuildBoardPanel(_arg1));
         }
 
     }

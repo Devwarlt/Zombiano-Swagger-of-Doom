@@ -11,7 +11,7 @@ package com.company.assembleegameclient.objects{
     import com.company.assembleegameclient.game.GameSprite;
     import _R_v.Panel;
 
-    public class Container extends GameObject implements _G_4 {
+    public class Container extends GameObject implements IPanelProvider {
 
         public var _G_B_:Boolean;
         public var ownerId_:int;
@@ -45,7 +45,7 @@ package com.company.assembleegameclient.objects{
             }
             return (true);
         }
-        public function _C_s(_arg1:GameSprite):Panel{
+        public function GetPanel(_arg1:GameSprite):Panel{
             return (new _sc(_arg1, this));
         }
 

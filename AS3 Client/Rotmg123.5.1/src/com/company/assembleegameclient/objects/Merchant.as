@@ -27,7 +27,7 @@ package com.company.assembleegameclient.objects{
     import flash.geom.ColorTransform;
     import flash.geom.Matrix;
 
-    public class Merchant extends SellableObject implements _G_4 {
+    public class Merchant extends SellableObject implements IPanelProvider {
 
         private static const _09I_:int = 0;
         private static const _5x:int = 1;

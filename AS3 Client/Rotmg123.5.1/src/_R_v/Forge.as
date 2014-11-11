@@ -9,7 +9,7 @@ package _R_v
 	import flash.events.Event;
 	import com.company.assembleegameclient.game.GameSprite;
 	
-	public class Forge extends _X_i
+	public class Forge extends SimpleButtonPanel
 	{
 		
 		public function Forge(param1:GameSprite, param2:GameObject) {

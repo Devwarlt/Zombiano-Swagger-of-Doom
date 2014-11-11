@@ -115,8 +115,8 @@ import _8Q_._1l;
     
     import _G_A_._8P_;
     
-    import _R_v._L_k;
-    import _R_v._o0;
+    import _R_v.TradePanel;
+    import _R_v.InviteGuildPanel;
     
     import _U_5._06a;
     import _U_5._zz;
@@ -544,7 +544,7 @@ import _8Q_._1l;
                 return;
             }
             var _local3:Boolean;
-            if (_local2.currency_ == Currency._class)
+            if (_local2.currency_ == Currency.GOLD)
             {
                 _local3 = ((((this.gs_.charList_.converted_) || ((this.gs_.map_.player_.credits_ > 100)))) || ((_local2.price_ > this.gs_.map_.player_.credits_)));
             }
@@ -737,7 +737,7 @@ import _8Q_._1l;
         private function _G_r(_arg1:_Y_G_):void{
             if (Parameters.data_.showTradePopup)
             {
-                this.gs_._V_1._U_T_._j(new _L_k(this.gs_, _arg1.name_));
+                this.gs_._V_1._U_T_._j(new TradePanel(this.gs_, _arg1.name_));
             }
             this.gs_.textBox_.addText("", ((((_arg1.name_ + " wants to ") + 'trade with you.  Type "/trade ') + _arg1.name_) + '" to trade.'));
         }
@@ -1388,7 +1388,7 @@ import _8Q_._1l;
         private function _cS_(_arg1:InvitedToGuild):void{
             if (Parameters.data_.showGuildInvitePopup)
             {
-                this.gs_._V_1._U_T_._j(new _o0(this.gs_, _arg1.name_, _arg1.guildName_));
+                this.gs_._V_1._U_T_._j(new InviteGuildPanel(this.gs_, _arg1.name_, _arg1.guildName_));
             }
             this.gs_.textBox_.addText("", (((((("You have been invited by " + _arg1.name_) + " to join the guild ") + _arg1.guildName_) + '.\n  If you wish to join type "/join ') + _arg1.guildName_) + '"'));
         }

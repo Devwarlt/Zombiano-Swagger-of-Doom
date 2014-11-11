@@ -7,7 +7,7 @@ package _R_v{
     import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.objects.Player;
-    import com.company.assembleegameclient.objects._G_4;
+    import com.company.assembleegameclient.objects.IPanelProvider;
     import flash.events.Event;
     import com.company.assembleegameclient.objects.GameObject;
     import com.company.util.PointUtil;
@@ -21,7 +21,7 @@ package _R_v{
         public var w_:int;
         public var h_:int;
         public var _G_2:Panel = null;
-        public var _dN_:_G_4 = null;
+        public var _dN_:IPanelProvider = null;
         public var _V_D_:_w6;
         private var _g:Panel;
 
@@ -45,7 +45,7 @@ package _R_v{
         }
         public function draw():void{
             var _local3:GameObject;
-            var _local4:_G_4;
+            var _local4:IPanelProvider;
             var _local5:Number;
             var _local6:Panel;
             if (this._g != null)
@@ -55,12 +55,12 @@ package _R_v{
                 return;
             }
             var _local1:Number = Number.MAX_VALUE;
-            var _local2:_G_4;
+            var _local2:IPanelProvider;
             for each (_local3 in this.gs_.map_.goDict_)
             {
                 if (_local3._064)
                 {
-                    _local4 = (_local3 as _G_4);
+                    _local4 = (_local3 as IPanelProvider);
                     if (_local4 == null)
                     {
                         return;
@@ -79,7 +79,7 @@ package _R_v{
             if ((((this._G_2 == null)) || (!((_local2 == this._dN_)))))
             {
                 this._dN_ = _local2;
-                _local6 = (((this._dN_)!=null) ? this._dN_._C_s(this.gs_) : this._V_D_);
+                _local6 = (((this._dN_)!=null) ? this._dN_.GetPanel(this.gs_) : this._V_D_);
                 this._tB_(_local6, !((this._dN_ == null)));
             }
             this._G_2.draw();

@@ -120,7 +120,7 @@ package com.company.assembleegameclient.ui{
         }
         public static function _fG_(_arg1:GameObject):uint{
             var _local2:int = _arg1.objectType_;
-            if (!_H_L_.hasOwnProperty(_local2))
+            if (!_H_L_.hasOwnProperty(String(_local2)))
             {
                 _H_L_[_local2] = _arg1.getColor();
             }

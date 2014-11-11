@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._X_i
+//_R_v.SimpleButtonPanel
 
 package _R_v{
     import com.company.ui.SimpleText;
@@ -11,12 +11,12 @@ package _R_v{
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.game.GameSprite;
 
-    public class _X_i extends Panel {
+    public class SimpleButtonPanel extends Panel {
 
         private var _P_V_:SimpleText;
         protected var _ek:_7f;
 
-        public function _X_i(_arg1:GameSprite, _arg2:String, _arg3:String){
+        public function SimpleButtonPanel(_arg1:GameSprite, _arg2:String, _arg3:String){
             super(_arg1);
             this._P_V_ = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
             this._P_V_._8Y_(true);

@@ -4,7 +4,7 @@ package com.company.assembleegameclient.objects
 	import com.company.assembleegameclient.game.GameSprite;
 	import _R_v.Forge;
 	
-	public class Forge extends GameObject implements _G_4
+	public class Forge extends GameObject implements IPanelProvider
 	{
 		
 		public function Forge(param1:XML) {
@@ -12,7 +12,7 @@ package com.company.assembleegameclient.objects
 			_064 = true;
 		}
 		
-		public function _C_s(param1:GameSprite) : Panel {
+		public function GetPanel(param1:GameSprite) : Panel {
 			return new _R_v.Forge(param1,this);
 		}
 	}

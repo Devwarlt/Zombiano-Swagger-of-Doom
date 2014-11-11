@@ -45,7 +45,7 @@ package com.company.assembleegameclient.ui{
         public function Inventory(_arg1:GameSprite, _arg2:GameObject, _arg3:String, _arg4:Vector.<int>, _arg5:int, _arg6:Boolean, _offset:int = 0, _equipment:Boolean = false):void{
             var _local8:_E_6;
             this.slots_ = new Vector.<_E_6>();
-			this.fill_ = new GraphicsSolidFill(0x7A1300);
+			this.fill_ = new GraphicsSolidFill(0x6B452C);
 			this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
 			this.graphicsData_ = new <IGraphicsData>[this.fill_, this.path_, GraphicHelper.END_FILL];
             super();

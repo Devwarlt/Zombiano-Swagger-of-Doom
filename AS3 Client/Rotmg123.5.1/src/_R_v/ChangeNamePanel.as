@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._0K_o
+//_R_v.ChangeNamePanel
 
 package _R_v{
     import com.company.ui.SimpleText;
@@ -21,13 +21,13 @@ package _R_v{
     import _0D_d._8x;
     import _0L_C_._2k;
 
-    public class _0K_o extends Panel {
+    public class ChangeNamePanel extends Panel {
 
         private var _B_E_:Boolean;
         private var _O_k:SimpleText;
         private var _ek:Sprite;
 
-        public function _0K_o(_arg1:GameSprite, _arg2:int){
+        public function ChangeNamePanel(_arg1:GameSprite, _arg2:int){
             var _local5:_u5;
             var _local6:Sprite;
             var _local7:SimpleText;
@@ -51,7 +51,7 @@ package _R_v{
                 this._O_k.htmlText = (('<p align="center">Your name is: \n' + _local4) + "</p>");
                 this._O_k.y = 0;
                 addChild(this._O_k);
-                _local5 = new _u5("Change ", 16, Parameters._0u, Currency._class);
+                _local5 = new _u5("Change ", 16, Parameters._0u, Currency.GOLD);
                 _local5.addEventListener(MouseEvent.CLICK, this.onButtonClick);
                 _local5.x = ((WIDTH / 2) - (_local5.w_ / 2));
                 _local5.y = ((HEIGHT - (_local5.height / 2)) - 10);

@@ -10,14 +10,14 @@ package com.company.assembleegameclient.objects{
     import _E_7._for_;
     import flash.display.BitmapData;
 
-    public class GuildMerchant extends SellableObject implements _G_4 {
+    public class GuildMerchant extends SellableObject implements IPanelProvider {
 
         public var description_:String;
 
         public function GuildMerchant(_arg1:XML){
             super(_arg1);
             price_ = int(_arg1.Price);
-            currency_ = Currency._A_h;
+            currency_ = Currency.GUILDFAME;
             this.description_ = _arg1.Description;
             _0F_S_ = _07E_._tS_;
         }

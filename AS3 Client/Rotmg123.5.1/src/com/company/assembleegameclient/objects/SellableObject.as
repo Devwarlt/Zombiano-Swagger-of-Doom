@@ -6,11 +6,11 @@
 package com.company.assembleegameclient.objects{
     import _E_7._for_;
     import flash.display.BitmapData;
-    import _R_v._aR_;
+    import _R_v.MerchantPanel;
     import com.company.assembleegameclient.game.GameSprite;
     import _R_v.Panel;
 
-    public class SellableObject extends GameObject implements _G_4 {
+    public class SellableObject extends GameObject implements IPanelProvider {
 
         public var price_:int = 0;
         public var currency_:int = -1;
@@ -42,8 +42,8 @@ package com.company.assembleegameclient.objects{
         public function getIcon():BitmapData{
             return (null);
         }
-        public function _C_s(_arg1:GameSprite):Panel{
-            return (new _aR_(_arg1, this));
+        public function GetPanel(_arg1:GameSprite):Panel{
+            return (new MerchantPanel(_arg1, this));
         }
 
     }

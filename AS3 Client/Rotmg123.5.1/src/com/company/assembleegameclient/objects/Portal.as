@@ -7,11 +7,11 @@ package com.company.assembleegameclient.objects{
 
     import flash.display.IGraphicsData;
     import com.company.assembleegameclient.map._0D_v;
-    import _R_v._Y_8;
+    import _R_v.PortalPanel;
     import com.company.assembleegameclient.game.GameSprite;
     import _R_v.Panel;
 
-    public class Portal extends GameObject implements _G_4 {
+    public class Portal extends GameObject implements IPanelProvider {
 
         public var _0J_A_:Boolean;
         public var _xq:Boolean;
@@ -30,8 +30,8 @@ package com.company.assembleegameclient.objects{
                 _oL_(_arg1, _arg2);
             }
         }
-        public function _C_s(_arg1:GameSprite):Panel{
-            return (new _Y_8(_arg1, this));
+        public function GetPanel(_arg1:GameSprite):Panel{
+            return (new PortalPanel(_arg1, this));
         }
 
     }

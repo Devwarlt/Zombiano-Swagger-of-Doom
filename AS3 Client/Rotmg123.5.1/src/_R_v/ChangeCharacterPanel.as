@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._zL_
+//_R_v.ChangeCharacterPanel
 
 package _R_v{
     import com.company.assembleegameclient.game.GameSprite;
@@ -10,9 +10,9 @@ package _R_v{
     import flash.events.Event;
     import flash.events.MouseEvent;
 
-    public class _zL_ extends _X_i {
+    public class ChangeCharacterPanel extends SimpleButtonPanel {
 
-        public function _zL_(_arg1:GameSprite){
+        public function ChangeCharacterPanel(_arg1:GameSprite){
             super(_arg1, "Change Characters", "Change");
             this.addEventListener(Event.ADDED_TO_STAGE,this.onAdded);
             this.addEventListener(Event.REMOVED_FROM_STAGE,this.onRemove);

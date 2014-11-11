@@ -9,7 +9,7 @@ package _R_v
 	import com.company.assembleegameclient.game.GameSprite;
 	import _0D_d.ReforgeFrame;
 	
-	public class ReforgePanel extends _X_i
+	public class ReforgePanel extends SimpleButtonPanel
 	{
 		
 		public function ReforgePanel(param1:GameSprite, param2:GameObject) {

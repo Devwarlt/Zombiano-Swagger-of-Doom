@@ -5,20 +5,20 @@
 
 package _011{
 
-    import com.company.assembleegameclient.net.messages.data._35;
+    import com.company.assembleegameclient.net.messages.data.Item;
     import com.company.assembleegameclient.util._wW_;
     import flash.utils.IDataInput;
 
 
     public class _S_M_ extends _01Q_ {
 
-        public var myItems_:Vector.<_35>;
+        public var myItems_:Vector.<Item>;
         public var yourName_:String;
-        public var yourItems_:Vector.<_35>;
+        public var yourItems_:Vector.<Item>;
 
         public function _S_M_(_arg1:uint){
-            this.myItems_ = new Vector.<_35>();
-            this.yourItems_ = new Vector.<_35>();
+            this.myItems_ = new Vector.<Item>();
+            this.yourItems_ = new Vector.<Item>();
             super(_arg1);
         }
         override public function parseFromInput(_arg1:IDataInput):void{
@@ -33,7 +33,7 @@ package _011{
             this.myItems_.length = Math.min(_local3, this.myItems_.length);
             while (this.myItems_.length < _local3)
             {
-                this.myItems_.push((_wW_._B_1(_35) as _35));
+                this.myItems_.push((_wW_._B_1(Item) as Item));
             }
             _local2 = 0;
             while (_local2 < _local3)
@@ -52,7 +52,7 @@ package _011{
             this.yourItems_.length = Math.min(_local3, this.yourItems_.length);
             while (this.yourItems_.length < _local3)
             {
-                this.yourItems_.push((_wW_._B_1(_35) as _35));
+                this.yourItems_.push((_wW_._B_1(Item) as Item));
             }
             _local2 = 0;
             while (_local2 < _local3)

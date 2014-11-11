@@ -7,18 +7,18 @@ package com.company.assembleegameclient.util{
     public class Currency {
 
         public static const INVALID:int = -1;
-        public static const _class:int = 0;
+        public static const GOLD:int = 0;
         public static const FAME:int = 1;
-        public static const _A_h:int = 2;
+        public static const GUILDFAME:int = 2;
 
         public static function _01r(_arg1:int):String{
             switch (_arg1)
             {
-                case _class:
+                case GOLD:
                     return ("Gold");
                 case FAME:
                     return ("Fame");
-                case _A_h:
+                case GUILDFAME:
                     return ("Guild Fame");
             }
             return ("");

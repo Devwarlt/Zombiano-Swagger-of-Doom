@@ -9,7 +9,7 @@ package com.company.assembleegameclient.ui{
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.ui.SimpleText;
 
-    import com.company.assembleegameclient.net.messages.data._35;
+    import com.company.assembleegameclient.net.messages.data.Item;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
     import flash.events.Event;
@@ -35,8 +35,8 @@ package com.company.assembleegameclient.ui{
         private var taglineText_:SimpleText;
         public var slots_:Vector.<_2j>;
 
-        public function _eb(_arg1:GameSprite, _arg2:String, _arg3:Vector.<_35>, _arg4:Boolean){
-            var _local6:_35;
+        public function _eb(_arg1:GameSprite, _arg2:String, _arg3:Vector.<Item>, _arg4:Boolean){
+            var _local6:Item;
             var _local7:_2j;
             this.slots_ = new Vector.<_2j>();
             super();

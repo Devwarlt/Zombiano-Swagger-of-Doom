@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._Y_8
+//_R_v.PortalPanel
 
 package _R_v{
     import com.company.assembleegameclient.objects.Portal;
@@ -20,14 +20,14 @@ package _R_v{
     import com.company.assembleegameclient.tutorial.doneAction;
     import com.company.assembleegameclient.tutorial.Tutorial;
 
-    public class _Y_8 extends Panel {
+    public class PortalPanel extends Panel {
 
         public var _iA_:Portal;
         private var nameText_:SimpleText;
         private var _O_M_:_7f;
         private var _0C_U_:SimpleText;
 
-        public function _Y_8(_arg1:GameSprite, _arg2:Portal){
+        public function PortalPanel(_arg1:GameSprite, _arg2:Portal){
             super(_arg1);
             this._iA_ = _arg2;
             this.nameText_ = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");

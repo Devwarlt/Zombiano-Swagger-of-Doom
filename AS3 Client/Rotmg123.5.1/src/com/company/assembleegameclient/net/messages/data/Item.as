@@ -1,12 +1,12 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//com.company.assembleegameclient.net.messages.data._35
+//com.company.assembleegameclient.net.messages.data.Item
 
 package com.company.assembleegameclient.net.messages.data{
     import flash.utils.IDataInput;
 
-    public class _35 {
+    public class Item {
 
         public var item_:int;
         public var _01T_:int;

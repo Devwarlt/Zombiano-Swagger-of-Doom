@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._aR_
+//_R_v.MerchantPanel
 
 package _R_v{
     import com.company.assembleegameclient.objects.SellableObject;
@@ -25,7 +25,7 @@ package _R_v{
     import _0L_C_._2k;
     import com.company.assembleegameclient.objects.Player;
 
-    public class _aR_ extends Panel {
+    public class MerchantPanel extends Panel {
 
         private const _00e:int = 10;
 
@@ -38,7 +38,7 @@ package _R_v{
         private var bitmap_:Bitmap;
         private var toolTip_:_for_;
 
-        public function _aR_(_arg1:GameSprite, _arg2:SellableObject){
+        public function MerchantPanel(_arg1:GameSprite, _arg2:SellableObject){
             super(_arg1);
             this.nameText_ = new SimpleText(16, 0xFFFFFF, false, (WIDTH - 44), 0, "Myriad Pro");
             this.nameText_._8Y_(true);

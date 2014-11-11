@@ -53,7 +53,7 @@ package com.company.assembleegameclient.ui{
             addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
             this.setPrice(_arg3, _arg4);
         }
-        public static function _I_H_():BitmapData{
+        public static function credits():BitmapData{
             if (coin_ == null)
             {
                 coin_ = TextureRedrawer.resize(AssetLibrary._xK_("lofiObj3", 225), null, 40, true, 0, 0);
@@ -69,7 +69,7 @@ package com.company.assembleegameclient.ui{
             }
             return (_Q_7);
         }
-        public static function _0M_s():BitmapData{
+        public static function guildFame():BitmapData{
             if (_K_F_ == null)
             {
                 _K_F_ = TextureRedrawer.resize(AssetLibrary._xK_("lofiObj3", 226), null, 40, true, 0, 0);
@@ -89,14 +89,14 @@ package com.company.assembleegameclient.ui{
             this.text_.updateMetrics();
             switch (_arg2)
             {
-                case Currency._class:
-                    this._5U_.bitmapData = _I_H_();
+                case Currency.GOLD:
+                    this._5U_.bitmapData = credits();
                     break;
                 case Currency.FAME:
                     this._5U_.bitmapData = fame();
                     break;
-                case Currency._A_h:
-                    this._5U_.bitmapData = _0M_s();
+                case Currency.GUILDFAME:
+                    this._5U_.bitmapData = guildFame();
                     break;
                 default:
                     this._5U_.bitmapData = null;

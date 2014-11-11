@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._0D_t
+//_R_v.BuyRealmGoldPanel
 
 package _R_v{
     import _qN_.Account;
@@ -12,9 +12,9 @@ package _R_v{
     import com.company.assembleegameclient.ui._4D_;
     import com.company.assembleegameclient.parameters.Parameters;
 
-    public class _0D_t extends _X_i {
+    public class BuyRealmGoldPanel extends SimpleButtonPanel {
 
-        public function _0D_t(_arg1:GameSprite){
+        public function BuyRealmGoldPanel(_arg1:GameSprite){
             super(_arg1, "Buy Realm Gold", "Buy");
             Account._get().cacheOffers();
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);

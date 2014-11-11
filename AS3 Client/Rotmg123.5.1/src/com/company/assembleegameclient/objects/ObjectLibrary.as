@@ -29,6 +29,7 @@ package com.company.assembleegameclient.objects{
 		Forge;
 		ClosedVaultChest;
 		Reforge;
+        LithiumObject;
 		
         public static const _020:Dictionary = new Dictionary();
         public static const _Q_F_:Dictionary = new Dictionary();

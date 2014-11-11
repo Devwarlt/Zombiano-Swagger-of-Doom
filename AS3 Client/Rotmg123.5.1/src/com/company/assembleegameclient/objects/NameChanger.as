@@ -4,11 +4,11 @@
 //com.company.assembleegameclient.objects.NameChanger
 
 package com.company.assembleegameclient.objects{
-    import _R_v._0K_o;
+    import _R_v.ChangeNamePanel;
     import com.company.assembleegameclient.game.GameSprite;
     import _R_v.Panel;
 
-    public class NameChanger extends GameObject implements _G_4 {
+    public class NameChanger extends GameObject implements IPanelProvider {
 
         public var _0I_a:int = 0;
 
@@ -19,8 +19,8 @@ package com.company.assembleegameclient.objects{
         public function _Y__(_arg1:int):void{
             this._0I_a = _arg1;
         }
-        public function _C_s(_arg1:GameSprite):Panel{
-            return (new _0K_o(_arg1, this._0I_a));
+        public function GetPanel(_arg1:GameSprite):Panel{
+            return (new ChangeNamePanel(_arg1, this._0I_a));
         }
 
     }

@@ -4,18 +4,18 @@
 //com.company.assembleegameclient.objects.MoneyChanger
 
 package com.company.assembleegameclient.objects{
-    import _R_v._0D_t;
+    import _R_v.BuyRealmGoldPanel;
     import com.company.assembleegameclient.game.GameSprite;
     import _R_v.Panel;
 
-    public class MoneyChanger extends GameObject implements _G_4 {
+    public class MoneyChanger extends GameObject implements IPanelProvider {
 
         public function MoneyChanger(_arg1:XML){
             super(_arg1);
             _064 = true;
         }
-        public function _C_s(_arg1:GameSprite):Panel{
-            return (new _0D_t(_arg1));
+        public function GetPanel(_arg1:GameSprite):Panel{
+            return (new BuyRealmGoldPanel(_arg1));
         }
 
     }

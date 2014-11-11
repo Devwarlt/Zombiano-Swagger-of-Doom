@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_R_v._yo
+//_R_v.GuildHallPortalPanel
 
 package _R_v{
     import com.company.assembleegameclient.game.GameSprite;
@@ -18,14 +18,14 @@ package _R_v{
     import flash.filters.DropShadowFilter;
     import flash.text.TextFieldAutoSize;
 
-    public class _yo extends Panel {
+    public class GuildHallPortalPanel extends Panel {
 
         private var _iA_:GuildHallPortal;
         private var nameText_:SimpleText;
         private var _O_M_:_7f;
         private var _0J_T_:SimpleText;
 
-        public function _yo(_arg1:GameSprite, _arg2:GuildHallPortal){
+        public function GuildHallPortalPanel(_arg1:GameSprite, _arg2:GuildHallPortal){
             super(_arg1);
             this._iA_ = _arg2;
             if ((((gs_.map_ == null)) || ((gs_.map_.player_ == null))))
