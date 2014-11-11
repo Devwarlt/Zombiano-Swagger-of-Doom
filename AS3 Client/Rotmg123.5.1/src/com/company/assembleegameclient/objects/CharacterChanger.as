@@ -4,9 +4,9 @@
 //com.company.assembleegameclient.objects.CharacterChanger
 
 package com.company.assembleegameclient.objects{
-    import _R_v.ChangeCharacterPanel;
+    import Panels.ChangeCharacterPanel;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class CharacterChanger extends GameObject implements IPanelProvider {
 

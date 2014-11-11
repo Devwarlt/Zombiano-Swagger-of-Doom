@@ -47,7 +47,7 @@ package com.company.assembleegameclient.map{
             var _local2:XML;
             var _local3:uint;
             var _local4:BitmapData;
-            if (!_G_x.hasOwnProperty(_arg1))
+            if (!_G_x.hasOwnProperty(String(_arg1)))
             {
                 _local2 = _Q_F_[_arg1];
                 if (_local2.hasOwnProperty("Color"))

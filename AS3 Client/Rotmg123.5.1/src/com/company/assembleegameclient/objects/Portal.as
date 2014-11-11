@@ -7,9 +7,9 @@ package com.company.assembleegameclient.objects{
 
     import flash.display.IGraphicsData;
     import com.company.assembleegameclient.map._0D_v;
-    import _R_v.PortalPanel;
+    import Panels.PortalPanel;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class Portal extends GameObject implements IPanelProvider {
 

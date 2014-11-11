@@ -4,7 +4,7 @@
 //com.company.assembleegameclient.ui._061
 
 package com.company.assembleegameclient.ui{
-    import _R_v._sc;
+    import Panels._sc;
     
     import _vf._5T_;
     

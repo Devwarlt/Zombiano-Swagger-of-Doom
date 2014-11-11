@@ -2,8 +2,8 @@
  * Created by Fabian on 11.11.2014.
  */
 package com.company.assembleegameclient.objects {
-import _R_v.Panel;
-import _R_v.LithPanel;
+import Panels.Panel;
+import Panels.LithPanel;
 
 import com.company.assembleegameclient.game.GameSprite;
 

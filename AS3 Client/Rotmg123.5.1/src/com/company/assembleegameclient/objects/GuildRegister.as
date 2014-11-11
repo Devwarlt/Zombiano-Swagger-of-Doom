@@ -4,9 +4,9 @@
 //com.company.assembleegameclient.objects.GuildRegister
 
 package com.company.assembleegameclient.objects{
-    import _R_v.GuildCreatorPanel;
+    import Panels.GuildCreatorPanel;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class GuildRegister extends GameObject implements IPanelProvider {
 

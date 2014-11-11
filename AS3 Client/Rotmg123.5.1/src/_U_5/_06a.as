@@ -5,7 +5,7 @@
 
 package _U_5{
     import _sp._aJ_;
-    import _011.Death;
+    import ServerPackets.Death;
 
     public class _06a extends _aJ_ {
 

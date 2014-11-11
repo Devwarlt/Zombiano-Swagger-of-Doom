@@ -6,9 +6,9 @@
 package com.company.assembleegameclient.objects{
     import _E_7._for_;
     import flash.display.BitmapData;
-    import _R_v.MerchantPanel;
+    import Panels.MerchantPanel;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class SellableObject extends GameObject implements IPanelProvider {
 

@@ -4,9 +4,9 @@
 //com.company.assembleegameclient.objects.GuildHallPortal
 
 package com.company.assembleegameclient.objects{
-    import _R_v.GuildHallPortalPanel;
+    import Panels.GuildHallPortalPanel;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class GuildHallPortal extends GameObject implements IPanelProvider {
 

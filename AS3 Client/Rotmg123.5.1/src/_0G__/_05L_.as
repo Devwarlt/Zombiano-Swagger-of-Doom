@@ -4,7 +4,7 @@
 //_0G__._05L_
 
 package _0G__{
-    import _011.Death;
+    import ServerPackets.Death;
     import _W_D_._0I_H_;
     import _W_D_._G_J_;
     import com.company.assembleegameclient.parameters.Parameters;

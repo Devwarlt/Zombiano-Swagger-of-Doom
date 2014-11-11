@@ -4,9 +4,9 @@
 //com.company.assembleegameclient.objects.GuildChronicle
 
 package com.company.assembleegameclient.objects{
-    import _R_v.GuildChroniclePanel;
+    import Panels.GuildChroniclePanel;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class GuildChronicle extends GameObject implements IPanelProvider {
 

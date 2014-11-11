@@ -4,7 +4,7 @@
 //_W_D_._G_J_
 
 package _W_D_{
-    import _011.Death;
+    import ServerPackets.Death;
 
     public class _G_J_ {
 

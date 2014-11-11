@@ -33,11 +33,11 @@ package _E_7{
             this.player_ = Player._D_U_(_arg1, _arg2);
             this._02y = new _gV_(0xB3B3B3, true, this.player_);
             addChild(this._02y);
-            this._023 = new _0M_Y_(176, 16, 14693428, 0x260400, "HP");
+            this._023 = new _0M_Y_(176, 16, 14693428, 0x260400, "Health");
             this._023.x = 6;
             this._023.y = 40;
             addChild(this._023);
-            this._F_C_ = new _0M_Y_(176, 16, 6325472, 0x260400, "MP");
+            this._F_C_ = new _0M_Y_(176, 16, 6325472, 0x260400, "Hunger");
             this._F_C_.x = 6;
             this._F_C_.y = 64;
             addChild(this._F_C_);

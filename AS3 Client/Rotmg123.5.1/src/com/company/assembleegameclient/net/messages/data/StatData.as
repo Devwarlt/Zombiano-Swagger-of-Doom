@@ -86,13 +86,13 @@ package com.company.assembleegameclient.net.messages.data{
                 case _0I_1:
                     return ("Maximum HP");
                 case _V_A_:
-                    return ("HP");
+                    return ("Health");
                 case _g0:
                     return ("Size");
                 case _079:
                     return ("Maximum MP");
                 case _aC_:
-                    return ("MP");
+                    return ("Hunger");
                 case _0_8:
                     return ("XP");
                 case _70:

@@ -5,7 +5,7 @@
 
 package _U_5{
     import _sp._aJ_;
-    import _011.MapInfo;
+    import ServerPackets.MapInfo;
 
     public class _D_L_ extends _aJ_ {
 

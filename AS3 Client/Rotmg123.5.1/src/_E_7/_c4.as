@@ -44,12 +44,12 @@ package _E_7{
                 addChild(this._4v);
                 _local2 = (_local2 + 30);
             }
-            this._023 = new _0M_Y_(176, 16, 14693428, 0x260400, "HP");
+            this._023 = new _0M_Y_(176, 16, 14693428, 0x260400, "Health");
             this._023.x = 6;
             this._023.y = _local2;
             addChild(this._023);
             _local2 = (_local2 + 24);
-            this._F_C_ = new _0M_Y_(176, 16, 6325472, 0x260400, "MP");
+            this._F_C_ = new _0M_Y_(176, 16, 6325472, 0x260400, "Hunger");
             this._F_C_.x = 6;
             this._F_C_.y = _local2;
             addChild(this._F_C_);

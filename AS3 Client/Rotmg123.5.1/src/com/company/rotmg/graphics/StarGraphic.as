@@ -8,7 +8,6 @@ package com.company.rotmg.graphics
         public function StarGraphic()
         {
             super();
-
         }
     }
 }

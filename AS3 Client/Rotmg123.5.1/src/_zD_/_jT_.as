@@ -16,7 +16,7 @@ package _zD_{
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.util._0B_c;
     import com.company.assembleegameclient.util.TextureRedrawer;
-    import _011.MapInfo;
+    import ServerPackets.MapInfo;
 
     public class _jT_ extends _cM_ {
 

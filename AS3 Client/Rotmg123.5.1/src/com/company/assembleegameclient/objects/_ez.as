@@ -7,7 +7,7 @@ package com.company.assembleegameclient.objects{
     import com.company.assembleegameclient.map._X_l;
     import flash.utils.Dictionary;
     import com.company.util.PointUtil;
-    import _011._0K_U_;
+    import ServerPackets._0K_U_;
 
     public class _ez {
 

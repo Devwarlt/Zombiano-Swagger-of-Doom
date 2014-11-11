@@ -4,41 +4,41 @@
 //com.company.assembleegameclient.net._1f
 
 package com.company.assembleegameclient.net{
-    import _011.*;
-    import _011.AOE;
-    import _011.BuyResult;
-    import _011.Damage;
-    import _011.Death;
-    import _011.File;
-    import _011.Goto;
-    import _011.InvResult;
-    import _011.InvitedToGuild;
-    import _011.MapInfo;
-    import _011.NameResult;
-    import _011.Notification;
-    import _011.Pic;
-    import _011.ShowEffect;
-    import _011.Text;
-    import _011.Update;
-    import _011._0F_I_;
-    import _011._0F_u;
-    import _011._0K_U_;
-    import _011._0_l;
-    import _011._8_;
-    import _011._A_L_;
-    import _011._C_3;
-    import _011._G_f;
-    import _011._I_o;
-    import _011._S_M_;
-    import _011._T_m;
-    import _011._T_n;
-    import _011._Y_F_;
-    import _011._Y_G_;
-    import _011._Z_J_;
-    import _011._bB_;
-    import _011._iD_;
-    import _011._ic;
-    import _011._qe;
+    import ServerPackets.*;
+    import ServerPackets.AOE;
+    import ServerPackets.BuyResult;
+    import ServerPackets.Damage;
+    import ServerPackets.Death;
+    import ServerPackets.File;
+    import ServerPackets.Goto;
+    import ServerPackets.InvResult;
+    import ServerPackets.InvitedToGuild;
+    import ServerPackets.MapInfo;
+    import ServerPackets.NameResult;
+    import ServerPackets.Notification;
+    import ServerPackets.Pic;
+    import ServerPackets.ShowEffect;
+    import ServerPackets.Text;
+    import ServerPackets.Update;
+    import ServerPackets._0F_I_;
+    import ServerPackets._0F_u;
+    import ServerPackets._0K_U_;
+    import ServerPackets._0_l;
+    import ServerPackets._8_;
+    import ServerPackets._A_L_;
+    import ServerPackets._C_3;
+    import ServerPackets._G_f;
+    import ServerPackets._I_o;
+    import ServerPackets._S_M_;
+    import ServerPackets._T_m;
+    import ServerPackets._T_n;
+    import ServerPackets._Y_F_;
+    import ServerPackets._Y_G_;
+    import ServerPackets._Z_J_;
+    import ServerPackets._bB_;
+    import ServerPackets._iD_;
+    import ServerPackets._ic;
+    import ServerPackets._qe;
     
     import _015._6T_;
     import _015._O_P_;
@@ -115,8 +115,8 @@ import _8Q_._1l;
     
     import _G_A_._8P_;
     
-    import _R_v.TradePanel;
-    import _R_v.InviteGuildPanel;
+    import Panels.TradePanel;
+    import Panels.InviteGuildPanel;
     
     import _U_5._06a;
     import _U_5._zz;

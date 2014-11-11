@@ -5,7 +5,7 @@
 
 package _9R_{
     import flash.events.Event;
-    import _011.NameResult;
+    import ServerPackets.NameResult;
 
     public class _3E_ extends Event {
 

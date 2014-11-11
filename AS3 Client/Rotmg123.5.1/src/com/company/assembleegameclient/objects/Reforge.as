@@ -2,8 +2,8 @@ package com.company.assembleegameclient.objects
 {
 	import com.company.assembleegameclient.game.GameSprite;
 	
-	import _R_v.Panel;
-	import _R_v.ReforgePanel;
+	import Panels.Panel;
+	import Panels.ReforgePanel;
 	
 	public class Reforge extends GameObject implements IPanelProvider
 	{

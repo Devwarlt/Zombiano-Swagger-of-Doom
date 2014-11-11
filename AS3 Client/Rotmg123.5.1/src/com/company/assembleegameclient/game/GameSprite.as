@@ -4,7 +4,7 @@
 //com.company.assembleegameclient.game.GameSprite
 
 package com.company.assembleegameclient.game{
-    import _011.MapInfo;
+    import ServerPackets.MapInfo;
     
     import _9R_._B_w;
     

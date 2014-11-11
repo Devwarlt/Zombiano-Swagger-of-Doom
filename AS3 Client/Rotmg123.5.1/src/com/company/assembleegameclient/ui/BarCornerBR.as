@@ -2,7 +2,7 @@ package com.company.assembleegameclient.ui
 {
 	import flash.display.BitmapData;
 
-	[Embed("cornerPieceBR.png", mimeType="image/png")]
+	[Embed("cornerPieceR.png", mimeType="image/png")]
 	public class BarCornerBR extends BitmapData
 	{
 		public function BarCornerBR()

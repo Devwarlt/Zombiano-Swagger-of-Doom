@@ -1,8 +1,8 @@
 package com.company.assembleegameclient.objects
 {
-	import _R_v.Panel;
+	import Panels.Panel;
 	import com.company.assembleegameclient.game.GameSprite;
-	import _R_v.Forge;
+	import Panels.Forge;
 	
 	public class Forge extends GameObject implements IPanelProvider
 	{
@@ -13,7 +13,7 @@ package com.company.assembleegameclient.objects
 		}
 		
 		public function GetPanel(param1:GameSprite) : Panel {
-			return new _R_v.Forge(param1,this);
+			return new Panels.Forge(param1,this);
 		}
 	}
 }

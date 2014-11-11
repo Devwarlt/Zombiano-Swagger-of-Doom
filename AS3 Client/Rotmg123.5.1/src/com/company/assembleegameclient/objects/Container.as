@@ -7,9 +7,9 @@ package com.company.assembleegameclient.objects{
     import com.company.util.PointUtil;
     import _vf._5T_;
     import com.company.assembleegameclient.map._X_l;
-    import _R_v._sc;
+    import Panels._sc;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class Container extends GameObject implements IPanelProvider {
 

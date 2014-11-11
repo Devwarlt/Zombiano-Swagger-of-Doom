@@ -4,9 +4,9 @@
 //com.company.assembleegameclient.objects.NameChanger
 
 package com.company.assembleegameclient.objects{
-    import _R_v.ChangeNamePanel;
+    import Panels.ChangeNamePanel;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_v.Panel;
+    import Panels.Panel;
 
     public class NameChanger extends GameObject implements IPanelProvider {
 

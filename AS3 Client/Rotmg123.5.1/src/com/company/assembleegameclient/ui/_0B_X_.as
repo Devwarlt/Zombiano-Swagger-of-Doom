@@ -7,11 +7,11 @@ package com.company.assembleegameclient.ui{
     import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
     import flash.display.Shape;
-    import _R_v._Q_V_;
+    import Panels._Q_V_;
     import flash.events.Event;
-    import _011._S_M_;
-    import _011._Z_J_;
-    import _011._qe;
+    import ServerPackets._S_M_;
+    import ServerPackets._Z_J_;
+    import ServerPackets._qe;
     import com.company.util._O_m;
     import com.company.assembleegameclient.objects.Player;
     import flash.display.Graphics;

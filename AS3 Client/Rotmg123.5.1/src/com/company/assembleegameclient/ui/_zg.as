@@ -8,7 +8,7 @@ package com.company.assembleegameclient.ui{
     import com.company.assembleegameclient.game.GameSprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
-    import _011._S_M_;
+    import ServerPackets._S_M_;
 
 
     public class _zg extends Sprite {
