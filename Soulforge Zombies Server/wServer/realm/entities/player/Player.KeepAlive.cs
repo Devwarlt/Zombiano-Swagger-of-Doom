@@ -41,5 +41,54 @@ namespace wServer.realm.entities
             lastPong = time + tickMapping;
             sentPing = false;
         }
+
+        private int _hungerTicks;
+        internal void HandleHunger(RealmTime time)
+        {
+            if (_hungerTicks >= 60 * 20)
+            {
+                Hunger -= 10;
+
+                if (Hunger < 100 && Hunger > 0)
+                {
+                    Client.SendPacket(new NotificationBoxPacket
+                    {
+                        Head = "You are hungry",
+                        Text = "Eat something before\n you die!"
+                    });
+                    SendInfo("Warning you are hungry, you should eat something.");
+                }
+
+                if (Hunger <= 0)
+                {
+                    SendInfo("Warning you will die if you are not going to eat something");
+                    Client.SendPacket(new DamagePacket
+                    {
+                        Damage = 10,
+                        BulletId = 0,
+                        Killed = HP - 10 <= 0,
+                        ObjectId = -1,
+                        TargetId = Id,
+                        Effects = 0
+                    });
+                    if (HP - 10 <= 0)
+                    {
+                        Client.SendPacket(new DeathPacket
+                        {
+                            AccountId = AccountId,
+                            CharId = client.Character.CharacterId,
+                            Killer = "Hunger"
+                        });
+                        Death("Hunger");
+                        return;
+                    }
+                    HP -= 10;
+                }
+                UpdateCount++;
+                _hungerTicks = 0;
+            }
+
+            _hungerTicks++;
+        }
     }
 }

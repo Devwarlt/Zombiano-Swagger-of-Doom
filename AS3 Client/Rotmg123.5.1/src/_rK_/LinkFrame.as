@@ -4,9 +4,9 @@
 //_rK_.LinkFrame
 
 package _rK_{
-    import _0D_d.Frame;
+    import Frames.Frame;
     import com.company.ui.SimpleText;
-    import _0D_d.TextInput;
+    import Frames.TextInput;
     import flash.text.StyleSheet;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;

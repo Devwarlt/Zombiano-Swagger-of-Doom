@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0D_d._8x
+//Frames._8x
 
-package _0D_d{
+package Frames{
     import com.company.assembleegameclient.game.GameSprite;
     import flash.events.MouseEvent;
     import flash.events.Event;
@@ -58,5 +58,5 @@ package _0D_d{
         }
 
     }
-}//package _0D_d
+}//package Frames
 

@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0D_d._O_I_
+//Frames._O_I_
 
-package _0D_d{
+package Frames{
     import flash.display.Sprite;
     import com.company.ui.SimpleText;
     import flash.filters.DropShadowFilter;
@@ -59,5 +59,5 @@ package _0D_d{
         }
 
     }
-}//package _0D_d
+}//package Frames
 

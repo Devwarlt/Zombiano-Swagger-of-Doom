@@ -19,7 +19,7 @@ package Panels{
     import _0L_C_._qO_;
     import flash.events.Event;
     import com.company.assembleegameclient.ui.FrameHolder;
-    import _0D_d._lx;
+    import Frames._lx;
 
     public class GuildCreatorPanel extends Panel {
 

@@ -12,7 +12,7 @@ package _L_7{
     import flash.events.Event;
     import com.company.assembleegameclient.util.offer.Offers;
     import _Z_h._B_R_;
-    import _0D_d._A_R_;
+    import Frames._A_R_;
     import _zo._8C_;
     import _9R_._B_w;
 

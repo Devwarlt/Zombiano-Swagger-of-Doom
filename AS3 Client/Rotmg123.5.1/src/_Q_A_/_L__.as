@@ -4,8 +4,8 @@
 //_Q_A_._L__
 
 package _Q_A_{
-    import _0D_d.Frame;
-    import _0D_d.TextInput;
+    import Frames.Frame;
+    import Frames.TextInput;
     import com.company.assembleegameclient.ui.TextButton;
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.appengine._0B_u;

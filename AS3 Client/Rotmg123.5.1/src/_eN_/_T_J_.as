@@ -5,7 +5,7 @@
 
 package _eN_{
     import flash.display.Sprite;
-    import _0D_d.Frame;
+    import Frames.Frame;
     import flash.display.Shape;
     import flash.display.Graphics;
     import flash.events.Event;

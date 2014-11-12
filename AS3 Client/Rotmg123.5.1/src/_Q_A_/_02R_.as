@@ -12,7 +12,7 @@ package _Q_A_{
     import flash.events.Event;
     import com.company.assembleegameclient.util.offer.Offers;
     import _00g._02U_;
-    import _0D_d._A_R_;
+    import Frames._A_R_;
     import _zo._8C_;
     import flash.display.Stage;
     import _9R_._B_w;

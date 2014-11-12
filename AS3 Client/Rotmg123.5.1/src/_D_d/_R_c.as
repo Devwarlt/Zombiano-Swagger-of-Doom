@@ -4,8 +4,8 @@
 //_D_d._R_c
 
 package _D_d{
-    import _0D_d.Frame;
-    import _0D_d.TextInput;
+    import Frames.Frame;
+    import Frames.TextInput;
     import flash.events.MouseEvent;
     import flash.events.Event;
 

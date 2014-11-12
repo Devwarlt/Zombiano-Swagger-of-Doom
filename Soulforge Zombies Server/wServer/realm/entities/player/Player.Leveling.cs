@@ -198,7 +198,7 @@ namespace wServer.realm.entities
                     if (Stats[idx] > limit) Stats[idx] = limit;
                 }
                 HP = Stats[0] + Boost[0];
-                MP = Stats[1] + Boost[1];
+                Hunger = Stats[1] + Boost[1];
 
                 UpdateCount++;
 

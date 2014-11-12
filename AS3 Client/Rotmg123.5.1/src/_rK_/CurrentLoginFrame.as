@@ -4,7 +4,7 @@
 //_rK_.CurrentLoginFrame
 
 package _rK_{
-    import _0D_d.Frame;
+    import Frames.Frame;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui.TextButton;
     import _qN_.Account;

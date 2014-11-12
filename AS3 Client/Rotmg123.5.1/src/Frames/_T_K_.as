@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0D_d._T_K_
+//Frames._T_K_
 
-package _0D_d{
+package Frames{
     import flash.display.Sprite;
     import flash.display.Shape;
     import flash.display.Graphics;
@@ -36,5 +36,5 @@ package _0D_d{
         }
 
     }
-}//package _0D_d
+}//package Frames
 

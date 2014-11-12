@@ -43,6 +43,21 @@ namespace wServer.realm.commands
         }
     }
 
+    class t : Command
+    {
+        public t() : base("t", permLevel: 1) { }
+
+        protected override bool Process(Player player, RealmTime time, string args)
+        {
+            player.Client.SendPacket(new NotificationBoxPacket
+            {
+                Head = "You are hungry",
+                Text = "Eat something before\n you die!"
+            });
+            return true;
+        }
+    }
+
     class ToggleEffCommand : Command
     {
         public ToggleEffCommand() : base("eff", permLevel: 1) { }

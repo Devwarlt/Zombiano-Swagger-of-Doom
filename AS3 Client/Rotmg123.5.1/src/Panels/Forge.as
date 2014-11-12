@@ -4,7 +4,7 @@ package Panels
 	import flash.events.KeyboardEvent;
 	import com.company.assembleegameclient.parameters.Parameters;
 	import com.company.assembleegameclient.ui.FrameHolderNoDim;
-	import _0D_d.Crafting;
+	import Frames.Crafting;
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import com.company.assembleegameclient.game.GameSprite;

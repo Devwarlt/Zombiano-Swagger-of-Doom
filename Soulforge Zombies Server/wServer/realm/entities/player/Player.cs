@@ -47,7 +47,7 @@ namespace wServer.realm.entities
         public int Texture2 { get; set; }
 
         public bool Glowing { get; set; }
-        public int MP { get; set; }
+        public int Hunger { get; set; }
 
         public int[] SlotTypes { get; private set; }
         public Inventory Inventory { get; private set; }
@@ -80,7 +80,7 @@ namespace wServer.realm.entities
 
                 case StatsType.Glowing: Glowing = (int)val != 0 ? true : false; break;
                 case StatsType.HP: HP = (int)val; break;
-                case StatsType.MP: MP = (int)val; break;
+                case StatsType.MP: Hunger = (int)val; break;
 
                 case StatsType.Inventory0: Inventory[0] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
                 case StatsType.Inventory1: Inventory[1] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
@@ -129,7 +129,7 @@ namespace wServer.realm.entities
 
             stats[StatsType.Glowing] = Glowing ? 1 : 0;
             stats[StatsType.HP] = HP;
-            stats[StatsType.MP] = MP;
+            stats[StatsType.MP] = Hunger;
 
             stats[StatsType.Inventory0] = (Inventory[0] != null ? Inventory[0].ObjectType : -1);
             stats[StatsType.Inventory1] = (Inventory[1] != null ? Inventory[1].ObjectType : -1);
@@ -173,7 +173,7 @@ namespace wServer.realm.entities
             chr.Tex2 = Texture2;
             chr.CurrentFame = Fame;
             chr.HitPoints = HP;
-            chr.MagicPoints = MP;
+            chr.MagicPoints = Hunger;
             chr.Equipment = Inventory.Select(_ => _ == null ? (ushort)0xffff : _.ObjectType).ToArray();
             chr.MaxHitPoints = Stats[0];
             chr.MaxMagicPoints = Stats[1];
@@ -239,7 +239,7 @@ namespace wServer.realm.entities
             Guild = "";
             GuildRank = -1;
             HP = client.Character.HitPoints;
-            MP = client.Character.MagicPoints;
+            Hunger = client.Character.MagicPoints;
             ConditionEffects = 0;
 
             Inventory = new Inventory(this,
@@ -292,11 +292,14 @@ namespace wServer.realm.entities
 
             if (Boost == null) CalculateBoost();
 
+            if (Hunger < 0) Hunger = 0;
+
             CheckTradeTimeout(time);
-            HandleRegen(time);
+            //HandleRegen(time);
             HandleQuest(time);
             HandleGround(time);
             HandleEffects(time);
+            HandleHunger(time);
             fames.Tick(time);
 
             SendUpdate(time);
@@ -328,7 +331,7 @@ namespace wServer.realm.entities
                 }
             }
 
-            if (MP == Stats[1] + Boost[1] || !CanMpRegen())
+            if (Hunger == Stats[1] + Boost[1] || !CanMpRegen())
                 mpRegenCounter = 0;
             else
             {
@@ -336,7 +339,7 @@ namespace wServer.realm.entities
                 int regen = (int)mpRegenCounter;
                 if (regen > 0)
                 {
-                    MP = Math.Min(Stats[1] + Boost[1], MP + regen);
+                    Hunger = Math.Min(Stats[1] + Boost[1], Hunger + regen);
                     mpRegenCounter -= regen;
                     UpdateCount++;
                 }
@@ -444,7 +447,7 @@ namespace wServer.realm.entities
                 if (item == null || !item.Resurrects) continue;
 
                 HP = Stats[0] + Stats[0];
-                MP = Stats[1] + Stats[1];
+                Hunger = Stats[1] + Stats[1];
                 Inventory[i] = null;
                 foreach (var player in Owner.Players.Values)
                     player.SendInfo(string.Format("{0}'s {1} breaks and he disappears", Name, item.ObjectId));

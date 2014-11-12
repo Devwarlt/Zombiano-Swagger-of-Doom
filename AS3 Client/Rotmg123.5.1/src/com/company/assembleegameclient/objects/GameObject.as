@@ -957,7 +957,6 @@ package com.company.assembleegameclient.objects{
         public function toString():String{
             return ("[" + getQualifiedClassName(this) + " id: " + objectId_ + " type: " + ObjectLibrary._0D_N_[this.objectType_] + " pos: " + x_ + ", " + y_ + "]");
         }
-
     }
 }//package com.company.assembleegameclient.objects
 

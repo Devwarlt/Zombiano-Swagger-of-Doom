@@ -18,7 +18,7 @@ package Panels{
     import com.company.assembleegameclient.game.GameSprite;
     import _qN_.Account;
     import com.company.assembleegameclient.ui.FrameHolder;
-    import _0D_d._8x;
+    import Frames._8x;
     import _0L_C_._2k;
 
     public class ChangeNamePanel extends Panel {

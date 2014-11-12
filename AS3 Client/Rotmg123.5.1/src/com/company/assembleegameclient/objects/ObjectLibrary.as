@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.objects.ObjectLibrary
 
 package com.company.assembleegameclient.objects{
-    import flash.utils.Dictionary;
+import com.company.assembleegameclient.ui.Button;
+
+import flash.utils.Dictionary;
 
     import _0_P_._0F_7;
     import flash.utils.getDefinitionByName;
@@ -280,7 +282,7 @@ package com.company.assembleegameclient.objects{
                 {
                     case StatData._0I_1:
                         return ((_arg2.maxHP_ >= _local3));
-                    case StatData._079:
+                    case StatData.MAX_HUNGER:
                         return ((_arg2.maxMP_ >= _local3));
                     case StatData._70:
                         return ((_arg2.level_ >= _local3));
@@ -301,6 +303,12 @@ package com.company.assembleegameclient.objects{
             return (false);
         }
 
+        public static function createButton(_arg1:int):Button {
+            var _local2:Button = new Button();
+            _local2.y = 4;
+            _local2.x = ((_arg1 - _local2.width) - 5);
+            return (_local2);
+        }
     }
 }//package com.company.assembleegameclient.objects
 

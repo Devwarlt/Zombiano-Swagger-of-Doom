@@ -40,15 +40,17 @@ namespace server.@char
                 cmd.CommandText = @"SELECT time, killer, firstBorn FROM death WHERE accId=@accId AND chrId=@charId;";
                 cmd.Parameters.AddWithValue("@accId", query["accountId"]);
                 cmd.Parameters.AddWithValue("@charId", query["charId"]);
-                int time;
-                string killer;
-                bool firstBorn;
+                int time = 0;
+                string killer = "";
+                bool firstBorn = false;
                 using (var rdr = cmd.ExecuteReader())
                 {
-                    rdr.Read();
-                    time = Database.DateTimeToUnixTimestamp(rdr.GetDateTime("time"));
-                    killer = rdr.GetString("killer");
-                    firstBorn = rdr.GetBoolean("firstBorn");
+                    while (rdr.Read())
+                    {
+                        time = Database.DateTimeToUnixTimestamp(rdr.GetDateTime("time"));
+                        killer = rdr.GetString("killer");
+                        firstBorn = rdr.GetBoolean("firstBorn");
+                    }
                 }
 
                 using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))

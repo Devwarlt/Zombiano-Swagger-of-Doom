@@ -4,9 +4,9 @@
 //_L_7._0L_h
 
 package _L_7{
-    import _0D_d.Frame;
-    import _0D_d.TextInput;
-    import _0D_d._zb;
+    import Frames.Frame;
+    import Frames.TextInput;
+    import Frames._zb;
     import com.company.assembleegameclient.parameters.Parameters;
     import flash.events.MouseEvent;
     import _L_7._Y_S_;

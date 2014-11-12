@@ -7,7 +7,7 @@ package Panels
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import com.company.assembleegameclient.game.GameSprite;
-	import _0D_d.ReforgeFrame;
+	import Frames.ReforgeFrame;
 	
 	public class ReforgePanel extends SimpleButtonPanel
 	{

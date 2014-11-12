@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0D_d._A_R_
+//Frames._A_R_
 
-package _0D_d{
+package Frames{
     import _00g._0H_i;
     import com.company.assembleegameclient.ui._7f;
     import flash.events.MouseEvent;
@@ -101,5 +101,5 @@ package _0D_d{
         }
 
     }
-}//package _0D_d
+}//package Frames
 

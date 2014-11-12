@@ -1,4 +1,4 @@
-package _0D_d
+package Frames
 {
 	import com.company.assembleegameclient.game.GameSprite;
 	import com.company.assembleegameclient.objects.GameObject;

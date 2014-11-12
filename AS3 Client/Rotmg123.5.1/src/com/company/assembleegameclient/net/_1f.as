@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.net._1f
 
 package com.company.assembleegameclient.net{
-    import ServerPackets.*;
+import Frames.NotificationBox;
+
+import ServerPackets.*;
     import ServerPackets.AOE;
     import ServerPackets.BuyResult;
     import ServerPackets.Damage;
@@ -127,8 +129,10 @@ import _8Q_._1l;
     import _vf._gs;
     
     import _yY_._pz;
-    
-    import com.company.assembleegameclient.game.GameSprite;
+
+import _zD_.__else;
+
+import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.map._X_l;
     import com.company.assembleegameclient.map._pf;
     import com.company.assembleegameclient.net.messages.data.*;
@@ -244,6 +248,7 @@ import _8Q_._1l;
 		public static const SWITCHMUSIC:int = 83;
 		public static const CRAFT:int = 84;
 		public static const VISIBULLET:int = 80;
+        public static const NOTIFICATION_BOX:int = 81;
         private static const _vb:Vector.<uint> = new <uint>[14802908, 0xFFFFFF, 0x545454];
         private static const _Z_y:Vector.<uint> = new <uint>[5644060, 16549442, 13484223];
         private static const _0A_F_:Vector.<uint> = new <uint>[2493110, 61695, 13880567];
@@ -290,6 +295,7 @@ import _8Q_._1l;
             this._08._g9(UPDATE, Update, this._mC_);
             this._08._g9(_F_3, _098, null);
             this._08._g9(NOTIFICATION, Notification, this._L_x);
+            this._08._g9(NOTIFICATION_BOX, NotificationBoxPacket, this.notificationBox);
             this._08._g9(GLOBAL_NOTIFICATION, _iD_, this._nG_);
             this._08._g9(_29, _0_l, this._02H_);
             this._08._g9(INVSWAP, _99, null);
@@ -774,39 +780,39 @@ import _8Q_._1l;
                 this.gs_._V_1._F_._0A_R_(_local3.x_, _local3.y_, _local3);
             }
         }
-        private function _mC_(_arg1:Update):void{
+        private function _mC_(_arg1:Update):void {
             var _local3:int;
             var _local4:_iZ_;
             var _local2:_098 = this._08._Y_E_(_F_3);
             this._08._hb(_local2);
             _local3 = 0;
-            while (_local3 < _arg1.tiles_.length)
-            {
+            while (_local3 < _arg1.tiles_.length) {
                 _local4 = _arg1.tiles_[_local3];
                 this.gs_.map_.setGroundTile(_local4.x_, _local4.y_, _local4.type_);
                 this.gs_._V_1._F_.setGroundTile(_local4.x_, _local4.y_, _local4.type_);
                 _local3++;
             }
             _local3 = 0;
-            while (_local3 < _arg1.newObjs_.length)
-            {
+            while (_local3 < _arg1.newObjs_.length) {
                 this._lu(_arg1.newObjs_[_local3]);
                 _local3++;
             }
             _local3 = 0;
-            while (_local3 < _arg1.drops_.length)
-            {
+            while (_local3 < _arg1.drops_.length) {
                 this.gs_.map_.removeObj(_arg1.drops_[_local3]);
                 _local3++;
             }
         }
-        private function _L_x(_arg1:Notification):void{
+
+        private function notificationBox(_arg1:ServerPackets.NotificationBoxPacket):void {
+            this.gs_.addChild(new NotificationBox(_arg1, this.gs_));
+        }
+
+        private function _L_x(_arg1:Notification):void {
             var _local2:GameObject = this.gs_.map_.goDict_[_arg1.objectId_];
-            if (_local2 != null)
-            {
+            if (_local2 != null) {
                 this.gs_.map_.mapOverlay_.addChild(new _O_P_(_local2, _arg1.text_, _arg1.color_, 2000));
-                if ((((_local2 == this.gs_.map_.player_)) && ((_arg1.text_ == "Quest Complete!"))))
-                {
+                if ((((_local2 == this.gs_.map_.player_)) && ((_arg1.text_ == "Quest Complete!")))) {
                     this.gs_.map_.quest_.completed();
                 }
             }
@@ -967,10 +973,10 @@ import _8Q_._1l;
                     case StatData._g0:
                         _arg1.size_ = _local4._h;
                         break;
-                    case StatData._079:
+                    case StatData.MAX_HUNGER:
                         (_arg1 as Player).maxMP_ = _local4._h;
                         break;
-                    case StatData._aC_:
+                    case StatData.HUNGER:
                         (_arg1 as Player).MP_ = _local4._h;
                         break;
                     case StatData._K_P_:

@@ -14,7 +14,7 @@ package _rK_{
     import _00g._0H_i;
     import com.company.assembleegameclient.util.offer.Offers;
     import _01H_._6z;
-    import _0D_d._A_R_;
+    import Frames._A_R_;
     import _zo._8C_;
 
     import com.company.assembleegameclient.util.offer.Offer;

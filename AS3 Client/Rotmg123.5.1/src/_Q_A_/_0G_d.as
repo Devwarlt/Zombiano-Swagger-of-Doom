@@ -4,7 +4,7 @@
 //_Q_A_._0G_d
 
 package _Q_A_{
-    import _0D_d.Frame;
+    import Frames.Frame;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui.TextButton;
     import flash.filters.DropShadowFilter;

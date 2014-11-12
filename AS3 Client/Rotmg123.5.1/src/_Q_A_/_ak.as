@@ -5,7 +5,7 @@
 
 package _Q_A_{
     import flash.display.Sprite;
-    import _0D_d.Frame;
+    import Frames.Frame;
     import com.company.assembleegameclient.appengine._0B_u;
     import flash.display.Shape;
     import flash.display.Graphics;

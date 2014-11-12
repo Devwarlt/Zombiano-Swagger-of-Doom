@@ -127,8 +127,8 @@ namespace wServer.realm.entities
         static void ActivateHealMp(Player player, int amount, List<Packet> pkts)
         {
             int maxMp = player.Stats[1] + player.Boost[1];
-            int newMp = Math.Min(maxMp, player.MP + amount);
-            if (newMp != player.MP)
+            int newMp = Math.Min(maxMp, player.Hunger + amount);
+            if (newMp != player.Hunger)
             {
                 pkts.Add(new ShowEffectPacket()
                 {
@@ -140,9 +140,9 @@ namespace wServer.realm.entities
                 {
                     Color = new ARGB(0xff9000ff),
                     ObjectId = player.Id,
-                    Text = "+" + (newMp - player.MP)
+                    Text = "+" + (newMp - player.Hunger)
                 });
-                player.MP = newMp;
+                player.Hunger = newMp;
                 player.UpdateCount++;
             }
         }
@@ -198,7 +198,7 @@ namespace wServer.realm.entities
 
         void Activate(RealmTime time, Item item, Position target)
         {
-            MP -= item.MpCost;
+            Hunger -= item.MpCost;
             foreach (var eff in item.ActivateEffects)
             {
                 switch (eff.Effect)

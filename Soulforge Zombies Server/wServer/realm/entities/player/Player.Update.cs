@@ -96,6 +96,7 @@ namespace wServer.realm.entities
         Dictionary<Entity, int> lastUpdate = new Dictionary<Entity, int>();
         void SendUpdate(RealmTime time)
         {
+            if (Owner == null) return;
             mapWidth = Owner.Map.Width;
             mapHeight = Owner.Map.Height;
             var map = Owner.Map;

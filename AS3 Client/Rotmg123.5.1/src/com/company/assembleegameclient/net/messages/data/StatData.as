@@ -12,8 +12,8 @@ package com.company.assembleegameclient.net.messages.data{
         public static const _0I_1:int = 0;
         public static const _V_A_:int = 1;
         public static const _g0:int = 2;
-        public static const _079:int = 3;
-        public static const _aC_:int = 4;
+        public static const MAX_HUNGER:int = 3;
+        public static const HUNGER:int = 4;
         public static const _K_P_:int = 5;
         public static const _0_8:int = 6;
         public static const _70:int = 7;
@@ -89,9 +89,9 @@ package com.company.assembleegameclient.net.messages.data{
                     return ("Health");
                 case _g0:
                     return ("Size");
-                case _079:
-                    return ("Maximum MP");
-                case _aC_:
+                case MAX_HUNGER:
+                    return ("Maximum Hunger");
+                case HUNGER:
                     return ("Hunger");
                 case _0_8:
                     return ("XP");

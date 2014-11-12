@@ -3,18 +3,19 @@
  */
 package com.company.assembleegameclient.objects {
 import Panels.Panel;
-import Panels.LithPanel;
+import Panels.LithiumPanel;
 
 import com.company.assembleegameclient.game.GameSprite;
 
-public class LithiumObject extends GameObject implements IPanelProvider {
+    public class LithiumObject extends GameObject implements IPanelProvider {
+
         public function LithiumObject(param1:XML) {
             super(param1);
             this._064 = true;
         }
 
-    public function GetPanel(_arg1:GameSprite):Panel {
-        return new LithPanel(_arg1, this);
+        public function GetPanel(_arg1:GameSprite):Panel {
+            return new LithiumPanel(_arg1, this);
+        }
     }
-}
 }

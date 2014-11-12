@@ -25,9 +25,9 @@ namespace wServer.realm.entities
                 healing += 28 * (time.thisTickTimes / 1000f);
             }
             if (HasConditionEffect(ConditionEffects.Quiet) &&
-                MP > 0)
+                Hunger > 0)
             {
-                MP = 0;
+                Hunger = 0;
                 UpdateCount++;
             }
             if (HasConditionEffect(ConditionEffects.Bleeding) &&

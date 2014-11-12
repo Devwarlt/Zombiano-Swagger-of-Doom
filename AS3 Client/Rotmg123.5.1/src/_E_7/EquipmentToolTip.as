@@ -363,7 +363,7 @@ package _E_7{
 						case "IncrementStat":
 							_local3 = int(_local1.@stat);
 							_local4 = int(_local1.@amount);
-							if (((!((_local3 == StatData._V_A_))) && (!((_local3 == StatData._aC_)))))
+							if (((!((_local3 == StatData._V_A_))) && (!((_local3 == StatData.HUNGER)))))
 							{
 								_local2 = ("Permanently increases " + StatData._W_H_(_local3));
 							} else

@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0D_d._mo
+//Frames._mo
 
-package _0D_d{
+package Frames{
     import flash.display.Sprite;
 
     import _5H_._5P_;
@@ -87,5 +87,5 @@ package _0D_d{
         }
 
     }
-}//package _0D_d
+}//package Frames
 

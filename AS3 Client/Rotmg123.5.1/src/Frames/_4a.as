@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0D_d._4a
+//Frames._4a
 
-package _0D_d{
+package Frames{
     import flash.display.Sprite;
     import com.company.assembleegameclient.util.offer.Offers;
 
@@ -96,5 +96,5 @@ package _0D_d{
         }
 
     }
-}//package _0D_d
+}//package Frames
 

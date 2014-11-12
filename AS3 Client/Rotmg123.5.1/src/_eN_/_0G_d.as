@@ -4,7 +4,7 @@
 //_eN_._0G_d
 
 package _eN_{
-    import _0D_d.Frame;
+    import Frames.Frame;
     import com.company.ui.SimpleText;
     import flash.filters.DropShadowFilter;
     import _qN_.Account;
