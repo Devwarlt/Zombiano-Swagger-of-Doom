@@ -18,13 +18,14 @@ package ServerPackets{
         public var background_:int;
         public var allowPlayerTeleport_:Boolean;
         public var showDisplays_:Boolean;
-		public var music_:String;
+		public var music_:Vector.<String>;
         public var clientXML_:Vector.<String>;
         public var extraXML_:Vector.<String>;
 
         public function MapInfo(_arg1:uint){
             this.clientXML_ = new Vector.<String>();
             this.extraXML_ = new Vector.<String>();
+            this.music_ = new Vector.<String>();
             super(_arg1);
         }
         override public function parseFromInput(_arg1:IDataInput):void{
@@ -38,7 +39,13 @@ package ServerPackets{
             this.background_ = _arg1.readInt();
             this.allowPlayerTeleport_ = _arg1.readBoolean();
             this.showDisplays_ = _arg1.readBoolean();
-			this.music_ = _arg1.readUTF();
+            _local2 = _local2 = _arg1.readShort();
+            _local3 = 0;
+            while(_local3 < _local2)
+            {
+                this.music_.push(_arg1.readUTF());
+                _local3++;
+            }
             _local2 = _arg1.readShort();
             this.clientXML_.length = 0;
             _local3 = 0;

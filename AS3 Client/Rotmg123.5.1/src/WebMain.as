@@ -38,8 +38,8 @@ package {
     public class WebMain extends Sprite {
 		
 		public static var sStage:Stage;
-		public static var sWidth:Number = 800;
-		public static var sHeight:Number = 600;
+		public static var sWidth:Number = 1000;
+		public static var sHeight:Number = 800;
 		
         protected var context:_L_y;
 

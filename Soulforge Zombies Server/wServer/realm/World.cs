@@ -32,11 +32,13 @@ namespace wServer.realm
             StaticObjects = new ConcurrentDictionary<int, StaticObject>();
             Timers = new List<WorldTimer>();
             ExtraXML = Empty<string>.Array;
+            Music = Empty<string>.Array;
             AllowTeleport = true;
             ShowDisplays = true;
         }
 
         public bool IsLimbo { get; protected set; }
+        public string[] Music { get; protected set; }
         public virtual World GetInstance(Client client) { return null; }
 
         RealmManager manager;

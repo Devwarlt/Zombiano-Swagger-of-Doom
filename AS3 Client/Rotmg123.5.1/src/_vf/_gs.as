@@ -66,7 +66,7 @@ package _vf{
             fadeIn = 0.65;
             fadeOut = 0;
         }
-		
+
 		public static function updateFade():void{
 			if (fadeIn >= 0.65) return;
 			if (!Parameters.data_.playMusic) {

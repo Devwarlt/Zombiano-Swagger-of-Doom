@@ -9,10 +9,12 @@ namespace wServer.realm.entities
 {
     public partial class Player
     {
-        long lastPong = -1;
-        int? lastTime = null;
-        long tickMapping = 0;
-        Queue<long> ts = new Queue<long>();
+        private long lastPong = -1;
+        private int? lastTime = null;
+        private long tickMapping = 0;
+        public const int HUNGERCOOLDOWNMS = 10 * 1000;
+        private int _hungertime;
+        private Queue<long> ts = new Queue<long>();
 
         bool sentPing = false;
         bool KeepAlive(RealmTime time)
@@ -42,10 +44,9 @@ namespace wServer.realm.entities
             sentPing = false;
         }
 
-        private int _hungerTicks;
         internal void HandleHunger(RealmTime time)
         {
-            if (_hungerTicks >= 60 * 20)
+            if (_hungertime <= 0)
             {
                 Hunger -= 10;
 
@@ -62,16 +63,20 @@ namespace wServer.realm.entities
                 if (Hunger <= 0)
                 {
                     SendInfo("Warning you will die if you are not going to eat something");
-                    Client.SendPacket(new DamagePacket
+
+                    HP -= 10;
+
+                    BroadcastSync(new DamagePacket
                     {
                         Damage = 10,
                         BulletId = 0,
-                        Killed = HP - 10 <= 0,
+                        Killed = HP <= 0,
                         ObjectId = -1,
                         TargetId = Id,
                         Effects = 0
-                    });
-                    if (HP - 10 <= 0)
+                    }, p => this.Dist(p) <= 25);
+
+                    if (HP <= 0)
                     {
                         Client.SendPacket(new DeathPacket
                         {
@@ -82,13 +87,14 @@ namespace wServer.realm.entities
                         Death("Hunger");
                         return;
                     }
-                    HP -= 10;
-                }
-                UpdateCount++;
-                _hungerTicks = 0;
-            }
 
-            _hungerTicks++;
+                    UpdateCount++;
+                }
+
+                _hungertime = HUNGERCOOLDOWNMS;
+            }
+            else
+                _hungertime -= time.thisTickTimes;
         }
     }
 }

@@ -278,6 +278,7 @@ namespace wServer.realm.entities
             tiles = new byte[owner.Map.Width, owner.Map.Height];
             fames = new FameCounter(this);
             SetNewbiePeriod();
+            _hungertime = HUNGERCOOLDOWNMS;
             base.Init(owner);
         }
 

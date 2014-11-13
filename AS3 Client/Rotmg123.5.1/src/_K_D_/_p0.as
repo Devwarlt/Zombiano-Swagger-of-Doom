@@ -22,7 +22,9 @@ package _K_D_{
         public static function _0L_k(_arg1:String):_X_l{
             var _local2:Object = _N_G_.parse(_arg1);
             var _local3:_X_l = new _X_l(null);
-            _local3.setProps(_local2["width"], _local2["height"], _local2["name"], _local2["back"], false, false, "Menu");
+            var music:Vector.<String> = new Vector.<String>();
+            music.push("Menu");
+            _local3.setProps(_local2["width"], _local2["height"], _local2["name"], _local2["back"], false, false, music);
             _local3.initialize();
             _4q(_local2, _local3, 0, 0);
             return (_local3);

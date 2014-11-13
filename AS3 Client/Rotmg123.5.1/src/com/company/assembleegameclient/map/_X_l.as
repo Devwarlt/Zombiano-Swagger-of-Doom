@@ -69,7 +69,7 @@ package com.company.assembleegameclient.map{
             party_ = new _ez(this);
             quest_ = new Quest(this);
         }
-		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:String):void{
+		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>):void{
             width_ = _arg1;
             height_ = _arg2;
             name_ = _arg3;
@@ -77,7 +77,10 @@ package com.company.assembleegameclient.map{
             allowPlayerTeleport_ = _arg5;
             showDisplays_ = _arg6;
 			music_ = _arg7;
-			_vf._gs.reload(this.music_);
+            if(music_.length != 0)
+            {
+                _vf._gs.reload(music_[Math.floor(Math.random() * (music_.length - 1))]);
+            }
         }
 		override public function initialize():void{
             this.squares_.length = (this.width_ * this.height_);

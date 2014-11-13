@@ -70,7 +70,9 @@ package _02t{
             _U_b = (BORDER + int(((_sl.y_ - (2 * BORDER)) * Math.random())));
             _0F_q = new _0D_v();
             var _local3:_X_l = new _X_l(null);
-            _local3.setProps((_sl.x_ + (2 * BORDER)), _sl.y_, "Background Map", Background._0H_W_, false, false, "Menu");
+            var music:Vector.<String> = new Vector.<String>();
+            music.push("Menu");
+            _local3.setProps((_sl.x_ + (2 * BORDER)), _sl.y_, "Background Map", Background._0H_W_, false, false, music);
             _local3.initialize();
             _p0._T_6(_local2, _local3, 0, 0);
             _p0._T_6(_local2, _local3, _sl.x_, 0);

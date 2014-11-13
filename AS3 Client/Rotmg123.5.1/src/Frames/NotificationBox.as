@@ -28,6 +28,8 @@ import flash.text.TextFormatAlign;
 
         private static const WIDTH:int = 189;
         private static const HEIGHT:int = 100;
+        private static const SLIDESPEED:int = 1; //Higher value means slower
+        private static const KEEPOPENTIME:int = 8; //Higher value means longer open
         public static var isClosed:Boolean = true;
 
         private const closeButton:Button = ObjectLibrary.createButton(NotificationBox.WIDTH);
@@ -47,25 +49,27 @@ import flash.text.TextFormatAlign;
             addChild(this._str2928(_arg1.head, 20, 5, 0x57AD62));
             addChild(this._str2928(_arg1.text, 20, 40, 0xFFFFFF));
 
-            var _local2:GTween = new GTween(this, 0.1);
-            _local2.onComplete = this.slideIn_;
+            //var _local2:GTween = new GTween(this, 0.001);
+            //_local2.onComplete = this.slideIn_;
+
+            slideIn_();
 
             this.open = true;
         }
 
-        private function slideIn_(_arg1:GTween):void {
+        private function slideIn_(/*_arg1:GTween*/):void {
             _5T_.play("alert", 3);
-            var _local1:GTween = new GTween(this, 2.5, {
+            var _local1:GTween = new GTween(this, SLIDESPEED, {
                 "x": (800 - (NotificationBox.WIDTH + 6))
             });
             _local1.onComplete = this.wait;
         }
         private function wait(_arg1:GTween):void {
-            var _local2:GTween = new GTween(this, 8);
+            var _local2:GTween = new GTween(this, KEEPOPENTIME);
             _local2.onComplete = this.slideOut_;
         }
         private function slideOut_(_arg1:GTween):void {
-            var _local1:GTween = new GTween(this, 2.5, {
+            var _local1:GTween = new GTween(this, SLIDESPEED, {
                 "x": (800 + (NotificationBox.WIDTH + 6))
             });
             _local1.onComplete = this.endTween;
@@ -84,7 +88,7 @@ import flash.text.TextFormatAlign;
         public function _str2928(_arg1:String, _arg2:int, _arg3:int, _arg4:uint):SimpleText{
             var _local4:SimpleText;
             _local4 = new SimpleText(16, _arg4, false, (WIDTH - (20 * 2)), (WIDTH - (20 * 2)), "Myriad Pro");
-            _local4.text = _arg1;
+            _local4.htmlText = '<p align="center">' + _arg1 + '</p>';
             //_local4.setBold(true);
             _local4.wordWrap = true;
             _local4.multiline = true;
@@ -112,7 +116,8 @@ import flash.text.TextFormatAlign;
         private function close():void{
             NotificationBox.isClosed = true;
             this.open = false;
-            stage.focus = null;
+            if(stage != null)
+                stage.focus = null;
             parent.removeChild(this);
         }
         private function onRemovedFromStage(_arg1:Event):void{

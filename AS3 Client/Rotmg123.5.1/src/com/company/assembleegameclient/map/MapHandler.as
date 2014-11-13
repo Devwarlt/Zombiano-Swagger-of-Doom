@@ -34,7 +34,7 @@ package com.company.assembleegameclient.map
 		public var name_:String;
 		public var player_:Player = null;
 		public var showDisplays_:Boolean;
-		public var music_:String;
+		public var music_:Vector.<String>;
 		public var width_:int;
 		public var height_:int;
 		public var _vv:int;
@@ -66,7 +66,7 @@ package com.company.assembleegameclient.map
 			super();
 		}
 		
-		public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:String):void{
+		public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>):void{
 		}
 		public function addObj(_arg1:BasicObject, _arg2:Number, _arg3:Number):void{
 		}

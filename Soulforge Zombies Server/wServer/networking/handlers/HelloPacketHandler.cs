@@ -61,7 +61,7 @@ namespace wServer.networking.handlers
                         Background = world.Background,
                         AllowTeleport = world.AllowTeleport,
                         ShowDisplays = world.ShowDisplays,
-                        Music = "",
+                        Music = world.Music,
                         ClientXML = client.Manager.GameData.AdditionXml,
                         ExtraXML = world.ExtraXML
                     });
