@@ -198,8 +198,11 @@ namespace wServer.realm.entities
 
         void Activate(RealmTime time, Item item, Position target)
         {
-            AbilityCooldown = 0;
-            SetCooldownTimer();
+            if (item.MpCost > 0)
+            {
+                AbilityCooldown = 0;
+                SetCooldownTimer();
+            }
 
             foreach (var eff in item.ActivateEffects)
             {

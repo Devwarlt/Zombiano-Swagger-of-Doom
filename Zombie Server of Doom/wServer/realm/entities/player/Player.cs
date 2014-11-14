@@ -10,6 +10,7 @@ using wServer.networking.cliPackets;
 using wServer.networking;
 using wServer.realm.terrain;
 using log4net;
+using Mono.Game;
 
 namespace wServer.realm.entities
 {
@@ -21,6 +22,8 @@ namespace wServer.realm.entities
 
     public partial class Player : Character, IContainer, IPlayer
     {
+        private int hungercooldownremove;
+
         static ILog log = LogManager.GetLogger(typeof(Player));
 
         Client client;
@@ -560,6 +563,18 @@ namespace wServer.realm.entities
             });
             Owner.Timers.Add(new WorldTimer(1000, (w, t) => client.Disconnect()));
             Owner.LeaveWorld(this);
+        }
+
+        public override Entity Move(float x, float y)
+        {
+            if (X != 0 && Y != 0)
+            {
+                Vector2 targetPosition = new Vector2(x, y);
+                Vector2 curPosition = new Vector2(X, Y);
+
+                hungercooldownremove = (int)((Vector2.Distance(curPosition, targetPosition) * (Stats[4] + Boost[4])));
+            }
+            return base.Move(x, y);
         }
     }
 }

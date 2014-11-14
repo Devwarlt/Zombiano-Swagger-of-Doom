@@ -12,7 +12,7 @@ namespace wServer.realm.entities
         private long lastPong = -1;
         private int? lastTime = null;
         private long tickMapping = 0;
-        public const int HUNGERCOOLDOWNMS = 10 * 1000;
+        public const int HUNGERCOOLDOWNMS = 60 * 1000;
         private int _hungertime;
         private Queue<long> ts = new Queue<long>();
 
@@ -92,7 +92,9 @@ namespace wServer.realm.entities
                 _hungertime = HUNGERCOOLDOWNMS;
             }
             else
-                _hungertime -= time.thisTickTimes;
+            {
+                _hungertime -= (time.thisTickTimes - hungercooldownremove);
+            }
         }
     }
 }

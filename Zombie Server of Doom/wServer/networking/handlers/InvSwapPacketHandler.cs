@@ -45,7 +45,7 @@ namespace wServer.networking.handlers
             Item itemA = conA.Inventory[slotA];
             Item itemB = conB.Inventory[slotB];
 
-            if (!conB.AuditItem(itemA, slotA) ||
+            if (!conB.AuditItem(itemA, slotB) ||
                 !conA.AuditItem(itemB, slotB))
                 player.Client.SendPacket(new InvResultPacket() { Result = 1 });
             else

@@ -48,7 +48,7 @@ namespace wServer.realm
 
         public CollisionNode<Entity> CollisionNode { get; set; }
         public CollisionMap<Entity> Parent { get; set; }
-        public Entity Move(float x, float y)
+        public virtual Entity Move(float x, float y)
         {
             if (Owner != null && !(this is Projectile) &&
                 (!(this is StaticObject) || (this as StaticObject).Hittestable))

@@ -37,7 +37,7 @@ package com.company.assembleegameclient.ui{
         private var path_:GraphicsPath;
 
         public function _0K_B_(_arg1:int, _arg2:int, _arg3:Number=1){
-            this._vV_ = new GraphicsSolidFill(0x691000, 1);
+            this._vV_ = new GraphicsSolidFill(0x73543F, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
 			this.graphicsData_ = new <IGraphicsData>[_vV_, path_, GraphicHelper.END_FILL];
             super();
@@ -57,7 +57,7 @@ package com.company.assembleegameclient.ui{
             _arg3.beginFill(0x353535, 0.01);
             _arg3.drawRect((-(_arg1) / 2), (-(_arg2) / 2), _arg1, _arg2);
             _arg3.endFill();
-            _arg3.beginFill(0x691000, 1);
+            _arg3.beginFill(0x73543F, 1);
             _arg3.moveTo((-(_arg1) / 2), (-(_arg2) / 2));
             _arg3.lineTo((_arg1 / 2), 0);
             _arg3.lineTo((-(_arg1) / 2), (_arg2 / 2));

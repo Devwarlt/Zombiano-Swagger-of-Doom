@@ -48,7 +48,7 @@ package _6e{
         private var path_:GraphicsPath;
 
         public function _03v(_arg1:String, _arg2:Boolean){
-            this._vV_ = new GraphicsSolidFill(0x681000, 1);
+            this._vV_ = new GraphicsSolidFill(0x63432E, 1);
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this._0y = new GraphicsStroke(2, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
