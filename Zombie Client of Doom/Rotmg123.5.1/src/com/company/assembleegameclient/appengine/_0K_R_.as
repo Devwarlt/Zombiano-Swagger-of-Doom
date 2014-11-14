@@ -188,7 +188,7 @@ package com.company.assembleegameclient.appengine{
         public function isAvailable(_arg1:int):Boolean{
             var _local3:XML;
             var _local4:int;
-            var _local2:XML = ObjectLibrary._Q_F_[_arg1];
+            var _local2:XML = ObjectLibrary.Items[_arg1];
             for each (_local3 in _local2.UnlockLevel)
             {
                 _local4 = ObjectLibrary._pb[_local3.toString()];

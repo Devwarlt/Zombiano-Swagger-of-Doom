@@ -80,7 +80,7 @@ package _K_D_{
         }
         public static function _A_s(_arg1:Object):GameObject{
             var _local2:int = ObjectLibrary._pb[_arg1["id"]];
-            var _local3:XML = ObjectLibrary._Q_F_[_local2];
+            var _local3:XML = ObjectLibrary.Items[_local2];
             var _local4:GameObject = ObjectLibrary._075(_local2);
             _local4.size_ = ((_arg1.hasOwnProperty("size")) ? _arg1["size"] : _local4.props_._0M_t());
             return (_local4);

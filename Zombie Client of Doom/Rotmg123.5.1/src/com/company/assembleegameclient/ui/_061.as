@@ -45,7 +45,7 @@ package com.company.assembleegameclient.ui{
             var _local6:SimpleText;
             super();
             this._0M_X_ = _arg1;
-            var _local3:XML = ObjectLibrary._Q_F_[_arg1];
+            var _local3:XML = ObjectLibrary.Items[_arg1];
             var _local4:int = 5;
             if (_local3.hasOwnProperty("ScaleValue"))
             {

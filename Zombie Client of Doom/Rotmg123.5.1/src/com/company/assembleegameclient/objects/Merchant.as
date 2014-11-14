@@ -183,7 +183,7 @@ package com.company.assembleegameclient.objects{
             return (ObjectLibrary._0D_N_[this._0E_]);
         }
         override public function soldObjectInternalName():String{
-            var _local1:XML = ObjectLibrary._Q_F_[this._0E_];
+            var _local1:XML = ObjectLibrary.Items[this._0E_];
             return (_local1.@id.toString());
         }
         override public function getTooltip():_for_{
@@ -192,7 +192,7 @@ package com.company.assembleegameclient.objects{
         override public function getIcon():BitmapData{
             var _local3:SimpleText;
             var _local1:BitmapData = ObjectLibrary.getRedrawnTextureFromType(this._0E_, 80, true);
-            var _local2:XML = ObjectLibrary._Q_F_[this._0E_];
+            var _local2:XML = ObjectLibrary.Items[this._0E_];
             if (_local2.hasOwnProperty("Doses"))
             {
                 _local1 = _local1.clone();
@@ -204,7 +204,7 @@ package com.company.assembleegameclient.objects{
             return (_local1);
         }
         public function getTex1Id(_arg1:int):int{
-            var _local2:XML = ObjectLibrary._Q_F_[this._0E_];
+            var _local2:XML = ObjectLibrary.Items[this._0E_];
             if (_local2 == null)
             {
                 return (_arg1);
@@ -216,7 +216,7 @@ package com.company.assembleegameclient.objects{
             return (_arg1);
         }
         public function getTex2Id(_arg1:int):int{
-            var _local2:XML = ObjectLibrary._Q_F_[this._0E_];
+            var _local2:XML = ObjectLibrary.Items[this._0E_];
             if (_local2 == null)
             {
                 return (_arg1);
@@ -228,10 +228,10 @@ package com.company.assembleegameclient.objects{
             return (_arg1);
         }
 		public function getSkinId(_arg1:int, player:Player):int{
-			var _local2:XML = ObjectLibrary._Q_F_[this._0E_];
+			var _local2:XML = ObjectLibrary.Items[this._0E_];
 			if (_local2 == null) return _arg1;
 			if (_local2.Activate == "UnlockSkin" && _local2.Activate.hasOwnProperty("@skinType")) {
-				var _skin:XML = ObjectLibrary._Q_F_[int(_local2.Activate.@skinType)];
+				var _skin:XML = ObjectLibrary.Items[int(_local2.Activate.@skinType)];
 				if (_skin == null)
 					return _arg1;
 				if (!_skin.hasOwnProperty("PlayerClassType"))

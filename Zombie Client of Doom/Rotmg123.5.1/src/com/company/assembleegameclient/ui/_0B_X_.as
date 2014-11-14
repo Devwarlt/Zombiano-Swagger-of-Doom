@@ -27,7 +27,7 @@ package com.company.assembleegameclient.ui{
         private var _L_C_:Boolean;
         private var background_:Shape;
         public var _F_:_ej = null;
-        public var _02y:_T_W_;
+        public var _02y:InventorySide;
         public var _U_T_:_Q_V_;
         public var _6K_:_zg = null;
         private var _3S_:_return;
@@ -111,7 +111,7 @@ package com.company.assembleegameclient.ui{
         private function _0J_s():void{
             var _local1:Player;
             _local1 = this.gs_.map_.player_;
-            this._02y = new _T_W_(this.gs_, _local1, 200, 300);
+            this._02y = new InventorySide(this.gs_, _local1, 200, 300);
             this._02y.y = 200;
             this._U_T_ = new _Q_V_(this.gs_, _local1, 200, 100);
             this._U_T_.x = 0;

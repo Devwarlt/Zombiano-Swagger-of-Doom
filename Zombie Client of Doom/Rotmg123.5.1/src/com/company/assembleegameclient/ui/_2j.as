@@ -61,7 +61,7 @@ package com.company.assembleegameclient.ui{
             {
                 _O_m._03d(this, _0H_K_);
                 _local8 = ObjectLibrary.getRedrawnTextureFromType(this.item_, 80, true);
-                _local9 = ObjectLibrary._Q_F_[this.item_];
+                _local9 = ObjectLibrary.Items[this.item_];
                 if (_local9.hasOwnProperty("Doses"))
                 {
                     _local8 = _local8.clone();

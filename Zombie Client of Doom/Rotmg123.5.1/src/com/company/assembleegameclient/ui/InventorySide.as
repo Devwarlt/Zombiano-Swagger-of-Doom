@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//com.company.assembleegameclient.ui._T_W_
+//com.company.assembleegameclient.ui.InventorySide
 
 package com.company.assembleegameclient.ui{
 	import com.company.assembleegameclient.game.GameSprite;
@@ -20,7 +20,7 @@ package com.company.assembleegameclient.ui{
 	
 	import _0C_P_.Options;
 	
-	public class _T_W_ extends Sprite {
+	public class InventorySide extends Sprite {
 		
 		private var gs_:GameSprite;
 		private var go_:Player;
@@ -34,7 +34,7 @@ package com.company.assembleegameclient.ui{
 		private var _U_U_:_0M_Y_;
 		private var _023:_0M_Y_;
 		private var _F_C_:_0M_Y_;
-		private var levelBar:_0M_Y_;
+		private var cooldownBar:_0M_Y_;
 		private var _086:Stats;
 		private var invTab_:TabButton;
 		private var statTab_:TabButton;
@@ -47,7 +47,7 @@ package com.company.assembleegameclient.ui{
 		
 		private var stackPots:Boolean = false;
 		
-		public function _T_W_(_arg1:GameSprite, _arg2:Player, _arg3:int, _arg4:int){
+		public function InventorySide(_arg1:GameSprite, _arg2:Player, _arg3:int, _arg4:int){
 			this.gs_ = _arg1;
 			this.go_ = _arg2;
 			this.w_ = _arg3;
@@ -92,7 +92,7 @@ package com.company.assembleegameclient.ui{
 			this._sI_.y = 78;
 			addChild(this._sI_);
 			this._sI_.visible = true;
-			this._U_U_ = new _0M_Y_(176, 16, 0xE25F00, 0x473224, "Visibility");
+			this._U_U_ = new _0M_Y_(176, 16, 0xE25F00, 0x473224, "Fame");
 			//this._U_U_.x = 12;
 			//this._U_U_.y = 30;
 			this._U_U_.x = 12;
@@ -112,13 +112,11 @@ package com.company.assembleegameclient.ui{
 			//this._F_C_.y = 78;
 			addChild(this._F_C_);
 
-			this.levelBar = new _0M_Y_(176, 16, 5931045, 0x473224, "Lvl X");
-			//this._sI_.x = 12;
-			//this._sI_.y = 30;
-			this.levelBar.x = 12;
-			this.levelBar.y = 102;
-			addChild(this.levelBar);
-			this.levelBar.visible = true;
+			this.cooldownBar = new _0M_Y_(176, 16, 5931045, 0x473224, "Cool");
+			this.cooldownBar.x = 12;
+			this.cooldownBar.y = 102;
+			addChild(this.cooldownBar);
+			this.cooldownBar.visible = true;
 
 			this.equips_ = new Inventory(_arg1, _arg2, "Inventory", _arg2._9A_.slice(0, 4), 4, true, 0, true);
 			this.equips_.x = 14;
@@ -188,36 +186,37 @@ package com.company.assembleegameclient.ui{
 		public function draw():void{
 			this._tm.bitmapData = this.go_.getPortrait();
 			var _local1:String = ("Lvl " + this.go_.level_);
-			if (_local1 != this.levelBar.labelText_.text)
+			if (_local1 != this._sI_.labelText_.text)
 			{
-				this.levelBar.labelText_.text = _local1;
-				this.levelBar.labelText_.updateMetrics();
+				this._sI_.labelText_.text = _local1;
+				this._sI_.labelText_.updateMetrics();
             }
             if (this.go_.level_ != 20)
 			{
-				if (!this.levelBar.visible)
+				if (!this._sI_.visible)
 				{
-					this.levelBar.visible = true;
+					this._sI_.visible = true;
 					this._U_U_.visible = false;
                 }
-                this.levelBar.draw(this.go_.exp_, this.go_._7V_, 0);
+                this._sI_.draw(this.go_.exp_, this.go_._7V_, 0);
 				if (this._0E__ != this.go_._gz)
 				{
 					this._0E__ = this.go_._gz;
-					this.levelBar._Y_r(this._0E__);
+					this._sI_._Y_r(this._0E__);
                 }
             } else
 			{
 				if (!this._U_U_.visible)
 				{
 					this._U_U_.visible = true;
-					this.levelBar.visible = false;
+					this._sI_.visible = false;
                 }
                 this._U_U_.draw(this.go_._0L_o, this.go_._n8, 0);
             }
             //this.tabBG_.draw(this.invTab_.selected_);
 			this._023.draw(this.go_.HP_, this.go_.maxHP_, this.go_._P_7, this.go_._uR_);
 			this._F_C_.draw(this.go_.MP_, this.go_.maxMP_, this.go_._0D_G_, this.go_._dt);
+			this.cooldownBar.draw(this.go_.abilityCooldownSec, this.go_.abilityCooldownSecGoal, 0, 0);
 			this._086.draw(this.go_);
 			this.equips_.draw(this.go_.equipment_.slice(0, 4));
 			this._e9.draw(this.go_.equipment_.slice(4));

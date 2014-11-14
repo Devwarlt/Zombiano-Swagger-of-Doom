@@ -39,7 +39,7 @@ package com.company.assembleegameclient.ui{
 		private var CornerTL:Bitmap;
 		private var CornerBR:Bitmap;
 
-        public function _0M_Y_(_arg1:int, _arg2:int, _arg3:uint, _arg4:uint, _arg5:String=null){
+        public function _0M_Y_(_arg1:int, _arg2:int, _arg3:uint, _arg4:uint, _arg5:String=null, _arg6:String="CHIP SBKI"){
             this._03o = new Sprite();
 			this.CornerTL = new Bitmap(new BarCornerTL());
 			this.CornerBR = new Bitmap(new BarCornerBR());
@@ -54,7 +54,7 @@ package com.company.assembleegameclient.ui{
             this._native = 0xFFFFFF;
             if (((!((_arg5 == null))) && (!((_arg5.length == 0)))))
             {
-                this.labelText_ = new SimpleText(16, this._native, false, 0, 0, "CHIP SBKI");
+                this.labelText_ = new SimpleText(16, this._native, false, 0, 0, _arg6);
                 this.labelText_._8Y_(true);
                 this.labelText_.text = _arg5;
                 this.labelText_.updateMetrics();
@@ -63,16 +63,16 @@ package com.company.assembleegameclient.ui{
 				this.labelText_.x = 4;
                 addChild(this.labelText_);
             }
-            this._08m = new SimpleText(15, 0xFFFFFF, false, 0, 0, "CHIP SBKI");
+            this._08m = new SimpleText(15, 0xFFFFFF, false, 0, 0, _arg6);
             this._08m._8Y_(true);
             this._08m.filters = [new DropShadowFilter(0, 0, 0)];
             this._08m.y = -1;
-            this._0M_M_ = new SimpleText(15, this._native, false, 0, 0, "CHIP SBKI");
+            this._0M_M_ = new SimpleText(15, this._native, false, 0, 0, _arg6);
             this._0M_M_._8Y_(true);
             this._0M_M_.alpha = 0.6;
             this._0M_M_.y = -1;
             this._0M_M_.filters = [new DropShadowFilter(0, 0, 0)];
-            this._5B_ = new SimpleText(15, 9493531, false, 0, 0, "CHIP SBKI");
+            this._5B_ = new SimpleText(15, 9493531, false, 0, 0, _arg6);
             this._5B_._8Y_(true);
             this._5B_.x = (this.w_ - 25);
             this._5B_.y = -1;

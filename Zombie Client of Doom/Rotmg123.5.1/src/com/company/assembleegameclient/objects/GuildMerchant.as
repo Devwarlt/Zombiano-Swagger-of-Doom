@@ -25,7 +25,7 @@ package com.company.assembleegameclient.objects{
             return (ObjectLibrary._0D_N_[objectType_]);
         }
         override public function soldObjectInternalName():String{
-            var _local1:XML = ObjectLibrary._Q_F_[objectType_];
+            var _local1:XML = ObjectLibrary.Items[objectType_];
             return (_local1.@id.toString());
         }
         override public function getTooltip():_for_{

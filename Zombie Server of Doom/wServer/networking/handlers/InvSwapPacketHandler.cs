@@ -31,8 +31,11 @@ namespace wServer.networking.handlers
                     Entity a, Entity b,
                     int slotA, int slotB)
         {
+            if (a is Player && b is Player && a.Id != b.Id) return;
+
             IContainer conA = a as IContainer;
             IContainer conB = b as IContainer;
+
             if (player == null || conA == null || conB == null)
             {
                 player.Client.SendPacket(new InvResultPacket() { Result = 1 });
@@ -42,7 +45,7 @@ namespace wServer.networking.handlers
             Item itemA = conA.Inventory[slotA];
             Item itemB = conB.Inventory[slotB];
 
-            if (!conB.AuditItem(itemA, slotB) ||
+            if (!conB.AuditItem(itemA, slotA) ||
                 !conA.AuditItem(itemB, slotB))
                 player.Client.SendPacket(new InvResultPacket() { Result = 1 });
             else
@@ -54,6 +57,9 @@ namespace wServer.networking.handlers
 
                 player.Client.SendPacket(new InvResultPacket() { Result = 0 });
             }
+
+            if (conA is Player) (conA as Player).SetCooldownTimer();
+            if (conB is Player) (conB as Player).SetCooldownTimer();
         }
     }
 }

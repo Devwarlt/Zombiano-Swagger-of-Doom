@@ -61,7 +61,7 @@ package _U_{
     import _F_F_._0L_J_;
     import _zD_._Y_w;
     import _zD_._yP_;
-    import com.company.assembleegameclient.ui._T_W_;
+    import com.company.assembleegameclient.ui.InventorySide;
     import _zD_._B_9;
 
     public class _K_a implements _v {
@@ -106,7 +106,7 @@ package _U_{
             this._O_R_.map(_R_W_)._q3(new _R_W_());
             this._1G_.map(_W_O_)._1N_(_0L_J_);
             this.mediatorMap.map(_Y_w)._Y_u(_yP_);
-            this.mediatorMap.map(_T_W_)._Y_u(_B_9);
+            this.mediatorMap.map(InventorySide)._Y_u(_B_9);
         }
 
     }

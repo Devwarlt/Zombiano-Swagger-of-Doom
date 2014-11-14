@@ -49,7 +49,7 @@ package com.company.assembleegameclient.screens.charrects{
             this._name = _arg1;
             this.character = _arg2;
             this.characterStats = _arg3;
-            this.playerXML = ObjectLibrary._Q_F_[this.character.objectType()];
+            this.playerXML = ObjectLibrary.Items[this.character.objectType()];
             this.makeSelectContainer();
             this.makeBitmap();
             this.makeClassNameText();

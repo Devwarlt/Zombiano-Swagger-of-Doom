@@ -48,11 +48,11 @@ package _zD_{
             if (_local2)
             {
                 _local3 = int(_local2._iJ_.ObjectType);
-                _local4 = ObjectLibrary._Q_F_[_local3];
+                _local4 = ObjectLibrary.Items[_local3];
 				var _skin:int = (_local2 != null ? _local2.skin() : -1);
                 _local5 = _0B_c._J_v(String(_local4.AnimatedTexture.File), int(_local4.AnimatedTexture.Index));
 				if (_skin != -1) {
-					var _skinx:XML = ObjectLibrary._Q_F_[_local2.skin()];
+					var _skinx:XML = ObjectLibrary.Items[_local2.skin()];
 					if (_skinx != null)
 						_local5 = _0B_c._J_v(String(_skinx.AnimatedTexture.File), int(_skinx.AnimatedTexture.Index));
 				}

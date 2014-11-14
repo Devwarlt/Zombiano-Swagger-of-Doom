@@ -4,7 +4,7 @@
 //ServerPackets._06N_
 
 package ServerPackets{
-    import com.company.assembleegameclient.net.messages.data._Q_0;
+import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
     public class _06N_ extends _01Q_ {
@@ -29,13 +29,13 @@ package ServerPackets{
 
         public var effectType_:uint;
         public var targetObjectId_:int;
-        public var pos1_:_Q_0;
-        public var pos2_:_Q_0;
+        public var pos1_:Position;
+        public var pos2_:Position;
         public var color_:int;
 
         public function _06N_(_arg1:uint){
-            this.pos1_ = new _Q_0();
-            this.pos2_ = new _Q_0();
+            this.pos1_ = new Position();
+            this.pos2_ = new Position();
             super(_arg1);
         }
         override public function parseFromInput(_arg1:IDataInput):void{

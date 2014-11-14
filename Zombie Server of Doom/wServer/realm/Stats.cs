@@ -87,5 +87,10 @@ namespace wServer.realm
         Guild = 62,
         GuildRank = 63,
         OxygenBar = 64,
+        _bk = 65,
+        SKIN_STAT = 66,
+        PVP_STAT = 67,
+        TEAM_STAT = 68,
+        AbilityCooldown = 69,
     }
 }

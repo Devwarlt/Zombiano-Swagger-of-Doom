@@ -28,7 +28,7 @@ package _D_d{
             for each (_local1 in _local2)
             {
                 _local3 = ObjectLibrary._pb[_local1];
-                _local4 = ObjectLibrary._Q_F_[_local3];
+                _local4 = ObjectLibrary.Items[_local3];
                 if (!((((_local4.hasOwnProperty("Item")) || (_local4.hasOwnProperty("Player")))) || ((_local4.Class == "Projectile"))))
                 {
                     _local5 = new _Q_H_(_local4);

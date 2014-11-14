@@ -32,6 +32,7 @@ namespace wServer.realm.entities
         public int Experience { get; set; }
         public int ExperienceGoal { get; set; }
         public int Level { get; set; }
+        public int AbilityCooldown { get; set; }
 
         public int CurrentFame { get; set; }
         public int Fame { get; set; }
@@ -163,6 +164,7 @@ namespace wServer.realm.entities
             stats[StatsType.VitalityBonus] = Boost[5];
             stats[StatsType.WisdomBonus] = Boost[6];
             stats[StatsType.DexterityBonus] = Boost[7];
+            stats[StatsType.AbilityCooldown] = AbilityCooldown;
         }
         public void SaveToCharacter()
         {
@@ -279,6 +281,7 @@ namespace wServer.realm.entities
             fames = new FameCounter(this);
             SetNewbiePeriod();
             _hungertime = HUNGERCOOLDOWNMS;
+            AbilityCooldown = Inventory[1] == null ? 0 : Inventory[1].MpCost;
             base.Init(owner);
         }
 
@@ -296,7 +299,7 @@ namespace wServer.realm.entities
             if (Hunger < 0) Hunger = 0;
 
             CheckTradeTimeout(time);
-            //HandleRegen(time);
+            HandleRegen(time);
             HandleQuest(time);
             HandleGround(time);
             HandleEffects(time);
@@ -332,19 +335,19 @@ namespace wServer.realm.entities
                 }
             }
 
-            if (Hunger == Stats[1] + Boost[1] || !CanMpRegen())
-                mpRegenCounter = 0;
-            else
-            {
-                mpRegenCounter += statsMgr.GetMPRegen() * time.thisTickTimes / 1000f;
-                int regen = (int)mpRegenCounter;
-                if (regen > 0)
-                {
-                    Hunger = Math.Min(Stats[1] + Boost[1], Hunger + regen);
-                    mpRegenCounter -= regen;
-                    UpdateCount++;
-                }
-            }
+            //if (Hunger == Stats[1] + Boost[1] || !CanMpRegen())
+            //    mpRegenCounter = 0;
+            //else
+            //{
+            //    mpRegenCounter += statsMgr.GetMPRegen() * time.thisTickTimes / 1000f;
+            //    int regen = (int)mpRegenCounter;
+            //    if (regen > 0)
+            //    {
+            //        Hunger = Math.Min(Stats[1] + Boost[1], Hunger + regen);
+            //        mpRegenCounter -= regen;
+            //        UpdateCount++;
+            //    }
+            //}
         }
 
         public void Teleport(RealmTime time, int objId)

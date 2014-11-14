@@ -104,13 +104,13 @@ package _F_1{
             _local3.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
             _local2.addChild(_local3);
             var _local4:XML = new XML(_arg1);
-            var _local5:XML = ObjectLibrary._Q_F_[int(_local4.ObjectType)];
+            var _local5:XML = ObjectLibrary.Items[int(_local4.ObjectType)];
 			var _skin:int = int(_local4.hasOwnProperty("Skin") ? _local4.Skin : -1);
             var _local6:_lJ_ = _0B_c._J_v(String(_local5.AnimatedTexture.File), int(_local5.AnimatedTexture.Index));
 			if (_skin == -1) {
 				_local6 = _0B_c._J_v(String(_local5.AnimatedTexture.File), int(_local5.AnimatedTexture.Index));
 			} else {
-				var _skinx:XML = ObjectLibrary._Q_F_[_skin];
+				var _skinx:XML = ObjectLibrary.Items[_skin];
 				if (_skinx == null) {
 					_local6 = _0B_c._J_v(String(_local5.AnimatedTexture.File), int(_local5.AnimatedTexture.Index));
 				}

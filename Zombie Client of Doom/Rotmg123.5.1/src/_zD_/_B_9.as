@@ -5,12 +5,12 @@
 
 package _zD_{
     import _C__._cM_;
-    import com.company.assembleegameclient.ui._T_W_;
+    import com.company.assembleegameclient.ui.InventorySide;
 
     public class _B_9 extends _cM_ {
 
         [Inject]
-        public var view:_T_W_;
+        public var view:InventorySide;
         private var name:String;
         private var _06G_:Array;
 

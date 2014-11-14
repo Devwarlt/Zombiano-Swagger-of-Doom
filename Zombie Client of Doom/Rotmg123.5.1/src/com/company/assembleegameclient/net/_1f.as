@@ -642,7 +642,7 @@ import com.company.assembleegameclient.game.GameSprite;
         private function _ux(_arg1:Event):void{
             this.gs_.textBox_.addText(Parameters.SendClient, "Connected!");
             var _local2:_0B_y = (this._08._Y_E_(HELLO) as _0B_y);
-			_local2.Copyright = "6d450d6aee98e461f0280a196593eebbfb8227a7";
+			_local2.Copyright = "FCP Inc. 2014";
             _local2.buildVersion_ = Parameters.clientVersion;
             _local2.gameId_ = this.gameId_;
             _local2.guid_ = this._J_X_(Account._get().guid());
@@ -1151,6 +1151,8 @@ import com.company.assembleegameclient.game.GameSprite;
 					case StatData.TEAM_STAT:
 						_arg1.team_ = _local4._h;
 						break;
+                    case StatData.ABILITYCOOLDOWN:
+                        (_arg1 as Player).abilityCooldownSec = _local4._h;
                 }
             }
         }

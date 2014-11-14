@@ -34,7 +34,7 @@ import flash.utils.Dictionary;
         LithiumObject;
 		
         public static const _020:Dictionary = new Dictionary();
-        public static const _Q_F_:Dictionary = new Dictionary();
+        public static const Items:Dictionary = new Dictionary();
         public static const _pb:Dictionary = new Dictionary();
         public static const _0D_N_:Dictionary = new Dictionary();
         public static const _V_a:Dictionary = new Dictionary();
@@ -70,7 +70,7 @@ import flash.utils.Dictionary;
                 }
                 _local5 = int(_local2.@type);
                 _020[_local5] = new ObjectProperties(_local2);
-                _Q_F_[_local5] = _local2;
+                Items[_local5] = _local2;
                 _pb[_local3] = _local5;
                 _0D_N_[_local5] = _local4;
                 if (String(_local2.Class) == "Player")
@@ -104,7 +104,7 @@ import flash.utils.Dictionary;
             }
         }
         public static function _6H_(_arg1:int):String{
-            var _local2:XML = _Q_F_[_arg1];
+            var _local2:XML = Items[_arg1];
             if (_local2 == null)
             {
                 return (null);
@@ -117,10 +117,10 @@ import flash.utils.Dictionary;
         }
         public static function _077(_arg1:String):XML{
             var _local2:int = _pb[_arg1];
-            return (_Q_F_[_local2]);
+            return (Items[_local2]);
         }
         public static function _075(_arg1:int):GameObject{
-            var _local2:XML = _Q_F_[_arg1];
+            var _local2:XML = Items[_arg1];
             var _local3:Class = (getDefinitionByName(("com.company.assembleegameclient.objects." + _local2.Class)) as Class);
             var _local4:GameObject = new (_local3)(_local2);
             return (_local4);
@@ -145,7 +145,7 @@ import flash.utils.Dictionary;
             {
                 return (TextureRedrawer.redraw(_local7, _arg2, _arg3, 0, 0, _arg4, _arg5));
             }
-            var _local9:XML = _Q_F_[_arg1];
+            var _local9:XML = Items[_arg1];
             var _local10:int = ((_local9.hasOwnProperty("Tex1")) ? int(_local9.Tex1) : 0);
             var _local11:int = ((_local9.hasOwnProperty("Tex2")) ? int(_local9.Tex2) : 0);
             _local7 = TextureRedrawer.resize(_local7, _local8, _arg2, _arg3, _local10, _local11);
@@ -153,7 +153,7 @@ import flash.utils.Dictionary;
             return (_local7);
         }
         public static function _P_N_(_arg1:int):int{
-            var _local2:XML = _Q_F_[_arg1];
+            var _local2:XML = Items[_arg1];
             if (!_local2.hasOwnProperty("Size"))
             {
                 return (100);
@@ -161,7 +161,7 @@ import flash.utils.Dictionary;
             return (int(_local2.Size));
         }
         public static function _gf(_arg1:int):int{
-            var _local2:XML = _Q_F_[_arg1];
+            var _local2:XML = Items[_arg1];
             if (!_local2.hasOwnProperty("SlotType"))
             {
                 return (-1);
@@ -173,7 +173,7 @@ import flash.utils.Dictionary;
             {
                 return (false);
             }
-            var _local3:XML = _Q_F_[_arg1];
+            var _local3:XML = Items[_arg1];
             var _local4:int = int(_local3.SlotType.toString());
             var _local5:uint;
             while (_local5 < 4)
@@ -191,13 +191,13 @@ import flash.utils.Dictionary;
             {
                 return (true);
             }
-            var _local3:XML = _Q_F_[_arg1];
+            var _local3:XML = Items[_arg1];
             if ((((_local3 == null)) || (!(_local3.hasOwnProperty("SlotType")))))
             {
                 return (false);
             }
             if (_local3.Activate == "UnlockSkin" && _local3.Activate.hasOwnProperty("@skinType")) {
-				var _skin:XML = ObjectLibrary._Q_F_[int(_local3.Activate.@skinType)];
+				var _skin:XML = ObjectLibrary.Items[int(_local3.Activate.@skinType)];
 				if (_skin == null || !_skin.hasOwnProperty("PlayerClassType" || int(_skin.PlayerClassType) != _arg2.objectType_))
 					return false;
             }
@@ -218,21 +218,21 @@ import flash.utils.Dictionary;
             return (false);
         }
         public static function _0H_Z_(_arg1:int):Boolean{
-            var _local2:XML = _Q_F_[_arg1];
+            var _local2:XML = Items[_arg1];
             return (((!((_local2 == null))) && (_local2.hasOwnProperty("Soulbound"))));
         }
         public static function _7S_(_arg1:int):Vector.<String>{
             var _local5:XML;
             var _local6:Vector.<int>;
             var _local7:int;
-            var _local2:XML = _Q_F_[_arg1];
+            var _local2:XML = Items[_arg1];
             if ((((_local2 == null)) || (!(_local2.hasOwnProperty("SlotType")))))
             {
                 return (null);
             }
             var _local3:int = _local2.SlotType;
 			if (_local2.Activate == "UnlockSkin" && _local2.Activate.hasOwnProperty("@skinType")) {
-				var _skin:XML = ObjectLibrary._Q_F_[int(_local2.Activate.@skinType)];
+				var _skin:XML = ObjectLibrary.Items[int(_local2.Activate.@skinType)];
 				if (_skin != null && _skin.hasOwnProperty("PlayerClassType"))
 					return new <String>[_0D_N_[int(_skin.PlayerClassType)]];
 			}
@@ -263,7 +263,7 @@ import flash.utils.Dictionary;
             {
                 return (true);
             }
-            var _local3:XML = _Q_F_[_arg1];
+            var _local3:XML = Items[_arg1];
             for each (_local4 in _local3.EquipRequirement)
             {
                 if (!_get(_local4, _arg2))

@@ -118,7 +118,7 @@ package com.company.assembleegameclient.ui{
         }
         public function _C_p():Boolean{
             var _local1:Player = (this._e9._iA_ as Player);
-            return (((!((_local1 == null))) && ((_local1.MP_ < this._K_9))));
+            return (((!((_local1 == null))) && ((_local1.abilityCooldownSec < this._K_9))));
         }
         public function draw(_arg1:int):void{
             if ((((this.objectType_ == _arg1)) && (((!(this._cX_)) || ((this._F_t == this._C_p()))))))
@@ -135,7 +135,7 @@ package com.company.assembleegameclient.ui{
         }
         public function _0E_J_():void{
             this._X_6();
-            var _local1:XML = ObjectLibrary._Q_F_[this.objectType_];
+            var _local1:XML = ObjectLibrary.Items[this.objectType_];
             if ((((this.objectType_ == -1)) || ((type_ == any_))))
             {
                 this._cX_ = false;
@@ -259,7 +259,7 @@ package com.company.assembleegameclient.ui{
             this._6i();
         }
         public function attemptUse():void{
-            var _local1:XML = ObjectLibrary._Q_F_[this.objectType_];
+            var _local1:XML = ObjectLibrary.Items[this.objectType_];
             if (_local1 == null)
             {
                 return;
@@ -370,7 +370,7 @@ package com.company.assembleegameclient.ui{
             {
                 _local1 = this._v5();
                 _local2 = ObjectLibrary._01j(this.objectType_, _local1);
-                _local3 = ObjectLibrary._Q_F_[this.objectType_];
+                _local3 = ObjectLibrary.Items[this.objectType_];
                 _local4 = _local3.SlotType;
                 if (_local2)
                 {
@@ -403,7 +403,7 @@ package com.company.assembleegameclient.ui{
             var _local7:_E_6;
             var _local1:Player = this._v5();
             var _local2:Boolean = ObjectLibrary._01j(this.objectType_, _local1);
-            var _local3:XML = ObjectLibrary._Q_F_[this.objectType_];
+            var _local3:XML = ObjectLibrary.Items[this.objectType_];
             var _local4:int = _local3.SlotType;
             if (_local2)
             {

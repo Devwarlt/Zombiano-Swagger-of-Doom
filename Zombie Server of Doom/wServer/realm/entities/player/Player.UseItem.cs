@@ -198,7 +198,9 @@ namespace wServer.realm.entities
 
         void Activate(RealmTime time, Item item, Position target)
         {
-            Hunger -= item.MpCost;
+            AbilityCooldown = 0;
+            SetCooldownTimer();
+
             foreach (var eff in item.ActivateEffects)
             {
                 switch (eff.Effect)
@@ -705,6 +707,30 @@ namespace wServer.realm.entities
                 }
             }
             UpdateCount++;
+        }
+
+        private WorldTimer cooldownTimer;
+
+        public void SetCooldownTimer()
+        {
+            if (cooldownTimer == null)
+            {
+                cooldownTimer = new WorldTimer(1000, (w, t) =>
+                {
+                    if (Owner == null) return;
+                    AbilityCooldown += 10;
+                    UpdateCount++;
+                    int l1 = Inventory[1] == null ? 0 : Inventory[1].MpCost;
+                    if (l1 != 0 && AbilityCooldown < l1)
+                    {
+                        cooldownTimer.Reset();
+                        Manager.Logic.AddPendingAction(_ => w.Timers.Add(cooldownTimer), PendingPriority.Creation);
+                    }
+                    else
+                        cooldownTimer = null;
+                });
+                Owner.Timers.Add(cooldownTimer);
+            }
         }
     }
 }

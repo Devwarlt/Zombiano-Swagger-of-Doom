@@ -124,6 +124,8 @@ package com.company.assembleegameclient.objects{
         private var _Y_e:GraphicsSolidFill = null;
         private var _K_Y_:GraphicsPath = null;
         public var _K_X_:BitmapData = null;
+        public var abilityCooldownSec:int = -1;
+        public var abilityCooldownSecGoal:int = -1;
 		
 		public var usiShukAbil:Boolean = false;
 
@@ -142,7 +144,7 @@ package com.company.assembleegameclient.objects{
         }
         public static function _D_U_(_arg1:String, _arg2:XML):Player{
             var _local3:int = int(_arg2.ObjectType);
-            var _local4:XML = ObjectLibrary._Q_F_[_local3];
+            var _local4:XML = ObjectLibrary.Items[_local3];
             var _local5:Player = new Player(_local4);
             _local5.name_ = _arg1;
             _local5.level_ = int(_arg2.Level);
@@ -641,6 +643,7 @@ package com.company.assembleegameclient.objects{
         }
         override public function draw(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void{
             super.draw(_arg1, _arg2, _arg3);
+            this.abilityCooldownSecGoal = ObjectLibrary.Items[equipment_[1]] == null ? 0 : int(ObjectLibrary.Items[equipment_[1]].MpCost);
             if (this != map_.player_)
             {
                 if (!Parameters._0F_o)
@@ -839,13 +842,13 @@ package com.company.assembleegameclient.objects{
             {
                 return;
             }
-            var _local4:XML = ObjectLibrary._Q_F_[_local3];
+            var _local4:XML = ObjectLibrary.Items[_local3];
             if (_local4 == null || !_local4.hasOwnProperty("Usable"))
             {
                 return;
             }
             var _local5:int = int(_local4.MpCost);
-            if (_local5 > this.MP_)
+            if (_local5 > this.abilityCooldownSec)
             {
                 _5T_.play("no_mana");
                 return;
@@ -901,7 +904,7 @@ package com.company.assembleegameclient.objects{
 				return;
 			
 			var _local3:int = equipment_[1];
-			var _local4:XML = ObjectLibrary._Q_F_[_local3];
+			var _local4:XML = ObjectLibrary.Items[_local3];
 			var _local6:Point = map_.pSTopW(_arg1, _arg2);
 			var _local8:int;
 			
@@ -929,7 +932,7 @@ package com.company.assembleegameclient.objects{
             this.shoot(Parameters.data_.cameraAngle + _arg1);
         }
         override public function setAttack(_arg1:int, _arg2:Number):void{
-            var _local3:XML = ObjectLibrary._Q_F_[_arg1];
+            var _local3:XML = ObjectLibrary.Items[_arg1];
             if (_local3 == null || !_local3.hasOwnProperty("RateOfFire"))
             {
                 return;
@@ -949,7 +952,7 @@ package com.company.assembleegameclient.objects{
                 map_.gs_.textBox_.addText(Parameters.SendError, "You do not have a weapon equipped!");
                 return;
             }
-            var _local3:XML = ObjectLibrary._Q_F_[_local2];
+            var _local3:XML = ObjectLibrary.Items[_local2];
             var _local4:int = getTimer();
             var _local5:Number = Number(_local3.RateOfFire);
             this._y4 = ((1 / this._F_W_()) * (1 / _local5));

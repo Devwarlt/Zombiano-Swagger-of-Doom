@@ -232,34 +232,41 @@ namespace wServer.realm
 
         public virtual void Tick(RealmTime time)
         {
-            if (IsLimbo) return;
+            try
+            {
+                if (IsLimbo) return;
 
-            for (int i = 0; i < Timers.Count; i++)
-                if (Timers[i].Tick(this, time))
+                for (int i = 0; i < Timers.Count; i++)
+                    if (Timers[i].Tick(this, time))
+                    {
+                        Timers.RemoveAt(i);
+                        i--;
+                    }
+
+                foreach (var i in Players)
+                    i.Value.Tick(time);
+
+                if (EnemiesCollision != null)
                 {
-                    Timers.RemoveAt(i);
-                    i--;
+                    foreach (var i in EnemiesCollision.GetActiveChunks(PlayersCollision))
+                        i.Tick(time);
+                    foreach (var i in StaticObjects.Where(x => x.Value is Decoy))
+                        i.Value.Tick(time);
                 }
-
-            foreach (var i in Players)
-                i.Value.Tick(time);
-
-            if (EnemiesCollision != null)
-            {
-                foreach (var i in EnemiesCollision.GetActiveChunks(PlayersCollision))
-                    i.Tick(time);
-                foreach (var i in StaticObjects.Where(x => x.Value is Decoy))
+                else
+                {
+                    foreach (var i in Enemies)
+                        i.Value.Tick(time);
+                    foreach (var i in StaticObjects)
+                        i.Value.Tick(time);
+                }
+                foreach (var i in Projectiles)
                     i.Value.Tick(time);
             }
-            else
+            catch (Exception ex)
             {
-                foreach (var i in Enemies)
-                    i.Value.Tick(time);
-                foreach (var i in StaticObjects)
-                    i.Value.Tick(time);
+                log.FatalFormat("Error in world {0}:\n{1}", Name, ex);
             }
-            foreach (var i in Projectiles)
-                i.Value.Tick(time);
         }
 
         protected string[] BuildMusic(params string[] args)

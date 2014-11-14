@@ -63,7 +63,7 @@ package com.company.assembleegameclient.ui{
             this._30.x = (82 - this._30.width);
             this._30.y = ((HEIGHT / 2) - (this._30.height / 2));
             addChild(this._30);
-            _local5 = ObjectLibrary._Q_F_[int(_arg3.ObjectType)];
+            _local5 = ObjectLibrary.Items[int(_arg3.ObjectType)];
             //var _local6:_lJ_ = _0B_c._J_v(String(_local5.AnimatedTexture.File), int(_local5.AnimatedTexture.Index));
             //var _local7:_J_H_ = _local6.imageFromDir(_lJ_.RIGHT, _lJ_._sS_, 0);
             var _local8:int = ((_arg3.hasOwnProperty("Tex1")) ? _arg3.Tex1 : 0);
@@ -73,7 +73,7 @@ package com.company.assembleegameclient.ui{
 			if (_skin == -1) {
 				_local6 = _0B_c._J_v(String(_local5.AnimatedTexture.File), int(_local5.AnimatedTexture.Index));
 			} else {
-				var _skinx:XML = ObjectLibrary._Q_F_[_skin];
+				var _skinx:XML = ObjectLibrary.Items[_skin];
 				if (_skinx == null) {
 					_local6 = _0B_c._J_v(String(_local5.AnimatedTexture.File), int(_local5.AnimatedTexture.Index));
 				}

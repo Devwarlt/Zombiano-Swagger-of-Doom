@@ -29,7 +29,7 @@ package _E_7{
         public function _0M_k(_arg1:String, _arg2:XML, _arg3:_0A_H_){
             super(0x500C00, 1, 0xFFFFFF, 1);
             var _local4:int = int(_arg2.ObjectType);
-            var _local5:XML = ObjectLibrary._Q_F_[_local4];
+            var _local5:XML = ObjectLibrary.Items[_local4];
             this.player_ = Player._D_U_(_arg1, _arg2);
             this._02y = new _gV_(0xB3B3B3, true, this.player_);
             addChild(this._02y);

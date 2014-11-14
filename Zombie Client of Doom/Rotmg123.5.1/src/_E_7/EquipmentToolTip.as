@@ -70,7 +70,7 @@ package _E_7{
 			super(_local7, 1, _local8, 1, true);
 			this._uW_ = new _fM_();
 			this.objectType_ = _arg1;
-			this._I_z = ObjectLibrary._Q_F_[_arg1];
+			this._I_z = ObjectLibrary.Items[_arg1];
 			this._Y_X_ = this.player_ != null ? ObjectLibrary._01j(this.objectType_, this.player_) : false;
 			this._a2 = new Vector.<Effect>();
 			this._sJ_ = _arg3;
@@ -87,7 +87,7 @@ package _E_7{
 					{
 						if ((((this._0A_f == this.player_._9A_[_local9])) && (!((this.player_.equipment_[_local9] == -1)))))
 						{
-							this.curItemXML = ObjectLibrary._Q_F_[this.player_.equipment_[_local9]];
+							this.curItemXML = ObjectLibrary.Items[this.player_.equipment_[_local9]];
 							break;
                         }
                         _local9++;
@@ -139,7 +139,7 @@ package _E_7{
 			return (((this._Y_X_) && ((this.curItemXML == null))));
 		}
 		private function _0B_C_():void{
-			var _local1:XML = ObjectLibrary._Q_F_[this.objectType_];
+			var _local1:XML = ObjectLibrary.Items[this.objectType_];
 			var _local2:int = 5;
 			if (_local1.hasOwnProperty("ScaleValue"))
 			{

@@ -32,7 +32,7 @@ package com.company.assembleegameclient.appengine{
 			var _skin:int = (_arg1 != null ? _arg1.skin() : -1);
 			var _local8:_lJ_ = _0B_c._J_v(String(_arg2.AnimatedTexture.File), int(_arg2.AnimatedTexture.Index));
 			if (_skin != -1) {
-				var _skinx:XML = ObjectLibrary._Q_F_[_arg1.skin()];
+				var _skinx:XML = ObjectLibrary.Items[_arg1.skin()];
 				if (_skinx != null)
 					_local8 = _0B_c._J_v(String(_skinx.AnimatedTexture.File), int(_skinx.AnimatedTexture.Index));
 			}
