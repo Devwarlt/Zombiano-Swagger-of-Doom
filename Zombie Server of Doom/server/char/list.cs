@@ -1,13 +1,15 @@
-﻿using db;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Net;
+using System.Linq;
 using System.Text;
-using System.Web;
+using System.Net;
 using System.Xml;
+using db;
 using System.Xml.Serialization;
+using System.IO;
+using MySql.Data.MySqlClient;
+using System.Web;
+using System.Collections.Specialized;
 
 namespace server.@char
 {
@@ -78,8 +80,6 @@ namespace server.@char
                 XmlSerializer serializer = new XmlSerializer(chrs.GetType(), new XmlRootAttribute(chrs.GetType().Name) { Namespace = "" });
 
                 XmlWriterSettings xws = new XmlWriterSettings();
-                xws.Indent = true;
-                xws.IndentChars = "    ";
                 xws.OmitXmlDeclaration = true;
                 xws.Encoding = Encoding.UTF8;
                 XmlWriter xtw = XmlWriter.Create(context.Response.OutputStream, xws);

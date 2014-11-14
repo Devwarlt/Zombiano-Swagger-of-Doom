@@ -1,4 +1,9 @@
-﻿using wServer.logic.loot;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using wServer.logic.loot;
+using wServer.logic;
 
 namespace wServer.realm.setpieces
 {

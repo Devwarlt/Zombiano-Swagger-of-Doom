@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using wServer.networking.svrPackets;
+using wServer.networking.cliPackets;
 using wServer.realm.terrain;
 
 namespace wServer.realm.entities

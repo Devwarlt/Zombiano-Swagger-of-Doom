@@ -44,7 +44,7 @@ import flash.text.TextFormatAlign;
             this.gs_ = _arg2;
             this.events();
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
-            this._str4865();
+            this.setPosition();
             this._str1776();
             addChild(this._str2928(_arg1.head, 20, 5, 0x57AD62));
             addChild(this._str2928(_arg1.text, 20, 40, 0xFFFFFF));
@@ -60,7 +60,7 @@ import flash.text.TextFormatAlign;
         private function slideIn_(/*_arg1:GTween*/):void {
             _5T_.play("alert", 3);
             var _local1:GTween = new GTween(this, SLIDESPEED, {
-                "x": (800 - (NotificationBox.WIDTH + 6))
+                "x": 6
             });
             _local1.onComplete = this.wait;
         }
@@ -70,7 +70,7 @@ import flash.text.TextFormatAlign;
         }
         private function slideOut_(_arg1:GTween):void {
             var _local1:GTween = new GTween(this, SLIDESPEED, {
-                "x": (800 + (NotificationBox.WIDTH + 6))
+                "x": (0 - (NotificationBox.WIDTH + 6))
             });
             _local1.onComplete = this.endTween;
         }
@@ -99,9 +99,9 @@ import flash.text.TextFormatAlign;
             _local4.y = _arg3;
             return (_local4);
         }
-        private function _str4865():void{
-            this.x = (800 + (NotificationBox.WIDTH + 6));
-            this.y = Parameters.data_.notifLocation ? 6 : (600 - (NotificationBox.HEIGHT + 6));
+        private function setPosition():void{
+            this.x = (0 - (NotificationBox.WIDTH + 6));
+            this.y = 35;//Parameters.data_.notifLocation ? 6 : (20 - (NotificationBox.HEIGHT + 6));
         }
         private function events():void{
             this.closeButton.event.add(this.onCloseClick);

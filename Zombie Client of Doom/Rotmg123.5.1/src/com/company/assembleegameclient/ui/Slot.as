@@ -51,7 +51,7 @@ package com.company.assembleegameclient.ui{
         public static const WIDTH:int = 40;
         public static const HEIGHT:int = 40;
         public static const BORDER:int = 4;
-        private static const _0I_E_:ColorMatrixFilter = new ColorMatrixFilter(MoreColorUtil._fL_(0x3F0A00));
+        private static const _0I_E_:ColorMatrixFilter = new ColorMatrixFilter(MoreColorUtil._fL_(/*0x73543F*/0x473224));//0x734D34));//0x734D34));
 
         public var type_:int;
         public var _ws:int;
@@ -63,7 +63,7 @@ package com.company.assembleegameclient.ui{
         private var graphicsData_:Vector.<IGraphicsData>;
 
         public function Slot(_arg1:int, _arg2:int, _arg3:Array, _equipment:Boolean = false){
-            this._04c = new GraphicsSolidFill(_equipment ? 0x600D00 : 0x7A1300, 1);
+            this._04c = new GraphicsSolidFill(_equipment ? 0x73543F : 0x73543F, 1);//0x600D00 : = invslot 1-12 ? = item slots for weapons
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
             this.graphicsData_ = new <IGraphicsData>[this._04c, this.path_, GraphicHelper.END_FILL];
             super();
@@ -77,6 +77,10 @@ package com.company.assembleegameclient.ui{
             {
 				case -10:
 					return ("Output");
+				case -1:
+					return ("Offer");
+				case -2:
+					return ("Item");
                 case any_:
                     return ("Any");
                 case sword_:
@@ -251,7 +255,7 @@ package com.company.assembleegameclient.ui{
                 {
                     if (this._ws > 0)
                     {
-                        _local5 = new SimpleText(26, 0x3F0A00, false, 0, 0, "Myriad Pro");
+                        _local5 = new SimpleText(26, 0x473224, false, 0, 0, "Myriad Pro");
                         _local5.text = String(this._ws);
                         _local5._8Y_(true);
                         _local5.updateMetrics();

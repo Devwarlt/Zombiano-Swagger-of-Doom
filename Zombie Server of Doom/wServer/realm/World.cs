@@ -1,12 +1,13 @@
-﻿using log4net;
-using System;
-using System.Collections.Concurrent;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading;
-using wServer.networking;
 using wServer.realm.entities;
+using System.Collections.Concurrent;
+using wServer.networking;
 using wServer.realm.terrain;
+using log4net;
 
 namespace wServer.realm
 {
@@ -259,6 +260,13 @@ namespace wServer.realm
             }
             foreach (var i in Projectiles)
                 i.Value.Tick(time);
+        }
+
+        protected string[] BuildMusic(params string[] args)
+        {
+            if (args == null)
+                return new string[0];
+            return args;
         }
 
         public ConcurrentDictionary<int, Enemy> Quests { get; private set; }

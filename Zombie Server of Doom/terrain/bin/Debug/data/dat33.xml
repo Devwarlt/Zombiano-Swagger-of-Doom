@@ -1003,6 +1003,13 @@
 		<ShadowSize>0</ShadowSize>
 		<Static/>
 	</Object>
+	<Object type="0x01cb" id="Money Changer">
+		<Class>MoneyChanger</Class>
+        <Texture><File>lofiObjBig</File><Index>0x3c</Index></Texture>
+		<Static/>
+        <Size>60</Size>
+        
+	</Object>
 	<Object type="0x01cc" id="Character Changer">
 		<Class>CharacterChanger</Class>
 		<Texture><File>lofiChar8x8</File><Index>0x08</Index></Texture>

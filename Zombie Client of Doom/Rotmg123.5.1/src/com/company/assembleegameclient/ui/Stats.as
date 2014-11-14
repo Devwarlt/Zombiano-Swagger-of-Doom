@@ -29,7 +29,7 @@ package com.company.assembleegameclient.ui{
             var _local3:XML;
             var _local4:Stat;
             this._086 = new Vector.<Stat>();
-            this.toolTip_ = new _aS_(0x500C00, 0x9B9B9B, "", "", 200);
+            this.toolTip_ = new _aS_(0x73543F, 0x9B9B9B, "", "", 200);
             super();
             this.w_ = _arg1;
             this.h_ = _arg2;

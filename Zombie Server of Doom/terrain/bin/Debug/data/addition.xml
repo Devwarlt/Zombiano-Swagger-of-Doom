@@ -55,27 +55,6 @@
     </Object>
   </Character>
 
-  <Object id="Lith" ext="true">
-    <Enemy/>
-    <Class>LithiumObject</Class>
-    <RemoteTexture>
-      <Instance>production</Instance>
-      <Id>forgotten_archmage_of_flame</Id>
-    </RemoteTexture>
-    <HitSound>monster/abyss_demons_hit</HitSound>
-    <DeathSound>monster/abyss_demons_death</DeathSound>
-    <Size>150</Size>
-    <MaxHitPoints>5000</MaxHitPoints>
-    <Defense>30</Defense>
-    <Projectile id="0">
-      <ObjectId>Fire Mystic Shot</ObjectId>
-      <Damage>200</Damage>
-      <Speed>50</Speed>
-      <LifetimeMS>10000</LifetimeMS>
-      <PassesCover/>
-    </Projectile>
-  </Object>
-  
   <Item>
     <ItemGroup type="testing">
       <Object id="Staff of Someone" ext="true">

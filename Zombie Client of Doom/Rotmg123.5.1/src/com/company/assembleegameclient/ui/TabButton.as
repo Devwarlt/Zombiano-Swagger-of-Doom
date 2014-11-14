@@ -48,7 +48,7 @@ package com.company.assembleegameclient.ui
 		}
 		
 		public function updateFill(_selected:Boolean):void {
-			this.fill_ = new GraphicsSolidFill(_selected ? 0x3C0C00 : 0x7A1300, 1);
+			this.fill_ = new GraphicsSolidFill(_selected ? 0x473224 : 0x5C4434, 1);//0x73543F
 			this.graphicsData_ = new <IGraphicsData>[this.fill_, this.path_, GraphicHelper.END_FILL];
 		}
 		

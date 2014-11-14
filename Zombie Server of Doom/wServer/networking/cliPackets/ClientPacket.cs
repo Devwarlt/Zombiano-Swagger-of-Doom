@@ -1,4 +1,8 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 namespace wServer.networking.cliPackets
 {
     public abstract class ClientPacket : Packet

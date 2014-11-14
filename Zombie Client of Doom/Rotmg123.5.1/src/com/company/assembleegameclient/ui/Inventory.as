@@ -20,8 +20,8 @@ package com.company.assembleegameclient.ui{
 
         private static const _pm:Array = [0, 0, 0, 0];
         private static const _ls:Object = {
-			"1":[[1, 1, 1, 1]],
-			"2":[[1, 0, 0, 1], [0, 1, 1, 0]],
+			"1":[[1, 1, 0, 0]],
+			"2":[[1, 0, 0, 1], [0, 0, 0, 0]],
 			"3":[[1, 0, 0, 1], _pm, [0, 1, 1, 0]],
             "4":[[1, 0, 0, 1], _pm, _pm, [0, 1, 1, 0]],
 			"5":[[1, 0, 0, 1], _pm, _pm, [0, 1, 1, 0], [0, 0, 1, 1]],
@@ -45,7 +45,7 @@ package com.company.assembleegameclient.ui{
         public function Inventory(_arg1:GameSprite, _arg2:GameObject, _arg3:String, _arg4:Vector.<int>, _arg5:int, _arg6:Boolean, _offset:int = 0, _equipment:Boolean = false):void{
             var _local8:_E_6;
             this.slots_ = new Vector.<_E_6>();
-			this.fill_ = new GraphicsSolidFill(0x6B452C);
+			this.fill_ = new GraphicsSolidFill(0x473224);//0x5C4434);//0x4A260F);//0x73543F);
 			this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
 			this.graphicsData_ = new <IGraphicsData>[this.fill_, this.path_, GraphicHelper.END_FILL];
             super();

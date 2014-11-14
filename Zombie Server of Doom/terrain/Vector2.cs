@@ -26,6 +26,7 @@ SOFTWARE.
 #endregion License
 
 using System;
+using System.Text;
 using System.Globalization;
 #if WINRT
 using System.Runtime.Serialization;

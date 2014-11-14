@@ -1,4 +1,11 @@
-﻿using wServer.networking.svrPackets;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using wServer.networking.cliPackets;
+using wServer.networking.svrPackets;
+using wServer.realm.setpieces;
+using wServer.realm.commands;
 
 namespace wServer.realm.entities
 {

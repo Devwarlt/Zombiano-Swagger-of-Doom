@@ -34,6 +34,7 @@ package com.company.assembleegameclient.ui{
 		private var _U_U_:_0M_Y_;
 		private var _023:_0M_Y_;
 		private var _F_C_:_0M_Y_;
+		private var levelBar:_0M_Y_;
 		private var _086:Stats;
 		private var invTab_:TabButton;
 		private var statTab_:TabButton;
@@ -84,39 +85,56 @@ package com.company.assembleegameclient.ui{
 				this._nw.y = 2;
 				addChild(this._nw);
             }
-            this._sI_ = new _0M_Y_(176, 16, 5931045, 0x260400, "Lvl X");
+            this._sI_ = new _0M_Y_(176, 16, 5931045, 0x473224, "Lvl X");
+			//this._sI_.x = 12;
+			//this._sI_.y = 30;
 			this._sI_.x = 12;
-			this._sI_.y = 30;
+			this._sI_.y = 78;
 			addChild(this._sI_);
 			this._sI_.visible = true;
-			this._U_U_ = new _0M_Y_(176, 16, 0xE25F00, 0x260400, "Visibility");
+			this._U_U_ = new _0M_Y_(176, 16, 0xE25F00, 0x473224, "Visibility");
+			//this._U_U_.x = 12;
+			//this._U_U_.y = 30;
 			this._U_U_.x = 12;
-			this._U_U_.y = 30;
+			this._U_U_.y = 78;
 			addChild(this._U_U_);
 			this._U_U_.visible = false;
-			this._023 = new _0M_Y_(176, 16, 14693428, 0x260400, "Health");
+			this._023 = new _0M_Y_(176, 16, 14693428, 0x473224, "Health");
 			this._023.x = 12;
 			this._023.y = 54;
+			//this._023.x = 12;
+			//this._023.y = 54;
 			addChild(this._023);
-			this._F_C_ = new _0M_Y_(176, 16, 6325472, 0x260400, "Hunger");
+			this._F_C_ = new _0M_Y_(176, 16, /*0x631212*/0x421111, 0x473224, "Hunger"); //6325472, 0x473224, "Hunger");
 			this._F_C_.x = 12;
-			this._F_C_.y = 78;
+			this._F_C_.y = 30;
+			//this._F_C_.x = 12;
+			//this._F_C_.y = 78;
 			addChild(this._F_C_);
+
+			this.levelBar = new _0M_Y_(176, 16, 5931045, 0x473224, "Lvl X");
+			//this._sI_.x = 12;
+			//this._sI_.y = 30;
+			this.levelBar.x = 12;
+			this.levelBar.y = 102;
+			addChild(this.levelBar);
+			this.levelBar.visible = true;
+
 			this.equips_ = new Inventory(_arg1, _arg2, "Inventory", _arg2._9A_.slice(0, 4), 4, true, 0, true);
 			this.equips_.x = 14;
-			this.equips_.y = 104;
+			this.equips_.y = 128;
 			addChild(this.equips_);
 			this.tabList_ = [];
 			this.invTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x20), true, 0);
 			this.invTab_.addEventListener(MouseEvent.CLICK, this.onTabClick);
 			this.invTab_.x = 7;
-			this.invTab_.y = 152;
+			this.invTab_.y = 176;
 			addChild(this.invTab_);
 			this.tabList_[0] = this.invTab_;
 			this.statTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x21), false, 1);
 			this.statTab_.addEventListener(MouseEvent.CLICK, this.onTabClick);
 			this.statTab_.x = 35;
-			this.statTab_.y = 152;
+			this.statTab_.y = 176;
 			addChild(this.statTab_);
 			this.tabList_[1] = this.statTab_;
 			this._086 = new Stats(191, 45);
@@ -170,30 +188,30 @@ package com.company.assembleegameclient.ui{
 		public function draw():void{
 			this._tm.bitmapData = this.go_.getPortrait();
 			var _local1:String = ("Lvl " + this.go_.level_);
-			if (_local1 != this._sI_.labelText_.text)
+			if (_local1 != this.levelBar.labelText_.text)
 			{
-				this._sI_.labelText_.text = _local1;
-				this._sI_.labelText_.updateMetrics();
+				this.levelBar.labelText_.text = _local1;
+				this.levelBar.labelText_.updateMetrics();
             }
             if (this.go_.level_ != 20)
 			{
-				if (!this._sI_.visible)
+				if (!this.levelBar.visible)
 				{
-					this._sI_.visible = true;
+					this.levelBar.visible = true;
 					this._U_U_.visible = false;
                 }
-                this._sI_.draw(this.go_.exp_, this.go_._7V_, 0);
+                this.levelBar.draw(this.go_.exp_, this.go_._7V_, 0);
 				if (this._0E__ != this.go_._gz)
 				{
 					this._0E__ = this.go_._gz;
-					this._sI_._Y_r(this._0E__);
+					this.levelBar._Y_r(this._0E__);
                 }
             } else
 			{
 				if (!this._U_U_.visible)
 				{
 					this._U_U_.visible = true;
-					this._sI_.visible = false;
+					this.levelBar.visible = false;
                 }
                 this._U_U_.draw(this.go_._0L_o, this.go_._n8, 0);
             }

@@ -18,7 +18,7 @@ package com.company.assembleegameclient.ui
 		
 		public function TabBackground(_width:int, _height:int)
 		{
-			this.fill_ = new GraphicsSolidFill(0x243821, 1);
+			this.fill_ = new GraphicsSolidFill(0x473224, 1);//0x5C4434
 			this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
 			this.graphicsData_ = new <IGraphicsData>[this.fill_, this.path_, GraphicHelper.END_FILL];
 			super();

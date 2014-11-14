@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml;
+using db;
+using wServer.networking.svrPackets;
 
 namespace wServer.realm.entities
 {
