@@ -19,6 +19,7 @@ namespace wServer.realm.worlds
         {
             Name = name;
             Background = 0;
+            ShowDisplays = false;
             this.oryxPresent = oryxPresent;
             this.mapId = mapId;
         }

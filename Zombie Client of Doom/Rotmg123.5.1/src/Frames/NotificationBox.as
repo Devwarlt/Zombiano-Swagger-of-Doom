@@ -1,6 +1,5 @@
 
 package Frames {
-import ServerPackets.Notification;
 import ServerPackets.NotificationBoxPacket;
 
 import _05R_.GTween;
@@ -12,7 +11,6 @@ import _vf._5T_;
 import com.company.assembleegameclient.game.GameSprite;
 
 import com.company.assembleegameclient.objects.ObjectLibrary;
-import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.util.ModalBackground;
 
 import com.company.assembleegameclient.ui.Button;
@@ -22,7 +20,6 @@ import flash.display.Sprite;
 import flash.events.Event;
 import flash.filters.DropShadowFilter;
 import flash.text.TextFieldAutoSize;
-import flash.text.TextFormatAlign;
 
     public class NotificationBox extends Sprite {
 

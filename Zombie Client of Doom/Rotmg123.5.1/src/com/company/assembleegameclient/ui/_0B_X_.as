@@ -4,7 +4,11 @@
 //com.company.assembleegameclient.ui._0B_X_
 
 package com.company.assembleegameclient.ui{
-    import flash.display.Sprite;
+import Frames.VisibilityBar;
+
+import _F_1._0B_m;
+
+import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
     import flash.display.Shape;
     import Panels._Q_V_;
@@ -28,6 +32,7 @@ package com.company.assembleegameclient.ui{
         private var background_:Shape;
         public var _F_:_ej = null;
         public var _02y:InventorySide;
+        public var visiBar:VisibilityBar;
         public var _U_T_:_Q_V_;
         public var _6K_:_zg = null;
         private var _3S_:_return;
@@ -112,6 +117,7 @@ package com.company.assembleegameclient.ui{
             var _local1:Player;
             _local1 = this.gs_.map_.player_;
             this._02y = new InventorySide(this.gs_, _local1, 200, 300);
+            this.visiBar = new VisibilityBar(_local1, this.gs_);
             this._02y.y = 200;
             this._U_T_ = new _Q_V_(this.gs_, _local1, 200, 100);
             this._U_T_.x = 0;
@@ -134,14 +140,17 @@ package com.company.assembleegameclient.ui{
             {
                 this._3S_.visible = false;
                 _O_m._03d(this, this._02y);
+                _O_m._03d(this, this.visiBar);
                 _O_m._03d(this, this._U_T_);
                 _O_m._041(this, this._6K_);
             } else
             {
                 this._3S_.visible = true;
                 _O_m._041(this, this._02y);
+                _O_m._041(this, this.visiBar);
                 _O_m._041(this, this._U_T_);
                 this._02y.draw();
+                this.visiBar.draw();
                 this._U_T_.draw();
             }
         }
@@ -149,7 +158,7 @@ package com.company.assembleegameclient.ui{
             this.background_ = new Shape();
             var _local1:Graphics = this.background_.graphics;
             _local1.clear();
-            _local1.beginFill(0x500C00);
+            _local1.beginFill(0x3B1F14);
             _local1.drawRect(0, 0, this.w_, this.h_);
             _local1.endFill();
             addChild(this.background_);

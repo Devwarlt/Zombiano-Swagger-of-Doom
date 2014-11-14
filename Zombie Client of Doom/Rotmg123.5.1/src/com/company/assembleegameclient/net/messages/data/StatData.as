@@ -76,6 +76,7 @@ package com.company.assembleegameclient.net.messages.data{
 		public static const PVP_STAT:int = 67;
 		public static const TEAM_STAT:int = 68;
         public static const ABILITYCOOLDOWN:int = 69;
+        public static const VISIBILITYRANGE:int = 70;
 
         public var _0F_4:uint = 0;
         public var _h:int;

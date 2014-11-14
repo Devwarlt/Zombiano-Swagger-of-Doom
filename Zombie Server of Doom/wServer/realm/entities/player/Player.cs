@@ -55,6 +55,7 @@ namespace wServer.realm.entities
 
         public int[] SlotTypes { get; private set; }
         public Inventory Inventory { get; private set; }
+        public VisibilityManager Visibility { get; private set; }
         public int[] Stats { get; private set; }
         public int[] Boost { get; private set; }
 
@@ -168,6 +169,7 @@ namespace wServer.realm.entities
             stats[StatsType.WisdomBonus] = Boost[6];
             stats[StatsType.DexterityBonus] = Boost[7];
             stats[StatsType.AbilityCooldown] = AbilityCooldown;
+            stats[StatsType.VisibilityRange] = Visibility.GetVisibility();
         }
         public void SaveToCharacter()
         {
@@ -264,6 +266,7 @@ namespace wServer.realm.entities
                 client.Character.MpRegen,
                 client.Character.Dexterity,
             };
+            Visibility = new VisibilityManager(this);
         }
 
         byte[,] tiles;
@@ -574,6 +577,7 @@ namespace wServer.realm.entities
 
                 hungercooldownremove = (int)((Vector2.Distance(curPosition, targetPosition) * (Stats[4] + Boost[4])));
             }
+            Visibility.Move(x, y);
             return base.Move(x, y);
         }
     }

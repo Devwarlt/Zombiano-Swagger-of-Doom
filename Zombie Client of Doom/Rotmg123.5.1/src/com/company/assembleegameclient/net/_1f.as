@@ -153,7 +153,8 @@ import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.objects._T_f;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.ui._B_N_;
-    import com.company.assembleegameclient.util.Currency;
+import com.company.assembleegameclient.ui._return;
+import com.company.assembleegameclient.util.Currency;
     import com.company.assembleegameclient.util._wW_;
     import com.company.net.ServerConnection;
     import com.company.net._098;
@@ -1153,6 +1154,10 @@ import com.company.assembleegameclient.game.GameSprite;
 						break;
                     case StatData.ABILITYCOOLDOWN:
                         (_arg1 as Player).abilityCooldownSec = _local4._h;
+                    case StatData.VISIBILITYRANGE:
+                        (_arg1 as Player).visibilityRange = _local4._h;
+
+                        //Todo: add armor statdata here (for guns)
                 }
             }
         }
@@ -1242,6 +1247,7 @@ import com.company.assembleegameclient.game.GameSprite;
 			}
         }
         private function nameCheck(_arg1:String, _arg2:Player):Boolean{
+            if(_arg2 == null) return false;
             var _local1:String = _arg1;
             var _local2:String = _arg2.name_;
             if (_local1 == _local2) {

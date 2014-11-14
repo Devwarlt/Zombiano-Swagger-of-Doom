@@ -112,7 +112,7 @@ package com.company.assembleegameclient.ui{
 			//this._F_C_.y = 78;
 			addChild(this._F_C_);
 
-			this.cooldownBar = new _0M_Y_(176, 16, 6325472, 0x473224, "Cool");
+			this.cooldownBar = new _0M_Y_(176, 16, /*6325472*/0x877D46, 0x473224, "Cool");
 			this.cooldownBar.x = 12;
 			this.cooldownBar.y = 102;
 			addChild(this.cooldownBar);

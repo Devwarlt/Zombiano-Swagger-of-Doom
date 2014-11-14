@@ -4,7 +4,8 @@
 //com.company.assembleegameclient.objects.Player
 
 package com.company.assembleegameclient.objects{
-    import _015._O_P_;
+
+import _015._O_P_;
     
     import _0K_m.LevelUpEffect;
     import _0K_m._0H_T_;
@@ -14,8 +15,9 @@ package com.company.assembleegameclient.objects{
 
     
     import _vf._5T_;
-    
-    import com.company.assembleegameclient.map.Square;
+import _vf._gs;
+
+import com.company.assembleegameclient.map.Square;
     import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.tutorial.Tutorial;
@@ -53,6 +55,7 @@ package com.company.assembleegameclient.objects{
     public class Player extends Character {
 
         public static const _0G_S_:int = 10000;
+        public static const MAX_VISIBILITY:int = 30;
         private static const _A_u:Vector.<Point> = new <Point>[new Point(0, 0), new Point(1, 0), new Point(0, 1), new Point(1, 1)];
         private static const _Q_a:Number = 0.4;
         private static const _I_5:Matrix = new Matrix(1, 0, 0, 1, 2, 4);
@@ -126,7 +129,8 @@ package com.company.assembleegameclient.objects{
         public var _K_X_:BitmapData = null;
         public var abilityCooldownSec:int = -1;
         public var abilityCooldownSecGoal:int = -1;
-		
+        public var visibilityRange:int = -1;
+
 		public var usiShukAbil:Boolean = false;
 
         public function Player(_arg1:XML){

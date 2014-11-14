@@ -219,6 +219,7 @@
     <Compile Include="networking\PacketIds.cs" />
     <Compile Include="networking\PolicyServer.cs" />
     <Compile Include="realm\entities\player\Player.Networking.cs" />
+    <Compile Include="realm\VisibilityManager.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="realm\Collision.cs" />
     <Compile Include="realm\entities\Character.cs">

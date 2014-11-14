@@ -92,5 +92,6 @@ namespace wServer.realm
         PVP_STAT = 67,
         TEAM_STAT = 68,
         AbilityCooldown = 69,
+        VisibilityRange = 70,
     }
 }
