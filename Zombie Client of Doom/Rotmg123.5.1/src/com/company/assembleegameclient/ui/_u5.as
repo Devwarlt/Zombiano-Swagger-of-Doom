@@ -45,7 +45,7 @@ package com.company.assembleegameclient.ui{
             super();
             this._A_2 = _arg1;
             this.text_ = new SimpleText(_arg2, 0x363636, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             addChild(this.text_);
             this._5U_ = new Bitmap();
             addChild(this._5U_);

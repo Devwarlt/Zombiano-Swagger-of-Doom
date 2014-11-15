@@ -17,7 +17,7 @@ package _D_d{
         public function _D_M_(_arg1:XML){
             super(0x363636, 1, 0x9B9B9B, 1, true);
             this._P_V_ = new SimpleText(16, 0xFFFFFF, false, (_be - 4), 0, "Myriad Pro");
-            this._P_V_._8Y_(true);
+            this._P_V_.boldText(true);
             this._P_V_.wordWrap = true;
             this._P_V_.text = String(_arg1.@id);
             this._P_V_._08S_();

@@ -7,7 +7,7 @@ package ServerPackets{
     import flash.display.BitmapData;
     import flash.utils.IDataInput;
 
-    public class Death extends _01Q_ {
+    public class Death extends ServerPacket {
 
         public var accountId_:int;
         public var charId_:int;

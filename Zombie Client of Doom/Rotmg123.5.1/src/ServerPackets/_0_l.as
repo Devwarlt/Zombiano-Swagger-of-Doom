@@ -8,7 +8,7 @@ package ServerPackets{
     import com.company.assembleegameclient.util._wW_;
     import flash.utils.IDataInput;
 
-    public class _0_l extends _01Q_ {
+    public class _0_l extends ServerPacket {
 
         public var tickId_:int;
         public var tickTime_:int;

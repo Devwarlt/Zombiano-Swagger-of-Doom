@@ -60,7 +60,7 @@ package com.company.assembleegameclient.ui{
             super();
             this._L_v = getTimer();
             this.text_ = new SimpleText(_arg1, 0x363636, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             this.text_.text = "Trade";
             this.text_.updateMetrics();
             this.w_ = (((_arg2)!=0) ? _arg2 : (this.text_.width + 12));

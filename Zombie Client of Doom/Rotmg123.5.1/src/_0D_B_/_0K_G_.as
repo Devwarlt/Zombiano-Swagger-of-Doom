@@ -34,7 +34,7 @@ package _0D_B_{
             this._5U_.y = -12;
             addChild(this._5U_);
             this.text_ = new SimpleText(18, _arg2, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             this.text_.text = _arg3;
             this.text_.updateMetrics();
             this.text_.filters = [new DropShadowFilter(0, 0, 0)];

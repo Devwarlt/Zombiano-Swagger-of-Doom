@@ -6,7 +6,7 @@
 package ServerPackets{
     import flash.utils.IDataInput;
 
-    public class Notification extends _01Q_ {
+    public class Notification extends ServerPacket {
 
         public var objectId_:int;
         public var text_:String;

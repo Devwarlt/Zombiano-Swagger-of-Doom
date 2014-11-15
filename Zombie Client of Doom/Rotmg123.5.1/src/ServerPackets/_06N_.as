@@ -7,7 +7,7 @@ package ServerPackets{
 import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
-    public class _06N_ extends _01Q_ {
+    public class _06N_ extends ServerPacket {
 
         public static const _7A_:int = 0;
         public static const _x0:int = 1;

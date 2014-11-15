@@ -6,7 +6,7 @@
 package ServerPackets{
     import flash.utils.IDataInput;
 
-    public class _039 extends _01Q_ {
+    public class _039 extends ServerPacket {
 
         public var name_:String;
         public var guildName_:String;

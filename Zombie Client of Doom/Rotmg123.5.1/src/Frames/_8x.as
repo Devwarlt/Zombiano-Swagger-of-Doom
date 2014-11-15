@@ -36,7 +36,7 @@ package Frames{
         }
         private function _J_p(_arg1:MouseEvent):void{
             this.gs_.addEventListener(_3E_.NAMERESULTEVENT, this._0D_s);
-            this.gs_.gsc_._K_Q_(this.name_.text());
+            this.gs_.packetManager._K_Q_(this.name_.text());
             _pW_();
         }
         public function _0D_s(_arg1:_3E_):void{

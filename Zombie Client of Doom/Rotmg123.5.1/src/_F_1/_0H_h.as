@@ -33,7 +33,7 @@ package _F_1{
             addChild(new _R_f());
             addChild(new ScreenGraphic());
             this._0H_L_ = new SimpleText(16, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._0H_L_._8Y_(true);
+            this._0H_L_.boldText(true);
             this._0H_L_.text = "Developed by:";
             this._0H_L_.updateMetrics();
             this._0H_L_.filters = [new DropShadowFilter(0, 0, 0)];

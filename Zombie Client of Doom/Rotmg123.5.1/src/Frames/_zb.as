@@ -32,7 +32,7 @@ package Frames{
             addChild(this._8n);
             this.text_ = new SimpleText(16, 0xB3B3B3, false, 0, 0, "Myriad Pro");
             this.text_.x = ((this._8n.x + _02K_) + 8);
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             this.text_.htmlText = _arg1;
             this.text_.mouseEnabled = true;
             this.text_.updateMetrics();

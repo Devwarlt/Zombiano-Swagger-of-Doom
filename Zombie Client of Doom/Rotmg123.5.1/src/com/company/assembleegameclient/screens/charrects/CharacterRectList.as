@@ -10,7 +10,7 @@ import _F_1._05p;
 import _sp._aJ_;
 import com.company.assembleegameclient.appengine.SavedCharacter;
 import flash.events.MouseEvent;
-import _0L_C_._qO_;
+import _0L_C_.DialogBox;
 import flash.events.Event;
 import _0L_C_._tc;
 import _qN_.Account;
@@ -67,7 +67,7 @@ public class CharacterRectList extends Sprite {
         addChild(_local6);
     }
     private function onCancel(_arg1:Event):void{
-        var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+        var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
         this.screen_.removeChild(_local2);
     }
     private function onNewChar(_arg1:Event):void{
@@ -78,8 +78,8 @@ public class CharacterRectList extends Sprite {
         if (!Account._get().isRegistered())
         {
             _local3 = new _tc();
-            _local3.addEventListener(_qO_.BUTTON1_EVENT, this.onCancel);
-            _local3.addEventListener(_qO_.BUTTON2_EVENT, this.onDialogRegister);
+            _local3.addEventListener(DialogBox.BUTTON1_EVENT, this.onCancel);
+            _local3.addEventListener(DialogBox.BUTTON2_EVENT, this.onDialogRegister);
             this.screen_.addChild(_local3);
             return;
         }
@@ -93,12 +93,12 @@ public class CharacterRectList extends Sprite {
         this.screen_.addChild(_local2);
     }
     private function onDialogRegister(_arg1:Event):void{
-        var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+        var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
         ((_local2.parent) && (_local2.parent.removeChild(_local2)));
         this.screen_._0j();
     }
     private function onDialogError(_arg1:_mS_):void{
-        var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+        var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
         this.screen_.removeChild(_local2);
         var _local3:_Z_t = new _Z_t(_arg1.text_);
         this.screen_.addChild(_local3);

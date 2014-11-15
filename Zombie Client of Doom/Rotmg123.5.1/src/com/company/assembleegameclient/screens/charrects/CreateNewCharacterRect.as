@@ -40,7 +40,7 @@ public class CreateNewCharacterRect extends CharacterRect {
         this.bitmap_.x = 0;
         addChild(this.bitmap_);
         this.classNameText_ = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-        this.classNameText_._8Y_(true);
+        this.classNameText_.boldText(true);
         this.classNameText_.text = "New Character";
         this.classNameText_.updateMetrics();
         this.classNameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

@@ -224,7 +224,7 @@ package com.company.assembleegameclient.objects{
             {
                 if (this._0H_n)
                 {
-                    map_.gs_.gsc_.squareHit(_arg1, this.bulletId_, this.ownerId_);
+                    map_.gs_.packetManager.squareHit(_arg1, this.bulletId_, this.ownerId_);
                 } else
                 {
                     if (_0H_B_.obj_ != null)
@@ -239,7 +239,7 @@ package com.company.assembleegameclient.objects{
             {
                 if (this._0H_n)
                 {
-                    map_.gs_.gsc_.otherHit(_arg1, this.bulletId_, this.ownerId_, _0H_B_.obj_.objectId_);
+                    map_.gs_.packetManager.otherHit(_arg1, this.bulletId_, this.ownerId_, _0H_B_.obj_.objectId_);
                 } else
                 {
                     _local5 = _7t._tD_(this.texture_);
@@ -272,19 +272,19 @@ package com.company.assembleegameclient.objects{
                     }
                     if (_local6 == map_.player_)
                     {
-                        map_.gs_.gsc_.playerHit(this.bulletId_, this.ownerId_);
+                        map_.gs_.packetManager.playerHit(this.bulletId_, this.ownerId_);
                         _local6.damage(this.containerType_, _local8, this._ko.effects_, false, this);
                     } else
                     {
                         if (_local6.props_.isEnemy_)
                         {
-                            map_.gs_.gsc_.enemyHit(_arg1, this.bulletId_, _local6.objectId_, _local9);
+                            map_.gs_.packetManager.enemyHit(_arg1, this.bulletId_, _local6.objectId_, _local9);
                             _local6.damage(this.containerType_, _local8, this._ko.effects_, _local9, this);
                         } else
                         {
                             if (!this._ko._0C_c)
                             {
-                                map_.gs_.gsc_.otherHit(_arg1, this.bulletId_, this.ownerId_, _local6.objectId_);
+                                map_.gs_.packetManager.otherHit(_arg1, this.bulletId_, this.ownerId_, _local6.objectId_);
                             }
                         }
                     }

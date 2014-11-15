@@ -7,7 +7,7 @@ package ServerPackets{
     import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
-    public class AOE extends _01Q_ {
+    public class AOE extends ServerPacket {
 
         public var pos_:Position;
         public var radius_:Number;

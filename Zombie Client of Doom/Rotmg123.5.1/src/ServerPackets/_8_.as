@@ -7,7 +7,7 @@ package ServerPackets{
     import flash.utils.ByteArray;
     import flash.utils.IDataInput;
 
-    public class _8_ extends _01Q_ {
+    public class _8_ extends ServerPacket {
 
         public var name_:String;
         public var host_:String;

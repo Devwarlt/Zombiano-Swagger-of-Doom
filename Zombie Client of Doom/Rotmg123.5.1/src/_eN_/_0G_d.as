@@ -19,7 +19,7 @@ package _eN_{
         public function _0G_d(){
             super("Current account", "", "Continue", "/currentKabamLogin");
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._lv._8Y_(true);
+            this._lv.boldText(true);
             this._lv.text = "Currently logged on Kabam.com as:";
             this._lv.updateMetrics();
             this._lv.filters = [new DropShadowFilter(0, 0, 0)];

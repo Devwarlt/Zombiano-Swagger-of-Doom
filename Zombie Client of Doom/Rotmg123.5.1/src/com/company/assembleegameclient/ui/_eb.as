@@ -43,7 +43,7 @@ package com.company.assembleegameclient.ui{
             this.gs_ = _arg1;
             this._9y = _arg2;
             this.nameText_ = new SimpleText(20, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.x = 0;
             this.nameText_.y = 0;
             this.nameText_.text = this._9y;

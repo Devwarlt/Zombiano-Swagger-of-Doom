@@ -62,7 +62,7 @@ public class Options extends Sprite {
         graphics.lineTo(800, 100);
         graphics.lineStyle();
         this._O_k = new SimpleText(36, 0xFFFFFF, false, 800, 0, "Myriad Pro");
-        this._O_k._8Y_(true);
+        this._O_k.boldText(true);
         this._O_k.htmlText = '<p align="center">Options</p>';
         this._O_k.autoSize = TextFieldAutoSize.CENTER;
         this._O_k.filters = [new DropShadowFilter(0, 0, 0)];

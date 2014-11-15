@@ -55,7 +55,7 @@ package _F_1{
             this.background = (this.screen.getChildByName("background") as MovieClip);
             _local2 = (this.screen.getChildByName("mapNameContainer") as MovieClip);
             this._50 = new SimpleText(30, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this._50._8Y_(true);
+            this._50.boldText(true);
             this._50.autoSize = TextFieldAutoSize.CENTER;
             this._50.updateMetrics();
             this._50.x = _local2.x;

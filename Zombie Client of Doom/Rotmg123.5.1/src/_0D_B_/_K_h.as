@@ -21,11 +21,11 @@ package _0D_B_{
         private var _N__:int;
 
         public function _K_h(_arg1:Player){
-            super(AssetLibrary._xK_("lofiInterfaceBig", 11), 0xFFFFFF, "Teleport");
+            super(AssetLibrary._xK_("lofiInterfaceBig", 11), 0xFFFFFF, "RequestTeleport");
             this.player_ = _arg1;
             this._N_8 = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this._N_8._8Y_(true);
-            this._N_8.text = "Teleport";
+            this._N_8.boldText(true);
+            this._N_8.text = "RequestTeleport";
             this._N_8.updateMetrics();
             this._N_8.x = text_.x;
             this._N_8.y = text_.y;

@@ -6,7 +6,7 @@
 package ServerPackets{
     import flash.utils.IDataInput;
 
-    public class File extends _01Q_ {
+    public class File extends ServerPacket {
 
         public var filename_:String;
         public var file_:String;

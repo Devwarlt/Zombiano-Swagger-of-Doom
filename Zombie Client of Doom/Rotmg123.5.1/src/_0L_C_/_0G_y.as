@@ -12,7 +12,7 @@ package _0L_C_{
     import com.company.googleanalytics.GA;
     import flash.events.Event;
 
-    public class _0G_y extends _qO_ {
+    public class _0G_y extends DialogBox {
 
         public var price_:int;
 

@@ -6,7 +6,7 @@
 package ServerPackets{
     import flash.utils.IDataInput;
 
-    public class _0K_U_ extends _01Q_ {
+    public class _0K_U_ extends ServerPacket {
 
         public var accountListId_:int;
         public var accountIds_:Vector.<int>;

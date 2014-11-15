@@ -11,7 +11,7 @@ package ServerPackets{
     import flash.utils.IDataInput;
 
 
-    public class Update extends _01Q_ {
+    public class Update extends ServerPacket {
 
         public var tiles_:Vector.<_iZ_>;
         public var newObjs_:Vector.<_0H_9>;

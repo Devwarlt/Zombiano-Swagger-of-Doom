@@ -56,7 +56,7 @@ package com.company.assembleegameclient.ui{
                 }
             }
             this._30 = new SimpleText(22, _local4, false, 0, 0, "Myriad Pro");
-            this._30._8Y_(!((_arg2 == -1)));
+            this._30.boldText(!((_arg2 == -1)));
             this._30.text = (((_arg2)==-1) ? "---" : (_arg2.toString() + "."));
             this._30._08S_();
             this._30.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -88,7 +88,7 @@ package com.company.assembleegameclient.ui{
             this.bitmap_.y = (((HEIGHT / 2) - (this.bitmap_.height / 2)) - 2);
             addChild(this.bitmap_);
             this.nameText_ = new SimpleText(22, _local4, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = _arg3.Name;
             this.nameText_._08S_();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -104,7 +104,7 @@ package com.company.assembleegameclient.ui{
             this._e9.y = ((HEIGHT / 2) - (Slot.HEIGHT / 2));
             addChild(this._e9);
             this._D_a = new SimpleText(22, _local4, false, 0, 0, "Myriad Pro");
-            this._D_a._8Y_(true);
+            this._D_a.boldText(true);
             this._D_a.text = _arg3.TotalFame;
             this._D_a._08S_();
             this._D_a.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

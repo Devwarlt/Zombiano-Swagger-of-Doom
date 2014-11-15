@@ -57,7 +57,7 @@ package com.company.assembleegameclient.ui{
 			this._tm.y = -10;
 			addChild(this._tm);
 			this.nameText_ = new SimpleText(20, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-			this.nameText_._8Y_(true);
+			this.nameText_.boldText(true);
 			this.nameText_.x = 36;
 			this.nameText_.y = -2;
 			if (this.gs_.charList_.name_ == null)
@@ -70,7 +70,7 @@ package com.company.assembleegameclient.ui{
             this.nameText_.updateMetrics();
 			this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];
 			addChild(this.nameText_);
-			if (this.gs_.gsc_.gameId_ != Parameters.NEXUS_ID)
+			if (this.gs_.packetManager.gameId_ != Parameters.NEXUS_ID)
 			{
 				this._nw = new _rN_(AssetLibrary._xK_("lofiInterfaceBig", 6), "Nexus", "escapeToNexus");
 				this._nw.addEventListener(MouseEvent.CLICK, this._Q_C_);
@@ -152,7 +152,7 @@ package com.company.assembleegameclient.ui{
 			this.nameText_.updateMetrics();
 		}
 		private function _Q_C_(_arg1:MouseEvent):void{
-			this.gs_.gsc_._M_6();
+			this.gs_.packetManager._M_6();
 			GA.global().trackEvent("enterPortal", "Nexus Button");
 			Parameters.data_.needsRandomRealm = false;
 			Parameters.save();

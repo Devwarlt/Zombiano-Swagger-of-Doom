@@ -50,7 +50,7 @@ public class _pw extends Sprite {
         this._C_h = _arg1;
         this._0E_q = _arg2;
         this.labelText_ = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-        this.labelText_._8Y_(true);
+        this.labelText_.boldText(true);
         this.labelText_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 2)];
         addChild(this.labelText_);
         this.setValue(_arg3);

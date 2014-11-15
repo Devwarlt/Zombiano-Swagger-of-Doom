@@ -11,8 +11,8 @@ package _0L_C_{
     public class _0D_W_ extends Sprite {
 
         private const _cR_:String = "Are you really sure you want to delete ${NAME} the ${DISPLAYID}?";
-        private const _0K_r:String = _qO_.BUTTON1_EVENT;
-        private const _M_4:String = _qO_.BUTTON2_EVENT;
+        private const _0K_r:String = DialogBox.BUTTON1_EVENT;
+        private const _M_4:String = DialogBox.BUTTON2_EVENT;
 
         public var deleteCharacter:_aJ_;
         public var cancel:_aJ_;
@@ -23,7 +23,7 @@ package _0L_C_{
         }
         public function _02C_(_arg1:String, _arg2:String):void{
             var _local3:String = this._cR_.replace("${NAME}", _arg1).replace("${DISPLAYID}", _arg2);
-            var _local4:_qO_ = new _qO_(_local3, "Verify Deletion", "Cancel", "Delete", "/deleteDialog");
+            var _local4:DialogBox = new DialogBox(_local3, "Verify Deletion", "Cancel", "Delete", "/deleteDialog");
             _local4.addEventListener(this._0K_r, this.onCancel);
             _local4.addEventListener(this._M_4, this.onDelete);
             addChild(_local4);

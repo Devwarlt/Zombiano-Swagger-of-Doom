@@ -21,7 +21,7 @@ package com.company.assembleegameclient.ui{
             if (_arg3)
             {
                 this._A_2 = new SimpleText(((this._0H_O_) ? 18 : 16), 0xB3B3B3, false, 0, 0, "Myriad Pro");
-                this._A_2._8Y_(this._0H_O_);
+                this._A_2.boldText(this._0H_O_);
                 this._A_2.text = "Rank: ";
                 this._A_2.updateMetrics();
                 this._A_2.filters = [new DropShadowFilter(0, 0, 0)];
@@ -48,7 +48,7 @@ package com.company.assembleegameclient.ui{
             }
             this._Q_j = new Sprite();
             var _local2:SimpleText = new SimpleText(((this._0H_O_) ? 18 : 16), 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            _local2._8Y_(this._0H_O_);
+            _local2.boldText(this._0H_O_);
             _local2.text = this.numStars_.toString();
             _local2.updateMetrics();
             _local2.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 2)];

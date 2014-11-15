@@ -22,7 +22,7 @@ package _qD_{
         public function _J_B_(_arg1:String){
             this.label_ = _arg1;
             this.text_ = new SimpleText(14, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             this.text_.text = _arg1;
             this.text_.updateMetrics();
             this.text_.x = ((WIDTH / 2) - (this.text_.width / 2));

@@ -9,7 +9,7 @@ package _F_1{
     import Frames._T_K_;
     
     import _0L_C_._4B_;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     
     import _S_K_._u3;
     
@@ -74,7 +74,7 @@ package _F_1{
             this._T_1 = _arg1;
             super.initialize(_arg1);
             this.nameText_ = new SimpleText(22, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = _arg1.name_;
             this.nameText_.updateMetrics();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -98,7 +98,7 @@ package _F_1{
             this._H_t.y = 20;
             addChild(this._H_t);
             this._A_e = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._A_e._8Y_(true);
+            this._A_e.boldText(true);
             this._A_e.text = "Select a Characters";
             this._A_e.updateMetrics();
             this._A_e.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -150,8 +150,8 @@ package _F_1{
             if (!Account._get().isRegistered())
             {
                 _local3 = new _4B_();
-                _local3.addEventListener(_qO_.BUTTON1_EVENT, this._4);
-                _local3.addEventListener(_qO_.BUTTON2_EVENT, this.onDialogRegister);
+                _local3.addEventListener(DialogBox.BUTTON1_EVENT, this._4);
+                _local3.addEventListener(DialogBox.BUTTON2_EVENT, this.onDialogRegister);
                 addChild(_local3);
                 return;
             }
@@ -163,11 +163,11 @@ package _F_1{
             this._O_v.dispatch();
         }
         private function _4(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             removeChild(_local2);
         }
         private function onDialogRegister(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             removeChild(_local2);
             _0j();
         }

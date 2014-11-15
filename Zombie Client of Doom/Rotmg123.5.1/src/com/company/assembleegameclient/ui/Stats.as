@@ -154,7 +154,7 @@ class Stat extends Sprite {
         this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];
         addChild(this.nameText_);
         this.valText_ = new SimpleText(12, this.valColor_, false, 0, 0, "Myriad Pro");
-        this.valText_._8Y_(true);
+        this.valText_.boldText(true);
         this.valText_.text = "-";
         this.valText_.updateMetrics();
         this.valText_.filters = [new DropShadowFilter(0, 0, 0)];

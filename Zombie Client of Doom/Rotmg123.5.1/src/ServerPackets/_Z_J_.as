@@ -8,7 +8,7 @@ package ServerPackets{
     import flash.utils.IDataInput;
 
 
-    public class _Z_J_ extends _01Q_ {
+    public class _Z_J_ extends ServerPacket {
 
         public var offer_:Vector.<Boolean>;
 

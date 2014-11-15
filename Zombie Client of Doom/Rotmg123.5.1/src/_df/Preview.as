@@ -42,7 +42,7 @@ package _df{
             this.bitmap_ = new Bitmap();
             addChild(this.bitmap_);
             this._081 = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this._081._8Y_(true);
+            this._081.boldText(true);
             this._081.text = (this.size_ + "%");
             this._081.updateMetrics();
             this._081.x = 2;

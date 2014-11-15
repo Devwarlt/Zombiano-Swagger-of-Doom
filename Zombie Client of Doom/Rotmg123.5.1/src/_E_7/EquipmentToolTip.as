@@ -153,7 +153,7 @@ package _E_7{
 		private function _07X_():void{
 			this._V_0 = new SimpleText(fontSize + 2, 0xFFFFFF, false, 30, 0, fontName);
 			this.rank_ = new SimpleText(fontSize + 2, 0xFFFFFF, false, 30, 0, fontName);
-			this._P_V_._8Y_(true);
+			this._P_V_.boldText(true);
 			this._V_0.y = ((this._5U_.height / 2) - (this._P_V_._I_x / 2));
 			this._V_0.x = (_be - 30);
 			this.rank_.y = ((this._5U_.height / 2) - (this._P_V_._I_x / 2) + this._V_0.y);
@@ -180,7 +180,7 @@ package _E_7{
 		private function _0D_6():void{
 			var _local1:int = ((((this._0G_J_) || ((this.player_ == null)))) ? 0xFFFFFF : 16549442);
 			this._P_V_ = new SimpleText(fontSize + 2, _local1, false, (((_be - this._5U_.width) - 4) - 30), 0, fontName);
-			this._P_V_._8Y_(true);
+			this._P_V_.boldText(true);
 			this._P_V_.wordWrap = true;
 			this._P_V_.text = ObjectLibrary._0D_N_[this.objectType_];
 			this._P_V_.updateMetrics();
@@ -330,8 +330,8 @@ package _E_7{
 						case "MagicNova":
 							this._a2.push(new Effect("Fill Party Magic", (((_local1.@amount + " MP at ") + _local1.@range) + " sqrs")));
 							break;
-						case "Teleport":
-							this._a2.push(new Effect("", "Teleport to Target"));
+						case "RequestTeleport":
+							this._a2.push(new Effect("", "RequestTeleport to Target"));
 							break;
 						case "VampireBlast":
 							this._a2.push(new Effect("Steal", (((_local1.@totalDamage + " HP within ") + _local1.@radius) + " sqrs")));

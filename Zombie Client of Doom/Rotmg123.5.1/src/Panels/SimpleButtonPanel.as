@@ -5,7 +5,7 @@
 
 package Panels{
     import com.company.ui.SimpleText;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import flash.text.TextFieldAutoSize;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
@@ -14,12 +14,12 @@ package Panels{
     public class SimpleButtonPanel extends Panel {
 
         private var _P_V_:SimpleText;
-        protected var _ek:_7f;
+        protected var _ek:boxButton;
 
         public function SimpleButtonPanel(_arg1:GameSprite, _arg2:String, _arg3:String){
             super(_arg1);
             this._P_V_ = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
-            this._P_V_._8Y_(true);
+            this._P_V_.boldText(true);
             this._P_V_.htmlText = (('<p align="center">' + _arg2) + "</p>");
             this._P_V_.wordWrap = true;
             this._P_V_.multiline = true;
@@ -27,7 +27,7 @@ package Panels{
             this._P_V_.filters = [new DropShadowFilter(0, 0, 0)];
             this._P_V_.y = 6;
             addChild(this._P_V_);
-            this._ek = new _7f(16, _arg3);
+            this._ek = new boxButton(16, _arg3);
             this._ek.addEventListener(MouseEvent.CLICK, this.onButtonClick);
             this._ek.x = ((WIDTH / 2) - (this._ek.width / 2));
             this._ek.y = ((HEIGHT - this._ek.height) - 4);

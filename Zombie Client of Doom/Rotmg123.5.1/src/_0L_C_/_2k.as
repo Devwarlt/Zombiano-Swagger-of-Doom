@@ -7,7 +7,7 @@ package _0L_C_{
     import flash.events.Event;
     import _qN_.Account;
 
-    public class _2k extends _qO_ {
+    public class _2k extends DialogBox {
 
         public function _2k(_arg1:String){
             super(_arg1, "Not Registered", "Cancel", "Register", "/needRegister");

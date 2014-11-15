@@ -70,7 +70,7 @@ package _0D_B_{
             remove();
         }
         private function _N_I_(_arg1:Event):void{
-            this.gs_.gsc_._H_X_(this._9y);
+            this.gs_.packetManager._H_X_(this._9y);
             remove();
         }
         private function _N_f(_arg1:Event):void{
@@ -82,7 +82,7 @@ package _0D_B_{
             remove();
         }
         private function _48(_arg1:Event):void{
-            this.gs_.gsc_.requestTrade(this._9y);
+            this.gs_.packetManager.requestTrade(this._9y);
             remove();
         }
         private function _K_o(_arg1:Event):void{

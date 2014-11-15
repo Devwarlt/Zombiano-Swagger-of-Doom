@@ -273,7 +273,7 @@ package com.company.assembleegameclient.game{
                     break;
                 case Parameters.data_.escapeToNexus:
                 case Parameters.data_.escapeToNexus2:
-                    this.gs_.gsc_._M_6();
+                    this.gs_.packetManager._M_6();
                     Parameters.data_.needsRandomRealm = false;
                     Parameters.save();
                     break;
@@ -421,14 +421,14 @@ package com.company.assembleegameclient.game{
             if (this.gs_.contains(_086))
             {
                 this.gs_.removeChild(_086);
-                this.gs_.removeChild(this.gs_.gsc_._0l);
-                this.gs_.gsc_._rT_();
+                this.gs_.removeChild(this.gs_.packetManager._0l);
+                this.gs_.packetManager._rT_();
             } else
             {
                 this.gs_.addChild(_086);
-                this.gs_.gsc_._9G_();
-                this.gs_.gsc_._0l.y = _086.height;
-                this.gs_.addChild(this.gs_.gsc_._0l);
+                this.gs_.packetManager._9G_();
+                this.gs_.packetManager._0l.y = _086.height;
+                this.gs_.addChild(this.gs_.packetManager._0l);
             }
         }
         private function _0D_2():void{

@@ -6,7 +6,7 @@
 package ServerPackets{
     import flash.utils.IDataInput;
 
-    public class InvResult extends _01Q_ {
+    public class InvResult extends ServerPacket {
 
         public var result_:int;
 

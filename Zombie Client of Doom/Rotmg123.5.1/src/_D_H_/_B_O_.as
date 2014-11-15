@@ -22,7 +22,7 @@ package _D_H_{
         public function _B_O_(_arg1:int){
             this.type_ = _arg1;
             this.nameText_ = new SimpleText(16, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = (((_arg1)==_D_Z_.INVALID) ? "Select Type" : _D_Z_._E_M_[_arg1].name_);
             this.nameText_.updateMetrics();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];

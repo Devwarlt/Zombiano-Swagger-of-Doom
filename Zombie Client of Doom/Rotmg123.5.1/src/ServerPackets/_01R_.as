@@ -6,7 +6,7 @@
 package ServerPackets{
     import flash.utils.IDataInput;
 
-    public class _01R_ extends _01Q_ {
+    public class _01R_ extends ServerPacket {
 
         public var objectId_:int;
         public var text_:String;

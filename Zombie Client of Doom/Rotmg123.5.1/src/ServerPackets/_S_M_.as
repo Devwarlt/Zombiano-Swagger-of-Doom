@@ -10,7 +10,7 @@ package ServerPackets{
     import flash.utils.IDataInput;
 
 
-    public class _S_M_ extends _01Q_ {
+    public class _S_M_ extends ServerPacket {
 
         public var myItems_:Vector.<Item>;
         public var yourName_:String;

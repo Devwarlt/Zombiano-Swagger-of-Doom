@@ -99,7 +99,7 @@ package Frames{
         private function _O_u():void{
             this._i6 = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
             this._i6.text = (this.offer.realmGold_ + " Gold");
-            this._i6._8Y_(true);
+            this._i6.boldText(true);
             this._i6.updateMetrics();
             this._i6.x = (this._01X_.x + 70);
             this._i6.y = ((this._zZ_.height / 2) - (this._i6.height / 2));
@@ -109,7 +109,7 @@ package Frames{
         private function _M_M_():void{
             this._fu = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
             this._fu.text = ((this._yI_ + this.offer.price_) + this._Q_W_);
-            this._fu._8Y_(true);
+            this._fu.boldText(true);
             this._fu.updateMetrics();
             this._fu.x = 200;
             this._fu.y = ((this._zZ_.height / 2) - (this._fu.height / 2));
@@ -123,7 +123,7 @@ package Frames{
             }
             this._E_n = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
             this._E_n.text = (this.offer.bonus + "% Bonus");
-            this._E_n._8Y_(true);
+            this._E_n.boldText(true);
             this._E_n.updateMetrics();
             this._E_n.x = 280;
             this._E_n.y = ((this._zZ_.height / 2) - (this._E_n.height / 2));

@@ -7,7 +7,7 @@ package _6e{
     import flash.display.Sprite;
     import flash.display.Shape;
     import com.company.assembleegameclient.appengine._0B_u;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import flash.display.Graphics;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
@@ -21,7 +21,7 @@ package _6e{
         private var _97:Boolean;
         private var _T_y:Shape;
         private var _08w:_0B_u;
-        private var _I_4:_qO_;
+        private var _I_4:DialogBox;
         private var text_:String;
         private var _0_0:_03v;
         private var _X_A_:_0E_D_;
@@ -42,7 +42,7 @@ package _6e{
             this._08w.addEventListener(_8C_.GENERIC_DATA, this._02E_);
             this._08w.addEventListener(_mS_.TEXT_ERROR, this._D_N_);
             this._08w.sendRequest("getBoard", Account._get().credentials());
-            this._I_4 = new _qO_("Loading...", null, null, null, null);
+            this._I_4 = new DialogBox("Loading...", null, null, null, null);
             addChild(this._I_4);
             this._T_y.visible = false;
         }
@@ -90,7 +90,7 @@ package _6e{
             this._08w.sendRequest("setBoard", _local2);
             removeChild(this._X_A_);
             this._X_A_ = null;
-            this._I_4 = new _qO_("Saving...", null, null, null, null);
+            this._I_4 = new DialogBox("Saving...", null, null, null, null);
             addChild(this._I_4);
             this._T_y.visible = false;
         }

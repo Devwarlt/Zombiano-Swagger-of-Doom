@@ -20,7 +20,7 @@ package _F_1{
             addChild(new ScreenGraphic());
             this.text = new SimpleText(30, 0xFFFFFF, false, 0, 0, "Myriad Pro");
             this.text.y = 526;
-            this.text._8Y_(true);
+            this.text.boldText(true);
             this.text.htmlText = '<p align="center">Loading...</p>';
             this.text.autoSize = TextFieldAutoSize.CENTER;
             this.text.updateMetrics();

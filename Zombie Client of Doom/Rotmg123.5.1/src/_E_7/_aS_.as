@@ -17,7 +17,7 @@ package _E_7{
             if (_arg3 != null)
             {
                 this._P_V_ = new SimpleText(20, 0xFFFFFF, false, _arg5, 0, "Myriad Pro");
-                this._P_V_._8Y_(true);
+                this._P_V_.boldText(true);
                 this._P_V_.wordWrap = true;
                 this._P_V_.text = _arg3;
                 this._P_V_.updateMetrics();

@@ -26,7 +26,7 @@ package _rK_{
             super("Current account", "", "Continue", "/steamworksCurrentLogin");
             var _local1:_f7 = (Account._get() as _f7);
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._lv._8Y_(true);
+            this._lv.boldText(true);
             this._lv.text = "Steamworks user:";
             this._lv._08S_();
             this._lv.filters = [new DropShadowFilter(0, 0, 0)];
@@ -44,7 +44,7 @@ package _rK_{
             {
                 h_ = (h_ - 20);
                 this._O_c = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-                this._O_c._8Y_(true);
+                this._O_c.boldText(true);
                 this._O_c.text = "Linked with the web account:";
                 this._O_c._08S_();
                 this._O_c.filters = [new DropShadowFilter(0, 0, 0)];

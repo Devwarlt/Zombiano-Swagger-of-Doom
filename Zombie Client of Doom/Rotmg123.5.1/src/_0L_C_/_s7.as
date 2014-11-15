@@ -4,7 +4,7 @@
 //_0L_C_._s7
 
 package _0L_C_{
-    public class _s7 extends _qO_ {
+    public class _s7 extends DialogBox {
 
         public function _s7(){
             super("Deleting Character...", null, null, null, "/deletingChar");

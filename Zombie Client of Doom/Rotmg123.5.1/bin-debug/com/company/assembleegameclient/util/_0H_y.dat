@@ -10,7 +10,7 @@
 		<MpCost>5</MpCost>
 		<ActivateOnEquip stat="26" amount="5">IncrementStat</ActivateOnEquip>
 		<Activate radius="2.0" totalDamage="25">DazeBlast</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 
 	

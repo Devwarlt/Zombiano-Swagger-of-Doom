@@ -19,7 +19,7 @@ package _D_d{
             var _local3:XML;
             super(0x500C00, 1, 0x9B9B9B, 1, true);
             this._P_V_ = new SimpleText(16, 0xFFFFFF, false, (_be - 4), 0, "Myriad Pro");
-            this._P_V_._8Y_(true);
+            this._P_V_.boldText(true);
             this._P_V_.wordWrap = true;
             this._P_V_.text = String(_arg1.@id);
             this._P_V_._08S_();

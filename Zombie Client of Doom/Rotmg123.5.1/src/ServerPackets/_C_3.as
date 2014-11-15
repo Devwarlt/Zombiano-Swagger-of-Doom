@@ -7,7 +7,7 @@ package ServerPackets{
     import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
-    public class _C_3 extends _01Q_ {
+    public class _C_3 extends ServerPacket {
 
         public var bulletId_:uint;
         public var ownerId_:int;

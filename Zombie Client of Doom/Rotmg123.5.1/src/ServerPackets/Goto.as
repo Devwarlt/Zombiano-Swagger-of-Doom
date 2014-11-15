@@ -7,7 +7,7 @@ package ServerPackets{
     import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
-    public class Goto extends _01Q_ {
+    public class Goto extends ServerPacket {
 
         public var objectId_:int;
         public var pos_:Position;

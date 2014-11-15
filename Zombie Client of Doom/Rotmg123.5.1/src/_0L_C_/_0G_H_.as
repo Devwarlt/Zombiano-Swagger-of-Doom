@@ -7,7 +7,7 @@ package _0L_C_{
     import _qN_.Account;
     import flash.events.Event;
 
-    public class _0G_H_ extends _qO_ {
+    public class _0G_H_ extends DialogBox {
 
         public function _0G_H_(_arg1:int){
             super(((("Another character slot costs " + _arg1) + " Gold.  ") + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold", "/charSlotNeedGold");

@@ -22,7 +22,7 @@ package _D_H_{
             this.__var.x = 80;
             addChild(this.__var);
             this.nameText_ = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = "Type: ";
             this.nameText_.updateMetrics();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];

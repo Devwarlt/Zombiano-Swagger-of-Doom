@@ -17,7 +17,7 @@ package _E_7{
         public function _ap(_arg1:GameObject){
             super(6036765, 1, 16549442, 1, false);
             this.text_ = new SimpleText(22, 16549442, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             this.text_.text = "Quest!";
             this.text_.updateMetrics();
             this.text_.filters = [new DropShadowFilter(0, 0, 0)];

@@ -29,7 +29,7 @@ package _Q_A_{
             super("Current account", "", "Continue", "/currentLogin");
             var _local2:Boolean = _arg1.hasOwnProperty("VerifiedEmail");
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._lv._8Y_(true);
+            this._lv.boldText(true);
             this._lv.text = "Currently logged in as:";
             this._lv.updateMetrics();
             this._lv.filters = [new DropShadowFilter(0, 0, 0)];

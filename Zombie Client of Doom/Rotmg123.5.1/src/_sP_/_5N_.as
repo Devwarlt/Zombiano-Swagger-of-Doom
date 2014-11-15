@@ -14,7 +14,7 @@ package _sP_{
     import com.company.rotmg.graphics.DeleteXGraphic;
     import flash.display.Graphics;
     import com.company.util.MoreColorUtil;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import _sP_._k6;
     import flash.events.Event;
 
@@ -47,7 +47,7 @@ package _sP_{
                 _local7 = 16564761;
             }
             this._30 = new SimpleText(22, _local7, false, 0, 0, "Myriad Pro");
-            this._30._8Y_(true);
+            this._30.boldText(true);
             this._30.text = (_arg1.toString() + ".");
             this._30._08S_();
             this._30.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -55,7 +55,7 @@ package _sP_{
             this._30.y = ((HEIGHT / 2) - (this._30.height / 2));
             addChild(this._30);
             this.nameText_ = new SimpleText(22, _local7, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = _arg2;
             this.nameText_._08S_();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -139,40 +139,40 @@ package _sP_{
             _local2.transform.colorTransform = MoreColorUtil.identity;
         }
         private function _0H_3(_arg1:MouseEvent):void{
-            var _local2:_qO_ = new _qO_((((("Are you sure you want to promote " + this.name_) + " to ") + _07E_._0C_n(_07E_._0H_q(this._S_e))) + "?"), ("Promote " + this.name_), "Cancel", "Promote", "/promote");
-            _local2.addEventListener(_qO_.BUTTON1_EVENT, this._0C_f);
-            _local2.addEventListener(_qO_.BUTTON2_EVENT, this._ep);
+            var _local2:DialogBox = new DialogBox((((("Are you sure you want to promote " + this.name_) + " to ") + _07E_._0C_n(_07E_._0H_q(this._S_e))) + "?"), ("Promote " + this.name_), "Cancel", "Promote", "/promote");
+            _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._0C_f);
+            _local2.addEventListener(DialogBox.BUTTON2_EVENT, this._ep);
             stage.addChild(_local2);
         }
         private function _ep(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             stage.removeChild(_local2);
             dispatchEvent(new _k6(_k6.SET_RANK, this.name_, _07E_._0H_q(this._S_e)));
         }
         private function _P_w(_arg1:MouseEvent):void{
-            var _local2:_qO_ = new _qO_((((("Are you sure you want to demote " + this.name_) + " to ") + _07E_._0C_n(_07E_._4J_(this._S_e))) + "?"), ("Demote " + this.name_), "Cancel", "Demote", "/demote");
-            _local2.addEventListener(_qO_.BUTTON1_EVENT, this._0C_f);
-            _local2.addEventListener(_qO_.BUTTON2_EVENT, this._gy);
+            var _local2:DialogBox = new DialogBox((((("Are you sure you want to demote " + this.name_) + " to ") + _07E_._0C_n(_07E_._4J_(this._S_e))) + "?"), ("Demote " + this.name_), "Cancel", "Demote", "/demote");
+            _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._0C_f);
+            _local2.addEventListener(DialogBox.BUTTON2_EVENT, this._gy);
             stage.addChild(_local2);
         }
         private function _gy(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             stage.removeChild(_local2);
             dispatchEvent(new _k6(_k6.SET_RANK, this.name_, _07E_._4J_(this._S_e)));
         }
         private function _Q_2(_arg1:MouseEvent):void{
-            var _local2:_qO_ = new _qO_((("Are you sure you want to remove " + this.name_) + " from the guild?"), ("Remove " + this.name_), "Cancel", "Remove", "/removeFromGuild");
-            _local2.addEventListener(_qO_.BUTTON1_EVENT, this._0C_f);
-            _local2.addEventListener(_qO_.BUTTON2_EVENT, this._uy);
+            var _local2:DialogBox = new DialogBox((("Are you sure you want to remove " + this.name_) + " from the guild?"), ("Remove " + this.name_), "Cancel", "Remove", "/removeFromGuild");
+            _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._0C_f);
+            _local2.addEventListener(DialogBox.BUTTON2_EVENT, this._uy);
             stage.addChild(_local2);
         }
         private function _uy(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             stage.removeChild(_local2);
             dispatchEvent(new _k6(_k6.REMOVE_MEMBER, this.name_));
         }
         private function _0C_f(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             stage.removeChild(_local2);
         }
 

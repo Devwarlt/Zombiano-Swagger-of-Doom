@@ -7,7 +7,7 @@ package _0L_C_{
     import _qN_.Account;
     import flash.events.Event;
 
-    public class _02d extends _qO_ {
+    public class _02d extends DialogBox {
 
         public function _02d(){
             super(("You do not have enough Gold for this item.  " + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold", "/notEnoughGold");

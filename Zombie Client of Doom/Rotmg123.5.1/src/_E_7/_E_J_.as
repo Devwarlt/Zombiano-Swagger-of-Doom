@@ -53,7 +53,7 @@ package _E_7{
             this._tm.y = -4;
             addChild(this._tm);
             this.nameText_ = new SimpleText(13, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = _arg1.@id;
             this.nameText_.updateMetrics();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];
@@ -97,7 +97,7 @@ package _E_7{
             } else
             {
                 this._aV_ = new SimpleText(13, 0xB3B3B3, false, 174, 0, "Myriad Pro");
-                this._aV_._8Y_(true);
+                this._aV_.boldText(true);
                 this._aV_.text = "To Unlock:";
                 this._aV_.updateMetrics();
                 this._aV_.filters = [new DropShadowFilter(0, 0, 0)];

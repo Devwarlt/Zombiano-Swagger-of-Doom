@@ -75,7 +75,7 @@ package _F_1{
             this.setImage(_lJ_.DOWN, _lJ_._sS_, 0);
             addChild(this.bitmap_);
             this.classNameText_ = new SimpleText(14, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this.classNameText_._8Y_(true);
+            this.classNameText_.boldText(true);
             this.classNameText_.htmlText = (('<p align="center">' + this.playerXML_.@id) + "</p>");
             this.classNameText_.autoSize = TextFieldAutoSize.CENTER;
             this.classNameText_.updateMetrics();
@@ -85,7 +85,7 @@ package _F_1{
             {
                 this._L_B_ = new SimpleText(14, 0xFF0000, false, 0, 0, "Myriad Pro");
                 this._L_B_.htmlText = '<p align="center">Locked</p>';
-                this._L_B_._8Y_(true);
+                this._L_B_.boldText(true);
                 this._L_B_.autoSize = TextFieldAutoSize.CENTER;
                 this._L_B_.updateMetrics();
                 this._L_B_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4)];

@@ -19,7 +19,7 @@ package com.company.assembleegameclient.ui{
 
         public function TextButton(_arg1:int, _arg2:Boolean, _arg3:String){
             this.text_ = new SimpleText(_arg1, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(_arg2);
+            this.text_.boldText(_arg2);
             this.text_.text = _arg3;
             this.text_.updateMetrics();
             addChild(this.text_);

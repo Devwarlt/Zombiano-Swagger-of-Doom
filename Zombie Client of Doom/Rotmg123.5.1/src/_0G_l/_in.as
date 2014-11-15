@@ -12,7 +12,7 @@ package _0G_l{
     import flash.display.Shape;
     import com.company.ui.SimpleText;
     import com.company.rotmg.graphics.DeleteXGraphic;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import com.company.assembleegameclient.ui.TextButton;
     import _zm._01c;
     import flash.display.GraphicsSolidFill;
@@ -33,7 +33,7 @@ package _0G_l{
     import _tg._07k;
     import _tg._32;
     import _tg._E_C_;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import flash.utils.ByteArray;
     import flash.net.FileReference;
     import com.company.util._H_U_;
@@ -56,7 +56,7 @@ package _0G_l{
         protected var _P_V_:SimpleText = null;
         protected var _g5:_T_C_ = null;
         protected var _t3:DeleteXGraphic = null;
-        protected var _wu:_7f;
+        protected var _wu:boxButton;
         protected var _0B_e:TextButton;
         protected var _07v:TextButton;
         protected var _p2:_0G_s;
@@ -82,7 +82,7 @@ package _0G_l{
 			this.graphicsData_ = new <IGraphicsData>[_0y, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
             super();
             this._P_V_ = new SimpleText(22, 5746018, false, WIDTH, 0, "Myriad Pro");
-            this._P_V_._8Y_(true);
+            this._P_V_.boldText(true);
             this._P_V_.htmlText = '<p align="center">Load</p>';
             this._P_V_.updateMetrics();
             this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
@@ -93,7 +93,7 @@ package _0G_l{
             this._t3.x = ((WIDTH - this._t3.width) - 10);
             this._t3.y = 10;
             this.box_.addChild(this._t3);
-            this._wu = new _7f(16, "Search", 120);
+            this._wu = new boxButton(16, "Search", 120);
             this._wu.x = ((WIDTH - this._wu.width) - 20);
             this._wu.y = 40;
             this._wu.addEventListener(MouseEvent.CLICK, this._zJ_);
@@ -211,8 +211,8 @@ package _0G_l{
         }
         private function _fs(_arg1:_32):void{
             var _local2:_r4 = new _r4(_arg1.name_, _arg1.id_);
-            _local2.addEventListener(_qO_.BUTTON1_EVENT, this._0B_L_);
-            _local2.addEventListener(_qO_.BUTTON2_EVENT, this.onDelete);
+            _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._0B_L_);
+            _local2.addEventListener(DialogBox.BUTTON2_EVENT, this.onDelete);
             addChild(_local2);
         }
         private function _0M_u(_arg1:_E_C_):void{
@@ -253,7 +253,7 @@ package _0G_l{
             this._T_l = null;
         }
         private function _0B_L_(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.target as _r4);
+            var _local2:DialogBox = (_arg1.target as _r4);
             _local2.parent.removeChild(_local2);
         }
         private function onDelete(_arg1:Event):void{

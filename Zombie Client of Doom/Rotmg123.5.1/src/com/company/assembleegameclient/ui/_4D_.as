@@ -268,7 +268,7 @@ package com.company.assembleegameclient.ui{
                     {
                         if (((!(this._2T_(this._bn.text))) && (!((this.gs_.map_.player_ == null)))))
                         {
-                            this.gs_.gsc_._C_k(this._bn.text);
+                            this.gs_.packetManager._C_k(this._bn.text);
                             doneAction(this.gs_, Tutorial._X_I_);
                         }
                         this._bn.text = "";

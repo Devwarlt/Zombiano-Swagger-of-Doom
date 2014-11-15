@@ -73,7 +73,7 @@ public class CurrentCharacterRect extends CharacterRect {
     }
     private function makeClassNameText():void{
         this.classNameText = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-        this.classNameText._8Y_(true);
+        this.classNameText.boldText(true);
         this.classNameText.text = ((this.playerXML.@id + " ") + this.character.level());
         this.classNameText.updateMetrics();
         this.classNameText.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

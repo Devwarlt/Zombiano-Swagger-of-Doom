@@ -34,7 +34,8 @@ namespace wServer.networking.handlers
                 OwnerId = player.Id,
                 Angle = packet.Angle,
                 ContainerType = packet.ContainerType,
-                BulletId = packet.BulletId
+                BulletId = packet.BulletId,
+                Damage = prj.Damage
             }, p => p != player && player.Dist(p) < 25);
             player.FameCounter.Shoot(prj);
         }

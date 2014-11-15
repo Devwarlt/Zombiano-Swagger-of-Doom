@@ -34,7 +34,7 @@ package _F_1{
             this._d8 = _arg7;
             this._tK_ = _arg8;
             this.nameText_ = new SimpleText(_arg1, _arg2, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = this.name_;
             this.nameText_.updateMetrics();
             this.nameText_.x = (410 - this.nameText_.textWidth);
@@ -43,7 +43,7 @@ package _F_1{
             if (this._uT_ != -1)
             {
                 this._0J_q = new SimpleText(_arg1, _arg3, false, 0, 0, "Myriad Pro");
-                this._0J_q._8Y_(true);
+                this._0J_q.boldText(true);
                 this._0J_q.text = (((_arg7 + "0") + " ") + _arg8);
                 this._0J_q.updateMetrics();
                 this._0J_q.x = 450;

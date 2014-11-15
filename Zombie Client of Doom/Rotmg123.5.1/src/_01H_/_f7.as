@@ -12,7 +12,7 @@ package _01H_{
     import flash.display.Loader;
     import flash.events.Event;
     import _0L_C_._qM_;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import com.company.assembleegameclient.appengine._0B_u;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
@@ -89,7 +89,7 @@ package _01H_{
         }
         private function _kr(_arg1:Event):void{
             var _local2:_qM_ = (_arg1.target as _qM_);
-            _local2.removeEventListener(_qO_.BUTTON1_EVENT, this._kr);
+            _local2.removeEventListener(DialogBox.BUTTON1_EVENT, this._kr);
             this._Z_d.requestSessionTicket(this._029, true);
         }
         private function _029(_arg1:String=null):void{
@@ -101,7 +101,7 @@ package _01H_{
             {
                 _local3 = "Failed to retrieve valid Steam Credentials! Click to retry.";
                 _local4 = new _qM_(_local3);
-                _local4.addEventListener(_qO_.BUTTON1_EVENT, this._kr);
+                _local4.addEventListener(DialogBox.BUTTON1_EVENT, this._kr);
                 this._cd.addChild(_local4);
             } else
             {

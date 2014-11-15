@@ -27,7 +27,7 @@ package _F_1{
             super();
             this.value_ = (((_arg1 == null)) ? null : _arg1.name_);
             this.nameText_ = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = (((_arg1 == null)) ? "Best Server" : _arg1.name_);
             this.nameText_.updateMetrics();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -51,7 +51,7 @@ package _F_1{
                     }
                 }
                 this._L_B_ = new SimpleText(18, _local2, false, 0, 0, "Myriad Pro");
-                this._L_B_._8Y_(true);
+                this._L_B_.boldText(true);
                 this._L_B_.text = _local3;
                 this._L_B_.updateMetrics();
                 this._L_B_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

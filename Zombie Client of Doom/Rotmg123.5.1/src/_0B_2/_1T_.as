@@ -14,7 +14,7 @@ package _0B_2{
     import _0L_C_._qM_;
     import com.company.assembleegameclient.appengine._0B_u;
     import flash.display.LoaderInfo;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -144,7 +144,7 @@ package _0B_2{
             {
                 _local5 = "Failed to retrieve valid Kabam request! Click to reload.";
                 _local6 = new _qM_(_local5);
-                _local6.addEventListener(_qO_.BUTTON1_EVENT, this._T_3);
+                _local6.addEventListener(DialogBox.BUTTON1_EVENT, this._T_3);
                 this._cd.addChild(_local6);
             } else
             {

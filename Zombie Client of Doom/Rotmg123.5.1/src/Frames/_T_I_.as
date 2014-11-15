@@ -35,7 +35,7 @@ package Frames{
         }
         private function _013():void{
             this.text = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this.text._8Y_(true);
+            this.text.boldText(true);
             this.text.text = this._9g;
             this.text.updateMetrics();
             this.text.filters = [new DropShadowFilter(0, 0, 0)];

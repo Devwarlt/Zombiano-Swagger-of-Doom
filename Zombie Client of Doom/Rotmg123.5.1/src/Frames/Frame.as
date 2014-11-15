@@ -112,7 +112,7 @@ public class Frame extends Sprite {
     public function _0D_6(_arg1:String):void{
         var _local2:SimpleText = new SimpleText(20, 0xB2B2B2, false, 0, 0, "Myriad Pro");
         _local2.text = _arg1;
-        _local2._8Y_(true);
+        _local2.boldText(true);
         _local2.updateMetrics();
         _local2.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
         addChild(_local2);

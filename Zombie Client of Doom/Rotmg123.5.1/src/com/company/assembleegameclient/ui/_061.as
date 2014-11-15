@@ -134,7 +134,7 @@ package com.company.assembleegameclient.ui{
                 return;
             }
             _0B_w = this._03f._e9.gs_.lastUpdate_;
-            this._03f._e9.gs_.gsc_._P_a(_0B_w, _local3.x_, _local3.y_, this._03f._e9._iA_.objectId_, this._03f.id_, this._0M_X_, _arg1._e9._iA_.objectId_, _arg1.id_, _local2);
+            this._03f._e9.gs_.packetManager._P_a(_0B_w, _local3.x_, _local3.y_, this._03f._e9._iA_.objectId_, this._03f.id_, this._0M_X_, _arg1._e9._iA_.objectId_, _arg1.id_, _local2);
             _5T_.play("inventory_move_item");
         }
         private function _Y_4():void{
@@ -166,7 +166,7 @@ package com.company.assembleegameclient.ui{
                     }
                 }
             }
-            this._03f._e9.gs_.gsc_._8q(this._03f._e9._iA_.objectId_, this._03f.id_, this._0M_X_);
+            this._03f._e9.gs_.packetManager._8q(this._03f._e9._iA_.objectId_, this._03f.id_, this._0M_X_);
         }
         private function _0K_9():void{
             this._03f.addChild(this);

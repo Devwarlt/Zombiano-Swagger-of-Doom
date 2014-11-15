@@ -283,7 +283,7 @@ package com.company.assembleegameclient.ui{
                 }
                 this._04q = true;
             }
-            this._e9.gs_.gsc_.useItem(getTimer(), this._e9._iA_.objectId_, this.id_, this.objectType_, 0, 0);
+            this._e9.gs_.packetManager.useItem(getTimer(), this._e9._iA_.objectId_, this.id_, this.objectType_, 0, 0);
             _5T_.play("use_potion");
             this._X_6();
         }
@@ -492,7 +492,7 @@ package com.company.assembleegameclient.ui{
             }
         }
         private function _gw():PacketManager{
-            return (this._e9.gs_.gsc_);
+            return (this._e9.gs_.packetManager);
         }
         private function _v5():Player{
             return (this._e9.gs_.map_.player_);

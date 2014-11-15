@@ -6,7 +6,7 @@
 package ServerPackets{
     import flash.utils.IDataInput;
 
-    public class _0D_q extends _01Q_ {
+    public class _0D_q extends ServerPacket {
 
         public var success_:Boolean;
         public var errorText_:String;

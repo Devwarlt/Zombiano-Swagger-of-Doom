@@ -150,6 +150,7 @@ namespace wServer.networking
         EnemyHit = 76,
         InvDrop = 35,
         NotificationBox = 81,
-        Sprint = 85
+        Sprint = 85,
+        TeleportRequest = 86
     }
 }

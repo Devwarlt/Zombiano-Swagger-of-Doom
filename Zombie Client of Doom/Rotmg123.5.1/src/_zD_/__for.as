@@ -10,7 +10,7 @@ package _zD_{
     import _U_5._dd;
     import _05Z_._08i;
     import _ke._0M_1;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import _04w._07V_;
     import com.company.assembleegameclient.parameters.Parameters;
     import _F_1.CurrentCharacterScreen;
@@ -66,16 +66,16 @@ package _zD_{
             }
         }
         private function _04P_():void{
-            var _local1:_qO_;
+            var _local1:DialogBox;
             var _local2:_07V_;
             if (((Parameters.isTesting) && ((this._eJ_._T_1.servers_.length == 0))))
             {
                 if (Parameters._I_O_())
                 {
-                    _local1 = new _qO_(((("There are currently no testing servers available.  " + 'Please play on <font color="#7777EE">') + '<a href="http://www.amaymon.com/">') + "www.amaymon.com</a></font>."), "No Testing Servers", null, null, "/noTestingServers");
+                    _local1 = new DialogBox(((("There are currently no testing servers available.  " + 'Please play on <font color="#7777EE">') + '<a href="http://www.amaymon.com/">') + "www.amaymon.com</a></font>."), "No Testing Servers", null, null, "/noTestingServers");
                 } else
                 {
-                    _local1 = new _qO_((((("Realm of the Mad God is currently offline.\n\n" + "Go here for more information:\n") + '<font color="#7777EE">') + '<a href="http://forums.wildshadow.com/">') + "forums.wildshadow.com</a></font>."), "Oryx Sleeping", null, null, "/offLine");
+                    _local1 = new DialogBox((((("Realm of the Mad God is currently offline.\n\n" + "Go here for more information:\n") + '<font color="#7777EE">') + '<a href="http://forums.wildshadow.com/">') + "forums.wildshadow.com</a></font>."), "Oryx Sleeping", null, null, "/offLine");
                 }
                 this.view.stage.addChild(_local1);
                 return;

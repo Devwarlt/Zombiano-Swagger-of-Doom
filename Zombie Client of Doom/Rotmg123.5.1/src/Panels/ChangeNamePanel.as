@@ -14,7 +14,7 @@ package Panels{
     import com.company.assembleegameclient.util.Currency;
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.ui._0G_h;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import com.company.assembleegameclient.game.GameSprite;
     import _qN_.Account;
     import com.company.assembleegameclient.ui.FrameHolder;
@@ -41,7 +41,7 @@ package Panels{
             this._B_E_ = _local3._hv;
             var _local4:String = gs_.charList_.name_;
             this._O_k = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
-            this._O_k._8Y_(true);
+            this._O_k.boldText(true);
             this._O_k.wordWrap = true;
             this._O_k.multiline = true;
             this._O_k.autoSize = TextFieldAutoSize.CENTER;
@@ -65,7 +65,7 @@ package Panels{
                     addChild(this._O_k);
                     _local6 = new Sprite();
                     _local7 = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-                    _local7._8Y_(true);
+                    _local7.boldText(true);
                     _local7.text = "Rank Required:";
                     _local7.updateMetrics();
                     _local7.filters = [new DropShadowFilter(0, 0, 0)];
@@ -82,7 +82,7 @@ package Panels{
                     this._O_k.htmlText = '<p align="center">Choose Account Name</p>';
                     this._O_k.y = 6;
                     addChild(this._O_k);
-                    this._ek = new _7f(16, "Choose");
+                    this._ek = new boxButton(16, "Choose");
                     this._ek.addEventListener(MouseEvent.CLICK, this.onButtonClick);
                     this._ek.x = ((WIDTH / 2) - (this._ek.width / 2));
                     this._ek.y = ((HEIGHT - this._ek.height) - 4);

@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0L_C_._qO_
+//_0L_C_.DialogBox
 
 package _0L_C_{
     import flash.display.Sprite;
@@ -10,7 +10,7 @@ package _0L_C_{
     import com.company.util.GraphicHelper;
     import flash.display.Shape;
     import com.company.ui.SimpleText;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import flash.display.GraphicsSolidFill;
     import flash.display.GraphicsStroke;
     import flash.display.GraphicsPath;
@@ -25,7 +25,7 @@ package _0L_C_{
     import com.company.googleanalytics.GA;
 
 
-    public class _qO_ extends Sprite {
+    public class DialogBox extends Sprite {
 
         public static const BUTTON1_EVENT:String = "DIALOG_BUTTON1";
         public static const BUTTON2_EVENT:String = "DIALOG_BUTTON2";
@@ -38,15 +38,15 @@ package _0L_C_{
         protected var rect_:Shape;
         protected var _p:SimpleText;
         protected var _P_V_:SimpleText = null;
-        protected var button1_:_7f = null;
-        protected var button2_:_7f = null;
+        protected var button1_:boxButton = null;
+        protected var button2_:boxButton = null;
         protected var _J_O_:String = null;
         private var outlineFill_:GraphicsSolidFill;
         private var _0y:GraphicsStroke;
         private var _vV_:GraphicsSolidFill;
         private var path_:GraphicsPath;
 
-        public function _qO_(_arg1:String, _arg2:String, _arg3:String, _arg4:String, _arg5:String){
+        public function DialogBox(_arg1:String, _arg2:String, _arg3:String, _arg4:String, _arg5:String){
             this.box_ = new Sprite();
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this._0y = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
@@ -67,19 +67,19 @@ package _0L_C_{
             if (_arg2 != null)
             {
                 this._P_V_ = new SimpleText(18, 5746018, false, WIDTH, 0, "Myriad Pro");
-                this._P_V_._8Y_(true);
+                this._P_V_.boldText(true);
                 this._P_V_.htmlText = (('<p align="center">' + _arg2) + "</p>");
                 this._P_V_.updateMetrics();
                 this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
             }
             if (_arg3 != null)
             {
-                this.button1_ = new _7f(16, _arg3, 120);
+                this.button1_ = new boxButton(16, _arg3, 120);
                 this.button1_.addEventListener(MouseEvent.CLICK, this.onButton1Click);
             }
             if (_arg4 != null)
             {
-                this.button2_ = new _7f(16, _arg4, 120);
+                this.button2_ = new boxButton(16, _arg4, 120);
                 this.button2_.addEventListener(MouseEvent.CLICK, this.onButton2Click);
             }
             this.draw();

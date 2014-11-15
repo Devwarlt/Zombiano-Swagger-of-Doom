@@ -11,6 +11,7 @@ namespace wServer.networking.svrPackets
         public int OwnerId { get; set; }
         public ushort ContainerType { get; set; }
         public float Angle { get; set; }
+        public int Damage { get; set; }
 
         public override PacketID ID { get { return PacketID.AllyShoot; } }
         public override Packet CreateInstance() { return new AllyShootPacket(); }
@@ -21,6 +22,7 @@ namespace wServer.networking.svrPackets
             OwnerId = rdr.ReadInt32();
             ContainerType = rdr.ReadUInt16();
             Angle = rdr.ReadSingle();
+            Damage = rdr.ReadInt32();
         }
         protected override void Write(NWriter wtr)
         {
@@ -28,6 +30,7 @@ namespace wServer.networking.svrPackets
             wtr.Write(OwnerId);
             wtr.Write(ContainerType);
             wtr.Write(Angle);
+            wtr.Write(Damage);
         }
     }
 }

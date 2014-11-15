@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//com.company.assembleegameclient.ui._7f
+//com.company.assembleegameclient.ui.boxButton
 
 package com.company.assembleegameclient.ui{
     import flash.display.Sprite;
@@ -14,7 +14,7 @@ package com.company.assembleegameclient.ui{
     import flash.events.MouseEvent;
 
 
-    public class _7f extends Sprite {
+    public class boxButton extends Sprite {
 
         private var graphicsData_:Vector.<IGraphicsData>;
 
@@ -24,14 +24,14 @@ package com.company.assembleegameclient.ui{
         private var _f1:GraphicsSolidFill;
         private var path_:GraphicsPath;
 
-        public function _7f(_arg1:int, _arg2:String, _arg3:int=0){
+        public function boxButton(_arg1:int, _arg2:String, _arg3:int=0){
             this._pL_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this._f1 = new GraphicsSolidFill(0x7F7F7F, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
 			this.graphicsData_ = new <IGraphicsData>[_pL_, path_, GraphicHelper.END_FILL];
             super();
             this.text_ = new SimpleText(_arg1, 0x363636, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             this.text_.text = _arg2;
             this.text_.updateMetrics();
             addChild(this.text_);

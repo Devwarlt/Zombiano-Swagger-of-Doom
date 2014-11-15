@@ -57,13 +57,13 @@ package _F_1{
             this._T_c = new _aJ_();
             addChild(new _R_f());
             this._P_V_ = new SimpleText(32, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._P_V_._8Y_(true);
+            this._P_V_.boldText(true);
             this._P_V_.text = "Legends";
             this._P_V_.updateMetrics();
             this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
             addChild(this._P_V_);
             this._j7 = new SimpleText(22, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._j7._8Y_(true);
+            this._j7.boldText(true);
             this._j7.text = "Loading...";
             this._j7._08S_();
             this._j7.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

@@ -257,7 +257,7 @@ package com.company.assembleegameclient.ui{
                     {
                         _local5 = new SimpleText(26, 0x473224, false, 0, 0, "Myriad Pro");
                         _local5.text = String(this._ws);
-                        _local5._8Y_(true);
+                        _local5.boldText(true);
                         _local5.updateMetrics();
                         _local1 = new BitmapData(26, 30, true, 0);
                         _local6 = new Matrix();

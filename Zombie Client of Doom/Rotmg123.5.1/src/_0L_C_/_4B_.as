@@ -4,7 +4,7 @@
 //_0L_C_._4B_
 
 package _0L_C_{
-    public class _4B_ extends _qO_ {
+    public class _4B_ extends DialogBox {
 
         public function _4B_(){
             super(("In order to select a unique name, " + "you must be a registered user."), "Not Registered", "Cancel", "Register", "/chooseNameNeedRegister");

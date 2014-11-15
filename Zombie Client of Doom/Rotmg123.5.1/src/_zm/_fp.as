@@ -19,7 +19,7 @@ package _zm{
             this.w_ = _arg2;
             this.h_ = _arg3;
             this.nameText_ = new SimpleText(16, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.text = _arg1;
             this.nameText_.updateMetrics();
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];

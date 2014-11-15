@@ -8,7 +8,7 @@ package ServerPackets{
     import flash.utils.IDataInput;
 
 
-    public class Damage extends _01Q_ {
+    public class Damage extends ServerPacket {
 
         public var targetId_:int;
         public var effects_:Vector.<uint>;

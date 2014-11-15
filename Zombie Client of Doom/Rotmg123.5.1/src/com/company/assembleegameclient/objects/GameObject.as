@@ -544,7 +544,7 @@ package com.company.assembleegameclient.objects{
             var _local3:Boolean;
             if (!(((this.moveVec_.x == 0)) && ((this.moveVec_.y == 0))))
             {
-                if (this._ad < map_.gs_.gsc_.lastTickId_)
+                if (this._ad < map_.gs_.packetManager.lastTickId_)
                 {
                     this.moveVec_.x = 0;
                     this.moveVec_.y = 0;
@@ -583,7 +583,7 @@ package com.company.assembleegameclient.objects{
             this.moveVec_.y = 0;
         }
         public function _0I_u(_arg1:Number, _arg2:Number, _arg3:int, _arg4:int):void{
-            if (this._ad < map_.gs_.gsc_.lastTickId_)
+            if (this._ad < map_.gs_.packetManager.lastTickId_)
             {
                 this.moveTo(this._52.x, this._52.y);
             }
@@ -680,12 +680,12 @@ package com.company.assembleegameclient.objects{
                 map_.mapOverlay_.addChild(new _O_P_(this, ("-" + _arg2), ((_local10) ? 0x9000FF : 0xFF0000), 1000));
             }
             //if (map_.player_ == this && _arg5 != null) {
-			//	map_.gs_.gsc_.sendVisibullet(_arg2, _arg5.ownerId_, _arg5.bulletId_);
+			//	map_.gs_.packetManager.sendVisibullet(_arg2, _arg5.ownerId_, _arg5.bulletId_);
 			//}
         }
         protected function _T_L_(_arg1:String):SimpleText{
             var _local2:SimpleText = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            _local2._8Y_(true);
+            _local2.boldText(true);
             _local2.text = _arg1;
             _local2.updateMetrics();
             return (_local2);

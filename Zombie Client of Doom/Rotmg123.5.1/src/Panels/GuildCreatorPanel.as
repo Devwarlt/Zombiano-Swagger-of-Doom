@@ -11,12 +11,12 @@ package Panels{
     import flash.text.TextFieldAutoSize;
     import flash.filters.DropShadowFilter;
     import com.company.assembleegameclient.util._07E_;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.util.Currency;
     import com.company.assembleegameclient.game.GameSprite;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import flash.events.Event;
     import com.company.assembleegameclient.ui.FrameHolder;
     import Frames._lx;
@@ -36,7 +36,7 @@ package Panels{
             }
             var _local2:Player = gs_.map_.player_;
             this._O_k = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
-            this._O_k._8Y_(true);
+            this._O_k.boldText(true);
             this._O_k.wordWrap = true;
             this._O_k.multiline = true;
             this._O_k.autoSize = TextFieldAutoSize.CENTER;
@@ -47,7 +47,7 @@ package Panels{
                 this._O_k.htmlText = (((('<p align="center">' + _local3) + " of \n") + _local2.guildName_) + "</p>");
                 this._O_k.y = 0;
                 addChild(this._O_k);
-                this._ek = new _7f(16, "Renounce");
+                this._ek = new boxButton(16, "Renounce");
                 this._ek.addEventListener(MouseEvent.CLICK, this._38);
                 this._ek.x = ((WIDTH / 2) - (this._ek.width / 2));
                 this._ek.y = ((HEIGHT - this._ek.height) - 4);
@@ -71,13 +71,13 @@ package Panels{
                 return;
             }
             var _local2:Player = gs_.map_.player_;
-            var _local3:_qO_ = new _qO_(("Are you sure you want to quit:\n" + _local2.guildName_), "Renounce Guild", "No, I'll stay", "Yes, I'll quit", "/renounceGuild");
-            _local3.addEventListener(_qO_.BUTTON1_EVENT, this._S_V_);
-            _local3.addEventListener(_qO_.BUTTON2_EVENT, this._J_2);
+            var _local3:DialogBox = new DialogBox(("Are you sure you want to quit:\n" + _local2.guildName_), "Renounce Guild", "No, I'll stay", "Yes, I'll quit", "/renounceGuild");
+            _local3.addEventListener(DialogBox.BUTTON1_EVENT, this._S_V_);
+            _local3.addEventListener(DialogBox.BUTTON2_EVENT, this._J_2);
             stage.addChild(_local3);
         }
         private function _S_V_(_arg1:Event):void{
-            stage.removeChild((_arg1.currentTarget as _qO_));
+            stage.removeChild((_arg1.currentTarget as DialogBox));
         }
         private function _J_2(_arg1:Event):void{
             if ((((gs_.map_ == null)) || ((gs_.map_.player_ == null))))
@@ -85,8 +85,8 @@ package Panels{
                 return;
             }
             var _local2:Player = gs_.map_.player_;
-            gs_.gsc_.guildRemove(_local2.name_);
-            stage.removeChild((_arg1.currentTarget as _qO_));
+            gs_.packetManager.guildRemove(_local2.name_);
+            stage.removeChild((_arg1.currentTarget as DialogBox));
             visible = false;
         }
         public function _0M_n(_arg1:MouseEvent):void{

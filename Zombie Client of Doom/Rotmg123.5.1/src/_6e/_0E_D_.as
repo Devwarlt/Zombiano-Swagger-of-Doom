@@ -10,7 +10,7 @@ package _6e{
     import com.company.util.GraphicHelper;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui._0K_B_;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import flash.display.GraphicsSolidFill;
     import flash.display.GraphicsStroke;
     import flash.display.GraphicsPath;
@@ -38,8 +38,8 @@ package _6e{
         private var _017:Sprite;
         private var _gJ_:Sprite;
         private var _E_k:_0K_B_;
-        private var _t3:_7f;
-        private var _B_k:_7f;
+        private var _t3:boxButton;
+        private var _B_k:boxButton;
         private var _vV_:GraphicsSolidFill;
         private var outlineFill_:GraphicsSolidFill;
         private var _0y:GraphicsStroke;
@@ -79,12 +79,12 @@ package _6e{
             this._E_k.addEventListener(Event.CHANGE, this._A_E_);
             addChild(this._E_k);
             this.w_ = (_lV_ + 26);
-            this._t3 = new _7f(14, "Cancel", 120);
+            this._t3 = new boxButton(14, "Cancel", 120);
             this._t3.x = 4;
             this._t3.y = (_05N_ + 4);
             this._t3.addEventListener(MouseEvent.CLICK, this.onCancel);
             addChild(this._t3);
-            this._B_k = new _7f(14, "Save", 120);
+            this._B_k = new boxButton(14, "Save", 120);
             this._B_k.x = ((this.w_ - this._B_k.width) - 4);
             this._B_k.y = (_05N_ + 4);
             this._B_k.addEventListener(MouseEvent.CLICK, this._na);

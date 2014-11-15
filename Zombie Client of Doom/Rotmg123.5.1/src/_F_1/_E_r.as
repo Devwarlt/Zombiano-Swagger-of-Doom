@@ -21,7 +21,7 @@ package _F_1{
         public function _E_r(){
             addChild(new ScreenGraphic());
             this._j7 = new SimpleText(30, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this._j7._8Y_(true);
+            this._j7.boldText(true);
             this._j7.htmlText = '<p align="center">Loading...</p>';
             this._j7.autoSize = TextFieldAutoSize.CENTER;
             this._j7.updateMetrics();

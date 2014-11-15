@@ -22,7 +22,7 @@ public class TextInput extends Sprite {
 
     public function TextInput(_arg1:String, _arg2:Boolean, _arg3:String){
         this.nameText_ = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-        this.nameText_._8Y_(true);
+        this.nameText_.boldText(true);
         this.nameText_.text = _arg1;
         this.nameText_.updateMetrics();
         this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];

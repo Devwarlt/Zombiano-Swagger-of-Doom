@@ -20,7 +20,7 @@ package _0C_P_{
         public function _P_4(_arg1:String){
             this.text_ = _arg1;
             this._p = new SimpleText(_H_5, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._p._8Y_(true);
+            this._p.boldText(true);
             this._p.text = this.text_;
             this._p.updateMetrics();
             this._p.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];

@@ -34,7 +34,7 @@ package _0L_V_{
         }
         private function _L_z():void{
             this._w2 = new SimpleText(14, 0xE3C900, false, 0, 0, "Myriad Pro");
-            this._w2._8Y_(true);
+            this._w2.boldText(true);
             this._w2.x = 307;
             this._w2.y = 380;
             addChild(this._w2);

@@ -71,7 +71,7 @@ public class LithiumFrame extends Frame
             dispatchEvent(new Event(Event.COMPLETE));
         }
         private function onCraft(param1:MouseEvent) : void {
-            this.gs_.gsc_.craftItems(this.obj_.objectId_);
+            this.gs_.packetManager.craftItems(this.obj_.objectId_);
         }
     }
 }

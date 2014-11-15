@@ -9,7 +9,7 @@ package ServerPackets{
     
     import flash.utils.IDataInput;
 
-    public class MapInfo extends _01Q_ {
+    public class MapInfo extends ServerPacket {
 
         public var width_:int;
         public var height_:int;

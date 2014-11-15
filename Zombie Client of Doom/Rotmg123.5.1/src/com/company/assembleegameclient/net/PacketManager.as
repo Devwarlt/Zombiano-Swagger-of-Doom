@@ -6,6 +6,8 @@
 package com.company.assembleegameclient.net{
 import Frames.NotificationBox;
 
+import Panels.TeleportPanel;
+
 import ServerPackets.*;
     import ServerPackets.AOE;
     import ServerPackets.BuyResult;
@@ -48,7 +50,7 @@ import ServerPackets.*;
     import ClientPackets.*;
     import ClientPackets.Buy;
     import ClientPackets.Create;
-    import ClientPackets.Teleport;
+    import ClientPackets.RequestTeleport;
     import ClientPackets._03l;
     import ClientPackets._09F_;
     import ClientPackets._0A_1;
@@ -101,7 +103,7 @@ import ServerPackets.*;
     
     import _0L_C_._02d;
     import _0L_C_._aZ_;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     
     import _0M_H_._W_O_;
     import _0M_H_._sN_;
@@ -203,7 +205,7 @@ import com.company.assembleegameclient.util.Currency;
         public static const LOAD:int = 45;
         public static const PIC:int = 28;
         public static const SETCONDITION:int = 10;
-        public static const TELEPORT:int = 49;
+        public static const REQUESTTELEPORT:int = 49;
         public static const USEPORTAL:int = 3;
         public static const DEATH:int = 41;
         public static const BUY:int = 50;
@@ -251,6 +253,7 @@ import com.company.assembleegameclient.util.Currency;
 		public static const VISIBULLET:int = 80;
         public static const NOTIFICATION_BOX:int = 81;
         public static const SPRINT:int = 85;
+        public static const TELEPORTREQUEST:int = 86;
         private static const _vb:Vector.<uint> = new <uint>[14802908, 0xFFFFFF, 0x545454];
         private static const _Z_y:Vector.<uint> = new <uint>[5644060, 16549442, 13484223];
         private static const _0A_F_:Vector.<uint> = new <uint>[2493110, 61695, 13880567];
@@ -315,7 +318,7 @@ import com.company.assembleegameclient.util.Currency;
             this.serverConn.registerPacket(PIC, Pic, this._F_E_);
             this.serverConn.registerPacket(SETCONDITION, _mw, null);
             this.serverConn.registerPacket(SPRINT, SprintPacket, null);
-            this.serverConn.registerPacket(TELEPORT, Teleport, null);
+            this.serverConn.registerPacket(REQUESTTELEPORT, RequestTeleport, null);
             this.serverConn.registerPacket(USEPORTAL, _03l, null);
             this.serverConn.registerPacket(DEATH, Death, this._038);
             this.serverConn.registerPacket(BUY, Buy, null);
@@ -360,6 +363,7 @@ import com.company.assembleegameclient.util.Currency;
 			this.serverConn.registerPacket(CRAFT, Craft, null);
 			this.serverConn.registerPacket(VISIBULLET, Visibullet, null);
 			this.serverConn.registerPacket(SWITCHMUSIC, SwitchMusic, null);
+            this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, teleportRequested);
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
             this.serverConn.addEventListener(Event.CLOSE, this._of);
             this.serverConn.addEventListener(ErrorEvent.ERROR, this.onError);
@@ -539,8 +543,8 @@ import com.company.assembleegameclient.util.Currency;
             this.serverConn.sendPacket(_local5);
             _arg2._01w();
         }
-        public function teleport(_arg1:int):void{
-            var _local2:Teleport = (this.serverConn.createPacketFromID(TELEPORT) as Teleport);
+        public function teleportRequest(_arg1:int):void{
+            var _local2:RequestTeleport = (this.serverConn.createPacketFromID(REQUESTTELEPORT) as RequestTeleport);
             _local2.objectId_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
@@ -750,6 +754,14 @@ import com.company.assembleegameclient.util.Currency;
             this._eC_(this.gs_.lastUpdate_);
             _local2.setAttack(_local2.objectType_, (_arg1.angle_ + (_arg1.angleInc_ * ((_arg1.numShots_ - 1) / 2))));
         }
+
+        private function teleportRequested(_arg1:TeleportRequest):void{
+            //if(Parameters.data_.showTeleportRequest){
+                this.gs_._V_1._U_T_._j(new TeleportPanel(this.gs_, _arg1));
+            //}
+            this.gs_.textBox_.addText("", ((((_arg1.name_ + " wants to ") + 'teleport to you.  Type "/teleport ') + _arg1.name_) + '" to accept.'));
+        }
+
         private function _G_r(_arg1:_Y_G_):void{
             if (Parameters.data_.showTradePopup)
             {
@@ -814,7 +826,7 @@ import com.company.assembleegameclient.util.Currency;
             }
         }
 
-        private function notificationBox(_arg1:ServerPackets.NotificationBoxPacket):void {
+        private function notificationBox(_arg1:NotificationBoxPacket):void {
             this.gs_.addChild(new NotificationBox(_arg1, this.gs_));
         }
 
@@ -1472,8 +1484,8 @@ import com.company.assembleegameclient.util.Currency;
             this.gs_.dispatchEvent(new Event(Event.COMPLETE));
         }
         private function _ee(_arg1:_G_f):void{
-            var _local2:_qO_ = new _qO_(((("Client version: " + Parameters.clientVersion) + "\nServer version: ") + _arg1.errorDescription_), "Client Update Needed", "Ok", null, "/clientUpdate");
-            _local2.addEventListener(_qO_.BUTTON1_EVENT, this._Y_h);
+            var _local2:DialogBox = new DialogBox(((("Client version: " + Parameters.clientVersion) + "\nServer version: ") + _arg1.errorDescription_), "Client Update Needed", "Ok", null, "/clientUpdate");
+            _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._Y_h);
             this.gs_.stage.addChild(_local2);
             this._P_A_ = false;
         }
@@ -1484,7 +1496,7 @@ import com.company.assembleegameclient.util.Currency;
             this.gs_.dispatchEvent(new Event(Event.COMPLETE));
         }
         private function _Y_h(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             _local2.parent.removeChild(_local2);
             this.gs_.dispatchEvent(new _D_X_());
         }

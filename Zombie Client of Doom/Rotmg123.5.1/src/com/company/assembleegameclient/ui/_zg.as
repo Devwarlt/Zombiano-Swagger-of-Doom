@@ -19,7 +19,7 @@ package com.company.assembleegameclient.ui{
         public var gs_:GameSprite;
         private var _rl:_eb;
         private var _8F_:_eb;
-        private var _t3:_7f;
+        private var _t3:boxButton;
         private var _0A_C_:_K_K_;
 
         public function _zg(_arg1:GameSprite, _arg2:_S_M_){
@@ -34,7 +34,7 @@ package com.company.assembleegameclient.ui{
             this._8F_.x = 14;
             this._8F_.y = 174;
             addChild(this._8F_);
-            this._t3 = new _7f(16, "Cancel", 80);
+            this._t3 = new boxButton(16, "Cancel", 80);
             this._t3.addEventListener(MouseEvent.CLICK, this._0G_U_);
             this._t3.x = ((WIDTH / 4) - (this._t3.width / 2));
             this._t3.y = ((HEIGHT - this._t3.height) - 10);
@@ -68,15 +68,15 @@ package com.company.assembleegameclient.ui{
             this._0A_C_.reset();
         }
         private function _E_u(_arg1:Event):void{
-            this.gs_.gsc_._rQ_(this._rl._ao());
+            this.gs_.packetManager._rQ_(this._rl._ao());
             this._55();
         }
         private function _0G_U_(_arg1:MouseEvent):void{
-            this.gs_.gsc_.__set();
+            this.gs_.packetManager.__set();
             dispatchEvent(new Event(Event.CANCEL));
         }
         private function _nk(_arg1:MouseEvent):void{
-            this.gs_.gsc_._E_i(this._rl._ao(), this._8F_._ao());
+            this.gs_.packetManager._E_i(this._rl._ao(), this._8F_._ao());
             this._rl._07t(_eb._Q_p);
         }
         public function _55():void{

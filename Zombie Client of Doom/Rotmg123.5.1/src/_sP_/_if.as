@@ -43,7 +43,7 @@ package _sP_{
             this._var_ = _arg3;
             this._I_8 = _arg4;
             this._j7 = new SimpleText(22, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._j7._8Y_(true);
+            this._j7.boldText(true);
             this._j7.text = "Loading...";
             this._j7._08S_();
             this._j7.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
@@ -74,7 +74,7 @@ package _sP_{
             var _local9:_5N_;
             removeChild(this._j7);
             this._P_V_ = new SimpleText(32, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._P_V_._8Y_(true);
+            this._P_V_.boldText(true);
             this._P_V_.text = _arg1.@name;
             this._P_V_._08S_();
             this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

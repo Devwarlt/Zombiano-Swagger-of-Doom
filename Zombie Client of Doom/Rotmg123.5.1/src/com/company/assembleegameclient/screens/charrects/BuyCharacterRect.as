@@ -28,7 +28,7 @@ public class BuyCharacterRect extends CharacterRect {
         _local2.y = 7;
         addChild(_local2);
         this.classNameText_ = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-        this.classNameText_._8Y_(true);
+        this.classNameText_.boldText(true);
         this.classNameText_.text = (("Buy " + this.getOrdinalString((_arg1.maxNumChars_ + 1))) + " Character Slot");
         this.classNameText_.updateMetrics();
         this.classNameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

@@ -32,7 +32,7 @@ package Frames{
         }
         private function _U_p(_arg1:MouseEvent):void{
             this.gs_.addEventListener(_J_F_._hx, this._0J_I_);
-            this.gs_.gsc_._S_W_(this.name_.text());
+            this.gs_.packetManager._S_W_(this.name_.text());
             _pW_();
         }
         private function _0J_I_(_arg1:_J_F_):void{

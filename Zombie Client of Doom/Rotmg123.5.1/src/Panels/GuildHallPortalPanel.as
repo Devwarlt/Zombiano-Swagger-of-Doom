@@ -9,7 +9,7 @@ package Panels{
     import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.ui._4D_;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import com.company.ui.SimpleText;
     
     import flash.events.Event;
@@ -22,7 +22,7 @@ package Panels{
 
         private var _iA_:GuildHallPortal;
         private var nameText_:SimpleText;
-        private var _O_M_:_7f;
+        private var _O_M_:boxButton;
         private var _0J_T_:SimpleText;
 
         public function GuildHallPortalPanel(_arg1:GameSprite, _arg2:GuildHallPortal){
@@ -34,7 +34,7 @@ package Panels{
             }
             var _local3:Player = gs_.map_.player_;
             this.nameText_ = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.htmlText = '<p align="center">Guild Hall</p>';
             this.nameText_.wordWrap = true;
             this.nameText_.multiline = true;
@@ -44,7 +44,7 @@ package Panels{
             addChild(this.nameText_);
             if (((!((_local3.guildName_ == null))) && ((_local3.guildName_.length > 0))))
             {
-                this._O_M_ = new _7f(16, "Enter");
+                this._O_M_ = new boxButton(16, "Enter");
                 this._O_M_.addEventListener(MouseEvent.CLICK, this._xH_);
                 this._O_M_.x = ((WIDTH / 2) - (this._O_M_.width / 2));
                 this._O_M_.y = ((HEIGHT - this._O_M_.height) - 4);
@@ -54,7 +54,7 @@ package Panels{
             } else
             {
                 this._0J_T_ = new SimpleText(18, 0xFF0000, false, WIDTH, 0, "Myriad Pro");
-                this._0J_T_._8Y_(true);
+                this._0J_T_.boldText(true);
                 this._0J_T_.htmlText = '<p align="center">Not In Guild</p>';
                 this._0J_T_.autoSize = TextFieldAutoSize.CENTER;
                 this._0J_T_.filters = [new DropShadowFilter(0, 0, 0)];
@@ -78,7 +78,7 @@ package Panels{
             }
         }
         private function enterPortal():void{
-            gs_.gsc_.usePortal(this._iA_.objectId_);
+            gs_.packetManager.usePortal(this._iA_.objectId_);
         }
 
     }

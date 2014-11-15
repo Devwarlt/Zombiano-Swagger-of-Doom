@@ -29,7 +29,7 @@ package _015{
             this.lifetime_ = _arg4;
             this._Y_Q_ = _arg5;
             var _local6:SimpleText = new SimpleText(24, _arg3, false, 0, 0, "Myriad Pro");
-            _local6._8Y_(true);
+            _local6.boldText(true);
             _local6.text = _arg2;
             _local6.updateMetrics();
             _local6.filters = [new GlowFilter(0, 1, 4, 4, 2, 1)];

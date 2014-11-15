@@ -57,7 +57,7 @@ package com.company.assembleegameclient.game{
 
         private var map:_X_l;
         public var _on:_0D_v;
-        public var gsc_:PacketManager;
+        public var packetManager:PacketManager;
         public var mui_:_07a;
         public var textBox_:_4D_;
         public var _V_1:_0B_X_;
@@ -84,7 +84,7 @@ package com.company.assembleegameclient.game{
             this.charList_ = _arg7;
             this.map_ = new _X_l(this);
             addChild(this.map_);
-            this.gsc_ = new PacketManager(this, _arg1, _arg2, _arg3, _arg4, _arg5, _arg6, _arg8);
+            this.packetManager = new PacketManager(this, _arg1, _arg2, _arg3, _arg4, _arg5, _arg6, _arg8);
             this.mui_ = new _07a(this);
             this.textBox_ = new _4D_(this, 600, 600);
             addChild(this.textBox_);
@@ -223,7 +223,7 @@ package com.company.assembleegameclient.game{
             GA.global().trackPageview("/gameStarted");
             this._V_1.x = 600;
             this._V_1.y = 0;
-            this.gsc_.connect();
+            this.packetManager.connect();
             this._0H_R_.start(this);
             this.lastUpdate_ = getTimer();
             stage.addEventListener(_B_w.MONEY_CHANGED, this._L_u);
@@ -236,13 +236,13 @@ package com.company.assembleegameclient.game{
             }
             this._2e = false;
             this._0H_R_.stop();
-            this.gsc_.serverConn._0F_G_();
+            this.packetManager.serverConn._0F_G_();
             _zz.instance.dispatch();
             stage.removeEventListener(_B_w.MONEY_CHANGED, this._L_u);
             stage.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         }
         private function _L_u(_arg1:Event):void{
-            this.gsc_._0J_l();
+            this.packetManager._0J_l();
         }
         public function _vw():Boolean{
             var _local1:Boolean;

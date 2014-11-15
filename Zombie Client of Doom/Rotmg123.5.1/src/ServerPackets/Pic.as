@@ -8,7 +8,7 @@ package ServerPackets{
     import flash.utils.ByteArray;
     import flash.utils.IDataInput;
 
-    public class Pic extends _01Q_ {
+    public class Pic extends ServerPacket {
 
         public var bitmapData_:BitmapData = null;
 

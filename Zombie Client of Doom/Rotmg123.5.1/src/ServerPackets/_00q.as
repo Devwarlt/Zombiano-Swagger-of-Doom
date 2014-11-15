@@ -7,7 +7,7 @@ package ServerPackets{
     import flash.display.BitmapData;
     import flash.utils.IDataInput;
 
-    public class _00q extends _01Q_ {
+    public class _00q extends ServerPacket {
 
         public var accountId_:int;
         public var charId_:int;

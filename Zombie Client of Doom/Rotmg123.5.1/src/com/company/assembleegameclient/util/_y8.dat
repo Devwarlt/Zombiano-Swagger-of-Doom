@@ -3677,7 +3677,7 @@
 		<FameBonus>6</FameBonus>
 		<MpCost>100</MpCost>
 		<Activate effect="Invisible" duration="5.5">ConditionEffectSelf</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 		<Cooldown>6.5</Cooldown>
 	</Object>
 	<Object type="0xa5c" id="Robe of the Neophyte">
@@ -5069,7 +5069,7 @@
 		<BagType>0</BagType>
 		<MpCost>60</MpCost>
 		<Activate duration="3">Decoy</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 	<Object type="0xb1c" id="Deception Prism">
 		<Class>Equipment</Class>
@@ -5082,7 +5082,7 @@
 		<BagType>0</BagType>
 		<MpCost>65</MpCost>
 		<Activate duration="3.5">Decoy</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 	<Object type="0xb1d" id="Illusion Prism">
 		<Class>Equipment</Class>
@@ -5095,7 +5095,7 @@
 		<BagType>0</BagType>
 		<MpCost>70</MpCost>
 		<Activate duration="4">Decoy</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 	<Object type="0xb1e" id="Hallucination Prism">
 		<Class>Equipment</Class>
@@ -5109,7 +5109,7 @@
 		<FameBonus>1</FameBonus>
 		<MpCost>75</MpCost>
 		<Activate duration="4.5">Decoy</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 	<Object type="0xb1f" id="Prism of Figments">
 		<Class>Equipment</Class>
@@ -5123,7 +5123,7 @@
 		<FameBonus>2</FameBonus>
 		<MpCost>80</MpCost>
 		<Activate duration="5">Decoy</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 	<Object type="0xb20" id="Prism of Phantoms">
 		<Class>Equipment</Class>
@@ -5137,7 +5137,7 @@
 		<FameBonus>3</FameBonus>
 		<MpCost>85</MpCost>
 		<Activate duration="5.5">Decoy</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 	<Object type="0xb23" id="Prism of Apparitions">
 		<Class>Equipment</Class>
@@ -5153,7 +5153,7 @@
 		<FameBonus>4</FameBonus>
 		<MpCost>85</MpCost>
 		<Activate duration="5.5">Decoy</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 	</Object>
 	<Object type="0xc0d" id="Prism of Dancing Swords">
 		<Class>Equipment</Class>
@@ -5827,7 +5827,7 @@
 		<BagType>4</BagType>
 		<MpCost>90</MpCost>
 		<Activate objectId="Spirit Prism Bomb">Pet</Activate>
-		<Activate maxDistance="20">Teleport</Activate>
+		<Activate maxDistance="20">RequestTeleport</Activate>
 		<ActivateOnEquip stat="28" amount="3">IncrementStat</ActivateOnEquip>
 		<FameBonus>6</FameBonus>
 	</Object>

@@ -39,7 +39,7 @@ package _F_1{
         override public function initialize(_arg1:_0K_R_):void{
             super.initialize(_arg1);
             this._S_w = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._S_w._8Y_(true);
+            this._S_w.boldText(true);
             this._S_w.text = "Select Server";
             this._S_w.updateMetrics();
             this._S_w.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];

@@ -77,7 +77,7 @@ package _F_1{
         }
         public function _tC_(_arg1:String, _arg2:int, _arg3:int):void{
             this.title = new SimpleText(38, 0xCCCCCC, false, 0, 0, "Myriad Pro");
-            this.title._8Y_(true);
+            this.title.boldText(true);
             this.title.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
             this.title.text = _P_O_.replace("${NAME}", _arg1).replace("${LEVEL}", _arg2).replace("${TYPE}", ObjectLibrary._0D_N_[_arg3]);
             this.title.updateMetrics();
@@ -88,7 +88,7 @@ package _F_1{
         }
         public function _ec(_arg1:String, _arg2:String):void{
             this.date = new SimpleText(24, 0xCCCCCC, false, 0, 0, "Myriad Pro");
-            this.date._8Y_(true);
+            this.date.boldText(true);
             this.date.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
             this.date.text = ((_arg2) ? _R_b : _V_u).replace("${DATE}", _arg1).replace("${KILLER}", _arg2);
             this.date.updateMetrics();

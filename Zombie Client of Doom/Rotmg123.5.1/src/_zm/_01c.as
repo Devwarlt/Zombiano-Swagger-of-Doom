@@ -30,7 +30,7 @@ package _zm{
             if (_arg4 != null)
             {
                 this.labelText_ = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-                this.labelText_._8Y_(true);
+                this.labelText_.boldText(true);
                 this.labelText_.text = (_arg4 + ":");
                 this.labelText_.updateMetrics();
                 addChild(this.labelText_);

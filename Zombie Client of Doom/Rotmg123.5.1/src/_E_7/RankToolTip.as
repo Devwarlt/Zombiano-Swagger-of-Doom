@@ -25,7 +25,7 @@ package _E_7{
             var _local2:LegendLine;
             super(0x500C00, 1, 0xFFFFFF, 1);
             this._2U_ = new SimpleText(13, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._2U_._8Y_(true);
+            this._2U_.boldText(true);
             this._2U_.text = ("You have earned " + _arg1);
             this._2U_.updateMetrics();
             this._2U_.filters = [new DropShadowFilter(0, 0, 0)];
@@ -93,7 +93,7 @@ class LegendLine extends Sprite {
         this.coloredStar_.y = 4;
         addChild(this.coloredStar_);
         this.rangeText_ = new SimpleText(13, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-        this.rangeText_._8Y_(true);
+        this.rangeText_.boldText(true);
         this.rangeText_.text = (": " + (((_arg1 == _arg2)) ? _arg1.toString() : ((_arg1 + " - ") + _arg2)));
         this.rangeText_.updateMetrics();
         this.rangeText_.filters = [new DropShadowFilter(0, 0, 0)];

@@ -11,7 +11,7 @@ package _D_H_{
     import flash.display.BitmapData;
     import flash.display.Shape;
     import com.company.ui.SimpleText;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import flash.display.GraphicsSolidFill;
     import flash.display.GraphicsStroke;
     import flash.display.GraphicsPath;
@@ -44,8 +44,8 @@ package _D_H_{
         protected var nameText_:_K_U_ = null;
         protected var _0H_b:_2V_ = null;
         protected var _92:_0J_3 = null;
-        protected var _B_k:_7f = null;
-        protected var _t3:_7f = null;
+        protected var _B_k:boxButton = null;
+        protected var _t3:boxButton = null;
         protected var errorText_:SimpleText;
         private var outlineFill_:GraphicsSolidFill;
         private var _0y:GraphicsStroke;
@@ -62,7 +62,7 @@ package _D_H_{
             super();
             this.bitmapData_ = _arg4;
             this._P_V_ = new SimpleText(22, 5746018, false, WIDTH, 0, "Myriad Pro");
-            this._P_V_._8Y_(true);
+            this._P_V_.boldText(true);
             this._P_V_.htmlText = '<p align="center">Save</p>';
             this._P_V_.updateMetrics();
             this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
@@ -76,12 +76,12 @@ package _D_H_{
             this._92.x = 20;
             this._92.y = 180;
             this.box_.addChild(this._92);
-            this._B_k = new _7f(16, "Save", 120);
+            this._B_k = new boxButton(16, "Save", 120);
             this._B_k.x = ((WIDTH - this._B_k.width) - 20);
             this._B_k.y = 330;
             this._B_k.addEventListener(MouseEvent.CLICK, this._U_m);
             this.box_.addChild(this._B_k);
-            this._t3 = new _7f(16, "Cancel", 120);
+            this._t3 = new boxButton(16, "Cancel", 120);
             this._t3.x = (((WIDTH - this._B_k.width) - this._t3.width) - 40);
             this._t3.y = 330;
             this._t3.addEventListener(MouseEvent.CLICK, this._0G_U_);

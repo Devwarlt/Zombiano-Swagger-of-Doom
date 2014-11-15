@@ -27,7 +27,7 @@ package _F_1{
         public function _H_o(_arg1:String, _arg2:int, _arg3:Boolean){
             name = _arg1;
             this.text_ = new SimpleText(_arg2, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            this.text_._8Y_(true);
+            this.text_.boldText(true);
             this.text_.text = _arg1.toLowerCase();
             this.text_.updateMetrics();
             this.text_.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];

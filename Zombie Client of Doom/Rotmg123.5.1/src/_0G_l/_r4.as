@@ -4,9 +4,9 @@
 //_0G_l._r4
 
 package _0G_l{
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
 
-    public class _r4 extends _qO_ {
+    public class _r4 extends DialogBox {
 
         public var id_:int;
 

@@ -97,7 +97,7 @@ import com.company.ui.fonts.*;
             setTextFormat(_local2);
             defaultTextFormat = _local2;
         }
-        public function _8Y_(_arg1:Boolean):void{
+        public function boldText(_arg1:Boolean):void{
             var _local2:TextFormat = defaultTextFormat;
             _local2.bold = _arg1;
             setTextFormat(_local2);

@@ -27,8 +27,8 @@ package _05H_{
             var teleportTag:XML;
             if (itemXML.@id == "Cloak of the Planewalker")
             {
-                _t4 = (_t4 + _qF_("Teleport to Target\n", _0C_1));
-                teleportTag = XML(itemXML.Activate.(text() == "Teleport"))[0];
+                _t4 = (_t4 + _qF_("RequestTeleport to Target\n", _0C_1));
+                teleportTag = XML(itemXML.Activate.(text() == "RequestTeleport"))[0];
                 _5n[teleportTag.toXMLString()] = true;
             }
         }

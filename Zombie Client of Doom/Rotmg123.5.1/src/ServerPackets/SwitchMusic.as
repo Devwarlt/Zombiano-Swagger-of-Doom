@@ -2,7 +2,7 @@ package ServerPackets
 {
 	import flash.utils.IDataInput;
 
-	public class SwitchMusic extends _01Q_
+	public class SwitchMusic extends ServerPacket
 	{
 		public var music_:String;
 		

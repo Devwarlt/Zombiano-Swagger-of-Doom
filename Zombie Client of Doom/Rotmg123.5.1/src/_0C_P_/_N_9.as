@@ -29,7 +29,7 @@ public class _N_9 extends Sprite {
         this.selected_ = false;
         this._x7 = false;
         this._04T_ = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-        this._04T_._8Y_(true);
+        this._04T_.boldText(true);
         this._04T_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 2)];
         addChild(this._04T_);
         this._rC_();

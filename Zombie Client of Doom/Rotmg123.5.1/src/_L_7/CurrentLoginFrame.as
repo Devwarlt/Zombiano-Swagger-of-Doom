@@ -26,7 +26,7 @@ package _L_7{
             super("Current account", "", "Continue", "/kongregateCurrentLogin");
             var _local1:_m7 = (Account._get() as _m7);
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this._lv._8Y_(true);
+            this._lv.boldText(true);
             this._lv.text = "Kongregate user:";
             this._lv._08S_();
             this._lv.filters = [new DropShadowFilter(0, 0, 0)];
@@ -44,7 +44,7 @@ package _L_7{
             {
                 h_ = (h_ - 20);
                 this._O_c = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-                this._O_c._8Y_(true);
+                this._O_c.boldText(true);
                 this._O_c.text = "Linked with the web account:";
                 this._O_c._08S_();
                 this._O_c.filters = [new DropShadowFilter(0, 0, 0)];

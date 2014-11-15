@@ -41,7 +41,7 @@ package Panels{
         public function MerchantPanel(_arg1:GameSprite, _arg2:SellableObject){
             super(_arg1);
             this.nameText_ = new SimpleText(16, 0xFFFFFF, false, (WIDTH - 44), 0, "Myriad Pro");
-            this.nameText_._8Y_(true);
+            this.nameText_.boldText(true);
             this.nameText_.htmlText = '<p align="center">Thing For Sale</p>';
             this.nameText_.wordWrap = true;
             this.nameText_.multiline = true;
@@ -63,7 +63,7 @@ package Panels{
             var _local2:Sprite;
             _local2 = new Sprite();
             var _local3:SimpleText = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");
-            _local3._8Y_(true);
+            _local3.boldText(true);
             _local3.text = "Rank Required:";
             _local3.updateMetrics();
             _local3.filters = [new DropShadowFilter(0, 0, 0)];
@@ -76,7 +76,7 @@ package Panels{
         }
         private static function _0B_1(_arg1:int):SimpleText{
             var _local2:SimpleText = new SimpleText(16, 0xFF0000, false, 0, 0, "Myriad Pro");
-            _local2._8Y_(true);
+            _local2.boldText(true);
             _local2.text = (_07E_._0C_n(_arg1) + " Rank Required");
             _local2._08S_();
             _local2.filters = [new DropShadowFilter(0, 0, 0)];
@@ -152,7 +152,7 @@ package Panels{
                 stage.addChild(new _2k((("In order to use " + Currency._01r(this._iA_.currency_)) + ", you must be a registered user.")));
                 return;
             }
-            gs_.gsc_.buy(this._iA_.objectId_);
+            gs_.packetManager.buy(this._iA_.objectId_);
         }
         override public function draw():void{
             var _local1:Player = gs_.map_.player_;
@@ -189,7 +189,7 @@ package Panels{
                 } else
                 {
                     this._8O_.setPrice(this._iA_.price_, this._iA_.currency_);
-                    this._8O_._A_w((gs_.gsc_.outstandingBuy_ == null));
+                    this._8O_._A_w((gs_.packetManager.outstandingBuy_ == null));
                     this._8O_.x = ((WIDTH / 2) - (this._8O_.w_ / 2));
                     this._8O_.y = ((HEIGHT - (this._8O_.height / 2)) - this._00e);
                     if (!contains(this._8O_))

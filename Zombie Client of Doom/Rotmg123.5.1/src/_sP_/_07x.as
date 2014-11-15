@@ -12,7 +12,7 @@ package _sP_{
     import flash.events.Event;
     import com.company.assembleegameclient.objects.Player;
     import _9R_._J_F_;
-    import _0L_C_._qO_;
+    import _0L_C_.DialogBox;
     import flash.events.KeyboardEvent;
 
     public class _07x extends Sprite {
@@ -50,7 +50,7 @@ package _sP_{
         private function _R_Y_(_arg1:_k6):void{
             this._03C_();
             this.gs_.addEventListener(_J_F_._hx, this._C_L_);
-            this.gs_.gsc_._k8(_arg1.name_, _arg1._S_e);
+            this.gs_.packetManager._k8(_arg1.name_, _arg1._S_e);
         }
         private function _C_L_(_arg1:_J_F_):void{
             this.gs_.removeEventListener(_J_F_._hx, this._C_L_);
@@ -65,7 +65,7 @@ package _sP_{
         private function _B_P_(_arg1:_k6):void{
             this._03C_();
             this.gs_.addEventListener(_J_F_._hx, this._X_s);
-            this.gs_.gsc_.guildRemove(_arg1.name_);
+            this.gs_.packetManager.guildRemove(_arg1.name_);
         }
         private function _X_s(_arg1:_J_F_):void{
             this.gs_.removeEventListener(_J_F_._hx, this._X_s);
@@ -78,12 +78,12 @@ package _sP_{
             }
         }
         private function _L_I_(_arg1:String):void{
-            var _local2:_qO_ = new _qO_(_arg1, "Error", "Ok", null, "/guildError");
-            _local2.addEventListener(_qO_.BUTTON1_EVENT, this._K__);
+            var _local2:DialogBox = new DialogBox(_arg1, "Error", "Ok", null, "/guildError");
+            _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._K__);
             stage.addChild(_local2);
         }
         private function _K__(_arg1:Event):void{
-            var _local2:_qO_ = (_arg1.currentTarget as _qO_);
+            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
             stage.removeChild(_local2);
             this._wk();
         }

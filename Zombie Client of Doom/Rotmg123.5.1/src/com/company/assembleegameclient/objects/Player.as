@@ -254,25 +254,15 @@ import com.company.assembleegameclient.map.Square;
         public function teleportTo(_arg1:Player):Boolean{
             if (isPaused())
             {
-                map_.gs_.textBox_.addText(Parameters.SendError, "Can not teleport while paused.");
+                map_.gs_.textBox_.addText(Parameters.SendError, "Can not request teleport while paused.");
                 return (false);
             }
             var _local2:int = this._Z_C_();
-            if (_local2 > 0)
-            {
-                map_.gs_.textBox_.addText(Parameters.SendError, (("You can not teleport for another " + int(((_local2 / 1000) + 1))) + " seconds."));
+            if (_local2 > 0) {
+                map_.gs_.textBox_.addText(Parameters.SendError, (("You can not request a teleport for another " + int(((_local2 / 1000) + 1))) + " seconds."));
                 return (false);
             }
-            if (!this._0D_X_(_arg1))
-            {
-                if (_arg1._di())
-                {
-                    map_.gs_.textBox_.addText(Parameters.SendError, (("Can not teleport to " + _arg1.name_) + " while they are invisible."));
-                }
-                map_.gs_.textBox_.addText(Parameters.SendError, ("Can not teleport to " + _arg1.name_));
-                return (false);
-            }
-            map_.gs_.gsc_.teleport(_arg1.objectId_);
+            map_.gs_.packetManager.teleportRequest(_arg1.objectId_);
             this.nextTeleportAt_ = (getTimer() + _0G_S_);
             return (true);
         }
@@ -571,9 +561,9 @@ import com.company.assembleegameclient.map.Square;
             }
             if ((((((((((map_.player_ == this)) && ((_0H_B_.props_.maxDamage_ > 0)))) && (((_0H_B_.lastDamage_ + 500) < _arg1)))) && (!(_0C_4())))) && ((((_0H_B_.obj_ == null)) || (!(_0H_B_.obj_.props_.protectFromGroundDamage_))))))
             {
-                _local6 = map_.gs_.gsc_.getNextDamage(_0H_B_.props_.minDamage_, _0H_B_.props_.maxDamage_);
+                _local6 = map_.gs_.packetManager.getNextDamage(_0H_B_.props_.minDamage_, _0H_B_.props_.maxDamage_);
                 damage(-1, _local6, null, (HP_ <= _local6), null);
-                map_.gs_.gsc_.groundDamage(_arg1, x_, y_);
+                map_.gs_.packetManager.groundDamage(_arg1, x_, y_);
                 _0H_B_.lastDamage_ = _arg1;
             }
             return (true);
@@ -836,7 +826,7 @@ import com.company.assembleegameclient.map.Square;
 
         public function sprint(_arg1:Boolean):void{
             sprinting = _arg1;
-            map_.gs_.gsc_.sprintStart(_arg1);
+            map_.gs_.packetManager.sprintStart(_arg1);
         }
 
         public function useAltWeapon(_arg1:Number, _arg2:Number):void{
@@ -871,7 +861,7 @@ import com.company.assembleegameclient.map.Square;
             }
             for each (_local7 in _local4.Activate)
             {
-                if (_local7.toString() == "Teleport")
+                if (_local7.toString() == "RequestTeleport")
                 {
                     if (!this._M_S_(_local6.x, _local6.y))
                     {
@@ -896,7 +886,7 @@ import com.company.assembleegameclient.map.Square;
                 _local9 = (Number(_local4.Cooldown) * 1000);
             }
             this._0m = (_local8 + _local9);
-            map_.gs_.gsc_.useItem(_local8, objectId_, 1, _local3, _local6.x, _local6.y);
+            map_.gs_.packetManager.useItem(_local8, objectId_, 1, _local3, _local6.x, _local6.y);
             if (_local4.Activate == "Shoot")
             {
                 _local10 = Math.atan2(_arg2, _arg1);
@@ -930,7 +920,7 @@ import com.company.assembleegameclient.map.Square;
 			
 			this.usiShukAbil = false;
 			
-			map_.gs_.gsc_.useItem(_local8, objectId_, 1, _local3, _local6.x, _local6.y);
+			map_.gs_.packetManager.useItem(_local8, objectId_, 1, _local3, _local6.x, _local6.y);
 			
 			var _local10:Number = Math.atan2(_arg2, _arg1);
 			if (int(_local4.MpEndCost) <= this.MP_)
@@ -996,7 +986,7 @@ import com.company.assembleegameclient.map.Square;
                 _local14 = int(_local13._ko.minDamage_);
                 _local15 = int(_local13._ko.maxDamage_);
                 _local16 = ((_arg5) ? this._6D_() : 1);
-                _local17 = (map_.gs_.gsc_.getNextDamage(_local14, _local15) * _local16);
+                _local17 = (map_.gs_.packetManager.getNextDamage(_local14, _local15) * _local16);
                 if (_arg1 > (map_.gs_.moveRecords_.lastClearTime_ + 600))
                 {
                     _local17 = 0;
@@ -1007,7 +997,7 @@ import com.company.assembleegameclient.map.Square;
                     _5T_.play(_local13._P_B_, 0.75, false);
                 }
                 map_.addObj(_local13, (x_ + (Math.cos(_arg4) * 0.3)), (y_ + (Math.sin(_arg4) * 0.3)));
-                map_.gs_.gsc_.playerShoot(_arg1, _local13);
+                map_.gs_.packetManager.playerShoot(_arg1, _local13);
                 _local10 = (_local10 + _local7);
                 _local11++;
             }

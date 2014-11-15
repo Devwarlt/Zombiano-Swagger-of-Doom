@@ -4,7 +4,7 @@
 package ServerPackets {
 import flash.utils.IDataInput;
 
-public class NotificationBoxPacket extends _01Q_
+public class NotificationBoxPacket extends ServerPacket
 {
     public var text:String;
     public var head:String;

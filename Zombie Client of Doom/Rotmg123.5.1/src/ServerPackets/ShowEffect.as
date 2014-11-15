@@ -8,7 +8,7 @@ package ServerPackets{
     import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataInput;
 
-    public class ShowEffect extends _01Q_ {
+    public class ShowEffect extends ServerPacket {
 
         public static const _7A_:int = 0;
         public static const _x0:int = 1;

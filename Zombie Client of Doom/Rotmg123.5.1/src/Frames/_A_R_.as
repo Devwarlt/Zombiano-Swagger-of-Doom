@@ -5,7 +5,7 @@
 
 package Frames{
     import _00g._0H_i;
-    import com.company.assembleegameclient.ui._7f;
+    import com.company.assembleegameclient.ui.boxButton;
     import flash.events.MouseEvent;
 
     import com.company.assembleegameclient.parameters.Parameters;
@@ -27,7 +27,7 @@ package Frames{
         private var mediator:_0H_i;
         private var _8K_:_mo;
         private var _9c:_4a;
-        private var _0B_q:_7f;
+        private var _0B_q:boxButton;
 
         public function _A_R_(_arg1:_0H_i){
             super(TITLE, _lQ_, _j8, _E_N_, WIDTH);
@@ -80,7 +80,7 @@ package Frames{
             _W_z(this._9c);
         }
         private function _1A_():void{
-            this._0B_q = new _7f(16, _jA_);
+            this._0B_q = new boxButton(16, _jA_);
             this._0B_q.addEventListener(MouseEvent.CLICK, this._Z_P_);
             this._0B_q.x = 8;
             this._0B_q.y = (h_ - 50);
