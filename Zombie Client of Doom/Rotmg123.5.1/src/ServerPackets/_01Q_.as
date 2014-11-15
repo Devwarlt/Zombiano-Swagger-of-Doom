@@ -4,10 +4,10 @@
 //ServerPackets._01Q_
 
 package ServerPackets{
-    import com.company.net._098;
+    import com.company.net.Packet;
     import flash.utils.IDataOutput;
 
-    public class _01Q_ extends _098 {
+    public class _01Q_ extends Packet {
 
         public function _01Q_(_arg1:uint){
             super(_arg1);

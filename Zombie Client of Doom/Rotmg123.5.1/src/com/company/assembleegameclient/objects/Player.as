@@ -69,6 +69,7 @@ import com.company.assembleegameclient.map.Square;
 
         private static var _06g:Point = new Point();
 
+        private var sprinting:Boolean = false;
         public var accountId_:int = -1;
         public var credits_:int = 0;
         public var numStars_:int = 0;
@@ -821,11 +822,10 @@ import com.company.assembleegameclient.map.Square;
             }
             return (_local9);
         }
-        override public function getPortrait():BitmapData{
+        override public function getPortrait():BitmapData {
             var _local1:_J_H_;
             var _local2:int;
-            if (_tm == null)
-            {
+            if (_tm == null) {
                 _local1 = _yN_.imageFromDir(_lJ_.RIGHT, _lJ_._sS_, 0);
                 _local2 = ((4 / _local1.image_.width) * 100);
                 _tm = TextureRedrawer.resize(_local1.image_, _local1.mask_, _local2, true, tex1Id_, tex2Id_);
@@ -833,6 +833,12 @@ import com.company.assembleegameclient.map.Square;
             }
             return (_tm);
         }
+
+        public function sprint(_arg1:Boolean):void{
+            sprinting = _arg1;
+            map_.gs_.gsc_.sprintStart(_arg1);
+        }
+
         public function useAltWeapon(_arg1:Number, _arg2:Number):void{
             var _local7:XML;
             var _local8:int;

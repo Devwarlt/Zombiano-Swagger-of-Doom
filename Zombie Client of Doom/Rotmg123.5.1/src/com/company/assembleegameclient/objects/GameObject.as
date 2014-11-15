@@ -679,9 +679,9 @@ package com.company.assembleegameclient.objects{
                 _local10 = ((this._093()) || (((!((_arg5 == null))) && (_arg5._ko._N_J_))));
                 map_.mapOverlay_.addChild(new _O_P_(this, ("-" + _arg2), ((_local10) ? 0x9000FF : 0xFF0000), 1000));
             }
-            if (map_.player_ == this && _arg5 != null) {
-				map_.gs_.gsc_.sendVisibullet(_arg2, _arg5.ownerId_, _arg5.bulletId_);
-			}
+            //if (map_.player_ == this && _arg5 != null) {
+			//	map_.gs_.gsc_.sendVisibullet(_arg2, _arg5.ownerId_, _arg5.bulletId_);
+			//}
         }
         protected function _T_L_(_arg1:String):SimpleText{
             var _local2:SimpleText = new SimpleText(16, 0xFFFFFF, false, 0, 0, "Myriad Pro");

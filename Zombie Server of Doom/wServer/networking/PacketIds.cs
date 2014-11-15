@@ -148,6 +148,8 @@ namespace wServer.networking
         UseItem = 30,
         CancelTrade = 1,
         EnemyHit = 76,
-        InvDrop = 35
+        InvDrop = 35,
+        NotificationBox = 81,
+        Sprint = 85
     }
 }

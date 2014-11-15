@@ -29,13 +29,13 @@ import flash.text.TextFieldAutoSize;
 
 public class Options extends Sprite {
 
-    private static const _2Q_:String = "Controls";
-    private static const _A_S_:String = "Hot Keys";
-    private static const _uC_:String = "Chat";
-    private static const _O_i:String = "Graphics";
-    private static const _0D_o:String = "Sound";
+    private static const controls:String = "Controls";
+    private static const hotkeys:String = "Hot Keys";
+    private static const chat:String = "Chat";
+    private static const _graphics:String = "Graphics";
+    private static const sound:String = "Sound";
     private static const extras:String = "Extras";
-    private static const _F_D_:Vector.<String> = new <String>[_2Q_, _A_S_, _uC_, _O_i, _0D_o, extras];
+    private static const _F_D_:Vector.<String> = new <String>[controls, hotkeys, chat, _graphics, sound, extras];
 
     private var gs_:GameSprite;
     private var _O_k:SimpleText;
@@ -136,19 +136,19 @@ public class Options extends Sprite {
         this._H_c();
         switch (this.selected_.text_)
         {
-            case _2Q_:
+            case controls:
                 this._q9();
                 return;
-            case _A_S_:
+            case hotkeys:
                 this._wP_();
                 return;
-            case _uC_:
+            case chat:
                 this._E_j();
                 return;
-            case _O_i:
+            case _graphics:
                 this._R_E_();
                 return;
-            case _0D_o:
+            case sound:
                 this._Y_V_();
                 return;
             case extras:
@@ -255,6 +255,7 @@ public class Options extends Sprite {
         this._yZ_(new _G_X_("options", "Show Options", "This key will bring up the options screen"));
         this._yZ_(new _G_X_("switchTabs", "Switch Tabs", "THis key will flip through your tabs."));
         this._yZ_(new _0I_j("inventorySwap", new <String>["On", "Off"], [true, false], "Switch items to/from backpack.", "Hold the " + this.invSwap() + " key and click on an item to swap it between your inventory and your backpack.", null));
+        this._yZ_(new _G_X_("sprintKey", "Sprint Key", "This is the key you need to press if you wanna sprint"));
         if (Capabilities.playerType == "Desktop")
         {
             this._yZ_(new _G_X_("toggleFullscreen", "Toggle Fullscreen Mode", ("Toggle whether the game is " + "run in a window or fullscreen")));

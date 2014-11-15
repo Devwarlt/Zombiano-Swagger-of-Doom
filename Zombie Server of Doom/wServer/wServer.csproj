@@ -99,6 +99,7 @@
     <Compile Include="networking\cliPackets\GroundDamagePacket.cs" />
     <Compile Include="networking\cliPackets\EditAccountListPacket.cs" />
     <Compile Include="networking\cliPackets\GotoAckPacket.cs" />
+    <Compile Include="networking\cliPackets\SprintPacket.cs" />
     <Compile Include="networking\cliPackets\TeleportPacket.cs" />
     <Compile Include="networking\cliPackets\PlayerTextPacket.cs" />
     <Compile Include="networking\cliPackets\UsePortalPacket.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="logic\behaviors\TossObject.cs" />
     <Compile Include="logic\behaviors\TransformOnDeath.cs" />
     <Compile Include="logic\behaviors\Wander.cs" />
+    <Compile Include="networking\cliPackets\VisibleBulletPacket.cs" />
     <Compile Include="networking\handlers\ChooseNamePacketHandler.cs" />
     <Compile Include="networking\handlers\BuyPacketHandler.cs" />
     <Compile Include="networking\handlers\CheckCreditsPacketHandler.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="networking\handlers\CancelTradePacketHandler.cs" />
     <Compile Include="networking\handlers\AOEPacketHandler.cs" />
     <Compile Include="networking\handlers\GotoAckPacketHandler.cs" />
+    <Compile Include="networking\handlers\SprintPacketHandler.cs" />
     <Compile Include="networking\handlers\TeleportPacketHandler.cs" />
     <Compile Include="networking\handlers\UsePortalPacketHandler.cs" />
     <Compile Include="networking\handlers\MovePacketHandler.cs" />

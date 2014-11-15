@@ -151,6 +151,7 @@ import flash.display.DisplayObject;
             _la("useInvSlot6", _H_V_.NUMBER_6);
             _la("useInvSlot7", _H_V_.NUMBER_7);
             _la("useInvSlot8", _H_V_.NUMBER_8);
+            _la("sprintKey", _H_V_.SHIFT);
             _la("escapeToNexus", _H_V_.INSERT);
             _la("escapeToNexus2", _H_V_.F5);
             _la("autofireToggle", _H_V_.I);

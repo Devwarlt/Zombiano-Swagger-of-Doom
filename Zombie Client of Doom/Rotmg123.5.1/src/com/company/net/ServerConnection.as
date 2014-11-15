@@ -27,13 +27,13 @@ package com.company.net{
         private var server_:String;
         private var port_:int;
         private var _3I_:Dictionary;
-        private var _aG_:Vector.<_098>;
+        private var _aG_:Vector.<Packet>;
         private var _0B_o:ICipher = null;
         private var _0E_R_:ICipher = null;
 
         public function ServerConnection(_arg1:Boolean=true){
             this._3I_ = new Dictionary();
-            this._aG_ = new Vector.<_098>();
+            this._aG_ = new Vector.<Packet>();
             super();
             this._073 = _arg1;
         }
@@ -43,7 +43,7 @@ package com.company.net{
         public function _wH_(_arg1:String, _arg2:ByteArray, _arg3:IPad=null):void{
             this._0E_R_ = Crypto.getCipher(_arg1, _arg2, _arg3);
         }
-        public function _g9(_arg1:uint, _arg2:Class, _arg3:Function):void{
+        public function registerPacket(_arg1:uint, _arg2:Class, _arg3:Function):void{
             trace("Added: " + _arg1);
             this._3I_[_arg1] = new MessageType(_arg2, _arg3);
         }
@@ -83,12 +83,12 @@ package com.company.net{
             this._A_T_ = null;
             this._aG_.length = 0;
         }
-        public function _hb(_arg1:_098):void{
+        public function sendPacket(_arg1:Packet):void{
             this._aG_.push(_arg1);
             this._0I_3();
         }
         private function _0I_3():void{
-            var _local1:_098;
+            var _local1:Packet;
             var _local2:ByteArray;
             if ((((this._A_T_ == null)) || (!(this._A_T_.connected))))
             {
@@ -135,28 +135,28 @@ package com.company.net{
             dispatchEvent(new ErrorEvent(ErrorEvent.ERROR, false, false, ("Security Error: " + _arg1.text)));
             dispatchEvent(new Event(Event.CLOSE));
         }
-        public function _Y_E_(_arg1:uint):_098{
+        public function createPacketFromID(_arg1:uint):Packet{
             var _local2:MessageType = this._3I_[_arg1];
             if (_local2 == null)
             {
                 return (null);
             }
-            var _local3:_098;
+            var _local3:Packet;
             if (_local2.freeList_.length == 0)
             {
-                _local3 = (((_local2.class_ == null)) ? new _098(_arg1) : new _local2.class_(_arg1));
+                _local3 = (((_local2.class_ == null)) ? new Packet(_arg1) : new _local2.class_(_arg1));
             } else
             {
                 _local3 = _local2.freeList_.pop();
             }
             return (_local3);
         }
-        public function _fj(_arg1:_098):void{
+        public function _fj(_arg1:Packet):void{
             this._3I_[_arg1.id_].freeList_.push(_arg1);
         }
         private function _vL_(event:ProgressEvent):void{
             var messageId:uint;
-            var message:_098;
+            var message:Packet;
             var data:ByteArray;
             while (1)
             {
@@ -176,7 +176,7 @@ package com.company.net{
                 }
                 if (this._A_T_.bytesAvailable < (this._05 - 4)) break;
                 messageId = this._A_T_.readUnsignedByte();
-                message = this._Y_E_(messageId);
+                message = this.createPacketFromID(messageId);
                 data = new ByteArray();
                 if ((this._05 - 5) > 0)
                 {
@@ -215,17 +215,17 @@ package com.company.net{
 }//package com.company.net
 
 
-import com.company.net._098;
+import com.company.net.Packet;
 
 
 class MessageType {
 
     public var class_:Class;
-    public var freeList_:Vector.<_098>;
+    public var freeList_:Vector.<Packet>;
     public var callback_:Function;
 
     public function MessageType(_arg1:Class, _arg2:Function){
-        this.freeList_ = new Vector.<_098>();
+        this.freeList_ = new Vector.<Packet>();
         super();
         this.class_ = _arg1;
         this.callback_ = _arg2;

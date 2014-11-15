@@ -24,7 +24,7 @@ package com.company.assembleegameclient.game{
     import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.map._X_l;
     import com.company.assembleegameclient.net.Server;
-    import com.company.assembleegameclient.net._1f;
+    import com.company.assembleegameclient.net.PacketManager;
     import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.objects.Projectile;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -57,7 +57,7 @@ package com.company.assembleegameclient.game{
 
         private var map:_X_l;
         public var _on:_0D_v;
-        public var gsc_:_1f;
+        public var gsc_:PacketManager;
         public var mui_:_07a;
         public var textBox_:_4D_;
         public var _V_1:_0B_X_;
@@ -84,7 +84,7 @@ package com.company.assembleegameclient.game{
             this.charList_ = _arg7;
             this.map_ = new _X_l(this);
             addChild(this.map_);
-            this.gsc_ = new _1f(this, _arg1, _arg2, _arg3, _arg4, _arg5, _arg6, _arg8);
+            this.gsc_ = new PacketManager(this, _arg1, _arg2, _arg3, _arg4, _arg5, _arg6, _arg8);
             this.mui_ = new _07a(this);
             this.textBox_ = new _4D_(this, 600, 600);
             addChild(this.textBox_);
@@ -236,7 +236,7 @@ package com.company.assembleegameclient.game{
             }
             this._2e = false;
             this._0H_R_.stop();
-            this.gsc_._08._0F_G_();
+            this.gsc_.serverConn._0F_G_();
             _zz.instance.dispatch();
             stage.removeEventListener(_B_w.MONEY_CHANGED, this._L_u);
             stage.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);

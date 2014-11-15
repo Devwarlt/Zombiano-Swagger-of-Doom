@@ -3,31 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace wServer.networking.svrPackets
+namespace wServer.networking.cliPackets
 {
-    public class NotificationBoxPacket : ServerPacket
+    public class SprintPacket : ClientPacket
     {
-        public string Head { get; set; }
-        public string Text { get; set; }
+        public bool SprintStart { get; set; }
 
         public override PacketID ID
         {
-            get { return PacketID.NotificationBox; }
+            get { return PacketID.Sprint; }
         }
 
         public override Packet CreateInstance()
         {
-            return new NotificationBoxPacket();
+            return new SprintPacket();
         }
 
         protected override void Read(NReader rdr)
         {
+            SprintStart = rdr.ReadBoolean();
         }
 
         protected override void Write(NWriter wtr)
         {
-            wtr.WriteUTF(Head);
-            wtr.WriteUTF(Text);
+            wtr.Write(SprintStart);
         }
     }
 }

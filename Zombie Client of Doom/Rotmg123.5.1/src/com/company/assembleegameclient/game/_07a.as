@@ -42,6 +42,7 @@ package com.company.assembleegameclient.game{
         private var _S_T_:Boolean = false;
         private var _08R_:Boolean = false;
         private var _wA_:Boolean = false;
+        private var sprintKeyDown:Boolean = false;
         private var _G_v:Boolean = true;
         private var _lD_:Timer;
         private var _Z_W_:uint;
@@ -118,11 +119,11 @@ package com.company.assembleegameclient.game{
             {
                 return;
             }
-            if (_arg1.shiftKey)
-            {
-				_local2.useAltWeapon(_arg1.localX, _arg1.localY);
-                return;
-            }
+            //if (_arg1.shiftKey)
+            //{
+			//	_local2.useAltWeapon(_arg1.localX, _arg1.localY);
+            //    return;
+            //}
             doneAction(this.gs_, Tutorial._9Z_);
             //var _local3:Number = Math.atan2(_arg1.localY, _arg1.localX);
             var _local3:Number = Math.atan2(this.gs_.map_.mouseY, this.gs_.map_.mouseX);
@@ -225,6 +226,12 @@ package com.company.assembleegameclient.game{
                     break;
                 case Parameters.data_.useSpecial:
                     _local3.useAltWeapon(this.gs_.map_.mouseX, this.gs_.map_.mouseY);
+                    break;
+                case Parameters.data_.sprintKey:
+                    if(!this.sprintKeyDown) {
+                        _local3.sprint(true);
+                        this.sprintKeyDown = true;
+                    }
                     break;
                 case Parameters.data_.autofireToggle:
                     this._wA_ = !(this._wA_);
@@ -377,6 +384,12 @@ package com.company.assembleegameclient.game{
                     break;
                 case Parameters.data_.rotateRight:
                     this._S_T_ = false;
+                    break;
+                case Parameters.data_.sprintKey:
+                    if(this.sprintKeyDown) {
+                        _local3.sprint(false);
+                        this.sprintKeyDown = false;
+                    }
                     break;
 				case Parameters.data_.useSpecial:
 					_local3.shukAbil(this.gs_.map_.mouseX, this.gs_.map_.mouseY);

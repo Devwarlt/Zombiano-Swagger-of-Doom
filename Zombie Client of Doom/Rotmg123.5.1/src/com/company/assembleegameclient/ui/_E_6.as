@@ -4,7 +4,7 @@
 //com.company.assembleegameclient.ui._E_6
 
 package com.company.assembleegameclient.ui{
-    import com.company.assembleegameclient.net._1f;
+    import com.company.assembleegameclient.net.PacketManager;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -475,7 +475,7 @@ package com.company.assembleegameclient.ui{
         }
         private function _0A_v(_arg1:_E_6):void{
             var _local2:int = _arg1._e9.gs_.lastUpdate_;
-            var _local3:_1f = this._gw();
+            var _local3:PacketManager = this._gw();
             var _local4:Player = this._v5();
             _local3._P_a(_local2, _local4.x_, _local4.y_, this._e9._iA_.objectId_, this.id_, this.objectType_, _arg1._e9._iA_.objectId_, _arg1.id_, _arg1.objectType_);
             _5T_.play("inventory_move_item");
@@ -491,7 +491,7 @@ package com.company.assembleegameclient.ui{
                 toolTip_ = null;
             }
         }
-        private function _gw():_1f{
+        private function _gw():PacketManager{
             return (this._e9.gs_.gsc_);
         }
         private function _v5():Player{
