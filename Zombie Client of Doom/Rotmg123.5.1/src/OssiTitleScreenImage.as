@@ -3,9 +3,9 @@ package
 	import mx.core.BitmapAsset;
 	
 	[Embed(source="titleFPC.png")]
-	public class TitleScreenImage extends BitmapAsset
+	public class OssiTitleScreenImage extends BitmapAsset
 	{
-		public function TitleScreenImage()
+		public function OssiTitleScreenImage()
 		{
 			super();
 		}

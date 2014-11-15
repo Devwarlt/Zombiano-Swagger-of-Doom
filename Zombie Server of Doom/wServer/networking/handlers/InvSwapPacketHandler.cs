@@ -45,6 +45,9 @@ namespace wServer.networking.handlers
             Item itemA = conA.Inventory[slotA];
             Item itemB = conB.Inventory[slotB];
 
+            if (conA is Player) (conA as Player).SetCooldownTimer();
+            if (conB is Player) (conB as Player).SetCooldownTimer();
+
             if (!conB.AuditItem(itemA, slotB) ||
                 !conA.AuditItem(itemB, slotB))
                 player.Client.SendPacket(new InvResultPacket() { Result = 1 });
@@ -57,9 +60,6 @@ namespace wServer.networking.handlers
 
                 player.Client.SendPacket(new InvResultPacket() { Result = 0 });
             }
-
-            if (conA is Player) (conA as Player).SetCooldownTimer();
-            if (conB is Player) (conB as Player).SetCooldownTimer();
         }
     }
 }

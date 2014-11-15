@@ -36,21 +36,21 @@ import flash.text.TextFieldAutoSize;
 
         public var gs_:GameSprite;
 
+        private var closing:Boolean;
+
         public function NotificationBox(_arg1:NotificationBoxPacket, _arg2:GameSprite) {
             NotificationBox.isClosed = false;
             this.gs_ = _arg2;
             this.events();
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
             this.setPosition();
-            this._str1776();
-            addChild(this._str2928(_arg1.head, 20, 5, 0x57AD62));
-            addChild(this._str2928(_arg1.text, 20, 40, 0xFFFFFF));
-
-            //var _local2:GTween = new GTween(this, 0.001);
-            //_local2.onComplete = this.slideIn_;
-
+            this.initialize();
+            addChild(this.createText(_arg1.head, 20, 5, 0x57AD62));
+            addChild(this.createText(_arg1.text, 20, 40, 0xFFFFFF));
+            this.closeButton.x = WIDTH - 29;
+            this.closeButton.y = 5;
+            closeButton.initialize();
             slideIn_();
-
             this.open = true;
         }
 
@@ -66,10 +66,12 @@ import flash.text.TextFieldAutoSize;
             _local2.onComplete = this.slideOut_;
         }
         private function slideOut_(_arg1:GTween):void {
-            var _local1:GTween = new GTween(this, SLIDESPEED, {
-                "x": (0 - (NotificationBox.WIDTH + 6))
-            });
-            _local1.onComplete = this.endTween;
+            if(!closing) {
+                var _local1:GTween = new GTween(this, SLIDESPEED, {
+                    "x": (0 - (NotificationBox.WIDTH + 6))
+                });
+                _local1.onComplete = this.endTween;
+            }
         }
         private function endTween(_arg1:GTween):void {
             this.close();
@@ -78,11 +80,11 @@ import flash.text.TextFieldAutoSize;
         private static function makeModalBackground(_arg1, _arg2):ModalBackground{
             var _local3:ModalBackground = new ModalBackground();
             _local3.draw(_arg1, _arg2);
-            _local3._str2638("HORIZONTAL_DIVISION", 30);
+            _local3.createRectangle("HORIZONTAL_DIVISION", 30);
             return (_local3);
         }
 
-        public function _str2928(_arg1:String, _arg2:int, _arg3:int, _arg4:uint):SimpleText{
+        public function createText(_arg1:String, _arg2:int, _arg3:int, _arg4:uint):SimpleText{
             var _local4:SimpleText;
             _local4 = new SimpleText(16, _arg4, false, (WIDTH - (20 * 2)), (WIDTH - (20 * 2)), "Myriad Pro");
             _local4.htmlText = '<p align="center">' + _arg1 + '</p>';
@@ -103,12 +105,18 @@ import flash.text.TextFieldAutoSize;
         private function events():void{
             this.closeButton.event.add(this.onCloseClick);
         }
-        private function _str1776():void{
+        private function initialize():void{
             addChild(makeModalBackground(NotificationBox.WIDTH, NotificationBox.HEIGHT));
             addChild(this.closeButton);
         }
         public function onCloseClick():void{
-            this.close();
+            if(!closing) {
+                closing = true;
+                var _local1:GTween = new GTween(this, SLIDESPEED, {
+                    "x": (0 - (NotificationBox.WIDTH + 6))
+                });
+                _local1.onComplete = this.endTween;
+            }
         }
         private function close():void{
             NotificationBox.isClosed = true;

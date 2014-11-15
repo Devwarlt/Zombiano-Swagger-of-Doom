@@ -19,6 +19,7 @@ package _zD_{
     import _F_1._3V_;
     import _D_d._hj;
     import flash.events.Event;
+    import flash.system.fscommand;
 
     public class __for extends _cM_ {
 
@@ -30,7 +31,7 @@ package _zD_{
         public var _T__:_dd;
         [Inject]
         public var _D_u:_08i;
-		
+
         override public function initialize():void{
             this.view._ft.add(this._F_A_);
             this.view.initialize(this._eJ_._T_1);
@@ -110,9 +111,8 @@ package _zD_{
             this._T__.dispatch(new _hj());
         }
         private function _uz():void{
-            dispatch(new Event("APP_CLOSE_EVENT"));
+            fscommand("quit");
         }
-
     }
 }//package _zD_
 

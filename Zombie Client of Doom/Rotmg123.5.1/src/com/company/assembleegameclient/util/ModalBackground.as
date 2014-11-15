@@ -47,24 +47,24 @@ public class ModalBackground extends Sprite {
                 break;
         }
     }
-    public function _str2638(_arg1:String, _arg2:int):void{
+    public function createRectangle(_arg1:String, _arg2:int):void{
         switch (_arg1) {
             case HORIZONTAL_DIVISION:
-                this._str2639(_arg2);
+                this.fillRectHorizontal(_arg2);
                 break;
             case VERTICAL_DIVISION:
-                this._str2640(_arg2);
+                this.fillRectVertical(_arg2);
                 break;
         }
     }
-    private function _str2639(_arg_1:int):void{
+    private function fillRectHorizontal(_arg_1:int):void{
         graphics.lineStyle();
         graphics.endFill();
         graphics.moveTo(1, _arg_1);
         graphics.beginFill(0x666666, 1);
         graphics.drawRect(1, _arg_1, (width - 2), 2);
     }
-    private function _str2640(_arg_1:int):void{
+    private function fillRectVertical(_arg_1:int):void{
         graphics.lineStyle();
         graphics.moveTo(_arg_1, 1);
         graphics.lineStyle(2, 0x666666);

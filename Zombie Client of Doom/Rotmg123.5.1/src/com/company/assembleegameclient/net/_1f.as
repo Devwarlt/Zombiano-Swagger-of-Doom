@@ -643,7 +643,7 @@ import com.company.assembleegameclient.util.Currency;
         private function _ux(_arg1:Event):void{
             this.gs_.textBox_.addText(Parameters.SendClient, "Connected!");
             var _local2:_0B_y = (this._08._Y_E_(HELLO) as _0B_y);
-			_local2.Copyright = "FCP Inc. 2014";
+			_local2.Copyright = "FPC Inc. 2014";
             _local2.buildVersion_ = Parameters.clientVersion;
             _local2.gameId_ = this.gameId_;
             _local2.guid_ = this._J_X_(Account._get().guid());
