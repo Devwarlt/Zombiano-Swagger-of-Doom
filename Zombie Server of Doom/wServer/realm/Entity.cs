@@ -294,7 +294,8 @@ namespace wServer.realm
                 case "GuildMerchant":
                     return new SellableObject(manager, id);
 
-                case "LithiumObject":
+                case "CraftingTerminal":
+                case "Forge":
                     return new StaticObject(manager, id, null, true, false, true);
 
                 case "GuildHallPortal":

@@ -4,13 +4,15 @@
 //com.company.assembleegameclient.ui._061
 
 package com.company.assembleegameclient.ui{
-    import Panels._sc;
+import Panels.CraftingPanel;
+import Panels._sc;
     
     import _vf._5T_;
     
     import com.company.assembleegameclient.map._X_l;
     import com.company.assembleegameclient.objects.Container;
-    import com.company.assembleegameclient.objects.GameObject;
+import com.company.assembleegameclient.objects.CraftingTerminal;
+import com.company.assembleegameclient.objects.GameObject;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.objects.Player;
     import com.company.ui.SimpleText;
@@ -127,21 +129,37 @@ package com.company.assembleegameclient.ui{
                 this._0K_9();
                 return;
             }
-            if ((((((_arg1._e9._iA_ is Player)) && ((_arg1.id_ < 4)))) && (!(ObjectLibrary._S_d(this._0M_X_, (_arg1._e9._iA_ as Player))))))
+            if(_arg1._e9.gameObject_ is CraftingTerminal)
+            {
+                if(!(this._03f._e9.gameObject_ is CraftingTerminal)) {
+                    if (this._03f.id_ > 3) {
+                        _arg1._e9.gameObject_.equipment_[_arg1.id_] = this._0M_X_;
+                        this._03f._e9.gs_.map_.player_.equipment_[this._03f.id_] = 0;
+                    }
+                }
+                this._0K_9();
+                return;
+            }
+            if ((((((_arg1._e9.gameObject_ is Player)) && ((_arg1.id_ < 4)))) && (!(ObjectLibrary._S_d(this._0M_X_, (_arg1._e9.gameObject_ as Player))))))
             {
                 this._0K_9();
                 _5T_.play("error");
                 return;
             }
-            _0B_w = this._03f._e9.gs_.lastUpdate_;
-            this._03f._e9.gs_.packetManager._P_a(_0B_w, _local3.x_, _local3.y_, this._03f._e9._iA_.objectId_, this._03f.id_, this._0M_X_, _arg1._e9._iA_.objectId_, _arg1.id_, _local2);
-            _5T_.play("inventory_move_item");
+            if(!CraftingPanel.terminalOpen) {
+                _0B_w = this._03f._e9.gs_.lastUpdate_;
+                this._03f._e9.gs_.packetManager._P_a(_0B_w, _local3.x_, _local3.y_, this._03f._e9.gameObject_.objectId_, this._03f.id_, this._0M_X_, _arg1._e9.gameObject_.objectId_, _arg1.id_, _local2);
+                _5T_.play("inventory_move_item");
+            }
+            else {
+                this._0K_9();
+            }
         }
         private function _Y_4():void{
             var _local6:_sc;
             var _local7:_E_6;
             var _local1:Player = this._03f._e9.gs_.map_.player_;
-            var _local2:GameObject = this._03f._e9._iA_;
+            var _local2:GameObject = this._03f._e9.gameObject_;
             var _local3:Container = (_local2 as Container);
             var _local4:Boolean = ObjectLibrary._0H_Z_(this._0M_X_);
             if (((!((_local2 == _local1))) && ((((((_local3 == null)) || (!((_local3.ownerId_ == _local1.accountId_))))) || (_local4)))))
@@ -154,9 +172,9 @@ package com.company.assembleegameclient.ui{
             if (((!((_local5 == null))) && (((((_local5._X_w()) && (_local4))) || ((((_local5.ownerId_ == -1)) && (!(_local4))))))))
             {
                 _local6 = (this._03f._e9.gs_._V_1._U_T_._G_2 as _sc);
-                if (((!((_local6 == null))) && (!((_local6._e9 == null)))))
+                if (((!((_local6 == null))) && (!((_local6.inventory == null)))))
                 {
-                    for each (_local7 in _local6._e9.slots_)
+                    for each (_local7 in _local6.inventory.slots_)
                     {
                         if (_local7.objectType_ == -1)
                         {
@@ -166,7 +184,7 @@ package com.company.assembleegameclient.ui{
                     }
                 }
             }
-            this._03f._e9.gs_.packetManager._8q(this._03f._e9._iA_.objectId_, this._03f.id_, this._0M_X_);
+            this._03f._e9.gs_.packetManager._8q(this._03f._e9.gameObject_.objectId_, this._03f.id_, this._0M_X_);
         }
         private function _0K_9():void{
             this._03f.addChild(this);

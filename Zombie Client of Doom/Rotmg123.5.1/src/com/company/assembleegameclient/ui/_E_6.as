@@ -117,7 +117,7 @@ package com.company.assembleegameclient.ui{
             return ((type_ == _local2));
         }
         public function _C_p():Boolean{
-            var _local1:Player = (this._e9._iA_ as Player);
+            var _local1:Player = (this._e9.gameObject_ as Player);
             return (((!((_local1 == null))) && ((_local1.abilityCooldownSec < this._K_9))));
         }
         public function draw(_arg1:int):void{
@@ -208,9 +208,9 @@ package com.company.assembleegameclient.ui{
         private function _c1():void{
             if (this._e9.gs_)
             {
-                if ((this._e9._iA_ is Player))
+                if ((this._e9.gameObject_ is Player))
                 {
-                    if (this._e9._iA_ == this._e9.gs_.map_.player_)
+                    if (this._e9.gameObject_ == this._e9.gs_.map_.player_)
                     {
                         this._Y_K_ = _U_c.CURRENT_PLAYER;
                     } else
@@ -239,7 +239,7 @@ package com.company.assembleegameclient.ui{
         private function _H_T_():void{
             var _local1:Boolean = this._e9._mK_();
 			if (ObjectLibrary._6H_(this.objectType_) != null)
-            	toolTip_ = new EquipmentToolTip(this.objectType_, (((this._e9.gs_)!=null) ? this._e9.gs_.map_.player_ : null), (((this._e9._iA_)!=null) ? this._e9._iA_.objectType_ : -1), this._Y_K_, this._X_B_._03f.id_, _local1);
+            	toolTip_ = new EquipmentToolTip(this.objectType_, (((this._e9.gs_)!=null) ? this._e9.gs_.map_.player_ : null), (((this._e9.gameObject_)!=null) ? this._e9.gameObject_.objectType_ : -1), this._Y_K_, this._X_B_._03f.id_, _local1);
 			else
 				this._i9();
         }
@@ -283,7 +283,7 @@ package com.company.assembleegameclient.ui{
                 }
                 this._04q = true;
             }
-            this._e9.gs_.packetManager.useItem(getTimer(), this._e9._iA_.objectId_, this.id_, this.objectType_, 0, 0);
+            this._e9.gs_.packetManager.useItem(getTimer(), this._e9.gameObject_.objectId_, this.id_, this.objectType_, 0, 0);
             _5T_.play("use_potion");
             this._X_6();
         }
@@ -477,7 +477,7 @@ package com.company.assembleegameclient.ui{
             var _local2:int = _arg1._e9.gs_.lastUpdate_;
             var _local3:PacketManager = this._gw();
             var _local4:Player = this._v5();
-            _local3._P_a(_local2, _local4.x_, _local4.y_, this._e9._iA_.objectId_, this.id_, this.objectType_, _arg1._e9._iA_.objectId_, _arg1.id_, _arg1.objectType_);
+            _local3._P_a(_local2, _local4.x_, _local4.y_, this._e9.gameObject_.objectId_, this.id_, this.objectType_, _arg1._e9.gameObject_.objectId_, _arg1.id_, _arg1.objectType_);
             _5T_.play("inventory_move_item");
             this._X_6();
         }

@@ -32,7 +32,7 @@ public class Inventory extends Sprite {
     };
 
     public var gs_:GameSprite;
-    public var _iA_:GameObject;
+    public var gameObject_:GameObject;
     public var _A_H_:String;
     public var invsize_:int;
     public var slots_:Vector.<_E_6>;
@@ -50,7 +50,7 @@ public class Inventory extends Sprite {
         this.graphicsData_ = new <IGraphicsData>[this.fill_, this.path_, GraphicHelper.END_FILL];
         super();
         this.gs_ = _arg1;
-        this._iA_ = _arg2;
+        this.gameObject_ = _arg2;
         this._A_H_ = _arg3;
         this.invsize_ = _arg5;
         this.equipment_ = _equipment;

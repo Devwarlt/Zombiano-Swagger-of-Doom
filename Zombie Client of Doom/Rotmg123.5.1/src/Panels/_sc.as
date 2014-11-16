@@ -15,16 +15,16 @@ package Panels{
 
         private static const _hP_:Vector.<int> = new <int>[Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_];
 
-        public var _e9:Inventory;
+        public var inventory:Inventory;
 
         public function _sc(_arg1:GameSprite, _arg2:Container){
             super(_arg1);
-            this._e9 = new Inventory(gs_, _arg2, _arg2._include(), _hP_, 8, false);
-            this._e9.x = 8;
-            addChild(this._e9);
+            this.inventory = new Inventory(gs_, _arg2, _arg2._include(), _hP_, 8, false);
+            this.inventory.x = 8;
+            addChild(this.inventory);
         }
         override public function draw():void{
-            this._e9.draw(this._e9._iA_.equipment_);
+            this.inventory.draw(this.inventory.gameObject_.equipment_);
         }
 
     }

@@ -6,6 +6,8 @@
 package com.company.assembleegameclient.net{
 import Frames.NotificationBox;
 
+import Panels.CraftingPanel;
+
 import Panels.TeleportPanel;
 
 import ServerPackets.*;
@@ -1043,7 +1045,9 @@ import com.company.assembleegameclient.util.Currency;
                     case StatData.INVENTORY_9_STAT:
                     case StatData.INVENTORY_10_STAT:
                     case StatData.INVENTORY_11_STAT:
-                        _arg1.equipment_[(_local4._0F_4 - StatData.INVENTORY_0_STAT)] = _local4._h;
+                        if(!CraftingPanel.terminalOpen) {
+                            _arg1.equipment_[(_local4._0F_4 - StatData.INVENTORY_0_STAT)] = _local4._h;
+                        }
                         break;
                     case StatData._s9:
                         (_arg1 as Player).numStars_ = _local4._h;

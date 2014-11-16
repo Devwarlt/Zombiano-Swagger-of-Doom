@@ -31,7 +31,7 @@ import flash.utils.Dictionary;
 		Forge;
 		ClosedVaultChest;
 		Reforge;
-        LithiumObject;
+        CraftingTerminal;
 		
         public static const _020:Dictionary = new Dictionary();
         public static const Items:Dictionary = new Dictionary();
@@ -162,6 +162,7 @@ import flash.utils.Dictionary;
         }
         public static function _gf(_arg1:int):int{
             var _local2:XML = Items[_arg1];
+            if(_local2 == null) return 0;
             if (!_local2.hasOwnProperty("SlotType"))
             {
                 return (-1);

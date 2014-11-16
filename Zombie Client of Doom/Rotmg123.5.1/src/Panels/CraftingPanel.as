@@ -2,12 +2,13 @@
  * Created by Fabian on 11.11.2014.
  */
 package Panels {
-import Frames.LithiumFrame;
+import Frames.CraftingFrame;
 
-import Panels.LithiumPanel;
+import Panels.CraftingPanel;
 
 import com.company.assembleegameclient.objects.GameObject;
-import com.company.assembleegameclient.objects.LithiumObject;
+import com.company.assembleegameclient.objects.CraftingTerminal;
+import com.company.assembleegameclient.ui.FrameHolder;
 
 import flash.events.KeyboardEvent;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -17,10 +18,12 @@ import flash.events.Event;
 import com.company.assembleegameclient.game.GameSprite;
 import Frames.ReforgeFrame;
 
-public class LithiumPanel extends SimpleButtonPanel
+public class CraftingPanel extends SimpleButtonPanel
 {
-    public function LithiumPanel(param1:GameSprite, param2:GameObject) {
-        super(param1,"Lithium Object","Sweq");
+    public static var terminalOpen:Boolean;
+
+    public function CraftingPanel(param1:GameSprite, param2:GameObject) {
+        super(param1,"Craft items","Open");
         this.obj_ = param2;
         this.addEventListener(Event.ADDED_TO_STAGE,this.onAdded);
         this.addEventListener(Event.REMOVED_FROM_STAGE,this.onRemove);
@@ -29,14 +32,17 @@ public class LithiumPanel extends SimpleButtonPanel
     public var obj_:GameObject;
 
     protected function onKeyDown(param1:KeyboardEvent) : void {
-        if(param1.keyCode == Parameters.data_.interact)
-        {
-            stage.addChild(new FrameHolderNoDim(new LithiumFrame(gs_, obj_)));
+        if(!terminalOpen) {
+            if (param1.keyCode == Parameters.data_.interact) {
+                stage.addChild(new FrameHolderNoDim(new CraftingFrame(gs_, this.obj_)));
+            }
         }
     }
 
     override protected function onButtonClick(param1:MouseEvent) : void {
-        stage.addChild(new FrameHolderNoDim(new ReforgeFrame(gs_,this.obj_)));
+        if(!terminalOpen) {
+            stage.addChild(new FrameHolderNoDim(new CraftingFrame(gs_, this.obj_)));
+        }
     }
 
     protected function onAdded(param1:Event) : void {
