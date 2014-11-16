@@ -28,9 +28,7 @@ import flash.utils.Dictionary;
 		GuildChronicle;
 		GuildMerchant;
 		GuildBoard;
-		Forge;
 		ClosedVaultChest;
-		Reforge;
         CraftingTerminal;
 		
         public static const _020:Dictionary = new Dictionary();

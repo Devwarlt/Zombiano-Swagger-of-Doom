@@ -134,7 +134,7 @@ import com.company.assembleegameclient.objects.GameObject;
                 if(!(this._03f._e9.gameObject_ is CraftingTerminal)) {
                     if (this._03f.id_ > 3) {
                         _arg1._e9.gameObject_.equipment_[_arg1.id_] = this._0M_X_;
-                        this._03f._e9.gs_.map_.player_.equipment_[this._03f.id_] = 0;
+                        this._03f._e9.gs_.map_.player_.equipment_[this._03f.id_] = -1;
                     }
                 }
                 this._0K_9();
