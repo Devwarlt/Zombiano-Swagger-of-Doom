@@ -1,17 +1,23 @@
 /**
- * Created by Fabian on 12.11.2014.
+ * Created by Fabian on 16.11.2014.
  */
 package Frames {
 import Panels.CraftingPanel;
 
+import _0L_C_.DialogBox;
+
 import com.company.assembleegameclient.game.GameSprite;
+import com.company.assembleegameclient.objects.CraftingTerminal;
 import com.company.assembleegameclient.objects.GameObject;
 import com.company.assembleegameclient.ui.Inventory;
 import com.company.assembleegameclient.ui.Slot;
 import com.company.assembleegameclient.ui._return;
+import com.hurlant.util.der.Integer;
 
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.sampler.getSavedThis;
+import flash.utils.Dictionary;
 
 public class CraftingFrame extends Frame
     {
@@ -30,9 +36,14 @@ public class CraftingFrame extends Frame
         private var output_:Inventory;
         private var craftArrow_:_return;
 
+        public static var items:Dictionary;
+        public static var playerItems:Dictionary;
+
         public function CraftingFrame(_gs:GameSprite, _obj:GameObject) {
             super("Craft Items", "Cancel", "Craft", "/craftItems", 275);
             CraftingPanel.terminalOpen = true;
+            items = new Dictionary();
+            playerItems = new Dictionary();
             _obj.equipment_ = new <int>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             this.gs_ = _gs;
             this.obj_ = _obj;
@@ -92,16 +103,16 @@ public class CraftingFrame extends Frame
             this.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         }
         private function onEnterFrame(e:Event){
-            this.slot1_.draw(new <int>[this.obj_.equipment_[0]]);
-            this.slot2_.draw(new <int>[this.obj_.equipment_[1]]);
-            this.slot3_.draw(new <int>[this.obj_.equipment_[2]]);
-            this.slot4_.draw(new <int>[this.obj_.equipment_[3]]);
-            this.slot5_.draw(new <int>[this.obj_.equipment_[4]]);
-            this.slot6_.draw(new <int>[this.obj_.equipment_[5]]);
-            this.slot7_.draw(new <int>[this.obj_.equipment_[6]]);
-            this.slot8_.draw(new <int>[this.obj_.equipment_[7]]);
-            this.slot9_.draw(new <int>[this.obj_.equipment_[8]]);
-            this.output_.draw(new <int>[0]);
+            this.slot1_.draw(new <int>[items[0]]);
+            this.slot2_.draw(new <int>[items[1]]);
+            this.slot3_.draw(new <int>[items[2]]);
+            this.slot4_.draw(new <int>[items[3]]);
+            this.slot5_.draw(new <int>[items[4]]);
+            this.slot6_.draw(new <int>[items[5]]);
+            this.slot7_.draw(new <int>[items[6]]);
+            this.slot8_.draw(new <int>[items[7]]);
+            this.slot9_.draw(new <int>[items[8]]);
+            this.output_.draw(new <int>[CraftingTerminal.craftingRecipe(items)]);
         }
         private function onClose(param1:MouseEvent) : void {
             this.removeChild(craftArrow_);
@@ -124,7 +135,20 @@ public class CraftingFrame extends Frame
             CraftingPanel.terminalOpen = false;
         }
         private function onCraft(param1:MouseEvent) : void {
-            this.gs_.packetManager.craftItems(this.obj_.objectId_);
+            var dialog = new DialogBox('Click "Ok" or "No lemme craft" to close this dialog', "Item crafting is currently disabled", "Ok", "No lemme craft", null);
+            dialog.addEventListener(DialogBox.BUTTON1_EVENT, this.closeBox);
+            dialog.addEventListener(DialogBox.BUTTON2_EVENT, this.closeBox);
+            this.parent.addChild(dialog);
+            //this.gs_.packetManager.craftItems(this.obj_.objectId_);
+        }
+
+        public function closeBox(_arg1:Event):void{
+            this.parent.removeChild((_arg1.currentTarget as DialogBox));
+        }
+
+        public static function updateInv(_arg1:int, _arg2:int, _arg3:int):void {
+            items[_arg1] = _arg2;
+            playerItems[_arg1] = _arg3;
         }
     }
 }
