@@ -4,6 +4,7 @@
 //com.company.assembleegameclient.net.PacketManager
 
 package com.company.assembleegameclient.net{
+import Frames.CraftingFrame;
 import Frames.NotificationBox;
 
 import Panels.CraftingPanel;
@@ -171,7 +172,8 @@ import com.company.assembleegameclient.util.Currency;
     import flash.display.BitmapData;
     import flash.events.ErrorEvent;
     import flash.events.Event;
-    import flash.events.TimerEvent;
+import flash.events.MouseEvent;
+import flash.events.TimerEvent;
     import flash.geom.Point;
     import flash.net.FileReference;
     import flash.utils.ByteArray;
@@ -1364,6 +1366,8 @@ import com.company.assembleegameclient.util.Currency;
                 case BuyResult._0I_C_:
                     this.gs_.stage.addChild(new _aZ_());
                     return;
+                case BuyResult.craft:
+                    CraftingFrame.thisCraftingFrame.onClose(new MouseEvent(MouseEvent.CLICK));
                 default:
                     this.gs_.textBox_.addText((((_arg1.result_ == BuyResult._dV_)) ? Parameters.SendInfo : Parameters.SendError), _arg1.resultString_);
             }
@@ -1505,9 +1509,10 @@ import com.company.assembleegameclient.util.Currency;
             this.gs_.dispatchEvent(new _D_X_());
         }
 		
-		public function craftItems(_arg1:int) : void {
+		public function craftItems(_arg1:int, _arg2:String) : void {
 			var _loc2_:Craft = this.serverConn.createPacketFromID(CRAFT) as Craft;
 			_loc2_.objectId_ = _arg1;
+            _loc2_.recipeString_ = _arg2;
 			this.serverConn.sendPacket(_loc2_);
 		}
 		

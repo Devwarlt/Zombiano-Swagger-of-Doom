@@ -10,13 +10,15 @@ package ClientPackets
 		}
 		
 		public var objectId_:int;
-		
+		public var recipeString_:String;
+
 		override public function writeToOutput(_arg1:IDataOutput) : void {
 			_arg1.writeInt(this.objectId_);
+			_arg1.writeUTF(this.recipeString_);
 		}
 		
 		override public function toString() : String {
-			return formatToString("CRAFT","objectId_");
+			return formatToString("CRAFT","objectId_","recipeString_");
 		}
 	}
 }

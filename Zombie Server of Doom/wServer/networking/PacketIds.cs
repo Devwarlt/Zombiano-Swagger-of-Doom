@@ -82,7 +82,7 @@ namespace wServer.networking
         Packet = 11,
         Reconnect = 39,
         Failure = 0,
-        InvitedToGuild =77 ,
+        InvitedToGuild = 77,
         CreateGuildResult = 58,
         Damage = 47,
         GroundDamage = 64,
@@ -151,6 +151,7 @@ namespace wServer.networking
         InvDrop = 35,
         NotificationBox = 81,
         Sprint = 85,
-        TeleportRequest = 86
+        TeleportRequest = 86,
+        Crafting = 84
     }
 }

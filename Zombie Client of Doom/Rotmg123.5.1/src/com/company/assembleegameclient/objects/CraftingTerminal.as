@@ -11,31 +11,30 @@ import flash.utils.Dictionary;
 
 public class CraftingTerminal extends GameObject implements IPanelProvider {
 
-        public static var rec:Vector.<XML>;
+        public static var rec:Vector.<String>;
 
         public function CraftingTerminal(param1:XML) {
             super(param1);
-            this._064 = true;
+            _064 = true;
+            rec = new Vector.<String>();
+            rec.push("2711,2711,2711,0,0,0,0,0;3080");
         }
 
         public function GetPanel(_arg1:GameSprite):Panel {
             return new CraftingPanel(_arg1, this);
         }
 
-        //Basic testing (I'll add a full version soon)
-        public static function craftingRecipe(_arg1:Dictionary):int {
-            var recIndex = 0;
+        public static function craftingRecipe(_arg1:String):int {
+            var i = 0;
             var ret = -1;
 
-            //while(recIndex < rec.length - 1) {
-                var i = 0;
-                while (i < 9) {
-                    if (_arg1[i] == 0xa97)
-                        ret = 0xc08;
-
-                    i++;
+            while(i < rec.length) {
+                if(rec[i].split(";")[0] == _arg1) {
+                    ret = int(rec[i].split(";")[1]);
+                    break;
                 }
-            //}
+                i++;
+            }
             return ret;
         }
     }

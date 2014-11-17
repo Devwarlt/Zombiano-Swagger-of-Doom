@@ -51,7 +51,7 @@ import com.company.ui.fonts.*;
                     font = new MyriadProBoldCFF();
                     break;
                 case 'CHIP SB':
-                    font = new CHIPSB();
+                    font = new BewareoftheHogs();
                     break;
                 case 'CHIP SBKI':
                     font = new CHIPSBKI();

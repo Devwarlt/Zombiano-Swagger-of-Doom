@@ -5,6 +5,12 @@ using System.Text;
 
 public static class Utils
 {
+    public static bool IsNumber(this string val)
+    {
+        int dummy;
+        return Int32.TryParse(val, out dummy);
+    }
+
     public static int FromString(string x)
     {
         if (x.StartsWith("0x")) return int.Parse(x.Substring(2), System.Globalization.NumberStyles.HexNumber);

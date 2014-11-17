@@ -50,9 +50,9 @@ package _0L_C_{
             this.box_ = new Sprite();
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this._0y = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
-            this._vV_ = new GraphicsSolidFill(0x500C00, 1);
+            this._vV_ = new GraphicsSolidFill(0x73543F, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-			this.graphicsData_ = new <IGraphicsData>[_0y, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
+            this.graphicsData_ = new <IGraphicsData>[_0y, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
             super();
             this._J_O_ = _arg5;
             this._p = new SimpleText(14, 0xB3B3B3, false, (WIDTH - 40), 0, "Myriad Pro");
@@ -153,4 +153,3 @@ package _0L_C_{
 
     }
 }//package _0L_C_
-

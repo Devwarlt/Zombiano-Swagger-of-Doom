@@ -47,6 +47,21 @@ namespace wServer.realm
                 InventoryChanged(this, new InventoryChangedEventArgs(-1, null, null));
         }
 
+        public bool Contains(int objType)
+        {
+            foreach (var i in this)
+                if (i != null && i.ObjectType == (ushort)objType) return true;
+            return false;
+        }
+
+        public int? GetFirstItemIndex(ushort objType)
+        {
+            for (int i = 0; i < this.Length; i++)
+                if (this[i] != null && this[i].ObjectType == objType) return i;
+
+            return null;
+        }
+
         public Item this[int index]
         {
             get { return items[index]; }

@@ -284,6 +284,7 @@ public class Options extends Sprite {
         this._yZ_(new _0I_j("drawShadows", new <String>["On", "Off"], [true, false], "Draw Shadows", "This toggles whether to draw shadows", null));
         this._yZ_(new _0I_j("textBubbles", new <String>["On", "Off"], [true, false], "Draw Text Bubbles", "This toggles whether to draw text bubbles", null));
         this._yZ_(new _0I_j("showTradePopup", new <String>["On", "Off"], [true, false], "Show Trade Request Panel", "This toggles whether to show trade requests in the lower-right panel or just in chat.", null));
+        this._yZ_(new _0I_j("confirmCraftingBox", new <String>["On", "Off"], [true, false], "Show Confirm Craft Box", "This toggles the crafting confirm box before you are crafting an item.", null));
         this._yZ_(new _0I_j("showGuildInvitePopup", new <String>["On", "Off"], [true, false], "Show Guild Invite Panel", "This toggles whether to show guild invites in the lower-right panel or just in chat.", null));
         if (Capabilities.playerType == "Desktop")
         {

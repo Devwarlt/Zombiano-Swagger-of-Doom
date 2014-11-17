@@ -16,6 +16,7 @@ package ServerPackets{
         public static const _X_u:int = 4;
         public static const _mI_:int = 5;
         public static const _0I_C_:int = 6;
+        public static const craft:int = 7;
 
         public var result_:int;
         public var resultString_:String;
