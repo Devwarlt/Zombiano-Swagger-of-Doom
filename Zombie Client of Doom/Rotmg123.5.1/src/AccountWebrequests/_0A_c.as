@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_Q_A_._0A_c
+//AccountWebrequests._0A_c
 
-package _Q_A_{
+package AccountWebrequests{
     import flash.display.Sprite;
     import flash.display.Shape;
     import flash.display.Graphics;
@@ -31,5 +31,5 @@ package _Q_A_{
         }
 
     }
-}//package _Q_A_
+}//package AccountWebrequests
 

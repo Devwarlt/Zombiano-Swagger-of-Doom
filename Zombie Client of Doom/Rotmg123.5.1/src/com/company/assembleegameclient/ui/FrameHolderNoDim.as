@@ -5,14 +5,10 @@
 
 package com.company.assembleegameclient.ui{
     import flash.display.Sprite;
-    import flash.display.Shape;
     import Frames.Frame;
-    import flash.display.Graphics;
     import flash.events.Event;
 
     public class FrameHolderNoDim extends Sprite {
-
-        private var dimScreen:Shape;
         private var frame:Frame;
 
         public function FrameHolderNoDim(frame:Frame){

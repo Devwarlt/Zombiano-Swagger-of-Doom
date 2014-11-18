@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_Q_A_._0G_d
+//AccountWebrequests._0G_d
 
-package _Q_A_{
+package AccountWebrequests{
     import Frames.Frame;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui.TextButton;
@@ -15,7 +15,7 @@ package _Q_A_{
     import _zo._8C_;
     import _zo._mS_;
     import com.company.googleanalytics.GA;
-    import _Q_A_.*;
+    import AccountWebrequests.*;
 
     internal class _0G_d extends Frame {
 
@@ -84,5 +84,5 @@ package _Q_A_{
         }
 
     }
-}//package _Q_A_
+}//package AccountWebrequests
 

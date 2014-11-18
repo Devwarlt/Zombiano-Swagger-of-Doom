@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_Q_A_._L__
+//AccountWebrequests._L__
 
-package _Q_A_{
+package AccountWebrequests{
     import Frames.Frame;
     import Frames.TextInput;
     import com.company.assembleegameclient.ui.TextButton;
@@ -94,5 +94,5 @@ package _Q_A_{
 		}
 
     }
-}//package _Q_A_
+}//package AccountWebrequests
 

@@ -62,7 +62,7 @@ namespace wServer.realm.entities
                 return false;
             if (HasConditionEffect(ConditionEffects.Bleeding))
                 return false;
-            if (Hunger <= 100)
+            if (Hunger < 50)
                 return false;
             return true;
         }

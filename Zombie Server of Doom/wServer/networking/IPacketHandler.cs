@@ -22,9 +22,9 @@ namespace wServer.networking
             HandlePacket(client, (T)packet);
         }
 
-        protected void SendFailure(Client cli, string text)
+        protected void SendFailure(Client cli, string text, int errorId = 0)
         {
-            cli.SendPacket(new svrPackets.FailurePacket() { Message = text });
+            cli.SendPacket(new svrPackets.FailurePacket() { Message = text, ErrorId = errorId });
         }
     }
 

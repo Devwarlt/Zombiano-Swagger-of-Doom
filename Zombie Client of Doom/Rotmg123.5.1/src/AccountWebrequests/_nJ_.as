@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_Q_A_._nJ_
+//AccountWebrequests._nJ_
 
-package _Q_A_{
+package AccountWebrequests{
     import flash.events.Event;
 
     internal class _nJ_ extends Event {
@@ -19,5 +19,5 @@ package _Q_A_{
             super(_arg1);
         }
     }
-}//package _Q_A_
+}//package AccountWebrequests
 

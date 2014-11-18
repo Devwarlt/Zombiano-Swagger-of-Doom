@@ -10,14 +10,14 @@ package _00g{
     import com.company.assembleegameclient.util.GUID;
     import flash.display.Stage;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _Q_A_._jz;
+    import AccountWebrequests._jz;
     import _qN_._9j;
-    import _Q_A_._ak;
+    import AccountWebrequests._ak;
     import flash.display.Sprite;
-    import _Q_A_._0A_c;
+    import AccountWebrequests._0A_c;
     import com.company.assembleegameclient.appengine._02k;
     import _0L_C_._2k;
-    import _Q_A_._02R_;
+    import AccountWebrequests._02R_;
 
     public class WebAccount extends Account {
 

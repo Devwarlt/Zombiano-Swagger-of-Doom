@@ -4,21 +4,34 @@ using System.Linq;
 using System.Text;
 using wServer.networking.cliPackets;
 using wServer.networking.svrPackets;
+using wServer.realm;
 using wServer.realm.entities;
 
 namespace wServer.networking.handlers
 {
     internal class CraftingHandler : PacketHandlerBase<CraftingPacket>
     {
-        //Only for testing, it will be moved to mysql
-        private static Dictionary<string, int> recipes = new Dictionary<string, int>(1)
+        private static Dictionary<string, int> recipes;
+
+        static CraftingHandler()
         {
-            { "2711,2711,2711,0,0,0,0,0", 3080 }
-        };
+            recipes = new Dictionary<string, int>();
+        }
 
         protected override void HandlePacket(Client client, CraftingPacket packet)
         {
+            if(recipes.Count < 1)
+                getCraftingRecipes(client.Manager);
             client.Manager.Logic.AddPendingAction(time => Handle(client.Player, packet));
+        }
+
+        private void getCraftingRecipes(RealmManager manager)
+        {
+            var cmd = manager.Database.CreateQuery();
+            cmd.CommandText = "Select * FROM craftingrecipes";
+            using (var rdr = cmd.ExecuteReader())
+                while (rdr.Read())
+                    recipes.Add(rdr.GetString("row1") + "," + rdr.GetString("row2") + "," + rdr.GetString("row3"), rdr.GetInt32("result"));
         }
 
         private void Handle(Player player, CraftingPacket packet)

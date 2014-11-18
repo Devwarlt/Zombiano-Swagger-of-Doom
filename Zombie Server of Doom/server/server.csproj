@@ -94,6 +94,7 @@
     <Compile Include="char\fame.cs" />
     <Compile Include="char\list.cs" />
     <Compile Include="char\delete.cs" />
+    <Compile Include="crafting\getRecipes.cs" />
     <Compile Include="credits\add.cs" />
     <Compile Include="credits\getoffers.cs" />
     <Compile Include="fame\list.cs" />
@@ -137,9 +138,6 @@
     <None Include="server.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="crafting.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

@@ -91,7 +91,6 @@ public class CraftingFrame extends Frame
 
             this.addChild(this.output_);
 
-            this.addEventListener(Event.REMOVED_FROM_STAGE, this.cleanup);
             Button1.addEventListener(MouseEvent.CLICK, this.onClose);
             Button2.addEventListener(MouseEvent.CLICK, this.onCraft);
             Button1.x = 10;
@@ -134,6 +133,7 @@ public class CraftingFrame extends Frame
             this.removeChild(this.output_);
 
             dispatchEvent(new Event(Event.COMPLETE));
+            cleanup();
             CraftingPanel.terminalOpen = false;
         }
         private function onCraft(param1:MouseEvent) : void {
@@ -159,9 +159,9 @@ public class CraftingFrame extends Frame
         public static function getCraftingString():String {
             var itemString = "";
             var i = 0;
-            while(i < 8) {
+            while(i < 9) {
                 if(items[i] == undefined) items[i] = 0;
-                if(i < 7) {
+                if(i < 8) {
                     itemString += items[i].toString().replace("-1", "0") + ",";
                 }
                 else {

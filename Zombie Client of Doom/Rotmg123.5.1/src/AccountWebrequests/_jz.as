@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_Q_A_._jz
+//AccountWebrequests._jz
 
-package _Q_A_{
+package AccountWebrequests{
     import _qN_._9j;
     import com.company.ui.SimpleText;
     import _F_1._H_o;
@@ -88,5 +88,5 @@ package _Q_A_{
         }
 
     }
-}//package _Q_A_
+}//package AccountWebrequests
 

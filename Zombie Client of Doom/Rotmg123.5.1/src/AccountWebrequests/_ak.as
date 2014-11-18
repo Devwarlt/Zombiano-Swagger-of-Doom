@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_Q_A_._ak
+//AccountWebrequests._ak
 
-package _Q_A_{
+package AccountWebrequests{
     import flash.display.Sprite;
     import Frames.Frame;
     import com.company.assembleegameclient.appengine._0B_u;
@@ -100,5 +100,5 @@ package _Q_A_{
         }
 
     }
-}//package _Q_A_
+}//package AccountWebrequests
 

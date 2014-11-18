@@ -1,7 +1,9 @@
 package Panels
 {
 	import com.company.assembleegameclient.objects.GameObject;
-	import flash.events.KeyboardEvent;
+import com.company.assembleegameclient.ui.FrameHolder;
+
+import flash.events.KeyboardEvent;
 	import com.company.assembleegameclient.parameters.Parameters;
 	import com.company.assembleegameclient.ui.FrameHolderNoDim;
 	import Frames.Crafting;

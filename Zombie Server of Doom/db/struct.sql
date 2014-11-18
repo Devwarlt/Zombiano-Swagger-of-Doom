@@ -34,15 +34,15 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `uuid` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
   `name` varchar(64) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
-  `namechosen` tinyint(1) NOT NULL,
-  `verified` tinyint(1) NOT NULL,
-  `guild` int(11) NOT NULL,
-  `guildRank` int(11) NOT NULL,
-  `vaultCount` int(11) NOT NULL,
-  `maxCharSlot` int(11) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  `namechosen` tinyint(1) NOT NULL DEFAULT '0',
+  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `guild` int(11) NOT NULL DEFAULT '0',
+  `guildRank` int(11) NOT NULL DEFAULT '0',
+  `vaultCount` int(11) NOT NULL DEFAULT '1',
+  `maxCharSlot` int(11) NOT NULL DEFAULT '0',
   `regTime` datetime NOT NULL,
-  `guest` tinyint(1) NOT NULL,
+  `guest` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -65,13 +65,13 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `mp` int(11) NOT NULL,
   `stats` varchar(64) NOT NULL,
   `dead` tinyint(1) NOT NULL,
-  `tex1` int(11) NOT NULL,
-  `tex2` int(11) NOT NULL,
+  `tex1` int(11) NOT NULL DEFAULT '0',
+  `tex2` int(11) NOT NULL DEFAULT '0',
   `pet` int(11) NOT NULL,
-  `fameStats` varchar(128) NOT NULL,
+  `fameStats` varchar(128) NOT NULL DEFAULT 'eNoVytkRgCAMRdGH4IIbgmsPdmNVNmZf5n7kzM0kksLjJN2V4b30vcHK1YYam9hCxxqh5zpQI0wwQ4IFMhRYYeNjpw444YIfA3kDIA',
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deathTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `totalFame` int(11) NOT NULL,
+  `totalFame` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -100,8 +100,8 @@ CREATE TABLE IF NOT EXISTS `death` (
   `chrId` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `charType` int(11) NOT NULL,
-  `tex1` int(11) NOT NULL,
-  `tex2` int(11) NOT NULL,
+  `tex1` int(11) NOT NULL DEFAULT '0',
+  `tex2` int(11) NOT NULL DEFAULT '0',
   `items` varchar(128) NOT NULL,
   `fame` int(11) NOT NULL,
   `fameStats` varchar(128) NOT NULL,
@@ -155,6 +155,19 @@ CREATE TABLE IF NOT EXISTS `vaults` (
   `items` varchar(128) NOT NULL,
   PRIMARY KEY (`accId`,`chestId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Tabellenstruktur für Tabelle `craftingrecipes`
+--
+
+CREATE TABLE IF NOT EXISTS `craftingrecipes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `row1` varchar(512) NOT NULL,
+  `row2` varchar(512) NOT NULL,
+  `row3` varchar(512) NOT NULL,
+  `result` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

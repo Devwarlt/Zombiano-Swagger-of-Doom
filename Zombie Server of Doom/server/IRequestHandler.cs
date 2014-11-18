@@ -28,6 +28,7 @@ namespace server
             { "/account/setName", new account.setName() },
             { "/credits/getoffers", new credits.getoffers() },
             { "/credits/add", new credits.add() },
+            { "/crafting/getRecipes", new crafting.getRecipes() },
             { "/fame/list", new fame.list() },
             { "/picture/get", new picture.get() },
         };

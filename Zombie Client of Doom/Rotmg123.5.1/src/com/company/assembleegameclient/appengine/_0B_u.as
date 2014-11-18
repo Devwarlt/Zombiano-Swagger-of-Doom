@@ -29,7 +29,7 @@ package com.company.assembleegameclient.appengine{
         private var _dF_:int;
 
         public function _0B_u(_arg1:String, _arg2:String, _arg3:Boolean, _arg4:int=0){
-            var _local5:String = ((((!(_arg3)) || ((_arg1.indexOf(Parameters.connection) == 0)))) ? "http://" : "https://");
+            var _local5:String = ((((!(_arg3)) || ((_arg1.indexOf(Parameters.connection) == 0)))) ? "http://" : "http://");
             this._E_v = (((_local5 + _arg1) + _arg2) + "/");
             this._0D_R_ = _arg4;
         }
