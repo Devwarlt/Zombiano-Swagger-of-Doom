@@ -1,475 +1,540 @@
 <Addition>
-  <Object id="Shotgun Barrel" type="0xFA0" ext="true">
-    <Class>Equipment</Class>
-    <Item/>
-    <Texture>
-      <File>lofiObj5</File>
-      <Index>0x10</Index>
-    </Texture>
-    <SlotType>17</SlotType>
-    <Tier>0</Tier>
-    <Description>A magical wooden staff topped with a white crystal.</Description>
-    <RateOfFire>1</RateOfFire>
-    <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-      <Amplitude>0.5</Amplitude>
-      <Frequency>2</Frequency>
-    </Projectile>
-    <BagType>0</BagType>
-    <NumProjectiles>2</NumProjectiles>
-    <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
-  </Object>
-  <Object id="Shotgun Stock" type="0xFA1" ext="true">
-    <Class>Equipment</Class>
-    <Item/>
-    <Texture>
-      <File>lofiObj5</File>
-      <Index>0x11</Index>
-    </Texture>
-    <SlotType>17</SlotType>
-    <Tier>0</Tier>
-    <Description>A magical wooden staff topped with a white crystal.</Description>
-    <RateOfFire>1</RateOfFire>
-    <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-      <Amplitude>0.5</Amplitude>
-      <Frequency>2</Frequency>
-    </Projectile>
-    <BagType>0</BagType>
-    <NumProjectiles>2</NumProjectiles>
-    <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
-  </Object>
-  <Object id="Shotgun Pump" type="0xFA2" ext="true">
-    <Class>Equipment</Class>
-    <Item/>
-    <SlotType>17</SlotType>
-    <Tier>0</Tier>
-    <Description>A magical wooden staff topped with a white crystal.</Description>
-    <RateOfFire>1</RateOfFire>
-    <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-      <Amplitude>0.5</Amplitude>
-      <Frequency>2</Frequency>
-    </Projectile>
-    <BagType>0</BagType>
-    <NumProjectiles>2</NumProjectiles>
-    <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
-  </Object>
-  <Object id="Shotgun" type="0xFA3" ext="true">
-    <Class>Equipment</Class>
-    <SlotType>17</SlotType>
-    <Tier>0</Tier>
-    <Description>A magical wooden staff topped with a white crystal.</Description>
-    <RateOfFire>1</RateOfFire>
-    <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-      <Amplitude>0.5</Amplitude>
-      <Frequency>2</Frequency>
-    </Projectile>
-    <BagType>0</BagType>
-    <NumProjectiles>2</NumProjectiles>
-    <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
-  </Object>
-  
-  <Item>
-  	<Object id="Ammo Cartrage" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x14</Index></Texture>
-		<SlotType>10</SlotType>
-  		<Description>A small potion that restores magic points.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="25">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-  	
-	<Object id="Pizza" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x00</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>A Pizza Slice.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="15">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-  	<Object id="Burger" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x01</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>A Juicy Burger.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="20">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-  	<Object id="Ham" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x02</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>Some Yummy Ham.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="25">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-	<Object id="Chocolate Bar" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x03</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>A Small Chocolate Bar.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="25">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-  	<Object id="Donut" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x04</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>A Pink Ring of Fats.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="25">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-	<Object id="Pear" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x05</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>A Healthy Fruit.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="25">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-  	<Object id="Apple" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x06</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>A Healthy Fruit.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="25">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-  	<Object id="Carrot" ext="true">
-		<Class>Equipment</Class>
-		<Item/>
-		<Texture><File>lofiObj5</File><Index>0x15</Index></Texture>
-		<SlotType>10</SlotType>
-		<Description>Carrots Help You See in the Dark.</Description>
-		<Sound>use_potion</Sound>
-		<Activate amount="25">Magic</Activate>
-		<Consumable/>
-		<BagType>0</BagType>
-	</Object>
-  	
-     <Object id="Rusty Pistol" ext="true">
+    <Object id="Shotgun Barrel" type="0xfa0" ext="true">
         <Class>Equipment</Class>
-        <Item/>
-		<Tier>0</Tier>
+        <Item />
         <Texture>
-          <File>lofiObj5</File>
-          <Index>0x70</Index>
+            <File>lofiObj5</File>
+            <Index>0x10</Index>
         </Texture>
         <SlotType>17</SlotType>
-        <Description>Why is this gun covered in so much rust, must be old.</Description>
-        <RateOfFire>0.65</RateOfFire>
+        <Tier>0</Tier>
+        <Description>A magical wooden staff topped with a white crystal.</Description>
+        <RateOfFire>1</RateOfFire>
         <Sound>weapon/fire_wand</Sound>
         <Projectile>
-          <ObjectId>Anatis</ObjectId>
-          <Speed>100</Speed>
-          <MinDamage>100</MinDamage>
-          <MaxDamage>120</MaxDamage>
-          <LifetimeMS>600</LifetimeMS>
-          <Size>75</Size>
-          <PassesCover/>
-          <MultiHit/>
+            <ObjectId>Grey Missile</ObjectId>
+            <Speed>180</Speed>
+            <MinDamage>10</MinDamage>
+            <MaxDamage>25</MaxDamage>
+            <LifetimeMS>475</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>2</Frequency>
         </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>1</NumProjectiles>
+        <BagType>0</BagType>
+        <NumProjectiles>2</NumProjectiles>
+        <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
-        <Soulbound/>
-      </Object>
-
-     <Object id="Iron Pistol" ext="true">
+    </Object>
+    <Object id="Shotgun Stock" type="0xfa1" ext="true">
         <Class>Equipment</Class>
-        <Item/>
-		<Tier>1</Tier>
+        <Item />
         <Texture>
-          <File>lofiObj5</File>
-          <Index>0x71</Index>
+            <File>lofiObj5</File>
+            <Index>0x11</Index>
         </Texture>
         <SlotType>17</SlotType>
-        <Description>Made out of solid steel.</Description>
-        <RateOfFire>0.65</RateOfFire>
+        <Tier>0</Tier>
+        <Description>A magical wooden staff topped with a white crystal.</Description>
+        <RateOfFire>1</RateOfFire>
         <Sound>weapon/fire_wand</Sound>
         <Projectile>
-          <ObjectId>Anatis</ObjectId>
-          <Speed>100</Speed>
-          <MinDamage>130</MinDamage>
-          <MaxDamage>145</MaxDamage>
-          <LifetimeMS>600</LifetimeMS>
-          <Size>75</Size>
-          <PassesCover/>
-          <MultiHit/>
+            <ObjectId>Grey Missile</ObjectId>
+            <Speed>180</Speed>
+            <MinDamage>10</MinDamage>
+            <MaxDamage>25</MaxDamage>
+            <LifetimeMS>475</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>2</Frequency>
         </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>1</NumProjectiles>
+        <BagType>0</BagType>
+        <NumProjectiles>2</NumProjectiles>
+        <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
-        <Soulbound/>
-      </Object>
-
-     <Object id="Steel Pistol" ext="true">
+    </Object>
+    <Object id="Shotgun Pump" type="0xfa2" ext="true">
         <Class>Equipment</Class>
-        <Item/>
-		<Tier>2</Tier>
-        <Texture>
-          <File>lofiObj5</File>
-          <Index>0x72</Index>
-        </Texture>
+        <Item />
         <SlotType>17</SlotType>
-        <Description>Holy... It's just so shiny.</Description>
-        <RateOfFire>0.65</RateOfFire>
+        <Tier>0</Tier>
+        <Description>A magical wooden staff topped with a white crystal.</Description>
+        <RateOfFire>1</RateOfFire>
         <Sound>weapon/fire_wand</Sound>
         <Projectile>
-          <ObjectId>Anatis</ObjectId>
-          <Speed>100</Speed>
-          <MinDamage>145</MinDamage>
-          <MaxDamage>155</MaxDamage>
-          <LifetimeMS>600</LifetimeMS>
-          <Size>75</Size>
-          <PassesCover/>
-          <MultiHit/>
+            <ObjectId>Grey Missile</ObjectId>
+            <Speed>180</Speed>
+            <MinDamage>10</MinDamage>
+            <MaxDamage>25</MaxDamage>
+            <LifetimeMS>475</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>2</Frequency>
         </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>1</NumProjectiles>
+        <BagType>0</BagType>
+        <NumProjectiles>2</NumProjectiles>
+        <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
-        <Soulbound/>
-      </Object>
-
-     <Object id="Lead Pistol" ext="true">
+    </Object>
+    <Object id="Shotgun" type="0xfa3" ext="true">
         <Class>Equipment</Class>
-        <Item/>
-		<Tier>3</Tier>
-        <Texture>
-          <File>lofiObj5</File>
-          <Index>0x73</Index>
-        </Texture>
         <SlotType>17</SlotType>
-        <Description>Oh, So heavy.</Description>
-        <RateOfFire>0.65</RateOfFire>
+        <Tier>0</Tier>
+        <Description>A magical wooden staff topped with a white crystal.</Description>
+        <RateOfFire>1</RateOfFire>
         <Sound>weapon/fire_wand</Sound>
         <Projectile>
-          <ObjectId>Anatis</ObjectId>
-          <Speed>100</Speed>
-          <MinDamage>155</MinDamage>
-          <MaxDamage>170</MaxDamage>
-          <LifetimeMS>600</LifetimeMS>
-          <Size>75</Size>
-          <PassesCover/>
-          <MultiHit/>
+            <ObjectId>Grey Missile</ObjectId>
+            <Speed>180</Speed>
+            <MinDamage>10</MinDamage>
+            <MaxDamage>25</MaxDamage>
+            <LifetimeMS>475</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>2</Frequency>
         </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>1</NumProjectiles>
+        <BagType>0</BagType>
+        <NumProjectiles>2</NumProjectiles>
+        <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
-        <Soulbound/>
-      </Object>
-
-     <Object id="Gold Pistol" ext="true">
-        <Class>Equipment</Class>
-        <Item/>
-		<Tier>4</Tier>
+    </Object>
+    <Item>
+        <Object id="Ammo Cartrage" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x14</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>A small potion that restores magic points.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="25">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Pizza" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x00</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>A Pizza Slice.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="15">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Burger" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x01</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>A Juicy Burger.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="20">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Ham" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x02</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>Some Yummy Ham.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="25">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Chocolate Bar" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x03</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>A Small Chocolate Bar.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="25">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Donut" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x04</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>A Pink Ring of Fats.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="25">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Pear" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x05</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>A Healthy Fruit.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="25">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Apple" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x06</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>A Healthy Fruit.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="25">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Carrot" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x15</Index>
+            </Texture>
+            <SlotType>10</SlotType>
+            <Description>Carrots Help You See in the Dark.</Description>
+            <Sound>use_potion</Sound>
+            <Activate amount="25">Magic</Activate>
+            <Consumable />
+            <BagType>0</BagType>
+        </Object>
+        <Object id="Rusty Pistol" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Tier>0</Tier>
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x70</Index>
+            </Texture>
+            <SlotType>17</SlotType>
+            <Description>Why is this gun covered in so much rust, must be old.</Description>
+            <RateOfFire>0.65</RateOfFire>
+            <Sound>weapon/fire_wand</Sound>
+            <Projectile>
+                <ObjectId>Anatis</ObjectId>
+                <Speed>100</Speed>
+                <MinDamage>100</MinDamage>
+                <MaxDamage>120</MaxDamage>
+                <LifetimeMS>600</LifetimeMS>
+                <Size>75</Size>
+                <PassesCover />
+                <MultiHit />
+            </Projectile>
+            <BagType>1</BagType>
+            <NumProjectiles>1</NumProjectiles>
+            <OldSound>magicShoot</OldSound>
+            <Soulbound />
+        </Object>
+        <Object id="Iron Pistol" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Tier>1</Tier>
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x71</Index>
+            </Texture>
+            <SlotType>17</SlotType>
+            <Description>Made out of solid steel.</Description>
+            <RateOfFire>0.65</RateOfFire>
+            <Sound>weapon/fire_wand</Sound>
+            <Projectile>
+                <ObjectId>Anatis</ObjectId>
+                <Speed>100</Speed>
+                <MinDamage>130</MinDamage>
+                <MaxDamage>145</MaxDamage>
+                <LifetimeMS>600</LifetimeMS>
+                <Size>75</Size>
+                <PassesCover />
+                <MultiHit />
+            </Projectile>
+            <BagType>1</BagType>
+            <NumProjectiles>1</NumProjectiles>
+            <OldSound>magicShoot</OldSound>
+            <Soulbound />
+        </Object>
+        <Object id="Steel Pistol" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Tier>2</Tier>
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x72</Index>
+            </Texture>
+            <SlotType>17</SlotType>
+            <Description>Holy... It's just so shiny.</Description>
+            <RateOfFire>0.65</RateOfFire>
+            <Sound>weapon/fire_wand</Sound>
+            <Projectile>
+                <ObjectId>Anatis</ObjectId>
+                <Speed>100</Speed>
+                <MinDamage>145</MinDamage>
+                <MaxDamage>155</MaxDamage>
+                <LifetimeMS>600</LifetimeMS>
+                <Size>75</Size>
+                <PassesCover />
+                <MultiHit />
+            </Projectile>
+            <BagType>1</BagType>
+            <NumProjectiles>1</NumProjectiles>
+            <OldSound>magicShoot</OldSound>
+            <Soulbound />
+        </Object>
+        <Object id="Lead Pistol" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Tier>3</Tier>
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x73</Index>
+            </Texture>
+            <SlotType>17</SlotType>
+            <Description>Oh, So heavy.</Description>
+            <RateOfFire>0.65</RateOfFire>
+            <Sound>weapon/fire_wand</Sound>
+            <Projectile>
+                <ObjectId>Anatis</ObjectId>
+                <Speed>100</Speed>
+                <MinDamage>155</MinDamage>
+                <MaxDamage>170</MaxDamage>
+                <LifetimeMS>600</LifetimeMS>
+                <Size>75</Size>
+                <PassesCover />
+                <MultiHit />
+            </Projectile>
+            <BagType>1</BagType>
+            <NumProjectiles>1</NumProjectiles>
+            <OldSound>magicShoot</OldSound>
+            <Soulbound />
+        </Object>
+        <Object id="Gold Pistol" ext="true">
+            <Class>Equipment</Class>
+            <Item />
+            <Tier>4</Tier>
+            <Texture>
+                <File>lofiObj5</File>
+                <Index>0x74</Index>
+            </Texture>
+            <SlotType>17</SlotType>
+            <Description>WOAH, This gun is made from solid gold. Imagine the price on this bad boy.</Description>
+            <RateOfFire>0.65</RateOfFire>
+            <Sound>weapon/fire_wand</Sound>
+            <Projectile>
+                <ObjectId>Anatis</ObjectId>
+                <Speed>100</Speed>
+                <MinDamage>170</MinDamage>
+                <MaxDamage>175</MaxDamage>
+                <LifetimeMS>600</LifetimeMS>
+                <Size>75</Size>
+                <PassesCover />
+                <MultiHit />
+            </Projectile>
+            <BagType>1</BagType>
+            <NumProjectiles>1</NumProjectiles>
+            <OldSound>magicShoot</OldSound>
+            <Soulbound />
+        </Object>
+    </Item>
+    <Misc>
+        <Object id="Supply Crate" ext="true">
+            <Class>GameObject</Class>
+            <Model>Crate</Model>
+            <Texture>
+                <File>lofiObjBig</File>
+                <Index>0x63</Index>
+            </Texture>
+            <Static />
+            <FullOccupy />
+            <OccupySquare />
+            <EnemyOccupySquare />
+        </Object>
+    </Misc>
+    <Characters>
+        <Object id="Zombie1" ext="true">
+            <Enemy />
+            <Class>Character</Class>
+            <AnimatedTexture>
+                <File>chars8x8rHigh</File>
+                <Index>0x0b</Index>
+            </AnimatedTexture>
+            <HitSound>monster/flayers_hit</HitSound>
+            <DeathSound>monster/flayers_death</DeathSound>
+            <Size>100</Size>
+            <MaxHitPoints>2000</MaxHitPoints>
+            <Defense>0</Defense>
+            <Projectile id="0">
+                <!--<ObjectId>Zombie Attack 1</ObjectId>-->
+                <ObjectId>White Demon Shot</ObjectId>
+                <Damage>100</Damage>
+                <Speed>75</Speed>
+                <LifetimeMS>150</LifetimeMS>
+            </Projectile>
+        </Object>
+    </Characters>
+    <Projectiles>
+        <Object id="Zombie Attack 1" ext="true">
+            <Class>Projectile</Class>
+            <Texture>
+                <File>invisible</File>
+                <Index>0</Index>
+            </Texture>
+        </Object>
+    </Projectiles>
+    <Tiles>
+        <Ground type="0x00" id="Conc" ext="true">
+            <RandomTexture>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x03</Index>
+                </Texture>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x04</Index>
+                </Texture>
+            </RandomTexture>
+            <BlendPriority>11</BlendPriority>
+        </Ground>
+        <Ground type="0x01" id="Wood" ext="true">
+            <RandomTexture>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x05</Index>
+                </Texture>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x06</Index>
+                </Texture>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x07</Index>
+                </Texture>
+            </RandomTexture>
+        </Ground>
+        <Ground type="0x02" id="Dirty Water" ext="true">
+            <RandomTexture>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x08</Index>
+                </Texture>
+            </RandomTexture>
+            <Sink />
+            <BlendPriority>1</BlendPriority>
+            <Speed>0.5</Speed>
+            <Animate dx=".5" dy=".5">Wave</Animate>
+        </Ground>
+        <Ground type="0x03" id="Clean Water" ext="true">
+            <RandomTexture>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x09</Index>
+                </Texture>
+            </RandomTexture>
+            <Sink />
+            <BlendPriority>2</BlendPriority>
+            <Speed>0.5</Speed>
+            <Animate dx=".5" dy=".5">Wave</Animate>
+        </Ground>
+        <Ground type="0x05" id="White Floor" ext="true">
+            <Texture>
+                <File>lofiEnvironment2</File>
+                <Index>0x0a</Index>
+            </Texture>
+        </Ground>
+        <Ground type="0x06" id="Red Closed" ext="true">
+            <Texture>
+                <File>lofiEnvironment2</File>
+                <Index>0x0b</Index>
+            </Texture>
+        </Ground>
+        <Ground type="0x07" id="Dark Grass" ext="true">
+            <Texture>
+                <File>lofiEnvironment2</File>
+                <Index>0x0c</Index>
+            </Texture>
+            <BlendPriority>11</BlendPriority>
+            <RandomOffset />
+        </Ground>
+        <Ground type="0x08" id="Composite" ext="true">
+            <Texture>
+                <File>lofiEnvironment</File>
+                <Index>0xff</Index>
+            </Texture>
+            <CompositePriority>-1</CompositePriority>
+        </Ground>
+    </Tiles>
+    <Wall>
+        <Object id="Defense Wall" ext="true">
+            <DisplayId>Defense Wall</DisplayId>
+            <Class>Wall</Class>
+            <Texture>
+                <File>lofiEnvironment2</File>
+                <Index>0x03</Index>
+            </Texture>
+            <Top>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x04</Index>
+                </Texture>
+            </Top>
+            <HitSound>monster/stone_walls_hit</HitSound>
+            <DeathSound>monster/stone_walls_death</DeathSound>
+            <Static />
+            <FullOccupy />
+            <OccupySquare />
+            <EnemyOccupySquare />
+            <BlocksSight />
+        </Object>
+        <Object id="Defense Wall Moss" ext="true">
+            <DisplayId>Defense Wall</DisplayId>
+            <Class>Wall</Class>
+            <Texture>
+                <File>lofiEnvironment2</File>
+                <Index>0x0e</Index>
+            </Texture>
+            <Top>
+                <Texture>
+                    <File>lofiEnvironment2</File>
+                    <Index>0x04</Index>
+                </Texture>
+            </Top>
+            <HitSound>monster/stone_walls_hit</HitSound>
+            <DeathSound>monster/stone_walls_death</DeathSound>
+            <Static />
+            <FullOccupy />
+            <OccupySquare />
+            <EnemyOccupySquare />
+            <BlocksSight />
+        </Object>
+    </Wall>
+    <Object id="crafting" ext="true">
+        <Model>Tower</Model>
+        <Class>CraftingTerminal</Class>
         <Texture>
-          <File>lofiObj5</File>
-          <Index>0x74</Index>
+            <File>lofiObj3</File>
+            <Index>0x10</Index>
         </Texture>
-        <SlotType>17</SlotType>
-        <Description>WOAH, This gun is made from solid gold. Imagine the price on this bad boy.</Description>
-        <RateOfFire>0.65</RateOfFire>
-        <Sound>weapon/fire_wand</Sound>
-        <Projectile>
-          <ObjectId>Anatis</ObjectId>
-          <Speed>100</Speed>
-          <MinDamage>170</MinDamage>
-          <MaxDamage>175</MaxDamage>
-          <LifetimeMS>600</LifetimeMS>
-          <Size>75</Size>
-          <PassesCover/>
-          <MultiHit/>
-        </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>1</NumProjectiles>
-        <OldSound>magicShoot</OldSound>
-        <Soulbound/>
-      </Object>
-  </Item>
-	
-	<Misc>
-	   <Object id="Supply Crate" ext="true">
-			<Class>GameObject</Class>
-			<Model>Crate</Model>
-			<Texture><File>lofiObjBig</File><Index>0x63</Index></Texture>
-			<Static/>
-			<FullOccupy/>
-			<OccupySquare/>
-			<EnemyOccupySquare/>
-	   </Object>
-	
-  	</Misc>
-
-	<Characters>
-		<Object id="Zombie1" ext="true">
-			<Enemy/>
-			<Class>Character</Class>
-			<AnimatedTexture><File>chars8x8rHigh</File><Index>0x0b</Index></AnimatedTexture>
-			<HitSound>monster/flayers_hit</HitSound>
-			<DeathSound>monster/flayers_death</DeathSound>
-			<Size>100</Size>
-			<MaxHitPoints>2000</MaxHitPoints>
-			<Defense>0</Defense>
-			<Projectile id="0">
-				<!--<ObjectId>Zombie Attack 1</ObjectId>-->
-				<ObjectId>White Demon Shot</ObjectId>
-				<Damage>100</Damage>
-				<Speed>75</Speed>
-				<LifetimeMS>150</LifetimeMS>
-			</Projectile>
-		</Object>
-	</Characters>
-	
-	<Projectiles>
-		
-		<Object id="Zombie Attack 1" ext="true">
-			<Class>Projectile</Class>
-			<Texture><File>invisible</File><Index>0</Index></Texture>
-		</Object>
-	
-	</Projectiles>
-	
-	<Tiles>
-		
-	  	<Ground type="0x00" id="Conc" ext="true">
-	  		<RandomTexture>
-				<Texture><File>lofiEnvironment2</File><Index>0x03</Index></Texture>
-				<Texture><File>lofiEnvironment2</File><Index>0x04</Index></Texture>
-			</RandomTexture>
-	  		<BlendPriority>11</BlendPriority>
-		</Ground>
-	  	<Ground type="0x01" id="Wood" ext="true">
-	  		<RandomTexture>
-				<Texture><File>lofiEnvironment2</File><Index>0x05</Index></Texture>
-				<Texture><File>lofiEnvironment2</File><Index>0x06</Index></Texture>
-	  			<Texture><File>lofiEnvironment2</File><Index>0x07</Index></Texture>
-			</RandomTexture>
-		</Ground>
-	  	<Ground type="0x02" id="Dirty Water" ext="true">
-	  		<RandomTexture>
-	  			<Texture><File>lofiEnvironment2</File><Index>0x08</Index></Texture>
-			</RandomTexture>
-	  		<Sink/>
-	  		<BlendPriority>1</BlendPriority>
-	      	<Speed>0.5</Speed>
-	  		<Animate dx=".5" dy=".5">Wave</Animate>
-		</Ground>
-	  	<Ground type="0x03" id="Clean Water" ext="true">
-	  		<RandomTexture>
-	  			<Texture><File>lofiEnvironment2</File><Index>0x09</Index></Texture>
-			</RandomTexture>
-	  		<Sink/>
-	  		<BlendPriority>2</BlendPriority>
-	      	<Speed>0.5</Speed>
-	  		<Animate dx=".5" dy=".5">Wave</Animate>
-		</Ground>
-		<Ground type="0x05" id="White Floor" ext="true">
-			<Texture><File>lofiEnvironment2</File><Index>0x0a</Index></Texture>
-		</Ground>
-		<Ground type="0x06" id="Red Closed" ext="true">
-			<Texture><File>lofiEnvironment2</File><Index>0x0b</Index></Texture>
-		</Ground>
-		<Ground type="0x07" id="Dark Grass" ext="true">
-			<Texture><File>lofiEnvironment2</File><Index>0x0c</Index></Texture>
-			<BlendPriority>11</BlendPriority>
-			<RandomOffset/>
-		</Ground>
-		<Ground type="0x08" id="Composite" ext="true">
-			<Texture><File>lofiEnvironment</File><Index>0xff</Index></Texture>
-			<CompositePriority>-1</CompositePriority>
-		</Ground>
-	
-	</Tiles>
-	
-	<Wall>
-	
-		<Object id="Defense Wall" ext="true">
-			<DisplayId>Defense Wall</DisplayId>
-			<Class>Wall</Class>
-			<Texture><File>lofiEnvironment2</File><Index>0x03</Index></Texture>
-			<Top><Texture><File>lofiEnvironment2</File><Index>0x04</Index></Texture></Top>
-			<HitSound>monster/stone_walls_hit</HitSound>
-			<DeathSound>monster/stone_walls_death</DeathSound>
-			<Static/>
-			<FullOccupy/>
-			<OccupySquare/>
-			<EnemyOccupySquare/>
-			<BlocksSight/>
-		</Object>
-		<Object id="Defense Wall Moss" ext="true">
-			<DisplayId>Defense Wall</DisplayId>
-			<Class>Wall</Class>
-			<Texture><File>lofiEnvironment2</File><Index>0x0e</Index></Texture>
-			<Top><Texture><File>lofiEnvironment2</File><Index>0x04</Index></Texture></Top>
-			<HitSound>monster/stone_walls_hit</HitSound>
-			<DeathSound>monster/stone_walls_death</DeathSound>
-			<Static/>
-			<FullOccupy/>
-			<OccupySquare/>
-			<EnemyOccupySquare/>
-			<BlocksSight/>
-		</Object>
-	
-	</Wall>
-
-   <Object id="crafting" ext="true">
-     <Model>Tower</Model>
-     <Class>CraftingTerminal</Class>
-     <Texture>
-       <File>lofiObj3</File>
-       <Index>0x10</Index>
-     </Texture>
-    <Size>150</Size>
-  </Object>
+        <Size>150</Size>
+    </Object>
 </Addition>
