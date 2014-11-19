@@ -221,142 +221,312 @@
             <Consumable />
             <BagType>0</BagType>
         </Object>
-        <Object id="Rusty Pistol" ext="true">
-            <Class>Equipment</Class>
-            <Item />
-            <Tier>0</Tier>
-            <Texture>
-                <File>lofiObj5</File>
-                <Index>0x70</Index>
-            </Texture>
-            <SlotType>17</SlotType>
-            <Description>Why is this gun covered in so much rust, must be old.</Description>
-            <RateOfFire>0.65</RateOfFire>
-            <Sound>weapon/fire_wand</Sound>
-            <Projectile>
-                <ObjectId>Anatis</ObjectId>
-                <Speed>100</Speed>
-                <MinDamage>100</MinDamage>
-                <MaxDamage>120</MaxDamage>
-                <LifetimeMS>600</LifetimeMS>
-                <Size>75</Size>
-                <PassesCover />
-                <MultiHit />
-            </Projectile>
-            <BagType>1</BagType>
-            <NumProjectiles>1</NumProjectiles>
-            <OldSound>magicShoot</OldSound>
-            <Soulbound />
-        </Object>
-        <Object id="Iron Pistol" ext="true">
-            <Class>Equipment</Class>
-            <Item />
-            <Tier>1</Tier>
-            <Texture>
-                <File>lofiObj5</File>
-                <Index>0x71</Index>
-            </Texture>
-            <SlotType>17</SlotType>
-            <Description>Made out of solid steel.</Description>
-            <RateOfFire>0.65</RateOfFire>
-            <Sound>weapon/fire_wand</Sound>
-            <Projectile>
-                <ObjectId>Anatis</ObjectId>
-                <Speed>100</Speed>
-                <MinDamage>130</MinDamage>
-                <MaxDamage>145</MaxDamage>
-                <LifetimeMS>600</LifetimeMS>
-                <Size>75</Size>
-                <PassesCover />
-                <MultiHit />
-            </Projectile>
-            <BagType>1</BagType>
-            <NumProjectiles>1</NumProjectiles>
-            <OldSound>magicShoot</OldSound>
-            <Soulbound />
-        </Object>
-        <Object id="Steel Pistol" ext="true">
-            <Class>Equipment</Class>
-            <Item />
-            <Tier>2</Tier>
-            <Texture>
-                <File>lofiObj5</File>
-                <Index>0x72</Index>
-            </Texture>
-            <SlotType>17</SlotType>
-            <Description>Holy... It's just so shiny.</Description>
-            <RateOfFire>0.65</RateOfFire>
-            <Sound>weapon/fire_wand</Sound>
-            <Projectile>
-                <ObjectId>Anatis</ObjectId>
-                <Speed>100</Speed>
-                <MinDamage>145</MinDamage>
-                <MaxDamage>155</MaxDamage>
-                <LifetimeMS>600</LifetimeMS>
-                <Size>75</Size>
-                <PassesCover />
-                <MultiHit />
-            </Projectile>
-            <BagType>1</BagType>
-            <NumProjectiles>1</NumProjectiles>
-            <OldSound>magicShoot</OldSound>
-            <Soulbound />
-        </Object>
-        <Object id="Lead Pistol" ext="true">
-            <Class>Equipment</Class>
-            <Item />
-            <Tier>3</Tier>
-            <Texture>
-                <File>lofiObj5</File>
-                <Index>0x73</Index>
-            </Texture>
-            <SlotType>17</SlotType>
-            <Description>Oh, So heavy.</Description>
-            <RateOfFire>0.65</RateOfFire>
-            <Sound>weapon/fire_wand</Sound>
-            <Projectile>
-                <ObjectId>Anatis</ObjectId>
-                <Speed>100</Speed>
-                <MinDamage>155</MinDamage>
-                <MaxDamage>170</MaxDamage>
-                <LifetimeMS>600</LifetimeMS>
-                <Size>75</Size>
-                <PassesCover />
-                <MultiHit />
-            </Projectile>
-            <BagType>1</BagType>
-            <NumProjectiles>1</NumProjectiles>
-            <OldSound>magicShoot</OldSound>
-            <Soulbound />
-        </Object>
-        <Object id="Gold Pistol" ext="true">
-            <Class>Equipment</Class>
-            <Item />
-            <Tier>4</Tier>
-            <Texture>
-                <File>lofiObj5</File>
-                <Index>0x74</Index>
-            </Texture>
-            <SlotType>17</SlotType>
-            <Description>WOAH, This gun is made from solid gold. Imagine the price on this bad boy.</Description>
-            <RateOfFire>0.65</RateOfFire>
-            <Sound>weapon/fire_wand</Sound>
-            <Projectile>
-                <ObjectId>Anatis</ObjectId>
-                <Speed>100</Speed>
-                <MinDamage>170</MinDamage>
-                <MaxDamage>175</MaxDamage>
-                <LifetimeMS>600</LifetimeMS>
-                <Size>75</Size>
-                <PassesCover />
-                <MultiHit />
-            </Projectile>
-            <BagType>1</BagType>
-            <NumProjectiles>1</NumProjectiles>
-            <OldSound>magicShoot</OldSound>
-            <Soulbound />
-        </Object>
-    </Item>
+     <Object id="Rusty Pistol" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>1</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>Why is this gun covered in so much rust, must be old.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>100</MinDamage>
+          <MaxDamage>120</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Steel Pistol" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>2</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>Made out of solid steel.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>130</MinDamage>
+          <MaxDamage>145</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Shiny Pistol" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>3</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>Holy... It's just so shiny.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>145</MinDamage>
+          <MaxDamage>155</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Bloodstained Pistol" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>4</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>Ew, it's so sticky, and covered in blood.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>155</MinDamage>
+          <MaxDamage>170</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Dark Pistol" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>5</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>No one knows what this pistol is made from.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>170</MinDamage>
+          <MaxDamage>175</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Natures Glock" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>6</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>A gun, smothered in moss?.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>170</MinDamage>
+          <MaxDamage>185</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Fire Handgun" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>7</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>On fire, but yet does not burn my hand?</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>185</MinDamage>
+          <MaxDamage>195</MaxDamage>
+          <LifetimeMS>650</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Water Gun" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>8</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>I thought this was a toy!</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>200</MinDamage>
+          <MaxDamage>210</MaxDamage>
+          <LifetimeMS>650</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Fury Pistol" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>9</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>This gun is mad itself...</Description>
+        <RateOfFire>0.85</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>195</MinDamage>
+          <MaxDamage>210</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Gold Glock" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+		<Tier>10</Tier>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>WOAH, This gun is made from solid gold. Imagine the price on this bad boy.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>230</MinDamage>
+          <MaxDamage>245</MaxDamage>
+          <LifetimeMS>700</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
+
+     <Object id="Rainbow Glock" ext="true">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0x70</Index>
+        </Texture>
+        <SlotType>17</SlotType>
+        <Description>OH BOY A RAINBOWWWWWWWWWW.</Description>
+        <RateOfFire>0.65</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+          <ObjectId>Anatis</ObjectId>
+          <Speed>100</Speed>
+          <MinDamage>270</MinDamage>
+          <MaxDamage>310</MaxDamage>
+          <LifetimeMS>800</LifetimeMS>
+          <Size>75</Size>
+          <PassesCover/>
+          <MultiHit/>
+        </Projectile>
+        <BagType>1</BagType>
+        <NumProjectiles>1</NumProjectiles>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound/>
+      </Object>
     <Misc>
         <Object id="Supply Crate" ext="true">
             <Class>GameObject</Class>
@@ -537,4 +707,5 @@
         </Texture>
         <Size>150</Size>
     </Object>
+    
 </Addition>
