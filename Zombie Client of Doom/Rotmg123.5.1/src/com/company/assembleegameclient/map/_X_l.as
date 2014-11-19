@@ -6,7 +6,7 @@
 package com.company.assembleegameclient.map{
     import _015._0C_Q_;
     
-    import _H_Z_.Background;
+    import MapOverlays.MapOverlay;
     
 
 
@@ -69,7 +69,7 @@ package com.company.assembleegameclient.map{
             party_ = new _ez(this);
             quest_ = new Quest(this);
         }
-		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>):void{
+		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int):void{
             width_ = _arg1;
             height_ = _arg2;
             name_ = _arg3;
@@ -77,6 +77,7 @@ package com.company.assembleegameclient.map{
             allowPlayerTeleport_ = _arg5;
             showDisplays_ = _arg6;
 			music_ = _arg7;
+            weather_ = _arg8;
             if(music_.length != 0)
             {
                 _vf._gs.reload(music_[Math.floor(Math.random() * (music_.length - 1))]);
@@ -84,12 +85,17 @@ package com.company.assembleegameclient.map{
         }
 		override public function initialize():void{
             this.squares_.length = (this.width_ * this.height_);
-            this.background_ = Background._U_q(this._vv);
+            this.background_ = MapOverlay._U_q(this._vv);
             if (this.background_ != null)
             {
                 addChild(this.background_);
             }
             addChild(this.map_);
+            this.weatherBackground_ = MapOverlay.GetWeatherBackground(this.weather_);
+            if (this.weatherBackground_ != null)
+            {
+                addChild(this.weatherBackground_);
+            }
             addChild(this._063);
             addChild(this._C_K_);
             addChild(this.mapOverlay_);
@@ -124,6 +130,7 @@ package com.company.assembleegameclient.map{
                 _local3.dispose();
             }
             this._cl = null;
+            this.weatherBackground_ = null;
             this.merchLookup_ = null;
             this.player_ = null;
             this.party_ = null;
@@ -158,6 +165,9 @@ package com.company.assembleegameclient.map{
             for each (_local4 in this._C_X_)
             {
                 this._1a(_local4);
+            }
+            if(this.weatherBackground_ != null) {
+                this.weatherBackground_.update();
             }
             this._C_X_.length = 0;
             this.party_.update(_arg1, _arg2);
@@ -440,6 +450,10 @@ package com.company.assembleegameclient.map{
                 {
                     this.map_.filters = [];
                 }
+            }
+            if(this.weatherBackground_ != null) {
+                //this.weatherBackground_.updatePos(this.map_.x, this.map_.y)
+                this.weatherBackground_.draw(_arg1, _arg2);
             }
             this.mapOverlay_.draw(_arg1, _arg2);
             this.partyOverlay_.draw(_arg1, _arg2);

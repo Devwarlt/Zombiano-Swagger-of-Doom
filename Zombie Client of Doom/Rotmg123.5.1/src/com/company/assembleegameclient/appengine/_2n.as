@@ -10,7 +10,7 @@ package com.company.assembleegameclient.appengine{
     import com.company.util._H_U_;
     import flash.events.Event;
 
-    public class _2n extends _0B_u {
+    public class _2n extends WebRequest {
 
         public function _2n(_arg1:int=0){
             super(Parameters._fK_(), "/char", true, _arg1);

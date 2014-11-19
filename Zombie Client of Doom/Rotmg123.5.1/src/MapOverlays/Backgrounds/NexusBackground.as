@@ -1,9 +1,10 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_H_Z_.NexusBackground
+//MapOverlays.NexusBackground
 
-package _H_Z_{
+package MapOverlays.Backgrounds{
+import MapOverlays.*;
     import flash.geom.Point;
     import flash.display.BitmapData;
 
@@ -17,7 +18,7 @@ package _H_Z_{
     import com.company.assembleegameclient.map._0D_v;
 
 
-    public class NexusBackground extends Background {
+    public class NexusBackground extends MapOverlay {
 
         public static const _cP_:Point = new Point(0.01, 0.01);
 
@@ -65,7 +66,7 @@ package _H_Z_{
         }
 
     }
-}//package _H_Z_
+}//package MapOverlays
 
 import flash.geom.Point;
 import flash.display.BitmapData;
@@ -74,7 +75,7 @@ import flash.display.GraphicsPath;
 import flash.geom.Matrix;
 import com.company.util.GraphicHelper;
 import com.company.util.AssetLibrary;
-import _H_Z_.NexusBackground;
+import MapOverlays.Backgrounds.NexusBackground;
 import com.company.assembleegameclient.map._0D_v;
 
 import flash.display.IGraphicsData;

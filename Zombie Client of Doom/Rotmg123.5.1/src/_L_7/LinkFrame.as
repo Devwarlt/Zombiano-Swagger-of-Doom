@@ -13,7 +13,7 @@ package _L_7{
     import _L_7._Y_S_;
     import _qN_.Account;
     import _Z_h._m7;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -66,7 +66,7 @@ package _L_7{
                 return;
             }
             var _local2:_m7 = (Account._get() as _m7);
-            var _local3:_0B_u = new _0B_u(Parameters._fK_(), "/kongregate", true);
+            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true);
             _local3.addEventListener(_8C_.GENERIC_DATA, this._018);
             _local3.addEventListener(_mS_.TEXT_ERROR, this._bi);
             _local3.sendRequest("link", {

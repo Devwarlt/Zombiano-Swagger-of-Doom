@@ -53,6 +53,7 @@ package com.company.assembleegameclient.util{
         AssetLibrary._05q("lofiProjsBig", new Embeds.lofiProjsBigEmbed_().bitmapData, 16, 16);
         AssetLibrary._05q("lofiParts", new Embeds.lofiPartsEmbed_().bitmapData, 8, 8);
         AssetLibrary._05q("stars", new Embeds.starsEmbed_().bitmapData, 5, 5);
+        AssetLibrary._05q("rain", new Embeds.rainEmbed_().bitmapData, 5, 5);
         AssetLibrary._05q("textile4x4", new Embeds.textile4x4Embed_().bitmapData, 4, 4);
         AssetLibrary._05q("textile5x5", new Embeds.textile5x5Embed_().bitmapData, 5, 5);
         AssetLibrary._05q("textile9x9", new Embeds.textile9x9Embed_().bitmapData, 9, 9);
@@ -217,6 +218,7 @@ class Embeds {
     public static var chars8x8rPetsKaratePenguin_:Class = Embeds_chars8x8rPetsKaratePenguin_;
     public static var redLootBagEmbed_:Class = _Z_F_;
     public static var starsEmbed_:Class = Embeds_starsEmbed_;
+    public static var rainEmbed_:Class = Embeds_rainEmbed_;
     public static var textile4x4Embed_:Class = Embeds_textile4x4Embed_;
     public static var textile5x5Embed_:Class = Embeds_textile5x5Embed_;
     public static var textile9x9Embed_:Class = Embeds_textile9x9Embed_;

@@ -25,7 +25,7 @@ package _0G_l{
     import flash.events.MouseEvent;
     import flash.events.Event;
     import com.company.googleanalytics.GA;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -151,7 +151,7 @@ package _0G_l{
             this.search((this._g5._9U_ + (_dh * _H_7)));
         }
         private function search(_arg1:int):void{
-            var _local2:_0B_u = new _0B_u(Parameters._fK_(), "/picture", false);
+            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/picture", false);
             _local2.addEventListener(_8C_.GENERIC_DATA, this._0C_0);
             _local2.addEventListener(_mS_.TEXT_ERROR, this._J_m);
             var _local3:Object = {};
@@ -260,7 +260,7 @@ package _0G_l{
             var _local2:_r4 = (_arg1.target as _r4);
             _local2.parent.removeChild(_local2);
             this._g5.visible = false;
-            var _local3:_0B_u = new _0B_u(Parameters._fK_(), "/picture", false);
+            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/picture", false);
             _local3.addEventListener(_8C_.GENERIC_DATA, this._Q_M_);
             var _local4:Object = {"id":_local2.id_.toString()};
             _H_U_._t2(_local4, Account._get().credentials());

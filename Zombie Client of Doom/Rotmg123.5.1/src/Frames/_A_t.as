@@ -4,7 +4,7 @@
 //Frames._A_t
 
 package Frames{
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import flash.events.MouseEvent;
     import flash.events.Event;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -16,7 +16,7 @@ package Frames{
     public class _A_t extends Frame {
 
         private var name_:TextInput;
-        private var _zH_:_0B_u = null;
+        private var _zH_:WebRequest = null;
 
         public function _A_t(){
             super("Choose a unique account name", "Cancel", "Choose", "/newChooseName");
@@ -39,7 +39,7 @@ package Frames{
                 this.name_._0B_T_("Name too short");
                 return;
             }
-            var _local2:_0B_u = new _0B_u(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
             _local2.addEventListener(_8C_.GENERIC_DATA, this._E_0);
             _local2.addEventListener(_mS_.TEXT_ERROR, this._06Q_);
             var _local3:Object = {"name":this.name_.text()};

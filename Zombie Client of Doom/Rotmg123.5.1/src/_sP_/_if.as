@@ -5,7 +5,7 @@
 
 package _sP_{
     import flash.display.Sprite;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.ui.SimpleText;
     import flash.display.Bitmap;
     import flash.display.Shape;
@@ -26,7 +26,7 @@ package _sP_{
         private var _9U_:int;
         private var _var_:String;
         private var _I_8:int;
-        private var _3v:_0B_u;
+        private var _3v:WebRequest;
         private var _j7:SimpleText;
         private var _P_V_:SimpleText;
         private var _Q_R_:SimpleText;
@@ -50,7 +50,7 @@ package _sP_{
             this._j7.x = ((800 / 2) - (this._j7.width / 2));
             this._j7.y = ((600 / 2) - (this._j7.height / 2));
             addChild(this._j7);
-            this._3v = new _0B_u(Parameters._fK_(), "/guild", true, 2);
+            this._3v = new WebRequest(Parameters._fK_(), "/guild", true, 2);
             var _local5:Object = {
                 "num":_arg1,
                 "offset":_arg2

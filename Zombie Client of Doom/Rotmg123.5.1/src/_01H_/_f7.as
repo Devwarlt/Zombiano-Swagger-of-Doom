@@ -13,7 +13,7 @@ package _01H_{
     import flash.events.Event;
     import _0L_C_._qM_;
     import _0L_C_.DialogBox;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -95,7 +95,7 @@ package _01H_{
         private function _029(_arg1:String=null):void{
             var _local3:String;
             var _local4:_qM_;
-            var _local5:_0B_u;
+            var _local5:WebRequest;
             var _local2:String = this._Z_d.getSteamID();
             if ((((_local2 == null)) || ((_arg1 == null))))
             {
@@ -110,7 +110,7 @@ package _01H_{
                     return;
                 }
                 _9Q_ = true;
-                _local5 = new _0B_u(Parameters._fK_(), "/steamworks", true, 2);
+                _local5 = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
                 _local5.addEventListener(_8C_.GENERIC_DATA, this._6l);
                 _local5.addEventListener(_mS_.TEXT_ERROR, this._T_);
                 _local5.sendRequest("getcredentials", {

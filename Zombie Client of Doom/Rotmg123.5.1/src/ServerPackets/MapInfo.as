@@ -6,8 +6,9 @@
 package ServerPackets{
 
 
-    
-    import flash.utils.IDataInput;
+import avmplus.methodXml;
+
+import flash.utils.IDataInput;
 
     public class MapInfo extends ServerPacket {
 
@@ -18,6 +19,7 @@ package ServerPackets{
         public var background_:int;
         public var allowPlayerTeleport_:Boolean;
         public var showDisplays_:Boolean;
+        public var weather_:int;
 		public var music_:Vector.<String>;
         public var clientXML_:Vector.<String>;
         public var extraXML_:Vector.<String>;
@@ -39,6 +41,7 @@ package ServerPackets{
             this.background_ = _arg1.readInt();
             this.allowPlayerTeleport_ = _arg1.readBoolean();
             this.showDisplays_ = _arg1.readBoolean();
+            this.weather_ = _arg1.readUnsignedByte();
             _local2 = _local2 = _arg1.readShort();
             _local3 = 0;
             while(_local3 < _local2)
@@ -66,7 +69,7 @@ package ServerPackets{
             }
         }
         override public function toString():String{
-            return (formatToString("MAPINFO", "width_", "height_", "name_", "fp_", "background_", "allowPlayerTeleport_", "showDisplays_", "music_", "clientXML_", "extraXML_"));
+            return (formatToString("MAPINFO", "width_", "height_", "name_", "fp_", "background_", "allowPlayerTeleport_", "showDisplays_", "weather_", "music_", "clientXML_", "extraXML_"));
         }
 
     }

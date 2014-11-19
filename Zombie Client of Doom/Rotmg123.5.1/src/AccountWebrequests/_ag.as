@@ -7,7 +7,7 @@ package AccountWebrequests{
     import Frames.Frame;
     import Frames.TextInput;
     import flash.events.MouseEvent;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -50,7 +50,7 @@ package AccountWebrequests{
                 this._a9._0B_T_("Password does not match");
                 return;
             }
-            var _local2:_0B_u = new _0B_u(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
             _local2.addEventListener(_8C_.GENERIC_DATA, this._0K_H_);
             _local2.addEventListener(_mS_.TEXT_ERROR, this._1X_);
             _local2.sendRequest("changePassword", {

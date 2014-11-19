@@ -8,7 +8,7 @@ package _aD_{
     import com.company.assembleegameclient.util.offer.Offer;
     import _qN_.Account;
     import _01H_._f7;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -27,7 +27,7 @@ package _aD_{
         public function _U_Z_(_arg1:_sv):void{
             var _local2:Offer = _arg1.offer;
             var _local3:_f7 = (Account._get() as _f7);
-            var _local4:_0B_u = new _0B_u(Parameters._fK_(), "/steamworks", true, 2);
+            var _local4:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
             _local4.addEventListener(_8C_.GENERIC_DATA, this._dW_);
             _local4.addEventListener(_mS_.TEXT_ERROR, this._sB_);
             _local4.sendRequest("purchaseOffer", {
@@ -49,7 +49,7 @@ package _aD_{
             _local6 = _local6.replace("${orderID}", _local4);
             _local6 = _local6.replace("${isAuthorized}", _local5);
             _local2._Z_d.removeEventListener("STEAM_MICRO_TXN_AUTH", this._P__);
-            var _local7:_0B_u = new _0B_u(Parameters._fK_(), "/steamworks", true, 2);
+            var _local7:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
             _local7.addEventListener(_8C_.GENERIC_DATA, this._dT_);
             _local7.addEventListener(_mS_.TEXT_ERROR, this._O_X_);
             _local7.sendRequest("finalizePurchase", {

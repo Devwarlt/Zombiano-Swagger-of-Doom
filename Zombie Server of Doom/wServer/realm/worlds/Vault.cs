@@ -20,6 +20,7 @@ namespace wServer.realm.worlds
             Name = "Vault";
             Background = 2;
             IsLimbo = isLimbo;
+            Weather = networking.svrPackets.Weather.ThunderStormRain;
 
             this.client = client;
         }

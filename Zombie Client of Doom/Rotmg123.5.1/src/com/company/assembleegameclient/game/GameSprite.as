@@ -19,7 +19,7 @@ package com.company.assembleegameclient.game{
     
     import _vf._gs;
     
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.appengine._0K_R_;
     import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.map._X_l;
@@ -101,7 +101,7 @@ package com.company.assembleegameclient.game{
             return (this.map);
         }
         public function _S_z(_arg1:MapInfo):void{
-            this.map.setProps(_arg1.width_, _arg1.height_, _arg1.name_, _arg1.background_, _arg1.allowPlayerTeleport_, _arg1.showDisplays_, _arg1.music_);
+            this.map.setProps(_arg1.width_, _arg1.height_, _arg1.name_, _arg1.background_, _arg1.allowPlayerTeleport_, _arg1.showDisplays_, _arg1.music_, _arg1.weather_);
             this._dO_(_arg1);
         }
         public function _dO_(_arg1:MapInfo):void{
@@ -138,7 +138,7 @@ package com.company.assembleegameclient.game{
                 addChild(this._4v);
             }
             this.isNexus_ = (this.map_.name_ == "Nexus" || this.map_.name_ == "Shop" || this.map_.name_ == "Editor");
-            var _local1:_0B_u = new _0B_u(Parameters._fK_(), "/log", true, 0);
+            var _local1:WebRequest = new WebRequest(Parameters._fK_(), "/log", true, 0);
             var _local2:Account = Account._get();
             var _local3:Object = {
                 "game_net_user_id":_local2.gameNetworkUserId(),

@@ -10,7 +10,7 @@ package AccountWebrequests{
     import flash.filters.DropShadowFilter;
     import _qN_.Account;
     import flash.events.MouseEvent;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -58,7 +58,7 @@ package AccountWebrequests{
             this._0J_7.addEventListener(MouseEvent.CLICK, this._I_G_);
         }
         private function _W_0(_arg1:MouseEvent):void{
-            var _local2:_0B_u = new _0B_u(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
             _local2.addEventListener(_8C_.GENERIC_DATA, this._Z_e);
             _local2.addEventListener(_mS_.TEXT_ERROR, this._0F_0);
             _local2.sendRequest("sendVerifyEmail", Account._get().credentials());

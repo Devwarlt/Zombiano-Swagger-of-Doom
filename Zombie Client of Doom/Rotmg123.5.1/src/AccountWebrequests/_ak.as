@@ -6,7 +6,7 @@
 package AccountWebrequests{
     import flash.display.Sprite;
     import Frames.Frame;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import flash.display.Shape;
     import flash.display.Graphics;
     import _qN_.Account;
@@ -18,7 +18,7 @@ package AccountWebrequests{
     public class _ak extends Sprite {
 
         private var _Z_X_:Frame = null;
-        private var _zH_:_0B_u = null;
+        private var _zH_:WebRequest = null;
         private var _T_y:Shape;
 
         public function _ak(_arg1:Boolean){
@@ -48,7 +48,7 @@ package AccountWebrequests{
         }
         private function _X_d():void{
             this._np();
-            this._zH_ = new _0B_u(Parameters._fK_(), "/account", true);
+            this._zH_ = new WebRequest(Parameters._fK_(), "/account", true);
             this._zH_.addEventListener(_8C_.GENERIC_DATA, this._3p);
             this._zH_.addEventListener(_mS_.TEXT_ERROR, this._D_x);
             this._zH_.sendRequest("verify", Account._get().credentials());

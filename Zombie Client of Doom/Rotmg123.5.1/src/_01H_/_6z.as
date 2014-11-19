@@ -6,7 +6,7 @@
 package _01H_{
     import _qN_._px;
     import _qN_.Account;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -22,7 +22,7 @@ package _01H_{
 
         override public function execute():void{
             var _local1:_f7 = (Account._get() as _f7);
-            var _local2:_0B_u = new _0B_u(Parameters._fK_(), "/steamworks", true, 2);
+            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
             _local2.addEventListener(_8C_.GENERIC_DATA, this._dW_);
             _local2.addEventListener(_mS_.TEXT_ERROR, this._sB_);
             _local2.sendRequest("purchaseOffer", {
@@ -44,7 +44,7 @@ package _01H_{
             _local6 = _local6.replace("${orderID}", _local4);
             _local6 = _local6.replace("${isAuthorized}", _local5);
             _local2._Z_d.removeEventListener("STEAM_MICRO_TXN_AUTH", this._P__);
-            var _local7:_0B_u = new _0B_u(Parameters._fK_(), "/steamworks", true, 2);
+            var _local7:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
             _local7.addEventListener(_8C_.GENERIC_DATA, this._dT_);
             _local7.addEventListener(_mS_.TEXT_ERROR, this._O_X_);
             _local7.sendRequest("finalizePurchase", {

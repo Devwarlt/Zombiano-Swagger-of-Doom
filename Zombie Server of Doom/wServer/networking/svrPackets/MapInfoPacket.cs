@@ -14,6 +14,7 @@ namespace wServer.networking.svrPackets
         public int Background { get; set; }
         public bool AllowTeleport { get; set; }
         public bool ShowDisplays { get; set; }
+        public Weather Weather { get; set; }
         public string[] Music { get; set; }
         public string[] ClientXML { get; set; }
         public string[] ExtraXML { get; set; }
@@ -30,6 +31,7 @@ namespace wServer.networking.svrPackets
             Background = rdr.ReadInt32();
             AllowTeleport = rdr.ReadBoolean();
             ShowDisplays = rdr.ReadBoolean();
+            Weather = (Weather)rdr.ReadByte();
 
             Music = new string[rdr.ReadInt16()];
             for (int i = 0; i < Music.Length; i++)
@@ -53,6 +55,7 @@ namespace wServer.networking.svrPackets
             wtr.Write(Background);
             wtr.Write(AllowTeleport);
             wtr.Write(ShowDisplays);
+            wtr.Write((byte)Weather);
             wtr.Write((short)Music.Length);
             foreach (var i in Music)
                 wtr.WriteUTF(i);
@@ -65,5 +68,13 @@ namespace wServer.networking.svrPackets
             foreach (var i in ExtraXML)
                 wtr.Write32UTF(i);
         }
+    }
+
+    public enum Weather : byte
+    {
+        Sunny = 0,
+        Rainy = 1,
+        Snowy = 2,
+        ThunderStormRain = 3
     }
 }

@@ -16,7 +16,7 @@ package com.company.assembleegameclient.appengine{
         public static function _A_U_(_arg1:*):void{
             var _local4:String;
             var _local6:String;
-            var _local7:_0B_u;
+            var _local7:WebRequest;
             var _local2:Error = (_arg1 as Error);
             var _local3:ErrorEvent = (_arg1 as ErrorEvent);
             var _local5:String;
@@ -44,7 +44,7 @@ package com.company.assembleegameclient.appengine{
             if (Parameters.sendErrors)
             {
                 _local6 = ((((((((("Build: " + Parameters._02Q_()) + "\n") + "message: ") + _local4) + "\n") + "stackTrace: ") + _local5) + "\n") + _gv._00f());
-                _local7 = new _0B_u(Parameters._fK_(), "/clientError", false);
+                _local7 = new WebRequest(Parameters._fK_(), "/clientError", false);
                 _local7.sendRequest("add", {
                     "text":_local6,
                     "guid":Account._get().guid()

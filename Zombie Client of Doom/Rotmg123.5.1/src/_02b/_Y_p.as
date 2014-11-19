@@ -5,7 +5,7 @@
 
 package _02b{
     import _4X_._zU_;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import flash.utils.Timer;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
@@ -17,7 +17,7 @@ package _02b{
 
         public var accountId:int;
         public var charId:int;
-        private var _01S_:_0B_u;
+        private var _01S_:WebRequest;
         private var _Z_w:Timer;
         public var xml:XML;
         public var name:String;
@@ -32,7 +32,7 @@ package _02b{
             this._zB_();
         }
         private function _zB_():void{
-            this._01S_ = new _0B_u(Parameters._fK_(), "/char", true);
+            this._01S_ = new WebRequest(Parameters._fK_(), "/char", true);
             this._01S_.addEventListener(_8C_.GENERIC_DATA, this._00C_);
             this._01S_.addEventListener(_mS_.TEXT_ERROR, this._C_I_);
             this._01S_.sendRequest("fame", this._2N_());

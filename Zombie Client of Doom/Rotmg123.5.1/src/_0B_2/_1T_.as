@@ -12,7 +12,7 @@ package _0B_2{
     import com.hurlant.util.Base64;
     import com.company.assembleegameclient.appengine._02k;
     import _0L_C_._qM_;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import flash.display.LoaderInfo;
     import _0L_C_.DialogBox;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -134,7 +134,7 @@ package _0B_2{
         override protected function internalLoad(_arg1:Stage, _arg2:Function):void{
             var _local5:String;
             var _local6:_qM_;
-            var _local7:_0B_u;
+            var _local7:WebRequest;
             this._cd = _arg1;
             this.callback_ = _arg2;
             var _local3:Object = LoaderInfo(_arg1.root.loaderInfo).parameters;
@@ -149,7 +149,7 @@ package _0B_2{
             } else
             {
                 this._mV_ = _local4;
-                _local7 = new _0B_u(Parameters._fK_(), "/kabam", true, 2);
+                _local7 = new WebRequest(Parameters._fK_(), "/kabam", true, 2);
                 _local7.addEventListener(_8C_.GENERIC_DATA, this._6l);
                 _local7.addEventListener(_mS_.TEXT_ERROR, this._T_);
                 _local7.sendRequest("getcredentials", {

@@ -12,7 +12,7 @@ import _qN_.Account;
 import _zo._8C_;
 import _zo._mS_;
 
-import com.company.assembleegameclient.appengine._0B_u;
+import com.company.assembleegameclient.appengine.WebRequest;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.parameters.Parameters;

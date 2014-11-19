@@ -6,7 +6,7 @@
 package _0M_m{
     import _sp._aJ_;
     import com.company.assembleegameclient.parameters.Parameters;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import _zo._8C_;
     import com.company.util._H_U_;
     import _qN_.Account;
@@ -35,7 +35,7 @@ package _0M_m{
             Parameters.data_.beginnersOfferShowNow = false;
         }
         public function _03K_():void{
-            var _local1:_0B_u = new _0B_u(Parameters._fK_(), "/account", true);
+            var _local1:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
             _local1.addEventListener(_8C_.GENERIC_DATA, this._0L_8);
             var _local2:Object = {};
             _H_U_._t2(_local2, Account._get().credentials());

@@ -16,6 +16,7 @@ namespace wServer.realm.worlds
             Name = "Nexus";
             Background = 2;
             Music = BuildMusic("sorc", "sorc2", "Menu", "Menu2");
+            Weather = networking.svrPackets.Weather.Snowy;
         }
 
         protected override void Init()

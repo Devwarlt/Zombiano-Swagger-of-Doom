@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//com.company.assembleegameclient.appengine._0B_u
+//com.company.assembleegameclient.appengine.WebRequest
 
 package com.company.assembleegameclient.appengine{
     import flash.events.EventDispatcher;
@@ -17,7 +17,7 @@ package com.company.assembleegameclient.appengine{
     import flash.events.Event;
 	import com.company.assembleegameclient.parameters.Parameters;
 
-    public class _0B_u extends EventDispatcher {
+    public class WebRequest extends EventDispatcher {
 
         public var _E_v:String;
         private var _009:String = "text";
@@ -28,7 +28,7 @@ package com.company.assembleegameclient.appengine{
         private var _C_u:Object;
         private var _dF_:int;
 
-        public function _0B_u(_arg1:String, _arg2:String, _arg3:Boolean, _arg4:int=0){
+        public function WebRequest(_arg1:String, _arg2:String, _arg3:Boolean, _arg4:int=0){
             var _local5:String = ((((!(_arg3)) || ((_arg1.indexOf(Parameters.connection) == 0)))) ? "http://" : "http://");
             this._E_v = (((_local5 + _arg1) + _arg2) + "/");
             this._0D_R_ = _arg4;

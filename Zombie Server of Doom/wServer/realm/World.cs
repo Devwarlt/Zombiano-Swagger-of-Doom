@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using wServer.networking;
 using wServer.realm.terrain;
 using log4net;
+using wServer.networking.svrPackets;
 
 namespace wServer.realm
 {
@@ -39,6 +40,7 @@ namespace wServer.realm
 
         public bool IsLimbo { get; protected set; }
         public string[] Music { get; protected set; }
+        public Weather Weather { get; protected set; }
         public virtual World GetInstance(Client client) { return null; }
 
         RealmManager manager;

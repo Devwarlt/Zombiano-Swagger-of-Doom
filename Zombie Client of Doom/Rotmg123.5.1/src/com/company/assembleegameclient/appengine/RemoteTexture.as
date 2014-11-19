@@ -27,7 +27,7 @@ package com.company.assembleegameclient.appengine{
         }
         public function run():void{
             var _local1:String = (this._Z_Q_ == "testing") ? "rotmgtesting.appspot.com" : (this._Z_Q_ == "production") ? "realmofthemadgod.appspot.com" : Parameters._fK_();
-            var _local2:_0B_u = new _0B_u(_local1, "/picture", false);
+            var _local2:WebRequest = new WebRequest(_local1, "/picture", false);
             _local2._R_z(URLLoaderDataFormat.BINARY);
             _local2.addEventListener(_8C_.GENERIC_DATA, this.onURLLoadComplete);
             _local2.addEventListener(_mS_.TEXT_ERROR, this.onError);

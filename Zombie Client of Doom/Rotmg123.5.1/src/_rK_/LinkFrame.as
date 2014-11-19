@@ -13,7 +13,7 @@ package _rK_{
     import _rK_._07s;
     import _qN_.Account;
     import _01H_._f7;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -66,7 +66,7 @@ package _rK_{
                 return;
             }
             var _local2:_f7 = (Account._get() as _f7);
-            var _local3:_0B_u = new _0B_u(Parameters._fK_(), "/steamworks", true);
+            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true);
             _local3.addEventListener(_8C_.GENERIC_DATA, this._018);
             _local3.addEventListener(_mS_.TEXT_ERROR, this._bi);
             _local3.sendRequest("link", {

@@ -14,7 +14,7 @@ package _Z_h{
     import flash.events.Event;
     import flash.net.SharedObject;
     import com.company.assembleegameclient.util.GUID;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
@@ -123,7 +123,7 @@ package _Z_h{
                 this.callback_();
                 return;
             }
-            var _local3:_0B_u = new _0B_u(Parameters._fK_(), "/kongregate", true, 2);
+            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true, 2);
             _local3.addEventListener(_8C_.GENERIC_DATA, this._6l);
             _local3.addEventListener(_mS_.TEXT_ERROR, this._T_);
             _local3.sendRequest("getcredentials", {
@@ -142,7 +142,7 @@ package _Z_h{
             this._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
         }
         private function _pQ_(_arg1:Event):void{
-            var _local2:_0B_u = new _0B_u(Parameters._fK_(), "/kongregate", true, 2);
+            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true, 2);
             _local2.addEventListener(_8C_.GENERIC_DATA, this._I_9);
             _local2.addEventListener(_mS_.TEXT_ERROR, this._0T_);
             _local2.sendRequest("internalRegister", {

@@ -4,7 +4,7 @@
 //_02t._pM_
 
 package _02t{
-    import _H_Z_.Background;
+    import MapOverlays.MapOverlay;
     
     import _K_D_._p0;
     
@@ -72,7 +72,7 @@ package _02t{
             var _local3:_X_l = new _X_l(null);
             var music:Vector.<String> = new Vector.<String>();
             music.push("Menu");
-            _local3.setProps((_sl.x_ + (2 * BORDER)), _sl.y_, "Background Map", Background._0H_W_, false, false, music);
+            _local3.setProps((_sl.x_ + (2 * BORDER)), _sl.y_, "MapOverlay Map", MapOverlay._0H_W_, false, false, music, 0);
             _local3.initialize();
             _p0._T_6(_local2, _local3, 0, 0);
             _p0._T_6(_local2, _local3, _sl.x_, 0);

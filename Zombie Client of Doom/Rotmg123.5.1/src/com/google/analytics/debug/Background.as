@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//com.google.analytics.debug.Background
+//com.google.analytics.debug.MapOverlay
 
 package com.google.analytics.debug{
     import flash.display.Graphics;

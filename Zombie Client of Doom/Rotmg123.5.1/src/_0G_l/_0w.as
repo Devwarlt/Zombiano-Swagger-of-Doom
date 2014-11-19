@@ -13,7 +13,7 @@ package _0G_l{
     import com.company.rotmg.graphics.DeleteXGraphic;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import flash.net.URLLoaderDataFormat;
     import _zo._8C_;
@@ -97,7 +97,7 @@ package _0G_l{
             this.sendRequest();
         }
         private function sendRequest():void{
-            var _local1:_0B_u = new _0B_u(Parameters._fK_(), "/picture", false);
+            var _local1:WebRequest = new WebRequest(Parameters._fK_(), "/picture", false);
             _local1._R_z(URLLoaderDataFormat.BINARY);
             _local1.addEventListener(_8C_.GENERIC_DATA, this.onURLLoadComplete);
             _local1.sendRequest("get", {"id":this.id_.toString()});

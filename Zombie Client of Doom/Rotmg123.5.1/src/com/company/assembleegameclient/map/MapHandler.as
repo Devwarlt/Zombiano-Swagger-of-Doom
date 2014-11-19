@@ -2,7 +2,7 @@ package com.company.assembleegameclient.map
 {
 	import _015._0C_Q_;
 	
-	import _H_Z_.Background;
+	import MapOverlays.MapOverlay;
 	
 	import _fh._zh;
 	
@@ -39,8 +39,9 @@ package com.company.assembleegameclient.map
 		public var height_:int;
 		public var _vv:int;
 		public var allowPlayerTeleport_:Boolean;
-		public var background_:Background = null;
+		public var background_:MapOverlay = null;
 		public var map_:Sprite;
+		public var weatherBackground_:MapOverlay = null;
 		public var _063:_M_9 = null;
 		public var _C_K_:_3m = null;
 		public var mapOverlay_:_0C_Q_ = null;
@@ -51,6 +52,7 @@ package com.company.assembleegameclient.map
 		public var merchLookup_:Object;
 		public var party_:_ez = null;
 		public var quest_:Quest = null;
+		public var weather_:int;
 		// public var signalRenderSwitch:?;
 		protected var _1fF_:Boolean = false;
 		
@@ -66,7 +68,7 @@ package com.company.assembleegameclient.map
 			super();
 		}
 		
-		public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>):void{
+		public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int):void{
 		}
 		public function addObj(_arg1:BasicObject, _arg2:Number, _arg3:Number):void{
 		}

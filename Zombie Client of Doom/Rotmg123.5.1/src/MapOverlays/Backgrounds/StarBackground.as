@@ -1,9 +1,10 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_H_Z_.StarBackground
+//MapOverlays.StarBackground
 
-package _H_Z_{
+package MapOverlays.Backgrounds{
+import MapOverlays.*;
 
     import flash.display.IGraphicsData;
     import com.company.assembleegameclient.map._0D_v;
@@ -12,7 +13,7 @@ package _H_Z_{
     import com.company.util.PointUtil;
 
 
-    public class StarBackground extends Background {
+    public class StarBackground extends MapOverlay {
 
         public var _P_j:Vector.<Star>;
         protected var graphicsData_:Vector.<IGraphicsData>;
@@ -53,7 +54,7 @@ package _H_Z_{
         }
 
     }
-}//package _H_Z_
+}//package MapOverlays
 
 
 import flash.display.GraphicsPathCommand;

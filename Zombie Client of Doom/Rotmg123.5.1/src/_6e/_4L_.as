@@ -6,7 +6,7 @@
 package _6e{
     import flash.display.Sprite;
     import flash.display.Shape;
-    import com.company.assembleegameclient.appengine._0B_u;
+    import com.company.assembleegameclient.appengine.WebRequest;
     import _0L_C_.DialogBox;
     import flash.display.Graphics;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -20,7 +20,7 @@ package _6e{
 
         private var _97:Boolean;
         private var _T_y:Shape;
-        private var _08w:_0B_u;
+        private var _08w:WebRequest;
         private var _I_4:DialogBox;
         private var text_:String;
         private var _0_0:_03v;
@@ -38,7 +38,7 @@ package _6e{
             this.load();
         }
         private function load():void{
-            this._08w = new _0B_u(Parameters._fK_(), "/guild", true);
+            this._08w = new WebRequest(Parameters._fK_(), "/guild", true);
             this._08w.addEventListener(_8C_.GENERIC_DATA, this._02E_);
             this._08w.addEventListener(_mS_.TEXT_ERROR, this._D_N_);
             this._08w.sendRequest("getBoard", Account._get().credentials());
@@ -82,7 +82,7 @@ package _6e{
             this.show();
         }
         private function _P_c(_arg1:Event):void{
-            this._08w = new _0B_u(Parameters._fK_(), "/guild", true);
+            this._08w = new WebRequest(Parameters._fK_(), "/guild", true);
             this._08w.addEventListener(_8C_.GENERIC_DATA, this._sk);
             this._08w.addEventListener(_mS_.TEXT_ERROR, this._da);
             var _local2:Object = {"board":this._X_A_._03h()};

@@ -144,7 +144,7 @@ public class CraftingFrame extends Frame
                 this.parent.addChild(dialog);
             }
             else{
-                craft(new Event("CraftItems"));
+                craft(null);
             }
         }
 
