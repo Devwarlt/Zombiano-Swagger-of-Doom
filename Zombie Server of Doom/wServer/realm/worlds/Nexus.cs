@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using wServer.realm.entities;
-using wServer.networking.svrPackets;
 
 namespace wServer.realm.worlds
 {
@@ -16,7 +15,7 @@ namespace wServer.realm.worlds
             Name = "Nexus";
             Background = 2;
             Music = BuildMusic("sorc", "sorc2", "Menu", "Menu2");
-            Weather = networking.svrPackets.Weather.Snowy;
+            Weather = Weather.Snowy;
         }
 
         protected override void Init()

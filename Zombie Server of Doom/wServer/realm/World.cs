@@ -8,7 +8,6 @@ using System.Collections.Concurrent;
 using wServer.networking;
 using wServer.realm.terrain;
 using log4net;
-using wServer.networking.svrPackets;
 
 namespace wServer.realm
 {

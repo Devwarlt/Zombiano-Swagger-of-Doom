@@ -7,11 +7,11 @@ package com.company.assembleegameclient.map{
     import _015._0C_Q_;
     
     import MapOverlays.MapOverlay;
-    
+
+import _05R_.GTween;
 
 
-    
-    import _fh._zh;
+import _fh._zh;
     
     import _vf._gs;
     
@@ -138,6 +138,32 @@ package com.company.assembleegameclient.map{
             this._04p = null;
             this._C_X_ = null;
         }
+
+        public function changeWeather(_arg1:int):void {
+            if(this.weatherBackground_ == null) {
+                this.weather_ = _arg1;
+                newWeather(null);
+            }
+            else {
+                var _local1:GTween = new GTween(this, this.weatherBackground_.particles_.length / 60);
+                _local1._bR_ = this.weatherBackground_.removeParticle;
+                this.weather_ = _arg1;
+                _local1.onComplete = this.newWeather;
+            }
+        }
+
+        public function newWeather(_arg1:GTween):void{
+            if(this.weatherBackground_ != null) {
+                this.removeChild(this.weatherBackground_);
+            }
+            this.weatherBackground_ = MapOverlay.GetWeatherBackground(this.weather_, false);
+            if(this.weatherBackground_ != null) {
+                this.addChild(this.weatherBackground_);
+                var _local1:GTween = new GTween(this, 2)
+                _local1._bR_ = this.weatherBackground_.addParticle;
+            }
+        }
+
 		override public function update(_arg1:int, _arg2:int):void{
             var _local3:BasicObject;
             var _local4:int;

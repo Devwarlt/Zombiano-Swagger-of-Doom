@@ -6,8 +6,8 @@ using System.IO;
 using db;
 using wServer.realm.entities;
 using System.Collections.Concurrent;
-using wServer.networking;
 using wServer.realm.terrain;
+using wServer.networking;
 
 namespace wServer.realm.worlds
 {
@@ -20,7 +20,7 @@ namespace wServer.realm.worlds
             Name = "Vault";
             Background = 2;
             IsLimbo = isLimbo;
-            Weather = networking.svrPackets.Weather.ThunderStormRain;
+            Weather = Weather.ThunderStormRain;
 
             this.client = client;
         }

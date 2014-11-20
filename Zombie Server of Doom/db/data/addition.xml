@@ -94,7 +94,6 @@
         <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Item>
         <Object id="Ammo Cartrage" ext="true">
             <Class>Equipment</Class>
             <Item />

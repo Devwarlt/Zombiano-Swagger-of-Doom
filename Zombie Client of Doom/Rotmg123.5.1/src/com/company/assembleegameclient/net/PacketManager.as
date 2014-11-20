@@ -7,6 +7,8 @@ package com.company.assembleegameclient.net{
 import Frames.CraftingFrame;
 import Frames.NotificationBox;
 
+import MapOverlays.MapOverlay;
+
 import Panels.CraftingPanel;
 
 import Panels.TeleportPanel;
@@ -86,8 +88,10 @@ import ServerPackets.*;
     import ClientPackets._r5;
     import ClientPackets._tN_;
     import ClientPackets._vp;
-    
-    import _0K_m.*;
+
+import _05R_.GTween;
+
+import _0K_m.*;
     import _0K_m.FlowEffect;
     import _0K_m.StreamEffect;
     import _0K_m.TeleportEffect;
@@ -258,6 +262,7 @@ import flash.events.TimerEvent;
         public static const NOTIFICATION_BOX:int = 81;
         public static const SPRINT:int = 85;
         public static const TELEPORTREQUEST:int = 86;
+        public static const WEATHERPROPERTIES:int = 87;
         private static const _vb:Vector.<uint> = new <uint>[14802908, 0xFFFFFF, 0x545454];
         private static const _Z_y:Vector.<uint> = new <uint>[5644060, 16549442, 13484223];
         private static const _0A_F_:Vector.<uint> = new <uint>[2493110, 61695, 13880567];
@@ -367,7 +372,8 @@ import flash.events.TimerEvent;
 			this.serverConn.registerPacket(CRAFT, Craft, null);
 			this.serverConn.registerPacket(VISIBULLET, Visibullet, null);
 			this.serverConn.registerPacket(SWITCHMUSIC, SwitchMusic, null);
-            this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, teleportRequested);
+            this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, this.teleportRequested);
+            this.serverConn.registerPacket(WEATHERPROPERTIES, WeatherPropertiesPacket, this.weatherProps)
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
             this.serverConn.addEventListener(Event.CLOSE, this._of);
             this.serverConn.addEventListener(ErrorEvent.ERROR, this.onError);
@@ -759,10 +765,39 @@ import flash.events.TimerEvent;
             _local2.setAttack(_local2.objectType_, (_arg1.angle_ + (_arg1.angleInc_ * ((_arg1.numShots_ - 1) / 2))));
         }
 
+        private function weatherProps(_arg1:WeatherPropertiesPacket):void{
+            if(this.gs_.map_.weatherBackground_ == null) {
+                this.gs_.map_.changeWeather(_arg1._weather);
+            }
+            switch (_arg1._type){
+                case WeatherPropertiesPacket.ADD_PARTICLES:
+                    if(this.gs_.map_.weatherBackground_ != null) {
+                        var _local1:GTween = new GTween(this, _arg1._particles / 60);
+                        _local1._bR_ = this.gs_.map_.weatherBackground_.addParticle;
+                    }
+                    break;
+                case WeatherPropertiesPacket.REMOVE_PARTICLES:
+                        if(this.gs_.map_.weatherBackground_ != null) {
+                            var _local1:GTween = new GTween(this, _arg1._particles / 60);
+                            _local1._bR_ = this.gs_.map_.weatherBackground_.removeParticle;
+                        }
+                    break;
+                case WeatherPropertiesPacket.CHANGE_WEATHER:
+                        this.gs_.map_.changeWeather(_arg1._weather);
+                    break;
+                case WeatherPropertiesPacket.PARTICLE_DIRECTION:
+                        //Todo: Implement this (too lazy atm) :3
+                    break;
+                case WeatherPropertiesPacket.WIND_SPEED:
+                        gs_.map_.weatherBackground_.changeWind(_arg1._windSpeed[0], _arg1._windSpeed[1]);
+                    break;
+            }
+        }
+
         private function teleportRequested(_arg1:TeleportRequest):void{
-            //if(Parameters.data_.showTeleportRequest){
+            if(Parameters.data_.showTeleportRequest) {
                 this.gs_._V_1._U_T_._j(new TeleportPanel(this.gs_, _arg1));
-            //}
+            }
             this.gs_.textBox_.addText("", ((((_arg1.name_ + " wants to ") + 'teleport to you.  Type "/teleport ') + _arg1.name_) + '" to accept.'));
         }
 

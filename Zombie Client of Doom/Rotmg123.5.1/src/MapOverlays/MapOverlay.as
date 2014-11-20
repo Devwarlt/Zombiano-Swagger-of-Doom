@@ -40,17 +40,17 @@ import flash.display.Sprite;
             return (null);
         }
 
-        public static function GetWeatherBackground(_arg1:int):MapOverlay{
+        public static function GetWeatherBackground(_arg1:int, _arg2:Boolean = true):Weather{
             switch (_arg1)
             {
                 case Sunny:
                     return (null);
                 case Rainy:
-                    return (new RainWeather());
+                    return (new RainWeather(_arg2));
                 case Snowy:
-                    return (new SnowWeather()); // Will be changed soon
+                    return (new SnowWeather(_arg2));
                 case Thunder:
-                    return (new ThunderStormRainWeather()); // Will be changed soon
+                    return (new ThunderStormRainWeather(_arg2));
             }
             return (null);
         }

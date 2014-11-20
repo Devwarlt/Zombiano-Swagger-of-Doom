@@ -188,6 +188,7 @@
     <Compile Include="networking\IPacketHandler.cs" />
     <Compile Include="networking\svrPackets\NotificationBoxPacket.cs" />
     <Compile Include="networking\svrPackets\RequestTeleportPacket.cs" />
+    <Compile Include="networking\svrPackets\WeatherPropertiesPacket.cs" />
     <Compile Include="realm\ChatManager.cs" />
     <Compile Include="realm\Inventory.cs" />
     <Compile Include="realm\setpieces\ArchMage.cs" />

@@ -1,6 +1,8 @@
 package com.company.assembleegameclient.map
 {
-	import _015._0C_Q_;
+import MapOverlays.Weather;
+
+import _015._0C_Q_;
 	
 	import MapOverlays.MapOverlay;
 	
@@ -41,7 +43,7 @@ package com.company.assembleegameclient.map
 		public var allowPlayerTeleport_:Boolean;
 		public var background_:MapOverlay = null;
 		public var map_:Sprite;
-		public var weatherBackground_:MapOverlay = null;
+		public var weatherBackground_:Weather = null;
 		public var _063:_M_9 = null;
 		public var _C_K_:_3m = null;
 		public var mapOverlay_:_0C_Q_ = null;

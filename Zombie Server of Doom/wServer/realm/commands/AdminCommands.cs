@@ -168,33 +168,31 @@ namespace wServer.realm.commands
 
     class DebugCommand : Command
     {
-        class Locater : Enemy
-        {
-            Player player;
-            public Locater(Player player)
-                : base(player.Manager, 0x0d5d)
-            {
-                this.player = player;
-                Move(player.X, player.Y);
-                ApplyConditionEffect(new ConditionEffect()
-                {
-                    Effect = ConditionEffectIndex.Invincible,
-                    DurationMS = -1
-                });
-            }
-            public override void Tick(RealmTime time)
-            {
-                Move(player.X, player.Y);
-                UpdateCount++;
-                base.Tick(time);
-            }
-        }
-
         public DebugCommand() : base("debug", permLevel: 1) { }
 
         protected override bool Process(Player player, RealmTime time, string args)
         {
-            player.Owner.EnterWorld(new Locater(player));
+            player.Client.SendPacket(new WeatherPropertiesPacket
+            {
+                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
+                _weather = Weather.Rainy
+            });
+            return true;
+        }
+    }
+    
+
+    class Debug2Command : Command
+    {
+        public Debug2Command() : base("debug2", permLevel: 1) { }
+
+        protected override bool Process(Player player, RealmTime time, string args)
+        {
+            player.Client.SendPacket(new WeatherPropertiesPacket
+            {
+                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
+                _weather = Weather.Snowy
+            });
             return true;
         }
     }

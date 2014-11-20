@@ -15,7 +15,7 @@ namespace wServer.realm.worlds
             Name = "Tutorial";
             Background = 0;
             IsLimbo = isLimbo;
-            Weather = networking.svrPackets.Weather.Rainy;
+            Weather = Weather.Rainy;
         }
 
         protected override void Init()

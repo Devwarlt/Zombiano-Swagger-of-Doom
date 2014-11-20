@@ -152,6 +152,7 @@ namespace wServer.networking
         NotificationBox = 81,
         Sprint = 85,
         TeleportRequest = 86,
-        Crafting = 84
+        Crafting = 84,
+        WeatherProperties = 87
     }
 }

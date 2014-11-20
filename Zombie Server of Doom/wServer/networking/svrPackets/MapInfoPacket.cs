@@ -69,12 +69,12 @@ namespace wServer.networking.svrPackets
                 wtr.Write32UTF(i);
         }
     }
+}
 
-    public enum Weather : byte
-    {
-        Sunny = 0,
-        Rainy = 1,
-        Snowy = 2,
-        ThunderStormRain = 3
-    }
+public enum Weather : byte
+{
+    Sunny = 0,
+    Rainy = 1,
+    Snowy = 2,
+    ThunderStormRain = 3
 }
