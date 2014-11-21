@@ -20,6 +20,7 @@ import flash.utils.IDataInput;
         public var allowPlayerTeleport_:Boolean;
         public var showDisplays_:Boolean;
         public var weather_:int;
+        public var curentDatetime_:int;
 		public var music_:Vector.<String>;
         public var clientXML_:Vector.<String>;
         public var extraXML_:Vector.<String>;
@@ -42,6 +43,7 @@ import flash.utils.IDataInput;
             this.allowPlayerTeleport_ = _arg1.readBoolean();
             this.showDisplays_ = _arg1.readBoolean();
             this.weather_ = _arg1.readUnsignedByte();
+            this.curentDatetime_ = _arg1.readInt();
             _local2 = _local2 = _arg1.readShort();
             _local3 = 0;
             while(_local3 < _local2)

@@ -174,6 +174,7 @@ namespace wServer.realm.entities
             p.TickId = tickId;
             p.TickTime = time.thisTickTimes;
             p.UpdateStatuses = sendEntities.Select(_ => _.ExportStats()).ToArray();
+            p.DateTime = Manager.CurrentDatetime;
             client.SendPacket(p);
 
             SaveToCharacter();

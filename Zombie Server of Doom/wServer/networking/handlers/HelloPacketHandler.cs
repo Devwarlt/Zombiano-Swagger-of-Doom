@@ -62,6 +62,7 @@ namespace wServer.networking.handlers
                         AllowTeleport = world.AllowTeleport,
                         ShowDisplays = world.ShowDisplays,
                         Weather = world.Weather,
+                        CurrentDateTime = client.Manager.CurrentDatetime,
                         Music = world.Music,
                         ClientXML = client.Manager.GameData.AdditionXml,
                         ExtraXML = world.ExtraXML

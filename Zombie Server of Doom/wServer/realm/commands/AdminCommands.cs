@@ -52,7 +52,7 @@ namespace wServer.realm.commands
             player.Client.SendPacket(new NotificationBoxPacket
             {
                 Head = "You are hungry",
-                Text = "Eat something before\n you die!"
+                Text = "Eat something before\nyou die!"
             });
             return true;
         }
@@ -172,11 +172,7 @@ namespace wServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string args)
         {
-            player.Client.SendPacket(new WeatherPropertiesPacket
-            {
-                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
-                _weather = Weather.Rainy
-            });
+            player.Manager.CurrentDatetime = 40000;
             return true;
         }
     }
@@ -188,11 +184,18 @@ namespace wServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string args)
         {
+            //player.Client.SendPacket(new WeatherPropertiesPacket
+            //{
+            //    _type = WeatherPropertiesPacket.CHANGE_WEATHER,
+            //    _weather = Weather.Rainy
+            //});
+
             player.Client.SendPacket(new WeatherPropertiesPacket
             {
-                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
-                _weather = Weather.Snowy
+                _type = WeatherPropertiesPacket.REMOVE_PARTICLES,
+                _particles = 5000
             });
+
             return true;
         }
     }

@@ -906,6 +906,7 @@ import flash.events.TimerEvent;
             {
                 this._0l._06m();
             }
+            this.gs_.map_.atmosphere_.tick(_arg1.dateTime_);
             var _local2:_X_l = this.gs_.map_;
             this.move(_arg1.tickId_, _local2.player_);
             for each (_local3 in _arg1.statuses_)

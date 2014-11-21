@@ -46,12 +46,14 @@ namespace wServer.realm
 
         public int MaxClient { get; private set; }
         public int TPS { get; private set; }
+        public int CurrentDatetime { get; set; }
         public Database Database { get; private set; }
         public RealmManager(int maxClient, int tps, Database db)
         {
             this.MaxClient = maxClient;
             this.TPS = tps;
             this.Database = db;
+            CurrentDatetime = 95000;
         }
 
         int nextWorldId = 0;

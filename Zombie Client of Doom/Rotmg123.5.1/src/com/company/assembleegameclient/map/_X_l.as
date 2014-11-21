@@ -22,17 +22,23 @@ import _fh._zh;
     import com.company.assembleegameclient.objects._ez;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.util.ConditionEffect;
-    
-    import flash.display.Graphics;
+
+import flash.display.BlendMode;
+
+import flash.display.Graphics;
     import flash.display.GraphicsBitmapFill;
     import flash.display.IGraphicsData;
-    import flash.display.Sprite;
-    import flash.filters.BlurFilter;
+import flash.display.MovieClip;
+import flash.display.Sprite;
+import flash.filters.BitmapFilterQuality;
+import flash.filters.BlurFilter;
     import flash.filters.ColorMatrixFilter;
-    import flash.geom.ColorTransform;
+import flash.filters.GlowFilter;
+import flash.geom.ColorTransform;
     import flash.geom.Point;
     import flash.geom.Rectangle;
-    import flash.utils.Dictionary;
+import flash.geom.Transform;
+import flash.utils.Dictionary;
 
     public class _X_l extends MapHandler {
 
@@ -51,6 +57,7 @@ import _fh._zh;
         public var _4e:Array;
         public var _fr:Vector.<Square>;
         public var _8L_:Vector.<Square>;
+        public var atmosphere_:AtmosphereHandler;
 
         public function _X_l(_arg1:GameSprite){
             this._04p = new Vector.<BasicObject>();
@@ -68,8 +75,9 @@ import _fh._zh;
             partyOverlay_ = new _zh(this);
             party_ = new _ez(this);
             quest_ = new Quest(this);
+            atmosphere_ = new AtmosphereHandler(this.gs_);
         }
-		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int):void{
+		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int, _arg9:int):void{
             width_ = _arg1;
             height_ = _arg2;
             name_ = _arg3;
@@ -78,6 +86,7 @@ import _fh._zh;
             showDisplays_ = _arg6;
 			music_ = _arg7;
             weather_ = _arg8;
+            atmosphere_.init(_arg9);
             if(music_.length != 0)
             {
                 _vf._gs.reload(music_[Math.floor(Math.random() * (music_.length - 1))]);
@@ -86,21 +95,21 @@ import _fh._zh;
 		override public function initialize():void{
             this.squares_.length = (this.width_ * this.height_);
             this.background_ = MapOverlay._U_q(this._vv);
-            if (this.background_ != null)
-            {
+            if (this.background_ != null) {
                 addChild(this.background_);
             }
             addChild(this.map_);
             this.weatherBackground_ = MapOverlay.GetWeatherBackground(this.weather_);
-            if (this.weatherBackground_ != null)
-            {
+            if (this.weatherBackground_ != null) {
                 addChild(this.weatherBackground_);
             }
+            addChild(this.atmosphere_);
             addChild(this._063);
             addChild(this._C_K_);
             addChild(this.mapOverlay_);
             addChild(this.partyOverlay_);
         }
+
 		override public function dispose():void{
             var _local1:Square;
             var _local2:GameObject;
@@ -131,6 +140,7 @@ import _fh._zh;
             }
             this._cl = null;
             this.weatherBackground_ = null;
+            this.atmosphere_ = null;
             this.merchLookup_ = null;
             this.player_ = null;
             this.party_ = null;
@@ -197,6 +207,8 @@ import _fh._zh;
             }
             this._C_X_.length = 0;
             this.party_.update(_arg1, _arg2);
+
+            atmosphere_.update();
         }
 		override public function pSTopW(_arg1:Number, _arg2:Number):Point{
             var _local4:Square;
@@ -478,7 +490,6 @@ import _fh._zh;
                 }
             }
             if(this.weatherBackground_ != null) {
-                //this.weatherBackground_.updatePos(this.map_.x, this.map_.y)
                 this.weatherBackground_.draw(_arg1, _arg2);
             }
             this.mapOverlay_.draw(_arg1, _arg2);

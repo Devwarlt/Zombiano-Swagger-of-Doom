@@ -10,6 +10,7 @@ namespace wServer.networking.svrPackets
     {
         public int TickId { get; set; }
         public int TickTime { get; set; }
+        public int DateTime { get; set; }
         public ObjectStats[] UpdateStatuses { get; set; }
 
         public override PacketID ID { get { return PacketID.New_Tick; } }
@@ -19,6 +20,7 @@ namespace wServer.networking.svrPackets
         {
             TickId = rdr.ReadInt32();
             TickTime = rdr.ReadInt32();
+            DateTime = rdr.ReadInt32();
 
             UpdateStatuses = new ObjectStats[rdr.ReadInt16()];
             for (var i = 0; i < UpdateStatuses.Length; i++)
@@ -29,6 +31,7 @@ namespace wServer.networking.svrPackets
         {
             wtr.Write(TickId);
             wtr.Write(TickTime);
+            wtr.Write(DateTime);
 
             wtr.Write((short)UpdateStatuses.Length);
             foreach (var i in UpdateStatuses)

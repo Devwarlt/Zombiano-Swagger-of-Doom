@@ -101,7 +101,7 @@ package com.company.assembleegameclient.game{
             return (this.map);
         }
         public function _S_z(_arg1:MapInfo):void{
-            this.map.setProps(_arg1.width_, _arg1.height_, _arg1.name_, _arg1.background_, _arg1.allowPlayerTeleport_, _arg1.showDisplays_, _arg1.music_, _arg1.weather_);
+            this.map.setProps(_arg1.width_, _arg1.height_, _arg1.name_, _arg1.background_, _arg1.allowPlayerTeleport_, _arg1.showDisplays_, _arg1.music_, _arg1.weather_, _arg1.curentDatetime_);
             this._dO_(_arg1);
         }
         public function _dO_(_arg1:MapInfo):void{

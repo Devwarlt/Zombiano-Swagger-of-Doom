@@ -70,7 +70,7 @@ import _015._0C_Q_;
 			super();
 		}
 		
-		public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int):void{
+		public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int, _arg9:int):void{
 		}
 		public function addObj(_arg1:BasicObject, _arg2:Number, _arg3:Number):void{
 		}

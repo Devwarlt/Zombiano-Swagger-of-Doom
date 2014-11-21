@@ -12,6 +12,7 @@ package ServerPackets{
 
         public var tickId_:int;
         public var tickTime_:int;
+        public var dateTime_:int;
         public var statuses_:Vector.<ObjectStatusData>;
 
         public function _0_l(_arg1:uint){
@@ -22,6 +23,7 @@ package ServerPackets{
             var _local3:int;
             this.tickId_ = _arg1.readInt();
             this.tickTime_ = _arg1.readInt();
+            this.dateTime_ = _arg1.readInt();
             var _local2:int = _arg1.readShort();
             _local3 = _local2;
             while (_local3 < this.statuses_.length)

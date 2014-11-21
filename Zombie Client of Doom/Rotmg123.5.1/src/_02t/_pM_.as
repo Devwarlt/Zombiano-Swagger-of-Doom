@@ -72,7 +72,7 @@ package _02t{
             var _local3:_X_l = new _X_l(null);
             var music:Vector.<String> = new Vector.<String>();
             music.push("Menu");
-            _local3.setProps((_sl.x_ + (2 * BORDER)), _sl.y_, "MapOverlay Map", MapOverlay._0H_W_, false, false, music, 0);
+            _local3.setProps((_sl.x_ + (2 * BORDER)), _sl.y_, "MapOverlay Map", MapOverlay._0H_W_, false, false, music, 0, -1);
             _local3.initialize();
             _p0._T_6(_local2, _local3, 0, 0);
             _p0._T_6(_local2, _local3, _sl.x_, 0);
