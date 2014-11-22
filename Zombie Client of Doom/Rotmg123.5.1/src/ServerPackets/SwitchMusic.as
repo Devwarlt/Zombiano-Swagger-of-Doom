@@ -7,12 +7,10 @@ package ServerPackets
 		public var music_:String;
 		
 		public function SwitchMusic(_arg1:uint) {
-			
 			super(_arg1);
 		}
 		
 		override public function parseFromInput(_arg1:IDataInput):void {
-			
 			this.music_ = _arg1.readUTF();
 		}
 		

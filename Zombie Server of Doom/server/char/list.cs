@@ -13,7 +13,7 @@ using System.Collections.Specialized;
 
 namespace server.@char
 {
-    class list : IRequestHandler
+    public class list : RequestHandler
     {
         Lazy<List<ServerItem>> svrList;
         public list()
@@ -37,22 +37,8 @@ namespace server.@char
             return ret;
         }
 
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
 
@@ -61,7 +47,7 @@ namespace server.@char
                     Characters = new List<Char>() { },
                     NextCharId = 2,
                     MaxNumChars = 1,
-                    Account = db.Verify(query["guid"], query["password"]),
+                    Account = db.Verify(Query["guid"], Query["password"]),
                     Servers = GetServerList()
                 };
                 if (chrs.Account != null)
@@ -72,7 +58,7 @@ namespace server.@char
                 }
                 else
                 {
-                    chrs.Account = Database.CreateGuestAccount(query["guid"]);
+                    chrs.Account = Database.CreateGuestAccount(Query["guid"]);
                     chrs.News = db.GetNews(Program.GameData, null);
                 }
 
@@ -82,7 +68,7 @@ namespace server.@char
                 XmlWriterSettings xws = new XmlWriterSettings();
                 xws.OmitXmlDeclaration = true;
                 xws.Encoding = Encoding.UTF8;
-                XmlWriter xtw = XmlWriter.Create(context.Response.OutputStream, xws);
+                XmlWriter xtw = XmlWriter.Create(Context.Response.OutputStream, xws);
                 serializer.Serialize(xtw, chrs, chrs.Namespaces);
             }
         }

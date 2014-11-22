@@ -13,31 +13,16 @@ using System.Xml;
 
 namespace server.account
 {
-    class purchaseCharSlot : IRequestHandler
+    public class purchaseCharSlot : RequestHandler
     {
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                var acc = db.Verify(query["guid"], query["password"]);
-                byte[] status;
+                var acc = db.Verify(Query["guid"], Query["password"]);
                 if (acc == null)
                 {
-                    status = Encoding.UTF8.GetBytes("<Error>Bad login</Error>");
+                    WriteErrorLine("Bad login");
                 }
                 else
                 {
@@ -45,7 +30,7 @@ namespace server.account
                     cmd.CommandText = "SELECT credits FROM stats WHERE accId=@accId;";
                     cmd.Parameters.AddWithValue("@accId", acc.AccountId);
                     if ((int)cmd.ExecuteScalar() < 100)
-                        status = Encoding.UTF8.GetBytes("<Error>Not enough credits</Error>");
+                        WriteErrorLine("Not enough credits");
                     else
                     {
                         cmd = db.CreateQuery();
@@ -57,15 +42,14 @@ namespace server.account
                             cmd.CommandText = "UPDATE accounts SET maxCharSlot = maxCharSlot + 1 WHERE id=@accId";
                             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
                             if ((int)cmd.ExecuteNonQuery() > 0)
-                                status = Encoding.UTF8.GetBytes("<Success/>");
+                                WriteLine("<Success/>");
                             else
-                                status = Encoding.UTF8.GetBytes("<Error>Internal Error</Error>");
+                                WriteErrorLine("Internal Error");
                         }
                         else
-                            status = Encoding.UTF8.GetBytes("<Error>Internal Error</Error>");
+                            WriteErrorLine("Internal Error");
                     }
                 }
-                context.Response.OutputStream.Write(status, 0, status.Length);
             }
         }
     }

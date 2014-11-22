@@ -106,7 +106,17 @@ namespace server
             {
                 log.InfoFormat("Dispatching request '{0}'@{1}",
                     context.Request.Url.LocalPath, context.Request.RemoteEndPoint);
-                IRequestHandler handler;
+
+                if (context.Request.Url.LocalPath.Contains("sfx") || context.Request.Url.LocalPath.Contains("music"))
+                {
+                    //To load the sound effects c:
+                    sfx.sfx sound = new sfx.sfx();
+                    sound.HandleRequest(context);
+                    context.Response.Close();
+                    return;
+                }
+
+                RequestHandler handler;
 
                 if (!RequestHandlers.Handlers.TryGetValue(context.Request.Url.LocalPath, out handler))
                 {

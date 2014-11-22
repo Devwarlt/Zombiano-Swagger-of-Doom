@@ -13,44 +13,26 @@ using System.Xml;
 
 namespace server.account
 {
-    class changePassword : IRequestHandler
+    public class changePassword : RequestHandler
     {
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                var acc = db.Verify(query["guid"], query["password"]);
-                byte[] status;
+                var acc = db.Verify(Query["guid"], Query["password"]);
                 if (acc == null)
-                {
-                    status = Encoding.UTF8.GetBytes("<Error>Bad login</Error>");
-                }
+                    WriteErrorLine("Bad login");
                 else
                 {
                     var cmd = db.CreateQuery();
                     cmd.CommandText = "UPDATE accounts SET password=SHA1(@password) WHERE id=@accId;";
                     cmd.Parameters.AddWithValue("@accId", acc.AccountId);
-                    cmd.Parameters.AddWithValue("@password", query["newPassword"]);
+                    cmd.Parameters.AddWithValue("@password", Query["newPassword"]);
                     if (cmd.ExecuteNonQuery() > 0)
-                        status = Encoding.UTF8.GetBytes("<Success />");
+                        WriteLine("<Success />");
                     else
-                        status = Encoding.UTF8.GetBytes("<Error>Internal error</Error>");
+                        WriteErrorLine("Internal error");
                 }
-                context.Response.OutputStream.Write(status, 0, status.Length);
             }
         }
     }

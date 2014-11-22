@@ -39,7 +39,7 @@ package com.company.assembleegameclient.ui{
 		private var CornerTL:Bitmap;
 		private var CornerBR:Bitmap;
 
-        public function _0M_Y_(_arg1:int, _arg2:int, _arg3:uint, _arg4:uint, _arg5:String=null, _arg6:String="CHIP SBKI"){
+        public function _0M_Y_(_arg1:int, _arg2:int, _arg3:uint, _arg4:uint, _arg5:String=null, _arg6:String="Myriad Pro"){
             this._03o = new Sprite();
 			this.CornerTL = new Bitmap(new BarCornerTL());
 			this.CornerBR = new Bitmap(new BarCornerBR());
@@ -54,7 +54,7 @@ package com.company.assembleegameclient.ui{
             this._native = 0xFFFFFF;
             if (((!((_arg5 == null))) && (!((_arg5.length == 0)))))
             {
-                this.labelText_ = new SimpleText(16, this._native, false, 0, 0, _arg6);
+                this.labelText_ = new SimpleText(14, this._native, false, 0, 0, _arg6);
                 this.labelText_.boldText(true);
                 this.labelText_.text = _arg5;
                 this.labelText_.updateMetrics();

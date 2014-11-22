@@ -4,6 +4,8 @@
 package com.company.assembleegameclient.map {
 import _05R_.GTween;
 
+import _vf._gs;
+
 import com.company.assembleegameclient.game.GameSprite;
 
 import flash.display.BlendMode;
@@ -60,14 +62,24 @@ public class AtmosphereHandler extends Sprite{
 
         if(CurrentAtmosphereString != OldAtmosphereString){
             var color = getCurrentAtmosphereColor();
-            graphics.beginFill(color, 1);
-            graphics.drawRect(-300, -325, 600, 600);
-            graphics.endFill();
             if(color == uint.MAX_VALUE) {
                 var _local1:GTween = new GTween(this, 50, {"alpha": -1.0});
+                _local1._bR_ = endIfAlphachanged;
             }
-            else{
+            else {
+                graphics.beginFill(color, 1);
+                graphics.drawRect(-300, -325, 600, 600);
+                graphics.endFill();
+                alpha = 0.0;
                 var _local1:GTween = new GTween(this, 50, {"alpha": 1.0});
+                _local1._bR_ = endIfAlphachanged;
+            }
+
+            if(_arg1 >= 48000) {
+                _vf._gs.reload("night", false);
+            }
+            else {
+                _vf._gs.reload("day", false);
             }
         }
     }
@@ -83,6 +95,12 @@ public class AtmosphereHandler extends Sprite{
         }
         else {
             return DAY;
+        }
+    }
+
+    private function endIfAlphachanged(_arg1:GTween):void {
+        if(alpha > 1.0 || alpha < 0.0) {
+            _arg1.end();
         }
     }
 }

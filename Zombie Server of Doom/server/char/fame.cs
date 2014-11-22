@@ -13,33 +13,19 @@ using System.Xml;
 
 namespace server.@char
 {
-    class fame : IRequestHandler
+    public class fame : RequestHandler
     {
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                var acc = db.GetAccount(int.Parse(query["accountId"]));
-                var chr = db.LoadCharacter(acc, int.Parse(query["charId"]));
+                var acc = db.GetAccount(int.Parse(Query["accountId"]));
+                var chr = db.LoadCharacter(acc, int.Parse(Query["charId"]));
 
                 var cmd = db.CreateQuery();
                 cmd.CommandText = @"SELECT time, killer, firstBorn FROM death WHERE accId=@accId AND chrId=@charId;";
-                cmd.Parameters.AddWithValue("@accId", query["accountId"]);
-                cmd.Parameters.AddWithValue("@charId", query["charId"]);
+                cmd.Parameters.AddWithValue("@accId", Query["accountId"]);
+                cmd.Parameters.AddWithValue("@charId", Query["charId"]);
                 int time = 0;
                 string killer = "";
                 bool firstBorn = false;
@@ -53,7 +39,7 @@ namespace server.@char
                     }
                 }
 
-                using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
+                using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
                     wtr.Write(chr.FameStats.Serialize(Program.GameData, acc, chr, time, killer, firstBorn));
             }
         }

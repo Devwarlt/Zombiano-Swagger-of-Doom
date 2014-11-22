@@ -145,6 +145,12 @@ namespace wServer.realm
         public ChatManager Chat { get; private set; }
         public CommandManager Commands { get; private set; }
 
+        public void SendPacketToAllConnectedClients(Packet pkt)
+        {
+            foreach (var client in Clients.Values)
+                client.SendPacket(pkt);
+        }
+
 
         public void Initialize()
         {

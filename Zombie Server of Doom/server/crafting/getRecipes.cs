@@ -10,40 +10,21 @@ using System.Web;
 
 namespace server.crafting
 {
-    internal class getRecipes : IRequestHandler
+    public class getRecipes : RequestHandler
     {
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
                 string recipes = String.Empty;
                 var cmd = db.CreateQuery();
                 cmd.CommandText = "Select * FROM craftingrecipes";
                 using (var rdr = cmd.ExecuteReader())
-                {
                     while (rdr.Read())
-                    {
                         recipes += rdr.GetString("row1") + "," + rdr.GetString("row2") + "," + rdr.GetString("row3") + ";" + rdr.GetString("result") + "\n";
-                    }
-                }
-                using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
-                {
+
+                using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
                     wtr.Write(recipes.Remove(recipes.LastIndexOf('\n')));
-                }
             }
         }
     }

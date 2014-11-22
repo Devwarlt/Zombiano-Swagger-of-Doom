@@ -9,50 +9,34 @@ using System.Web;
 
 namespace server.picture
 {
-    class get : IRequestHandler
+    public class get : RequestHandler
     {
         byte[] buff = new byte[0x10000];
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             //warning: maybe has hidden url injection
-            string id = query["id"];
+            string id = Query["id"];
             foreach (var i in id)
             {
                 if (char.IsLetter(i) || i == '_' || i == '-') continue;
 
-                byte[] status = Encoding.UTF8.GetBytes("<Error>Invalid ID.</Error>");
-                context.Response.OutputStream.Write(status, 0, status.Length);
+                WriteErrorLine("Invalid ID.");
                 return;
             }
 
             string path = Path.GetFullPath("texture/_" + id + ".png");
             if (!File.Exists(path))
             {
-                byte[] status = Encoding.UTF8.GetBytes("<Error>Invalid ID.</Error>");
-                context.Response.OutputStream.Write(status, 0, status.Length);
+                WriteErrorLine("Invalid ID.");
                 return;
             }
 
-            context.Response.ContentType = "image/png";
+            Context.Response.ContentType = "image/png";
             using (var i = File.OpenRead(path))
             {
                 int c;
                 while ((c = i.Read(buff, 0, buff.Length)) > 0)
-                    context.Response.OutputStream.Write(buff, 0, c);
+                    Context.Response.OutputStream.Write(buff, 0, c);
             }
         }
     }

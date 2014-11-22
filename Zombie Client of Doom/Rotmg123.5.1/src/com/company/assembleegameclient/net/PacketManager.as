@@ -371,7 +371,7 @@ import flash.events.TimerEvent;
             this.serverConn.registerPacket(PLAYSOUND, _bB_, this._A_C_);
 			this.serverConn.registerPacket(CRAFT, Craft, null);
 			this.serverConn.registerPacket(VISIBULLET, Visibullet, null);
-			this.serverConn.registerPacket(SWITCHMUSIC, SwitchMusic, null);
+			this.serverConn.registerPacket(SWITCHMUSIC, SwitchMusic, this.switchMusic);
             this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, this.teleportRequested);
             this.serverConn.registerPacket(WEATHERPROPERTIES, WeatherPropertiesPacket, this.weatherProps)
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
@@ -1220,7 +1220,7 @@ import flash.events.TimerEvent;
                     case StatData.VISIBILITYRANGE:
                         (_arg1 as Player).visibilityRange = _local4._h;
 
-                        //Todo: add armor statdata here (for guns)
+                        //Todo: add ammo statdata here (for guns)
                 }
             }
         }
@@ -1553,7 +1553,7 @@ import flash.events.TimerEvent;
 		}
 		
 		private function switchMusic(_arg1:SwitchMusic):void{
-			_vf._gs.reload(_arg1.music_);
+			_vf._gs.reload(_arg1.music_, true);
 		}
 		
 		//public function sendVisibullet(_damage:int, _enemyId:int, _bulletId:int):void {

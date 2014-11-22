@@ -13,32 +13,15 @@ using System.Xml;
 
 namespace server.account
 {
-    class verify : IRequestHandler
+    public class verify : RequestHandler
     {
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                var acc = db.Verify(query["guid"], query["password"]);
+                var acc = db.Verify(Query["guid"], Query["password"]);
                 if (acc == null)
-                {
-                    var status = Encoding.UTF8.GetBytes("<Error>Bad login</Error>");
-                    context.Response.OutputStream.Write(status, 0, status.Length);
-                }
+                    WriteErrorLine("Bad login");
                 else
                 {
                     XmlSerializer serializer = new XmlSerializer(acc.GetType(), new XmlRootAttribute(acc.GetType().Name) { Namespace = "" });
@@ -46,7 +29,7 @@ namespace server.account
                     XmlWriterSettings xws = new XmlWriterSettings();
                     xws.OmitXmlDeclaration = true;
                     xws.Encoding = Encoding.UTF8;
-                    XmlWriter xtw = XmlWriter.Create(context.Response.OutputStream, xws);
+                    XmlWriter xtw = XmlWriter.Create(Context.Response.OutputStream, xws);
                     serializer.Serialize(xtw, acc, acc.Namespaces);
                 }
             }

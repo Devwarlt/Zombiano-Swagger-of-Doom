@@ -13,42 +13,26 @@ using System.Xml;
 
 namespace server.@char
 {
-    class delete : IRequestHandler
+    public class delete : RequestHandler
     {
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                var acc = db.Verify(query["guid"], query["password"]);
-                byte[] status;
+                var acc = db.Verify(Query["guid"], Query["password"]);
                 if (acc == null)
-                    status = Encoding.UTF8.GetBytes("<Error>Bad login</Error>");
+                    WriteErrorLine("Bad login");
                 else
                 {
                     var cmd = db.CreateQuery();
                     cmd.CommandText = @"DELETE FROM characters WHERE accId = @accId AND charId = @charId;";
                     cmd.Parameters.AddWithValue("@accId", acc.AccountId);
-                    cmd.Parameters.AddWithValue("@charId", query["charId"]);
+                    cmd.Parameters.AddWithValue("@charId", Query["charId"]);
                     if (cmd.ExecuteNonQuery() > 0)
-                        status = Encoding.UTF8.GetBytes("<Success />");
+                        WriteLine("<Success />");
                     else
-                        status = Encoding.UTF8.GetBytes("<Error>Internal Error</Error>");
+                        WriteErrorLine("Internal Error");
                 }
-                context.Response.OutputStream.Write(status, 0, status.Length);
             }
         }
     }

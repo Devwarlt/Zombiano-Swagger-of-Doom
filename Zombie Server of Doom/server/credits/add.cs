@@ -8,23 +8,21 @@ using System.Web;
 
 namespace server.credits
 {
-    class add : IRequestHandler
+    public class add : RequestHandler
     {
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
             string status;
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                var query = HttpUtility.ParseQueryString(context.Request.Url.Query);
-
                 var cmd = db.CreateQuery();
                 cmd.CommandText = "SELECT id FROM accounts WHERE uuid=@uuid";
-                cmd.Parameters.AddWithValue("@uuid", query["guid"]);
+                cmd.Parameters.AddWithValue("@uuid", Query["guid"]);
                 object id = cmd.ExecuteScalar();
 
                 if (id != null)
                 {
-                    int amount = int.Parse(query["jwt"]);
+                    int amount = int.Parse(Query["jwt"]);
                     cmd = db.CreateQuery();
                     cmd.CommandText = "UPDATE stats SET credits = credits + @amount WHERE accId=@accId";
                     cmd.Parameters.AddWithValue("@accId", (int)id);
@@ -39,18 +37,17 @@ namespace server.credits
                     status = "Account not exists :(";
             }
 
-            var res = Encoding.UTF8.GetBytes(
+            WriteLine(
 @"<html>
     <head>
         <title>Ya...</title>
     </head>
     <body style='background: #333333'>
         <h1 style='color: #EEEEEE; text-align: center'>
-            " + status + @"
+            {0}
         </h1>
     </body>
-</html>");
-            context.Response.OutputStream.Write(res, 0, res.Length);
+</html>", status);
         }
     }
 }

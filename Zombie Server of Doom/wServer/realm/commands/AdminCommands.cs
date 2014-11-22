@@ -192,8 +192,8 @@ namespace wServer.realm.commands
 
             player.Client.SendPacket(new WeatherPropertiesPacket
             {
-                _type = WeatherPropertiesPacket.REMOVE_PARTICLES,
-                _particles = 5000
+                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
+                _weather = Weather.Snowy,
             });
 
             return true;

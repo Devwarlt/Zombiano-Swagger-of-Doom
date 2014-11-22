@@ -22,6 +22,7 @@ package _vf{
 		public static var fadeIn:Number = 0.65;
 		public static var fadeOut:Number = 0;
 		public static var music_:String = "Menu";
+		private static var specialMusicPlaying_:Boolean = false;
 		
 		public static const menuMusic:Vector.<String> = new <String>["sorc", "sorc2", "Menu", "Menu2"];
 		
@@ -42,13 +43,16 @@ package _vf{
 			return menuMusic[Math.round(Math.random() * (menuMusic.length - 1))];
 		}
 		
-		public static function reload(newMusic:String):void{
+		public static function reload(newMusic:String, specialMusic:Boolean = false):void{
+			if(specialMusic) {
+				specialMusicPlaying_ = true;
+			}
 			if (music_ == newMusic) return;
 			music_ = newMusic;
 			try {
 				newSound = new Sound();
 				newSound.load(new URLRequest("http://" + Parameters.musicUrl_ + "/sfx/music/" + (newMusic == "Menu" ? randomMenu() : newMusic) + ".mp3"));
-				newSoundTransform = new SoundTransform(Parameters.data_.playMusic ? 0.65 : 0);
+				newSoundTransform = new SoundTransform((Parameters.data_.playMusic || specialMusic) ? 0.65 : 0);
 				newSoundChannel = newSound.play(0, int.MAX_VALUE, newSoundTransform);
 			} catch (e:Error) { }
 			if (fadeIn < 0.65) endFade();

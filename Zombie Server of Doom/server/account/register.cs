@@ -12,9 +12,9 @@ using System.Globalization;
 
 namespace server.account
 {
-    class register : IRequestHandler
+    public class register : RequestHandler
     {
-        public static bool IsUsername(string username)
+        private static bool IsUsername(string username)
         {
             string pattern;
             // start with a letter, allow letter or number, length between 6 to 12.
@@ -24,71 +24,51 @@ namespace server.account
             return regex.IsMatch(username);
         }
 
-        public void HandleRequest(HttpListenerContext context)
+        protected override void HandleRequest()
         {
-            NameValueCollection query;
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (query.AllKeys.Length == 0)
-            {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
-                {
-                    query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
-                }
-            }
-
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                byte[] status;
-                if (!IsUsername(query["newGUID"]))
-                    status = Encoding.UTF8.GetBytes("<Error>Invalid username</Error>");
+                if (!IsUsername(Query["newGUID"]))
+                    WriteErrorLine("Invalid username");
                 else
                 {
-                    if (db.HasUuid(query["guid"]) &&
-                        db.Verify(query["guid"], "") != null)
+                    if (db.HasUuid(Query["guid"]) &&
+                        db.Verify(Query["guid"], "") != null)
                     {
-                        if (db.HasUuid(query["newGUID"]))
-                            status = Encoding.UTF8.GetBytes("<Error>Duplicate username</Error>");
-                        else if (db.HasEmail(query["email"]))
-                            status = Encoding.UTF8.GetBytes("<Error>Duplicate email</Error>");
+                        if (db.HasUuid(Query["newGUID"]))
+                            WriteErrorLine("Duplicate username");
+                        else if (db.HasEmail(Query["email"]))
+                            WriteErrorLine("Duplicate email");
                         else
                         {
                             var cmd = db.CreateQuery();
                             cmd.CommandText =
                                 "UPDATE accounts SET uuid=@newUuid, password=SHA1(@password), email=@email, guest=FALSE WHERE uuid=@uuid;";
-                            cmd.Parameters.AddWithValue("@uuid", query["guid"]);
-                            cmd.Parameters.AddWithValue("@newUuid", query["newGUID"]);
-                            cmd.Parameters.AddWithValue("@password", query["newPassword"]);
-                            cmd.Parameters.AddWithValue("@email", query["email"]);
+                            cmd.Parameters.AddWithValue("@uuid", Query["guid"]);
+                            cmd.Parameters.AddWithValue("@newUuid", Query["newGUID"]);
+                            cmd.Parameters.AddWithValue("@password", Query["newPassword"]);
+                            cmd.Parameters.AddWithValue("@email", Query["email"]);
                             if (cmd.ExecuteNonQuery() > 0)
-                                status = Encoding.UTF8.GetBytes("<Success />");
+                                WriteLine("<Success />");
                             else
-                                status = Encoding.UTF8.GetBytes("<Error>Internal Error</Error>");
+                                WriteErrorLine("Internal Error");
                         }
                     }
                     else
                     {
-                        if (db.HasUuid(query["newGUID"]))
-                        {
-                            status = Encoding.UTF8.GetBytes("<Error>Duplicate username</Error>");
-                        }
-                        else if (db.HasEmail(query["email"]))
-                        {
-                            status = Encoding.UTF8.GetBytes("<Error>Duplicate email</Error>");
-                        }
+                        if (db.HasUuid(Query["newGUID"]))
+                            WriteErrorLine("Duplicate username");
+                        else if (db.HasEmail(Query["email"]))
+                            WriteErrorLine("Duplicate email");
                         else
                         {
-                            if (db.Register(query["newGUID"], query["newPassword"], query["email"], false) != null)
-                                status = Encoding.UTF8.GetBytes("<Success />");
+                            if (db.Register(Query["newGUID"], Query["newPassword"], Query["email"], false) != null)
+                                WriteLine("<Success />");
                             else
-                                status = Encoding.UTF8.GetBytes("<Error>Internal Error</Error>");
+                                WriteErrorLine("Internal Error");
                         }
                     }
                 }
-                context.Response.OutputStream.Write(status, 0, status.Length);
             }
         }
     }
