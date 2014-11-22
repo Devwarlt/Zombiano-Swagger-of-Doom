@@ -33,14 +33,14 @@ package _vf{
             _0H_k[_arg1] = _local2;
             return (_local2);
         }
-        public static function play(name:String, volume:Number=1, isFX:Boolean=true):void{
+        public static function play(name:String, volume:Number=1, isFX:Boolean=true, playAlways:Boolean=false):void{
             var actualVolume:Number;
             var trans:SoundTransform;
             var channel:SoundChannel;
             var sound:Sound = load(name);
             try
             {
-                actualVolume = ((((((Parameters.data_.playSFX) && (isFX))) || (((!(isFX)) && (Parameters.data_.playPewPew))))) ? volume : 0);
+                actualVolume = ((Parameters.data_.playSFX && isFX) || (!isFX && Parameters.data_.playPewPew) || playAlways ? volume : 0);
                 trans = new SoundTransform(actualVolume);
                 channel = sound.play(0, 0, trans);
                 channel.addEventListener(Event.SOUND_COMPLETE, _J_M_, false, 0, true);

@@ -55,7 +55,7 @@ import flash.text.TextFieldAutoSize;
         }
 
         private function slideIn_():void {
-            _5T_.play("alert", 3);
+            _5T_.play("alert", 3, true, true);
             var _local1:GTween = new GTween(this, SLIDESPEED, {
                 "x": 6
             });

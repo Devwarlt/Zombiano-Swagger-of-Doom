@@ -63,7 +63,7 @@ package com.company.assembleegameclient.ui{
 				this.labelText_.x = 4;
                 addChild(this.labelText_);
             }
-            this._08m = new SimpleText(15, 0xFFFFFF, false, 0, 0, _arg6);
+            this._08m = new SimpleText(14, 0xFFFFFF, false, 0, 0, _arg6);
             this._08m.boldText(true);
             this._08m.filters = [new DropShadowFilter(0, 0, 0)];
             this._08m.y = -1;
