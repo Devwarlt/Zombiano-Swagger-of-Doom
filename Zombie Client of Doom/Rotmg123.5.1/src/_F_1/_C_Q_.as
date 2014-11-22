@@ -81,7 +81,7 @@ public class _C_Q_ extends _05p {
 			this.webButton.addEventListener(MouseEvent.CLICK, this.onClick);
 			addChild(this.webButton);
             this.versionText = new SimpleText(12, 0x7F7F7F, false, 0, 0, "Myriad Pro");
-            this.versionText.htmlText = (Parameters.isTesting ? (Parameters._I_O_() ? "Testing " : "") : '<font color="#ff0000">DEVELOPMENT</font> ') + "v" + Parameters.clientVersion;
+            this.versionText.htmlText = (!Parameters.isTesting ? (Parameters._I_O_() ? "Testing " : "") : '<font color="#ff0000">DEVELOPMENT</font> ') + "v" + Parameters.clientVersion;
             this.versionText.updateMetrics();
             this.versionText.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.versionText);
@@ -103,9 +103,9 @@ public class _C_Q_ extends _05p {
             this.accountButton.y = 534;
             this.legendsButon.x = 550;
             this.legendsButon.y = 534;
-            this.editorButton.x = 100;
+            this.editorButton.x = 50;
             this.editorButton.y = 534;
-            this.exitButton.x = 45;
+            this.exitButton.x = 124;
             this.exitButton.y = 534;
 			this.webButton.x = 645;
 			this.webButton.y = 534;

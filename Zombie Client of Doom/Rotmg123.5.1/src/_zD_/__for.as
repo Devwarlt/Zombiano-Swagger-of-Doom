@@ -68,7 +68,7 @@ package _zD_{
         private function _04P_():void{
             var _local1:DialogBox;
             var _local2:_07V_;
-            if (((Parameters.isTesting) && ((this._eJ_._T_1.servers_.length == 0))))
+            if (((!Parameters.isTesting) && ((this._eJ_._T_1.servers_.length == 0))))
             {
                 if (Parameters._I_O_())
                 {

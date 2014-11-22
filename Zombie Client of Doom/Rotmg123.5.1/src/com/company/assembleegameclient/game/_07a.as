@@ -314,7 +314,7 @@ package com.company.assembleegameclient.game{
                         break;
                 }
             }
-            if (!Parameters.isTesting)
+            if (Parameters.isTesting)
             {
                 switch (_arg1.keyCode)
                 {

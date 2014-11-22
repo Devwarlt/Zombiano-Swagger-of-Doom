@@ -250,7 +250,7 @@ package com.company.assembleegameclient.appengine{
             var _local4:Server;
             var _local5:int;
             var _local6:Number;
-            if (!Parameters.isTesting)
+            if (Parameters.isTesting)
             {
                 return (new Server("Ent", "localhost", Parameters.gamePort));
             }

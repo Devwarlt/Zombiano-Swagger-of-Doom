@@ -17,9 +17,10 @@ import flash.errors.IllegalOperationError;
 public class AtmosphereHandler extends Sprite{
 
     public static const SUN:String = "WEATHER_SUN";
-    public static const DAY:String = "DAYTIME_DAY";
     public static const HIGH_CLOUDY:String = "WEATHER_HIGH_CLOUDY";
-    public static const LITE_CLOUDY:String = "WEATHER_LITE_CLOUDY";
+    public static const LIGHT_CLOUDY:String = "WEATHER_LIGHT_CLOUDY";
+
+    public static const DAY:String = "DAYTIME_DAY";
     public static const NIGHT:String = "DAYTIME_NIGHT";
 
     public var CurrentAtmosphereString:String;
@@ -64,7 +65,7 @@ public class AtmosphereHandler extends Sprite{
             var color = getCurrentAtmosphereColor();
             if(color == uint.MAX_VALUE) {
                 var _local1:GTween = new GTween(this, 50, {"alpha": -1.0});
-                _local1._bR_ = endIfAlphachanged;
+                _local1._bR_ = endIfAlphaChanged;
             }
             else {
                 graphics.beginFill(color, 1);
@@ -72,7 +73,7 @@ public class AtmosphereHandler extends Sprite{
                 graphics.endFill();
                 alpha = 0.0;
                 var _local1:GTween = new GTween(this, 50, {"alpha": 1.0});
-                _local1._bR_ = endIfAlphachanged;
+                _local1._bR_ = endIfAlphaChanged;
             }
 
             if(_arg1 >= 48000) {
@@ -89,8 +90,30 @@ public class AtmosphereHandler extends Sprite{
         if(alpha < 0.0) alpha = 0.0;
     }
 
+    public function switchTo(_arg1:String, _arg2:int):void{
+        if(_arg2 < 30000) {
+            CurrentAtmosphereString = OldAtmosphereString = _arg1;
+            var color = getCurrentAtmosphereColor();
+            if(color == uint.MAX_VALUE) {
+                var _local1:GTween = new GTween(this, 50, {"alpha": -1.0});
+                _local1._bR_ = endIfAlphaChanged;
+            }
+            else {
+                graphics.beginFill(color, 1);
+                graphics.drawRect(-300, -325, 600, 600);
+                graphics.endFill();
+                alpha = 0.0;
+                var _local1:GTween = new GTween(this, 50, {"alpha": 1.0});
+                _local1._bR_ = endIfAlphaChanged;
+            }
+        }
+    }
+
     public function getAtmosphereString(_arg1:int):String {
-        if(_arg1 >= 48000) {
+        if(_arg1 >= 40000 && CurrentAtmosphereString == SUN) {
+            return DAY;
+        }
+        else if(_arg1 >= 48000) {
             return NIGHT;
         }
         else {
@@ -98,7 +121,7 @@ public class AtmosphereHandler extends Sprite{
         }
     }
 
-    private function endIfAlphachanged(_arg1:GTween):void {
+    private function endIfAlphaChanged(_arg1:GTween):void {
         if(alpha > 1.0 || alpha < 0.0) {
             _arg1.end();
         }

@@ -66,7 +66,7 @@ package com.company.assembleegameclient.ui{
             this._08m = new SimpleText(14, 0xFFFFFF, false, 0, 0, _arg6);
             this._08m.boldText(true);
             this._08m.filters = [new DropShadowFilter(0, 0, 0)];
-            this._08m.y = -1;
+            this._08m.y = -2;
             this._0M_M_ = new SimpleText(15, this._native, false, 0, 0, _arg6);
             this._0M_M_.boldText(true);
             this._0M_M_.alpha = 0.6;

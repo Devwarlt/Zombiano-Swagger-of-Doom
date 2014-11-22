@@ -20,7 +20,7 @@ import flash.display.DisplayObject;
 
     public class Parameters {
 
-        public static const isTesting:Boolean = true; // Kind of has to be true?
+        public static const isTesting:Boolean = false;
 		public static const sendErrors:Boolean = false;
         public static const clientVersion:String = "1.0.0";
         public static const _wZ_:Boolean = true;
@@ -64,7 +64,7 @@ import flash.display.DisplayObject;
         private static var _C_o:Dictionary = new Dictionary();
 
         public static function _02Q_():String{
-            return (Parameters.isTesting ? "Production" : "Devel") + " Build #" + Parameters.clientVersion + (_I_O_() ? " Testing" : "");
+            return (!Parameters.isTesting ? "Production" : "Devel") + " Build #" + Parameters.clientVersion + (_I_O_() ? " Testing" : "");
         }
         public static function _I_O_():Boolean{
             return true;

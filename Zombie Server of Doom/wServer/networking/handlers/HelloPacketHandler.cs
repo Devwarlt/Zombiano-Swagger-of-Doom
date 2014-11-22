@@ -63,7 +63,8 @@ namespace wServer.networking.handlers
                         ShowDisplays = world.ShowDisplays,
                         Weather = world.Weather,
                         CurrentDateTime = client.Manager.CurrentDatetime,
-                        Music = world.Music,
+                        Music = world.Music.Length != 0 ? world.Music : 
+                        new string[1] { client.Manager.CurrentDatetime >= 48000 ? "night" : "day" },
                         ClientXML = client.Manager.GameData.AdditionXml,
                         ExtraXML = world.ExtraXML
                     });
