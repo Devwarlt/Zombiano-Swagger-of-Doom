@@ -16,6 +16,7 @@ import Panels._sc;
     
     import com.company.assembleegameclient.map._X_l;
     import com.company.assembleegameclient.objects.Container;
+import com.company.assembleegameclient.objects.CraftingRecipeBook;
 import com.company.assembleegameclient.objects.CraftingTerminal;
 import com.company.assembleegameclient.objects.GameObject;
     import com.company.assembleegameclient.objects.ObjectLibrary;
@@ -100,6 +101,10 @@ import com.company.assembleegameclient.objects.GameObject;
             _5T_.play("error");
         }
         private function _08D_(_arg1:_E_6):void{
+            if(_arg1._e9.gameObject_ is CraftingRecipeBook || this._03f._e9.gameObject_ is CraftingRecipeBook) {
+                this._0K_9();
+                return;
+            }
             if ((((_arg1 == null)) || (!(_arg1._t8(this._0M_X_)))))
             {
                 this._0K_9();

@@ -55,7 +55,6 @@ package com.company.assembleegameclient.objects{
         public function Merchant(_arg1:XML){
             this._4p = new ColorTransform(1, 1, 1, 1);
             super(_arg1);
-            _064 = true;
         }
         override public function setPrice(_arg1:int):void{
             super.setPrice(_arg1);

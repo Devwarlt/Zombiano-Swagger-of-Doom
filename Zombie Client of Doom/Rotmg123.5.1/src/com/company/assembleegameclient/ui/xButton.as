@@ -9,7 +9,7 @@ import com.embeds.EmbeddedAssets_btnEmbed_;
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 
-public class Button extends Sprite {
+public class xButton extends Sprite {
 
     public static var buttonSprite:Class = EmbeddedAssets_btnEmbed_;
 

@@ -4,7 +4,9 @@
 //Panels._Q_V_
 
 package Panels{
-    import flash.display.Sprite;
+import com.company.assembleegameclient.objects.Container;
+
+import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.objects.IPanelProvider;
@@ -58,7 +60,7 @@ package Panels{
             var _local2:IPanelProvider;
             for each (_local3 in this.gs_.map_.goDict_)
             {
-                if (_local3._064)
+                if((_local3 is IPanelProvider && !(_local3 is Container)) || _local3.providesPanel_)
                 {
                     _local4 = (_local3 as IPanelProvider);
                     if (_local4 == null)

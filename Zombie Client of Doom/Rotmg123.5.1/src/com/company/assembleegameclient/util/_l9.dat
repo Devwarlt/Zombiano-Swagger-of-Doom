@@ -12,7 +12,7 @@
 		
 	</Object>
 
-	<Object type="0x0e27" id="Snakepit Button">
+	<Object type="0x0e27" id="Snakepit xButton">
 		<Class>Character</Class>
 		<Enemy/>
 		<NoMiniMap/>

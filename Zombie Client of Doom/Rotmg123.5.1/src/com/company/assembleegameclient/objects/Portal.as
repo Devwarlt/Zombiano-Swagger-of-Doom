@@ -19,7 +19,6 @@ package com.company.assembleegameclient.objects{
 
         public function Portal(_arg1:XML){
             super(_arg1);
-            _064 = true;
             this._0J_A_ = _arg1.hasOwnProperty("NexusPortal");
             this._xq = _arg1.hasOwnProperty("LockedPortal");
         }

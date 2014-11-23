@@ -153,13 +153,13 @@ package com.company.assembleegameclient.ui{
 		}
 		private function _Q_C_(_arg1:MouseEvent):void{
 			this.gs_.packetManager._M_6();
-			GA.global().trackEvent("enterPortal", "Nexus Button");
+			GA.global().trackEvent("enterPortal", "Nexus xButton");
 			Parameters.data_.needsRandomRealm = false;
 			Parameters.save();
 		}
 		private function _nD_(_arg1:MouseEvent):void{
 			this.gs_.mui_.clearInput();
-			GA.global().trackEvent("options", "Options Button");
+			GA.global().trackEvent("options", "Options xButton");
 			this.gs_.addChild(new Options(this.gs_));
 		}
 		private function onTabClick(me:MouseEvent):void{

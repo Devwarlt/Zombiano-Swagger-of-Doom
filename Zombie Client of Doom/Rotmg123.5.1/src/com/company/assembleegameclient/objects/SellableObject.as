@@ -19,7 +19,6 @@ package com.company.assembleegameclient.objects{
 
         public function SellableObject(_arg1:XML){
             super(_arg1);
-            _064 = true;
         }
         public function setPrice(_arg1:int):void{
             this.price_ = _arg1;

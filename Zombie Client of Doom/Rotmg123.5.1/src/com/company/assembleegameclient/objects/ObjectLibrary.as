@@ -4,7 +4,7 @@
 //com.company.assembleegameclient.objects.ObjectLibrary
 
 package com.company.assembleegameclient.objects{
-import com.company.assembleegameclient.ui.Button;
+import com.company.assembleegameclient.ui.xButton;
 
 import flash.utils.Dictionary;
 
@@ -30,6 +30,7 @@ import flash.utils.Dictionary;
 		GuildBoard;
 		ClosedVaultChest;
         CraftingTerminal;
+        CraftingRecipeBook;
 		
         public static const _020:Dictionary = new Dictionary();
         public static const Items:Dictionary = new Dictionary();
@@ -302,8 +303,8 @@ import flash.utils.Dictionary;
             return (false);
         }
 
-        public static function createButton(_arg1:int):Button {
-            var _local2:Button = new Button();
+        public static function createButton(_arg1:int):xButton {
+            var _local2:xButton = new xButton();
             _local2.y = 4;
             _local2.x = ((_arg1 - _local2.width) - 5);
             return (_local2);

@@ -14,7 +14,6 @@ package com.company.assembleegameclient.objects{
 
         public function NameChanger(_arg1:XML){
             super(_arg1);
-            _064 = true;
         }
         public function _Y__(_arg1:int):void{
             this._0I_a = _arg1;

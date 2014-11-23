@@ -25,7 +25,6 @@ public class CraftingTerminal extends GameObject implements IPanelProvider {
 
     public function CraftingTerminal(param1:XML) {
         super(param1);
-        _064 = true;
         recipes = new Vector.<String>();
         new CraftingRequest();
     }

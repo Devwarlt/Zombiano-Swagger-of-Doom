@@ -13,7 +13,7 @@ import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.util.ModalBackground;
 
-import com.company.assembleegameclient.ui.Button;
+import com.company.assembleegameclient.ui.xButton;
 import com.company.ui.SimpleText;
 
 import flash.display.Sprite;
@@ -29,7 +29,7 @@ import flash.text.TextFieldAutoSize;
         private static const KEEPOPENTIME:int = 8; //Higher value means longer open
         public static var isClosed:Boolean = true;
 
-        private const closeButton:Button = ObjectLibrary.createButton(NotificationBox.WIDTH);
+        private const closeButton:xButton = ObjectLibrary.createButton(NotificationBox.WIDTH);
 
         public var event:_aJ_;
         public var open:Boolean;
@@ -55,7 +55,7 @@ import flash.text.TextFieldAutoSize;
         }
 
         private function slideIn_():void {
-            _5T_.play("alert", 3, true, true);
+            _5T_.play("alert", 1, true, true);
             var _local1:GTween = new GTween(this, SLIDESPEED, {
                 "x": 6
             });

@@ -88,7 +88,6 @@ package com.company.assembleegameclient.objects{
         public var _9B_:uint = 0;
         protected var tex1Id_:int = 0;
         protected var tex2Id_:int = 0;
-        public var _064:Boolean = false;
         public var objectType_:int;
         private var _og:uint = 1;
         private var _dE_:Number = 1;
@@ -96,6 +95,7 @@ package com.company.assembleegameclient.objects{
         public var _07u:BitmapData = null;
         public var _B_t:_T_f = null;
         public var _O_l:int = -1;
+        public var providesPanel_:Boolean = false;
         protected var _S_9:int = 0;
         protected var _ad:int = -1;
         protected var _Z_M_:Point;

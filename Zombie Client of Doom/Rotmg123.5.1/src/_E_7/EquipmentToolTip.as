@@ -163,6 +163,10 @@ package _E_7{
 				if (this._I_z.hasOwnProperty("Tier")){
 					this._V_0.text = ("T" + this._I_z.Tier);
 				}
+				else if(this._I_z.hasOwnProperty("Recipe")){
+					this._V_0._gp(0x0000FF);
+					this._V_0.text = "CR";
+				}
 				else if(this._I_z.hasOwnProperty("Material")){
 					this._V_0._gp(0xF2FF00);
 					this._V_0.text = "CM";
@@ -216,10 +220,12 @@ package _E_7{
             }
         }
 		private function _U_I_():void{
-			if (((this._I_z.hasOwnProperty("NumProjectiles")) && (!((this._gE_._5n.hasOwnProperty(this._I_z.NumProjectiles.toXMLString()) == true)))))
-			{
+			if (((this._I_z.hasOwnProperty("NumProjectiles")) && (!((this._gE_._5n.hasOwnProperty(this._I_z.NumProjectiles.toXMLString()) == true))))) {
 				this._a2.push(new Effect("Shots", this._I_z.NumProjectiles));
             }
+			if(this._I_z.hasOwnProperty("Recipe")) {
+				this._a2.push(new Effect("Crafting item", this._I_z.Recipe));
+			}
         }
 		private function _ff():void{
 			var _local1:int;

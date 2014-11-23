@@ -20,7 +20,7 @@ public class Inventory extends Sprite {
 
     private static const _pm:Array = [0, 0, 0, 0];
     private static const _ls:Object = {
-        "1":[[1, 1, 0, 0]],
+        "1":[[1, 1, 1, 1]],
         "2":[[1, 0, 0, 1], [0, 0, 0, 0]],
         "3":[[1, 0, 0, 1], _pm, [0, 1, 1, 0]],
         "4":[[1, 0, 0, 1], _pm, _pm, [0, 1, 1, 0]],

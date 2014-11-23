@@ -296,6 +296,7 @@ namespace wServer.realm
 
                 case "CraftingTerminal":
                 case "Forge":
+                case "CraftingRecipeBook":
                     return new StaticObject(manager, id, null, true, false, true);
 
                 case "GuildHallPortal":

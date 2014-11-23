@@ -20,13 +20,12 @@ import com.company.util.PointUtil;
 
         public function Container(_arg1:XML){
             super(_arg1);
-            _064 = true;
             this._G_B_ = _arg1.hasOwnProperty("Loot");
             this.ownerId_ = -1;
         }
         public function _75(_arg1:int):void{
             this.ownerId_ = _arg1;
-            _064 = (((this.ownerId_ < 0)) || (this._X_w()));
+            this.providesPanel_ = this.ownerId_ < 0 || this._X_w();
         }
         public function _X_w():Boolean{
             return ((map_.player_.accountId_ == this.ownerId_));
