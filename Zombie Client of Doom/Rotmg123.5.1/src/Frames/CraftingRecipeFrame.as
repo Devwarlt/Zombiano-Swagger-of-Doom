@@ -11,12 +11,14 @@ import com.company.assembleegameclient.ui.Slot;
 import com.company.assembleegameclient.ui.boxButton;
 import com.company.assembleegameclient.ui.xButton;
 import com.company.ui.SimpleText;
+import com.company.util._H_V_;
 
 import flash.display.DisplayObject;
 import flash.display.Shape;
 
 import flash.display.Sprite;
 import flash.events.Event;
+import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
 import flash.filters.GlowFilter;
@@ -195,6 +197,20 @@ public class CraftingRecipeFrame extends Sprite {
 
     public function onAddedToStage(param1:Event):void {
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown)
+    }
+
+    public function onKeyDown(param1:KeyboardEvent):void{
+        if(param1.keyCode == _H_V_.RIGHT) {
+            if(this.nextButton.mouseEnabled) {
+                this.onNextClicked(new MouseEvent(MouseEvent.CLICK));
+            }
+        }
+        if(param1.keyCode == _H_V_.LEFT) {
+            if(this.prevButton.mouseEnabled) {
+                this.onPrevClicked(new MouseEvent(MouseEvent.CLICK));
+            }
+        }
     }
 
     public function onEnterFrame(param1:Event):void {

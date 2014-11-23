@@ -173,6 +173,7 @@ import flash.display.DisplayObject;
             _iw("playMusic", true);
             _iw("playSFX", true);
             _iw("playPewPew", true);
+            _iw("playNotifySound", true);
             _iw("centerOnPlayer", true);
             _iw("preferredServer", null);
             _iw("needsTutorial", true);

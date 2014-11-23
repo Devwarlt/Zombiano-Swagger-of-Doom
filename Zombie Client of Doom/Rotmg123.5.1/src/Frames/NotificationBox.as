@@ -11,6 +11,7 @@ import _vf._5T_;
 import com.company.assembleegameclient.game.GameSprite;
 
 import com.company.assembleegameclient.objects.ObjectLibrary;
+import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.util.ModalBackground;
 
 import com.company.assembleegameclient.ui.xButton;
@@ -55,7 +56,9 @@ import flash.text.TextFieldAutoSize;
         }
 
         private function slideIn_():void {
-            _5T_.play("alert", 1, true, true);
+            if(Parameters.data_.playNotifySound) {
+                _5T_.play("alert", 1, true, true);
+            }
             var _local1:GTween = new GTween(this, SLIDESPEED, {
                 "x": 6
             });

@@ -313,6 +313,8 @@ public class Options extends Sprite {
         this._yZ_(new _0I_j("playSFX", new <String>["On", "Off"], [true, false], "Play Sound Effects", "This toggles whether sound effects are played", this._super));
         this._yZ_(new Sprite());
         this._yZ_(new _0I_j("playPewPew", new <String>["On", "Off"], [true, false], "Play Weapon Sounds", "This toggles whether weapon sounds are played", null));
+        this._yZ_(new Sprite());
+        this._yZ_(new _0I_j("playNotifySound", new <String>["On", "Off"], [true, false], "Play Notification Box Sound", "This toggles whether the notification box alert sound is played", null));
     }
     private function _05z():void{
         _gs._continue(Parameters.data_.playMusic);
