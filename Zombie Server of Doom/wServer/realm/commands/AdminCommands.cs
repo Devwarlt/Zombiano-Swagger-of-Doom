@@ -49,10 +49,19 @@ namespace wServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string args)
         {
-            player.Client.SendPacket(new NotificationBoxPacket
+            System.Drawing.Bitmap map = new System.Drawing.Bitmap("D:\\lolz.png");
+            //System.Drawing.Image image = System.Drawing.Image.FromFile("D:\\lolz.jpg");
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            map.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+
+            player.Client.SendPacket(new PicPacket
             {
-                Head = "You are hungry",
-                Text = "Eat something before\nyou die!"
+                Bitmap = new BitmapData
+                {
+                    Width = map.Width,
+                    Height = map.Height,
+                    Bytes = ms.ToArray()
+                }
             });
             return true;
         }
@@ -192,8 +201,9 @@ namespace wServer.realm.commands
 
             player.Client.SendPacket(new WeatherPropertiesPacket
             {
-                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
-                _weather = Weather.Snowy,
+                _type = WeatherPropertiesPacket.NONE,
+                _currentTime = player.Manager.CurrentDatetime,
+                _atmosphere = "WEATHER_HIGH_CLOUDY"
             });
 
             return true;

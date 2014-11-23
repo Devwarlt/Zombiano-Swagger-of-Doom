@@ -70,8 +70,8 @@ package com.company.assembleegameclient.util{
                 _arg1 = retexture(_arg1, _arg2, _arg5, _arg6);
                 _arg3 = (_arg3 / 5);
             }
-            var _local8:int = ((_arg7 * (_arg3 / 100)) * _arg1.width);
-            var _local9:int = ((_arg7 * (_arg3 / 100)) * _arg1.height);
+            var _local8:Number = ((_arg7 * (_arg3 / 100)) * _arg1.width);
+            var _local9:Number = ((_arg7 * (_arg3 / 100)) * _arg1.height);
             var _local10:Matrix = new Matrix();
             _local10.scale((_local8 / _arg1.width), (_local9 / _arg1.height));
             _local10.translate(12, 12);

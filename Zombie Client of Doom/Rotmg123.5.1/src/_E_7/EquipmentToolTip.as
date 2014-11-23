@@ -29,7 +29,7 @@ package _E_7{
 		
 		private static const _be:int = 230;
 		private static const _K_z:String = ".in { margin-left:10px; text-indent: -10px; }";
-		private static const fontName:String = "CHIP SB";
+		private static const fontName:String = "Myriad Pro";
 		private static const fontSize:int = 16;
 		
 		private var _5U_:Bitmap;
@@ -158,13 +158,20 @@ package _E_7{
 			this._V_0.x = (_be - 30);
 			this.rank_.y = ((this._5U_.height / 2) - (this._P_V_._I_x / 2) + this._V_0.y);
 			this.rank_.x = (_be - 30);
-			if (this._I_z.hasOwnProperty("Consumable") == false && this._I_z.hasOwnProperty("Material") == false && this._tO_() == false)
+			if (!this._I_z.hasOwnProperty("Consumable") && !this._tO_())
 			{
-				if (this._I_z.hasOwnProperty("Tier"))
-				{
+				if (this._I_z.hasOwnProperty("Tier")){
 					this._V_0.text = ("T" + this._I_z.Tier);
-				} else
-				{
+				}
+				else if(this._I_z.hasOwnProperty("Material")){
+					this._V_0._gp(0xF2FF00);
+					this._V_0.text = "CM";
+				}
+				else if(this._I_z.hasOwnProperty("CraftingItem")){
+					this._V_0._gp(0x00FF04);
+					this._V_0.text = "OC";
+				}
+				else{
 					this._V_0._gp(9055202);
 					this._V_0.text = "UT";
                 }
@@ -427,14 +434,15 @@ package _E_7{
             return (textColor);
         }
 		private function _B_3():void{
-			this._Q_O_.push(new Restriction("Must be equipped to use", 0xB3B3B3, false));
-			if (((this._bs) || ((this._J_9 == _U_c.CURRENT_PLAYER))))
-			{
-				this._Q_O_.push(new Restriction("Double-Click to equip", 0xB3B3B3, false));
-			} else
-			{
-				this._Q_O_.push(new Restriction("Double-Click to take", 0xB3B3B3, false));
-            }
+			if(!this._I_z.hasOwnProperty("Material")) {
+				this._Q_O_.push(new Restriction("Must be equipped to use", 0xB3B3B3, false));
+
+				if (((this._bs) || ((this._J_9 == _U_c.CURRENT_PLAYER)))) {
+					this._Q_O_.push(new Restriction("Double-Click to equip", 0xB3B3B3, false));
+				} else {
+					this._Q_O_.push(new Restriction("Double-Click to take", 0xB3B3B3, false));
+				}
+			}
         }
 		private function _V_X_():void{
 			this._Q_O_.push(new Restriction((("Press [" + _H_V_._in[Parameters.data_.useSpecial]) + "] in world to use"), 0xFFFFFF, false));
@@ -465,7 +473,7 @@ package _E_7{
             }
             if (this._I_z.hasOwnProperty("Material") && !(this._sJ_ == ObjectLibrary._pb["Item Forge"]))
 			{
-				this._Q_O_.push(new Restriction("Crafting Material, \n  Type /chelp for more information.", 16549442, true));
+				this._Q_O_.push(new Restriction("Crafting Material,\n   Look at your crafting book in your safe for more information.", 16549442, true));
             }
             if (this._I_z.hasOwnProperty("Soulbound"))
 			{

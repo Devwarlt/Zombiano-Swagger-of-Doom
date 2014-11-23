@@ -792,6 +792,10 @@ import flash.events.TimerEvent;
                         gs_.map_.weatherBackground_.changeWind(_arg1._windSpeed[0], _arg1._windSpeed[1]);
                     break;
             }
+
+            if(_arg1._atmosphere != "") {
+                gs_.map_.atmosphere_.switchTo(_arg1._atmosphere, _arg1._currentTime);
+            }
         }
 
         private function teleportRequested(_arg1:TeleportRequest):void{

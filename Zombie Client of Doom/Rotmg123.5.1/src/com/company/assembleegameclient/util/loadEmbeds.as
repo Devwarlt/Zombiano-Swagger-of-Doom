@@ -63,6 +63,8 @@ package com.company.assembleegameclient.util{
         AssetLibrary._05q("outer_mask", new Embeds.outerMaskEmbed_().bitmapData, 4, 4);
         AssetLibrary._05q("innerP1_mask", new Embeds.innerP1MaskEmbed_().bitmapData, 4, 4);
         AssetLibrary._05q("innerP2_mask", new Embeds.innerP2MaskEmbed_().bitmapData, 4, 4);
+        AssetLibrary._05q("weapons40x40", new Embeds.weaponsEmbed40x40_().bitmapData, 40, 40);
+        AssetLibrary._05q("craftingBook", new Embeds.craftingBookEmbed_().bitmapData, 40, 40);
         var _local1:BitmapData = new BitmapData(8, 8, true, 0);
         AssetLibrary._05q("invisible", _local1, 8, 8);
         _0B_c.add("chars8x8rBeach", new Embeds.chars8x8rBeachEmbed_().bitmapData, null, 8, 8, 56, 8, _lJ_.RIGHT);
@@ -228,6 +230,11 @@ class Embeds {
     public static var outerMaskEmbed_:Class = _9V_;
     public static var innerP1MaskEmbed_:Class = Embeds_innerP1MaskEmbed_;
     public static var innerP2MaskEmbed_:Class = Embeds_innerP2MaskEmbed_;
+
+    public static var weaponsEmbed40x40_:Class = weapons_embed_40x40;
+    public static var craftingBookEmbed_:Class = craftingBookEmbed;
+
+
     /*private*/ internal static var monsterTank1Embed_:Class = Embeds_monsterTank1Embed_;
     /*private*/ internal static var monsterTank2Embed_:Class = Embeds_monsterTank2Embed_;
     /*private*/ internal static var monsterTank3Embed_:Class = Embeds_monsterTank3Embed_;

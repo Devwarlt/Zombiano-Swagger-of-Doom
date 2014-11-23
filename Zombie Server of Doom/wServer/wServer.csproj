@@ -187,6 +187,7 @@
     <Compile Include="networking\handlers\HelloPacketHandler.cs" />
     <Compile Include="networking\IPacketHandler.cs" />
     <Compile Include="networking\svrPackets\NotificationBoxPacket.cs" />
+    <Compile Include="networking\svrPackets\PicPacket.cs" />
     <Compile Include="networking\svrPackets\RequestTeleportPacket.cs" />
     <Compile Include="networking\svrPackets\SwitchMusicPacket.cs" />
     <Compile Include="networking\svrPackets\WeatherPropertiesPacket.cs" />

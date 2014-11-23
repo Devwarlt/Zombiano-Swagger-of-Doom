@@ -2,7 +2,7 @@ package
 {
 	import mx.core.BitmapAsset;
 	
-	[Embed(source="titleFPC.png")]
+	[Embed(source="Zombie Swagger OF DOOM.png")]
 	public class TitleScreenImage extends BitmapAsset
 	{
 		public function TitleScreenImage()

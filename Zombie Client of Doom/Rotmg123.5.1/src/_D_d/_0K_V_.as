@@ -4,13 +4,24 @@
 //_D_d._0K_V_
 
 package _D_d{
-    import _F_1._05p;
+import _060._0F_z;
+
+import _F_1._05p;
     import _4K_.Stats;
     import _0D_n._throw;
     import _0D_n._P_I_;
     import _060._03X_;
-    import _zm._01c;
-    import flash.net.FileReference;
+
+import _F_1._H_o;
+
+import _S_K_._u3;
+
+import _sp._aJ_;
+
+import _zm._01c;
+
+import flash.events.MouseEvent;
+import flash.net.FileReference;
     import _060._rp;
     import flash.events.Event;
     import com.company.util.IntPoint;
@@ -33,6 +44,8 @@ package _D_d{
         public static const _086:Stats = new Stats();
         private static const _N_G_:_throw = _P_I_._dJ_();
 
+        public var close:_aJ_;
+        public var backButton:_H_o;
         public var _kg:_H_4;
         private var _G_T_:_03X_;
         public var _09l:_N_g;
@@ -63,6 +76,13 @@ package _D_d{
             this._09l.x = ((800 / 2) - (_N_g._0K_6 / 2));
             this._09l.y = _r0;
             addChild(this._09l);
+
+            backButton = new _H_o("Back", 22, false);
+            backButton.x = 800 - backButton.width - 4;//((this._09l.x + _N_g._0K_6) + 4);
+            backButton.y = 4;
+            close = new _u3(backButton, MouseEvent.CLICK);
+            addChild(backButton);
+
             this._mL_ = new _wY_(this._09l);
             this._mL_.x = 4;
             this._mL_.y = ((600 - _wY_.HEIGHT) - 10);
@@ -83,6 +103,9 @@ package _D_d{
             this._2u = new _4g();
             this._2u.x = this._mu.x;
             this._2u.y = ((this._mu.y + this._mu.height) + 4);
+        }
+        private function back(_arg1:_0F_z):void{
+
         }
         private function _0M_0(_arg1:_xQ_):void{
             var _local2:IntPoint;

@@ -13,25 +13,25 @@ package Panels{
 
     public class SimpleButtonPanel extends Panel {
 
-        private var _P_V_:SimpleText;
-        protected var _ek:boxButton;
+        protected var text:SimpleText;
+        protected var button:boxButton;
 
         public function SimpleButtonPanel(_arg1:GameSprite, _arg2:String, _arg3:String){
             super(_arg1);
-            this._P_V_ = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
-            this._P_V_.boldText(true);
-            this._P_V_.htmlText = (('<p align="center">' + _arg2) + "</p>");
-            this._P_V_.wordWrap = true;
-            this._P_V_.multiline = true;
-            this._P_V_.autoSize = TextFieldAutoSize.CENTER;
-            this._P_V_.filters = [new DropShadowFilter(0, 0, 0)];
-            this._P_V_.y = 6;
-            addChild(this._P_V_);
-            this._ek = new boxButton(16, _arg3);
-            this._ek.addEventListener(MouseEvent.CLICK, this.onButtonClick);
-            this._ek.x = ((WIDTH / 2) - (this._ek.width / 2));
-            this._ek.y = ((HEIGHT - this._ek.height) - 4);
-            addChild(this._ek);
+            this.text = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
+            this.text.boldText(true);
+            this.text.htmlText = (('<p align="center">' + _arg2) + "</p>");
+            this.text.wordWrap = true;
+            this.text.multiline = true;
+            this.text.autoSize = TextFieldAutoSize.CENTER;
+            this.text.filters = [new DropShadowFilter(0, 0, 0)];
+            this.text.y = 6;
+            addChild(this.text);
+            this.button = new boxButton(16, _arg3);
+            this.button.addEventListener(MouseEvent.CLICK, this.onButtonClick);
+            this.button.x = ((WIDTH / 2) - (this.button.width / 2));
+            this.button.y = ((HEIGHT - this.button.height) - 4);
+            addChild(this.button);
         }
         protected function onButtonClick(_arg1:MouseEvent):void{
         }

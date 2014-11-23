@@ -7,6 +7,7 @@ import _05R_.GTween;
 import _vf._gs;
 
 import com.company.assembleegameclient.game.GameSprite;
+import com.company.assembleegameclient.parameters.Parameters;
 
 import flash.display.BlendMode;
 
@@ -88,10 +89,12 @@ public class AtmosphereHandler extends Sprite{
     public function update():void {
         if(alpha > 1.0) alpha = 1.0;
         if(alpha < 0.0) alpha = 0.0;
+
+        this.y = Parameters.data_.centerOnPlayer ? 0 : -125;
     }
 
     public function switchTo(_arg1:String, _arg2:int):void{
-        if(_arg2 < 30000) {
+        if(_arg2 < 30000 && CurrentAtmosphereString != _arg1) {
             CurrentAtmosphereString = OldAtmosphereString = _arg1;
             var color = getCurrentAtmosphereColor();
             if(color == uint.MAX_VALUE) {

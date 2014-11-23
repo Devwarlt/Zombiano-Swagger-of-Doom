@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.objects.Container
 
 package com.company.assembleegameclient.objects{
-    import com.company.util.PointUtil;
+import Panels.OpenChestPanel;
+
+import com.company.util.PointUtil;
     import _vf._5T_;
     import com.company.assembleegameclient.map._X_l;
     import Panels._sc;
@@ -46,7 +48,12 @@ package com.company.assembleegameclient.objects{
             return (true);
         }
         public function GetPanel(_arg1:GameSprite):Panel{
-            return (new _sc(_arg1, this));
+            if(this._G_B_) {
+                return (new _sc(_arg1, this));
+            }
+            else {
+                return (new OpenChestPanel(_arg1, this));
+            }
         }
 
     }
