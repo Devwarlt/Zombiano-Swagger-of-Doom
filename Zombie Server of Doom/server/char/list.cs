@@ -66,6 +66,8 @@ namespace server.@char
                 XmlSerializer serializer = new XmlSerializer(chrs.GetType(), new XmlRootAttribute(chrs.GetType().Name) { Namespace = "" });
 
                 XmlWriterSettings xws = new XmlWriterSettings();
+                xws.Indent = true;
+                xws.IndentChars = "    ";
                 xws.OmitXmlDeclaration = true;
                 xws.Encoding = Encoding.UTF8;
                 XmlWriter xtw = XmlWriter.Create(Context.Response.OutputStream, xws);

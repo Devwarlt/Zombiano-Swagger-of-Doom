@@ -27,6 +27,8 @@ namespace server.account
                     XmlSerializer serializer = new XmlSerializer(acc.GetType(), new XmlRootAttribute(acc.GetType().Name) { Namespace = "" });
 
                     XmlWriterSettings xws = new XmlWriterSettings();
+                    xws.Indent = true;
+                    xws.IndentChars = "    ";
                     xws.OmitXmlDeclaration = true;
                     xws.Encoding = Encoding.UTF8;
                     XmlWriter xtw = XmlWriter.Create(Context.Response.OutputStream, xws);
