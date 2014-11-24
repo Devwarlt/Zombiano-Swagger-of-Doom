@@ -32,7 +32,7 @@ namespace wServer.networking.handlers
 
             if (currChar >= maxChar)
             {
-                SendFailure(client, "Not enough character slots.");
+                SendFailure("Not enough character slots.");
                 client.Disconnect();
                 return;
             }
@@ -79,7 +79,7 @@ namespace wServer.networking.handlers
             }
             else
             {
-                SendFailure(client, "Failed to create character.");
+                SendFailure("Failed to create character.");
                 client.Disconnect();
             }
         }

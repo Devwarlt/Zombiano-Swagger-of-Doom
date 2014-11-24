@@ -17,14 +17,22 @@ namespace wServer.networking
 
         public abstract PacketID ID { get; }
 
+        protected Client Client { get; private set; }
+
         public void Handle(Client client, ClientPacket packet)
         {
+            this.Client = client;
             HandlePacket(client, (T)packet);
         }
 
-        protected void SendFailure(Client cli, string text, int errorId = 0)
+        protected void SendFailure(string text, int errorId = 0)
         {
-            cli.SendPacket(new svrPackets.FailurePacket() { Message = text, ErrorId = errorId });
+            Client.SendPacket(new svrPackets.FailurePacket() { Message = text, ErrorId = errorId });
+        }
+
+        protected void SendPacket(Packet pkt)
+        {
+            Client.SendPacket(pkt);
         }
     }
 

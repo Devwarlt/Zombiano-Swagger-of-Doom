@@ -153,6 +153,9 @@ public class CraftingFrame extends Frame
         }
 
         public function craft(param1:Event):void {
+            if(param1 != null && param1.currentTarget is DialogBox) {
+                this.parent.removeChild(param1.currentTarget as DialogBox);
+            }
             this.gs_.packetManager.craftItems(this.obj_.objectId_, getCraftingString());
         }
 

@@ -129,20 +129,44 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  
-    
-    
-      
-      
 
-  <Object id="Crafting Book" ext="true">
+  <Object id="SCARH Crafting Book" ext="true">
+    <DisplayId>Crafting Book</DisplayId>
     <Class>Equipment</Class>
     <Texture>
       <File>craftingBook</File>
       <Index>0x0</Index>
     </Texture>
     <Description>A magical wooden staff topped with a white crystal.</Description>
-    <Recipe id="1">M16A3</Recipe>
+    <Recipe id="3">SCAR-H</Recipe>
+    <ScaleValue>1</ScaleValue>
+    <SlotType>10</SlotType>
+    <BagType>0</BagType>
+  </Object>
+  
+  <Object id="MTar21 Crafting Book" ext="true">
+    <DisplayId>Crafting Book</DisplayId>
+    <Class>Equipment</Class>
+    <Texture>
+      <File>craftingBook</File>
+      <Index>0x0</Index>
+    </Texture>
+    <Description>A magical wooden staff topped with a white crystal.</Description>
+    <Recipe id="2">MTAR-21</Recipe>
+    <ScaleValue>1</ScaleValue>
+    <SlotType>10</SlotType>
+    <BagType>0</BagType>
+  </Object>
+
+  <Object id="M16A3 Crafting book" ext="true">
+    <DisplayId>Crafting Book</DisplayId>
+    <Class>Equipment</Class>
+    <Texture>
+      <File>craftingBook</File>
+      <Index>0x0</Index>
+    </Texture>
+    <Description>A magical wooden staff topped with a white crystal.</Description>
+    <Recipe id="7">M16A3</Recipe>
     <ScaleValue>1</ScaleValue>
     <SlotType>10</SlotType>
     <BagType>0</BagType>

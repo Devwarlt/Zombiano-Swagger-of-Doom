@@ -16,15 +16,30 @@ namespace server.crafting
         {
             using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                string recipes = String.Empty;
-                var cmd = db.CreateQuery();
-                cmd.CommandText = "Select * FROM craftingrecipes";
-                using (var rdr = cmd.ExecuteReader())
-                    while (rdr.Read())
-                        recipes += rdr.GetString("row1") + "," + rdr.GetString("row2") + "," + rdr.GetString("row3") + ";" + rdr.GetString("result") + "\n";
+                Account acc = db.Verify(Query["guid"], Query["password"]);
 
-                using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
-                    wtr.Write(recipes.Remove(recipes.LastIndexOf('\n')));
+                if (acc != null)
+                {
+                    string recipes = String.Empty;
+                    foreach (var i in acc.CraftingRecipes)
+                    {
+                        var cmd = db.CreateQuery();
+                        cmd.CommandText = "Select * FROM craftingrecipes WHERE id=@id;";
+                        cmd.Parameters.AddWithValue("@id", i);
+
+                        using (var rdr = cmd.ExecuteReader())
+                        {
+                            if (!rdr.HasRows) continue;
+                            rdr.Read();
+                            recipes += rdr.GetString("row1") + "," + rdr.GetString("row2") + "," + rdr.GetString("row3") + ";" + rdr.GetString("result") + "\n";
+                        }
+                    }
+
+                    using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
+                        wtr.Write(recipes.Remove(recipes.LastIndexOf('\n')));
+                }
+                else
+                    WriteErrorLine("Account credentials not valid");
             }
         }
     }

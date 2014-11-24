@@ -14,9 +14,14 @@ import flash.events.Event;
 
 public class CraftingRequest extends WebRequest{
 
+    private static var lockRequest:Boolean;
+
     public function CraftingRequest() {
-        super(Parameters._fK_(), "/crafting", true);
-        init();
+        if(!lockRequest) {
+            lockRequest = true;
+            super(Parameters._fK_(), "/crafting", true);
+            init();
+        }
     }
 
     private function init():void{
@@ -27,10 +32,12 @@ public class CraftingRequest extends WebRequest{
 
     public function dataReceived(_arg1:_8C_) {
         CraftingTerminal.recipes = Vector.<String>(_arg1.data_.toString().split("\n"));
+        lockRequest = false;
     }
 
     public function errorReceived(_arg1:String) {
         dispatchEvent(new Event(Event.COMPLETE));
+        lockRequest = false;
     }
 }
 }

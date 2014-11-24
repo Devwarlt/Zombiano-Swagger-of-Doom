@@ -16,6 +16,8 @@ import flash.filters.GlowFilter;
 
 public class LearnCraftingRecipeFrame extends Frame {
 
+    public static var thisCraftingRecipeFrame:LearnCraftingRecipeFrame;
+
     private var _slot1:Inventory;
     private var _gs:GameSprite;
     private var _obj:GameObject;
@@ -32,6 +34,8 @@ public class LearnCraftingRecipeFrame extends Frame {
         super("Learn Recipe", "Learn", "Cancel", "/learnCraftingRecipe", 200);
         this._gs = _arg1;
         this._obj = _arg2;
+
+        thisCraftingRecipeFrame = this;
 
         this._0E_n(100);
 
@@ -70,15 +74,17 @@ public class LearnCraftingRecipeFrame extends Frame {
         this._slot1.draw(new <int>[this.currentItem_]);
     }
 
-    private function onClose(param1:MouseEvent):void{
+    public function onClose(param1:MouseEvent):void{
         if(this._playerInvSprite != null){
             stage.removeChild(this._playerInvSprite);
         }
+        thisCraftingRecipeFrame = null;
         dispatchEvent(new Event(Event.COMPLETE));
         cleanup();
     }
 
     private function learnRecipe(param1:MouseEvent):void{
+        this._gs.packetManager.learnCraftingRecipe(this.currentItem_, this.slotId_, int(ObjectLibrary.Items[this.currentItem_].Recipe.attribute("id")));
     }
 
     private function onSlotClicked(param1:MouseEvent):void{
@@ -90,27 +96,30 @@ public class LearnCraftingRecipeFrame extends Frame {
         this.slotId_ = slotId;
 
         if(itemId == -1 || itemId == 0){
-            this._text.text = "Click on the slot\nto select an item.";
+            this.updateText("Click on the slot\nto select an item.");
             this._slot1.filters = [];
         }
         else {
             var _local1:XML = ObjectLibrary.Items[itemId];
             if (_local1.hasOwnProperty("Recipe")) {
-                this._text.text = "Click craft if you want\nto learn how too craft:\n" + _local1.Recipe;
+                this.updateText("Click craft if you want\nto learn how too craft:\n" + _local1.Recipe);
                 this._slot1.filters = [validGlow];
                 this.Button1.clickAble(true);
             }
             else {
-                this._text.text = "This is not a valid\ncrafting book.";
+                this.updateText("This is not a valid\ncrafting book.");
                 this._slot1.filters = [invalidGlow];
                 this.Button1.clickAble(false);
             }
         }
+        this._playerInvSprite = null;
+    }
 
+    public function updateText(_arg1:String, error:Boolean = false):void{
+        this._text.textColor = error ? 0xFF0000 : 0xFFFFFF;
+        this._text.text = _arg1;
         this._text.x = ((this.w_ / 2) - (this._text.textWidth / 2));
         this._text.y = 35;
-
-        this._playerInvSprite = null;
     }
 }
 }

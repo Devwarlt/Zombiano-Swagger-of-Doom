@@ -17,7 +17,7 @@ namespace wServer.networking.handlers
             Account acc = client.Manager.Database.Verify(packet.GUID, packet.Password);
             if (acc == null)
             {
-                SendFailure(client, "No guest accounts pl0x");
+                SendFailure("No guest accounts pl0x");
                 //acc = client.Manager.Database.Register(packet.GUID, packet.Password, true);
                 //if (acc == null)
                 //{
@@ -31,7 +31,7 @@ namespace wServer.networking.handlers
             if (!client.Manager.TryConnect(client))
             {
                 client.Account = null;
-                SendFailure(client, "Failed to connect.");
+                SendFailure("Failed to connect.");
                 client.Disconnect();
             }
             else
@@ -39,7 +39,7 @@ namespace wServer.networking.handlers
                 World world = client.Manager.GetWorld(packet.GameId);
                 if (world == null)
                 {
-                    SendFailure(client, "Invalid world.");
+                    SendFailure("Invalid world.");
                     client.Disconnect();
                 }
                 else

@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `guild` int(11) NOT NULL DEFAULT '0',
   `guildRank` int(11) NOT NULL DEFAULT '0',
   `vaultCount` int(11) NOT NULL DEFAULT '1',
-  `maxCharSlot` int(11) NOT NULL DEFAULT '0',
+  `maxCharSlot` int(11) NOT NULL DEFAULT '1',
+  `craftingRecipes` varchar(535) NOT NULL DEFAULT '1',
   `regTime` datetime NOT NULL,
   `guest` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)

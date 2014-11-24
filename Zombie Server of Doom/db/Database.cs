@@ -131,7 +131,7 @@ AND characters.charId=death.chrId;";
         public Account Verify(string uuid, string password)
         {
             var cmd = CreateQuery();
-            cmd.CommandText = "SELECT id, name, admin, namechosen, verified, guild, guildRank FROM accounts WHERE uuid=@uuid AND password=SHA1(@password);";
+            cmd.CommandText = "SELECT * FROM accounts WHERE uuid=@uuid AND password=SHA1(@password);";
             cmd.Parameters.AddWithValue("@uuid", uuid);
             cmd.Parameters.AddWithValue("@password", password);
             Account ret;
@@ -149,7 +149,8 @@ AND characters.charId=death.chrId;";
                     Guild = null,
                     NameChosen = rdr.GetBoolean("namechosen"),
                     NextCharSlotPrice = 100,
-                    VerifiedEmail = rdr.GetBoolean("verified")
+                    VerifiedEmail = rdr.GetBoolean("verified"),
+                    CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList()
                 };
             }
             ReadStats(ret);
@@ -221,7 +222,8 @@ AND characters.charId=death.chrId;";
                     Guild = null,
                     NameChosen = rdr.GetBoolean("namechosen"),
                     NextCharSlotPrice = 100,
-                    VerifiedEmail = rdr.GetBoolean("verified")
+                    VerifiedEmail = rdr.GetBoolean("verified"),
+                    CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList()
                 };
             }
             ReadStats(ret);

@@ -52,6 +52,7 @@ public class Account
         this._namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[] {
                 new XmlQualifiedName(string.Empty, "rotmg") 
             });
+        CraftingRecipes = new List<int>();
     }
 
     public int AccountId { get; set; }
@@ -76,6 +77,8 @@ public class Account
     public string _VerifiedEmail { get; set; }
     [XmlIgnore]
     public bool VerifiedEmail { get { return this._VerifiedEmail != null; } set { this._VerifiedEmail = value ? "True" : null; } }
+    [XmlIgnore]
+    public List<int> CraftingRecipes { get; set; }
 
     public int Credits { get; set; }
     public int NextCharSlotPrice { get; set; }

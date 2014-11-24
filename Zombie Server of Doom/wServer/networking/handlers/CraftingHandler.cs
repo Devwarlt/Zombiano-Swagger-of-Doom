@@ -11,31 +11,28 @@ namespace wServer.networking.handlers
 {
     internal class CraftingHandler : PacketHandlerBase<CraftingPacket>
     {
-        private static Dictionary<string, int> recipes;
-
-        static CraftingHandler()
-        {
-            recipes = new Dictionary<string, int>();
-        }
-
         protected override void HandlePacket(Client client, CraftingPacket packet)
         {
-            if(recipes.Count < 1)
-                getCraftingRecipes(client.Manager);
+            getCraftingRecipes(client.Manager, client.Account);
             client.Manager.Logic.AddPendingAction(time => Handle(client.Player, packet));
         }
 
-        private void getCraftingRecipes(RealmManager manager)
+        private void getCraftingRecipes(RealmManager manager, Account acc)
         {
-            var cmd = manager.Database.CreateQuery();
-            cmd.CommandText = "Select * FROM craftingrecipes";
-            using (var rdr = cmd.ExecuteReader())
-                while (rdr.Read())
-                    recipes.Add(rdr.GetString("row1") + "," + rdr.GetString("row2") + "," + rdr.GetString("row3"), rdr.GetInt32("result"));
+            
         }
 
         private void Handle(Player player, CraftingPacket packet)
         {
+            Dictionary<string, int> recipes = new Dictionary<string, int>();
+
+            var cmd = player.Manager.Database.CreateQuery();
+            cmd.CommandText = "Select * FROM craftingrecipes";
+            using (var rdr = cmd.ExecuteReader())
+                while (rdr.Read())
+                    if (player.Client.Account.CraftingRecipes.Contains(rdr.GetInt32("id")))
+                        recipes.Add(rdr.GetString("row1") + "," + rdr.GetString("row2") + "," + rdr.GetString("row3"), rdr.GetInt32("result"));
+
             int itemId;
 
             if (recipes.TryGetValue(packet.RecipeString, out itemId))
@@ -43,7 +40,7 @@ namespace wServer.networking.handlers
                 Item item = player.Manager.GameData.Items[(ushort)itemId];
                 if (item == null)
                 {
-                    SendFailure(player.Client, "Could not craft: Not a valid recipe!");
+                    SendFailure("Could not craft: Not a valid recipe!");
                     return;
                 }
 
@@ -59,14 +56,14 @@ namespace wServer.networking.handlers
                         }
                         else
                         {
-                            SendFailure(player.Client, "Could not craft: You dont have the required items!");
+                            SendFailure("Could not craft: You dont have the required items!");
                             return;
                         }
 
                     }
                     else
                     {
-                        SendFailure(player.Client, "Could not craft: Not a valid recipe!");
+                        SendFailure("Could not craft: Not a valid recipe!");
                         return;
                     }
                 }
@@ -88,7 +85,7 @@ namespace wServer.networking.handlers
                 }
             }
             else
-                SendFailure(player.Client, "Could not craft: Not a valid recipe!");
+                SendFailure("Could not craft: Not a valid recipe!");
         }
 
         public override PacketID ID

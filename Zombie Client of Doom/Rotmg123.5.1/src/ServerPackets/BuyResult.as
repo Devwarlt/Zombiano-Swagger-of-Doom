@@ -17,6 +17,7 @@ package ServerPackets{
         public static const _mI_:int = 5;
         public static const _0I_C_:int = 6;
         public static const craft:int = 7;
+        public static const learnCrafting:int = 8;
 
         public var result_:int;
         public var resultString_:String;

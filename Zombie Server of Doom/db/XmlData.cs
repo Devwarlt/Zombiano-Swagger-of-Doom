@@ -25,6 +25,9 @@ public class XmlData : IDisposable
 
     public XmlData(string path = "data")
     {
+        Xmls = new ReadOnlyDictionary<ushort, XElement>(
+            rawXml = new Dictionary<ushort, XElement>());
+
         ObjectTypeToElement = new ReadOnlyDictionary<ushort, XElement>(
             type2elem_obj = new Dictionary<ushort, XElement>());
 
@@ -164,6 +167,8 @@ public class XmlData : IDisposable
                 this.addition.Add(elem);
                 updateCount++;
             }
+
+            rawXml.Add(type, elem);
         }
     }
     public void AddGrounds(XElement root)
@@ -202,6 +207,7 @@ public class XmlData : IDisposable
         AddGrounds(root);
     }
 
+    Dictionary<ushort, XElement> rawXml;
 
     Dictionary<ushort, XElement> type2elem_obj;
     Dictionary<ushort, string> type2id_obj;
@@ -216,6 +222,8 @@ public class XmlData : IDisposable
     Dictionary<ushort, ObjectDesc> objDescs;
     Dictionary<ushort, PortalDesc> portals;
 
+
+    public IDictionary<ushort, XElement> Xmls { get; private set; }
 
     public IDictionary<ushort, XElement> ObjectTypeToElement { get; private set; }
 

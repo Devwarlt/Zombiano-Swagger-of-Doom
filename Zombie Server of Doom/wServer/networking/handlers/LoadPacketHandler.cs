@@ -22,7 +22,7 @@ namespace wServer.networking.handlers
             {
                 if (client.Character.Dead)
                 {
-                    SendFailure(client, "Character is dead.");
+                    SendFailure("Character is dead.");
                     client.Disconnect();
                 }
                 else
@@ -42,7 +42,7 @@ namespace wServer.networking.handlers
             }
             else
             {
-                SendFailure(client, "Failed to load character.");
+                SendFailure("Failed to load character.");
                 client.Disconnect();
             }
         }

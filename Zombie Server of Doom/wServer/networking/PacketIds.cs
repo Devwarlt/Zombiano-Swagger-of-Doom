@@ -150,6 +150,7 @@ namespace wServer.networking
         EnemyHit = 76,
         InvDrop = 35,
         NotificationBox = 81,
+        LearnCraftingRecipe = 82,
         SwitchMusic = 83,
         Crafting = 84,
         Sprint = 85,

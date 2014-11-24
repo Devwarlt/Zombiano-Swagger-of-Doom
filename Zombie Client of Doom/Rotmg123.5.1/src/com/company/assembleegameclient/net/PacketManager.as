@@ -4,7 +4,10 @@
 //com.company.assembleegameclient.net.PacketManager
 
 package com.company.assembleegameclient.net{
+import CraftingWebRequests.CraftingRequest;
+
 import Frames.CraftingFrame;
+import Frames.LearnCraftingRecipeFrame;
 import Frames.NotificationBox;
 
 import MapOverlays.MapOverlay;
@@ -258,6 +261,7 @@ import flash.events.TimerEvent;
         public static const GLOBAL_NOTIFICATION:int = 9;
 		public static const SWITCHMUSIC:int = 83;
 		public static const CRAFT:int = 84;
+        public static const LEARNCRAFTINGRECIPE:int = 82;
 		public static const VISIBULLET:int = 80;
         public static const NOTIFICATION_BOX:int = 81;
         public static const SPRINT:int = 85;
@@ -374,6 +378,7 @@ import flash.events.TimerEvent;
 			this.serverConn.registerPacket(SWITCHMUSIC, SwitchMusic, this.switchMusic);
             this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, this.teleportRequested);
             this.serverConn.registerPacket(WEATHERPROPERTIES, WeatherPropertiesPacket, this.weatherProps)
+            this.serverConn.registerPacket(LEARNCRAFTINGRECIPE, LearnCraftingRecipe, null);
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
             this.serverConn.addEventListener(Event.CLOSE, this._of);
             this.serverConn.addEventListener(ErrorEvent.ERROR, this.onError);
@@ -512,6 +517,14 @@ import flash.events.TimerEvent;
         public function sprintStart(_arg1:Boolean){
             var _local1:SprintPacket = (this.serverConn.createPacketFromID(SPRINT) as SprintPacket);
             _local1.sprintStart = _arg1;
+            this.serverConn.sendPacket(_local1);
+        }
+
+        public function learnCraftingRecipe(_arg1:int, _arg2:int, _arg3:int):void{
+            var _local1:LearnCraftingRecipe = (this.serverConn.createPacketFromID(LEARNCRAFTINGRECIPE) as LearnCraftingRecipe);
+            _local1._itemId = _arg1;
+            _local1._slotId = _arg2;
+            _local1._recipeId = _arg3;
             this.serverConn.sendPacket(_local1);
         }
 
@@ -1408,6 +1421,16 @@ import flash.events.TimerEvent;
                     return;
                 case BuyResult.craft:
                     CraftingFrame.thisCraftingFrame.onClose(new MouseEvent(MouseEvent.CLICK));
+                    return;
+                case BuyResult.learnCrafting:
+                    if(_arg1.resultString_ == "") {
+                        new CraftingRequest();
+                        LearnCraftingRecipeFrame.thisCraftingRecipeFrame.onClose(new MouseEvent(MouseEvent.CLICK));
+                    }
+                    else {
+                        LearnCraftingRecipeFrame.thisCraftingRecipeFrame.updateText(_arg1.resultString_, true);
+                    }
+                    return;
                 default:
                     this.gs_.textBox_.addText((((_arg1.result_ == BuyResult._dV_)) ? Parameters.SendInfo : Parameters.SendError), _arg1.resultString_);
             }
