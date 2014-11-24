@@ -28,6 +28,13 @@ package com.company.assembleegameclient.ui{
             addEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);
             addEventListener(MouseEvent.CLICK, this.onClick);
         }
+        public function clickAble(_arg1:Boolean):void{
+            if(_arg1 == this.mouseEnabled){
+                return;
+            }
+            this.mouseEnabled = _arg1;
+            this.text_.textColor = _arg1 ? 0xFFFFFF : 0x696969;
+        }
         public function _bu(_arg1:String):void{
             this.text_.text = _arg1;
             this.text_.updateMetrics();

@@ -40,7 +40,7 @@ package com.company.assembleegameclient.ui{
         private static const _z2:String = "Vault Chest";
         private static const _83:String = "Inventory";
         private static const _01M_:String = "Treasure Chest";
-        protected static const _P_r:Array = [new ColorMatrixFilter([0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 1, 0])];
+        public static const _P_r:Array = [new ColorMatrixFilter([0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 1, 0])];
 
         public static var toolTip_:_for_;
 

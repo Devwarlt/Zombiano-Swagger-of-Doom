@@ -25,8 +25,6 @@ import flash.filters.GlowFilter;
 
 public class CraftingRecipeFrame extends Sprite {
 
-    public static var opened_:Boolean;
-
     private var gs_:GameSprite;
     private var obj_:GameObject;
 
@@ -68,7 +66,6 @@ public class CraftingRecipeFrame extends Sprite {
     public function CraftingRecipeFrame(_gs:GameSprite, _obj:GameObject) {
         this.gs_ = _gs;
         this.obj_ = _obj;
-        opened_ = true;
 
         this.activeGlowFilter = new GlowFilter(0x00FF08);
         this.restrictedGlowFilter = new GlowFilter();
@@ -192,12 +189,17 @@ public class CraftingRecipeFrame extends Sprite {
         this.addChild(this.output_);
         this.addChild(this.closeButton);
 
-        this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+        this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
+        this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
+        this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
 
     public function onAddedToStage(param1:Event):void {
-        this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown)
+    }
+
+    public function onRemovedFromStage(param1:Event):void {
+        stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown)
     }
 
     public function onKeyDown(param1:KeyboardEvent):void{
@@ -241,7 +243,6 @@ public class CraftingRecipeFrame extends Sprite {
         dispatchEvent(new Event(Event.COMPLETE));
         this.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         parent.removeChild(this);
-        opened_ = false;
     }
 
     public function onPrevClicked(param1:MouseEvent):void {
