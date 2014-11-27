@@ -31,7 +31,11 @@ namespace wServer.networking.handlers
                     Entity a, Entity b,
                     int slotA, int slotB)
         {
-            if (a is Player && b is Player && a.Id != b.Id) return;
+            if (a is Player && b is Player && a.Id != b.Id)
+            {
+                player.Client.SendPacket(new InvResultPacket() { Result = 1 });
+                return;
+            }
 
             IContainer conA = a as IContainer;
             IContainer conB = b as IContainer;
