@@ -20,7 +20,7 @@ package com.company.util{
             var _local1:UnitTest = new UnitTest();
         }
         public static function _0M_C_(_arg1:Point):IntPoint{
-            return (new (IntPoint)(Math.round(_arg1.x), Math.round(_arg1.y)));
+            return (new IntPoint(Math.round(_arg1.x), Math.round(_arg1.y)));
         }
 
         public function x():int{

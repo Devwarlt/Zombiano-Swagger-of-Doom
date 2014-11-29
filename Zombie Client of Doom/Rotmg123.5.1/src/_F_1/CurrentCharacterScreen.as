@@ -118,7 +118,6 @@ package _F_1{
                 this._E_k.addEventListener(Event.CHANGE, this._A_E_);
                 addChild(this._E_k);
             }
-            addChild(new ScreenGraphic());
             this._dL_ = new Shape();
             var _local2:Graphics = this._dL_.graphics;
             _local2.clear();
@@ -130,6 +129,7 @@ package _F_1{
             _local2.lineTo((CharacterRect.WIDTH + 8), 526);
             _local2.lineStyle();
             addChild(this._dL_);
+            addChild(new ScreenGraphic());
             this._qR_.addEventListener(MouseEvent.CLICK, this._04P_);
             stage;
             this._qR_.x = ((800 / 2) - (this._qR_.width / 2));

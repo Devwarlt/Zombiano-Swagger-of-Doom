@@ -44,7 +44,6 @@ package com.company.net{
             this._0E_R_ = Crypto.getCipher(_arg1, _arg2, _arg3);
         }
         public function registerPacket(_arg1:uint, _arg2:Class, _arg3:Function):void{
-            trace("Added: " + _arg1);
             this._3I_[_arg1] = new MessageType(_arg2, _arg3);
         }
         public function connect(_arg1:String, _arg2:int):void{

@@ -19,7 +19,8 @@ package _F_1{
     import com.company.util.AssetLibrary;
     
     import flash.display.Bitmap;
-    import flash.display.Sprite;
+import flash.display.DisplayObject;
+import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.KeyboardEvent;
     import flash.events.MouseEvent;
@@ -43,7 +44,7 @@ package _F_1{
         public var charStats_:_0A_H_;
         public var charList_:_0K_R_;
         public var _F_I_:Boolean;
-        private var _87:Sprite;
+        private var _87:DisplayObject;
         private var bitmap_:Bitmap;
         private var _L_B_:SimpleText;
         private var classNameText_:SimpleText;
@@ -88,7 +89,7 @@ package _F_1{
                 this._L_B_.boldText(true);
                 this._L_B_.autoSize = TextFieldAutoSize.CENTER;
                 this._L_B_.updateMetrics();
-                this._L_B_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4)];
+                this._L_B_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 5)];
                 this._L_B_.y = 58;
                 addChild(this._L_B_);
                 this.classNameText_.y = 78;

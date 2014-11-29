@@ -82,6 +82,10 @@ namespace ClientLoader
             {
                 return true;
             }
+            catch (Exception)
+            {
+                return true;
+            }
             finally
             {
                 if (stream != null)
