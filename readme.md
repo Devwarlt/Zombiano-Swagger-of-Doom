@@ -1,3 +1,3 @@
 Hi
 ==============
-Make sure to build tha server evrytim #lithiumisacutie #21
+Lithium is a cutie, Fabian is fabulous <3

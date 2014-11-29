@@ -362,7 +362,7 @@
      <Object id="Rusty Pistol" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>1</Tier>
+    <Tier>1</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -390,7 +390,7 @@
      <Object id="Steel Pistol" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>2</Tier>
+    <Tier>2</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -418,7 +418,7 @@
      <Object id="Shiny Pistol" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>3</Tier>
+    <Tier>3</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -446,7 +446,7 @@
      <Object id="Bloodstained Pistol" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>4</Tier>
+    <Tier>4</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -474,7 +474,7 @@
      <Object id="Dark Pistol" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>5</Tier>
+    <Tier>5</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -502,7 +502,7 @@
      <Object id="Natures Glock" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>6</Tier>
+    <Tier>6</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -530,7 +530,7 @@
      <Object id="Fire Handgun" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>7</Tier>
+    <Tier>7</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -558,7 +558,7 @@
      <Object id="Water Gun" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>8</Tier>
+    <Tier>8</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -586,7 +586,7 @@
      <Object id="Fury Pistol" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>9</Tier>
+    <Tier>9</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -614,7 +614,7 @@
      <Object id="Gold Glock" ext="true">
         <Class>Equipment</Class>
         <Item/>
-		<Tier>10</Tier>
+    <Tier>10</Tier>
         <Texture>
           <File>lofiObj5</File>
           <Index>0x70</Index>
@@ -855,5 +855,32 @@
         </Texture>
         <Size>150</Size>
     </Object>
+
+<Object id="Lithium 1" ext="true">
+<!-- Low tier zombie
+     Supposed to miss quite often
+     Mid to high damage (for level 2-8)
+      -->
+    <Group>Gods</Group>
+    <Enemy />
+    <Class>Character</Class>
+    <AnimatedTexture>
+      <File>chars16x16dMountains1</File>
+      <Index>0x04</Index>
+    </AnimatedTexture>
+    <HitSound>monster/ents_hit</HitSound>
+    <DeathSound>monster/ents_death</DeathSound>
+    <Size>100</Size>
+    <MaxHitPoints>2000</MaxHitPoints>
+    <Defense>20</Defense>
+    <God />
+    <Projectile id="0">
+      <ObjectId>Fire Bolt</ObjectId>
+      <Damage>70</Damage>
+      <Speed>80</Speed>
+      <LifetimeMS>2000</LifetimeMS>
+      <MultiHit />
+    </Projectile>
+  </Object>
     
 </Addition>
