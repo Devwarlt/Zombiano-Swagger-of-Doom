@@ -1,4 +1,20 @@
 <Addition>
+  <Object id="dex" ext="true">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x37</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Tier>2</Tier>
+    <Description>A potion that permanently increases dexterity.</Description>
+    <Sound>use_potion</Sound>
+    <Activate stat="28" amount="1000">IncrementStat</Activate>
+    <Consumable />
+    <Potion />
+    <BagType>3</BagType>
+  </Object>
   <Object id="MTAR-21" ext="true">
     <DisplayId>MTAR-21</DisplayId>
     <Class>Equipment</Class>
@@ -11,20 +27,48 @@
     <SlotType>17</SlotType>
     <ScaleValue>1</ScaleValue>
     <Description>This bullpup carbine is the ultra-compact version of the Israeli army standard TAR-21 rifle.</Description>
-    <RateOfFire>1</RateOfFire>
+    <RateOfFire>1.6</RateOfFire>
     <Sound>weapon/fire_wand</Sound>
     <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
+      <ObjectId>Blade</ObjectId>
+      <Speed>300</Speed>
+      <MinDamage>300</MinDamage>
+      <MaxDamage>400</MaxDamage>
+      <LifetimeMS>500</LifetimeMS>
     </Projectile>
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
+    <OldSound>weapon/mtar21</OldSound>
   </Object>
+
+  <Object id="SCAR-H" ext="true">
+    <DisplayId>SCAR-H</DisplayId>
+    <Class>Equipment</Class>
+    <Item />
+    <CraftingItem />
+    <Texture>
+      <File>weapons40x40</File>
+      <Index>0x04</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <ScaleValue>1</ScaleValue>
+    <Description>Developed for the US SOCOM, the SCAR is a modular series of weapons available in multiple interchangeable calibers, barrel lengths, and configurations.</Description>
+    <RateOfFire>0.7</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Blade</ObjectId>
+      <Speed>250</Speed>
+      <MinDamage>500</MinDamage>
+      <MaxDamage>600</MaxDamage>
+      <LifetimeMS>500</LifetimeMS>
+    </Projectile>
+    <BagType>0</BagType>
+    <NumProjectiles>1</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>weapon/scar-h2</OldSound>
+  </Object>
+  
   <Object id="M16A3" ext="true">
     <DisplayId>M16A3</DisplayId>
     <Class>Equipment</Class>
@@ -40,95 +84,33 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_wand</Sound>
     <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
+      <ObjectId>Blade</ObjectId>
+      <Speed>275</Speed>
+      <MinDamage>350</MinDamage>
+      <MaxDamage>450</MaxDamage>
+      <LifetimeMS>500</LifetimeMS>
     </Projectile>
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
+    <OldSound>weapon/m16a3</OldSound>
   </Object>
-  <Object id="AK-74M" ext="true">
-    <DisplayId>AK-74M</DisplayId>
-    <Class>Equipment</Class>
-    <Item />
-    <CraftingItem />
-    <Texture>
-      <File>weapons40x40</File>
-      <Index>0x02</Index>
-    </Texture>
-    <SlotType>17</SlotType>
-    <ScaleValue>1</ScaleValue>
-    <Description>The AK-74M is the latest Modernized version of the classic AK-47. Fielded as the standard Assault Rifle by the Russian Army, the M variant includes a side folding polymer stock and a scope mount rail on the left side of the weapon.</Description>
-    <RateOfFire>1</RateOfFire>
-    <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-    </Projectile>
-    <BagType>0</BagType>
-    <NumProjectiles>1</NumProjectiles>
-    <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
-  </Object>
-  <Object id="MP7" ext="true">
-    <DisplayId>MP7</DisplayId>
-    <Class>Equipment</Class>
-    <Item />
-    <CraftingItem />
-    <Texture>
-      <File>weapons40x40</File>
-      <Index>0x03</Index>
-    </Texture>
-    <SlotType>17</SlotType>
-    <ScaleValue>1</ScaleValue>
-    <Description>Another contender for the newly developing PDW market the MP7 is currently in service with the German Bundeswehr and the Norwegian Armed Forces.</Description>
-    <RateOfFire>1</RateOfFire>
-    <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-    </Projectile>
-    <BagType>0</BagType>
-    <NumProjectiles>1</NumProjectiles>
-    <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
-  </Object>
-  <Object id="SCAR-H" ext="true">
-    <DisplayId>SCAR-H</DisplayId>
-    <Class>Equipment</Class>
-    <Item />
-    <CraftingItem />
-    <Texture>
-      <File>weapons40x40</File>
-      <Index>0x04</Index>
-    </Texture>
-    <SlotType>17</SlotType>
-    <ScaleValue>1</ScaleValue>
-    <Description>Developed for the US SOCOM, the SCAR is a modular series of weapons available in multiple interchangeable calibers, barrel lengths, and configurations.</Description>
-    <RateOfFire>1</RateOfFire>
-    <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>10</MinDamage>
-      <MaxDamage>25</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-    </Projectile>
-    <BagType>0</BagType>
-    <NumProjectiles>1</NumProjectiles>
-    <ArcGap>0</ArcGap>
-    <OldSound>magicShoot</OldSound>
-  </Object>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   <Object id="SCARH Crafting Book" ext="true">
     <DisplayId>Crafting Book</DisplayId>

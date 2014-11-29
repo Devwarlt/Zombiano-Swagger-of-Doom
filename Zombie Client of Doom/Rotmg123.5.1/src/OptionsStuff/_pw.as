@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0C_P_._pw
+//OptionsStuff._pw
 
-package _0C_P_{
+package OptionsStuff{
 import flash.display.Sprite;
 
 import flash.display.IGraphicsData;
@@ -113,5 +113,5 @@ public class _pw extends Sprite {
     }
 
 }
-}//package _0C_P_
+}//package OptionsStuff
 

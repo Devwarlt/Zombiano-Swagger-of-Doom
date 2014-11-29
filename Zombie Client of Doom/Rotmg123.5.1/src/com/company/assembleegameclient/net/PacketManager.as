@@ -170,7 +170,8 @@ import com.company.assembleegameclient.util.Currency;
     import com.company.assembleegameclient.util._wW_;
     import com.company.net.ServerConnection;
     import com.company.net.Packet;
-    import com.company.util.Random;
+import com.company.util.PointUtil;
+import com.company.util.Random;
     import com.company.util._L_2;
     import com.hurlant.crypto.rsa.RSAKey;
     import com.hurlant.util.Base64;
@@ -753,9 +754,15 @@ import flash.events.TimerEvent;
             _local3.reset(_arg1.containerType_, 0, _arg1.ownerId_, _arg1.bulletId_, _arg1.angle_, this.gs_.lastUpdate_);
             _local3._T_j(_arg1.dmg_);
 			this.gs_.map_.addObj(_local3, _local2.x_, _local2.y_);
+            var xml = ObjectLibrary.Items[_arg1.containerType_];
+            if(Parameters.data_.playAllyShootSound && xml.hasOwnProperty("OldSound")) {
+                var dist:Number = Math.floor(PointUtil._bm(this.gs_.map_.player_.x_, this.gs_.map_.player_.y_, _local2.x_, _local2.y_)) - 1000;
+                _5T_.play(xml.OldSound, dist * (-0.001), true, true);
+            }
             _local2.setAttack(_arg1.containerType_, _arg1.angle_);
         }
         private function _0K_7(_arg1:_C_3):void{
+            var _local4:Projectile;
             var _local4:Projectile;
             var _local5:Number;
             var _local2:GameObject = this.gs_.map_.goDict_[_arg1.ownerId_];

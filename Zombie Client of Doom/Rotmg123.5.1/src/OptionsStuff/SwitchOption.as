@@ -1,19 +1,19 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0C_P_._0I_j
+//OptionsStuff.SwitchOption
 
-package _0C_P_{
+package OptionsStuff{
     import com.company.assembleegameclient.parameters.Parameters;
     import flash.events.Event;
 
 
-    public class _0I_j extends _0_i {
+    public class SwitchOption extends _0_i {
 
         private var callback_:Function;
         private var _O_T_:_pw;
 
-        public function _0I_j(_arg1:String, _arg2:Vector.<String>, _arg3:Array, _arg4:String, _arg5:String, _arg6:Function){
+        public function SwitchOption(_arg1:String, _arg2:Vector.<String>, _arg3:Array, _arg4:String, _arg5:String, _arg6:Function){
             super(_arg1, _arg4, _arg5);
             this.callback_ = _arg6;
             this._O_T_ = new _pw(_arg2, _arg3, Parameters.data_[_W_Y_]);
@@ -33,5 +33,5 @@ package _0C_P_{
         }
 
     }
-}//package _0C_P_
+}//package OptionsStuff
 

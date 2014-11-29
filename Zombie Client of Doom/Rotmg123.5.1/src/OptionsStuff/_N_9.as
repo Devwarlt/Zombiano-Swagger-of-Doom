@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0C_P_._N_9
+//OptionsStuff._N_9
 
-package _0C_P_{
+package OptionsStuff{
 import flash.display.Sprite;
 import com.company.ui.SimpleText;
 import flash.filters.DropShadowFilter;
@@ -115,5 +115,5 @@ public class _N_9 extends Sprite {
     }
 
 }
-}//package _0C_P_
+}//package OptionsStuff
 

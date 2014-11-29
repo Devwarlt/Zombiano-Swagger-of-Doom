@@ -1,0 +1,80 @@
+﻿<Objects>
+  <Object id="M16A3" ext="true">
+    <DisplayId>M16A3</DisplayId>
+    <Class>Equipment</Class>
+    <Item />
+    <CraftingItem />
+    <Texture>
+      <File>weapons40x40</File>
+      <Index>0x0</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <ScaleValue>1</ScaleValue>
+    <Description>The 3rd generation of M16A3 has been upgraded with a RIS (Rail Interface System) for mounting accessories and is capable of Automatic and Semi-Automatic fire.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Grey Missile</ObjectId>
+      <Speed>180</Speed>
+      <MinDamage>10</MinDamage>
+      <MaxDamage>25</MaxDamage>
+      <LifetimeMS>475</LifetimeMS>
+    </Projectile>
+    <BagType>0</BagType>
+    <NumProjectiles>1</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object id="AK-74M" ext="true">
+    <DisplayId>AK-74M</DisplayId>
+    <Class>Equipment</Class>
+    <Item />
+    <CraftingItem />
+    <Texture>
+      <File>weapons40x40</File>
+      <Index>0x02</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <ScaleValue>1</ScaleValue>
+    <Description>The AK-74M is the latest Modernized version of the classic AK-47. Fielded as the standard Assault Rifle by the Russian Army, the M variant includes a side folding polymer stock and a scope mount rail on the left side of the weapon.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Grey Missile</ObjectId>
+      <Speed>180</Speed>
+      <MinDamage>10</MinDamage>
+      <MaxDamage>25</MaxDamage>
+      <LifetimeMS>475</LifetimeMS>
+    </Projectile>
+    <BagType>0</BagType>
+    <NumProjectiles>1</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object id="MP7" ext="true">
+    <DisplayId>MP7</DisplayId>
+    <Class>Equipment</Class>
+    <Item />
+    <CraftingItem />
+    <Texture>
+      <File>weapons40x40</File>
+      <Index>0x03</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <ScaleValue>1</ScaleValue>
+    <Description>Another contender for the newly developing PDW market the MP7 is currently in service with the German Bundeswehr and the Norwegian Armed Forces.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Grey Missile</ObjectId>
+      <Speed>180</Speed>
+      <MinDamage>10</MinDamage>
+      <MaxDamage>25</MaxDamage>
+      <LifetimeMS>475</LifetimeMS>
+    </Projectile>
+    <BagType>0</BagType>
+    <NumProjectiles>1</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+</Objects>

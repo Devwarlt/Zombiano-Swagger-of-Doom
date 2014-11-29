@@ -92,6 +92,7 @@
     <Compile Include="WeakDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\guns.xml" />
     <Content Include="texture\_dark_fire.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

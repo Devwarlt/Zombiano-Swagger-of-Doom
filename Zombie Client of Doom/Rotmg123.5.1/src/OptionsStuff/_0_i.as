@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0C_P_._0_i
+//OptionsStuff._0_i
 
-package _0C_P_{
+package OptionsStuff{
     import flash.display.Sprite;
     import _E_7._for_;
     import com.company.ui.SimpleText;
@@ -56,5 +56,5 @@ package _0C_P_{
         }
 
     }
-}//package _0C_P_
+}//package OptionsStuff
 

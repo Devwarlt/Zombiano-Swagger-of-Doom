@@ -1,19 +1,19 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_0C_P_._G_X_
+//OptionsStuff.KeyBindingOption
 
-package _0C_P_{
+package OptionsStuff{
     import com.company.assembleegameclient.parameters.Parameters;
     import flash.events.Event;
     import com.company.util.MoreColorUtil;
 
-    public class _G_X_ extends _0_i {
+    public class KeyBindingOption extends _0_i {
 
         private var _wK_:_N_9;
         private var _0F_N_:Boolean;
 
-        public function _G_X_(_arg1:String, _arg2:String, _arg3:String, _arg4:Boolean=false){
+        public function KeyBindingOption(_arg1:String, _arg2:String, _arg3:String, _arg4:Boolean=false){
             super(_arg1, _arg2, _arg3);
             this._wK_ = new _N_9(Parameters.data_[_W_Y_]);
             this._wK_.addEventListener(Event.CHANGE, this._bR_);
@@ -35,5 +35,5 @@ package _0C_P_{
         }
 
     }
-}//package _0C_P_
+}//package OptionsStuff
 

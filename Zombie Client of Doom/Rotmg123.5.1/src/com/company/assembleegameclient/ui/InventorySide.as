@@ -18,7 +18,7 @@ package com.company.assembleegameclient.ui{
 	import flash.events.MouseEvent;
 	import flash.filters.DropShadowFilter;
 	
-	import _0C_P_.Options;
+	import OptionsStuff.Options;
 	
 	public class InventorySide extends Sprite {
 		

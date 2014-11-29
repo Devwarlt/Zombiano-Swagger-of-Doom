@@ -7,17 +7,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace ClientLoader
 {
     public class GameLoader : IDisposable
     {
+        private GCHandle processObject;
+
         public GameLoader()
         {
-            Process = new Process();
+            processObject = GCHandle.Alloc(new Process(), GCHandleType.Normal);
         }
 
-        public Process Process { get; private set; }
+        public Process Process { get { return (Process)processObject.Target; } }
 
         public void Init(string exe)
         {
@@ -95,6 +98,8 @@ namespace ClientLoader
                 {
                     Process.Kill();
                     Process.WaitForExit();
+                    if (processObject.IsAllocated)
+                        processObject.Free();
                 }
             }
             catch (Exception ex)
