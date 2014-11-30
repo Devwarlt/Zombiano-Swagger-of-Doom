@@ -92,7 +92,7 @@ package com.company.assembleegameclient.ui{
 			this._sI_.y = 78;
 			addChild(this._sI_);
 			this._sI_.visible = true;
-			this._U_U_ = new _0M_Y_(176, 16, 0xE25F00, 0x473224, "Fame");
+			this._U_U_ = new _0M_Y_(176, 16, 0xE25F00, 0x473224, "Kills");
 			//this._U_U_.x = 12;
 			//this._U_U_.y = 30;
 			this._U_U_.x = 12;

@@ -118,6 +118,7 @@ namespace wServer.realm.entities
             stats[StatsType.WisdomBonus] = Boost[6];
             stats[StatsType.DexterityBonus] = Boost[7];
             stats[StatsType.AbilityCooldown] = AbilityCooldown;
+            //stats[StatsType.SKIN_STAT] = 0x0342;
             stats[StatsType.VisibilityRange] = Visibility.GetVisibility();
         }
         public void SaveToCharacter()
@@ -193,11 +194,7 @@ namespace wServer.realm.entities
             NameChosen = client.Account.NameChosen;
             CurrentFame = client.Account.Stats.Fame;
             Kills = client.Account.Kills;
-            //var state = client.Account.Stats.ClassStates.SingleOrDefault(_ => _.ObjectType == ObjectType);
-            //if (state != null)
-            //    FameGoal = GetFameGoal(state.BestFame);
-            //else
-            //    FameGoal = GetFameGoal(0);
+            EnemyKilled(null);
             Glowing = true;
             Guild = "";
             GuildRank = -1;

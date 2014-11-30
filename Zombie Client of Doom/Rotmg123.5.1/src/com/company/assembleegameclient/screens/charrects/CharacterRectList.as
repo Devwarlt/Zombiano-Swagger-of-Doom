@@ -40,7 +40,7 @@ public class CharacterRectList extends Sprite {
         var _local4:int = 4;
         for each (_local5 in _arg1.savedChars_)
         {
-            _local7 = new CurrentCharacterRect(this.charList_.name_, _local5, this.charList_.charStats_[_local5.objectType()]);
+            _local7 = new CurrentCharacterRect(this.charList_.name_, _local5, this.charList_);
             _local7.x = _local3;
             _local7.y = _local4;
             addChild(_local7);

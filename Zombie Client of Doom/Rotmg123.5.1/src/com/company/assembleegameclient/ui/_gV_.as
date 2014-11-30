@@ -4,7 +4,6 @@
 //com.company.assembleegameclient.ui._gV_
 
 package com.company.assembleegameclient.ui{
-import com.company.assembleegameclient.objects.Player;
 import com.company.assembleegameclient.util.RankUtils;
 
 import flash.display.Sprite;
@@ -46,8 +45,8 @@ import flash.display.Sprite;
                 this.nameText_ = new SimpleText(13, _arg1, false, 66, 20, "Myriad Pro");
                 this.nameText_.boldText(true);
             }
-            this.nameText_.x = 32;
-            this.nameText_.y = 6;
+            this.nameText_.x = 0;
+            this.nameText_.y = 9;
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.nameText_);
             this.draw(_arg3);
@@ -82,7 +81,7 @@ import flash.display.Sprite;
                 _local5 = true;
                 if (((!((this.go_.name_ == null))) && (!((this.go_.name_ == "")))))
                 {
-                    _local4 = ((("<b>" + this.go_.name_) + "</b> (") + (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_]));
+                    _local4 = ((("<b>            " + this.go_.name_) + "</b>\n" + "  (") + (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_]));
                     if (this.go_.level_ < 1)
                     {
                         _local4 = (_local4 + ")");

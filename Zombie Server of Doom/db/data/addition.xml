@@ -1,4 +1,15 @@
 <Addition>
+  <Object type="0x0342" id="Bandit" ext="true">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>0</Index>
+    </AnimatedTexture>
+    <PlayerClassType>0x0300</PlayerClassType>
+    <UnlockLevel>0</UnlockLevel>
+    <DisplayId>Bandit</DisplayId>
+  </Object>
   <Object id="dex" ext="true">
     <Class>Equipment</Class>
     <Item />

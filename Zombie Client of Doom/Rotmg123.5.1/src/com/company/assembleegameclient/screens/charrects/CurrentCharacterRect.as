@@ -7,6 +7,7 @@ package com.company.assembleegameclient.screens.charrects{
 import _E_7._for_;
 import com.company.assembleegameclient.appengine.SavedCharacter;
 import com.company.assembleegameclient.appengine._0A_H_;
+import com.company.assembleegameclient.appengine._0K_R_;
 
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
@@ -35,7 +36,7 @@ public class CurrentCharacterRect extends CharacterRect {
 
     public var _name:String;
     public var character:SavedCharacter;
-    public var characterStats:_0A_H_;
+    public var charlist:_0K_R_;
     public var playerXML:XML;
     private var selectContainer:DisplayObjectContainer;
     private var bitmap:Bitmap;
@@ -46,12 +47,12 @@ public class CurrentCharacterRect extends CharacterRect {
     public var selected:_aJ_;
     public var deleteCharacter:_aJ_;
 
-    public function CurrentCharacterRect(_arg1:String, _arg2:SavedCharacter, _arg3:_0A_H_){
+    public function CurrentCharacterRect(_arg1:String, _arg2:SavedCharacter, _arg3:_0K_R_){
         super(0x73543F, 0x6B472E);
         //super(0x701100, 0x8D1500);
         this._name = _arg1;
         this.character = _arg2;
-        this.characterStats = _arg3;
+        this.charlist = _arg3;
         this.playerXML = ObjectLibrary.Items[this.character.objectType()];
         this.makeSelectContainer();
         this.makeBitmap();
@@ -91,7 +92,7 @@ public class CurrentCharacterRect extends CharacterRect {
         }
     }
     private function getNextStarFame():int{
-        return (RankUtils._F_U_((((this.characterStats == null)) ? 0 : this.characterStats._0D_E_()), this.character.fame()));
+        return 0;//(RankUtils._F_U_((((this.characterStats == null)) ? 0 : this.characterStats._0D_E_()), this.character.fame()));
     }
     private function makeTaglineIcon():void{
         this.taglineIcon = new AdminRank();
@@ -119,7 +120,7 @@ public class CurrentCharacterRect extends CharacterRect {
     override protected function onMouseOver(_arg1:MouseEvent):void{
         super.onMouseOver(_arg1);
         this.removeToolTip();
-        toolTip_ = new _0M_k(this._name, this.character._iJ_, this.characterStats);
+        toolTip_ = new _0M_k(this._name, this.character._iJ_, this.charlist);
         stage.addChild(toolTip_);
     }
     override protected function onRollOut(_arg1:MouseEvent):void{

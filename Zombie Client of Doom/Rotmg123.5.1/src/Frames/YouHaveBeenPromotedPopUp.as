@@ -14,19 +14,13 @@ import flash.filters.DropShadowFilter;
 
 public class YouHaveBeenPromotedPopUp extends Sprite {
 
-    public const WIDTH = 300;
-    public const HEIGHT = 300;
-
     private var promotionText:SimpleText;
     private var rankText:SimpleText;
     private var rankIcon:DisplayObject;
     private var rank:int;
 
     public function YouHaveBeenPromotedPopUp(rank:int) {
-        this.width = WIDTH;
-        this.height = HEIGHT;
         this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
-        this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
 
         this.rank = rank;
 
@@ -80,7 +74,7 @@ public class YouHaveBeenPromotedPopUp extends Sprite {
     }
 
     private function waitForFadeOut(tween:GTween):void {
-        tween = new GTween(null, 8);
+        tween = new GTween(null, 10);
         tween.onComplete = fadeOut;
     }
 
@@ -97,10 +91,6 @@ public class YouHaveBeenPromotedPopUp extends Sprite {
         stage.removeChild(this.rankIcon);
         stage.removeChild(this.promotionText);
         parent.removeChild(this);
-    }
-
-    private function onRemovedFromStage(event:Event):void {
-
     }
 }
 }
