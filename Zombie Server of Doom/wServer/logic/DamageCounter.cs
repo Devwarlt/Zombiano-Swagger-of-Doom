@@ -94,6 +94,20 @@ namespace wServer.logic
                         lvUps++;
                 }
                 (Parent ?? this).LastHitter.FameCounter.LevelUpAssist(lvUps);
+
+                if ((Parent ?? this).LastHitter != null)
+                    (Parent ?? this).LastHitter.EnemyKilled((Parent ?? this).Host);
+                else
+                {
+                    int damage = 0;
+                    Player player = null;
+                    foreach(var i in eligiblePlayers)
+                    {
+                        if (i.Item2 > damage && i.Item1 != null)
+                            player = i.Item1;
+                    }
+                    player.EnemyKilled((Parent ?? this).Host);
+                }
             }
 
             if (enemy.Owner is GameWorld)

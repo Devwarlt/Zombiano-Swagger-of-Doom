@@ -24,7 +24,7 @@ namespace wServer.realm
             {
                 Name = (src.Client.Account.Admin ? "@" : "") + src.Name,
                 ObjectId = src.Id,
-                Stars = src.Stars,
+                Stars = src.Rank,
                 BubbleTime = 5,
                 Recipient = "",
                 Text = text,

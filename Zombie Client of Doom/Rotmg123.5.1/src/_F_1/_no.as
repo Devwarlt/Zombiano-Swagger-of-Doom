@@ -10,7 +10,7 @@ package _F_1{
 
     import com.company.assembleegameclient.ui._0K_B_;
     import flash.events.Event;
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
     import flash.display.BitmapData;
     import com.company.util.BitmapUtil;
     import flash.display.Bitmap;
@@ -57,7 +57,7 @@ package _F_1{
             this._yQ_("Quests Completed", null, _arg2.QuestsCompleted, false, 5746018);
             this._yQ_("Dungeons Completed", null, ((((((int(_arg2.PirateCavesCompleted) + int(_arg2.UndeadLairsCompleted)) + int(_arg2.AbyssOfDemonsCompleted)) + int(_arg2.SnakePitsCompleted)) + int(_arg2.SpiderDensCompleted)) + int(_arg2.SpriteWorldsCompleted)) + int(_arg2.TombsCompleted)), false, 5746018);
             this._yQ_("Party Member Level Ups", null, _arg2.LevelUpAssists, false, 5746018);
-            var _local3:BitmapData = _Z_B_._qf();
+            var _local3:BitmapData = RankUtils._qf();
             _local3 = BitmapUtil._Y_d(_local3, 6, 6, (_local3.width - 12), (_local3.height - 12));
             this._yQ_("Base Fame Earned", null, _arg2.BaseFame, true, 0xFFC800, "", "", new Bitmap(_local3));
             for each (_local4 in _arg2.Bonus)

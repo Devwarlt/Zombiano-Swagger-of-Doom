@@ -211,7 +211,7 @@ package com.company.assembleegameclient.ui{
 					this._U_U_.visible = true;
 					this._sI_.visible = false;
                 }
-                this._U_U_.draw(this.go_._0L_o, this.go_._n8, 0);
+                this._U_U_.draw(this.go_.kills, this.go_._n8, 0);
             }
             //this.tabBG_.draw(this.invTab_.selected_);
 			this._023.draw(this.go_.HP_, this.go_.maxHP_, this.go_._P_7, this.go_._uR_);

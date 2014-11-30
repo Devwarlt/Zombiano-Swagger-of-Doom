@@ -1112,7 +1112,18 @@ import flash.events.TimerEvent;
                         }
                         break;
                     case StatData._s9:
-                        (_arg1 as Player).numStars_ = _local4._h;
+                        if((_arg1 as Player).oldRank != -1) {
+                            (_arg1 as Player).oldRank = (_arg1 as Player).rank;
+                            (_arg1 as Player).rank = _local4._h;
+
+                            if((_arg1 as Player).rank > (_arg1 as Player).oldRank) {
+                                (_arg1 as Player).promote();
+                            }
+                        }
+                        else {
+                            (_arg1 as Player).oldRank = _local4._h;
+                            (_arg1 as Player).rank = _local4._h;
+                        }
                         break;
                     case StatData._hK_:
                         if (_arg1.name_ != _local4._3x)
@@ -1201,7 +1212,7 @@ import flash.events.TimerEvent;
                         _arg1._U_g = null;
                         break;
                     case StatData._03k:
-                        (_arg1 as Player)._0L_o = _local4._h;
+                        (_arg1 as Player).kills = _local4._h;
                         break;
                     case StatData._dR_:
                         (_arg1 as Player)._n8 = _local4._h;

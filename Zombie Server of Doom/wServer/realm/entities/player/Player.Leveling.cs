@@ -30,20 +30,6 @@ namespace wServer.realm.entities
             else return 20;
         }
 
-        public int GetStars()
-        {
-            int ret = 0;
-            foreach (var i in client.Account.Stats.ClassStates)
-            {
-                if (i.BestFame >= 2000) ret += 5;
-                else if (i.BestFame >= 800) ret += 4;
-                else if (i.BestFame >= 400) ret += 3;
-                else if (i.BestFame >= 150) ret += 2;
-                else if (i.BestFame >= 20) ret += 1;
-            }
-            return ret;
-        }
-
         static readonly Dictionary<string, Tuple<int, int, int>> QuestDat =
             new Dictionary<string, Tuple<int, int, int>>()  //Priority, Min, Max
         {
@@ -154,31 +140,30 @@ namespace wServer.realm.entities
 
         void CalculateFame()
         {
-            int newFame = 0;
-            if (Experience < 200 * 1000) newFame = Experience / 1000;
-            else newFame = 200 + (Experience - 200 * 1000) / 1000;
-            if (newFame != Fame)
-            {
-                Fame = newFame;
-                int newGoal;
-                var state = client.Account.Stats.ClassStates.SingleOrDefault(_ => _.ObjectType == ObjectType);
-                if (state != null && state.BestFame > Fame)
-                    newGoal = GetFameGoal(state.BestFame);
-                else
-                    newGoal = GetFameGoal(Fame);
-                if (newGoal > FameGoal)
-                {
-                    BroadcastSync(new NotificationPacket()
-                    {
-                        ObjectId = Id,
-                        Color = new ARGB(0xFF00FF00),
-                        Text = "Class Quest Complete!"
-                    }, p => this.Dist(p) < 25);
-                    Stars = GetStars();
-                }
-                FameGoal = newGoal;
-                UpdateCount++;
-            }
+            //int newFame = 0;
+            //if (Experience < 200 * 1000) newFame = Experience / 1000;
+            //else newFame = 200 + (Experience - 200 * 1000) / 1000;
+            //if (newFame != Fame)
+            //{
+            //    Fame = newFame;
+            //    int newGoal;
+            //    var state = client.Account.Stats.ClassStates.SingleOrDefault(_ => _.ObjectType == ObjectType);
+            //    if (state != null && state.BestFame > Fame)
+            //        newGoal = GetFameGoal(state.BestFame);
+            //    else
+            //        newGoal = GetFameGoal(Fame);
+            //    if (newGoal > FameGoal)
+            //    {
+            //        BroadcastSync(new NotificationPacket()
+            //        {
+            //            ObjectId = Id,
+            //            Color = new ARGB(0xFF00FF00),
+            //            Text = "Class Quest Complete!"
+            //        }, p => this.Dist(p) < 25);
+            //    }
+            //    FameGoal = newGoal;
+            //    UpdateCount++;
+            //}
         }
 
         bool CheckLevelUp()
@@ -228,6 +213,80 @@ namespace wServer.realm.entities
             }
             fames.Killed(enemy, killer);
             return CheckLevelUp();
+        }
+
+        public void EnemyKilled(Enemy host)
+        {
+            //Usage of host will come later
+            if(host != null)
+                Kills++;
+
+            if (this.Client.Account.Admin) return;
+            else if (this.Kills > 0 && this.Kills < 100)
+            {
+                Rank = 1;
+                KillGoal = 100;
+            }
+            else if (this.Kills > 99 && this.Kills < 500)
+            {
+                Rank = 2;
+                KillGoal = 500;
+            }
+            else if (this.Kills > 499 && this.Kills < 1000)
+            {
+                Rank = 3;
+                KillGoal = 1000;
+            }
+            else if (this.Kills > 999 && this.Kills < 2000)
+            {
+                Rank = 4;
+                KillGoal = 2000;
+            }
+            else if (this.Kills > 1999 && this.Kills < 4000)
+            {
+                Rank = 5;
+                KillGoal = 4000;
+            }
+            else if (this.Kills > 3999 && this.Kills < 8000)
+            {
+                Rank = 6;
+                KillGoal = 8000;
+            }
+            else if (this.Kills > 7999 && this.Kills < 16000)
+            {
+                Rank = 7;
+                KillGoal = 16000;
+            }
+            else if (this.Kills > 15999 && this.Kills < 32000)
+            {
+                Rank = 8;
+                KillGoal = 32000;
+            }
+            else if (this.Kills > 31999 && this.Kills < 64000)
+            {
+                Rank = 9;
+                KillGoal = 64000;
+            }
+            else if (this.Kills > 63999 && this.Kills < 128000)
+            {
+                Rank = 10;
+                KillGoal = 128000;
+            }
+            else if (this.Kills > 127999 && this.Kills < 256000)
+            {
+                Rank = 11;
+                KillGoal = 256000;
+            }
+            else if (this.Kills > 255999)
+            {
+                Rank = 12;
+                KillGoal = 0;
+            }
+            else
+            {
+                Rank = 0;
+                KillGoal = 1;
+            }
         }
     }
 }

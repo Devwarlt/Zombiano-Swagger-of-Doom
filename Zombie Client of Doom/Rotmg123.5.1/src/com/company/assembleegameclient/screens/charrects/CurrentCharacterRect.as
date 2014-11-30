@@ -7,6 +7,8 @@ package com.company.assembleegameclient.screens.charrects{
 import _E_7._for_;
 import com.company.assembleegameclient.appengine.SavedCharacter;
 import com.company.assembleegameclient.appengine._0A_H_;
+
+import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.Bitmap;
 import com.company.ui.SimpleText;
@@ -18,8 +20,8 @@ import flash.events.MouseEvent;
 import flash.events.Event;
 import com.company.assembleegameclient.util._lJ_;
 import flash.filters.DropShadowFilter;
-import com.company.assembleegameclient.util._Z_B_;
-import com.company.rotmg.graphics.StarGraphic;
+import com.company.assembleegameclient.util.RankUtils;
+import com.company.rotmg.graphics.ranks.AdminRank;
 import flash.geom.ColorTransform;
 import com.company.rotmg.graphics.DeleteXGraphic;
 import _E_7._0M_k;
@@ -38,7 +40,7 @@ public class CurrentCharacterRect extends CharacterRect {
     private var selectContainer:DisplayObjectContainer;
     private var bitmap:Bitmap;
     private var classNameText:SimpleText;
-    private var taglineIcon:Sprite;
+    private var taglineIcon:DisplayObject;
     private var taglineText:SimpleText;
     private var deleteButton:Sprite;
     public var selected:_aJ_;
@@ -89,13 +91,10 @@ public class CurrentCharacterRect extends CharacterRect {
         }
     }
     private function getNextStarFame():int{
-        return (_Z_B_._F_U_((((this.characterStats == null)) ? 0 : this.characterStats._0D_E_()), this.character.fame()));
+        return (RankUtils._F_U_((((this.characterStats == null)) ? 0 : this.characterStats._0D_E_()), this.character.fame()));
     }
     private function makeTaglineIcon():void{
-        this.taglineIcon = new StarGraphic();
-        this.taglineIcon.transform.colorTransform = new ColorTransform((179 / 0xFF), (179 / 0xFF), (179 / 0xFF));
-        this.taglineIcon.scaleX = 1.2;
-        this.taglineIcon.scaleY = 1.2;
+        this.taglineIcon = new AdminRank();
         this.taglineIcon.x = 58;
         this.taglineIcon.y = 26;
         this.taglineIcon.filters = [new DropShadowFilter(0, 0, 0)];

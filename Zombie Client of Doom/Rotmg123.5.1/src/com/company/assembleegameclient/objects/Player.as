@@ -5,9 +5,13 @@
 
 package com.company.assembleegameclient.objects{
 
+import Frames.YouHaveBeenPromotedPopUp;
+
 import _015._O_P_;
-    
-    import _0K_m.LevelUpEffect;
+
+import _0G_l._in;
+
+import _0K_m.LevelUpEffect;
     import _0K_m._0H_T_;
     import _0K_m._4m;
     
@@ -26,7 +30,7 @@ import com.company.assembleegameclient.map.Square;
     import com.company.assembleegameclient.util.ConditionEffect;
     import com.company.assembleegameclient.util.TextureRedrawer;
     import com.company.assembleegameclient.util._J_H_;
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
     import com.company.assembleegameclient.util._lJ_;
     import com.company.assembleegameclient.util._wW_;
     import com.company.ui.SimpleText;
@@ -40,7 +44,8 @@ import com.company.assembleegameclient.map.Square;
     import com.company.util._G_;
     
     import flash.display.BitmapData;
-    import flash.display.GraphicsPath;
+import flash.display.DisplayObject;
+import flash.display.GraphicsPath;
     import flash.display.GraphicsSolidFill;
     import flash.display.IGraphicsData;
     import flash.display.Sprite;
@@ -72,10 +77,11 @@ import com.company.assembleegameclient.map.Square;
         private var sprinting:Boolean = false;
         public var accountId_:int = -1;
         public var credits_:int = 0;
-        public var numStars_:int = 0;
+        public var oldRank:int = -1;
+        public var rank:int = 0;
         public var _Q_7:int = 0;
         public var _hv:Boolean = false;
-        public var _0L_o:int = 0;
+        public var kills:int = 0;
         public var _n8:int = -1;
         public var _2v:int = -1;
         public var guildName_:String = null;
@@ -309,6 +315,10 @@ import com.company.assembleegameclient.map.Square;
                 }
             }
             return (null);
+        }
+        public function promote():void {
+            _5T_.play("promoted", 1, true, true);
+            this.map_.stage.addChild(new YouHaveBeenPromotedPopUp(this.rank));
         }
         public function _2(_arg1:Number, _arg2:Number):Boolean{
             this._u0(_arg1, _arg2, _06g);
@@ -594,7 +604,7 @@ import com.company.assembleegameclient.map.Square;
             var _local2:BitmapData = new BitmapData((_arg1.width + 20), 64, true, 0);
             _local2.draw(_arg1, _0G_b);
             _local2.applyFilter(_local2, _local2.rect, PointUtil._P_5, new GlowFilter(0, 1, 3, 3, 2, 1));
-            var _local3:Sprite = _Z_B_._0M_r(this.numStars_);
+            var _local3:DisplayObject = RankUtils._0M_r(this.rank);
             _local2.draw(_local3, _I_5);
             return (_local2);
         }

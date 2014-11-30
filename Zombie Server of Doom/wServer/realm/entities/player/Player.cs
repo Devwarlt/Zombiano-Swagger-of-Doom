@@ -38,9 +38,9 @@ namespace wServer.realm.entities
         public int AbilityCooldown { get; set; }
 
         public int CurrentFame { get; set; }
-        public int Fame { get; set; }
-        public int FameGoal { get; set; }
-        public int Stars { get; set; }
+        public int Kills { get; set; }
+        public int KillGoal { get; set; }
+        public int Rank { get; set; }
 
         public string Guild { get; set; }
         public int GuildRank { get; set; }
@@ -59,57 +59,6 @@ namespace wServer.realm.entities
         public int[] Stats { get; private set; }
         public int[] Boost { get; private set; }
 
-        protected override void ImportStats(StatsType stats, object val)
-        {
-            base.ImportStats(stats, val);
-            switch (stats)
-            {
-                case StatsType.AccountId: AccountId = (int)val; break;
-
-                case StatsType.Experience: Experience = (int)val; break;
-                case StatsType.ExperienceGoal: ExperienceGoal = (int)val; break;
-                case StatsType.Level: Level = (int)val; break;
-
-                case StatsType.Fame: CurrentFame = (int)val; break;
-                case StatsType.CurrentFame: Fame = (int)val; break;
-                case StatsType.FameGoal: FameGoal = (int)val; break;
-                case StatsType.Stars: Stars = (int)val; break;
-
-                case StatsType.Guild: Guild = (string)val; break;
-                case StatsType.GuildRank: GuildRank = (int)val; break;
-
-                case StatsType.Credits: Credits = (int)val; break;
-                case StatsType.NameChosen: NameChosen = (int)val != 0 ? true : false; break;
-                case StatsType.Texture1: Texture1 = (int)val; break;
-                case StatsType.Texture2: Texture2 = (int)val; break;
-
-                case StatsType.Glowing: Glowing = (int)val != 0 ? true : false; break;
-                case StatsType.HP: HP = (int)val; break;
-                case StatsType.MP: Hunger = (int)val; break;
-
-                case StatsType.Inventory0: Inventory[0] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory1: Inventory[1] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory2: Inventory[2] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory3: Inventory[3] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory4: Inventory[4] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory5: Inventory[5] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory6: Inventory[6] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory7: Inventory[7] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory8: Inventory[8] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory9: Inventory[9] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory10: Inventory[10] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory11: Inventory[11] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-
-                case StatsType.MaximumHP: Stats[0] = (int)val; break;
-                case StatsType.MaximumMP: Stats[1] = (int)val; break;
-                case StatsType.Attack: Stats[2] = (int)val; break;
-                case StatsType.Defense: Stats[3] = (int)val; break;
-                case StatsType.Speed: Stats[4] = (int)val; break;
-                case StatsType.Vitality: Stats[5] = (int)val; break;
-                case StatsType.Wisdom: Stats[6] = (int)val; break;
-                case StatsType.Dexterity: Stats[7] = (int)val; break;
-            }
-        }
         protected override void ExportStats(IDictionary<StatsType, object> stats)
         {
             base.ExportStats(stats);
@@ -120,9 +69,9 @@ namespace wServer.realm.entities
             stats[StatsType.Level] = Level;
 
             stats[StatsType.CurrentFame] = CurrentFame;
-            stats[StatsType.Fame] = Fame;
-            stats[StatsType.FameGoal] = FameGoal;
-            stats[StatsType.Stars] = Stars;
+            stats[StatsType.Fame] = Kills;
+            stats[StatsType.FameGoal] = KillGoal;
+            stats[StatsType.Rank] = Rank;
 
             stats[StatsType.Guild] = Guild;
             stats[StatsType.GuildRank] = GuildRank;
@@ -178,7 +127,7 @@ namespace wServer.realm.entities
             chr.Level = Level;
             chr.Tex1 = Texture1;
             chr.Tex2 = Texture2;
-            chr.CurrentFame = Fame;
+            //chr.CurrentFame = Fame;
             chr.HitPoints = HP;
             chr.MagicPoints = Hunger;
             chr.Equipment = Inventory.Select(_ => _ == null ? (ushort)0xffff : _.ObjectType).ToArray();
@@ -190,6 +139,13 @@ namespace wServer.realm.entities
             chr.HpRegen = Stats[5];
             chr.MpRegen = Stats[6];
             chr.Dexterity = Stats[7];
+        }
+
+        public void SaveToAccount()
+        {
+            var acc = client.Account;
+            acc.Name = Name;
+            acc.Kills = Kills;
         }
 
         void CalculateBoost()
@@ -230,18 +186,18 @@ namespace wServer.realm.entities
             Level = client.Character.Level;
             Experience = client.Character.Exp;
             ExperienceGoal = GetExpGoal(client.Character.Level);
-            Stars = GetStars();
+            Rank = client.Account.Rank;
             Texture1 = client.Character.Tex1;
             Texture2 = client.Character.Tex2;
             Credits = client.Account.Credits;
             NameChosen = client.Account.NameChosen;
             CurrentFame = client.Account.Stats.Fame;
-            Fame = client.Character.CurrentFame;
-            var state = client.Account.Stats.ClassStates.SingleOrDefault(_ => _.ObjectType == ObjectType);
-            if (state != null)
-                FameGoal = GetFameGoal(state.BestFame);
-            else
-                FameGoal = GetFameGoal(0);
+            Kills = client.Account.Kills;
+            //var state = client.Account.Stats.ClassStates.SingleOrDefault(_ => _.ObjectType == ObjectType);
+            //if (state != null)
+            //    FameGoal = GetFameGoal(state.BestFame);
+            //else
+            //    FameGoal = GetFameGoal(0);
             Glowing = true;
             Guild = "";
             GuildRank = -1;
@@ -552,7 +508,7 @@ namespace wServer.realm.entities
 
             GenerateGravestone();
             foreach (var i in Owner.Players.Values)
-                i.SendInfo(Name + " died at Level " + Level + ", with " + Fame + " Fame" +/* " and " + Experience + " Experience " + */", killed by " + killer); //removed XP as max packet length reached!
+                i.SendInfo(Name + " died at Level " + Level + ", killed by " + killer);
 
             client.Character.Dead = true;
             SaveToCharacter();

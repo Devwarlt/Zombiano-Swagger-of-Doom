@@ -33,8 +33,8 @@ package com.company.assembleegameclient.appengine{
         public var totalFame_:int = 0;
         public var _Q_7:int = 0;
         public var credits_:int = 0;
-        public var numStars_:int = 0;
         public var nextCharSlotPrice_:int;
+        public var rank:int;
         public var guildName_:String;
         public var guildRank_:int;
         public var servers_:Vector.<Server>;
@@ -65,7 +65,7 @@ package com.company.assembleegameclient.appengine{
             this._0I_M_();
             Account._get().reportIntStat("BestLevel", this._04F_());
             Account._get().reportIntStat("BestFame", this._0I_Q_());
-            Account._get().reportIntStat("NumStars", this.numStars_);
+            Account._get().reportIntStat("Rank", this.rank);
         }
         private function _cb(_arg1:XML):void{
             this.accountId_ = _arg1.AccountId;
@@ -77,6 +77,7 @@ package com.company.assembleegameclient.appengine{
             this._Q_7 = int(_arg1.Stats.Fame);
             this.credits_ = int(_arg1.Credits);
             this.nextCharSlotPrice_ = int(_arg1.NextCharSlotPrice);
+            this.rank = int(_arg1.Rank);
         }
         private function _t6(_arg1:XML):void{
             var _local2:int;
@@ -124,7 +125,6 @@ package com.company.assembleegameclient.appengine{
             {
                 _local3 = int(_local2.@objectType);
                 _local4 = new _0A_H_(_local2);
-                this.numStars_ = (this.numStars_ + _local4._lr());
                 this.charStats_[_local3] = _local4;
             }
         }

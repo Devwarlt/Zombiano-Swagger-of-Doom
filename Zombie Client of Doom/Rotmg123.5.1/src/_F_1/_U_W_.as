@@ -18,7 +18,7 @@ package _F_1{
     import com.company.assembleegameclient.util.TextureRedrawer;
     import com.company.assembleegameclient.util._0B_c;
     import com.company.assembleegameclient.util._J_H_;
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
     import com.company.assembleegameclient.util._lJ_;
     import com.company.rotmg.graphics.FameIconBackgroundDesign;
     import com.company.rotmg.graphics.ScreenGraphic;
@@ -134,7 +134,7 @@ package _F_1{
             this._mZ_.y = 316;
             addChild(this._mZ_);
             this._9N_.addChild(this._mZ_);
-            var _local3:BitmapData = _Z_B_._qf();
+            var _local3:BitmapData = RankUtils._qf();
             _local3 = BitmapUtil._Y_d(_local3, 6, 6, (_local3.width - 12), (_local3.height - 12));
             this._0L_r = new _2Z_(24, 0xCCCCCC, 0xFFC800, "Total Fame Earned", null, _arg1, "", "", new Bitmap(_local3));
             this._0L_r.x = 10;

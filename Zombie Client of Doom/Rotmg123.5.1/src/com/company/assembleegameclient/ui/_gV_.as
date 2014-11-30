@@ -4,7 +4,10 @@
 //com.company.assembleegameclient.ui._gV_
 
 package com.company.assembleegameclient.ui{
-    import flash.display.Sprite;
+import com.company.assembleegameclient.objects.Player;
+import com.company.assembleegameclient.util.RankUtils;
+
+import flash.display.Sprite;
     import flash.display.Bitmap;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.objects.GameObject;
@@ -79,7 +82,7 @@ package com.company.assembleegameclient.ui{
                 _local5 = true;
                 if (((!((this.go_.name_ == null))) && (!((this.go_.name_ == "")))))
                 {
-                    _local4 = ((("<b>" + this.go_.name_) + "</b> (") + ObjectLibrary._0D_N_[this.go_.objectType_]);
+                    _local4 = ((("<b>" + this.go_.name_) + "</b> (") + (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_]));
                     if (this.go_.level_ < 1)
                     {
                         _local4 = (_local4 + ")");
@@ -89,13 +92,13 @@ package com.company.assembleegameclient.ui{
                     }
                 } else
                 {
-                    _local4 = (("<b>" + ObjectLibrary._0D_N_[this.go_.objectType_]) + "</b>");
+                    _local4 = (("<b>" + (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_])) + "</b>");
                 }
             } else
             {
                 if ((((this.go_.name_ == null)) || ((this.go_.name_ == ""))))
                 {
-                    _local4 = ObjectLibrary._0D_N_[this.go_.objectType_];
+                    _local4 = (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_]);
                 } else
                 {
                     _local4 = this.go_.name_;

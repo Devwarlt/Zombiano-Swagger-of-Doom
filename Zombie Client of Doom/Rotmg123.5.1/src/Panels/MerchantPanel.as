@@ -158,7 +158,7 @@ package Panels{
             var _local1:Player = gs_.map_.player_;
             this.nameText_.y = (((this.nameText_.height)>30) ? 0 : 12);
             var _local2:int = this._iA_._U_R_;
-            if (_local1.numStars_ < _local2)
+            if (_local1.rank < _local2)
             {
                 if (contains(this._8O_))
                 {

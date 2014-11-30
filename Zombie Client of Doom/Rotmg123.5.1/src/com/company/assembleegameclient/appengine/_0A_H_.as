@@ -4,7 +4,7 @@
 //com.company.assembleegameclient.appengine._0A_H_
 
 package com.company.assembleegameclient.appengine{
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
 
     public class _0A_H_ {
 
@@ -20,7 +20,7 @@ package com.company.assembleegameclient.appengine{
             return (this._0L_u.BestFame);
         }
         public function _lr():int{
-            return (_Z_B_._lr(int(this._0L_u.BestFame)));
+            return (RankUtils._lr(int(this._0L_u.BestFame)));
         }
 
     }

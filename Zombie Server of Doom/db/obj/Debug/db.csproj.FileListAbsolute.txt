@@ -97,7 +97,6 @@ D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\De
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\db.pdb
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\Ionic.Zlib.dll
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\log4net.dll
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\MySql.Data.dll
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\log4net.xml
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\obj\Debug\db.csprojResolveAssemblyReference.cache
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\obj\Debug\db.dll

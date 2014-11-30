@@ -353,6 +353,7 @@ package com.company.assembleegameclient.game{
                         this.gs_.textBox_.addText("Player", "Player Chat");
                         this.gs_.textBox_._ro("Player", -1, 0, "Crunchy", "Tell to another Player");
                         this.gs_.textBox_._ro("Crunchy", -1, 0, "Player", "Tell from another Player");
+                        this.gs_.textBox_._ro("Man", 2, 13, "", "Admin Chat");
                         this.gs_.textBox_._ro("Crunchy", -1, 0, Parameters.SendGuild, "Guild Chat");
                         break;
                     case _H_V_.C:

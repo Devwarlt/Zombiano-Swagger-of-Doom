@@ -80,6 +80,30 @@ public class Account
     [XmlIgnore]
     public List<int> CraftingRecipes { get; set; }
 
+    public int Rank
+    {
+        get
+        {
+            if (this.Admin) return 13;
+            else if (this.Kills > 0 && this.Kills < 100) return 1;
+            else if (this.Kills > 99 && this.Kills < 500) return 2;
+            else if (this.Kills > 499 && this.Kills < 1000) return 3;
+            else if (this.Kills > 999 && this.Kills < 2000) return 4;
+            else if (this.Kills > 1999 && this.Kills < 4000) return 5;
+            else if (this.Kills > 3999 && this.Kills < 8000) return 6;
+            else if (this.Kills > 7999 && this.Kills < 16000) return 7;
+            else if (this.Kills > 15999 && this.Kills < 32000) return 8;
+            else if (this.Kills > 31999 && this.Kills < 64000) return 9;
+            else if (this.Kills > 63999 && this.Kills < 128000) return 10;
+            else if (this.Kills > 127999 && this.Kills < 256000) return 11;
+            else if (this.Kills > 255999) return 12;
+            else return 0;
+        }
+        set { }
+    }
+
+    [XmlIgnore]
+    public int Kills { get; set; }
     public int Credits { get; set; }
     public int NextCharSlotPrice { get; set; }
     public int? BeginnerPackageTimeLeft { get; set; }

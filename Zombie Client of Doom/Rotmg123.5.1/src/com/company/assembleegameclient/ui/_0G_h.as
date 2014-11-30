@@ -4,16 +4,18 @@
 //com.company.assembleegameclient.ui._0G_h
 
 package com.company.assembleegameclient.ui{
-    import flash.display.Sprite;
+
+import flash.display.DisplayObject;
+import flash.display.Sprite;
     import com.company.ui.SimpleText;
     import flash.filters.DropShadowFilter;
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
 
     public class _0G_h extends Sprite {
 
         public var _Q_j:Sprite = null;
         public var _0H_O_:Boolean;
-        private var numStars_:int = -1;
+        private var rank:int = -1;
         private var _A_2:SimpleText = null;
 
         public function _0G_h(_arg1:int, _arg2:Boolean, _arg3:Boolean){
@@ -32,28 +34,28 @@ package com.company.assembleegameclient.ui{
             this.draw(_arg1);
         }
         public function draw(_arg1:int):void{
-            var _local3:Sprite;
-            if (_arg1 == this.numStars_)
+            var _local3:DisplayObject;
+            if (_arg1 == this.rank)
             {
                 return;
             }
-            this.numStars_ = _arg1;
+            this.rank = _arg1;
             if (((!((this._Q_j == null))) && (contains(this._Q_j))))
             {
                 removeChild(this._Q_j);
             }
-            if (this.numStars_ < 0)
+            if (this.rank < 0)
             {
                 return;
             }
             this._Q_j = new Sprite();
             var _local2:SimpleText = new SimpleText(((this._0H_O_) ? 18 : 16), 0xB3B3B3, false, 0, 0, "Myriad Pro");
             _local2.boldText(this._0H_O_);
-            _local2.text = this.numStars_.toString();
+            _local2.text = RankUtils.toLongRankString(this.rank);
             _local2.updateMetrics();
             _local2.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 2)];
             this._Q_j.addChild(_local2);
-            _local3 = ((this._0H_O_) ? _Z_B_._bl(this.numStars_) : _Z_B_._03A_(this.numStars_));
+            _local3 = RankUtils._bl(this.rank);
             _local3.x = (_local2.width + 2);
             this._Q_j.addChild(_local3);
             _local3.y = (int(((_local2.height / 2) - (_local3.height / 2))) + 1);
@@ -69,7 +71,6 @@ package com.company.assembleegameclient.ui{
                 this._Q_j.x = this._A_2.width;
             }
         }
-
     }
 }//package com.company.assembleegameclient.ui
 

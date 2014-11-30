@@ -4,8 +4,9 @@
 //com.company.assembleegameclient.ui._0A_t
 
 package com.company.assembleegameclient.ui{
-    import flash.display.Sprite;
-    import com.company.assembleegameclient.util._Z_B_;
+import flash.display.DisplayObject;
+import flash.display.Sprite;
+    import com.company.assembleegameclient.util.RankUtils;
     import flash.text.engine.ContentElement;
 
     import flash.text.engine.ElementFormat;
@@ -22,7 +23,8 @@ package com.company.assembleegameclient.ui{
 
         public var time_:int;
         public var name_:String;
-        public var _L_P_:Sprite = null;
+        public var _L_P_:DisplayObject = null;
+        public var rank:int;
         public var recipient_:String;
         public var _E_B_:Boolean;
         public var text_:String;
@@ -32,7 +34,8 @@ package com.company.assembleegameclient.ui{
             this.name_ = _arg2;
             if (_arg4 >= 0)
             {
-                this._L_P_ = _Z_B_._0M_r(_arg4);
+                this._L_P_ = RankUtils._0M_r(_arg4);
+                rank = _arg4;
             }
             this.recipient_ = _arg5;
             this._E_B_ = _arg6;
@@ -93,12 +96,12 @@ package com.company.assembleegameclient.ui{
             }
             if (this._L_P_ != null)
             {
-                this._L_P_.y = 3;
+                this._L_P_.y = (this._L_P_.height / 2) - 3;
                 _local1.push(new GraphicElement(this._L_P_, (this._L_P_.width + 2), this._L_P_.height, _0I_T_.TextColour));
             }
             if (_local5 != "")
             {
-                _local1.push(new TextElement((("<" + _local5) + ">"), _local2), new TextElement(" ", _local3));
+                _local1.push(new TextElement(_local2 == _0I_T_.PlayerColour || _local2 == _0I_T_.TellColour ? ((rank > 0 ? " " : "") + RankUtils.toShortRankString(rank) + " " + _local5 + ":") : "<" + _local5 + ">", _local2), new TextElement(" ", _local3));
             }
             _local1.push(new TextElement(this.text_, _local4));
             var _local6:GroupElement = new GroupElement(_local1);

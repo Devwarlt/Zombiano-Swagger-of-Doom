@@ -84,6 +84,15 @@ import com.company.ui.fonts.*;
                 mouseEnabled = false;
             }
         }
+        public function set size(newsize:int) {
+            var _local3:TextFormat = defaultTextFormat;
+            _local3.size = newsize;
+            setTextFormat(_local3);
+            defaultTextFormat = _local3;
+        }
+        public function get size():int {
+            return int(defaultTextFormat.size);
+        }
         public function _du(_arg1:int, _arg2:uint):void{
             var _local3:TextFormat = defaultTextFormat;
             _local3.size = _arg1;

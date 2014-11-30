@@ -161,7 +161,7 @@ namespace wServer.realm.commands
                     player.Client.SendPacket(new TextPacket() //echo to self
                     {
                         BubbleTime = 10,
-                        Stars = player.Stars,
+                        Stars = player.Rank,
                         Name = player.Name,
                         Recipient = i.Account.Name,
                         Text = msg
@@ -170,7 +170,7 @@ namespace wServer.realm.commands
                     i.SendPacket(new TextPacket() //echo to /tell player
                     {
                         BubbleTime = 10,
-                        Stars = player.Stars,
+                        Stars = player.Rank,
                         Name = player.Name,
                         Recipient = i.Account.Name,
                         Text = msg

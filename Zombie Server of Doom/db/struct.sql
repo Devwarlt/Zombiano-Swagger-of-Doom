@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `password` varchar(256) NOT NULL,
   `name` varchar(64) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
+  `kills` int(11) NOT NULL DEFAULT '0',
   `namechosen` tinyint(1) NOT NULL DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `guild` int(11) NOT NULL DEFAULT '0',

@@ -282,7 +282,7 @@ package com.company.assembleegameclient.game{
                 this._V_1.draw();
                 if (this.map_.showDisplays_)
                 {
-                    this._pg.draw(_local4.numStars_);
+                    this._pg.draw(_local4.rank);
                     this._4v.draw(_local4.guildName_, _local4.guildRank_);
                 }
                 if (_local4.isPaused())

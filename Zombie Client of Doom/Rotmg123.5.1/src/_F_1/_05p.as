@@ -34,7 +34,7 @@ package _F_1{
         private var _wi:Sprite;
         private var _0B_b:String;
         private var _58:int;
-        private var stars:int;
+        private var rank:int;
         private var _H_W_:Class;
         private var _B_D_:_0G_h;
         private var _I_Q_:_L_N_;
@@ -70,11 +70,11 @@ package _F_1{
             this._tW_.addChild(this._I_Q_);
         }
         public function _0I_v(_arg1:int):void{
-            this.stars = _arg1;
+            this.rank = _arg1;
             this._0H_l();
         }
         private function _0H_l():void{
-            this._B_D_ = new _0G_h(this.stars, true, false);
+            this._B_D_ = new _0G_h(this.rank, true, false);
             this._B_D_.x = 36;
             this._B_D_.y = 4;
             this._B_D_.mouseEnabled = true;
@@ -89,7 +89,7 @@ package _F_1{
             }
             this._06e = true;
             this._m2(_arg1.guildName_, _arg1.guildRank_);
-            this._0I_v(_arg1.numStars_);
+            this._0I_v(_arg1.rank);
             stage;
             this._0_4.x = ((800 - this._0_4.width) - 10);
             this._0_4.y = 2;
@@ -97,7 +97,7 @@ package _F_1{
             stage.addEventListener(_W_h.ACCOUNT_CHANGED, this._sU_);
         }
         protected function onMouseOver(_arg1:MouseEvent):void{
-            this.tooltip.dispatch(new RankToolTip(this.stars));
+            this.tooltip.dispatch(new RankToolTip(this.rank));
         }
         protected function onRollOut(_arg1:MouseEvent):void{
             this.tooltip.dispatch(null);

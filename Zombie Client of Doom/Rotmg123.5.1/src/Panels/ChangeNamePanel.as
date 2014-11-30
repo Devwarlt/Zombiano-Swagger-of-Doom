@@ -59,7 +59,7 @@ package Panels{
                 this._ek = _local5;
             } else
             {
-                if (_local3.numStars_ < _arg2)
+                if (_local3.rank < _arg2)
                 {
                     this._O_k.htmlText = '<p align="center">Choose Account Name</p>';
                     addChild(this._O_k);

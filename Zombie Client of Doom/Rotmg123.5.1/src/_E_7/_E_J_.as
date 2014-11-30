@@ -15,7 +15,7 @@ package _E_7{
     import com.company.util._G_;
     import flash.geom.ColorTransform;
     import flash.filters.DropShadowFilter;
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.appengine._0K_R_;
     import com.company.assembleegameclient.appengine._0A_H_;
@@ -31,7 +31,7 @@ package _E_7{
         private var _aV_:SimpleText;
         private var _U_n:SimpleText;
 
-        public function _E_J_(_arg1:XML, _arg2:_0K_R_, _arg3:_0A_H_){
+        public function _E_J_(_arg1:XML, _arg2:_0K_R_){
             var _local9:int;
             var _local10:int;
             var _local11:XML;
@@ -75,25 +75,25 @@ package _E_7{
             addChild(this._qc);
             if (_local8)
             {
-                _local9 = (((_arg3 == null)) ? 0 : _arg3._lr());
-                this._05h = new SimpleText(14, 6206769, false, 0, 0, "Myriad Pro");
-                this._05h.text = ((((((_local9 + " of 5 Class Quests Completed\n") + "Best Level Achieved: ") + (((_arg3)!=null) ? _arg3._bI_() : 0)) + "\n") + "Best Fame Achieved: ") + (((_arg3)!=null) ? _arg3._0D_E_() : 0));
-                this._05h.updateMetrics();
-                this._05h.filters = [new DropShadowFilter(0, 0, 0)];
-                this._05h.x = 8;
-                this._05h.y = (height - 2);
-                addChild(this._05h);
-                _local10 = _Z_B_._F_U_((((_arg3 == null)) ? 0 : _arg3._0D_E_()), 0);
-                if (_local10 > 0)
-                {
-                    this._U_n = new SimpleText(13, 16549442, false, 174, 0, "Myriad Pro");
-                    this._U_n.text = (((("Next Goal: Earn " + _local10) + " Fame\n") + "  with a ") + _arg1.@id);
-                    this._U_n.updateMetrics();
-                    this._U_n.filters = [new DropShadowFilter(0, 0, 0)];
-                    this._U_n.x = 8;
-                    this._U_n.y = (height - 2);
-                    addChild(this._U_n);
-                }
+                //_local9 = (((_arg3 == null)) ? 0 : _arg3._lr());
+                //this._05h = new SimpleText(14, 6206769, false, 0, 0, "Myriad Pro");
+                //this._05h.text = ((((((_local9 + " of 5 Class Quests Completed\n") + "Best Level Achieved: ") + (((_arg3)!=null) ? _arg3._bI_() : 0)) + "\n") + "Best Fame Achieved: ") + (((_arg3)!=null) ? _arg3._0D_E_() : 0));
+                //this._05h.updateMetrics();
+                //this._05h.filters = [new DropShadowFilter(0, 0, 0)];
+                //this._05h.x = 8;
+                //this._05h.y = (height - 2);
+                //addChild(this._05h);
+                //_local10 = RankUtils._F_U_((((_arg3 == null)) ? 0 : _arg3._0D_E_()), 0);
+                //if (_local10 > 0)
+                //{
+                //    this._U_n = new SimpleText(13, 16549442, false, 174, 0, "Myriad Pro");
+                //    this._U_n.text = (((("Next Goal: Earn " + _local10) + " Fame\n") + "  with a ") + _arg1.@id);
+                //    this._U_n.updateMetrics();
+                //    this._U_n.filters = [new DropShadowFilter(0, 0, 0)];
+                //    this._U_n.x = 8;
+                //    this._U_n.y = (height - 2);
+                //    addChild(this._U_n);
+                //}
             } else
             {
                 this._aV_ = new SimpleText(13, 0xB3B3B3, false, 174, 0, "Myriad Pro");

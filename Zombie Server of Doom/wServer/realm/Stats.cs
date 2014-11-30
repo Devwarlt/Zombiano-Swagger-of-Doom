@@ -41,7 +41,7 @@ namespace wServer.realm
         Wisdom = 27,
         Dexterity = 28,
         Effects = 29,
-        Stars = 30,
+        Rank = 30,
         Name = 31,
         Texture1 = 32,
         Texture2 = 33,

@@ -12,7 +12,7 @@ package _E_7{
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import flash.filters.DropShadowFilter;
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
     import com.company.assembleegameclient.appengine._0A_H_;
 
     public class _0M_k extends _for_ {
@@ -57,7 +57,7 @@ package _E_7{
             this._05h.x = 8;
             this._05h.y = (height - 2);
             addChild(this._05h);
-            var _local7:int = _Z_B_._F_U_((((_arg3 == null)) ? 0 : _arg3._0D_E_()), 0);
+            var _local7:int = RankUtils._F_U_((((_arg3 == null)) ? 0 : _arg3._0D_E_()), 0);
             if (_local7 > 0)
             {
                 this._U_n = new SimpleText(15, 16549442, false, 174, 0, "CHIP SB");

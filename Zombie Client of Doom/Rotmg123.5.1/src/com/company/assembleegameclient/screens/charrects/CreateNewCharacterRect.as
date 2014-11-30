@@ -7,6 +7,10 @@ package com.company.assembleegameclient.screens.charrects{
 import com.company.assembleegameclient.appengine._0K_R_;
 import flash.display.Bitmap;
 import com.company.ui.SimpleText;
+
+import flash.display.DisplayObject;
+
+import flash.display.Sprite;
 import flash.display.Sprite;
 import _sp._aJ_;
 import com.company.assembleegameclient.objects.ObjectLibrary;
@@ -15,8 +19,8 @@ import com.company.assembleegameclient.util._lJ_;
 import flash.display.BitmapData;
 import com.company.util.BitmapUtil;
 import flash.filters.DropShadowFilter;
-import com.company.assembleegameclient.util._Z_B_;
-import com.company.rotmg.graphics.StarGraphic;
+import com.company.assembleegameclient.util.RankUtils;
+import com.company.rotmg.graphics.ranks.AdminRank;
 import flash.geom.ColorTransform;
 
 public class CreateNewCharacterRect extends CharacterRect {
@@ -24,7 +28,7 @@ public class CreateNewCharacterRect extends CharacterRect {
     private var charList_:_0K_R_;
     private var bitmap_:Bitmap;
     private var classNameText_:SimpleText;
-    private var taglineIcon_:Sprite;
+    private var taglineIcon_:DisplayObject;
     private var taglineText_:SimpleText;
     public var newCharacter:_aJ_;
 
@@ -46,18 +50,15 @@ public class CreateNewCharacterRect extends CharacterRect {
         this.classNameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
         this.classNameText_.x = 58;
         addChild(this.classNameText_);
-        if (this.charList_.numStars_ != _Z_B_._5e())
+        if (this.charList_.rank != RankUtils._5e())
         {
-            this.taglineIcon_ = new StarGraphic();
-            this.taglineIcon_.transform.colorTransform = new ColorTransform((179 / 0xFF), (179 / 0xFF), (179 / 0xFF));
-            this.taglineIcon_.scaleX = 1.2;
-            this.taglineIcon_.scaleY = 1.2;
+            this.taglineIcon_ = new AdminRank();
             this.taglineIcon_.x = 58;
             this.taglineIcon_.y = 26;
             this.taglineIcon_.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.taglineIcon_);
             this.taglineText_ = new SimpleText(14, 0xB3B3B3, false, 0, 0, "Myriad Pro");
-            this.taglineText_.text = ((_Z_B_._5e() - this.charList_.numStars_) + " Class quests not yet completed");
+            this.taglineText_.text = ((RankUtils._5e() - this.charList_.rank) + " Class quests not yet completed");
             this.taglineText_.updateMetrics();
             this.taglineText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
             this.taglineText_.x = ((58 + this.taglineIcon_.width) + 2);

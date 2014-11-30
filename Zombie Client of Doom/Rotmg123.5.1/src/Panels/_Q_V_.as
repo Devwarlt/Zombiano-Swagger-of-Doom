@@ -24,7 +24,7 @@ import flash.display.Sprite;
         public var h_:int;
         public var _G_2:Panel = null;
         public var _dN_:IPanelProvider = null;
-        public var _V_D_:_w6;
+        public var _V_D_:PlayerViewPanel;
         private var _g:Panel;
 
         public function _Q_V_(_arg1:GameSprite, _arg2:Player, _arg3:int, _arg4:int){
@@ -32,7 +32,7 @@ import flash.display.Sprite;
             this.player_ = _arg2;
             this.w_ = _arg3;
             this.h_ = _arg4;
-            this._V_D_ = new _w6(_arg1);
+            this._V_D_ = new PlayerViewPanel(_arg1);
         }
         public function _j(_arg1:Panel):void{
             if (this._g != null)

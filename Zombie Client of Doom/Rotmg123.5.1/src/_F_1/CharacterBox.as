@@ -10,11 +10,11 @@ package _F_1{
     import com.company.assembleegameclient.appengine.SavedCharacter;
     import com.company.assembleegameclient.appengine._0A_H_;
     import com.company.assembleegameclient.appengine._0K_R_;
-    import com.company.assembleegameclient.util._Z_B_;
+    import com.company.assembleegameclient.util.RankUtils;
     import com.company.assembleegameclient.util._lJ_;
     import com.company.rotmg.graphics.FullCharBoxGraphic;
     import com.company.rotmg.graphics.LockedCharBoxGraphic;
-    import com.company.rotmg.graphics.StarGraphic;
+    import com.company.rotmg.graphics.ranks.AdminRank;
     import com.company.ui.SimpleText;
     import com.company.util.AssetLibrary;
     
@@ -57,8 +57,6 @@ import flash.display.Sprite;
 		public var selectedOver:Boolean = false;
 
         public function CharacterBox(_arg1:XML, _arg2:_0A_H_, _arg3:_0K_R_){
-            var _local4:Bitmap;
-            var _local5:Sprite;
             super();
             this.playerXML_ = _arg1;
             this.charStats_ = _arg2;
@@ -93,21 +91,17 @@ import flash.display.Sprite;
                 this._L_B_.y = 58;
                 addChild(this._L_B_);
                 this.classNameText_.y = 78;
-            } else
+            }
+            else
             {
-                _local5 = this._kU_(_Z_B_._lr(this.charList_._0D_E_(this.objectType())), _Z_B_._yJ_.length);
-                _local5.y = 60;
-                _local5.x = ((this._87.width / 2) - (_local5.width / 2));
-                _local5.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4)];
-                addChild(_local5);
-                this.classNameText_.y = 74;
+                this.classNameText_.y = 65;
             }
         }
         public function objectType():int{
             return (int(this.playerXML_.@type));
         }
         public function getTooltip():_for_{
-            return (new _E_J_(this.playerXML_, this.charList_, this.charStats_));
+            return (new _E_J_(this.playerXML_, this.charList_));
         }
         public function _P_Y_(_arg1:Boolean):void{
             if (!this._F_I_)
@@ -187,24 +181,22 @@ import flash.display.Sprite;
             this.bitmap_.x = ((this._87.width / 2) - (this.bitmap_.bitmapData.width / 2));
         }
         private function _kU_(_arg1:int, _arg2:int):Sprite{
-            var _local5:Sprite;
+            var _local5:DisplayObject;
             var _local3:Sprite = new Sprite();
             var _local4:int;
             var _local6:int;
             while (_local4 < _arg1)
             {
-                _local5 = new StarGraphic();
+                _local5 = new AdminRank();
                 _local5.x = _local6;
-                _local5.transform.colorTransform = _Z_k;
                 _local3.addChild(_local5);
                 _local6 = (_local6 + _local5.width);
                 _local4++;
             }
             while (_local4 < _arg2)
             {
-                _local5 = new StarGraphic();
+                _local5 = new AdminRank();
                 _local5.x = _local6;
-                _local5.transform.colorTransform = _t0;
                 _local3.addChild(_local5);
                 _local6 = (_local6 + _local5.width);
                 _local4++;

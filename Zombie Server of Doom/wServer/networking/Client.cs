@@ -105,6 +105,11 @@ namespace wServer.networking
                 Player.SaveToCharacter();
                 Manager.Database.SaveCharacter(Account, Character);
             }
+            if (Account != null)
+            {
+                Player.SaveToAccount();
+                Manager.Database.SaveAccount(Account);
+            }
         }
 
         public Char Character { get; internal set; }

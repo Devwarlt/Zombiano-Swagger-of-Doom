@@ -22,6 +22,8 @@ package com.company.assembleegameclient.ui{
             this._5U_ = new Bitmap(null);
             this._5U_.y = -8;
             this._5U_.x = -8;
+            this._5U_.scaleX = 0.1;
+            this._5U_.scaleY = 0.1;
             var _local4:int = (((_arg3 == 0)) ? 0 : (_arg3 - (this._5U_.width - 16)));
             this.guildName_ = new SimpleText(16, 0xFFFFFF, false, _local4, 0, "Myriad Pro");
             this.guildName_.filters = [new DropShadowFilter(0, 0, 0)];
@@ -42,6 +44,8 @@ package com.company.assembleegameclient.ui{
             } else
             {
                 this._5U_.bitmapData = _07E_._wS_(this._S_e, 10);
+                this._5U_.scaleX = 0.1;
+                this._5U_.scaleY = 0.1;
                 _O_m._041(this, this._5U_);
                 this.guildName_.text = this.name_;
                 this.guildName_._08S_();

@@ -1,7 +1,7 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//Panels._w6
+//Panels.PlayerViewPanel
 
 package Panels{
     import com.company.assembleegameclient.game.GameSprite;
@@ -17,18 +17,18 @@ package Panels{
     
     import _0D_B_._02p;
     
-    import _E_7._c4;
+    import _E_7.playerTooltip;
     
 
 
-    public class _w6 extends Panel {
+    public class PlayerViewPanel extends Panel {
 
         public var _X_T_:Vector.<_gV_>;
-        private var toolTip_:_c4 = null;
+        private var toolTip_:playerTooltip = null;
         private var _0G_Y_:_02p = null;
         private var _68:Boolean = false;
 
-        public function _w6(_arg1:GameSprite){
+        public function PlayerViewPanel(_arg1:GameSprite){
             this._X_T_ = new Vector.<_gV_>(_ez._tn, true);
             super(_arg1);
             this._X_T_[0] = this._00Y_(0, 0);
@@ -79,7 +79,7 @@ package Panels{
             {
                 return;
             }
-            this.toolTip_ = new _c4(_local3);
+            this.toolTip_ = new playerTooltip(_local3);
             stage.addChild(this.toolTip_);
             this._68 = true;
         }

@@ -20,7 +20,7 @@ import flash.display.DisplayObject;
 
     public class Parameters {
 
-        public static const isTesting:Boolean = false;
+        public static const isTesting:Boolean = true;
 		public static const sendErrors:Boolean = false;
         public static const clientVersion:String = "1.0.0";
         public static const _wZ_:Boolean = true;

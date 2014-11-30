@@ -143,6 +143,7 @@ AND characters.charId=death.chrId;";
                 {
                     Name = rdr.GetString("name"),
                     AccountId = rdr.GetInt32("id"),
+                    Kills = rdr.GetInt32("kills"),
                     Admin = rdr.GetBoolean("admin"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
@@ -216,6 +217,7 @@ AND characters.charId=death.chrId;";
                 {
                     Name = rdr.GetString("name"),
                     AccountId = rdr.GetInt32("id"),
+                    Kills = rdr.GetInt32("kills"),
                     Admin = rdr.GetBoolean("admin"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
@@ -558,6 +560,22 @@ bestFame = GREATEST(bestFame, @bestFame);";
             cmd.Parameters.AddWithValue("@objType", chr.ObjectType);
             cmd.Parameters.AddWithValue("@bestLv", chr.Level);
             cmd.Parameters.AddWithValue("@bestFame", chr.CurrentFame);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void SaveAccount(Account acc)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = @"UPDATE accounts SET 
+name=@name,
+kills=@kills,
+craftingRecipes=@craftingRecipes
+WHERE id=@accId;";
+            cmd.Parameters.AddWithValue("@accId", acc.AccountId);
+
+            cmd.Parameters.AddWithValue("@name", acc.Name);
+            cmd.Parameters.AddWithValue("@kills", acc.Kills);
+            cmd.Parameters.AddWithValue("@craftingRecipes", Utils.GetCommaSepString(acc.CraftingRecipes.ToArray()));
             cmd.ExecuteNonQuery();
         }
 
