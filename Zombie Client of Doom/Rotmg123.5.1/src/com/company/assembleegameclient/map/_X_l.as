@@ -155,8 +155,7 @@ import flash.utils.Dictionary;
                 newWeather(null);
             }
             else {
-                var _local1:GTween = new GTween(this, this.weatherBackground_.particles_.length / 60);
-                _local1._bR_ = this.weatherBackground_.removeParticle;
+                var _local1:GTween = new GTween(this.weatherBackground_, 10, { "particlesAmount": -(this.weatherBackground_.particlesAmount) });
                 this.weather_ = _arg1;
                 _local1.onComplete = this.newWeather;
             }
@@ -169,8 +168,7 @@ import flash.utils.Dictionary;
             this.weatherBackground_ = MapOverlay.GetWeatherBackground(this.weather_, false);
             if(this.weatherBackground_ != null) {
                 this.addChild(this.weatherBackground_);
-                var _local1:GTween = new GTween(this, 2)
-                _local1._bR_ = this.weatherBackground_.addParticle;
+                var _local1:GTween = new GTween(this.weatherBackground_, 10, { "particlesAmount": this.weatherBackground_.defaultParticles });
             }
         }
 

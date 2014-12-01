@@ -11,10 +11,15 @@ import _05R_.GTween;
 import _0G_l._in;
 
 import com.company.assembleegameclient.map._0D_v;
+import com.company.assembleegameclient.parameters.Parameters;
 import com.company.util.AssetLibrary;
 import com.company.util._kp;
 
 import flash.display.IGraphicsData;
+import flash.media.Sound;
+import flash.media.SoundChannel;
+import flash.media.SoundTransform;
+import flash.net.URLRequest;
 
 public class RainWeather extends Weather {
 
@@ -22,10 +27,17 @@ public class RainWeather extends Weather {
 
     public function RainWeather(_arg1:Boolean){
         this.graphicsData_ = new Vector.<IGraphicsData>();
+        this.weatherSound = new SoundChannel();
+        var currentSound:Sound = new Sound();
+        currentSound.load(new URLRequest((("http://" + Parameters.musicUrl_) + "/sfx/weather/rain2.mp3")));
+
+        var currentSoundTransform = new SoundTransform(1.0);
+        this.weatherSound = currentSound.play(0, int.MAX_VALUE, currentSoundTransform);
+
         super();
         if(_arg1) {
             var _local1:int;
-            while (_local1 < 100) {
+            while (_local1 < defaultParticles) {
                 this.addRainDrop();
                 _local1++;
             }
@@ -44,8 +56,8 @@ public class RainWeather extends Weather {
     private function addRainDrop():void{
         var _local1:_kp = AssetLibrary._18("rain");
         var _local2:WeatherParticle = new WeatherParticle(((Math.random() * 1000) - 500), ((Math.random() * 1000) - 500), (4 * (0.5 + (0.5 * Math.random()))), _local1._W_u[int((_local1._W_u.length * Math.random()))]);
-        _local2.x_spd = 5;
-        _local2.y_spd = 5;
+        _local2.x_spd = 5 + (Math.random() * (1 - 0.5) + 0.5);
+        _local2.y_spd = 5 + (Math.random() * (1 - 0.5) + 0.5);
         this.particles_.push(_local2);
     }
 
@@ -60,8 +72,12 @@ public class RainWeather extends Weather {
         }
     }
 
-    override public function addParticle(_arg1:GTween):void{
+    override public function addParticle():void{
         this.addRainDrop();
+    }
+
+    override public function get defaultParticles():int {
+        return 500;
     }
 }
 }//package MapOverlays

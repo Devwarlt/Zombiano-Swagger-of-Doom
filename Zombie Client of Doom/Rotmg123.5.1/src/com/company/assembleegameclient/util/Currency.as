@@ -8,18 +8,18 @@ package com.company.assembleegameclient.util{
 
         public static const INVALID:int = -1;
         public static const GOLD:int = 0;
-        public static const FAME:int = 1;
-        public static const GUILDFAME:int = 2;
+        public static const SILVER:int = 1;
+        public static const COPPER:int = 2;
 
         public static function _01r(_arg1:int):String{
             switch (_arg1)
             {
                 case GOLD:
-                    return ("Gold");
-                case FAME:
-                    return ("Fame");
-                case GUILDFAME:
-                    return ("Guild Fame");
+                    return ("Gold Coins");
+                case SILVER:
+                    return ("Silver Coins");
+                case COPPER:
+                    return ("Copper Coins");
             }
             return ("");
         }

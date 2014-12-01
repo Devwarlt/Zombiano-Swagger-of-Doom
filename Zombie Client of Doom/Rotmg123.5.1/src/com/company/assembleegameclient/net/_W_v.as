@@ -26,10 +26,10 @@ package com.company.assembleegameclient.net{
                 case Currency.GOLD:
                     GA.global().trackEvent("credits", ((this.converted_) ? "buyConverted" : "buy"), this.id_, this.price_);
                     return;
-                case Currency.FAME:
+                case Currency.SILVER:
                     GA.global().trackEvent("credits", "buyFame", this.id_, this.price_);
                     return;
-                case Currency.GUILDFAME:
+                case Currency.COPPER:
                     GA.global().trackEvent("credits", "buyGuildFame", this.id_, this.price_);
                     return;
             }

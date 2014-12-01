@@ -99,9 +99,9 @@ namespace wServer.realm.setpieces
 
                     else if (t[x, y] == 3)
                     {
-                        Entity cyclops = Entity.Resolve(world.Manager, 0x0928);
-                        cyclops.Move(pos.X + x, pos.Y + y);
-                        world.EnterWorld(cyclops);
+                        //Entity cyclops = Entity.Resolve(world.Manager, 0x0928);
+                        //cyclops.Move(pos.X + x, pos.Y + y);
+                        //world.EnterWorld(cyclops);
                     }
                 }
         }

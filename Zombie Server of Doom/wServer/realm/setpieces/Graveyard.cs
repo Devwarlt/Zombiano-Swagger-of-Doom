@@ -128,9 +128,9 @@ namespace wServer.realm.setpieces
                     }
                     else if (t[x, y] == 6)
                     {
-                        Entity mage = Entity.Resolve(world.Manager, "Deathmage");
-                        mage.Move(pos.X + x, pos.Y + y);
-                        world.EnterWorld(mage);
+                        //Entity mage = Entity.Resolve(world.Manager, "Deathmage");
+                        //mage.Move(pos.X + x, pos.Y + y);
+                        //world.EnterWorld(mage);
                     }
                 }
         }

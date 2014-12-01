@@ -193,18 +193,19 @@ namespace wServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string args)
         {
-            //player.Client.SendPacket(new WeatherPropertiesPacket
-            //{
-            //    _type = WeatherPropertiesPacket.CHANGE_WEATHER,
-            //    _weather = Weather.Rainy
-            //});
-
             player.Client.SendPacket(new WeatherPropertiesPacket
             {
-                _type = WeatherPropertiesPacket.NONE,
-                _currentTime = player.Manager.CurrentDatetime,
-                _atmosphere = "WEATHER_HIGH_CLOUDY"
+                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
+                _particles = 500,
+                _weather = Weather.Rainy
             });
+
+            //player.Client.SendPacket(new WeatherPropertiesPacket
+            //{
+            //    _type = WeatherPropertiesPacket.NONE,
+            //    _currentTime = player.Manager.CurrentDatetime,
+            //    _atmosphere = "WEATHER_HIGH_CLOUDY"
+            //});
 
             return true;
         }

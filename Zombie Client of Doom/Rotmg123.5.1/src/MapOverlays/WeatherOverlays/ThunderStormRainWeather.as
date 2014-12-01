@@ -23,7 +23,7 @@ public class ThunderStormRainWeather extends Weather {
         super();
         if(_arg1) {
             var _local1:int;
-            while (_local1 < 1000) {
+            while (_local1 < defaultParticles) {
                 this.addRainDrop();
                 _local1++;
             }
@@ -59,8 +59,12 @@ public class ThunderStormRainWeather extends Weather {
         }
     }
 
-    override public function addParticle(_arg1:GTween):void{
+    override public function addParticle():void{
         this.addRainDrop();
+    }
+
+    override public function get defaultParticles():int {
+        return 1000;
     }
 }
 }//package MapOverlays

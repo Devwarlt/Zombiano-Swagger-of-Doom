@@ -116,9 +116,9 @@ namespace wServer.realm.setpieces
                     }
                 }
 
-            Entity giant = Entity.Resolve(world.Manager, "Oasis Giant");
-            giant.Move(pos.X + 15.5f, pos.Y + 15.5f);
-            world.EnterWorld(giant);
+            //Entity giant = Entity.Resolve(world.Manager, "Oasis Giant");
+            //giant.Move(pos.X + 15.5f, pos.Y + 15.5f);
+            //world.EnterWorld(giant);
 
             Container container = new Container(world.Manager, 0x0501, null, false);
             Item[] items = chest.GetLoots(world.Manager, 5, 8).ToArray();

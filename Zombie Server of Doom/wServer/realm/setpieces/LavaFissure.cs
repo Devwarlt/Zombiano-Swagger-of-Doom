@@ -89,9 +89,9 @@ namespace wServer.realm.setpieces
 
 
 
-            Entity demon = Entity.Resolve(world.Manager, "Red Demon");
-            demon.Move(pos.X + 20.5f, pos.Y + 20.5f);
-            world.EnterWorld(demon);
+            //Entity demon = Entity.Resolve(world.Manager, "Red Demon");
+            //demon.Move(pos.X + 20.5f, pos.Y + 20.5f);
+            //world.EnterWorld(demon);
 
             Container container = new Container(world.Manager, 0x0501, null, false);
             Item[] items = chest.GetLoots(world.Manager, 5, 8).ToArray();

@@ -17,7 +17,7 @@ namespace terrain
 {
     class Terrain
     {
-        public const int Size = 2048;
+        public const int Size = 4096;
 
         static void Show(IEnumerable<MapPolygon> polys, IEnumerable<MapNode> plot)
         {

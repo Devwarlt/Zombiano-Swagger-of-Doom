@@ -68,10 +68,10 @@ namespace terrain
 
         void pic_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            tiles[e.X, e.Y].Region = TileRegion.Spawn;
-            bmp.SetPixel(e.X, e.Y, Color.FromArgb((int)GetColor(tiles[e.X, e.Y])));
-            pic.Invalidate();
-            pic2.Invalidate();
+            //tiles[e.X, e.Y].Region = TileRegion.Spawn;
+            //bmp.SetPixel(e.X, e.Y, Color.FromArgb((int)GetColor(tiles[e.X, e.Y])));
+            //pic.Invalidate();
+            //pic2.Invalidate();
         }
 
         void pic_MouseMove(object sender, MouseEventArgs e)

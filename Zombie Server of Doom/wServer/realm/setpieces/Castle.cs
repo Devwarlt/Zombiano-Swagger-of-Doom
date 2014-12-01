@@ -173,9 +173,9 @@ namespace wServer.realm.setpieces
                     }
                     else if (t[x, y] == 8)
                     {
-                        Entity cyclops = Entity.Resolve(world.Manager, "Cyclops God");
-                        cyclops.Move(pos.X + x, pos.Y + y);
-                        world.EnterWorld(cyclops);
+                        //Entity cyclops = Entity.Resolve(world.Manager, "Cyclops God");
+                        //cyclops.Move(pos.X + x, pos.Y + y);
+                        //world.EnterWorld(cyclops);
                     }
                 }
         }

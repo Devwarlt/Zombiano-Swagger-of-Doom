@@ -31,125 +31,73 @@ namespace wServer.realm
             { WmapTerrain.ShoreSand, Tuple.Create(
                 100, new []
                 {
-                    Tuple.Create("Pirate", 0.3),
-                    Tuple.Create("Piratess", 0.1),
-                    Tuple.Create("Snake", 0.2),
-                    Tuple.Create("Scorpion Queen", 0.4),
+                    Tuple.Create("Lithium 1", 0.3)
                 })
             },
             { WmapTerrain.ShorePlains, Tuple.Create(
                 150, new []
                 {
-                    Tuple.Create("Bandit Leader", 0.4),
-                    Tuple.Create("Red Gelatinous Cube", 0.2),
-                    Tuple.Create("Purple Gelatinous Cube", 0.2),
-                    Tuple.Create("Green Gelatinous Cube", 0.2),
+                    Tuple.Create("Bonegrind the Butcher", 0.4)
                 })
             },
             { WmapTerrain.LowPlains, Tuple.Create(
                 200, new []
                 {
-                    Tuple.Create("Hobbit Mage", 0.5),
-                    Tuple.Create("Undead Hobbit Mage", 0.4),
-                    Tuple.Create("Sumo Master", 0.1),
+                    Tuple.Create("Bonegrind the Butcher", 0.5)
                 })
             },
             { WmapTerrain.LowForest, Tuple.Create(
                 200, new []
                 {
-                    Tuple.Create("Elf Wizard", 0.2),
-                    Tuple.Create("Goblin Mage", 0.2),
-                    Tuple.Create("Easily Enraged Bunny", 0.3),
-                    Tuple.Create("Forest Nymph", 0.3),
+                    Tuple.Create("Bonegrind the Butcher", 0.2)
                 })
             },
             { WmapTerrain.LowSand, Tuple.Create(
                 200, new []
                 {
-                    Tuple.Create("Sandsman King", 0.4),
-                    Tuple.Create("Giant Crab", 0.2),
-                    Tuple.Create("Sand Devil", 0.4),
+                    Tuple.Create("Bonegrind the Butcher", 0.4)
                 })
             },
             { WmapTerrain.MidPlains, Tuple.Create(
                 150, new []
                 {
-                    Tuple.Create("Fire Sprite", 0.1),
-                    Tuple.Create("Ice Sprite", 0.1),
-                    Tuple.Create("Magic Sprite", 0.1),
-                    Tuple.Create("Pink Blob", 0.07),
-                    Tuple.Create("Gray Blob", 0.07),
-                    Tuple.Create("Earth Golem", 0.04),
-                    Tuple.Create("Paper Golem", 0.04),
-                    Tuple.Create("Big Green Slime", 0.08),
-                    Tuple.Create("Swarm", 0.05),
-                    Tuple.Create("Wasp Queen", 0.2),
-                    Tuple.Create("Shambling Sludge", 0.03),
-                    Tuple.Create("Orc King", 0.06),
+                    Tuple.Create("Bonegrind the Butcher", 0.1)
                 })
             },
             { WmapTerrain.MidForest, Tuple.Create(
                 150, new []
                 {
-                    Tuple.Create("Dwarf King", 0.3),
-                    Tuple.Create("Metal Golem", 0.05),
-                    Tuple.Create("Clockwork Golem", 0.05),
-                    Tuple.Create("Werelion", 0.1),
-                    Tuple.Create("Horned Drake", 0.3),
-                    Tuple.Create("Red Spider", 0.1),
-                    Tuple.Create("Black Bat", 0.1)
+                    Tuple.Create("Bonegrind the Butcher", 0.3)
                 })
             },
             { WmapTerrain.MidSand, Tuple.Create(
                 300, new []
                 {
-                    Tuple.Create("Desert Werewolf", 0.25),
-                    Tuple.Create("Fire Golem", 0.1),
-                    Tuple.Create("Darkness Golem", 0.1),
-                    Tuple.Create("Sand Phantom", 0.2),
-                    Tuple.Create("Nomadic Shaman", 0.25),
-                    Tuple.Create("Great Lizard", 0.1),
+                    Tuple.Create("Bonegrind the Butcher", 0.25)
                 })
             },
             { WmapTerrain.HighPlains, Tuple.Create(
                 300, new []
                 {
-                    Tuple.Create("Shield Orc Key", 0.2),
-                    Tuple.Create("Urgle", 0.2),
-                    Tuple.Create("Undead Dwarf God", 0.6)
+                    Tuple.Create("Bonegrind the Butcher", 0.2)
                 })
             },
             { WmapTerrain.HighForest, Tuple.Create(
                 300, new []
                 {
-                    Tuple.Create("Ogre King", 0.4),
-                    Tuple.Create("Dragon Egg", 0.1),
-                    Tuple.Create("Lizard God", 0.5)
+                    Tuple.Create("Bonegrind the Butcher", 0.4)
                 })
             },
             { WmapTerrain.HighSand, Tuple.Create(
                 250, new []
                 {
-                    Tuple.Create("Minotaur", 0.4),
-                    Tuple.Create("Flayer God", 0.4),
-                    Tuple.Create("Flamer King", 0.2)
+                    Tuple.Create("Bonegrind the Butcher", 0.4)
                 })
             },
             { WmapTerrain.Mountains, Tuple.Create(
                 100, new []
                 {
-                    Tuple.Create("White Demon", 0.1),
-                    Tuple.Create("Sprite God", 0.09),
-                    Tuple.Create("Medusa", 0.1),
-                    Tuple.Create("Ent God", 0.1),
-                    Tuple.Create("Beholder", 0.1),
-                    Tuple.Create("Flying Brain", 0.1),
-                    Tuple.Create("Slime God", 0.09),
-                    Tuple.Create("Ghost God", 0.09),
-                    Tuple.Create("Rock Bot", 0.05),
-                    Tuple.Create("Djinn", 0.09),
-                    Tuple.Create("Leviathan", 0.09),
-                    Tuple.Create("Skull God", 0.2)
+                    Tuple.Create("Bonegrind the Butcher", 0.1)
                 })
             },
         };

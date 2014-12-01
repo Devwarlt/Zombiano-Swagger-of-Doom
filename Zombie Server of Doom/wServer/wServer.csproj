@@ -89,7 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logic\db\BehaviorDb.LithiumsShit.cs" />
-    <Compile Include="logic\db\BehaviorDb.Misc.cs" />
     <Compile Include="networking\Client.cs" />
     <Compile Include="networking\cliPackets\ClientPacket.cs" />
     <Compile Include="networking\cliPackets\ChooseNamePacket.cs" />
@@ -200,24 +199,8 @@
     <Compile Include="realm\Utils.cs" />
     <Compile Include="logic\Cooldown.cs" />
     <Compile Include="logic\DamageCounter.cs" />
-    <Compile Include="logic\db\BehaviorDb.Cyclops.cs" />
-    <Compile Include="logic\db\BehaviorDb.Deathmage.cs" />
-    <Compile Include="logic\db\BehaviorDb.EntAncient.cs" />
-    <Compile Include="logic\db\BehaviorDb.ForbiddenJungle.cs" />
-    <Compile Include="logic\db\BehaviorDb.GhostKing.cs" />
-    <Compile Include="logic\db\BehaviorDb.Highland.cs" />
-    <Compile Include="logic\db\BehaviorDb.Lich.cs" />
-    <Compile Include="logic\db\BehaviorDb.Lowland.cs" />
-    <Compile Include="logic\db\BehaviorDb.Midland.cs" />
-    <Compile Include="logic\db\BehaviorDb.Golems.cs" />
-    <Compile Include="logic\db\BehaviorDb.Mountain.cs" />
-    <Compile Include="logic\db\BehaviorDb.Oasis.cs" />
-    <Compile Include="logic\db\BehaviorDb.Phoenix.cs" />
-    <Compile Include="logic\db\BehaviorDb.RedDemon.cs" />
-    <Compile Include="logic\db\BehaviorDb.Shore.cs" />
     <Compile Include="logic\db\BehaviorDb.Tutorial.cs" />
     <Compile Include="logic\CycleBehavior.cs" />
-    <Compile Include="logic\db\BehaviorDb.Crystal.cs" />
     <Compile Include="logic\loot\LootDefs.cs" />
     <Compile Include="logic\loot\Loots.cs" />
     <Compile Include="logic\State.cs" />
@@ -401,6 +384,7 @@
     <EmbeddedResource Include="realm\worlds\vault.wmap" />
     <EmbeddedResource Include="realm\worlds\world1.wmap" />
     <EmbeddedResource Include="realm\worlds\gauntlet.wmap" />
+    <EmbeddedResource Include="realm\worlds\gameworld.wmap" />
     <None Include="wServer.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

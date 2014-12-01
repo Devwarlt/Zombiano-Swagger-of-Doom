@@ -229,13 +229,18 @@ namespace wServer.realm.entities
         public override void Init(World owner)
         {
             Random rand = new System.Random();
-            int x, y;
-            do
+            if (!(owner is GameWorld))
             {
-                x = rand.Next(0, owner.Map.Width);
-                y = rand.Next(0, owner.Map.Height);
-            } while (owner.Map[x, y].Region != TileRegion.Spawn);
-            Move(x + 0.5f, y + 0.5f);
+                int x, y;
+                do
+                {
+                    x = rand.Next(0, owner.Map.Width);
+                    y = rand.Next(0, owner.Map.Height);
+                } while (owner.Map[x, y].Region != TileRegion.Spawn);
+                Move(x + 0.5f, y + 0.5f);
+            }
+            else Move(4096 / 2, 4096 / 2);
+            
             tiles = new byte[owner.Map.Width, owner.Map.Height];
             fames = new FameCounter(this);
             SetNewbiePeriod();

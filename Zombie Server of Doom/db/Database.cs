@@ -217,15 +217,13 @@ AND characters.charId=death.chrId;";
                 {
                     Name = rdr.GetString("name"),
                     AccountId = rdr.GetInt32("id"),
-                    Kills = rdr.GetInt32("kills"),
                     Admin = rdr.GetBoolean("admin"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
                     Guild = null,
                     NameChosen = rdr.GetBoolean("namechosen"),
                     NextCharSlotPrice = 100,
-                    VerifiedEmail = rdr.GetBoolean("verified"),
-                    CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList()
+                    VerifiedEmail = rdr.GetBoolean("verified")
                 };
             }
             ReadStats(ret);

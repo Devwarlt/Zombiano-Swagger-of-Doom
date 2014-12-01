@@ -57,7 +57,7 @@ package Panels{
                 this._O_k.htmlText = '<p align="center">Create a Guild</p>';
                 this._O_k.y = 0;
                 addChild(this._O_k);
-                _local4 = new _u5("Create ", 16, Parameters._0H_m, Currency.FAME);
+                _local4 = new _u5("Create ", 16, Parameters._0H_m, Currency.SILVER);
                 _local4.addEventListener(MouseEvent.CLICK, this._0M_n);
                 _local4.x = ((WIDTH / 2) - (_local4.w_ / 2));
                 _local4.y = ((HEIGHT - (_local4.height / 2)) - 10);

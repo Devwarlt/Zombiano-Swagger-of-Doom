@@ -92,10 +92,10 @@ package com.company.assembleegameclient.ui{
                 case Currency.GOLD:
                     this._5U_.bitmapData = credits();
                     break;
-                case Currency.FAME:
+                case Currency.SILVER:
                     this._5U_.bitmapData = fame();
                     break;
-                case Currency.GUILDFAME:
+                case Currency.COPPER:
                     this._5U_.bitmapData = guildFame();
                     break;
                 default:

@@ -6,7 +6,6 @@
 package com.company.assembleegameclient.screens.charrects{
 import _E_7._for_;
 import com.company.assembleegameclient.appengine.SavedCharacter;
-import com.company.assembleegameclient.appengine._0A_H_;
 import com.company.assembleegameclient.appengine._0K_R_;
 
 import flash.display.DisplayObject;
@@ -21,9 +20,7 @@ import flash.events.MouseEvent;
 import flash.events.Event;
 import com.company.assembleegameclient.util._lJ_;
 import flash.filters.DropShadowFilter;
-import com.company.assembleegameclient.util.RankUtils;
 import com.company.rotmg.graphics.ranks.AdminRank;
-import flash.geom.ColorTransform;
 import com.company.rotmg.graphics.DeleteXGraphic;
 import _E_7._0M_k;
 import _0I_S_._09s;

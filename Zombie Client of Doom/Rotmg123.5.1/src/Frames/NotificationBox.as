@@ -126,7 +126,8 @@ import flash.text.TextFieldAutoSize;
             this.open = false;
             if(stage != null)
                 stage.focus = null;
-            parent.removeChild(this);
+            if(parent != null)
+                parent.removeChild(this);
         }
         private function onRemovedFromStage(_arg1:Event):void{
             NotificationBox.isClosed = true;
