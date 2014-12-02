@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using wServer.networking.cliPackets;
-using wServer.networking.svrPackets;
-using System.Net.Sockets;
 using System.Net;
+using System.Text;
+using wServer.networking.svrPackets;
 
 namespace wServer.networking
 {

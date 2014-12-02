@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Mono.Game;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using wServer.networking.svrPackets;
-using Mono.Game;
-using wServer.logic;
 
 namespace wServer.realm.entities
 {

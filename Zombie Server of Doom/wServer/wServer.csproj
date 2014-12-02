@@ -88,7 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="logic\db\BehaviorDb.LithiumsShit.cs" />
+    <Compile Include="logic\db\BehaviorDb.Lithium.cs" />
     <Compile Include="networking\Client.cs" />
     <Compile Include="networking\cliPackets\ClientPacket.cs" />
     <Compile Include="networking\cliPackets\ChooseNamePacket.cs" />
@@ -340,10 +340,10 @@
     <Compile Include="wRandom.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bugs.txt" />
+    <None Include="knownbugs.md" />
     <Content Include="packets.txt" />
     <Compile Include="realm\commands\AdminCommands.cs" />
-    <Content Include="todo.txt" />
+    <None Include="todolist.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\db\db.csproj">

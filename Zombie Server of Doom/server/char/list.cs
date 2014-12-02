@@ -1,15 +1,10 @@
-﻿using System;
+﻿using db;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net;
-using System.Xml;
-using db;
-using System.Xml.Serialization;
 using System.IO;
-using MySql.Data.MySqlClient;
-using System.Web;
-using System.Collections.Specialized;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace server.@char
 {

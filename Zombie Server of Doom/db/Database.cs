@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Ionic.Zlib;
+using log4net;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using MySql.Data.MySqlClient;
-using System.Data;
-using System.Xml;
-using Ionic.Zlib;
 using System.Xml.Linq;
-using log4net;
 
 namespace db
 {

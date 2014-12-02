@@ -1,9 +1,8 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using wServer.realm.terrain;
-using log4net;
 
 namespace wServer.realm.setpieces
 {

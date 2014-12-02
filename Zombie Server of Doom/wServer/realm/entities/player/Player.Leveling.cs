@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using wServer.networking.svrPackets;
-using System.Xml;
 using System.Xml.Linq;
-using wServer.logic;
+using wServer.networking.svrPackets;
 
 namespace wServer.realm.entities
 {

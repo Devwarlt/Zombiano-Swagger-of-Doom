@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net;
+﻿using db;
 using System.Xml;
-using db;
-using System.Xml.Serialization;
-using System.IO;
-using MySql.Data.MySqlClient;
-using System.Web;
-using System.Collections.Specialized;
 
 namespace server.fame
 {
