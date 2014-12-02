@@ -88,7 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="logic\db\BehaviorDb.LithiumsShit.cs" />
+    <Compile Include="logic\db\BehaviorDb.Lithium.cs" />
     <Compile Include="logic\db\BehaviorDb.Misc.cs" />
     <Compile Include="networking\Client.cs" />
     <Compile Include="networking\cliPackets\ClientPacket.cs" />

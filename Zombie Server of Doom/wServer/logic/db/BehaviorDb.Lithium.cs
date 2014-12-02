@@ -11,10 +11,8 @@ namespace wServer.logic
 {
     partial class BehaviorDb
     {
-        _ LithiumsShit = () => Behav()
+        _ Lithium = () => Behav()
             .Init("Lithium 1",
-            // Testing, seems okay...
-            // Shot cooldown could be higher
                 new State(
                     new State("Idle",
                         new Taunt(text: "Meat??", cooldown: 88 * 1000),
@@ -24,7 +22,10 @@ namespace wServer.logic
                         new Wander(speed: 0.2221),
                         new Taunt(text: "B-brains...", cooldown: 60 * 1000),
                         new Shoot(radius: 10, count: 2, projectileIndex: 0, shootAngle: 20, predictive: 1, coolDown: 1221),
-                        new NoPlayerWithinTransition(dist: 50, targetState: "Idle"))))
-            );
+                        new NoPlayerWithinTransition(dist: 50, targetState: "Idle")))))
+            .Init("Lithium 2",
+                new State(
+                    new State("Walk",
+                        new Follow(speed: 0.3))));
     }
 }
