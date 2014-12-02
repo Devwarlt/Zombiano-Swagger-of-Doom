@@ -1,17 +1,11 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net.Sockets;
-using System.Threading;
-using System.IO;
-using wServer.networking.svrPackets;
 using wServer.networking.cliPackets;
-using System.Xml;
-using db;
+using wServer.networking.svrPackets;
 using wServer.realm;
 using wServer.realm.entities;
-using log4net;
 
 namespace wServer.networking
 {

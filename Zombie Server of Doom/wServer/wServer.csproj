@@ -340,10 +340,10 @@
     <Compile Include="wRandom.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bugs.txt" />
+    <None Include="knownbugs.md" />
     <Content Include="packets.txt" />
     <Compile Include="realm\commands\AdminCommands.cs" />
-    <Content Include="todo.txt" />
+    <None Include="todolist.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\db\db.csproj">

@@ -1,17 +1,8 @@
-﻿using System;
+﻿using NetTopologySuite.GeometriesGraph;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NetTopologySuite.Triangulate;
-using GeoAPI.Geometries;
-using NetTopologySuite.Geometries;
 using System.Drawing;
-using NetTopologySuite.GeometriesGraph;
-using NetTopologySuite.Operation.Overlay;
-using NetTopologySuite.Algorithm;
-using NetTopologySuite.Simplify;
-using NetTopologySuite.Operation.Polygonize;
-using NetTopologySuite.Operation.Union;
+using System.Linq;
 
 namespace terrain
 {

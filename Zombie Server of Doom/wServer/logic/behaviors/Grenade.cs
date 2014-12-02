@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using wServer.networking.svrPackets;
 using wServer.realm;
 using wServer.realm.entities;
-using wServer.networking.svrPackets;
 
 namespace wServer.logic.behaviors
 {

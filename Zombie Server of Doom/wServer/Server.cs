@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using log4net;
+using System;
 using System.Linq;
-using System.Text;
-using System.Net.Sockets;
 using System.Net;
-using wServer.realm;
+using System.Net.Sockets;
 using wServer.networking;
-using log4net;
+using wServer.realm;
 
 namespace wServer
 {

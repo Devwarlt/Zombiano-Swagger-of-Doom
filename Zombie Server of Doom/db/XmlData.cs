@@ -1,12 +1,11 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Reflection;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using System.IO;
-using System.Reflection;
-using log4net;
 
 public class XmlData : IDisposable
 {

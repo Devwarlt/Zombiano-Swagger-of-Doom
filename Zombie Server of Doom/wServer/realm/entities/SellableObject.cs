@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using wServer.realm.worlds;
+﻿using System.Collections.Generic;
 using wServer.networking.svrPackets;
+using wServer.realm.worlds;
 
 namespace wServer.realm.entities
 {
