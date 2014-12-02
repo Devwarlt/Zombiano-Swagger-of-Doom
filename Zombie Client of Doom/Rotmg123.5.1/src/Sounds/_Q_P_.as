@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_vf._Q_P_
+//Sounds._Q_P_
 
-package _vf{
+package Sounds{
     import flash.media.SoundTransform;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.googleanalytics.GA;
@@ -17,9 +17,9 @@ package _vf{
             GA.global().trackEvent("sound", ((_arg1) ? "soundOn" : "soundOff"));
             Parameters.data_.playSFX = _arg1;
             Parameters.save();
-            _5T_._02r();
+            SoundEffects._02r();
         }
 
     }
-}//package _vf
+}//package Sounds
 

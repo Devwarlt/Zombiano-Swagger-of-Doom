@@ -7,7 +7,7 @@ package com.company.assembleegameclient.objects{
 import Panels.OpenChestPanel;
 
 import com.company.util.PointUtil;
-    import _vf._5T_;
+    import Sounds.SoundEffects;
     import com.company.assembleegameclient.map._X_l;
     import Panels._sc;
     import com.company.assembleegameclient.game.GameSprite;
@@ -42,7 +42,7 @@ import com.company.util.PointUtil;
             var _local4:Number = PointUtil._R_O_(map_.player_.x_, map_.player_.y_, _arg2, _arg3);
             if (((this._G_B_) && ((_local4 < 10))))
             {
-                _5T_.play("loot_appears");
+                SoundEffects.play("loot_appears");
             }
             return (true);
         }

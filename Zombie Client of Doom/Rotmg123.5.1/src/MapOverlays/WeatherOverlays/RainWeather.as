@@ -6,6 +6,8 @@ import MapOverlays.MapOverlay;
 import MapOverlays.Weather;
 import MapOverlays.WeatherParticle;
 
+import Sounds.WeatherSoundManager;
+
 import _05R_.GTween;
 
 import _0G_l._in;
@@ -27,12 +29,8 @@ public class RainWeather extends Weather {
 
     public function RainWeather(_arg1:Boolean){
         this.graphicsData_ = new Vector.<IGraphicsData>();
-        this.weatherSound = new SoundChannel();
-        var currentSound:Sound = new Sound();
-        currentSound.load(new URLRequest((("http://" + Parameters.musicUrl_) + "/sfx/weather/rain2.mp3")));
-
-        var currentSoundTransform = new SoundTransform(1.0);
-        this.weatherSound = currentSound.play(0, int.MAX_VALUE, currentSoundTransform);
+        this.weatherSound = new WeatherSoundManager();
+        this.weatherSound.load("rain2");
 
         super();
         if(_arg1) {

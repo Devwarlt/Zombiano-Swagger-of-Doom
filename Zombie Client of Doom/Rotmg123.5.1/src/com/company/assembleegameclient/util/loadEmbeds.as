@@ -6,9 +6,9 @@
 package com.company.assembleegameclient.util{
     import _0K_m._0H_Y_;
     
-    import _vf._5T_;
-    import _vf._Q_P_;
-    import _vf._gs;
+    import Sounds.SoundEffects;
+    import Sounds._Q_P_;
+    import Sounds.Music;
     
     import com.company.assembleegameclient.engine3d._B_5;
     import com.company.assembleegameclient.map._pf;
@@ -89,16 +89,16 @@ package com.company.assembleegameclient.util{
         _0B_c.add("players", new Embeds.playersEmbed_().bitmapData, new Embeds.playersMaskEmbed_().bitmapData, 8, 8, 56, 24, _lJ_.RIGHT);
 		_0B_c.add("playerskins", new Embeds.playerSkinsEmbed_().bitmapData, new Embeds.playerSkinsMaskEmbed_().bitmapData, 8, 8, 56, 24, _lJ_.RIGHT);
         _0B_c.add("chars8x8rPets1", new Embeds.chars8x8rPets1Embed_().bitmapData, new Embeds.chars8x8rPets1MaskEmbed_().bitmapData, 8, 8, 56, 8, _lJ_.RIGHT);
-        _5T_.load("button_click");
-        _5T_.load("death_screen");
-        _5T_.load("enter_realm");
-        _5T_.load("error");
-        _5T_.load("inventory_move_item");
-        _5T_.load("level_up");
-        _5T_.load("loot_appears");
-        _5T_.load("no_mana");
-        _5T_.load("use_key");
-        _5T_.load("use_potion");
+        SoundEffects.load("button_click");
+        SoundEffects.load("death_screen");
+        SoundEffects.load("enter_realm");
+        SoundEffects.load("error");
+        SoundEffects.load("inventory_move_item");
+        SoundEffects.load("level_up");
+        SoundEffects.load("loot_appears");
+        SoundEffects.load("no_mana");
+        SoundEffects.load("use_key");
+        SoundEffects.load("use_potion");
         for (_local2 in Embeds.models_)
         {
             _local6 = Embeds.models_[_local2];
@@ -119,7 +119,7 @@ package com.company.assembleegameclient.util{
             _sn._nY_(XML(_local5));
         }
         Parameters.load();
-        _gs.load();
+        Music.load();
         _Q_P_.load();
     }
 }//package com.company.assembleegameclient.util

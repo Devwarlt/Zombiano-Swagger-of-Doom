@@ -13,7 +13,7 @@ import _05R_.GTween;
 
 import _fh._zh;
     
-    import _vf._gs;
+    import Sounds.Music;
     
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.objects.BasicObject;
@@ -89,7 +89,7 @@ import flash.utils.Dictionary;
             atmosphere_.init(_arg9);
             if(music_.length != 0)
             {
-                _vf._gs.reload(music_[Math.floor(Math.random() * (music_.length - 1))]);
+                Sounds.Music.reload(music_[Math.floor(Math.random() * (music_.length - 1))]);
             }
         }
 		override public function initialize():void{
@@ -157,6 +157,9 @@ import flash.utils.Dictionary;
             else {
                 var _local1:GTween = new GTween(this.weatherBackground_, 10, { "particlesAmount": -(this.weatherBackground_.particlesAmount) });
                 this.weather_ = _arg1;
+                if(this.weatherBackground_.weatherSound != null) {
+                    this.weatherBackground_.weatherSound.stop();
+                }
                 _local1.onComplete = this.newWeather;
             }
         }

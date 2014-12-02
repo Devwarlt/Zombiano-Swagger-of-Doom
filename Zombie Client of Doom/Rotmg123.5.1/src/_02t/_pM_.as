@@ -8,7 +8,7 @@ package _02t{
     
     import _K_D_._p0;
     
-    import _vf._gs;
+    import Sounds.Music;
     
     import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.map._X_l;
@@ -56,8 +56,8 @@ package _02t{
             {
                 _jJ_ = (_jJ_ - _sl.x_);
             }
-            if (_vf._gs.music_ != "Death" || _vf._gs.music_ != "Menu") _vf._gs.reload("Menu");
-			_vf._gs.updateFade();
+            if (Sounds.Music.music_ != "Death" || Sounds.Music.music_ != "Menu") Sounds.Music.reload("Menu");
+			Sounds.Music.updateFade();
             _0F_q._K_(_jJ_, _U_b, 12, _X_z, _R_m, false);
             _I_k.draw(_0F_q, this.time);
             this._7n = this.time;

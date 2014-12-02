@@ -4,7 +4,7 @@
 package com.company.assembleegameclient.map {
 import _05R_.GTween;
 
-import _vf._gs;
+import Sounds.Music;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -78,10 +78,10 @@ public class AtmosphereHandler extends Sprite{
             }
 
             if(_arg1 >= 48000) {
-                _vf._gs.reload("night", false);
+                Sounds.Music.reload("night", false);
             }
             else {
-                _vf._gs.reload("day", false);
+                Sounds.Music.reload("day", false);
             }
         }
     }

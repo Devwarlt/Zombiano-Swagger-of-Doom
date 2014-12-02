@@ -137,8 +137,8 @@ import _8Q_._1l;
     
     import _qN_.Account;
     
-    import _vf._5T_;
-    import _vf._gs;
+    import Sounds.SoundEffects;
+    import Sounds.Music;
     
     import _yY_._pz;
 
@@ -757,7 +757,7 @@ import flash.events.TimerEvent;
             var xml = ObjectLibrary.Items[_arg1.containerType_];
             if(Parameters.data_.playAllyShootSound && xml.hasOwnProperty("OldSound")) {
                 var dist:Number = Math.floor(PointUtil._bm(this.gs_.map_.player_.x_, this.gs_.map_.player_.y_, _local2.x_, _local2.y_)) - 1000;
-                _5T_.play(xml.OldSound, dist * (-0.001), true, true);
+                SoundEffects.play(xml.OldSound, dist * (-0.001), true, true);
             }
             _local2.setAttack(_arg1.containerType_, _arg1.angle_);
         }
@@ -1361,7 +1361,7 @@ import flash.events.TimerEvent;
             }
         }
         private function _v6():void{
-            _5T_.play("error");
+            SoundEffects.play("error");
             this.gs_._V_1._02y._e9.refresh();
 			this.gs_._V_1._02y.equips_.refresh();
             this.gs_._V_1._U_T_.redraw();
@@ -1408,7 +1408,7 @@ import flash.events.TimerEvent;
         private function _038(_arg1:Death):void{
             this.gs_.stage;
             this.gs_.stage;
-			_vf._gs.reload("Death");
+			Sounds.Music.reload("Death");
             var _local2:BitmapData = new BitmapData(800, 600);
             _local2.draw(this.gs_);
             _arg1.background = _local2;
@@ -1596,7 +1596,7 @@ import flash.events.TimerEvent;
 		}
 		
 		private function switchMusic(_arg1:SwitchMusic):void{
-			_vf._gs.reload(_arg1.music_, true);
+			Sounds.Music.reload(_arg1.music_, true);
 		}
 		
 		//public function sendVisibullet(_damage:int, _enemyId:int, _bulletId:int):void {

@@ -12,7 +12,7 @@ package _F_1{
     
     import _sp._aJ_;
     
-    import _vf._5T_;
+    import Sounds.SoundEffects;
     
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.util.TextureRedrawer;
@@ -65,7 +65,7 @@ package _F_1{
             this._0M_g.addChild(new Bitmap(_arg1));
             var _local2:GTween = new GTween(this._0M_g, 2, {"alpha":0});
             _local2.onComplete = this._gl;
-            _5T_.play("death_screen");
+            SoundEffects.play("death_screen");
         }
         private function _gl(_arg1:GTween):void{
             removeChild(this._0M_g);

@@ -18,8 +18,8 @@ import _0K_m.LevelUpEffect;
 
 
     
-    import _vf._5T_;
-import _vf._gs;
+    import Sounds.SoundEffects;
+import Sounds.Music;
 
 import com.company.assembleegameclient.map.Square;
     import com.company.assembleegameclient.map._0D_v;
@@ -277,7 +277,7 @@ import flash.display.GraphicsPath;
             map_.mapOverlay_.addChild(new _O_P_(this, _arg1, 0xFF00, 2000));
         }
         public function _ut(_arg1:Boolean):void{
-            _5T_.play("level_up");
+            SoundEffects.play("level_up");
             if (_arg1)
             {
                 this._x1("New Class Unlocked!");
@@ -317,7 +317,7 @@ import flash.display.GraphicsPath;
             return (null);
         }
         public function promote():void {
-            _5T_.play("promoted", 1, true, true);
+            SoundEffects.play("promoted", 1, true, true);
             this.map_.stage.addChild(new YouHaveBeenPromotedPopUp(this.rank));
         }
         public function _2(_arg1:Number, _arg2:Number):Boolean{
@@ -860,13 +860,13 @@ import flash.display.GraphicsPath;
             var _local5:int = int(_local4.MpCost);
             if (_local5 > this.abilityCooldownSec)
             {
-                _5T_.play("no_mana");
+                SoundEffects.play("no_mana");
                 return;
             }
             var _local6:Point = map_.pSTopW(_arg1, _arg2);
             if (_local6 == null)
             {
-                _5T_.play("error");
+                SoundEffects.play("error");
                 return;
             }
             for each (_local7 in _local4.Activate)
@@ -875,7 +875,7 @@ import flash.display.GraphicsPath;
                 {
                     if (!this._M_S_(_local6.x, _local6.y))
                     {
-                        _5T_.play("error");
+                        SoundEffects.play("error");
                         return;
                     }
                 }
@@ -887,7 +887,7 @@ import flash.display.GraphicsPath;
             _local8 = getTimer();
             if (_local8 < this._0m)
             {
-                _5T_.play("error");
+                SoundEffects.play("error");
                 return;
             }
             var _local9 = 500;
@@ -936,7 +936,7 @@ import flash.display.GraphicsPath;
 			if (int(_local4.MpEndCost) <= this.MP_)
 				this._G_Y_(_local8, _local3, _local4, (Parameters.data_.cameraAngle + _local10), false);
 			else
-				_5T_.play("no_mana");
+				SoundEffects.play("no_mana");
 		}
         public function _O_7(_arg1:Number):void{
             this.shoot(Parameters.data_.cameraAngle + _arg1);
@@ -1004,7 +1004,7 @@ import flash.display.GraphicsPath;
                 _local13._T_j(_local17);
                 if ((((_local11 == 0)) && (!((_local13._P_B_ == null)))))
                 {
-                    _5T_.play(_local13._P_B_, 0.75, false);
+                    SoundEffects.play(_local13._P_B_, 0.75, false);
                 }
                 map_.addObj(_local13, (x_ + (Math.cos(_arg4) * 0.3)), (y_ + (Math.sin(_arg4) * 0.3)));
                 map_.gs_.packetManager.playerShoot(_arg1, _local13);

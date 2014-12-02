@@ -8,7 +8,7 @@ package com.company.assembleegameclient.ui{
     import com.company.ui.SimpleText;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
-    import _vf._5T_;
+    import Sounds.SoundEffects;
 
     public class TextButton extends Sprite {
 
@@ -56,7 +56,7 @@ package com.company.assembleegameclient.ui{
             this._gp(this._S_4);
         }
         private function onClick(_arg1:MouseEvent):void{
-            _5T_.play("button_click");
+            SoundEffects.play("button_click");
         }
 
     }

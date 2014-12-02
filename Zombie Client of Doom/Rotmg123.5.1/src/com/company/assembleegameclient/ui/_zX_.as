@@ -10,8 +10,8 @@ package com.company.assembleegameclient.ui{
     import flash.filters.GlowFilter;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.util.AssetLibrary;
-    import _vf._gs;
-    import _vf._Q_P_;
+    import Sounds.Music;
+    import Sounds._Q_P_;
 
     public class _zX_ extends Sprite {
 
@@ -32,7 +32,7 @@ package com.company.assembleegameclient.ui{
         }
         private function _iK_(_arg1:MouseEvent):void{
             var _local2 = !(((Parameters.data_.playMusic) || (Parameters.data_.playSFX)));
-            _gs._continue(_local2);
+            Music._continue(_local2);
             _Q_P_._2c(_local2);
             Parameters.data_.playPewPew = _local2;
             Parameters.save();

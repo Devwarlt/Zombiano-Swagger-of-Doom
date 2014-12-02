@@ -9,8 +9,8 @@ import _F_1._H_o;
 
 
 
-import _vf._Q_P_;
-import _vf._gs;
+import Sounds._Q_P_;
+import Sounds.Music;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -319,7 +319,7 @@ public class Options extends Sprite {
         this.registerOption(new SwitchOption("playAllyShootSound", new <String>["On", "Off"], [true, false], "Play Ally shoot Sound", "This toggles whether weapon sounds from other players are played.", null));
     }
     private function _05z():void{
-        _gs._continue(Parameters.data_.playMusic);
+        Music._continue(Parameters.data_.playMusic);
     }
     private function _super():void{
         _Q_P_._2c(Parameters.data_.playSFX);

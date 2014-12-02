@@ -2,13 +2,15 @@
  * Created by Fabian on 20.11.2014.
  */
 package MapOverlays {
+import Sounds.WeatherSoundManager;
+
 import flash.events.Event;
 import flash.media.SoundChannel;
 
 public class Weather extends MapOverlay {
 
     public var particles_:Vector.<WeatherParticle>;
-    protected var weatherSound:SoundChannel;
+    public var weatherSound:WeatherSoundManager;
 
     public function Weather() {
         particles_ = new Vector.<WeatherParticle>();

@@ -5,7 +5,7 @@
 
 package com.company.assembleegameclient.objects{
     import flash.utils.Dictionary;
-    import _vf._5T_;
+    import Sounds.SoundEffects;
 
     public class ObjectProperties {
 
@@ -149,7 +149,7 @@ package com.company.assembleegameclient.objects{
             }
             for each (_local1 in this._6x)
             {
-                _5T_.load(_local1);
+                SoundEffects.load(_local1);
             }
         }
         public function _0M_t():int{

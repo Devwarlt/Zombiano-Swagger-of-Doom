@@ -197,7 +197,7 @@ namespace wServer.realm.commands
             {
                 _type = WeatherPropertiesPacket.CHANGE_WEATHER,
                 _particles = 500,
-                _weather = Weather.Rainy
+                _weather = (Weather)255
             });
 
             //player.Client.SendPacket(new WeatherPropertiesPacket

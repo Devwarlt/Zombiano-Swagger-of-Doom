@@ -12,7 +12,7 @@ import Frames.CraftingFrame;
 import Panels.CraftingPanel;
 import Panels._sc;
     
-    import _vf._5T_;
+    import Sounds.SoundEffects;
     
     import com.company.assembleegameclient.map._X_l;
     import com.company.assembleegameclient.objects.Container;
@@ -98,7 +98,7 @@ import com.company.assembleegameclient.objects.GameObject;
                 _local2 = _local2.parent;
             }
             this._0K_9();
-            _5T_.play("error");
+            SoundEffects.play("error");
         }
         private function _08D_(_arg1:_E_6):void{
             if(_arg1._e9.gameObject_ is CraftingRecipeBook || this._03f._e9.gameObject_ is CraftingRecipeBook) {
@@ -108,7 +108,7 @@ import com.company.assembleegameclient.objects.GameObject;
             if ((((_arg1 == null)) || (!(_arg1._t8(this._0M_X_)))))
             {
                 this._0K_9();
-                _5T_.play("error");
+                SoundEffects.play("error");
                 return;
             }
             if (_arg1 == this._03f)
@@ -120,7 +120,7 @@ import com.company.assembleegameclient.objects.GameObject;
             if (((!((_local2 == -1))) && (!(this._03f._t8(_local2)))))
             {
                 this._0K_9();
-                _5T_.play("error");
+                SoundEffects.play("error");
                 return;
             }
             if (_local2 == this._0M_X_)
@@ -174,13 +174,13 @@ import com.company.assembleegameclient.objects.GameObject;
             if ((((((_arg1._e9.gameObject_ is Player)) && ((_arg1.id_ < 4)))) && (!(ObjectLibrary._S_d(this._0M_X_, (_arg1._e9.gameObject_ as Player))))))
             {
                 this._0K_9();
-                _5T_.play("error");
+                SoundEffects.play("error");
                 return;
             }
             if(!CraftingPanel.terminalOpen) {
                 _0B_w = this._03f._e9.gs_.lastUpdate_;
                 this._03f._e9.gs_.packetManager._P_a(_0B_w, _local3.x_, _local3.y_, this._03f._e9.gameObject_.objectId_, this._03f.id_, this._0M_X_, _arg1._e9.gameObject_.objectId_, _arg1.id_, _local2);
-                _5T_.play("inventory_move_item");
+                SoundEffects.play("inventory_move_item");
             }
             else {
                 this._0K_9();
@@ -196,7 +196,7 @@ import com.company.assembleegameclient.objects.GameObject;
                 var _local4:Boolean = ObjectLibrary._0H_Z_(this._0M_X_);
                 if (((!((_local2 == _local1))) && ((((((_local3 == null)) || (!((_local3.ownerId_ == _local1.accountId_))))) || (_local4))))) {
                     this._0K_9();
-                    _5T_.play("error");
+                    SoundEffects.play("error");
                     return;
                 }
                 var _local5:Container = (this._03f._e9.gs_._V_1._U_T_._dN_ as Container);

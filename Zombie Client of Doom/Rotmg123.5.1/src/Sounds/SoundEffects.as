@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_vf._5T_
+//Sounds.SoundEffects
 
-package _vf{
+package Sounds{
     import com.company.assembleegameclient.parameters.Parameters;
     
     import flash.events.Event;
@@ -14,7 +14,7 @@ package _vf{
     import flash.net.URLRequest;
     import flash.utils.Dictionary;
 
-    public class _5T_ {
+    public class SoundEffects {
 
         public static var _0H_k:Dictionary = new Dictionary();
         private static var _04b:Dictionary = new Dictionary(true);
@@ -69,5 +69,5 @@ package _vf{
         }
 
     }
-}//package _vf
+}//package Sounds
 

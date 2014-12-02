@@ -8,7 +8,7 @@ import _015._0C_Q_;
 	
 	import _fh._zh;
 	
-	import _vf._gs;
+	import Sounds.Music;
 	
 	import com.company.assembleegameclient.game.GameSprite;
 	import com.company.assembleegameclient.objects.BasicObject;

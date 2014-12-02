@@ -17,7 +17,7 @@ package com.company.assembleegameclient.game{
     
     import _qN_.Account;
     
-    import _vf._gs;
+    import Sounds.Music;
     
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.appengine._0K_R_;
@@ -270,7 +270,7 @@ package com.company.assembleegameclient.game{
                 this._qA_ = 0;
                 this._bA_ = 0;
             }
-            _vf._gs.updateFade();
+            Sounds.Music.updateFade();
             this.map_.update(_local2, _local3);
             this._on.update(_local3);
             var _local4:Player = this.map_.player_;

@@ -1,9 +1,9 @@
 ﻿// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_vf._gs
+//Sounds.Music
 
-package _vf{
+package Sounds{
 	import flash.media.Sound;
 	import flash.media.SoundChannel;
 	import flash.net.URLRequest;
@@ -11,7 +11,7 @@ package _vf{
 	import flash.media.SoundTransform;
 	import com.company.googleanalytics.GA;
 	
-	public class _gs {
+	public class Music {
 		private static var currentSoundChannel:SoundChannel = null;
 		private static var currentSoundTransform:SoundTransform = null;
 		
@@ -89,5 +89,5 @@ package _vf{
 		}
 		
 	}
-}//package _vf
+}//package Sounds
 
