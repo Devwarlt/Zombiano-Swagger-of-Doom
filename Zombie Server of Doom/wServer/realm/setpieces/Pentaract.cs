@@ -64,9 +64,9 @@ namespace wServer.realm.setpieces
                     }
                     else if (t[x, y] == 3)
                     {
-                        Entity penta = Entity.Resolve(world.Manager, "Pentaract");
-                        penta.Move(pos.X + x + .5f, pos.Y + y + .5f);
-                        world.EnterWorld(penta);
+                        //Entity penta = Entity.Resolve(world.Manager, "Pentaract");
+                        //penta.Move(pos.X + x + .5f, pos.Y + y + .5f);
+                        //world.EnterWorld(penta);
                     }
                 }
         }

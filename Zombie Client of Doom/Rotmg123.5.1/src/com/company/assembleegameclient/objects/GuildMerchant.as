@@ -17,7 +17,7 @@ package com.company.assembleegameclient.objects{
         public function GuildMerchant(_arg1:XML){
             super(_arg1);
             price_ = int(_arg1.Price);
-            currency_ = Currency.GUILDFAME;
+            currency_ = Currency.COPPER;
             this.description_ = _arg1.Description;
             _0F_S_ = _07E_._tS_;
         }

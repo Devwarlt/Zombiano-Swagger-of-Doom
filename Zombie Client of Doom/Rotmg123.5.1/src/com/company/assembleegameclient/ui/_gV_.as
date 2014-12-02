@@ -91,16 +91,16 @@ import flash.display.Sprite;
                     }
                 } else
                 {
-                    _local4 = (("<b>" + (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_])) + "</b>");
+                    _local4 = (("<b>            " + (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_])) + "</b>");
                 }
             } else
             {
                 if ((((this.go_.name_ == null)) || ((this.go_.name_ == ""))))
                 {
-                    _local4 = (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_]);
+                    _local4 = "            " + (this.go_ is Player ? RankUtils.toLongRankString((this.go_ as Player).rank) : ObjectLibrary._0D_N_[this.go_.objectType_]);
                 } else
                 {
-                    _local4 = this.go_.name_;
+                    _local4 = "            " + this.go_.name_;
                 }
             }
             this._0E_J_(_local3, _local4, _local5, _arg2);

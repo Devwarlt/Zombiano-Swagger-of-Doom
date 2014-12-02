@@ -54,42 +54,7 @@ D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\texture\_forgotten_archmage_of_flame.png
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\texture\_staff_of_the_abyss.png
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\addition.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat0.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat1.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat10.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat11.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat12.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat13.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat14.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat15.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat16.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat17.xml
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat18.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat19.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat2.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat20.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat21.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat22.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat23.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat24.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat3.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat4.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat5.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat6.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat7.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat8.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat9.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat25.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat26.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat27.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat28.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat29.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat30.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat31.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat32.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat33.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat34.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat35.xml
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\log4net.config
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\wServer.cfg
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\wServer.exe.config
@@ -104,42 +69,7 @@ F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\texture\_forgotten_archmage_of_flame.png
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\texture\_staff_of_the_abyss.png
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\addition.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat0.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat1.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat10.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat11.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat12.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat13.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat14.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat15.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat16.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat17.xml
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat18.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat19.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat2.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat20.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat21.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat22.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat23.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat24.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat3.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat4.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat5.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat6.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat7.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat8.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat9.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat25.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat26.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat27.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat28.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat29.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat30.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat31.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat32.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat33.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat34.xml
-F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dat35.xml
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\log4net.config
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\wServer.cfg
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\wServer.exe.config
@@ -148,3 +78,25 @@ F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\wServer\obj\Debug\wServer.csprojResolveAssemblyReference.cache
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\wServer\obj\Debug\wServer.exe
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\wServer\obj\Debug\wServer.pdb
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\pets.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dyes.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\specials2.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\players.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\items.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\tutorial.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\cloths.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\groundTiles.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\specials.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\projectiles.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\trees.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\pets.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\dyes.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\specials2.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\players.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\items.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\tutorial.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\cloths.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\groundTiles.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\specials.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\projectiles.xml
+F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\trees.xml

@@ -52,9 +52,9 @@ namespace wServer.realm.setpieces
                     }
                 }
 
-            Entity lord = Entity.Resolve(world.Manager, "Phoenix Lord");
-            lord.Move(pos.X + 15.5f, pos.Y + 15.5f);
-            world.EnterWorld(lord);
+            //Entity lord = Entity.Resolve(world.Manager, "Phoenix Lord");
+            //lord.Move(pos.X + 15.5f, pos.Y + 15.5f);
+            //world.EnterWorld(lord);
 
             Container container = new Container(world.Manager, 0x0501, null, false);
             Item[] items = chest.GetLoots(world.Manager, 5, 8).ToArray();

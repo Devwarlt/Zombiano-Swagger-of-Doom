@@ -24,7 +24,7 @@ public class SnowWeather extends Weather {
         super();
         if(_arg1) {
             var _local1:int;
-            while (_local1 < 100) {
+            while (_local1 < defaultParticles) {
                 this.addSnowStar();
                 _local1++;
             }
@@ -59,8 +59,12 @@ public class SnowWeather extends Weather {
         }
     }
 
-    override public function addParticle(_arg1:GTween):void{
+    override public function addParticle():void{
         this.addSnowStar();
+    }
+
+    override public function get defaultParticles():int {
+        return 100;
     }
 }
 }//package MapOverlays

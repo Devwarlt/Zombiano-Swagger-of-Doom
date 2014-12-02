@@ -113,9 +113,9 @@ namespace wServer.realm.setpieces
                     }
                 }
 
-            Entity skull = Entity.Resolve(world.Manager, "Skull Shrine");          //Skulls!
-            skull.Move(pos.X + Size / 2f, pos.Y + Size / 2f);
-            world.EnterWorld(skull);
+            //Entity skull = Entity.Resolve(world.Manager, "Skull Shrine");          //Skulls!
+            //skull.Move(pos.X + Size / 2f, pos.Y + Size / 2f);
+            //world.EnterWorld(skull);
         }
     }
 }

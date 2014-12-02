@@ -101,9 +101,9 @@ namespace wServer.realm.setpieces
                         world.Map[x + pos.X, y + pos.Y] = tile;
                     }
 
-            Entity sphinx = Entity.Resolve(world.Manager, "Grand Sphinx");
-            sphinx.Move(pos.X + 40.5f, pos.Y + 40.5f);
-            world.EnterWorld(sphinx);
+            //Entity sphinx = Entity.Resolve(world.Manager, "Grand Sphinx");
+            //sphinx.Move(pos.X + 40.5f, pos.Y + 40.5f);
+            //world.EnterWorld(sphinx);
         }
     }
 }

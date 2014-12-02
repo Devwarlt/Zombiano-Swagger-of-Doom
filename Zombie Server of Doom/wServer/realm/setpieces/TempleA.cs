@@ -99,9 +99,9 @@ namespace wServer.realm.setpieces
             container.Move(pos.X + Size / 2, pos.Y + Size / 2);
             world.EnterWorld(container);
 
-            Entity snake = Entity.Resolve(world.Manager, 0x0dc2);
-            snake.Move(pos.X + Size / 2, pos.Y + Size / 2);
-            world.EnterWorld(snake);
+            //Entity snake = Entity.Resolve(world.Manager, 0x0dc2);
+            //snake.Move(pos.X + Size / 2, pos.Y + Size / 2);
+            //world.EnterWorld(snake);
         }
     }
 }

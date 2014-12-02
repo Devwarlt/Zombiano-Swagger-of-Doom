@@ -792,14 +792,12 @@ import flash.events.TimerEvent;
             switch (_arg1._type){
                 case WeatherPropertiesPacket.ADD_PARTICLES:
                     if(this.gs_.map_.weatherBackground_ != null) {
-                        var _local1:GTween = new GTween(this, _arg1._particles / 60);
-                        _local1._bR_ = this.gs_.map_.weatherBackground_.addParticle;
+                        var _local1:GTween = new GTween(this.gs_.map_.weatherBackground_, 5, { "particlesAmount": _arg1._particles });
                     }
                     break;
                 case WeatherPropertiesPacket.REMOVE_PARTICLES:
                         if(this.gs_.map_.weatherBackground_ != null) {
-                            var _local1:GTween = new GTween(this, _arg1._particles / 60);
-                            _local1._bR_ = this.gs_.map_.weatherBackground_.removeParticle;
+                            var _local1:GTween = new GTween(this.gs_.map_.weatherBackground_, 5, { "particlesAmount": -(_arg1._particles) });
                         }
                     break;
                 case WeatherPropertiesPacket.CHANGE_WEATHER:

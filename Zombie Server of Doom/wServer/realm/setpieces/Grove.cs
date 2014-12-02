@@ -63,10 +63,10 @@ namespace wServer.realm.setpieces
                     }
                 }
 
-            Entity ent = Entity.Resolve(world.Manager, "Ent Ancient");
-            ent.Size = 140;
-            ent.Move(pos.X + Size / 2 + 1, pos.Y + Size / 2 + 1);
-            world.EnterWorld(ent);
+            //Entity ent = Entity.Resolve(world.Manager, "Ent Ancient");
+            //ent.Size = 140;
+            //ent.Move(pos.X + Size / 2 + 1, pos.Y + Size / 2 + 1);
+            //world.EnterWorld(ent);
         }
     }
 }

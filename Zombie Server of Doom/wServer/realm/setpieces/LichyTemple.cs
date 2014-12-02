@@ -107,9 +107,9 @@ namespace wServer.realm.setpieces
                 }
 
             //Boss
-            Entity lich = Entity.Resolve(world.Manager, "Lich");
-            lich.Move(pos.X + Size / 2, pos.Y + Size / 2);
-            world.EnterWorld(lich);
+            //Entity lich = Entity.Resolve(world.Manager, "Lich");
+            //lich.Move(pos.X + Size / 2, pos.Y + Size / 2);
+            //world.EnterWorld(lich);
         }
     }
 }
