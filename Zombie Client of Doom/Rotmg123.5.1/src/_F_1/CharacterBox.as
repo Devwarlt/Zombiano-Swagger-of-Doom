@@ -6,8 +6,12 @@
 package _F_1{
     import _E_7._E_J_;
     import _E_7._for_;
-    
-    import com.company.assembleegameclient.appengine.SavedCharacter;
+
+import _qN_.Account;
+
+import avmplus.methodXml;
+
+import com.company.assembleegameclient.appengine.SavedCharacter;
     import com.company.assembleegameclient.appengine._0A_H_;
     import com.company.assembleegameclient.appengine._0K_R_;
     import com.company.assembleegameclient.util.RankUtils;
@@ -61,7 +65,7 @@ import flash.display.Sprite;
             this.playerXML_ = _arg1;
             this.charStats_ = _arg2;
             this.charList_ = _arg3;
-            this._F_I_ = this.charList_.isAvailable(this.objectType());
+            this._F_I_ = _E_J_.isAvailable(_arg1, _arg3);
             if (!this._F_I_)
             {
                 this._87 = new LockedCharBoxGraphic();
@@ -75,7 +79,9 @@ import flash.display.Sprite;
             addChild(this.bitmap_);
             this.classNameText_ = new SimpleText(14, 0xFFFFFF, false, 0, 0, "Myriad Pro");
             this.classNameText_.boldText(true);
-            this.classNameText_.htmlText = (('<p align="center">' + this.playerXML_.@id) + "</p>");
+            var text:String = this.playerXML_.DisplayId;
+            text = text.replace("{NL}", "\n");
+            this.classNameText_.htmlText = '<p align="center">' + text + '</p>';
             this.classNameText_.autoSize = TextFieldAutoSize.CENTER;
             this.classNameText_.updateMetrics();
             this.classNameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4)];
@@ -88,16 +94,16 @@ import flash.display.Sprite;
                 this._L_B_.autoSize = TextFieldAutoSize.CENTER;
                 this._L_B_.updateMetrics();
                 this._L_B_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4, 5)];
-                this._L_B_.y = 58;
+                this._L_B_.y = 52;
                 addChild(this._L_B_);
-                this.classNameText_.y = 78;
+                this.classNameText_.y = 80 - this.classNameText_.textHeight / 2;
             }
             else
             {
-                this.classNameText_.y = 65;
+                this.classNameText_.y = 75 - this.classNameText_.textHeight / 2;
             }
         }
-        public function objectType():int{
+        public function skinType():int{
             return (int(this.playerXML_.@type));
         }
         public function getTooltip():_for_{
@@ -180,30 +186,6 @@ import flash.display.Sprite;
             this.bitmap_.bitmapData = SavedCharacter.getImage(null, this.playerXML_, _arg1, _arg2, _arg3, this._F_I_, false);
             this.bitmap_.x = ((this._87.width / 2) - (this.bitmap_.bitmapData.width / 2));
         }
-        private function _kU_(_arg1:int, _arg2:int):Sprite{
-            var _local5:DisplayObject;
-            var _local3:Sprite = new Sprite();
-            var _local4:int;
-            var _local6:int;
-            while (_local4 < _arg1)
-            {
-                _local5 = new AdminRank();
-                _local5.x = _local6;
-                _local3.addChild(_local5);
-                _local6 = (_local6 + _local5.width);
-                _local4++;
-            }
-            while (_local4 < _arg2)
-            {
-                _local5 = new AdminRank();
-                _local5.x = _local6;
-                _local3.addChild(_local5);
-                _local6 = (_local6 + _local5.width);
-                _local4++;
-            }
-            return (_local3);
-        }
-
     }
 }//package _F_1
 

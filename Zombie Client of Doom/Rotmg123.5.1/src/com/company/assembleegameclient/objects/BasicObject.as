@@ -10,6 +10,8 @@ package com.company.assembleegameclient.objects{
     import flash.display.IGraphicsData;
     import com.company.assembleegameclient.map._0D_v;
 
+import flash.display.Sprite;
+
 
     public class BasicObject {
 

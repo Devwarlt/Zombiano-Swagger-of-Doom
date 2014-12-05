@@ -143,7 +143,15 @@ import com.company.assembleegameclient.objects.GameObject;
                 if(!(this._03f._e9.gameObject_ is CraftingTerminal)) {
                     if (this._03f.id_ > 3 && _arg1.id_ != 9) {
                         CraftingFrame.updateInv(_arg1.id_, this._0M_X_, this._03f.id_);
-                        this._03f._e9.gs_.map_.player_.equipment_[this._03f.id_] = -1;
+                        if(this._03f.id_ > 11 && this._03f.id_ < 20) {
+                            this._03f._e9.gs_.map_.player_.backpack1[this._03f.id_ - 12] = -1;
+                        }
+                        else if(this._03f.id_ > 19) {
+                            this._03f._e9.gs_.map_.player_.backpack2[this._03f.id_ - 20] = -1;
+                        }
+                        else {
+                            this._03f._e9.gs_.map_.player_.equipment_[this._03f.id_] = -1;
+                        }
                     }
                 }
                 else {
@@ -164,8 +172,47 @@ import com.company.assembleegameclient.objects.GameObject;
                 return;
             }
             else if(this._03f._e9.gameObject_ is CraftingTerminal && _arg1._e9.gameObject_ is Player) {
+                var slotId:int = CraftingFrame.playerItems[this._03f.id_];
                 if(_arg1.id_ > 3 && this._03f.id_ != 9) {
-                    this._03f._e9.gs_.map_.player_.equipment_[CraftingFrame.playerItems[this._03f.id_]] = CraftingFrame.items[this._03f.id_];
+                    if(_arg1.id_ > 11 && _arg1.id_ < 20) {
+                        if(slotId < 0 || (slotId - 12) > 7) {
+                            if((slotId - 12) > 7){
+                                this._03f._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this._03f.id_];
+                            }
+                            else {
+                                this._03f._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this._03f.id_];
+                            }
+                        }
+                        else {
+                            this._03f._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this._03f.id_];
+                        }
+                    }
+                    else if(_arg1.id_ > 19) {
+                        if((slotId - 20) < 0) {
+                            if((slotId - 12) < 0) {
+                                this._03f._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this._03f.id_];
+                            }
+                            else {
+                                this._03f._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this._03f.id_];
+                            }
+                        }
+                        else {
+                            this._03f._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this._03f.id_];
+                        }
+                    }
+                    else {
+                        if(slotId > 11) {
+                            if(slotId - 12 > 7) {
+                                this._03f._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this._03f.id_];
+                            }
+                            else {
+                                this._03f._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this._03f.id_];
+                            }
+                        }
+                        else {
+                            this._03f._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this._03f.id_];
+                        }
+                    }
                     CraftingFrame.updateInv(this._03f.id_, -1, this._03f.id_);
                 }
                 this._0K_9();

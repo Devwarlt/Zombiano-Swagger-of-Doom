@@ -56,8 +56,9 @@ import flash.display.GraphicsPath;
     import flash.geom.Point;
     import flash.utils.Dictionary;
     import flash.utils.getTimer;
+import flash.utils.setInterval;
 
-    public class Player extends Character {
+public class Player extends Character {
 
         public static const _0G_S_:int = 10000;
         public static const MAX_VISIBILITY:int = 30;
@@ -173,6 +174,7 @@ import flash.display.GraphicsPath;
             _local5.wisdom_ = int(_arg2.MpRegen);
             _local5.tex1Id_ = int(_arg2.Tex1);
             _local5.tex2Id_ = int(_arg2.Tex2);
+            _local5.skinId_ = int(_arg2.Skin);
             return (_local5);
         }
         private static function _091(_arg1:Number, _arg2:_0D_v):int{
@@ -826,8 +828,30 @@ import flash.display.GraphicsPath;
             var _local1:_J_H_;
             var _local2:int;
             if (_tm == null) {
-                _local1 = _yN_.imageFromDir(_lJ_.RIGHT, _lJ_._sS_, 0);
-                _local2 = ((4 / _local1.image_.width) * 100);
+                if(this.skinId_ != -1) {
+                    var _local3:_Z_H_ = ObjectLibrary._V_a[this.skinId_];
+                    var oldTex = this.texture_;
+                    var oldMask = this.mask_;
+                    var oldYN = this._yN_;
+                    var old07 = this._07_;
+
+                    this.texture_ = _local3.texture_;
+                    this.mask_ = _local3.mask_;
+                    this._yN_ = _local3._yN_;
+                    this._07_ = _local3._07_;
+
+                    _local1 = _yN_.imageFromDir(_lJ_.RIGHT, _lJ_._sS_, 0);
+                    _local2 = ((4 / _local1.image_.width) * 100);
+
+                    this.texture_ = oldTex;
+                    this.mask_ = oldMask;
+                    this._yN_ = oldYN;
+                    this._07_ = old07;
+                }
+                else {
+                    _local1 = _yN_.imageFromDir(_lJ_.RIGHT, _lJ_._sS_, 0);
+                    _local2 = ((4 / _local1.image_.width) * 100);
+                }
                 _tm = TextureRedrawer.resize(_local1.image_, _local1.mask_, _local2, true, tex1Id_, tex2Id_);
                 _tm = TextureRedrawer.outlineGlow(_tm, 0, 0);
             }

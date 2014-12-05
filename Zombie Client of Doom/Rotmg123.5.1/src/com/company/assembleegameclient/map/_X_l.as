@@ -22,12 +22,14 @@ import _fh._zh;
     import com.company.assembleegameclient.objects._ez;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.util.ConditionEffect;
+import com.company.util.GraphicHelper;
 
 import flash.display.BlendMode;
 
 import flash.display.Graphics;
     import flash.display.GraphicsBitmapFill;
-    import flash.display.IGraphicsData;
+import flash.display.GraphicsPath;
+import flash.display.IGraphicsData;
 import flash.display.MovieClip;
 import flash.display.Sprite;
 import flash.filters.BitmapFilterQuality;
@@ -40,7 +42,9 @@ import flash.geom.ColorTransform;
 import flash.geom.Transform;
 import flash.utils.Dictionary;
 
-    public class _X_l extends MapHandler {
+import spark.primitives.Graphic;
+
+public class _X_l extends MapHandler {
 
         private static const _D_W_:Array = ["sortVal_", "objectId_"];
         private static const _0_2:Array = [Array.NUMERIC, Array.NUMERIC];
@@ -75,7 +79,7 @@ import flash.utils.Dictionary;
             partyOverlay_ = new _zh(this);
             party_ = new _ez(this);
             quest_ = new Quest(this);
-            atmosphere_ = new AtmosphereHandler(this.gs_);
+            atmosphere_ = new AtmosphereHandler(this.gs_, this);
         }
 		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int, _arg9:int):void{
             width_ = _arg1;
@@ -470,6 +474,7 @@ import flash.utils.Dictionary;
             _local15.clear();
             _local15.drawGraphicsData(this.graphicsData_);
             this.map_.filters.length = 0;
+            trace(this.map_.filters);
             if (((!((this.player_ == null))) && (!(((this.player_._9B_ & ConditionEffect._T_D_) == 0)))))
             {
                 _local22 = [];

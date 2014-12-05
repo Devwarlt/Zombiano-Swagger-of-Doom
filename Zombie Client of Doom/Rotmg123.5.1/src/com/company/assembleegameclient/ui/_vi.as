@@ -41,7 +41,7 @@ package com.company.assembleegameclient.ui{
             this.AdminColour = this._yz();
             this.AdminColour.color = 0xFFFF00;
 			this.SAdminColour = this._yz();
-			this.SAdminColour.color = 0xE678CC;
+			this.SAdminColour.color = 0x000000;
             this.EnemyColour = this._yz();
             this.EnemyColour.color = 0xFFA800;
             this.PlayerColour = this._yz();

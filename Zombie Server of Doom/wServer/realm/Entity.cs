@@ -21,11 +21,16 @@ namespace wServer.realm
             manager.Behaviors.ResolveBehavior(this);
 
             manager.GameData.ObjectDescs.TryGetValue(ObjectType, out desc);
-            if (desc != null && (desc.Player || desc.Enemy))
+            if (desc != null)
             {
-                posHistory = new Position[256];
-                projectiles = new Projectile[256];
-                effects = new int[EFFECT_COUNT];
+                if (desc.Player || desc.Enemy)
+                {
+                    posHistory = new Position[256];
+                    projectiles = new Projectile[256];
+                    effects = new int[EFFECT_COUNT];
+                }
+
+                Size = desc.MinSize;
             }
         }
 
@@ -71,7 +76,7 @@ namespace wServer.realm
 
         protected virtual void ExportStats(IDictionary<StatsType, object> stats)
         {
-            stats[StatsType.Name] = Name;
+            stats[StatsType.Name] = Name ?? "";
             stats[StatsType.Size] = Size;
             stats[StatsType.Effects] = (int)ConditionEffects;
         }
@@ -293,6 +298,7 @@ namespace wServer.realm
 
                 case "CraftingTerminal":
                 case "Forge":
+                case "Door":
                 case "CraftingRecipeBook":
                     return new StaticObject(manager, id, null, true, false, true);
 

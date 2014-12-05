@@ -121,6 +121,9 @@ namespace wServer.realm.setpieces
                 }
             }
 
+            Outpost p = new Outpost();
+            p.RenderSetPiece(world, new IntPoint());
+
             log.Info("Set pieces applied.");
         }
     }

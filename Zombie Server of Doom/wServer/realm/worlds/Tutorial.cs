@@ -1,4 +1,6 @@
-﻿using wServer.networking;
+﻿using System.IO;
+using terrain;
+using wServer.networking;
 
 namespace wServer.realm.worlds
 {
@@ -16,7 +18,8 @@ namespace wServer.realm.worlds
         protected override void Init()
         {
             if (!IsLimbo)
-                base.FromWorldMap(typeof(RealmManager).Assembly.GetManifestResourceStream("wServer.realm.worlds.tutorial.wmap"));
+                base.FromWorldMap(new MemoryStream(Json2Wmap.Convert(Manager.GameData,
+                    new StreamReader(typeof(RealmManager).Assembly.GetManifestResourceStream("wServer.realm.worlds.tutorial.jm")).ReadToEnd())));
         }
 
         public override World GetInstance(Client client)

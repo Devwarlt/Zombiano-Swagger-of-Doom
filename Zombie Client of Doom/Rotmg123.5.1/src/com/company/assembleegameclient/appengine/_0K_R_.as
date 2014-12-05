@@ -41,6 +41,7 @@ package com.company.assembleegameclient.appengine{
         public var name_:String = null;
         public var _hv:Boolean;
         public var converted_:Boolean;
+        public var ownedSkins:Vector.<int>;
         public var _V_v:Boolean;
         public var _tZ_:Vector.<_vt>;
         public var _0C_6:_0K_N_;
@@ -49,6 +50,7 @@ package com.company.assembleegameclient.appengine{
             this.savedChars_ = new Vector.<SavedCharacter>();
             this.charStats_ = {};
             this.servers_ = new Vector.<Server>();
+            this.ownedSkins = new Vector.<int>();
             this._tZ_ = new Vector.<_vt>();
             super(SAVED_CHARS_LIST);
             this._0F_V_ = _arg1;
@@ -78,6 +80,8 @@ package com.company.assembleegameclient.appengine{
             this.credits_ = int(_arg1.Credits);
             this.nextCharSlotPrice_ = int(_arg1.NextCharSlotPrice);
             this.rank = int(_arg1.Rank);
+
+            this.ownedSkins.push((String(_arg1).replace(" ", "").split(',')));
         }
         private function _t6(_arg1:XML):void{
             var _local2:int;

@@ -53,7 +53,7 @@ namespace db
             }
             if (acc != null)
             {
-                cmd.CommandText = @"SELECT charId, characters.charType, level, death.totalFame, time
+                cmd.CommandText = @"SELECT charId, characters.skinType, level, death.totalFame, time
 FROM characters, death
 WHERE dead = TRUE AND
 characters.accId=@accId AND death.accId=@accId
@@ -66,7 +66,7 @@ AND characters.charId=death.chrId;";
                         {
                             Icon = "fame",
                             Title = string.Format("Your {0} died at level {1}",
-                                dat.ObjectTypeToId[(ushort)rdr.GetInt32("charType")],
+                                dat.ObjectTypeToId[(ushort)rdr.GetInt32("skinType")],
                                 rdr.GetInt32("level")),
                             TagLine = string.Format("You earned {0} glorious Fame",
                                 rdr.GetInt32("totalFame")),
@@ -403,12 +403,15 @@ SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
                     int[] stats = Utils.FromCommaSepString32(rdr.GetString("stats"));
                     chrs.Characters.Add(new Char()
                     {
-                        ObjectType = (short)rdr.GetInt32("charType"),
+                        SkinType = (short)rdr.GetInt32("skinType"),
                         CharacterId = rdr.GetInt32("charId"),
                         Level = rdr.GetInt32("level"),
                         Exp = rdr.GetInt32("exp"),
                         CurrentFame = rdr.GetInt32("fame"),
                         _Equipment = rdr.GetString("items"),
+                        _Backpack1 = rdr.GetString("backpack1"),
+                        _Backpack2 = rdr.GetString("backpack2"),
+                        Backpacks = rdr.GetInt32("backpacks"),
                         MaxHitPoints = stats[0],
                         HitPoints = rdr.GetInt32("hp"),
                         MaxMagicPoints = stats[1],
@@ -429,13 +432,14 @@ SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
             }
         }
 
-        public static Char CreateCharacter(XmlData dat, ushort type, int chrId)
+        public static Char CreateCharacter(XmlData dat, short type, int chrId)
         {
-            XElement cls = dat.ObjectTypeToElement[type];
+            XElement cls = dat.ObjectTypeToElement[0x030e];
             if (cls == null) return null;
             return new Char()
             {
-                ObjectType = type,
+                SkinType = type,
+                ObjectType = 0x030e,
                 CharacterId = chrId,
                 Level = 1,
                 Exp = 0,
@@ -473,12 +477,15 @@ SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
                 int[] stats = Utils.FromCommaSepString32(rdr.GetString("stats"));
                 var ret = new Char()
                 {
-                    ObjectType = (short)rdr.GetInt32("charType"),
+                    SkinType = (short)rdr.GetInt32("skinType"),
                     CharacterId = rdr.GetInt32("charId"),
                     Level = rdr.GetInt32("level"),
                     Exp = rdr.GetInt32("exp"),
                     CurrentFame = rdr.GetInt32("fame"),
                     _Equipment = rdr.GetString("items"),
+                    _Backpack1 = rdr.GetString("backpack1"),
+                    _Backpack2 = rdr.GetString("backpack2"),
+                    Backpacks = rdr.GetInt32("backpacks"),
                     MaxHitPoints = stats[0],
                     HitPoints = rdr.GetInt32("hp"),
                     MaxMagicPoints = stats[1],
@@ -509,7 +516,10 @@ SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
 level=@level, 
 exp=@exp, 
 fame=@fame, 
-items=@items, 
+items=@items,
+backpack1=@backpack1,
+backpack2=@backpack2,
+backpacks=@backpacks,
 stats=@stats, 
 hp=@hp, 
 mp=@mp, 
@@ -525,6 +535,9 @@ WHERE accId=@accId AND charId=@charId;";
             cmd.Parameters.AddWithValue("@exp", chr.Exp);
             cmd.Parameters.AddWithValue("@fame", chr.CurrentFame);
             cmd.Parameters.AddWithValue("@items", chr._Equipment);
+            cmd.Parameters.AddWithValue("@backpack1", chr._Backpack1);
+            cmd.Parameters.AddWithValue("@backpack2", chr._Backpack2);
+            cmd.Parameters.AddWithValue("@backpacks", chr.Backpacks);
             cmd.Parameters.AddWithValue("@stats", Utils.GetCommaSepString(new int[]
             {
                 chr.MaxHitPoints,
@@ -552,7 +565,7 @@ ON DUPLICATE KEY UPDATE
 bestLv = GREATEST(bestLv, @bestLv), 
 bestFame = GREATEST(bestFame, @bestFame);";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
-            cmd.Parameters.AddWithValue("@objType", chr.ObjectType);
+            cmd.Parameters.AddWithValue("@objType", chr.SkinType);
             cmd.Parameters.AddWithValue("@bestLv", chr.Level);
             cmd.Parameters.AddWithValue("@bestFame", chr.CurrentFame);
             cmd.ExecuteNonQuery();
@@ -603,7 +616,7 @@ VALUES(@accId, @chrId, @name, @objType, @tex1, @tex2, @items, @fame, @fameStats,
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             cmd.Parameters.AddWithValue("@chrId", chr.CharacterId);
             cmd.Parameters.AddWithValue("@name", acc.Name);
-            cmd.Parameters.AddWithValue("@objType", chr.ObjectType);
+            cmd.Parameters.AddWithValue("@objType", chr.SkinType);
             cmd.Parameters.AddWithValue("@tex1", chr.Tex1);
             cmd.Parameters.AddWithValue("@tex2", chr.Tex2);
             cmd.Parameters.AddWithValue("@items", chr._Equipment);

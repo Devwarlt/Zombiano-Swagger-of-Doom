@@ -22,10 +22,10 @@ package com.company.assembleegameclient.ui
 		protected var fill_:GraphicsSolidFill;
 		protected var path_:GraphicsPath;
 		private var graphicsData_:Vector.<IGraphicsData>;
-		protected static const WIDTH:int = 28;
-		protected static const HEIGHT:int = 24;
+		public static const WIDTH:int = 28;
+		public static const HEIGHT:int = 24;
 			
-		public function TabButton(_icon:BitmapData, _selected:Boolean, _tabId:int)
+		public function TabButton(_icon:BitmapData, _tabId:int, _selected:Boolean = false)
 		{
 			this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
 			super();
@@ -33,17 +33,14 @@ package com.company.assembleegameclient.ui
 			this.iconRaw_ = _icon;
 			this.icon_ = TextureRedrawer.redraw(this.iconRaw_, (320 / this.iconRaw_.width), true, 0, 0);
 			this.holder_ = new TabBackground(186, 98);
-			this.holder_.x = -28 * _tabId;
-			this.holder_.y = 22;
-			this.holder_.visible = _selected;
-			this.addChild(this.holder_);
+			this.holder_.x = 7;
+			this.holder_.y = 198;
 			this.tabId_ = _tabId;
 			this.draw();
 		}
 		
 		public function setSelected(_selected:Boolean):void {
 			this.selected_ = _selected;
-			this.holder_.visible = _selected;
 			this.draw();
 		}
 		
@@ -64,7 +61,6 @@ package com.company.assembleegameclient.ui
 				this.bmap_.y = -10;
 				this.addChild(this.bmap_);
 			}
-			this.holder_.draw(this.tabId_ == 0);
 		}
 	}
 }

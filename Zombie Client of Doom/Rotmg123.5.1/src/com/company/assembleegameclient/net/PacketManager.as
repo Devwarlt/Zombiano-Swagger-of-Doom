@@ -1109,6 +1109,42 @@ import flash.events.TimerEvent;
                             _arg1.equipment_[(_local4._0F_4 - StatData.INVENTORY_0_STAT)] = _local4._h;
                         }
                         break;
+
+                    case StatData.Backpack1_0:
+                    case StatData.Backpack1_1:
+                    case StatData.Backpack1_2:
+                    case StatData.Backpack1_3:
+                    case StatData.Backpack1_4:
+                    case StatData.Backpack1_5:
+                    case StatData.Backpack1_6:
+                    case StatData.Backpack1_7:
+                        if(!CraftingPanel.terminalOpen && _arg1.backpack1 != null) {
+                            _arg1.backpack1[(_local4._0F_4 - StatData.Backpack1_0)] = _local4._h;
+                        }
+                        break;
+
+                    case StatData.Backpack2_0:
+                    case StatData.Backpack2_1:
+                    case StatData.Backpack2_2:
+                    case StatData.Backpack2_3:
+                    case StatData.Backpack2_4:
+                    case StatData.Backpack2_5:
+                    case StatData.Backpack2_6:
+                    case StatData.Backpack2_7:
+                        if(!CraftingPanel.terminalOpen && _arg1.backpack2 != null) {
+                            _arg1.backpack2[(_local4._0F_4 - StatData.Backpack2_0)] = _local4._h;
+                        }
+                        break;
+                    case StatData.HasBackpack1:
+                        if(_arg1.backpack1 == null && _local4._h == 1) {
+                            _arg1.backpack1 = new <int>[-1, -1, -1, -1, -1, -1, -1, -1];
+                        }
+                        break;
+                    case StatData.HasBackpack2:
+                        if(_arg1.backpack2 == null && _local4._h == 1) {
+                            _arg1.backpack2 = new <int>[-1, -1, -1, -1, -1, -1, -1, -1];
+                        }
+                        break;
                     case StatData._s9:
                         if((_arg1 as Player).oldRank != -1) {
                             (_arg1 as Player).oldRank = (_arg1 as Player).rank;

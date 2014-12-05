@@ -294,6 +294,7 @@ public class Item
     public float ArcGap { get; private set; }
     public bool Consumable { get; private set; }
     public bool Potion { get; private set; }
+    public bool Backpack { get; private set; }
     public string DisplayId { get; private set; }
     public int Doses { get; private set; }
     public string SuccessorId { get; private set; }
@@ -343,6 +344,7 @@ public class Item
             ArcGap = 11.25f;
         Consumable = elem.Element("Consumable") != null;
         Potion = elem.Element("Potion") != null;
+        Backpack = elem.Element("Backpack") != null;
         if ((n = elem.Element("DisplayId")) != null)
             DisplayId = n.Value;
         else

@@ -45,6 +45,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -196,6 +197,7 @@
     <Compile Include="realm\ChatManager.cs" />
     <Compile Include="realm\Inventory.cs" />
     <Compile Include="realm\setpieces\ArchMage.cs" />
+    <Compile Include="realm\setpieces\Outpost.cs" />
     <Compile Include="realm\Utils.cs" />
     <Compile Include="logic\Cooldown.cs" />
     <Compile Include="logic\DamageCounter.cs" />
@@ -343,6 +345,7 @@
     <None Include="knownbugs.md" />
     <Content Include="packets.txt" />
     <Compile Include="realm\commands\AdminCommands.cs" />
+    <EmbeddedResource Include="realm\worlds\tutorial.jm" />
     <None Include="todolist.md" />
   </ItemGroup>
   <ItemGroup>

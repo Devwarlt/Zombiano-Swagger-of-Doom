@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `accId` int(11) NOT NULL,
   `charId` int(11) NOT NULL,
-  `charType` int(11) NOT NULL,
+  `skinType` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `exp` int(11) NOT NULL,
   `fame` int(11) NOT NULL,

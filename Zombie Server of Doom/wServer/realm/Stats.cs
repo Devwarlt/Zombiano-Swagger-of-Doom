@@ -89,5 +89,26 @@ namespace wServer.realm
         TEAM_STAT = 68,
         AbilityCooldown = 69,
         VisibilityRange = 70,
+
+        Backpack1_0 = 71,
+        Backpack1_1 = 72,
+        Backpack1_2 = 73,
+        Backpack1_3 = 74,
+        Backpack1_4 = 75,
+        Backpack1_5 = 76,
+        Backpack1_6 = 77,
+        Backpack1_7 = 78,
+
+        Backpack2_0 = 79,
+        Backpack2_1 = 80,
+        Backpack2_2 = 81,
+        Backpack2_3 = 82,
+        Backpack2_4 = 83,
+        Backpack2_5 = 84,
+        Backpack2_6 = 85,
+        Backpack2_7 = 86,
+
+        HasBackpack1 = 87,
+        HasBackpack2 = 88
     }
 }

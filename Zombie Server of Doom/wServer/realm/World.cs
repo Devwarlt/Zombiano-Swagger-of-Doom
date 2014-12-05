@@ -123,7 +123,8 @@ namespace wServer.realm
             StaticObjects.Clear();
             Enemies.Clear();
             Players.Clear();
-            foreach (var i in Map.InstantiateEntities(Manager))
+            IEnumerable<Entity> ens;
+            foreach (var i in ens = Map.InstantiateEntities(Manager))
             {
                 EnterWorld(i);
             }

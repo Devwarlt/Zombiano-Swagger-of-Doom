@@ -1,7 +1,8 @@
-﻿    Move to a better db => Redis HAHAHHAHAHAHA no fuck you
-    Make client independent of account => uh?
-    Events => Obv
+﻿    Events => Obv
     Dungeon => Dunno yet
-    Pets => Maybs
+    Pets => only dogs
     Dyes/Cloths => Fuck yea
     Guild => Clans?
+	Houses,
+	Placeable objects
+	Crafting recipe viewer improvement

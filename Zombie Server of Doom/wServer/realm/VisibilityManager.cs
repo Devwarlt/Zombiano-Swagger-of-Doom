@@ -32,7 +32,7 @@ namespace wServer.realm
 
         public int GetVisibility()
         {
-            int len = ((int)Math.Round((Vector2.Distance(oldPos, newPos) * ((player.Stats[4] + player.Boost[4]) / 5.5))) + 3);
+            int len = (int)Math.Floor((Vector2.Distance(oldPos, newPos) * ((player.Stats[4] + player.Boost[4]) / 5.5)) + 3);
             int speedy = 0;
             if (player.HasConditionEffect(ConditionEffects.Speedy))
                 speedy = 3;

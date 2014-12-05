@@ -255,7 +255,7 @@ package com.company.assembleegameclient.ui{
                 {
                     if (this._ws > 0)
                     {
-                        _local5 = new SimpleText(26, 0x473224, false, 0, 0, "Myriad Pro");
+                        _local5 = new SimpleText(22, 0x473224, false, 0, 0, "Myriad Pro");
                         _local5.text = String(this._ws);
                         _local5.boldText(true);
                         _local5.updateMetrics();
@@ -263,8 +263,8 @@ package com.company.assembleegameclient.ui{
                         _local6 = new Matrix();
                         _local1.draw(_local5, _local6);
                         this._0H_K_ = new Bitmap(_local1);
-                        this._0H_K_.x = ((WIDTH / 2) - (_local5.width / 2));
-                        this._0H_K_.y = ((HEIGHT / 2) - 18);
+                        this._0H_K_.x = ((WIDTH / 2) - (_local5.textWidth / 2)) - 2;
+                        this._0H_K_.y = ((HEIGHT / 2) - (_local5.textHeight / 2)) - 2;
                         addChild(this._0H_K_);
                     }
                 }

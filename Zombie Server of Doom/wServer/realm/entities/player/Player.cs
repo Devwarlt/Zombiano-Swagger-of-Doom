@@ -33,6 +33,7 @@ namespace wServer.realm.entities
         public int ExperienceGoal { get; set; }
         public int Level { get; set; }
         public int AbilityCooldown { get; set; }
+        public int SkinType { get; set; }
 
         public int CurrentFame { get; set; }
         public int Kills { get; set; }
@@ -95,6 +96,33 @@ namespace wServer.realm.entities
             stats[StatsType.Inventory10] = (Inventory[10] != null ? Inventory[10].ObjectType : -1);
             stats[StatsType.Inventory11] = (Inventory[11] != null ? Inventory[11].ObjectType : -1);
 
+            stats[StatsType.HasBackpack1] = Inventory.Length > 12 ? 1 : 0;
+            stats[StatsType.HasBackpack2] = Inventory.Length > 20 ? 1 : 0;
+
+            if (Inventory.Length > 12)
+            {
+                stats[StatsType.Backpack1_0] = (Inventory[12] != null ? Inventory[12].ObjectType : -1);
+                stats[StatsType.Backpack1_1] = (Inventory[13] != null ? Inventory[13].ObjectType : -1);
+                stats[StatsType.Backpack1_2] = (Inventory[14] != null ? Inventory[14].ObjectType : -1);
+                stats[StatsType.Backpack1_3] = (Inventory[15] != null ? Inventory[15].ObjectType : -1);
+                stats[StatsType.Backpack1_4] = (Inventory[16] != null ? Inventory[16].ObjectType : -1);
+                stats[StatsType.Backpack1_5] = (Inventory[17] != null ? Inventory[17].ObjectType : -1);
+                stats[StatsType.Backpack1_6] = (Inventory[18] != null ? Inventory[18].ObjectType : -1);
+                stats[StatsType.Backpack1_7] = (Inventory[19] != null ? Inventory[19].ObjectType : -1);
+            }
+
+            if (Inventory.Length > 20)
+            {
+                stats[StatsType.Backpack2_0] = (Inventory[20] != null ? Inventory[20].ObjectType : -1);
+                stats[StatsType.Backpack2_1] = (Inventory[21] != null ? Inventory[21].ObjectType : -1);
+                stats[StatsType.Backpack2_2] = (Inventory[22] != null ? Inventory[22].ObjectType : -1);
+                stats[StatsType.Backpack2_3] = (Inventory[23] != null ? Inventory[23].ObjectType : -1);
+                stats[StatsType.Backpack2_4] = (Inventory[24] != null ? Inventory[24].ObjectType : -1);
+                stats[StatsType.Backpack2_5] = (Inventory[25] != null ? Inventory[25].ObjectType : -1);
+                stats[StatsType.Backpack2_6] = (Inventory[26] != null ? Inventory[26].ObjectType : -1);
+                stats[StatsType.Backpack2_7] = (Inventory[27] != null ? Inventory[27].ObjectType : -1);
+            }
+
             if (Boost == null) CalculateBoost();
 
             stats[StatsType.MaximumHP] = Stats[0] + Boost[0];
@@ -115,7 +143,7 @@ namespace wServer.realm.entities
             stats[StatsType.WisdomBonus] = Boost[6];
             stats[StatsType.DexterityBonus] = Boost[7];
             stats[StatsType.AbilityCooldown] = AbilityCooldown;
-            //stats[StatsType.SKIN_STAT] = 0x0342;
+            stats[StatsType.SKIN_STAT] = SkinType;
             stats[StatsType.VisibilityRange] = Visibility.GetVisibility();
         }
         public void SaveToCharacter()
@@ -126,9 +154,55 @@ namespace wServer.realm.entities
             chr.Tex1 = Texture1;
             chr.Tex2 = Texture2;
             //chr.CurrentFame = Fame;
+            if (Inventory.Length > 12)
+            {
+                chr.Backpack1 = new ushort[8]
+                {
+                    Inventory[12] != null ? Inventory[12].ObjectType : (ushort)0xffff,
+                    Inventory[13] != null ? Inventory[13].ObjectType : (ushort)0xffff,
+                    Inventory[14] != null ? Inventory[14].ObjectType : (ushort)0xffff,
+                    Inventory[15] != null ? Inventory[15].ObjectType : (ushort)0xffff,
+                    Inventory[16] != null ? Inventory[16].ObjectType : (ushort)0xffff,
+                    Inventory[17] != null ? Inventory[17].ObjectType : (ushort)0xffff,
+                    Inventory[18] != null ? Inventory[18].ObjectType : (ushort)0xffff,
+                    Inventory[19] != null ? Inventory[19].ObjectType : (ushort)0xffff 
+                };
+                chr.Backpacks = 1;
+            }
+            if (Inventory.Length > 20)
+            {
+                chr.Backpack2 = new ushort[8]
+                {
+                    Inventory[20] != null ? Inventory[20].ObjectType : (ushort)0xffff,
+                    Inventory[21] != null ? Inventory[21].ObjectType : (ushort)0xffff,
+                    Inventory[22] != null ? Inventory[22].ObjectType : (ushort)0xffff,
+                    Inventory[23] != null ? Inventory[23].ObjectType : (ushort)0xffff,
+                    Inventory[24] != null ? Inventory[24].ObjectType : (ushort)0xffff,
+                    Inventory[25] != null ? Inventory[25].ObjectType : (ushort)0xffff,
+                    Inventory[26] != null ? Inventory[26].ObjectType : (ushort)0xffff,
+                    Inventory[27] != null ? Inventory[27].ObjectType : (ushort)0xffff 
+                };
+                chr.Backpacks = 2;
+            }
+
+            chr.Equipment = new ushort[12]
+            {
+                Inventory[0] != null ? Inventory[0].ObjectType : (ushort)0xffff,
+                Inventory[1] != null ? Inventory[1].ObjectType : (ushort)0xffff,
+                Inventory[2] != null ? Inventory[2].ObjectType : (ushort)0xffff,
+                Inventory[3] != null ? Inventory[3].ObjectType : (ushort)0xffff,
+                Inventory[4] != null ? Inventory[4].ObjectType : (ushort)0xffff,
+                Inventory[5] != null ? Inventory[5].ObjectType : (ushort)0xffff,
+                Inventory[6] != null ? Inventory[6].ObjectType : (ushort)0xffff,
+                Inventory[7] != null ? Inventory[7].ObjectType : (ushort)0xffff,
+                Inventory[8] != null ? Inventory[8].ObjectType : (ushort)0xffff,
+                Inventory[9] != null ? Inventory[9].ObjectType : (ushort)0xffff,
+                Inventory[10] != null ? Inventory[10].ObjectType : (ushort)0xffff,
+                Inventory[11] != null ? Inventory[11].ObjectType : (ushort)0xffff
+            };
+
             chr.HitPoints = HP;
             chr.MagicPoints = Hunger;
-            chr.Equipment = Inventory.Select(_ => _ == null ? (ushort)0xffff : _.ObjectType).ToArray();
             chr.MaxHitPoints = Stats[0];
             chr.MaxMagicPoints = Stats[1];
             chr.Attack = Stats[2];
@@ -174,13 +248,14 @@ namespace wServer.realm.entities
 
         StatsManager statsMgr;
         public Player(Client client)
-            : base(client.Manager, (ushort)client.Character.ObjectType, client.Random)
+            : base(client.Manager, 0x030e, client.Random)
         {
             this.client = client;
             statsMgr = new StatsManager(this);
             Name = client.Account.Name;
             AccountId = client.Account.AccountId;
 
+            SkinType = client.Character.SkinType;
             Level = client.Character.Level;
             Experience = client.Character.Exp;
             ExperienceGoal = GetExpGoal(client.Character.Level);
@@ -216,6 +291,17 @@ namespace wServer.realm.entities
                 client.Character.MpRegen,
                 client.Character.Dexterity,
             };
+            if (client.Character.Backpacks >= 1)
+            {
+                Inventory.SetItems(Inventory.Concat(client.Character.Backpack1.Select(_ => _ == 0xffff ? null : client.Manager.GameData.Items[_])).ToArray());
+                SlotTypes = SlotTypes.Concat(new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 }).ToArray();
+            }
+            if (client.Character.Backpacks == 2)
+            {
+                Inventory.SetItems(Inventory.Concat(client.Character.Backpack2.Select(_ => _ == 0xffff ? null : client.Manager.GameData.Items[_])).ToArray());
+                SlotTypes = SlotTypes.Concat(new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 }).ToArray();
+            }
+
             Visibility = new VisibilityManager(this);
         }
 

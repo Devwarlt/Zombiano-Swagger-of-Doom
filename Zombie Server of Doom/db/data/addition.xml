@@ -1,4 +1,20 @@
 <Addition>
+  <Object type="0xc6c" id="Backpack" ext="true">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>redLootBag</File>
+      <Index>0x00</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A backpack that will add 8 more slots to your inventory space!</Description>
+    <Sound>spell/light_heal</Sound>
+    <Consumable/>
+    <Backpack/>
+    <Soulbound/>
+    <BagType>2</BagType>
+    <OldSound>use_potion</OldSound>
+  </Object>
   <Object type="0x0342" id="Bandit" ext="true">
     <Skin/>
     <Class>Skin</Class>
@@ -704,7 +720,7 @@
       </RandomTexture>
       <BlendPriority>11</BlendPriority>
     </Ground>
-    <Ground type="0x01" id="Wood" ext="true">
+    <Ground type="0xC352" id="Wood" ext="true">
       <RandomTexture>
         <Texture>
           <File>lofiEnvironment2</File>
@@ -720,7 +736,7 @@
         </Texture>
       </RandomTexture>
     </Ground>
-    <Ground type="0x02" id="Dirty Water" ext="true">
+    <Ground type="0xC351" id="Dirty Water" ext="true">
       <RandomTexture>
         <Texture>
           <File>lofiEnvironment2</File>
@@ -732,7 +748,7 @@
       <Speed>0.5</Speed>
       <Animate dx=".5" dy=".5">Wave</Animate>
     </Ground>
-    <Ground type="0x03" id="Clean Water" ext="true">
+    <Ground type="0xC350" id="Clean Water" ext="true">
       <RandomTexture>
         <Texture>
           <File>lofiEnvironment2</File>
@@ -834,6 +850,16 @@
     </Texture>
     <Size>150</Size>
   </Object>
+
+  <Object id="door" ext="true">
+    <Class>Door</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x9</Index>
+    </Texture>
+    <Size>150</Size>
+  </Object>
+  
   <Lithium>
     <Object id="Lithium 1" ext="true">
       <!-- Low tier zombie

@@ -37,6 +37,8 @@ public class CraftingTerminal extends GameObject implements IPanelProvider {
         var i = 0;
         var ret = -1;
 
+        if(recipes == null) return ret;
+
         while (i < recipes.length) {
              if (recipes[i].split(";")[0] == _arg1) {
                 ret = int(recipes[i].split(";")[1]);

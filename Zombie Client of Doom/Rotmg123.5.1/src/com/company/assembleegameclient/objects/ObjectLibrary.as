@@ -42,6 +42,7 @@ import flash.utils.Dictionary;
         public static const _w8:ObjectProperties = new ObjectProperties(null);
 
         public static var _tj:Vector.<XML> = new Vector.<XML>();
+        public static var skins:Vector.<XML> = new Vector.<XML>();
         public static var _J_G_:Vector.<XML> = new Vector.<XML>();
         public static var _9x:Dictionary = new Dictionary();
 
@@ -91,6 +92,27 @@ import flash.utils.Dictionary;
                         _tj.push(_local2);
                     }
                 }
+
+                if (String(_local2.Class) == "Skin")
+                {
+                    _9x[_local5] = String(_local2.@id).substr(0, 2);
+                    _local6 = false;
+                    _local7 = 0;
+                    while (_local7 < skins.length)
+                    {
+                        if (int(skins[_local7].@type) == _local5)
+                        {
+                            skins[_local7] = _local2;
+                            _local6 = true;
+                        }
+                        _local7++;
+                    }
+                    if (!_local6)
+                    {
+                        skins.push(_local2);
+                    }
+                }
+
                 _V_a[_local5] = new _Z_H_(_local2);
                 if (_local2.hasOwnProperty("Top"))
                 {

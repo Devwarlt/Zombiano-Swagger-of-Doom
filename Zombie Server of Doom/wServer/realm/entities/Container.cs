@@ -26,10 +26,7 @@ namespace wServer.realm.entities
         }
 
         public Container(RealmManager manager, ushort id)
-            : base(manager, id, null, false, false, false)
-        {
-            BagOwners = new int[0];
-        }
+            : this(manager, id, null, false) { }
 
         public int[] SlotTypes { get; private set; }
         public Inventory Inventory { get; private set; }

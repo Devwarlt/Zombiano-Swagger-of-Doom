@@ -17,6 +17,7 @@ package com.company.assembleegameclient.objects{
         public function Sign(_arg1:XML){
             super(_arg1);
             texture_ = null;
+            name_ = "";
         }
         override protected function getTexture(_arg1:_0D_v, _arg2:int):BitmapData{
             if (texture_ != null)

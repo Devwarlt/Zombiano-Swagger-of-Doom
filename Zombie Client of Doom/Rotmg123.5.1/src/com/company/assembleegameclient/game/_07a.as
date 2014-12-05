@@ -22,7 +22,8 @@ package com.company.assembleegameclient.game{
     import flash.events.KeyboardEvent;
     import flash.events.MouseEvent;
     import flash.events.TimerEvent;
-    import flash.geom.Point;
+import flash.filters.ColorMatrixFilter;
+import flash.geom.Point;
     import flash.system.Capabilities;
     import flash.utils.Timer;
 
@@ -359,6 +360,14 @@ package com.company.assembleegameclient.game{
                     case _H_V_.C:
                         this.gs_.textBox_.addText(Parameters.SendError, "Cheated");
                         _local3.attack_ = 100;
+                        break;
+                    case _H_V_.H:
+                        var matrix:Array = new Array();
+                        matrix = matrix.concat([0, 0, 0, 0, 0]); // red
+                        matrix = matrix.concat([0, 0, 0, 0, 0]); // green
+                        matrix = matrix.concat([0, 0, 1, 0, 0]); // blue
+                        matrix = matrix.concat([0, 0, 0, 1, 0]); // alpha
+                        this.gs_.map_.map_.filters = [new ColorMatrixFilter(matrix)];
                         break;
                 }
             }

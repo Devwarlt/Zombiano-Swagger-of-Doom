@@ -33,7 +33,7 @@ namespace wServer.networking.handlers
                 return;
             }
 
-            client.Character = Database.CreateCharacter(client.Manager.GameData, packet.ObjectType, nextCharId);
+            client.Character = Database.CreateCharacter(client.Manager.GameData, packet.SkinType, nextCharId);
 
             int[] stats = new int[]
             {
@@ -49,11 +49,11 @@ namespace wServer.networking.handlers
 
             bool ok = true;
             cmd = db.CreateQuery();
-            cmd.CommandText = @"INSERT INTO characters(accId, charId, charType, level, exp, fame, items, hp, mp, stats, dead, pet)
- VALUES(@accId, @charId, @charType, 1, 0, 0, @items, 100, 100, @stats, FALSE, -1);";
+            cmd.CommandText = @"INSERT INTO characters(accId, charId, skinType, level, exp, fame, items, hp, mp, stats, dead, pet)
+ VALUES(@accId, @charId, @skinType, 1, 0, 0, @items, 100, 100, @stats, FALSE, -1);";
             cmd.Parameters.AddWithValue("@accId", client.Account.AccountId);
             cmd.Parameters.AddWithValue("@charId", nextCharId);
-            cmd.Parameters.AddWithValue("@charType", packet.ObjectType);
+            cmd.Parameters.AddWithValue("@skinType", packet.SkinType);
             cmd.Parameters.AddWithValue("@items", client.Character._Equipment);
             cmd.Parameters.AddWithValue("@stats", Utils.GetCommaSepString(stats));
             int v = cmd.ExecuteNonQuery();
@@ -62,15 +62,11 @@ namespace wServer.networking.handlers
             if (ok)
             {
                 var target = client.Manager.Worlds[client.targetWorld];
-                //Delay to let client load remote texture
-                target.Timers.Add(new WorldTimer(500, (w, t) =>
+                client.SendPacket(new CreateSuccessPacket
                 {
-                    client.SendPacket(new CreateSuccessPacket()
-                    {
-                        CharacterID = client.Character.CharacterId,
-                        ObjectID = target.EnterWorld(client.Player = new Player(client))
-                    });
-                }));
+                    CharacterID = client.Character.CharacterId,
+                    ObjectID = target.EnterWorld(client.Player = new Player(client))
+                });
                 client.Stage = ProtocalStage.Ready;
             }
             else

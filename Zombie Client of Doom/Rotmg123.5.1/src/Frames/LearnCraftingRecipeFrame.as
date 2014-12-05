@@ -157,6 +157,24 @@ class _playerInventory extends Sprite {
     private var _slot6:Inventory;
     private var _slot7:Inventory;
 
+    private var _slot8:Inventory;
+    private var _slot9:Inventory;
+    private var _slot10:Inventory;
+    private var _slot11:Inventory;
+    private var _slot12:Inventory;
+    private var _slot13:Inventory;
+    private var _slot14:Inventory;
+    private var _slot15:Inventory;
+
+    private var _slot16:Inventory;
+    private var _slot17:Inventory;
+    private var _slot18:Inventory;
+    private var _slot19:Inventory;
+    private var _slot20:Inventory;
+    private var _slot21:Inventory;
+    private var _slot22:Inventory;
+    private var _slot23:Inventory;
+
     private var graphicsData_:Vector.<IGraphicsData>;
 
     protected var w_:int = 220;
@@ -209,10 +227,10 @@ class _playerInventory extends Sprite {
         this._slot7.addEventListener(MouseEvent.CLICK, this.onSlotClick);
 
         this._slot0.x = 10;     this._slot1.x = 60;     this._slot2.x = 110;     this._slot3.x = 160;
-        this._slot0.y = 10;     this._slot1.y = 10;     this._slot2.y = 10;     this._slot3.y = 10;
+        this._slot0.y = 10;     this._slot1.y = 10;     this._slot2.y = 10;      this._slot3.y = 10;
 
         this._slot4.x = 10;     this._slot5.x = 60;     this._slot6.x = 110;     this._slot7.x = 160;
-        this._slot4.y = 60;     this._slot5.y = 60;     this._slot6.y = 60;     this._slot7.y = 60;
+        this._slot4.y = 60;     this._slot5.y = 60;     this._slot6.y = 60;      this._slot7.y = 60;
 
         this.addChild(this._slot0);
         this.addChild(this._slot1);
@@ -222,6 +240,82 @@ class _playerInventory extends Sprite {
         this.addChild(this._slot5);
         this.addChild(this._slot6);
         this.addChild(this._slot7);
+
+        if(gs_.map_.player_.backpack1 != null) {
+
+            this._slot8 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 8);
+            this._slot9 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 9);
+            this._slot10 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 10);
+            this._slot11 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 11);
+            this._slot12 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 12);
+            this._slot13 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 13);
+            this._slot14 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 14);
+            this._slot15 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 15);
+
+            this._slot8.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot9.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot10.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot11.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot12.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot13.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot14.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot15.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+
+            this._slot8.x = 10;               this._slot9.x = 60;               this._slot10.x = 110;             this._slot11.x = 160;
+            this._slot8.y = this.h_ + 10;     this._slot9.y = this.h_ + 10;     this._slot10.y = this.h_ + 10;    this._slot11.y = this.h_ + 10;
+
+            this._slot12.x = 10;              this._slot13.x = 60;              this._slot14.x = 110;             this._slot15.x = 160;
+            this._slot12.y = this.h_ + 60;    this._slot13.y = this.h_ + 60;    this._slot14.y = this.h_ + 60;    this._slot15.y = this.h_ + 60;
+
+            this.addChild(this._slot8);
+            this.addChild(this._slot9);
+            this.addChild(this._slot10);
+            this.addChild(this._slot11);
+            this.addChild(this._slot12);
+            this.addChild(this._slot13);
+            this.addChild(this._slot14);
+            this.addChild(this._slot15);
+
+            this.h_ += 120;
+        }
+
+        if(gs_.map_.player_.backpack2 != null) {
+
+            this._slot16 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 16);
+            this._slot17 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 17);
+            this._slot18 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 18);
+            this._slot19 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 19);
+            this._slot20 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 20);
+            this._slot21 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 21);
+            this._slot22 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 22);
+            this._slot23 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 23);
+
+            this._slot16.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot17.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot18.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot19.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot20.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot21.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot22.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+            this._slot23.addEventListener(MouseEvent.CLICK, this.onSlotClick);
+
+            this._slot16.x = 10;                this._slot17.x = 60;                this._slot18.x = 110;               this._slot19.x = 160;
+            this._slot16.y = this.h_ + 10;      this._slot17.y = this.h_ + 10;      this._slot18.y = this.h_ + 10;      this._slot19.y = this.h_ + 10;
+
+            this._slot20.x = 10;                this._slot21.x = 60;                this._slot22.x = 110;               this._slot23.x = 160;
+            this._slot20.y = this.h_ + 60;      this._slot21.y = this.h_ + 60;      this._slot22.y = this.h_ + 60;      this._slot23.y = this.h_ + 60;
+
+            this.addChild(this._slot16);
+            this.addChild(this._slot17);
+            this.addChild(this._slot18);
+            this.addChild(this._slot19);
+            this.addChild(this._slot20);
+            this.addChild(this._slot21);
+            this.addChild(this._slot22);
+            this.addChild(this._slot23);
+
+            this.h_ += 120;
+        }
     }
     public function onAddedToStage(_arg1:Event):void{
         this.draw();
@@ -250,6 +344,28 @@ class _playerInventory extends Sprite {
         this._slot5.draw(new <int>[this.gs_.map_.player_.equipment_[9]]);
         this._slot6.draw(new <int>[this.gs_.map_.player_.equipment_[10]]);
         this._slot7.draw(new <int>[this.gs_.map_.player_.equipment_[11]]);
+
+        if(this.gs_.map_.player_.backpack1 != null) {
+            this._slot8.draw(new <int>[this.gs_.map_.player_.backpack1[0]]);
+            this._slot9.draw(new <int>[this.gs_.map_.player_.backpack1[1]]);
+            this._slot10.draw(new <int>[this.gs_.map_.player_.backpack1[2]]);
+            this._slot11.draw(new <int>[this.gs_.map_.player_.backpack1[3]]);
+            this._slot12.draw(new <int>[this.gs_.map_.player_.backpack1[4]]);
+            this._slot13.draw(new <int>[this.gs_.map_.player_.backpack1[5]]);
+            this._slot14.draw(new <int>[this.gs_.map_.player_.backpack1[6]]);
+            this._slot15.draw(new <int>[this.gs_.map_.player_.backpack1[7]]);
+        }
+
+        if(this.gs_.map_.player_.backpack2 != null) {
+            this._slot16.draw(new <int>[this.gs_.map_.player_.backpack2[0]]);
+            this._slot17.draw(new <int>[this.gs_.map_.player_.backpack2[1]]);
+            this._slot18.draw(new <int>[this.gs_.map_.player_.backpack2[2]]);
+            this._slot19.draw(new <int>[this.gs_.map_.player_.backpack2[3]]);
+            this._slot20.draw(new <int>[this.gs_.map_.player_.backpack2[4]]);
+            this._slot21.draw(new <int>[this.gs_.map_.player_.backpack2[5]]);
+            this._slot22.draw(new <int>[this.gs_.map_.player_.backpack2[6]]);
+            this._slot23.draw(new <int>[this.gs_.map_.player_.backpack2[7]]);
+        }
 
         if(this._slot0.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot0.slots_[0].objectType_].hasOwnProperty("Recipe")) {
@@ -321,6 +437,154 @@ class _playerInventory extends Sprite {
             }
             else {
                 this._slot7.filters = [validGlow];
+            }
+        }
+        if(this.gs_.map_.player_.backpack1 != null) {
+            if (this._slot8.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot8.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot8.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot8.filters = [invalidGlow];
+                }
+                else {
+                    this._slot8.filters = [validGlow];
+                }
+            }
+            if (this._slot9.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot9.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot9.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot9.filters = [invalidGlow];
+                }
+                else {
+                    this._slot9.filters = [validGlow];
+                }
+            }
+            if (this._slot10.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot10.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot10.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot10.filters = [invalidGlow];
+                }
+                else {
+                    this._slot10.filters = [validGlow];
+                }
+            }
+            if (this._slot11.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot11.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot11.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot11.filters = [invalidGlow];
+                }
+                else {
+                    this._slot11.filters = [validGlow];
+                }
+            }
+            if (this._slot12.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot12.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot12.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot12.filters = [invalidGlow];
+                }
+                else {
+                    this._slot12.filters = [validGlow];
+                }
+            }
+            if (this._slot13.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot13.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot13.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot13.filters = [invalidGlow];
+                }
+                else {
+                    this._slot13.filters = [validGlow];
+                }
+            }
+            if (this._slot14.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot14.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot14.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot14.filters = [invalidGlow];
+                }
+                else {
+                    this._slot14.filters = [validGlow];
+                }
+            }
+            if (this._slot15.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot15.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot15.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot15.filters = [invalidGlow];
+                }
+                else {
+                    this._slot15.filters = [validGlow];
+                }
+            }
+        }
+        if(this.gs_.map_.player_.backpack2 != null) {
+            if (this._slot16.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot16.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot16.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot16.filters = [invalidGlow];
+                }
+                else {
+                    this._slot16.filters = [validGlow];
+                }
+            }
+            if (this._slot17.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot17.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot17.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot17.filters = [invalidGlow];
+                }
+                else {
+                    this._slot17.filters = [validGlow];
+                }
+            }
+            if (this._slot18.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot18.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot18.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot18.filters = [invalidGlow];
+                }
+                else {
+                    this._slot18.filters = [validGlow];
+                }
+            }
+            if (this._slot19.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot19.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot19.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot19.filters = [invalidGlow];
+                }
+                else {
+                    this._slot19.filters = [validGlow];
+                }
+            }
+            if (this._slot20.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot20.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot20.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot20.filters = [invalidGlow];
+                }
+                else {
+                    this._slot20.filters = [validGlow];
+                }
+            }
+            if (this._slot21.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot21.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot21.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot21.filters = [invalidGlow];
+                }
+                else {
+                    this._slot21.filters = [validGlow];
+                }
+            }
+            if (this._slot22.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot22.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot22.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot22.filters = [invalidGlow];
+                }
+                else {
+                    this._slot22.filters = [validGlow];
+                }
+            }
+            if (this._slot23.slots_[0]._X_B_ != null) {
+                if (!ObjectLibrary.Items[this._slot23.slots_[0].objectType_].hasOwnProperty("Recipe")) {
+                    this._slot23.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot23.filters = [invalidGlow];
+                }
+                else {
+                    this._slot23.filters = [validGlow];
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -70,7 +71,10 @@ public class Account
     public string _Admin { get; set; }
     [XmlIgnore]
     public bool Admin { get { return this._Admin != null; } set { this._Admin = value ? "True" : null; } }
-
+    [XmlElement("OwnedSkins")]
+    public string _OwnedSkins { get; set; }
+    [XmlIgnore]
+    public List<int> OwnedSkins { get { return Utils.FromCommaSepString32(this._OwnedSkins).ToList(); } set { this._OwnedSkins = Utils.GetCommaSepString<int>(value.ToArray()); } }
     [XmlElement("VerifiedEmail")]
     public string _VerifiedEmail { get; set; }
     [XmlIgnore]
@@ -193,18 +197,39 @@ public class Char
 {
     [XmlAttribute("id")]
     public int CharacterId { get; set; }
-    public int ObjectType { get; set; }
+    public int ObjectType { get { return 0x030e; } set { } }
+    [XmlElement("Skin")]
+    public int SkinType { get; set; }
     public int Level { get; set; }
     public int Exp { get; set; }
     public int CurrentFame { get; set; }
+    [XmlIgnore]
+    public int Backpacks { get; set; }
     [XmlElement("Equipment")]
     public string _Equipment { get; set; }
+    [XmlIgnore]
+    public string _Backpack1 { get; set; }
+    [XmlIgnore]
+    public string _Backpack2 { get; set; }
     [XmlIgnore]
     public ushort[] Equipment
     {
         get { return Utils.FromCommaSepString16(_Equipment); }
         set { _Equipment = Utils.GetCommaSepString(value); }
     }
+    [XmlIgnore]
+    public ushort[] Backpack1
+    {
+        get { return Utils.FromCommaSepString16(_Backpack1); }
+        set { _Backpack1 = Utils.GetCommaSepString(value); }
+    }
+    [XmlIgnore]
+    public ushort[] Backpack2
+    {
+        get { return Utils.FromCommaSepString16(_Backpack2); }
+        set { _Backpack2 = Utils.GetCommaSepString(value); }
+    }
+
     public int MaxHitPoints { get; set; }
     public int HitPoints { get; set; }
     public int MaxMagicPoints { get; set; }

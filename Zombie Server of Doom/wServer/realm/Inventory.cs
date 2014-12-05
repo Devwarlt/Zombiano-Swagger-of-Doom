@@ -36,6 +36,7 @@ namespace wServer.realm
         }
 
         public IContainer Parent { get; private set; }
+        public bool Locked { get; private set; }
         public int Length { get { return items.Length; } }
 
         public void SetItems(Item[] items)

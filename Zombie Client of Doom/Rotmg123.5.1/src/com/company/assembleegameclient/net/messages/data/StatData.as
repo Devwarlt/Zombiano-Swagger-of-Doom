@@ -78,6 +78,25 @@ package com.company.assembleegameclient.net.messages.data{
         public static const ABILITYCOOLDOWN:int = 69;
         public static const VISIBILITYRANGE:int = 70;
 
+        public static const Backpack1_0:int = 71;
+        public static const Backpack1_1:int = 72;
+        public static const Backpack1_2:int = 73;
+        public static const Backpack1_3:int = 74;
+        public static const Backpack1_4:int = 75;
+        public static const Backpack1_5:int = 76;
+        public static const Backpack1_6:int = 77;
+        public static const Backpack1_7:int = 78;
+        public static const Backpack2_0:int = 79;
+        public static const Backpack2_1:int = 80;
+        public static const Backpack2_2:int = 81;
+        public static const Backpack2_3:int = 82;
+        public static const Backpack2_4:int = 83;
+        public static const Backpack2_5:int = 84;
+        public static const Backpack2_6:int = 85;
+        public static const Backpack2_7:int = 86;
+        public static const HasBackpack1:int = 87;
+        public static const HasBackpack2:int = 88;
+
         public var _0F_4:uint = 0;
         public var _h:int;
         public var _3x:String;

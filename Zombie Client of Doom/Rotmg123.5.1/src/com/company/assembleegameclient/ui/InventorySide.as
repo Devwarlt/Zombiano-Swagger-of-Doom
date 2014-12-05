@@ -36,13 +36,19 @@ package com.company.assembleegameclient.ui{
 		private var _F_C_:_0M_Y_;
 		private var cooldownBar:_0M_Y_;
 		private var _086:Stats;
+		//private var _additionalStats:AdditionalStats;
 		private var invTab_:TabButton;
+		private var tabBackground:TabBackground;
+		//private var additionalStatsTab_:TabButton;
 		private var statTab_:TabButton;
-		private var tabBG_:TabBackground;
+		private var backpackTab1_:TabButton;
+		private var backpackTab2_:TabButton;
 		private var tabList_:Array;
 		private var selectedTab_:int = 0;
 		public var equips_:Inventory;
 		public var _e9:Inventory;
+		public var backpack1_:Inventory;
+		public var backpack2_:Inventory;
 		public var _0E__:int;
 		
 		private var stackPots:Boolean = false;
@@ -123,18 +129,54 @@ package com.company.assembleegameclient.ui{
 			this.equips_.y = 128;
 			addChild(this.equips_);
 			this.tabList_ = [];
-			this.invTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x20), true, 0);
+			this.invTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x20), 0, true);
 			this.invTab_.addEventListener(MouseEvent.CLICK, this.onTabClick);
 			this.invTab_.x = 7;
 			this.invTab_.y = 176;
 			addChild(this.invTab_);
 			this.tabList_[0] = this.invTab_;
-			this.statTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x21), false, 1);
+			this.statTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x21), 1);
 			this.statTab_.addEventListener(MouseEvent.CLICK, this.onTabClick);
-			this.statTab_.x = 35;
+			this.statTab_.x = this.invTab_.x + TabButton.WIDTH + 1;
 			this.statTab_.y = 176;
 			addChild(this.statTab_);
 			this.tabList_[1] = this.statTab_;
+
+			//this.additionalStatsTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x21), 2);
+			//this.additionalStatsTab_.addEventListener(MouseEvent.CLICK, this.onTabClick);
+			//this.additionalStatsTab_.x = this.statTab_.x + TabButton.WIDTH + 1;
+			//this.additionalStatsTab_.y = 176;
+
+			//var addNumber:SimpleText = new SimpleText(10, 0xffffff);
+			//addNumber.text = "2";
+			//addNumber.boldText(true);
+			//addNumber.x = TabButton.WIDTH - addNumber.textWidth - 4;
+			//addNumber.y = TabButton.HEIGHT - addNumber.textHeight - 4;
+			//this.additionalStatsTab_.addChild(addNumber);
+			//addChild(this.additionalStatsTab_);
+			//this.tabList_[2] = this.additionalStatsTab_;
+
+
+			this.backpackTab1_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x22), 2);
+			this.backpackTab1_.addEventListener(MouseEvent.CLICK, this.onTabClick);
+			this.backpackTab1_.x = this.statTab_.x + TabButton.WIDTH + 1;
+			this.backpackTab1_.y = 176;
+			addChild(this.backpackTab1_);
+			this.tabList_[2] = this.backpackTab1_;
+
+			this.backpackTab2_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x22), 3);
+			this.backpackTab2_.addEventListener(MouseEvent.CLICK, this.onTabClick);
+			this.backpackTab2_.x = this.backpackTab1_.x + TabButton.WIDTH + 1;
+			this.backpackTab2_.y = 176;
+			var bpNumber:SimpleText = new SimpleText(10, 0xffffff);
+			bpNumber.text = "2";
+			bpNumber.boldText(true);
+			bpNumber.x = TabButton.WIDTH - bpNumber.textWidth - 4;
+			bpNumber.y = TabButton.HEIGHT - bpNumber.textHeight - 4;
+			this.backpackTab2_.addChild(bpNumber);
+			addChild(this.backpackTab2_);
+			this.tabList_[3] = this.backpackTab2_;
+
 			this._086 = new Stats(191, 45);
 			this._086.x = 6;
 			this._086.y = 7;
@@ -143,8 +185,24 @@ package com.company.assembleegameclient.ui{
 			this._e9.x = 7;
 			this._e9.y = 7;
 			this.invTab_.holder_.addChild(this._e9);
+
+			this.backpack1_ = new Inventory(_arg1, _arg2, "Backpack", _arg2._9A_.slice(4), 8, true, 12);
+			this.backpack1_.x = 7;
+			this.backpack1_.y = 7;
+			this.backpackTab1_.holder_.addChild(this.backpack1_);
+
+			this.backpack2_ = new Inventory(_arg1, _arg2, "Backpack", _arg2._9A_.slice(4), 8, true, 20);
+			this.backpack2_.x = 7;
+			this.backpack2_.y = 7;
+			this.backpackTab2_.holder_.addChild(this.backpack2_);
+
+			//this._additionalStats = new AdditionalStats(191, 45);
+			//this._additionalStats.x = 6;
+			//this._additionalStats.y = 7;
+			//this.additionalStatsTab_.holder_.addChild(this._additionalStats);
 			mouseEnabled = false;
-			this.setChildIndex(this.invTab_, this.numChildren - 1);
+			this.tabBackground = this.invTab_.holder_;
+			addChild(this.tabBackground);
 			this.draw();
 		}
 		public function setName(_arg1:String):void{
@@ -162,7 +220,7 @@ package com.company.assembleegameclient.ui{
 			GA.global().trackEvent("options", "Options xButton");
 			this.gs_.addChild(new Options(this.gs_));
 		}
-		private function onTabClick(me:MouseEvent):void{
+		private function onTabClick(me:MouseEvent):void {
 			if(me.target is TabButton) {
 				this.switchTab(me.target as TabButton);
 			}
@@ -171,17 +229,19 @@ package com.company.assembleegameclient.ui{
 			if(this.selectedTab_ + 1 == this.tabList_.length) {
 				this.switchTab(this.tabList_[0] as TabButton);
 			} else {
-				this.switchTab(this.tabList_[this.selectedTab_+1] as TabButton);
+				this.switchTab(this.tabList_[this.selectedTab_ + 1] as TabButton);
 			}
 		}
 		public function switchTab(_tab:TabButton):void{
 			if(_tab.selected_) return;
-			for each(var _i:TabButton in this.tabList_) {
-				_i.setSelected(false);
+			for each(var i:TabButton in this.tabList_) {
+				i.setSelected(false);
 			}
 			_tab.setSelected(true);
+			this.removeChild(this.tabBackground);
+			this.tabBackground = _tab.holder_;
+			this.addChild(this.tabBackground);
 			this.selectedTab_ = _tab.tabId_;
-			this.setChildIndex(_tab, this.numChildren - 1);
 		}
 		public function draw():void{
 			this._tm.bitmapData = this.go_.getPortrait();
@@ -213,13 +273,19 @@ package com.company.assembleegameclient.ui{
                 }
                 this._U_U_.draw(this.go_.kills, this.go_._n8, 0);
             }
-            //this.tabBG_.draw(this.invTab_.selected_);
 			this._023.draw(this.go_.HP_, this.go_.maxHP_, this.go_._P_7, this.go_._uR_);
 			this._F_C_.draw(this.go_.MP_, this.go_.maxMP_, this.go_._0D_G_, this.go_._dt);
 			this.cooldownBar.draw(this.go_.abilityCooldownSec, this.go_.abilityCooldownSecGoal, 0, 0);
 			this._086.draw(this.go_);
+			//this._additionalStats.draw(this.go_);
 			this.equips_.draw(this.go_.equipment_.slice(0, 4));
 			this._e9.draw(this.go_.equipment_.slice(4));
+			this.backpackTab1_.visible = this.go_.backpack1 != null;
+			this.backpackTab2_.visible = this.go_.backpack2 != null;
+			this.backpack1_.draw(this.go_.backpack1);
+			this.backpack2_.draw(this.go_.backpack2);
+			this._e9.draw(this.go_.equipment_.slice(4));
+			this.tabBackground.draw(this.tabList_[this.selectedTab_].tabId_ == 0);
 		}
 		public function destroy():void{
 		}

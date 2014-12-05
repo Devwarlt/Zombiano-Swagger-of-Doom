@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using wServer.networking;
 using wServer.networking.svrPackets;
 
@@ -85,6 +86,19 @@ namespace wServer.realm.entities
         {
             IContainer container = Owner.GetEntity(objId) as IContainer;
             var item = container.Inventory[slot];
+
+            if (item.Backpack)
+            {
+                if (!(container is Player)) return;
+
+                if ((container as Player).Inventory.Length < 28)
+                {
+                    (container as Player).Inventory.SetItems(Inventory.Concat(new Item[8] { null, null, null, null, null, null, null, null }).ToArray());
+                    (container as Player).SlotTypes = SlotTypes.Concat(new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 }).ToArray();
+                }
+                else return;
+            }
+
             Activate(time, item, pos);
             if (item.Consumable)
             {

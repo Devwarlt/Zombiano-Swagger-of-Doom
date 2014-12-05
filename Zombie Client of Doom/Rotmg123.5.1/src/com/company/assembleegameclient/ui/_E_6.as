@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.ui._E_6
 
 package com.company.assembleegameclient.ui{
-    import com.company.assembleegameclient.net.PacketManager;
+import avmplus.methodXml;
+
+import com.company.assembleegameclient.net.PacketManager;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -39,6 +41,7 @@ package com.company.assembleegameclient.ui{
         private static const _0L_p:String = "Loot Bag";
         private static const _z2:String = "Vault Chest";
         private static const _83:String = "Inventory";
+        private static const BACKPACK_INVENTORY:String = "Backpack";
         private static const _01M_:String = "Treasure Chest";
         public static const _P_r:Array = [new ColorMatrixFilter([0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 1, 0])];
 
@@ -350,7 +353,7 @@ package com.company.assembleegameclient.ui{
             }
         }
         private function _Y_y():void{
-            if (this._e9._A_H_ == _83)
+            if (this._e9._A_H_ == _83 || this._e9._A_H_ == BACKPACK_INVENTORY)
             {
                 this._V_q();
             } else

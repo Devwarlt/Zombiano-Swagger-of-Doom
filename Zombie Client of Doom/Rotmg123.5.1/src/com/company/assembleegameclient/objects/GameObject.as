@@ -85,6 +85,8 @@ package com.company.assembleegameclient.objects{
         public var defense_:int = 0;
         public var _9A_:Vector.<int> = null;
         public var equipment_:Vector.<int> = null;
+        public var backpack1:Vector.<int> = null;
+        public var backpack2:Vector.<int> = null;
         public var _9B_:uint = 0;
         protected var tex1Id_:int = 0;
         protected var tex2Id_:int = 0;
@@ -835,7 +837,7 @@ package com.company.assembleegameclient.objects{
             var _local2:int;
             if (this._tm == null)
             {
-                _local1 = (((this.props_._tm)!=null) ? this.props_._tm.getTexture() : this.texture_);
+                _local1 = (((this.props_._tm) != null) ? this.props_._tm.getTexture() : this.texture_);
                 _local2 = ((4 / _local1.width) * 100);
                 this._tm = TextureRedrawer.resize(_local1, this.mask_, _local2, true, this.tex1Id_, this.tex2Id_);
                 this._tm = TextureRedrawer.outlineGlow(this._tm, 0, 0);

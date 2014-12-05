@@ -14,6 +14,7 @@ import flash.display.BlendMode;
 import flash.display.Sprite;
 
 import flash.errors.IllegalOperationError;
+import flash.filters.ColorMatrixFilter;
 
 public class AtmosphereHandler extends Sprite{
 
@@ -28,9 +29,11 @@ public class AtmosphereHandler extends Sprite{
     public var OldAtmosphereString:String;
 
     private var gs_:GameSprite;
+    private var map_:_X_l;
 
-    public function AtmosphereHandler(_arg1:GameSprite){
+    public function AtmosphereHandler(_arg1:GameSprite, map:_X_l){
         this.gs_ = _arg1;
+        this.map_ = map;
     }
 
     public function init(_arg1:int):void{
