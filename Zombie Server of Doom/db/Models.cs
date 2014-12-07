@@ -82,6 +82,7 @@ public class Account
     [XmlIgnore]
     public List<int> CraftingRecipes { get; set; }
 
+    [XmlElement("Rank")]
     public int Rank
     {
         get

@@ -5,7 +5,8 @@
 
 package com.company.assembleegameclient.objects{
 
-import Frames.YouHaveBeenPromotedPopUp;
+import PopUps.PopUpScreen;
+import PopUps.YouHaveBeenPromotedPopUp;
 
 import _015._O_P_;
 
@@ -319,8 +320,7 @@ public class Player extends Character {
             return (null);
         }
         public function promote():void {
-            SoundEffects.play("promoted", 1, true, true);
-            this.map_.stage.addChild(new YouHaveBeenPromotedPopUp(this.rank));
+            new YouHaveBeenPromotedPopUp(this.map_.gs_, this.rank);
         }
         public function _2(_arg1:Number, _arg2:Number):Boolean{
             this._u0(_arg1, _arg2, _06g);

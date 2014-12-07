@@ -1,0 +1,18 @@
+﻿<Objects>
+  <Object type="0x0342" id="Police Officer">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>0</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>Chests are always open.</Special>
+    </Specials>
+    <Unlock>
+      <Rank>2</Rank>
+      <InGameReward>Defeat a zombie horde.</InGameReward>
+    </Unlock>
+    <DisplayId>Police Officer</DisplayId>
+  </Object>
+</Objects>

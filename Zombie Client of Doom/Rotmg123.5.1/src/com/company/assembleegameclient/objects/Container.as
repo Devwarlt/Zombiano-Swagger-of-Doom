@@ -47,7 +47,7 @@ import com.company.util.PointUtil;
             return (true);
         }
         public function GetPanel(_arg1:GameSprite):Panel{
-            if(this._G_B_) {
+            if(this._G_B_ || (_arg1.map_.player_ != null && _arg1.map_.player_.skinId_ == 0x0342)) {
                 return (new _sc(_arg1, this));
             }
             else {

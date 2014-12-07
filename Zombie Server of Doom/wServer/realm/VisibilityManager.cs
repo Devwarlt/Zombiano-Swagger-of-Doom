@@ -27,7 +27,7 @@ namespace wServer.realm
             oldPos = newPos;
             newPos = new Vector2(x, y);
             //if (oldPos != newPos)
-                player.UpdateCount++;
+                //player.UpdateCount++;
         }
 
         public int GetVisibility()

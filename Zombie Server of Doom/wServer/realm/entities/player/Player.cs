@@ -79,7 +79,7 @@ namespace wServer.realm.entities
             stats[StatsType.Texture1] = Texture1;
             stats[StatsType.Texture2] = Texture2;
 
-            stats[StatsType.Glowing] = Glowing ? 1 : 0;
+            stats[StatsType.Glowing] = -1;
             stats[StatsType.HP] = HP;
             stats[StatsType.MP] = Hunger;
 

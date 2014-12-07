@@ -1,29 +1,32 @@
 /**
  * Created by Fabian on 30.11.2014.
  */
-package Frames {
+package PopUps {
+import Sounds.SoundEffects;
+
 import _05R_.GTween;
+
+import com.company.assembleegameclient.game.GameSprite;
 
 import com.company.assembleegameclient.util.RankUtils;
 import com.company.ui.SimpleText;
 
 import flash.display.DisplayObject;
-import flash.display.Sprite;
-import flash.events.Event;
 import flash.filters.DropShadowFilter;
 
-public class YouHaveBeenPromotedPopUp extends Sprite {
+public class YouHaveBeenPromotedPopUp extends PopUpScreen {
 
     private var promotionText:SimpleText;
     private var rankText:SimpleText;
     private var rankIcon:DisplayObject;
     private var rank:int;
 
-    public function YouHaveBeenPromotedPopUp(rank:int) {
-        this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
-
+    public function YouHaveBeenPromotedPopUp(gameSprite:GameSprite, rank:int) {
         this.rank = rank;
+        super(gameSprite);
+    }
 
+    protected override function init():void {
         this.promotionText = new SimpleText(46, 0xFFFFFF, false, 0, 600);
         this.promotionText.text = "You have been Promoted.";
         this.promotionText.filters = [new DropShadowFilter(0, 0, 0, 1, 10, 10, 2.0)];
@@ -43,9 +46,8 @@ public class YouHaveBeenPromotedPopUp extends Sprite {
         this.rankText.x = 0;
         this.rankText.y = 200;
         this.rankText.size = 0;
-    }
 
-    private function onAddedToStage(event:Event):void {
+        SoundEffects.play("promoted", 1, true, true);
         stage.addChild(promotionText);
         var tween:GTween = new GTween(this.promotionText, 0.5, { "size": 46 });
         tween._bR_ = updateMetrics;

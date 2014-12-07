@@ -44,7 +44,7 @@ import flash.display.Sprite;
 
         public const _lz:int = 600;
 
-        public var playerXML_:XML = null;
+        public var skinXml_:XML = null;
         public var charStats_:_0A_H_;
         public var charList_:_0K_R_;
         public var _F_I_:Boolean;
@@ -62,7 +62,7 @@ import flash.display.Sprite;
 
         public function CharacterBox(_arg1:XML, _arg2:_0A_H_, _arg3:_0K_R_){
             super();
-            this.playerXML_ = _arg1;
+            this.skinXml_ = _arg1;
             this.charStats_ = _arg2;
             this.charList_ = _arg3;
             this._F_I_ = _E_J_.isAvailable(_arg1, _arg3);
@@ -79,7 +79,7 @@ import flash.display.Sprite;
             addChild(this.bitmap_);
             this.classNameText_ = new SimpleText(14, 0xFFFFFF, false, 0, 0, "Myriad Pro");
             this.classNameText_.boldText(true);
-            var text:String = this.playerXML_.DisplayId;
+            var text:String = this.skinXml_.DisplayId;
             text = text.replace("{NL}", "\n");
             this.classNameText_.htmlText = '<p align="center">' + text + '</p>';
             this.classNameText_.autoSize = TextFieldAutoSize.CENTER;
@@ -104,10 +104,10 @@ import flash.display.Sprite;
             }
         }
         public function skinType():int{
-            return (int(this.playerXML_.@type));
+            return (int(this.skinXml_.@type));
         }
         public function getTooltip():_for_{
-            return (new _E_J_(this.playerXML_, this.charList_));
+            return (new _E_J_(this.skinXml_, this.charList_));
         }
         public function _P_Y_(_arg1:Boolean):void{
             if (!this._F_I_)
@@ -183,7 +183,7 @@ import flash.display.Sprite;
             }
         }
         public function setImage(_arg1:int, _arg2:int, _arg3:Number):void{
-            this.bitmap_.bitmapData = SavedCharacter.getImage(null, this.playerXML_, _arg1, _arg2, _arg3, this._F_I_, false);
+            this.bitmap_.bitmapData = SavedCharacter.getImage(null, this.skinXml_, _arg1, _arg2, _arg3, this._F_I_, false);
             this.bitmap_.x = ((this._87.width / 2) - (this.bitmap_.bitmapData.width / 2));
         }
     }

@@ -4,9 +4,13 @@
 //com.company.assembleegameclient.game._07a
 
 package com.company.assembleegameclient.game{
-    import OptionsStuff.Options;
-    
-    import _4K_.Stats;
+import PopUps.NewItemUnlockedScreen;
+
+import OptionsStuff.Options;
+
+import PopUps.YouHaveBeenPromotedPopUp;
+
+import _4K_.Stats;
     
     import com.company.assembleegameclient.map.Square;
     import com.company.assembleegameclient.objects.Player;
@@ -22,7 +26,6 @@ package com.company.assembleegameclient.game{
     import flash.events.KeyboardEvent;
     import flash.events.MouseEvent;
     import flash.events.TimerEvent;
-import flash.filters.ColorMatrixFilter;
 import flash.geom.Point;
     import flash.system.Capabilities;
     import flash.utils.Timer;
@@ -45,6 +48,7 @@ import flash.geom.Point;
         private var _wA_:Boolean = false;
         private var sprintKeyDown:Boolean = false;
         private var _G_v:Boolean = true;
+        private var mouseMoved:Boolean = true;
         private var _lD_:Timer;
         private var _Z_W_:uint;
         private var _062:Point;
@@ -83,6 +87,7 @@ import flash.geom.Point;
             _local2.addEventListener(KeyboardEvent.KEY_UP, this._H_H_);
             _local2.addEventListener(MouseEvent.MOUSE_WHEEL, this._lb);
 			this.gs_.map_.addEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
+            this.gs_.map_.addEventListener(MouseEvent.MOUSE_MOVE, this.onMouseMove);
 			this.gs_.map_.addEventListener(MouseEvent.MOUSE_UP, this._0_5);
             this.gs_.map_.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         }
@@ -94,6 +99,7 @@ import flash.geom.Point;
             _local2.removeEventListener(KeyboardEvent.KEY_UP, this._H_H_);
             _local2.removeEventListener(MouseEvent.MOUSE_WHEEL, this._lb);
 			this.gs_.map_.removeEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
+            this.gs_.map_.removeEventListener(MouseEvent.MOUSE_MOVE, this.onMouseMove);
 			this.gs_.map_.removeEventListener(MouseEvent.MOUSE_UP, this._0_5);
             this.gs_.map_.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         }
@@ -101,6 +107,10 @@ import flash.geom.Point;
         }
         private function _nb(_arg1:Event):void{
             this.clearInput();
+        }
+        private function onMouseMove(_arg1:MouseEvent):void{
+            mouseMoved = true;
+            trace(mouseMoved);
         }
         private function onMouseDown(_arg1:MouseEvent):void{
             var _local2:Player = this.gs_.map_.player_;
@@ -128,6 +138,7 @@ import flash.geom.Point;
             doneAction(this.gs_, Tutorial._9Z_);
             //var _local3:Number = Math.atan2(_arg1.localY, _arg1.localX);
             var _local3:Number = Math.atan2(this.gs_.map_.mouseY, this.gs_.map_.mouseX);
+            mouseMoved = false;
             _local2._O_7(_local3); // Use this to handle (Unstable) Debuff
             this._08R_ = true;
         }
@@ -159,10 +170,12 @@ import flash.geom.Point;
             doneAction(this.gs_, Tutorial._xX_);
             if (((this._G_v) && (((this._08R_) || (this._wA_)))))
             {
-                _local2 = Math.atan2(this.gs_.map_.mouseY, this.gs_.map_.mouseX);
+                _local2 = Math.atan2(mouseMoved ? this.gs_.map_.mouseY : this.gs_.map_.mouseY + (Math.floor(Math.random() * (25 - -25 + 1)) + -25),
+                        mouseMoved ? this.gs_.map_.mouseX : this.gs_.map_.mouseX + (Math.floor(Math.random() * (25 - -25 + 1)) + -25));
                 _local3 = this.gs_.map_.player_;
                 if (_local3 != null)
                 {
+                    mouseMoved = false;
                     _local3._O_7(_local2);
                 }
             }
@@ -362,12 +375,11 @@ import flash.geom.Point;
                         _local3.attack_ = 100;
                         break;
                     case _H_V_.H:
-                        var matrix:Array = new Array();
-                        matrix = matrix.concat([0, 0, 0, 0, 0]); // red
-                        matrix = matrix.concat([0, 0, 0, 0, 0]); // green
-                        matrix = matrix.concat([0, 0, 1, 0, 0]); // blue
-                        matrix = matrix.concat([0, 0, 0, 1, 0]); // alpha
-                        this.gs_.map_.map_.filters = [new ColorMatrixFilter(matrix)];
+                        new YouHaveBeenPromotedPopUp(this.gs_, 13);
+                        new NewItemUnlockedScreen(this.gs_, 0x0342);
+                        new NewItemUnlockedScreen(this.gs_, 0x1200);
+                        new NewItemUnlockedScreen(this.gs_, 0x1600);
+                        new NewItemUnlockedScreen(this.gs_, 0xae2);
                         break;
                 }
             }
