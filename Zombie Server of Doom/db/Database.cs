@@ -142,6 +142,7 @@ AND characters.charId=death.chrId;";
                     AccountId = rdr.GetInt32("id"),
                     Kills = rdr.GetInt32("kills"),
                     Admin = rdr.GetBoolean("admin"),
+                    _OwnedSkins = rdr.GetString("ownedSkins"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
                     Guild = null,
@@ -215,6 +216,7 @@ AND characters.charId=death.chrId;";
                     Name = rdr.GetString("name"),
                     AccountId = rdr.GetInt32("id"),
                     Admin = rdr.GetBoolean("admin"),
+                    _OwnedSkins = rdr.GetString("ownedSkins"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
                     Guild = null,
@@ -512,7 +514,8 @@ SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
         public void SaveCharacter(Account acc, Char chr)
         {
             var cmd = CreateQuery();
-            cmd.CommandText = @"UPDATE characters SET 
+            cmd.CommandText = @"UPDATE characters SET
+skinType=@skinType,
 level=@level, 
 exp=@exp, 
 fame=@fame, 
@@ -531,6 +534,7 @@ WHERE accId=@accId AND charId=@charId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             cmd.Parameters.AddWithValue("@charId", chr.CharacterId);
 
+            cmd.Parameters.AddWithValue("@skinType", chr.SkinType);
             cmd.Parameters.AddWithValue("@level", chr.Level);
             cmd.Parameters.AddWithValue("@exp", chr.Exp);
             cmd.Parameters.AddWithValue("@fame", chr.CurrentFame);

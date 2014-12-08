@@ -11,163 +11,202 @@
       </Specials>
       <Unlock>
          <Rank>2</Rank>
-         <InGameReward>Defeat a zombie horde.</InGameReward>
+         <InGameReward id="1" amount="20">Get 20 zombie kills.</InGameReward>
       </Unlock>
+      <ThanksTo>Liinkii Liinkii fri itenz, I am big fence</ThanksTo>
       <DisplayId>Police Officer</DisplayId>
    </Object>
-   <Object type="0x0343" id="Robin Hood">
+<Object type="0x0343" id="FGT">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>1</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>You are a fgt with this skin</Special>
+    </Specials>
+    <Unlock>
+      <Rank>13</Rank>
+      <InGameReward>Defeat 9000000k zombie hordes.</InGameReward>
+    </Unlock>
+    <DisplayId>FGT SKIN</DisplayId>
+  </Object>
+  <Object type="0x0344" id="FGT1">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>2</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>Chests are always open.</Special>
+    </Specials>
+    <Unlock>
+      <Rank>2</Rank>
+      <InGameReward>Defeat a zombie horde.</InGameReward>
+    </Unlock>
+    <DisplayId>FGT</DisplayId>
+  </Object>
+  <Object type="0x0345" id="FGT2">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>3</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>Chests are always open.</Special>
+    </Specials>
+    <Unlock>
+      <Rank>2</Rank>
+      <InGameReward>Defeat a zombie horde.</InGameReward>
+    </Unlock>
+    <DisplayId>FGT</DisplayId>
+  </Object>
+  <Object type="0x0346" id="FGT3">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>4</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>Chests are always open.</Special>
+    </Specials>
+    <Unlock>
+      <Rank>2</Rank>
+      <InGameReward>Defeat a zombie horde.</InGameReward>
+    </Unlock>
+    <DisplayId>FGT</DisplayId>
+  </Object>
+  <Object type="0x0347" id="FGT4">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>5</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>Chests are always open.</Special>
+    </Specials>
+    <Unlock>
+      <Rank>6</Rank>
+      <InGameReward>Defeat a zombie horde.</InGameReward>
+    </Unlock>
+    <DisplayId>FGT</DisplayId>
+  </Object>
+  <Object type="0x0348" id="FGT5">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>7</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>Chests are always open.</Special>
+    </Specials>
+    <Unlock>
+      <Rank>2</Rank>
+      <InGameReward>Defeat a zombie horde.</InGameReward>
+    </Unlock>
+    <DisplayId>FGT</DisplayId>
+  </Object>
+  <Object type="0x0349" id="FGT6">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>playerskins</File>
+      <Index>8</Index>
+    </AnimatedTexture>
+    <Specials>
+      <Special>Chests are always open.</Special>
+    </Specials>
+    <Unlock>
+      <Rank>2</Rank>
+      <InGameReward>Defeat a zombie horde.</InGameReward>
+    </Unlock>
+    <DisplayId>FGT</DisplayId>
+  </Object>
+
+  <Object type="0x034A" id="FGT7">
       <Skin/>
       <Class>Skin</Class>
       <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>1</Index>
+        <File>playerskins</File>
+        <Index>9</Index>
       </AnimatedTexture>
+      <Specials>
+        <Special>Chests are always open.</Special>
+      </Specials>
       <Unlock>
-         <InGameDrop />
+        <Rank>2</Rank>
+        <InGameReward>Defeat a zombie horde.</InGameReward>
       </Unlock>
-      <DisplayId>Robin Hood</DisplayId>
-   </Object>
-   <Object type="0x0344" id="Merlin">
+      <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034B" id="FGT8">
       <Skin/>
       <Class>Skin</Class>
       <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>2</Index>
+        <File>playerskins</File>
+        <Index>10</Index>
       </AnimatedTexture>
-      <PlayerClassType>0x030e</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Merlin</DisplayId>
-   </Object>
-   <Object type="0x0345" id="Traditional">
+      <Specials>
+        <Special>Chests are always open.</Special>
+      </Specials>
+      <Unlock>
+        <Rank>2</Rank>
+        <InGameReward>Defeat a zombie horde.</InGameReward>
+      </Unlock>
+      <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034C" id="FGT9">
       <Skin/>
       <Class>Skin</Class>
       <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>3</Index>
+        <File>playerskins</File>
+        <Index>11</Index>
       </AnimatedTexture>
-      <PlayerClassType>0x0310</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Traditional</DisplayId>
-   </Object>
-   <Object type="0x0346" id="Juggernaut">
+      <Specials>
+        <Special>Chests are always open.</Special>
+      </Specials>
+      <Unlock>
+        <Rank>12</Rank>
+        <InGameReward>Defeat a zombie horde.</InGameReward>
+      </Unlock>
+      <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034D" id="FGT10">
       <Skin/>
       <Class>Skin</Class>
       <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>4</Index>
+        <File>playerskins</File>
+        <Index>13</Index>
       </AnimatedTexture>
-      <PlayerClassType>0x031d</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Juggernaut</DisplayId>
-   </Object>
-   <Object type="0x0347" id="Knight of the Round">
+      <Specials>
+        <Special>Chests are always open.</Special>
+      </Specials>
+      <Unlock>
+        <Rank>2</Rank>
+        <InGameReward>Defeat a zombie horde.</InGameReward>
+      </Unlock>
+      <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034E" id="FGT11">
       <Skin/>
       <Class>Skin</Class>
       <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>5</Index>
+        <File>playerskins</File>
+        <Index>14</Index>
       </AnimatedTexture>
-      <PlayerClassType>0x031e</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Knight of{NL}the Round</DisplayId>
-   </Object>
-   <Object type="0x0348" id="Decorated Paladin">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>6</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x031f</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Decorated{NL}Paladin</DisplayId>
-   </Object>
-   <Object type="0x0349" id="Stealth">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>7</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x0320</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Stealth</DisplayId>
-   </Object>
-   <Object type="0x034a" id="Death Mage">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>8</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x0321</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Death Mage</DisplayId>
-   </Object>
-   <Object type="0x034b" id="Amazonian">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>9</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x0322</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Amazonian</DisplayId>
-   </Object>
-   <Object type="0x034c" id="Seer">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>10</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x0323</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Seer</DisplayId>
-   </Object>
-   <Object type="0x034d" id="Loki">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>11</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x0324</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Loki</DisplayId>
-   </Object>
-   <Object type="0x034e" id="Warlock">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>12</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x0325</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Warlock</DisplayId>
-   </Object>
-   <Object type="0x034f" id="Shadow">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>13</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x0326</PlayerClassType>
-      <UnlockLevel>10</UnlockLevel>
-      <DisplayId>Shadow</DisplayId>
-   </Object>
-   <Object type="0x0350" id="Elder Wizard">
-      <Skin/>
-      <Class>Skin</Class>
-      <AnimatedTexture>
-         <File>playerskins</File>
-         <Index>14</Index>
-      </AnimatedTexture>
-      <PlayerClassType>0x030e</PlayerClassType>
-      <UnlockLevel>15</UnlockLevel>
-      <DisplayId>Elder Wizard</DisplayId>
-   </Object>
+      <Specials>
+        <Special>Chests are always open.</Special>
+      </Specials>
+      <Unlock>
+        <Rank>2</Rank>
+        <InGameReward>Defeat a zombie horde.</InGameReward>
+      </Unlock>
+      <DisplayId>FGT</DisplayId>
+    </Object>
 </Objects>

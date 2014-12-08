@@ -151,6 +151,7 @@ namespace wServer.networking
         Crafting = 84,
         Sprint = 85,
         TeleportRequest = 86,
-        WeatherProperties = 87
+        WeatherProperties = 87,
+        Reskin = 88
     }
 }

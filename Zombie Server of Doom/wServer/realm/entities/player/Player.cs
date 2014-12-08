@@ -150,6 +150,7 @@ namespace wServer.realm.entities
         {
             var chr = client.Character;
             chr.Exp = Experience;
+            chr.SkinType = SkinType;
             chr.Level = Level;
             chr.Tex1 = Texture1;
             chr.Tex2 = Texture2;

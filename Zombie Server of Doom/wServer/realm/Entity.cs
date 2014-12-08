@@ -300,6 +300,7 @@ namespace wServer.realm
                 case "Forge":
                 case "Door":
                 case "CraftingRecipeBook":
+                case "ReskinVendor":
                     return new StaticObject(manager, id, null, true, false, true);
 
                 case "GuildHallPortal":

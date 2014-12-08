@@ -229,6 +229,8 @@ public class XmlData : IDisposable
     public IDictionary<ushort, string> ObjectTypeToId { get; private set; }
     public IDictionary<string, ushort> IdToObjectType { get; private set; }
 
+    public IDictionary<ushort, SkinDesc> Skins { get; private set; }
+
     public IDictionary<ushort, XElement> TileTypeToElement { get; private set; }
 
     public IDictionary<ushort, string> TileTypeToId { get; private set; }

@@ -36,12 +36,9 @@ public class NewItemUnlockedScreen extends PopUpScreen {
         this.unlockText.size = 0;
 
         var itemXml:XML = ObjectLibrary.Items[itemId];
-        var _local6:_Z_H_ = ObjectLibrary._V_a[itemId];
-        var _local7:BitmapData = _local6.getTexture();
-        var bmp = TextureRedrawer.resize(_local7, null, 300, false, 0, 0, itemXml.hasOwnProperty("ScaleValue") ? itemXml.ScaleValue : 5);
 
         this.itemIcon = new Bitmap();
-        this.itemIcon.bitmapData = bmp;
+        this.itemIcon.bitmapData = TextureRedrawer.resize(ObjectLibrary._V_a[itemId].getTexture(), null, 300, false, 0, 0, itemXml.hasOwnProperty("ScaleValue") ? itemXml.ScaleValue : 5);
         this.itemIcon.y = 110;
         this.itemIcon.scaleX = 0;
         this.itemIcon.scaleY = 0;

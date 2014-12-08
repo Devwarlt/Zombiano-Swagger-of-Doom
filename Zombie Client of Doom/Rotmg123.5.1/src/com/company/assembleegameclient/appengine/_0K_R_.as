@@ -81,7 +81,8 @@ package com.company.assembleegameclient.appengine{
             this.nextCharSlotPrice_ = int(_arg1.NextCharSlotPrice);
             this.rank = int(_arg1.Rank);
 
-            this.ownedSkins.push((String(_arg1).replace(" ", "").split(',')));
+            var skins = String(_arg1.OwnedSkins).replace(" ", "");
+            this.ownedSkins.push(skins.indexOf(',') == -1 ? int(skins) : [](skins.split(',')));
         }
         private function _t6(_arg1:XML):void{
             var _local2:int;

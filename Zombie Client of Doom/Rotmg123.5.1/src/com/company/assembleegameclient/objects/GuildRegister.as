@@ -13,6 +13,7 @@ package com.company.assembleegameclient.objects{
         public function GuildRegister(_arg1:XML){
             super(_arg1);
         }
+
         public function GetPanel(_arg1:GameSprite):Panel{
             return (new GuildCreatorPanel(_arg1));
         }

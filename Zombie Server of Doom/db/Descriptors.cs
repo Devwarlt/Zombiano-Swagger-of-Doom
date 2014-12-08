@@ -565,3 +565,56 @@ public class TileDesc
         }
     }
 }
+
+public class SkinDesc
+{
+    public ushort ObjectType { get; private set; }
+    public string ObjectId { get; private set; }
+    public Unlock UnlockRequirement { get; private set; }
+
+    public SkinDesc(ushort type, XElement elem)
+    {
+        XElement n;
+        ObjectType = type;
+        ObjectId = elem.Attribute("id").Value;
+        if ((n = elem.Element("Unlock")) != null)
+            UnlockRequirement = new Unlock(n);
+    }
+
+    public class Unlock
+    {
+        public int Rank { get; private set; }
+        public InGameReward IGameReward { get; private set; }
+        public bool InGameDrop { get; private set; }
+
+        public Unlock(XElement elem)
+        {
+            XElement n;
+
+            Rank = ((n = elem.Element("Rank")) != null) ? Utils.FromString(n.Value) : -1;
+
+            if ((n = elem.Element("InGameReward")) != null)
+                IGameReward = new InGameReward(n);
+
+            InGameDrop = (n.Element("InGameDrop") != null);
+        }
+
+        public class InGameReward
+        {
+            public int Amount { get; private set; }
+            public InGameRewardType Type { get; set; }
+
+            public InGameReward(XElement elem)
+            {
+                Type = (InGameRewardType)Utils.FromString(elem.Attribute("id").Value);
+                Amount = Utils.FromString(elem.Attribute("amount").Value);
+            }
+
+            public enum InGameRewardType : int
+            {
+                ZombieHordeDefeat = 0,
+                KillZombie = 1
+            }
+        }
+    }    
+}

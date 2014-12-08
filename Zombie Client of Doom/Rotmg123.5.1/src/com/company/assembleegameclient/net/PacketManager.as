@@ -268,6 +268,7 @@ import flash.events.TimerEvent;
         public static const SPRINT:int = 85;
         public static const TELEPORTREQUEST:int = 86;
         public static const WEATHERPROPERTIES:int = 87;
+        public static const RESKIN:int = 88;
         private static const _vb:Vector.<uint> = new <uint>[14802908, 0xFFFFFF, 0x545454];
         private static const _Z_y:Vector.<uint> = new <uint>[5644060, 16549442, 13484223];
         private static const _0A_F_:Vector.<uint> = new <uint>[2493110, 61695, 13880567];
@@ -380,6 +381,7 @@ import flash.events.TimerEvent;
             this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, this.teleportRequested);
             this.serverConn.registerPacket(WEATHERPROPERTIES, WeatherPropertiesPacket, this.weatherProps)
             this.serverConn.registerPacket(LEARNCRAFTINGRECIPE, LearnCraftingRecipe, null);
+            this.serverConn.registerPacket(RESKIN, ReskinPacket, null);
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
             this.serverConn.addEventListener(Event.CLOSE, this._of);
             this.serverConn.addEventListener(ErrorEvent.ERROR, this.onError);
@@ -436,6 +438,11 @@ import flash.events.TimerEvent;
             _local3.bulletId_ = _arg1;
             _local3.objectId_ = _arg2;
             this.serverConn.sendPacket(_local3);
+        }
+        public function reskin(_arg1:int):void{
+            var rs:ReskinPacket = (this.serverConn.createPacketFromID(RESKIN) as ReskinPacket);
+            rs.skinId = _arg1;
+            this.serverConn.sendPacket(rs);
         }
         public function enemyHit(_arg1:int, _arg2:int, _arg3:int, _arg4:Boolean):void{
             var _local5:_J_I_ = (this.serverConn.createPacketFromID(ENEMYHIT) as _J_I_);

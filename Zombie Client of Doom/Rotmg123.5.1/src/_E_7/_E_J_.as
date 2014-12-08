@@ -24,9 +24,9 @@ package _E_7{
 
         private var skinIcon:Bitmap;
         private var nameText_:SimpleText;
-        //private var description:SimpleText;
-        private var spacer:_return;
-        //private var specialEffect:SimpleText;
+        private var thanksToText:SimpleText;
+        private var spacer1:_return;
+        private var spacer2:_return;
         private var unlockText:SimpleText;
         private var specialText:SimpleText;
 
@@ -85,10 +85,10 @@ package _E_7{
             this.specialText.y = (height - 2);
             addChild(this.specialText);
 
-            this.spacer = new _return(100, 0x310800);
-            this.spacer.x = 6;
-            this.spacer.y = height;
-            addChild(this.spacer);
+            this.spacer1 = new _return(100, 0x310800);
+            this.spacer1.x = 6;
+            this.spacer1.y = height;
+            addChild(this.spacer1);
 
             this.unlockText = new SimpleText(13, 0xB3B3B3, false, 174, 0, "Myriad Pro");
             this.unlockText.boldText(true);
@@ -118,7 +118,6 @@ package _E_7{
                     }
                 }
                 this.unlockText.text = text.slice(0, text.lastIndexOf("\n\n"));
-
             }
             else {
                 this.unlockText.text = "Unlocked";
@@ -130,30 +129,44 @@ package _E_7{
             this.unlockText.x = 12;
             this.unlockText.y = (height - 4);
             addChild(this.unlockText);
+
+            if(_arg1.hasOwnProperty("ThanksTo")) {
+                this.spacer2 = new _return(100, 0x310800);
+                this.spacer2.x = 6;
+                this.spacer2.y = height;
+                addChild(this.spacer2);
+
+                this.thanksToText = new SimpleText(16, 0x146AE3, false, 174, 0, "Myriad Pro");
+                this.thanksToText.boldText(false);
+                this.thanksToText.wordWrap = true;
+                this.thanksToText.multiline = true;
+                this.thanksToText.text = "Special thanks to:";
+                this.thanksToText.x = 12;
+                this.thanksToText.y = (height - 4);
+                this.thanksToText.updateMetrics();
+                addChild(this.thanksToText);
+
+                this.thanksToText = new SimpleText(14, 0x00BFFF, false, 174, 0, "Myriad Pro");
+                this.thanksToText.boldText(true);
+                this.thanksToText.wordWrap = true;
+                this.thanksToText.multiline = true;
+                this.thanksToText.text = _arg1.ThanksTo;
+                this.thanksToText.x = 12;
+                this.thanksToText.y = (height - 4);
+                this.thanksToText.updateMetrics();
+                addChild(this.thanksToText);
+            }
         }
         override public function draw():void{
-            this.spacer._rs((width - 10), 0x310800);
+            this.spacer1._rs((width - 10), 0x310800);
+            if(spacer2 != null) {
+                this.spacer2._rs((width - 10), 0x310800);
+            }
             super.draw();
         }
 
         public static function isAvailable(skin:XML, charList:_0K_R_):Boolean {
-            if(charList.ownedSkins.indexOf(skin.@type) > -1) return true;
-
-            for each (var item:XML in skin.Unlock) {
-                var tRet:Boolean = true;
-                if (item.hasOwnProperty("Rank")) {
-                    tRet = (charList.rank >= item.Rank);
-                }
-
-                if (item.hasOwnProperty("InGameDrop")) {
-                    tRet = (charList.ownedSkins.indexOf(skin.@type) > -1);
-                }
-
-                if(!tRet) {
-                    return false;
-                }
-            }
-            return true;
+            return charList.ownedSkins.indexOf(skin.@type) > -1;
         }
     }
 }//package _E_7

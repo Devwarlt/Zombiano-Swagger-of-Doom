@@ -14,7 +14,7 @@ namespace wServer.realm.entities
         {
             if (objType == 0x0505)  //Vault chest
             {
-                Price = 100;
+                Price = 0;
                 Currency = CurrencyType.Gold;
                 RankReq = 0;
             }

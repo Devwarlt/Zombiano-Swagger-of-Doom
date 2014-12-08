@@ -109,6 +109,34 @@
     <ArcGap>0</ArcGap>
     <OldSound>weapon/m16a3</OldSound>
   </Object>
+
+  <Object id="Knife" ext="true">
+    <DisplayId>Carbon Fiber</DisplayId>
+    <Class>Equipment</Class>
+    <Item />
+    <CraftingItem />
+    <Texture>
+      <File>weapons40x40</File>
+      <Index>0x05</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <ScaleValue>1</ScaleValue>
+    <Description>Lightweight and quiet, use this sleek knife in melee combat to steal dog tags from your opponent.</Description>
+    <RateOfFire>1.0</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Blade</ObjectId>
+      <Speed>500</Speed>
+      <MinDamage>1000</MinDamage>
+      <MaxDamage>2000</MaxDamage>
+      <LifetimeMS>20</LifetimeMS>
+    </Projectile>
+    <BagType>0</BagType>
+    <NumProjectiles>1</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>weapon/mtar21</OldSound>
+  </Object>
+  
   <Object id="SCARH Crafting Book" ext="true">
     <DisplayId>Crafting Book</DisplayId>
     <Class>Equipment</Class>
@@ -840,15 +868,17 @@
     <Size>150</Size>
   </Object>
 
-  <Object id="door" ext="true">
-    <Class>Door</Class>
+  <Object id="Reskin Vendor" ext="true">
+    <Class>ReskinVendor</Class>
     <Texture>
       <File>lofiObj3</File>
       <Index>0x9</Index>
     </Texture>
+    <Static />
+    <OccupySquare />
     <Size>150</Size>
   </Object>
-  
+
   <Lithium>
     <Object id="Lithium 1" ext="true">
       <!-- Low tier zombie

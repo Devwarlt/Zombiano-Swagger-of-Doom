@@ -138,7 +138,6 @@ public class CraftingRecipeFrame extends Sprite {
         this.prevButton.addEventListener(MouseEvent.CLICK, this.onPrevClicked);
 
         this.closeButton = new xButton();
-        this.closeButton.initialize();
         this.closeButton.x = 795 - this.closeButton.width;
         this.closeButton.y = 5;
         this.closeButton.addEventListener(MouseEvent.CLICK, this.onClose);

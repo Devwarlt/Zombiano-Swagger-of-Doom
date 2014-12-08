@@ -31,6 +31,7 @@ import flash.utils.Dictionary;
 		ClosedVaultChest;
         CraftingTerminal;
         CraftingRecipeBook;
+        ReskinVendor;
 		
         public static const _020:Dictionary = new Dictionary();
         public static const Items:Dictionary = new Dictionary();

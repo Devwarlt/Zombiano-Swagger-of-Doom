@@ -50,7 +50,6 @@ import flash.text.TextFieldAutoSize;
             addChild(this.createText(_arg1.text, 20, 40, 0xFFFFFF));
             this.closeButton.x = WIDTH - 29;
             this.closeButton.y = 5;
-            closeButton.initialize();
             slideIn_();
             this.open = true;
         }
