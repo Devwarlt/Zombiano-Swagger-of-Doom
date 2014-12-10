@@ -249,3 +249,42 @@ public class Char
     public bool Dead { get; set; }
     public int Pet { get; set; }
 }
+
+[Serializable, XmlRoot]
+public class Pics
+{
+    private XmlSerializerNamespaces _namespaces;
+
+    public Pics()
+    {
+        _namespaces = new XmlSerializerNamespaces(new[]
+        {
+            new XmlQualifiedName(string.Empty, "rotmg")
+        });
+    }
+
+    [XmlAttribute("offset")]
+    public int Offset { get; set; }
+
+    [XmlElement("Pic")]
+    public List<Pic> Pictures = new List<Pic>();
+
+    [XmlNamespaceDeclarations]
+    public XmlSerializerNamespaces Namespaces
+    {
+        get { return _namespaces; }
+    }
+}
+
+[Serializable, XmlRoot("Pic")]
+public class Pic
+{
+    [XmlAttribute("id")]
+    public int Id { get; set; }
+
+    public string PicName { get; set; }
+    public int DataType { get; set; }
+    public string Tags { get; set; }
+    public string Data { get; set; }
+    public string Mine { get; set; }
+}

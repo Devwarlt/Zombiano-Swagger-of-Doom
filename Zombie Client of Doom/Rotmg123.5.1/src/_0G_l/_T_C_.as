@@ -4,7 +4,9 @@
 //_0G_l._T_C_
 
 package _0G_l{
-    import flash.display.Sprite;
+import _qN_.Account;
+
+import flash.display.Sprite;
 
     import flash.events.MouseEvent;
     import _tg._07k;
@@ -29,7 +31,7 @@ package _0G_l{
             this._l_ = _arg3;
             var _local4:int;
             var _local5:int;
-            var _local6:Boolean = _arg1.hasOwnProperty("Admin");
+            var _local6:Boolean = Account._get().isAdmin();//_arg1.hasOwnProperty("Admin");
             for each (_local7 in _arg1.Pic)
             {
                 _local8 = new _0w(_local7, _local6);

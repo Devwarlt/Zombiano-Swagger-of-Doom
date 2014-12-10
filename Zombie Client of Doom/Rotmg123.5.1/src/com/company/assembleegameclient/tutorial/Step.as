@@ -16,7 +16,7 @@ package com.company.assembleegameclient.tutorial{
         public var _I_2:Vector.<Requirement>;
         public var _n:int = 0;
 
-        public function Step(_arg1:XML){
+        public function Step(_arg1:XML) {
             var _local2:XML;
             var _local3:XML;
             var _local4:XML;

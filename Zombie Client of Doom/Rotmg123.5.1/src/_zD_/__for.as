@@ -4,7 +4,11 @@
 //_zD_.__for
 
 package _zD_{
-    import _C__._cM_;
+import _0G_l._in;
+
+import _0_j._kW_;
+
+import _C__._cM_;
     import _F_1._C_Q_;
     import _W_D_._0I_H_;
     import _U_5._dd;
@@ -12,7 +16,10 @@ package _zD_{
     import _ke._0M_1;
     import _0L_C_.DialogBox;
     import _04w._07V_;
-    import com.company.assembleegameclient.parameters.Parameters;
+
+import _qN_.Account;
+
+import com.company.assembleegameclient.parameters.Parameters;
     import _F_1.CurrentCharacterScreen;
     import _F_1._0H_h;
     import _F_1._01_;
@@ -59,6 +66,12 @@ package _zD_{
                     return;
                 case _0M_1.EDITOR:
                     this._0E_r();
+                    return;
+                case _0M_1.SPRITEEDITOR:
+                    var questionBox:DialogBox = new DialogBox("Open Sprite Editor?", "Enter Sprite Editor", "Open", "Cancel", "");
+                    questionBox.addEventListener(DialogBox.BUTTON1_EVENT, spriteEditor);
+                    questionBox.addEventListener(DialogBox.BUTTON2_EVENT, cancelOpen);
+                    this.view.addChild(questionBox);
                     return;
                 case _0M_1.QUIT:
                     this._uz();
@@ -107,11 +120,25 @@ package _zD_{
         private function _N_E_():void{
             this._T__.dispatch(new _3V_());
         }
-        private function _0E_r():void{
-            this._T__.dispatch(new _hj());
+        private function _0E_r():void {
+            if(Account._get().admin_) {
+                var questionBox:DialogBox = new DialogBox("", "Choose Editor", "Sprite Editor", "Map Editor", "");
+                questionBox.addEventListener(DialogBox.BUTTON1_EVENT, spriteEditor);
+                questionBox.addEventListener(DialogBox.BUTTON2_EVENT, mapEditor);
+                this.view.addChild(questionBox);
+            }
         }
         private function _uz():void{
             fscommand("quit");
+        }
+        private function cancelOpen(event:Event):void{
+            this.view.removeChild(event.target as DialogBox);
+        }
+        private function mapEditor(event:Event):void{
+            this._T__.dispatch(new _hj());
+        }
+        private function spriteEditor(event:Event):void{
+            this._T__.dispatch(new _kW_());
         }
     }
 }//package _zD_

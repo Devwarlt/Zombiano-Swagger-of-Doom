@@ -4,7 +4,9 @@
 //_D_H_._J_U_
 
 package _D_H_{
-    import flash.display.Sprite;
+import com.hurlant.util.Base64;
+
+import flash.display.Sprite;
 
     import flash.display.IGraphicsData;
     import com.company.util.GraphicHelper;
@@ -130,6 +132,7 @@ package _D_H_{
             _local1._cF_("dataType", this._0H_b.getType());
             _local1._cF_("tags", this._92.text());
             _local1._cF_("overwrite", "on");
+            _local1._cF_("admin", Account._get().isAdmin());
             var _local2:ByteArray = _9l.encode(this.bitmapData_);
             _local1._d(_local2, "Foo.png", "data");
             _local1.addEventListener(Event.COMPLETE, this._053);

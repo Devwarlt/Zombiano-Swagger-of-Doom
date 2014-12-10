@@ -83,6 +83,7 @@ package com.company.assembleegameclient.appengine{
 
             var skins = String(_arg1.OwnedSkins).replace(" ", "");
             this.ownedSkins.push(skins.indexOf(',') == -1 ? int(skins) : [](skins.split(',')));
+            Account._get().admin_ = (this.rank == 13);
         }
         private function _t6(_arg1:XML):void{
             var _local2:int;

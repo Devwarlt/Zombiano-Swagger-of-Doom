@@ -1,36 +1,45 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace server.picture
 {
     public class get : RequestHandler
     {
-        byte[] buff = new byte[0x10000];
         protected override void HandleRequest()
         {
-            //warning: maybe has hidden url injection
+            //Context.Response.Redirect("http://www.realmofthemadgod.com/picture/get?id=" + Query["id"]);
             string id = Query["id"];
-            foreach (var i in id)
-            {
-                if (char.IsLetter(i) || i == '_' || i == '-') continue;
+            string instance = Query["instance"];
 
-                WriteErrorLine("Invalid ID.");
-                return;
-            }
+            byte[] status = System.Text.Encoding.UTF8.GetBytes("<Error>Bad Request</Error>");
 
-            string path = Path.GetFullPath("texture/_" + id + ".png");
-            if (!File.Exists(path))
+            try
             {
-                WriteErrorLine("Invalid ID.");
-                return;
-            }
+                using (var db = new db.Database(Program.Settings.GetValue("conn")))
+                {
+                    var cmd = db.CreateQuery();
 
-            Context.Response.ContentType = "image/png";
-            using (var i = File.OpenRead(path))
-            {
-                int c;
-                while ((c = i.Read(buff, 0, buff.Length)) > 0)
-                    Context.Response.OutputStream.Write(buff, 0, c);
+                    cmd.CommandText = "SELECT data, fileSize FROM sprites WHERE id=@id";
+                    cmd.Parameters.AddWithValue("@id", Query["id"]);
+
+                    using (var rdr = cmd.ExecuteReader())
+                    {
+                        if (!rdr.HasRows) return;
+                        rdr.Read();
+
+                        //Context.Response.ContentType = "image/png";
+                        var fileSize = rdr.GetInt32("fileSize");
+                        var raw = new byte[fileSize];
+                        long len = rdr.GetBytes(rdr.GetOrdinal("data"), 0, raw, 0, fileSize);
+                        status = raw;
+                    }
+                }
             }
+            catch (System.Exception e)
+            {
+                System.Console.WriteLine(e);
+            }
+            Context.Response.OutputStream.Write(status, 0, status.Length);
         }
     }
 }

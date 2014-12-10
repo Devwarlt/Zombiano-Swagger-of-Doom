@@ -4,28 +4,28 @@
 //_0_j._kW_
 
 package _0_j{
-    import _F_1._05p;
-    import _060._03X_;
-    import _qD_._E_b;
-    import _df.Preview;
-    import _0G_l._in;
-    import _qD_._Q_8;
-    import _060._rp;
-    import flash.events.Event;
-    import _tg._07k;
-    import com.company.util.IntPoint;
-    import _qD_._03Y_;
-    import _qD_._X_K_;
-    import _qD_._eF_;
-    import _df._04M_;
-    import _df._f5;
-    import _df._R_y;
-    import _060._8M_;
-    import _qD_._L_e;
-    import flash.display.BitmapData;
+import _02t._R_f;
 
-    import _D_H_._J_U_;
-
+import _F_1._05p;
+import _060._03X_;
+import _qD_._E_b;
+import _df.Preview;
+import _0G_l._in;
+import _qD_._Q_8;
+import _060._rp;
+import flash.events.Event;
+import _tg._07k;
+import com.company.util.IntPoint;
+import _qD_._03Y_;
+import _qD_._X_K_;
+import _qD_._eF_;
+import _df._04M_;
+import _df._f5;
+import _df._R_y;
+import _060._8M_;
+import _qD_._L_e;
+import flash.display.BitmapData;
+import _D_H_._J_U_;
 
     public class _kW_ extends _05p {
 
@@ -47,6 +47,7 @@ package _0_j{
 
         public function _kW_(){
             super(null);
+            addChild(new _R_f());
             this._kg = new _nh();
             this._kg.x = 15;
             this._kg.y = 40;

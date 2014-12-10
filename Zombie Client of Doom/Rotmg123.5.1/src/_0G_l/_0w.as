@@ -4,31 +4,29 @@
 //_0G_l._0w
 
 package _0G_l{
-    import flash.display.Sprite;
-    import _E_7._for_;
-    import flash.display.BitmapData;
-    import com.company.assembleegameclient.util._lJ_;
-    import flash.display.Bitmap;
-    import com.company.ui.SimpleText;
-    import com.company.rotmg.graphics.DeleteXGraphic;
-    import flash.filters.DropShadowFilter;
-    import flash.events.MouseEvent;
-    import com.company.assembleegameclient.appengine.WebRequest;
-    import com.company.assembleegameclient.parameters.Parameters;
-    import flash.net.URLLoaderDataFormat;
-    import _zo._8C_;
-    import _tg._32;
-    import _tg._E_C_;
-    import flash.system.System;
-    import _089._W_s;
-    import flash.utils.ByteArray;
-    import _0_j._D_Z_;
-    import com.company.assembleegameclient.util._J_H_;
-    import flash.events.Event;
-    import flash.utils.getTimer;
-    import com.company.assembleegameclient.util.TextureRedrawer;
-    import com.company.assembleegameclient.util._0B_c;
-    import _E_7._aS_;
+import _qN_.Account;
+import com.hurlant.util.Base64;
+import flash.display.Sprite;
+import _E_7._for_;
+import flash.display.BitmapData;
+import com.company.assembleegameclient.util._lJ_;
+import flash.display.Bitmap;
+import com.company.ui.SimpleText;
+import com.company.rotmg.graphics.DeleteXGraphic;
+import flash.filters.DropShadowFilter;
+import flash.events.MouseEvent;
+import _tg._32;
+import _tg._E_C_;
+import flash.system.System;
+import _089._W_s;
+import flash.utils.ByteArray;
+import _0_j._D_Z_;
+import com.company.assembleegameclient.util._J_H_;
+import flash.events.Event;
+import flash.utils.getTimer;
+import com.company.assembleegameclient.util.TextureRedrawer;
+import com.company.assembleegameclient.util._0B_c;
+import _E_7._aS_;
 
     public class _0w extends Sprite {
 
@@ -39,7 +37,7 @@ package _0G_l{
         private static var _4l:Class = _kI_;
         private static var toolTip_:_for_ = null;
 
-        public var id_:int;
+        public var id_:String;
         public var name_:String;
         public var _Y_9:int = 0;
         public var _0D_z:String;
@@ -54,7 +52,7 @@ package _0G_l{
         protected var _0F_J_:DeleteXGraphic;
 
         public function _0w(_arg1:XML, _arg2:Boolean){
-            this.id_ = int(_arg1.@id);
+            this.id_ = _arg1.@id;
             this.name_ = _arg1.PicName;
             this._Y_9 = int(_arg1.DataType);
             this._0D_z = _arg1.Tags;
@@ -94,13 +92,7 @@ package _0G_l{
             this._rC_(0x363636);
             addEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
             addEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);
-            this.sendRequest();
-        }
-        private function sendRequest():void{
-            var _local1:WebRequest = new WebRequest(Parameters._fK_(), "/picture", false);
-            _local1._R_z(URLLoaderDataFormat.BINARY);
-            _local1.addEventListener(_8C_.GENERIC_DATA, this.onURLLoadComplete);
-            _local1.sendRequest("get", {"id":this.id_.toString()});
+            this.loadImage(Base64.decodeToByteArray(_arg1.Data));
         }
         private function onDeleteClick(_arg1:MouseEvent):void{
             _arg1.stopImmediatePropagation();
@@ -114,8 +106,9 @@ package _0G_l{
             _arg1.stopImmediatePropagation();
             System.setClipboard(String(this.id_));
         }
-        private function onURLLoadComplete(_arg1:_8C_):void{
-            this.bitmapData_ = _W_s._80((_arg1.data_ as ByteArray));
+        private function loadImage(_arg1:ByteArray):void{
+            var urcool:_W_s = new _W_s();
+            this.bitmapData_ = urcool._80(_arg1);
             switch (this._Y_9)
             {
                 case _D_Z_._04B_:
@@ -171,12 +164,9 @@ package _0G_l{
         private function onMouseOver(_arg1:MouseEvent):void{
             this._rC_(0x565656);
             this._B_K_();
-            if (((this._B_M_) || (this._0J_9)))
+            if (Account._get().isAdmin())
             {
                 this._0F_J_.visible = true;
-            }
-            if (this._0J_9)
-            {
                 this._qJ_.visible = true;
                 this._U_v.visible = true;
             }

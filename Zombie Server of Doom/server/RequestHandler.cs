@@ -14,17 +14,20 @@ namespace server
         public void HandleRequest(HttpListenerContext context)
         {
             Context = context;
-            Query = new NameValueCollection();
-            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
-                Query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
-
-            if (Query.AllKeys.Length == 0)
+            if (ParseQueryString())
             {
-                string currurl = context.Request.RawUrl;
-                int iqs = currurl.IndexOf('?');
-                if (iqs >= 0)
+                Query = new NameValueCollection();
+                using (StreamReader rdr = new StreamReader(context.Request.InputStream))
+                    Query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
+
+                if (Query.AllKeys.Length == 0)
                 {
-                    Query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
+                    string currurl = context.Request.RawUrl;
+                    int iqs = currurl.IndexOf('?');
+                    if (iqs >= 0)
+                    {
+                        Query = HttpUtility.ParseQueryString((iqs < currurl.Length - 1) ? currurl.Substring(iqs + 1) : string.Empty);
+                    }
                 }
             }
 
@@ -41,6 +44,11 @@ namespace server
         {
             using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
                 wtr.WriteLine("<Error>" + value + "</Error>", args);
+        }
+
+        protected virtual bool ParseQueryString()
+        {
+            return true;
         }
 
         protected abstract void HandleRequest();
@@ -66,6 +74,10 @@ namespace server
             { "/crafting/getRecipes", new crafting.getRecipes() },
             { "/fame/list", new fame.list() },
             { "/picture/get", new picture.get() },
+            { "/picture/list", new picture.list() },
+            { "/picture/save", new picture.save() },
+            { "/picture/delete", new picture.delete() },
+            { "/credits/getInfo", new credits.getInfo() }
         };
     }
 }

@@ -12,6 +12,7 @@ package _ke{
         public static const CREDITS:String = "CREDITS";
         public static const ACCOUNT:String = "ACCOUNT";
         public static const EDITOR:String = "EDITOR";
+        public static const SPRITEEDITOR:String = "SPRITE EDITOR";
         public static const QUIT:String = "QUIT";
 
 		public static const WEBSITE:String = "WEBSITE";

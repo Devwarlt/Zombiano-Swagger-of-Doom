@@ -16,14 +16,14 @@ package _089{
         private static const _uF_:int = 2052348020;
         private static const _T_N_:int = 1229278788;
 
-        private static var _I_U_:uint;
-        private static var _Q_L_:uint;
-        private static var _P_D_:ByteArray;
-        private static var buffer:ByteArray;
-        private static var _mk:int;
-        private static var _ry:int;
+        private var _I_U_:uint;
+        private var _Q_L_:uint;
+        private var _P_D_:ByteArray;
+        private var buffer:ByteArray;
+        private var _mk:int;
+        private var _ry:int;
 
-        public static function _80(_arg1:ByteArray):BitmapData{
+        public function _80(_arg1:ByteArray):BitmapData{
             var _local4:Boolean;
             var _local5:int;
             if (_arg1 == null)
@@ -75,7 +75,7 @@ package _089{
             buffer = null;
             return (_local6);
         }
-        public static function _W_f(_arg1:ByteArray):XML{
+        public function _W_f(_arg1:ByteArray):XML{
             var _local4:int;
             if (_arg1 == null)
             {
@@ -116,7 +116,7 @@ package _089{
             _P_D_ = null;
             return (_local3);
         }
-        private static function _G_3(_arg1:int, _arg2:int):XML{
+        private function _G_3(_arg1:int, _arg2:int):XML{
             var _local3:XML = <tEXt/>
             ;
             var _local4 = "";
@@ -139,7 +139,7 @@ package _089{
             _local3.appendChild(new XML((("<text>" + _local5) + "</text>")));
             return (_local3);
         }
-        private static function _0L_Q_(_arg1:int, _arg2:int):XML{
+        private function _0L_Q_(_arg1:int, _arg2:int):XML{
             var _local8:ByteArray;
             var _local3:XML = <zTXt/>
             ;
@@ -170,7 +170,7 @@ package _089{
             _local3.appendChild(new XML((("<text>" + _local5) + "</text>")));
             return (_local3);
         }
-        private static function _2o(_arg1:int, _arg2:int):XML{
+        private function _2o(_arg1:int, _arg2:int):XML{
             var _local11:ByteArray;
             var _local3:XML = <iTXt/>
             ;
@@ -234,16 +234,16 @@ package _089{
             _local3.appendChild(new XML((("<translatedKeyword>" + _local6) + "</translatedKeyword>")));
             return (_local3);
         }
-        private static function _9v():BitmapData{
+        private function _9v():BitmapData{
             _P_D_ = null;
             buffer = null;
             return (null);
         }
-        private static function _9b():Array{
+        private function _9b():Array{
             var _local2:uint;
             var _local3:int;
             var _local1:Array = [];
-            do 
+            do
             {
                 _local2 = _P_D_.readUnsignedInt();
                 _local3 = _P_D_.readInt();
@@ -256,7 +256,7 @@ package _089{
             } while (((!((_local3 == _T_N_))) && ((_P_D_.bytesAvailable > 0))));
             return (_local1);
         }
-        private static function _Z_R_(_arg1:int):Boolean {
+        private function _Z_R_(_arg1:int):Boolean {
             if (_arg1 != 13) {
                 return (false);
             }
@@ -309,7 +309,7 @@ package _089{
             }
             return (true);
         }
-        private static function _0F_D_():BitmapData{
+        private function _0F_D_():BitmapData{
             var bufferLen:uint;
             var filter:int;
             var i:int;
@@ -410,38 +410,38 @@ package _089{
             }
             return (bd);
         }
-        private static function _I_r():uint{
+        private function _I_r():uint{
             return (buffer[buffer.position++]);
         }
-        private static function _3_():uint{
+        private function _3_():uint{
             var _local1:uint = (buffer[buffer.position] + _I_C_());
             _local1 = (_local1 & 0xFF);
             var _local2 = buffer.position++;
             buffer[_local2] = _local1;
             return (_local1);
         }
-        private static function _H_j():uint{
+        private function _H_j():uint{
             var _local1:uint = (buffer[buffer.position] + _jR_());
             _local1 = (_local1 & 0xFF);
             var _local2 = buffer.position++;
             buffer[_local2] = _local1;
             return (_local1);
         }
-        private static function _au():uint{
+        private function _au():uint{
             var _local1:uint = (buffer[buffer.position] + Math.floor(((_I_C_() + _jR_()) / 2)));
             _local1 = (_local1 & 0xFF);
             var _local2 = buffer.position++;
             buffer[_local2] = _local1;
             return (_local1);
         }
-        private static function _ja():uint{
+        private function _ja():uint{
             var _local1:uint = (buffer[buffer.position] + _dr());
             _local1 = (_local1 & 0xFF);
             var _local2 = buffer.position++;
             buffer[_local2] = _local1;
             return (_local1);
         }
-        private static function _dr():uint{
+        private function _dr():uint{
             var _local1:uint = _I_C_();
             var _local2:uint = _jR_();
             var _local3:uint = _06z();
@@ -469,7 +469,7 @@ package _089{
             }
             return (_local8);
         }
-        private static function _I_C_():uint{
+        private function _I_C_():uint{
             var _local1:int = (_mk * ((_I_U_ * _ry) + 1));
             var _local2:int = (buffer.position - _ry);
             if (_local2 <= _local1)
@@ -478,7 +478,7 @@ package _089{
             }
             return (buffer[_local2]);
         }
-        private static function _jR_():uint{
+        private function _jR_():uint{
             var _local1:int = (buffer.position - ((_I_U_ * _ry) + 1));
             if (_local1 < 0)
             {
@@ -486,7 +486,7 @@ package _089{
             }
             return (buffer[_local1]);
         }
-        private static function _06z():uint{
+        private function _06z():uint{
             var _local1:int = (buffer.position - ((_I_U_ * _ry) + 1));
             if (_local1 < 0)
             {

@@ -81,6 +81,8 @@
     <Compile Include="Descriptors.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="ReadonlyDictionary.cs" />
+    <Compile Include="utils\HttpMultipartParser.cs" />
+    <Compile Include="utils\Misc.cs" />
     <Compile Include="XmlData.cs" />
     <Compile Include="FameStats.cs" />
     <Compile Include="Models.cs" />

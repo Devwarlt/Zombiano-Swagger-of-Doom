@@ -204,7 +204,10 @@ class SkinRect extends Sprite {
         var bmp = new Bitmap(bitMapData = TextureRedrawer.resize(icon.getTexture(), null, 100, false, 0, 0));
         bmp.x = (HEIGHT / 2) - (bmp.width / 2);
         bmp.y = (HEIGHT / 2) - (bmp.width / 2);
-        bmp.filters = [new DropShadowFilter()];//[new GlowFilter(0x000000, 1.0, 20, 20, 2)];
+        bmp.filters = [new DropShadowFilter()];
+        if(!available) {
+            bmp.transform.colorTransform = new ColorTransform(0, 0, 0, 0.5, 0, 0, 0, 0);
+        }
         addChild(bmp);
 
         skinName = new SimpleText(18, 0xffffff);

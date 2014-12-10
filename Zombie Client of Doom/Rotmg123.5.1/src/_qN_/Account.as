@@ -48,6 +48,8 @@ package _qN_{
             return (_N_7);
         }
 
+        public var admin_:Boolean = false;
+
         public function guid():String{
             return (null);
         }
@@ -62,6 +64,9 @@ package _qN_{
         }
         public function isRegistered():Boolean{
             return (false);
+        }
+        public function isAdmin():Boolean{
+            return (admin_);
         }
         protected function internalLoad(_arg1:Stage, _arg2:Function):void{
         }

@@ -13,7 +13,7 @@ namespace server
     class Program
     {
         static HttpListener listener;
-        static readonly Thread[] workers = new Thread[5];
+        static readonly Thread[] workers = new Thread[25];
         static readonly Queue<HttpListenerContext> contextQueue = new Queue<HttpListenerContext>();
         static readonly object queueLock = new object();
         static readonly ManualResetEvent queueReady = new ManualResetEvent(false);
@@ -118,10 +118,8 @@ namespace server
 
                 if (!RequestHandlers.Handlers.TryGetValue(context.Request.Url.LocalPath, out handler))
                 {
-                    context.Response.StatusCode = 400;
-                    context.Response.StatusDescription = "Bad request";
                     using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
-                        wtr.Write("<h1>Bad request</h1>");
+                        wtr.Write("<Error>Bad request</Error>");
                 }
                 else
                     handler.HandleRequest(context);

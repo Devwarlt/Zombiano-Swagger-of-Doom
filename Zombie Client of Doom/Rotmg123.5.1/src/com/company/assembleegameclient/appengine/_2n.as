@@ -4,11 +4,14 @@
 //com.company.assembleegameclient.appengine._2n
 
 package com.company.assembleegameclient.appengine{
-    import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _qN_.Account;
-    import com.company.util._H_U_;
-    import flash.events.Event;
+import _zo._mS_;
+
+import com.company.assembleegameclient.parameters.Parameters;
+import _F_1._0H_h;
+import _zo._8C_;
+import _qN_.Account;
+import com.company.util._H_U_;
+import flash.events.Event;
 
     public class _2n extends WebRequest {
 
@@ -27,6 +30,11 @@ package com.company.assembleegameclient.appengine{
             _H_U_._t2(_local2, _local1);
             sendRequest("list", _local2);
             Parameters._hk = false;
+
+            var webReq:WebRequest = new WebRequest(Parameters._fK_(), "/credits", true);
+            webReq.addEventListener(_8C_.GENERIC_DATA, _0H_h.setCredits);
+            webReq.addEventListener(_mS_.TEXT_ERROR, _0H_h.onError);
+            webReq.sendRequest("getInfo", []);
         }
         public function deleteCharacter(_arg1:int):void{
             addEventListener(_8C_.GENERIC_DATA, this._Q_M_);

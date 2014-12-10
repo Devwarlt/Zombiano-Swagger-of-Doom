@@ -77,7 +77,7 @@ package _0G_l{
             this.box_ = new Sprite();
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this._0y = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
-            this._vV_ = new GraphicsSolidFill(0x500C00, 1);
+            this._vV_ = new GraphicsSolidFill(0x3B1E00, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
 			this.graphicsData_ = new <IGraphicsData>[_0y, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
             super();
@@ -110,7 +110,7 @@ package _0G_l{
             this._07v.y = (HEIGHT - 50);
             this._07v.addEventListener(MouseEvent.CLICK, this._0B_7);
             this.box_.addChild(this._07v);
-            this._uv = new _01c(new <String>["Mine", "All", "Wild Shadow"], 120, 30);
+            this._uv = new _01c(new <String>["Mine", "All", "FPC"], 120, 30);
             this._uv.x = 20;
             this._uv.y = 40;
             this.box_.addChild(this._uv);
@@ -161,9 +161,9 @@ package _0G_l{
                 _local3["guid"] = Account._get().guid();
             } else
             {
-                if (this._uv.getValue() == "Wild Shadow")
+                if (this._uv.getValue() == "FPC")
                 {
-                    _local3["guid"] = "administrator@wildshadow.com";
+                    _local3["guid"] = "Admin";
                 }
             }
             var _local4:String = this.__var.getValue();

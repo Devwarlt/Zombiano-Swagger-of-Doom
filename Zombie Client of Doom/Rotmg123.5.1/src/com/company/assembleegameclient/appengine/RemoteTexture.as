@@ -38,7 +38,8 @@ package com.company.assembleegameclient.appengine{
             });
         }
         public function onURLLoadComplete(_arg1:_8C_):void{
-            var _local2:BitmapData = _W_s._80((_arg1.data_ as ByteArray));
+            var urcool = new _W_s();
+            var _local2:BitmapData = urcool._80((_arg1.data_ as ByteArray));
             this.callback_(_local2);
         }
         public function onError(_arg1:_mS_):void{

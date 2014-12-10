@@ -7,8 +7,12 @@ package _F_1{
     import _02t._R_f;
     
     import _ke._0M_1;
-    
-    import _sp._aJ_;
+
+import _qN_.Account;
+
+import _qN_.Account;
+
+import _sp._aJ_;
     
     import com.company.assembleegameclient.appengine._0K_R_;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -30,7 +34,7 @@ public class _C_Q_ extends _05p {
         private var serversButton:_H_o;
         private var creditsButton:_H_o;
         private var accountButton:_H_o;
-        private var legendsButon:_H_o;
+        private var legendsButton:_H_o;
         private var editorButton:_H_o;
         private var exitButton:_H_o;
 		private var webButton:_H_o;
@@ -66,12 +70,12 @@ public class _C_Q_ extends _05p {
             this.accountButton = new _H_o(_0M_1.ACCOUNT, 22, false);
             this.accountButton.addEventListener(MouseEvent.CLICK, this._021);
             addChild(this.accountButton);
-            this.legendsButon = new _H_o(_0M_1.LEGENDS, 22, false);
-            this.legendsButon.addEventListener(MouseEvent.CLICK, this._021);
-            addChild(this.legendsButon);
+            this.legendsButton = new _H_o(_0M_1.LEGENDS, 22, false);
+            this.legendsButton.addEventListener(MouseEvent.CLICK, this._021);
+            addChild(this.legendsButton);
             this.editorButton = new _H_o(_0M_1.EDITOR, 22, false);
             this.editorButton.addEventListener(MouseEvent.CLICK, this._021);
-            this.editorButton.visible = _arg1._V_v;
+            //this.editorButton.visible = _arg1._V_v;
             addChild(this.editorButton);
             this.exitButton = new _H_o(_0M_1.QUIT, 22, false);
             this.exitButton.addEventListener(MouseEvent.CLICK, this._021);
@@ -101,8 +105,8 @@ public class _C_Q_ extends _05p {
             stage;
             this.accountButton.x = (((800 / 2) - (this.accountButton.width / 2)) + 96);
             this.accountButton.y = 534;
-            this.legendsButon.x = 550;
-            this.legendsButon.y = 534;
+            this.legendsButton.x = 550;
+            this.legendsButton.y = 534;
             this.editorButton.x = 50;
             this.editorButton.y = 534;
             this.exitButton.x = 124;
@@ -118,7 +122,7 @@ public class _C_Q_ extends _05p {
         }
         private function _021(_arg1:MouseEvent):void{
             var _local2:_H_o = (_arg1.target as _H_o);
-            this._ft.dispatch(_local2.name);
+            this._ft.dispatch(_local2.name == _0M_1.EDITOR ? Account._get().admin_ ? _0M_1.EDITOR : _0M_1.SPRITEEDITOR : _local2.name);
         }
 		private function onClick(_arg1:MouseEvent):void{
 			navigateToURL(new URLRequest(webUrl_), "_blank");

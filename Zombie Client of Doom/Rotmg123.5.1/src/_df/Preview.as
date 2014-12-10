@@ -21,8 +21,8 @@ package _df{
         private static var _tQ_:Class = _04o;
         private static var _ij:Class = _0F_2;
 
-        protected var w_:int;
-        protected var h_:int;
+        public var w_:int;
+        public var h_:int;
         protected var size_:int;
         protected var _lT_:BitmapData;
         private var _081:SimpleText;

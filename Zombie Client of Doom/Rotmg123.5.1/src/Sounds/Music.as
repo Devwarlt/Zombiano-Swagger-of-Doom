@@ -44,9 +44,6 @@ package Sounds{
 		}
 		
 		public static function reload(newMusic:String, specialMusic:Boolean = false):void{
-			if(specialMusic) {
-				specialMusicPlaying_ = true;
-			}
 			if (music_ == newMusic) return;
 			music_ = newMusic;
 			try {

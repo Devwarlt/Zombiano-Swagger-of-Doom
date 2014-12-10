@@ -1,0 +1,104 @@
+﻿<Credits>
+  <DrawText size="56" color="0xffffff">
+    <Bold />
+    <DropShadowFilter />
+    <Text>Zombie Swagger of Doom</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+
+  <DrawText size="46" color="0xffffff">
+    <Text>Developed by:</Text>
+  </DrawText>
+  <DrawText size="40" color="0xffffff">
+    <Text>FPC Studios</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+
+  <DrawText size="40" color="0xffffff">
+    <Text>Lead Development:</Text>
+    <Bold />
+    <DropShadowFilter />
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Fabian Fischer (ossimc82)</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+
+  <DrawText size="40" color="0xffffff">
+    <Text>Development:</Text>
+    <Bold />
+    <DropShadowFilter />
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Fabian Fischer</Text>
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Slender Go</Text>
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Lithium</Text>
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Kieron</Text>
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>BARm</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+  <DrawText size="46" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+
+  <DrawText size="40" color="0xffffff">
+    <Text>Fanmade art:</Text>
+    <Bold />
+    <DropShadowFilter />
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Liinkii liinkii fri itens I am big fence</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+  
+  
+  <DrawText size="40" color="0xffffff">
+    <Text>People for the lolz:</Text>
+    <Bold />
+    <DropShadowFilter />
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Omni</Text>
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Donran</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+  <DrawText size="46" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+
+  <DrawText size="56" color="0xffffff">
+    <Bold />
+    <DropShadowFilter />
+    <Text>Thanks for playing</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Bold />
+    <DropShadowFilter />
+    <Text>Zombie Swagger of Doom</Text>
+  </DrawText>
+</Credits>

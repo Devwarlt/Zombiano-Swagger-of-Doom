@@ -10,7 +10,8 @@ package _0_j{
 
     public class _B_T_ extends _2i {
 
-        private static const _M_p:Vector.<IntPoint> = new <IntPoint>[new IntPoint(8, 8), new IntPoint(16, 8), new IntPoint(16, 16)];
+        //object sizes
+        private static const _M_p:Vector.<IntPoint> = new <IntPoint>[new IntPoint(8, 8), new IntPoint(16, 8), new IntPoint(16, 16)];//, new IntPoint(40, 40)];
 
         public function _B_T_(){
             super(_M_p);
