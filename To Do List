@@ -1,0 +1,49 @@
+[X] = DONE
+[ ] = NOT DONE
+[/] = HALF DONE
+[?] = NO IDEA
+
+Guns
+-Pistols [/]
+-Machine guns []
+-Snipers []
+-Shotguns []
+-Rifles []
+
+Classes
+-Soldier []
+-Survivor []
+
+Foods
+-Fruits [/]
+-Chickens (Turkey, Beef, Chicken etc.) [ ]
+-Vegetables [/]
+-Drinks []
+
+Maps
+-Outpost (Starting Zone) [/]
+-Wasteland (Place to loot, kill zombies, and survive) []
+-Buildings (Looting zones) []
+
+Healing/Medical Equipment
+-Bandages []
+-Plasters []
+-Blood Bag []
+-Syringe []
+-Tablets/Pills []
+
+Melee Weapons
+-Blunt []
+-Sharp []
+
+Zombies
+-Walker (normal zombie) [?]
+-Animals [/]
+-Infected (Vomits) []
+-Tank (high damage, health, and defense (Very good loot once dead) ) []
+-Screamer (Screams and makes all zombies around you attack you) []
+-Mutant (produces more small mutants when dead) []
+-Smaller mutant (explodes when dead) []
+
+Npc
+-Civilians [/]
