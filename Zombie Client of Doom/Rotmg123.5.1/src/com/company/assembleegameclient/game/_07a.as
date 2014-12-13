@@ -17,7 +17,8 @@ import _4K_.Stats;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.tutorial.Tutorial;
     import com.company.assembleegameclient.tutorial.doneAction;
-    import com.company.assembleegameclient.util.TextureRedrawer;
+import com.company.assembleegameclient.ui.Battery;
+import com.company.assembleegameclient.util.TextureRedrawer;
     import com.company.util._H_V_;
     
     import flash.display.Stage;
@@ -375,16 +376,20 @@ import flash.geom.Point;
                         _local3.attack_ = 100;
                         break;
                     case _H_V_.H:
-                        new YouHaveBeenPromotedPopUp(this.gs_, 13);
-                        new NewItemUnlockedScreen(this.gs_, 0x0342);
-                        new NewItemUnlockedScreen(this.gs_, 0x1200);
-                        new NewItemUnlockedScreen(this.gs_, 0x1600);
-                        new NewItemUnlockedScreen(this.gs_, 0xae2);
+                            this.gs_.map_.switchNightVision();
+                        //if(fgt == null) {
+                        //    fgt = new Battery(Battery.CHARGE_100);
+                        //    this.gs_.addChild(fgt);
+                        //}
+                        //else {
+                        //    fgt.updateCharge(Battery.CHARGE_005);
+                        //}
                         break;
                 }
             }
             this._B_Q_();
         }
+        private var fgt:Battery;
         private function _H_H_(_arg1:KeyboardEvent):void{
 			var _local3:Player = this.gs_.map_.player_;
             switch (_arg1.keyCode)
@@ -419,7 +424,7 @@ import flash.geom.Point;
             }
             this._B_Q_();
         }
-        private function _B_Q_():void{
+        private function _B_Q_():void {
             var _local1:Player = this.gs_.map_.player_;
             if (_local1 != null)
             {

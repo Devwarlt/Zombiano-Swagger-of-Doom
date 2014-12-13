@@ -34,8 +34,9 @@ package {
     import flash.display.StageScaleMode;
     import flash.events.*;
     import flash.system.Capabilities;
+import flash.system.Security;
 
-    public class WebMain extends Sprite {
+public class WebMain extends Sprite {
 		
 		public static var sStage:Stage;
 		public static var sWidth:Number = 1000;
@@ -43,7 +44,7 @@ package {
 		
         protected var context:_L_y;
 
-        public function WebMain(){
+        public function WebMain() {
             if (stage)
             {
                 this.setup();

@@ -65,6 +65,9 @@ package com.company.assembleegameclient.util{
         AssetLibrary._05q("innerP2_mask", new Embeds.innerP2MaskEmbed_().bitmapData, 4, 4);
         AssetLibrary._05q("weapons40x40", new Embeds.weaponsEmbed40x40_().bitmapData, 40, 40);
         AssetLibrary._05q("craftingBook", new Embeds.craftingBookEmbed_().bitmapData, 40, 40);
+        AssetLibrary._05q("batteryCharges", new Embeds.batteryChargedEmbed_().bitmapData, 16, 16);
+        AssetLibrary._05q("anna", new Embeds.testImage().bitmapData, 640, 480);
+        AssetLibrary._05q("carbonFibre", new Embeds.carbon().bitmapData, 256, 256);
         var _local1:BitmapData = new BitmapData(8, 8, true, 0);
         AssetLibrary._05q("invisible", _local1, 8, 8);
         _0B_c.add("chars8x8rBeach", new Embeds.chars8x8rBeachEmbed_().bitmapData, null, 8, 8, 56, 8, _lJ_.RIGHT);
@@ -122,7 +125,11 @@ package com.company.assembleegameclient.util{
         Music.load();
         _Q_P_.load();
     }
-}//package com.company.assembleegameclient.util
+}
+
+import com.embeds.EmbeddedAssets_testImageEmbed_;
+
+//package com.company.assembleegameclient.util
 
 class Embeds {
 
@@ -233,6 +240,9 @@ class Embeds {
 
     public static var weaponsEmbed40x40_:Class = weapons_embed_40x40;
     public static var craftingBookEmbed_:Class = craftingBookEmbed;
+    public static var batteryChargedEmbed_:Class = batteryChargedEmbed;
+    public static var testImage:Class = com.embeds.EmbeddedAssets_testImageEmbed_;
+    public static var carbon:Class = com.embeds.carbonEmbed;
 
 
     /*private*/ internal static var monsterTank1Embed_:Class = Embeds_monsterTank1Embed_;

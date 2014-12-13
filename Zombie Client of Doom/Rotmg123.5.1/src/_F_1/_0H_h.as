@@ -6,6 +6,8 @@
 package _F_1{
 import Sounds.Music;
 
+import YouTube.YouTubePlayer;
+
 import _zo._8C_;
 import _zo._mS_;
 
@@ -18,8 +20,6 @@ import flash.display.Shape;
 import flash.display.Sprite;
 import _sp._aJ_;
 import com.company.ui.SimpleText;
-import com.company.rotmg.graphics.StackedLogoR;
-import com.company.rotmg.graphics.KabamLogo;
 import _02t._R_f;
 import com.company.rotmg.graphics.ScreenGraphic;
 
@@ -27,6 +27,8 @@ import flash.events.TimerEvent;
 import flash.filters.DropShadowFilter;
 import flash.events.MouseEvent;
 import flash.filters.GlowFilter;
+import flash.media.Sound;
+import flash.media.SoundTransform;
 import flash.net.navigateToURL;
 import flash.net.URLRequest;
 import flash.events.Event;
@@ -36,6 +38,7 @@ public class _0H_h extends Sprite {
 
     private static const _088:String = "http://www.wildshadow.com/";
     private static const _0L_O_:String = "http://www.kabam.com/";
+    private static const CREDITSTHEME:String = "AThemeforKjell";
 
     public var close:_aJ_;
 
@@ -43,12 +46,26 @@ public class _0H_h extends Sprite {
     private var displayScreen:Sprite;
     private var items:Vector.<DisplayObject>;
     private var totalHeight;
+    private var sound;
+    private var ytvid:YouTubePlayer;
 
     public function _0H_h() {
-        Music.reload("credits", true);
+
+        if(creditsXML.attribute("backgroundVideo") != "") {
+            ytvid = new YouTubePlayer(creditsXML.@backgroundVideo, true);
+            addChild(this.ytvid);
+        }
+        else {
+            Music.reload("");
+            var sound = new Sound();
+            sound.load(new URLRequest("http://" + Parameters.musicUrl_ + "/sfx/music/" + CREDITSTHEME + ".mp3"));
+            var soundTransform = new SoundTransform(0.65);
+            this.sound = sound.play(0, int.MAX_VALUE, soundTransform);
+            addChild(new _R_f());
+        }
+        this.addEventListener(Event.REMOVED_FROM_STAGE, exited);
         this.close = new _aJ_();
         this.items = new Vector.<DisplayObject>();
-        addChild(new _R_f());
         addChild(new ScreenGraphic());
 
         this.displayScreen = new Sprite();
@@ -84,6 +101,16 @@ public class _0H_h extends Sprite {
         this._045.addEventListener(MouseEvent.CLICK, this._ly);
         addChild(this._045);
     }
+
+
+
+    private function exited(event:Event):void {
+        this.sound.stop();
+        if(this.ytvid != null) {
+            this.ytvid.stop();
+        }
+    }
+
     public function timerHandler(event:TimerEvent):void {
         if(items[items.length - 1].y + items[items.length - 1].height < -2) {
             for each (var obj:DisplayObject in this.items) {

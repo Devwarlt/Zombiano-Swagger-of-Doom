@@ -68,6 +68,10 @@ package Sounds{
             fadeOut = 0;
         }
 
+		public static function stop():void {
+			currentSoundChannel.stop();
+		}
+
 		public static function updateFade():void{
 			if (fadeIn >= 0.65) return;
 			if (!Parameters.data_.playMusic) {

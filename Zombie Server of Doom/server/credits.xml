@@ -1,4 +1,4 @@
-﻿<Credits>
+﻿<Credits backgroundVideo="https://www.youtube.com/watch?v=lWbUx1X_CuM">
   <DrawText size="56" color="0xffffff">
     <Bold />
     <DropShadowFilter />
@@ -10,6 +10,7 @@
 
   <DrawText size="46" color="0xffffff">
     <Text>Developed by:</Text>
+    <DropShadowFilter />
   </DrawText>
   <DrawText size="40" color="0xffffff">
     <Text>FPC Studios</Text>
@@ -62,8 +63,14 @@
     <Bold />
     <DropShadowFilter />
   </DrawText>
+  <DrawText size="40" color="0xffffff">
+    <Text>People on MPGH:</Text>
+  </DrawText>
   <DrawText size="36" color="0xffffff">
-    <Text>Liinkii liinkii fri itens I am big fence</Text>
+    <Text>bobhuku5</Text>
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Versified</Text>
   </DrawText>
   <DrawText size="56" color="0xffffff">
     <Text>|</Text>

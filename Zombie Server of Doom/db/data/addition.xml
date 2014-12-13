@@ -14,6 +14,23 @@
     <Soulbound/>
     <BagType>2</BagType>
     <OldSound>use_potion</OldSound>
+    <ThanksTo>ossimc82</ThanksTo>
+  </Object>
+  <Object id="Night Vision Goggles" ext="true">
+    <Class>Equipment</Class>
+    <Item/>
+    <RemoteTexture>
+      <Id>58</Id>
+    </RemoteTexture>
+    <SlotType>9</SlotType>
+    <ScaleValue>3</ScaleValue>
+    <Description>This goggles allow you to see more at night.</Description>
+    <Sound>spell/light_heal</Sound>
+    <BagType>2</BagType>
+    <OldSound>use_potion</OldSound>
+    <NightVisionGoggles />
+    <ElectricItem />
+    <ThanksTo type="idea">OwenHendry (MPGH)</ThanksTo>
   </Object>
   <Object id="dex" ext="true">
     <Class>Equipment</Class>
@@ -870,13 +887,17 @@
 
   <Object id="Reskin Vendor" ext="true">
     <Class>ReskinVendor</Class>
-    <Texture>
+    <!--<Texture>
       <File>lofiObj3</File>
       <Index>0x9</Index>
+    </Texture>-->
+    <Texture>
+      <File>anna</File>
+      <Index>0x0</Index>
     </Texture>
     <Static />
     <OccupySquare />
-    <Size>150</Size>
+    <Size>15</Size>
   </Object>
 
   <Lithium>

@@ -18,10 +18,12 @@ import _fh._zh;
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.objects.BasicObject;
     import com.company.assembleegameclient.objects.GameObject;
-    import com.company.assembleegameclient.objects.Player;
+import com.company.assembleegameclient.objects.ObjectLibrary;
+import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.objects._ez;
     import com.company.assembleegameclient.parameters.Parameters;
-    import com.company.assembleegameclient.util.ConditionEffect;
+import com.company.assembleegameclient.ui.Battery;
+import com.company.assembleegameclient.util.ConditionEffect;
 import com.company.util.GraphicHelper;
 
 import flash.display.BlendMode;
@@ -62,6 +64,9 @@ public class _X_l extends MapHandler {
         public var _fr:Vector.<Square>;
         public var _8L_:Vector.<Square>;
         public var atmosphere_:AtmosphereHandler;
+        public var battery:Battery;
+        public var nightVision:Sprite;
+        public var nightVisionOn:Boolean;
 
         public function _X_l(_arg1:GameSprite){
             this._04p = new Vector.<BasicObject>();
@@ -80,20 +85,25 @@ public class _X_l extends MapHandler {
             party_ = new _ez(this);
             quest_ = new Quest(this);
             atmosphere_ = new AtmosphereHandler(this.gs_, this);
+            nightVision = new Sprite();
+            battery = new Battery();
+            this.battery.visible = false;
         }
-		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int, _arg9:int):void{
+		override public function setProps(_arg1:int, _arg2:int, _arg3:String, _arg4:int, _arg5:Boolean, _arg6:Boolean, _arg7:Vector.<String>, _arg8:int, _arg9:int):void {
             width_ = _arg1;
             height_ = _arg2;
             name_ = _arg3;
             _vv = _arg4;
             allowPlayerTeleport_ = _arg5;
             showDisplays_ = _arg6;
-			music_ = _arg7;
+            music_ = _arg7;
             weather_ = _arg8;
             atmosphere_.init(_arg9);
-            if(music_.length != 0)
-            {
+            if (music_.length != 0) {
                 Sounds.Music.reload(music_[Math.floor(Math.random() * (music_.length - 1))]);
+            }
+            if (this.gs_ != null) {
+                this.gs_.addChild(this.battery);
             }
         }
 		override public function initialize():void{
@@ -108,6 +118,7 @@ public class _X_l extends MapHandler {
                 addChild(this.weatherBackground_);
             }
             addChild(this.atmosphere_);
+            this.atmosphere_.addChild(this.nightVision);
             addChild(this._063);
             addChild(this._C_K_);
             addChild(this.mapOverlay_);
@@ -146,11 +157,28 @@ public class _X_l extends MapHandler {
             this.weatherBackground_ = null;
             this.atmosphere_ = null;
             this.merchLookup_ = null;
+            this.nightVision = null;
             this.player_ = null;
             this.party_ = null;
             this.quest_ = null;
             this._04p = null;
             this._C_X_ = null;
+        }
+
+        public function switchNightVision():void {
+            if(this.nightVisionOn) {
+                this.nightVision.graphics.clear();
+            }
+            else {
+                this.nightVision.x = -300;
+                this.nightVision.y = -325;
+                this.nightVision.blendMode = BlendMode.LAYER;
+                this.nightVision.graphics.clear();
+                this.nightVision.graphics.beginFill(0x00FF04, 0.6);
+                this.nightVision.graphics.drawRect(0, 0, 600, 600);
+                this.nightVision.graphics.endFill();
+            }
+            this.nightVisionOn = !this.nightVisionOn;
         }
 
         public function changeWeather(_arg1:int):void {
@@ -214,6 +242,31 @@ public class _X_l extends MapHandler {
             this.party_.update(_arg1, _arg2);
 
             atmosphere_.update();
+
+            if(this.player_ != null && this.player_.equipment_ != null) {
+                var itemXml:XML = ObjectLibrary.Items[player_.equipment_[3]];
+                if(itemXml != null) {
+                    if (itemXml.hasOwnProperty("ElectricItem")) {
+                        if (!battery.visible) {
+                            battery.visible = true;
+                        }
+
+                        if (!battery.isInitialized) {
+                            battery.updateCharge(50);
+                        }
+                    }
+                    else {
+                        if(battery.isInitialized) {
+                            battery.updateCharge(-1);
+                        }
+                    }
+                }
+                else {
+                    if(battery.isInitialized) {
+                        battery.updateCharge(-1);
+                    }
+                }
+            }
         }
 		override public function pSTopW(_arg1:Number, _arg2:Number):Point{
             var _local4:Square;

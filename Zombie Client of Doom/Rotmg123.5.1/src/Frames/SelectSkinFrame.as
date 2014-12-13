@@ -87,6 +87,7 @@ public class SelectSkinFrame extends Sprite {
         var noSkinXml:XML = <Object type="-1" id="No Skin" />;
 
         var noSkinRect = new SkinRect(noSkinXml, this, true, this.gs_.map_.player_.skinId_ == -1, h);
+        noSkinRect.filters = [new GlowFilter(0xFFF700)];
         noSkinRect.x = 10;
         noSkinRect.addEventListener(MouseEvent.CLICK, this.onRectClick);
         skinsSprite.addChild(noSkinRect);

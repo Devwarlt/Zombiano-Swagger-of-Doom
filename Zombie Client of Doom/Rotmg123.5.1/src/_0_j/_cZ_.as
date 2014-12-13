@@ -115,8 +115,6 @@ package _0_j{
         }
         private function setSelected(_arg1:_tz):void{
             this.selected_ = _arg1;
-            this.selected_.x--;
-            this.selected_.y--;
             this._U_P_();
             this._R_R_();
             this._1Z_();
@@ -140,7 +138,7 @@ package _0_j{
             this._0J_e();
             dispatchEvent(new Event(Event.CHANGE));
         }
-        private function _0J_e():void{
+        private function _0J_e():void {
             if (((!((stage == null))) && ((stage.focus == this._xu))))
             {
                 return;

@@ -35,6 +35,7 @@ package _E_7{
 		private var _5U_:Bitmap;
 		private var _P_V_:SimpleText;
 		private var _V_0:SimpleText;
+		private var credits:SimpleText;
 		private var rank_:SimpleText;
 		private var _C_G_:SimpleText;
 		private var line1_:_return;
@@ -65,7 +66,7 @@ package _E_7{
 			this._G_H_ = _arg5;
 			this._bs = _arg6;
 			this._0G_J_ = (_arg2 != null ? ObjectLibrary._d1(_arg1, _arg2) : false);
-			var _local7:uint = ((((this._0G_J_) || ((this.player_ == null)))) ? 0x500C00 : 5578255);
+			var _local7:uint = ((((this._0G_J_) || ((this.player_ == null)))) ? 0x452200 : 5578255);
 			var _local8:uint = ((((this._0G_J_) || ((_arg2 == null)))) ? 0x9B9B9B : 10965039);
 			super(_local7, 1, _local8, 1, true);
 			this._uW_ = new _fM_();
@@ -110,6 +111,7 @@ package _E_7{
 			this._i5();
 			this._02u();
 			this._V_Y_();
+			this.addCredits();
 		}
 		private static function _N_W_(_arg1:Vector.<Restriction>):String{
 			var _local4:Restriction;
@@ -149,6 +151,19 @@ package _E_7{
 			_local3 = BitmapUtil._Y_d(_local3, 4, 4, (_local3.width - 8), (_local3.height - 8));
 			this._5U_ = new Bitmap(_local3);
 			addChild(this._5U_);
+		}
+		private function addCredits():void {
+			if(this._I_z.hasOwnProperty("ThanksTo")) {
+				this.credits = new SimpleText(fontSize - 2, 0xFFFFFF, false, width - 20, 0, fontName);
+				this.credits.wordWrap = true;
+				this.credits.multiline = true;
+				var type:String = String(XML(this._I_z.ThanksTo).attribute("type")) != "" ? this._I_z.ThanksTo.@type : "item";
+				this.credits.text = "Special thanks to:\n" + this._I_z.ThanksTo + "\nfor this " + type + ".";
+				this.credits.updateMetrics();
+				this.credits.y = height + 10;
+				this.credits.x = 10;
+				addChild(this.credits);
+			}
 		}
 		private function _07X_():void{
 			this._V_0 = new SimpleText(fontSize + 2, 0xFFFFFF, false, 30, 0, fontName);

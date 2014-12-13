@@ -348,6 +348,9 @@
     <Content Include="packets.txt" />
     <Compile Include="realm\commands\AdminCommands.cs" />
     <EmbeddedResource Include="realm\worlds\tutorial.jm" />
+    <None Include="outpost.jm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="todolist.md" />
   </ItemGroup>
   <ItemGroup>
