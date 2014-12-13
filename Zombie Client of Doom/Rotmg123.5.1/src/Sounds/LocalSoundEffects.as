@@ -28,7 +28,7 @@ public class LocalSoundEffects {
         soundsInCache[sound.name] = snd;
         return snd;
     }
-    public static function play(sound:LocalSound, loop:int=0, volume:Number=1, isFX:Boolean=true, playAlways:Boolean=false):void{
+    public static function play(sound:LocalSound, loop:int=0, volume:Number=1, isFX:Boolean=true, playAlways:Boolean=true):void{
         var actualVolume:Number;
         var trans:SoundTransform;
         var channel:SoundChannel;

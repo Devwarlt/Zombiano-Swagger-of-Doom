@@ -45,7 +45,6 @@ public class CraftingFrame extends Frame
 
         public function CraftingFrame(_gs:GameSprite, _obj:GameObject) {
             super("Craft Items", "Cancel", "Craft", "/craftItems", 275);
-            var l = LocalSounds.openChest;
             LocalSoundEffects.play(LocalSounds.openChest, 0, 1, true, true);
             CraftingPanel.terminalOpen = true;
             thisCraftingFrame = this;

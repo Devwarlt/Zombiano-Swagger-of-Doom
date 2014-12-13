@@ -100,3 +100,4 @@ F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\specials.xml
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\projectiles.xml
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\data\trees.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\bin\Debug\outpost.jm

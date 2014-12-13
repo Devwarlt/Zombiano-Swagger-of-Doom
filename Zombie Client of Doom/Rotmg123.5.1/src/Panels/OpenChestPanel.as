@@ -2,6 +2,9 @@
  * Created by Fabian on 22.11.2014.
  */
 package Panels {
+import Sounds.LocalSoundEffects;
+import Sounds.LocalSounds;
+
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.Container;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -35,6 +38,7 @@ public class OpenChestPanel extends SimpleButtonPanel {
                 addChild(this.inventory);
                 super.removeChild(super.button);
                 super.removeChild(super.text);
+                LocalSoundEffects.play(LocalSounds.openChest);
             }
         }
     }
@@ -47,16 +51,17 @@ public class OpenChestPanel extends SimpleButtonPanel {
         }
     }
 
-    protected function onAdded(param1:Event):void{
+    protected function onAdded(param1:Event):void {
         stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
     }
 
-    protected function onRemove(param1:Event):void{
+    protected function onRemove(param1:Event):void {
+        LocalSoundEffects.play(LocalSounds.closeChest);
         stage.removeEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
     }
 
     override public function draw():void{
-        if(opened){
+        if(opened) {
             this.inventory.draw(this.inventory.gameObject_.equipment_);
         }
     }

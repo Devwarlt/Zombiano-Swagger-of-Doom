@@ -64,8 +64,8 @@ public class WebMain extends Sprite {
         stage.scaleMode = StageScaleMode.EXACT_FIT;
 
         yt = new YouTubePlayer("https://www.youtube.com/watch?v=daguDOE4Yd8&feature=youtu.be", true);
-        yt.addEventListener(KeyboardEvent.KEY_DOWN, function(event:KeyboardEvent) {
-            if(event.keyCode == _H_V_.ESCAPE){
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, function(event:KeyboardEvent) {
+            if(event.keyCode == _H_V_.ESCAPE) {
                 yt.stop();
             }
         });

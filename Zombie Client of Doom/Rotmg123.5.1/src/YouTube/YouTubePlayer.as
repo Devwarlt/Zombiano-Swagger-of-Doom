@@ -46,6 +46,9 @@ public class YouTubePlayer extends Sprite {
 
     public function stop():void {
         this.player.stopVideo();
+        if(endCallback != null) {
+            endCallback();
+        }
     }
 
     public function pause():void {
