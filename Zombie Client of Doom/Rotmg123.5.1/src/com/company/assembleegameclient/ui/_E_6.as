@@ -31,7 +31,7 @@ import com.company.assembleegameclient.net.PacketManager;
     
     import _ke._U_c;
     
-    import Sounds.SoundEffects;
+    import Sounds.UrlSoundEffects;
 
     public class _E_6 extends Slot {
 
@@ -287,7 +287,7 @@ import com.company.assembleegameclient.net.PacketManager;
                 this._04q = true;
             }
             this._e9.gs_.packetManager.useItem(getTimer(), this._e9.gameObject_.objectId_, this.id_, this.objectType_, 0, 0);
-            SoundEffects.play("use_potion");
+            UrlSoundEffects.play("use_potion");
             this._X_6();
         }
         private function onMouseDown(_arg1:MouseEvent):void{
@@ -481,7 +481,7 @@ import com.company.assembleegameclient.net.PacketManager;
             var _local3:PacketManager = this._gw();
             var _local4:Player = this._v5();
             _local3._P_a(_local2, _local4.x_, _local4.y_, this._e9.gameObject_.objectId_, this.id_, this.objectType_, _arg1._e9.gameObject_.objectId_, _arg1.id_, _arg1.objectType_);
-            SoundEffects.play("inventory_move_item");
+            UrlSoundEffects.play("inventory_move_item");
             this._X_6();
         }
         private function onMouseOut(_arg1:MouseEvent):void{

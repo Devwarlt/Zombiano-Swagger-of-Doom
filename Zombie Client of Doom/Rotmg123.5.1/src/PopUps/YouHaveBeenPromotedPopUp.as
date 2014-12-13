@@ -2,7 +2,7 @@
  * Created by Fabian on 30.11.2014.
  */
 package PopUps {
-import Sounds.SoundEffects;
+import Sounds.UrlSoundEffects;
 
 import _05R_.GTween;
 
@@ -47,7 +47,7 @@ public class YouHaveBeenPromotedPopUp extends PopUpScreen {
         this.rankText.y = 200;
         this.rankText.size = 0;
 
-        SoundEffects.play("promoted", 1, true, true);
+        UrlSoundEffects.play("promoted", 1, true, true);
         stage.addChild(promotionText);
         var tween:GTween = new GTween(this.promotionText, 0.5, { "size": 46 });
         tween._bR_ = updateMetrics;

@@ -4,6 +4,9 @@
 package Frames {
 import Panels.CraftingPanel;
 
+import Sounds.LocalSoundEffects;
+import Sounds.LocalSounds;
+
 import _0L_C_.DialogBox;
 
 import com.company.assembleegameclient.game.GameSprite;
@@ -42,6 +45,8 @@ public class CraftingFrame extends Frame
 
         public function CraftingFrame(_gs:GameSprite, _obj:GameObject) {
             super("Craft Items", "Cancel", "Craft", "/craftItems", 275);
+            var l = LocalSounds.openChest;
+            LocalSoundEffects.play(LocalSounds.openChest, 0, 1, true, true);
             CraftingPanel.terminalOpen = true;
             thisCraftingFrame = this;
             items = new Dictionary();
@@ -134,6 +139,7 @@ public class CraftingFrame extends Frame
 
             dispatchEvent(new Event(Event.COMPLETE));
             cleanup();
+            LocalSoundEffects.play(LocalSounds.closeChest, 0, 1, true, true);
             CraftingPanel.terminalOpen = false;
         }
         private function onCraft(param1:MouseEvent) : void {

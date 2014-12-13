@@ -53,6 +53,7 @@ public class _0H_h extends Sprite {
 
         if(creditsXML.attribute("backgroundVideo") != "") {
             ytvid = new YouTubePlayer(creditsXML.@backgroundVideo, true);
+            ytvid.repeat = true;
             addChild(this.ytvid);
         }
         else {
@@ -105,7 +106,9 @@ public class _0H_h extends Sprite {
 
 
     private function exited(event:Event):void {
-        this.sound.stop();
+        if(this.sound != null) {
+            this.sound.stop();
+        }
         if(this.ytvid != null) {
             this.ytvid.stop();
         }

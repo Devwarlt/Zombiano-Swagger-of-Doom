@@ -17,7 +17,7 @@ package Sounds{
             GA.global().trackEvent("sound", ((_arg1) ? "soundOn" : "soundOff"));
             Parameters.data_.playSFX = _arg1;
             Parameters.save();
-            SoundEffects._02r();
+            UrlSoundEffects._02r();
         }
 
     }

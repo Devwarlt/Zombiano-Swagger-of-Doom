@@ -12,7 +12,7 @@ package _F_1{
     import flash.events.Event;
     import flash.utils.getTimer;
     import com.company.util.MoreColorUtil;
-    import Sounds.SoundEffects;
+    import Sounds.UrlSoundEffects;
 
     public class _H_o extends Sprite {
 
@@ -81,7 +81,7 @@ package _F_1{
             this._037(null);
         }
         protected function _09t(_arg1:MouseEvent):void{
-            SoundEffects.play("button_click");
+            UrlSoundEffects.play("button_click");
         }
 
     }

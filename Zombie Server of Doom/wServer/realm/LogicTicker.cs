@@ -55,10 +55,8 @@ namespace wServer.realm
                 if (Manager.CurrentDatetime >= 96000)
                     Manager.CurrentDatetime = 0;
                 else
-                {
                     Manager.CurrentDatetime += TPS;
-                    Debug.WriteLine(Manager.CurrentDatetime);
-                }
+
                 long times = dt / MsPT;
                 dt -= times * MsPT;
                 times++;

@@ -52,7 +52,7 @@ package com.company.assembleegameclient.objects{
     
 
     
-    import Sounds.SoundEffects;
+    import Sounds.UrlSoundEffects;
 
     public class GameObject extends BasicObject {
 
@@ -306,7 +306,7 @@ package com.company.assembleegameclient.objects{
 			this.tempSkinId_ = _arg1;
 		}
         public function _05M_(_arg1:int):void{
-            SoundEffects.play(this.props_._6x[_arg1]);
+            UrlSoundEffects.play(this.props_._6x[_arg1]);
         }
         override public function dispose():void{
             var _local1:Object;

@@ -6,7 +6,7 @@ import _05R_.GTween;
 
 import _sp._aJ_;
 
-import Sounds.SoundEffects;
+import Sounds.UrlSoundEffects;
 
 import com.company.assembleegameclient.game.GameSprite;
 
@@ -56,7 +56,7 @@ import flash.text.TextFieldAutoSize;
 
         private function slideIn_():void {
             if(Parameters.data_.playNotifySound) {
-                SoundEffects.play("alert", 1, true, true);
+                UrlSoundEffects.play("alert", 1, true, true);
             }
             var _local1:GTween = new GTween(this, SLIDESPEED, {
                 "x": 6

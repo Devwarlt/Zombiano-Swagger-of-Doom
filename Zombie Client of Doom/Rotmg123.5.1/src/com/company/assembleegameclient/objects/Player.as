@@ -19,7 +19,7 @@ import _0K_m.LevelUpEffect;
 
 
     
-    import Sounds.SoundEffects;
+    import Sounds.UrlSoundEffects;
 import Sounds.Music;
 
 import com.company.assembleegameclient.map.Square;
@@ -280,7 +280,7 @@ public class Player extends Character {
             map_.mapOverlay_.addChild(new _O_P_(this, _arg1, 0xFF00, 2000));
         }
         public function _ut(_arg1:Boolean):void{
-            SoundEffects.play("level_up");
+            UrlSoundEffects.play("level_up");
             if (_arg1)
             {
                 this._x1("New Class Unlocked!");
@@ -884,13 +884,13 @@ public class Player extends Character {
             var _local5:int = int(_local4.MpCost);
             if (_local5 > this.abilityCooldownSec)
             {
-                SoundEffects.play("no_mana");
+                UrlSoundEffects.play("no_mana");
                 return;
             }
             var _local6:Point = map_.pSTopW(_arg1, _arg2);
             if (_local6 == null)
             {
-                SoundEffects.play("error");
+                UrlSoundEffects.play("error");
                 return;
             }
             for each (_local7 in _local4.Activate)
@@ -899,7 +899,7 @@ public class Player extends Character {
                 {
                     if (!this._M_S_(_local6.x, _local6.y))
                     {
-                        SoundEffects.play("error");
+                        UrlSoundEffects.play("error");
                         return;
                     }
                 }
@@ -911,7 +911,7 @@ public class Player extends Character {
             _local8 = getTimer();
             if (_local8 < this._0m)
             {
-                SoundEffects.play("error");
+                UrlSoundEffects.play("error");
                 return;
             }
             var _local9 = 500;
@@ -960,7 +960,7 @@ public class Player extends Character {
 			if (int(_local4.MpEndCost) <= this.MP_)
 				this._G_Y_(_local8, _local3, _local4, (Parameters.data_.cameraAngle + _local10), false);
 			else
-				SoundEffects.play("no_mana");
+				UrlSoundEffects.play("no_mana");
 		}
         public function _O_7(_arg1:Number):void{
             this.shoot(Parameters.data_.cameraAngle + _arg1);
@@ -1028,7 +1028,7 @@ public class Player extends Character {
                 _local13._T_j(_local17);
                 if ((((_local11 == 0)) && (!((_local13._P_B_ == null)))))
                 {
-                    SoundEffects.play(_local13._P_B_, 0.75, false);
+                    UrlSoundEffects.play(_local13._P_B_, 0.75, false);
                 }
                 map_.addObj(_local13, (x_ + (Math.cos(_arg4) * 0.3)), (y_ + (Math.sin(_arg4) * 0.3)));
                 map_.gs_.packetManager.playerShoot(_arg1, _local13);

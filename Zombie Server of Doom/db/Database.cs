@@ -164,12 +164,13 @@ AND characters.charId=death.chrId;";
 
             cmd = CreateQuery();
             cmd.CommandText =
-                "INSERT INTO accounts(uuid, password, name, email, guest, maxCharSlot, regTime) VALUES(@uuid, SHA1(@password), @name, @email, @guest, 1, now());";
+                "INSERT INTO accounts(uuid, password, name, email, guest, maxCharSlot, regTime, ownedSkins) VALUES(@uuid, SHA1(@password), @name, @email, @guest, 1, now(), @ownedSkins);";
             cmd.Parameters.AddWithValue("@uuid", uuid);
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@name", names[(uint)uuid.GetHashCode() % names.Length]);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@guest", isGuest);
+            cmd.Parameters.AddWithValue("@ownedSkins", String.Empty);
             int v = cmd.ExecuteNonQuery();
             bool ret = v > 0;
 

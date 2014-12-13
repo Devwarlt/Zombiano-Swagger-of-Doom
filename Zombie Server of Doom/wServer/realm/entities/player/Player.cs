@@ -170,6 +170,20 @@ namespace wServer.realm.entities
                 };
                 chr.Backpacks = 1;
             }
+            else
+            {
+                chr.Backpack1 = new ushort[8]
+                {
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff 
+                };
+            }
             if (Inventory.Length > 20)
             {
                 chr.Backpack2 = new ushort[8]
@@ -184,6 +198,20 @@ namespace wServer.realm.entities
                     Inventory[27] != null ? Inventory[27].ObjectType : (ushort)0xffff 
                 };
                 chr.Backpacks = 2;
+            }
+            else
+            {
+                chr.Backpack2 = new ushort[8]
+                {
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff,
+                    (ushort)0xffff 
+                };
             }
 
             chr.Equipment = new ushort[12]

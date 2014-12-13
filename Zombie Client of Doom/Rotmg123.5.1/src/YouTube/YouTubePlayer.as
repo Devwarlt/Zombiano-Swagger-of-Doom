@@ -5,6 +5,7 @@ package YouTube {
 import flash.display.Loader;
 import flash.display.Sprite;
 import flash.events.Event;
+import flash.net.URLRequest;
 import flash.system.LoaderContext;
 import flash.system.Security;
 import flash.utils.ByteArray;
@@ -21,9 +22,14 @@ public class YouTubePlayer extends Sprite {
     private var videoId:String;
     private var autoStart:Boolean;
 
+    public var repeat:Boolean;
+    public var endCallback:Function;
+    public var playerReady:Function;
+    public var error:Function;
+
     public function YouTubePlayer(url:String, autoStart:Boolean) {
-        Security.allowDomain("*");
-        Security.allowDomain("www.youtube.com");
+        Security.allowDomain("*", "www.youtube.com");
+        Security.allowInsecureDomain("*", "www.youtube.com");
 
         if(url.indexOf("youtube.com/watch?v=") == -1){
             throw new ArgumentError("Invalid url, the url should look like \"http://www.youtube.com/watch?v=HzI1KTZA1Ho\"");
@@ -42,12 +48,17 @@ public class YouTubePlayer extends Sprite {
         this.player.stopVideo();
     }
 
+    public function pause():void {
+        this.player.pauseVideo();
+    }
+
     private function onAddedToStage(event:Event):void {
         var context:LoaderContext = new LoaderContext(false, this.loaderInfo.applicationDomain);
         context.allowCodeImport = true;
 
         this.loader = new Loader();
-        this.loader.loadBytes((new playerBase() as ByteArray), context);
+        this.loader.load(new URLRequest("https://www.youtube.com/apiplayer?version=3"));
+        //this.loader.loadBytes((new playerBase() as ByteArray), context);
         this.loader.contentLoaderInfo.addEventListener(Event.INIT, onLoaderInit);
     }
 
@@ -57,7 +68,13 @@ public class YouTubePlayer extends Sprite {
         this.player = loader.content;
         this.player.addEventListener(YouTubePlayerEvent.READY, onPlayerReady);
         this.player.addEventListener(YouTubePlayerEvent.STATE_CHANGE, onStateChanged);
+        this.player.addEventListener(YouTubePlayerEvent.ERROR, onError);
+    }
 
+    private function onError(e:Event):void {
+        if(error != null) {
+            error();
+        }
     }
 
     private function onPlayerReady(e:Event):void{
@@ -72,23 +89,32 @@ public class YouTubePlayer extends Sprite {
         watchOnYoutubeOverlay.graphics.drawRect(700, 550, 100, 50);
         watchOnYoutubeOverlay.graphics.endFill();
         addChild(watchOnYoutubeOverlay);
+
+        if(playerReady != null) {
+            playerReady(this);
+        }
     }
 
     private function onStateChanged(e:Event):void{
         if(Object(e).data == YouTubePlayerState.ENDED || Object(e).data == YouTubePlayerState.PAUSED) {
-            play();
+            if(repeat) {
+                play();
+            }
+        }
+
+        if(!repeat && Object(e).data == YouTubePlayerState.ENDED){
+            if(endCallback != null){
+                endCallback();
+            }
         }
     }
 
     private function buildYouTubeId():void {
         var url:String = youtubeUrl.slice(youtubeUrl.indexOf("v=") + 2);
-
         while(url.lastIndexOf("&") > -1) {
              url = url.replace(url.slice(url.lastIndexOf("&")), "");
         }
-
         this.videoId = url;
-        trace(this.videoId);
     }
 }
 }
@@ -98,6 +124,8 @@ class YouTubePlayerEvent {
     public static const STATE_CHANGE:String = "onStateChange";
     public static const PLAYBACK_QUALITY_CHANGE:String = "onPlaybackQualityChange";
     public static const PLAYBACK_RATE_CHANGE:String = "onPlaybackRateChange";
+    public static const ERROR:String = "onError";
+    public static const API_CHANGE:String = "onApiChange";
 }
 
 class YouTubePlayerState {

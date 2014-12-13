@@ -137,7 +137,7 @@ import _8Q_._1l;
     
     import _qN_.Account;
     
-    import Sounds.SoundEffects;
+    import Sounds.UrlSoundEffects;
     import Sounds.Music;
     
     import _yY_._pz;
@@ -764,7 +764,7 @@ import flash.events.TimerEvent;
             var xml = ObjectLibrary.Items[_arg1.containerType_];
             if(Parameters.data_.playAllyShootSound && xml.hasOwnProperty("OldSound")) {
                 var dist:Number = Math.floor(PointUtil._bm(this.gs_.map_.player_.x_, this.gs_.map_.player_.y_, _local2.x_, _local2.y_)) - 1000;
-                SoundEffects.play(xml.OldSound, dist * (-0.001), true, true);
+                UrlSoundEffects.play(xml.OldSound, dist * (-0.001), true, true);
             }
             _local2.setAttack(_arg1.containerType_, _arg1.angle_);
         }
@@ -1404,7 +1404,7 @@ import flash.events.TimerEvent;
             }
         }
         private function _v6():void{
-            SoundEffects.play("error");
+            UrlSoundEffects.play("error");
             this.gs_._V_1._02y._e9.refresh();
 			this.gs_._V_1._02y.equips_.refresh();
             this.gs_._V_1._U_T_.redraw();

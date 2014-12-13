@@ -127,10 +127,11 @@
     <OldSound>weapon/m16a3</OldSound>
   </Object>
 
-  <Object id="Knife" ext="true">
+  <Object id="Premium Knife Carbon Fiber" ext="true">
     <DisplayId>Carbon Fiber</DisplayId>
     <Class>Equipment</Class>
     <Item />
+    <Premium />
     <CraftingItem />
     <Texture>
       <File>weapons40x40</File>
@@ -151,7 +152,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
-    <OldSound>weapon/mtar21</OldSound>
+    <OldSound></OldSound>
   </Object>
   
   <Object id="SCARH Crafting Book" ext="true">
