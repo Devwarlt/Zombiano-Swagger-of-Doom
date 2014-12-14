@@ -19,7 +19,8 @@ import com.company.assembleegameclient.appengine.SavedCharacter;
     import com.company.rotmg.graphics.FullCharBoxGraphic;
     import com.company.rotmg.graphics.LockedCharBoxGraphic;
     import com.company.rotmg.graphics.ranks.AdminRank;
-    import com.company.ui.SimpleText;
+import com.company.rotmg.graphics.ranks.premiumRank;
+import com.company.ui.SimpleText;
     import com.company.util.AssetLibrary;
     
     import flash.display.Bitmap;
@@ -59,6 +60,7 @@ import flash.display.Sprite;
 		public var curSpinPos:int = 0;
 		public var spinFramesElapsed:int = 0;
 		public var selectedOver:Boolean = false;
+        public var yBase:Number;
 
         public function CharacterBox(_arg1:XML, _arg2:_0A_H_, _arg3:_0K_R_){
             super();
@@ -74,6 +76,7 @@ import flash.display.Sprite;
                 this._87 = new FullCharBoxGraphic();
             }
             addChild(this._87);
+
             this.bitmap_ = new Bitmap(null);
             this.setImage(_lJ_.DOWN, _lJ_._sS_, 0);
             addChild(this.bitmap_);
@@ -102,7 +105,19 @@ import flash.display.Sprite;
             {
                 this.classNameText_.y = 75 - this.classNameText_.textHeight / 2;
             }
+
+            if(_arg1.hasOwnProperty("PremiumSkin")) {
+                var premiumIcon:DisplayObject = new premiumRank();
+                premiumIcon.x = width - premiumIcon.width - 5;
+                premiumIcon.y = 8;
+                addChild(premiumIcon);
+            }
         }
+
+        public function setY(_arg1:Number):void {
+            y = yBase + _arg1;
+        }
+
         public function skinType():int{
             return (int(this.skinXml_.@type));
         }

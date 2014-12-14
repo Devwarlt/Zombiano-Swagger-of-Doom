@@ -1258,8 +1258,8 @@ import flash.events.TimerEvent;
                     case StatData._dR_:
                         (_arg1 as Player)._n8 = _local4._h;
                         break;
-                    case StatData._095:
-                        (_arg1 as Player)._2v = _local4._h;
+                    case StatData.PREMIUM:
+                        (_arg1 as Player).premium = _local4._h != 0;
                         break;
                     case StatData._hi:
                         if (!_arg3)
@@ -1382,7 +1382,7 @@ import flash.events.TimerEvent;
                 }
             }
             if (!Parameters.data_.hidePlayerChat) {
-            	this.gs_.textBox_._ro(_arg1.name_, _arg1.objectId_, _arg1.numStars_, _arg1.recipient_, _local2);
+            	this.gs_.textBox_._ro(_arg1.name_, _arg1.objectId_, _arg1.numStars_, _arg1.recipient_, _local2, _arg1.premium);
 			}
         }
         private function nameCheck(_arg1:String, _arg2:Player):Boolean{

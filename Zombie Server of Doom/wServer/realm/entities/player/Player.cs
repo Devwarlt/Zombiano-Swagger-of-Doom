@@ -48,7 +48,7 @@ namespace wServer.realm.entities
         public int Texture1 { get; set; }
         public int Texture2 { get; set; }
 
-        public bool Glowing { get; set; }
+        public bool Premium { get; set; }
         public int Hunger { get; set; }
 
         public int[] SlotTypes { get; private set; }
@@ -79,7 +79,7 @@ namespace wServer.realm.entities
             stats[StatsType.Texture1] = Texture1;
             stats[StatsType.Texture2] = Texture2;
 
-            stats[StatsType.Glowing] = -1;
+            stats[StatsType.Premium] = Premium ? 1 : 0;
             stats[StatsType.HP] = HP;
             stats[StatsType.MP] = Hunger;
 
@@ -296,7 +296,7 @@ namespace wServer.realm.entities
             CurrentFame = client.Account.Stats.Fame;
             Kills = client.Account.Kills;
             EnemyKilled(null);
-            Glowing = true;
+            Premium = client.Account.Premium;
             Guild = "";
             GuildRank = -1;
             HP = client.Character.HitPoints;

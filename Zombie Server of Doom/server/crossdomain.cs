@@ -6,7 +6,8 @@ namespace server
     {
         protected override void HandleRequest()
         {
-            byte[] status = Encoding.UTF8.GetBytes(@"<cross-domain-policy>
+            byte[] status = Encoding.UTF8.GetBytes(
+@"<cross-domain-policy>
 <allow-access-from domain=""*""/>
 </cross-domain-policy>");
             Context.Response.ContentType = "text/x-cross-domain-policy";

@@ -77,7 +77,7 @@ namespace wServer.realm
         NameChosen = 56,
         Fame = 57,
         FameGoal = 58,
-        Glowing = 59,
+        Premium = 59,
         SinkOffset = 60,
         AltTextureIndex = 61,
         Guild = 62,

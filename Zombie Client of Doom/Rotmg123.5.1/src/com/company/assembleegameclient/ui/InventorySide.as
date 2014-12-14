@@ -8,19 +8,23 @@ package com.company.assembleegameclient.ui{
 	import com.company.assembleegameclient.objects.Player;
 	import com.company.assembleegameclient.parameters.Parameters;
 	import com.company.googleanalytics.GA;
-	import com.company.ui.SimpleText;
+import com.company.rotmg.graphics.ranks.premiumRank;
+import com.company.ui.SimpleText;
 	import com.company.util.AssetLibrary;
 	
 	import flash.display.Bitmap;
-	import flash.display.Sprite;
+import flash.display.DisplayObject;
+import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.filters.DropShadowFilter;
 	
 	import OptionsStuff.Options;
-	
-	public class InventorySide extends Sprite {
+
+import flash.filters.GlowFilter;
+
+public class InventorySide extends Sprite {
 		
 		private var gs_:GameSprite;
 		private var go_:Player;
@@ -62,10 +66,20 @@ package com.company.assembleegameclient.ui{
 			this._tm.x = -2;
 			this._tm.y = -10;
 			addChild(this._tm);
-			this.nameText_ = new SimpleText(20, 0xB3B3B3, false, 0, 0, "Myriad Pro");
+			this.nameText_ = new SimpleText(_arg2.premium ? 16 : 20, 0xB3B3B3, false, 0, 0, "Myriad Pro");
 			this.nameText_.boldText(true);
-			this.nameText_.x = 36;
-			this.nameText_.y = -2;
+			var premiumIcon:DisplayObject;
+			if(_arg2.premium) {
+				premiumIcon = new premiumRank();
+				premiumIcon.x = 35;
+				premiumIcon.y = 1;
+				premiumIcon.scaleX -= 0.02;
+				premiumIcon.scaleY -= 0.02;
+				addChild(premiumIcon);
+			}
+
+			this.nameText_.x = _arg2.premium ? (37 + premiumIcon.width) : 36;
+			this.nameText_.y = _arg2.premium ?  1 : -2;
 			if (this.gs_.charList_.name_ == null)
 			{
 				this.nameText_.text = this.go_.name_;
@@ -76,6 +90,7 @@ package com.company.assembleegameclient.ui{
             this.nameText_.updateMetrics();
 			this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];
 			addChild(this.nameText_);
+
 			if (this.gs_.packetManager.gameId_ != Parameters.NEXUS_ID)
 			{
 				this._nw = new _rN_(AssetLibrary._xK_("lofiInterfaceBig", 6), "Nexus", "escapeToNexus");

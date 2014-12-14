@@ -10,6 +10,7 @@ namespace wServer.networking.svrPackets
         public string Recipient { get; set; }
         public string Text { get; set; }
         public string CleanText { get; set; }
+        public bool Premium { get; set; }
 
         public override PacketID ID { get { return PacketID.Text; } }
         public override Packet CreateInstance() { return new TextPacket(); }
@@ -23,6 +24,7 @@ namespace wServer.networking.svrPackets
             Recipient = rdr.ReadUTF();
             Text = rdr.ReadUTF();
             CleanText = rdr.ReadUTF();
+            Premium = rdr.ReadBoolean();
         }
         protected override void Write(NWriter wtr)
         {
@@ -33,6 +35,7 @@ namespace wServer.networking.svrPackets
             wtr.WriteUTF(Recipient);
             wtr.WriteUTF(Text);
             wtr.WriteUTF(CleanText);
+            wtr.Write(Premium);
         }
     }
 }

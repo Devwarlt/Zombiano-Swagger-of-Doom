@@ -141,6 +141,7 @@ AND characters.charId=death.chrId;";
                     Name = rdr.GetString("name"),
                     AccountId = rdr.GetInt32("id"),
                     Kills = rdr.GetInt32("kills"),
+                    Premium = rdr.GetInt32("premium") != 0,
                     Admin = rdr.GetBoolean("admin"),
                     _OwnedSkins = rdr.GetString("ownedSkins"),
                     BeginnerPackageTimeLeft = 0,
@@ -217,6 +218,8 @@ AND characters.charId=death.chrId;";
                     Name = rdr.GetString("name"),
                     AccountId = rdr.GetInt32("id"),
                     Admin = rdr.GetBoolean("admin"),
+                    Kills = rdr.GetInt32("kills"),
+                    Premium = rdr.GetInt32("premium") != 0,
                     _OwnedSkins = rdr.GetString("ownedSkins"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
@@ -294,30 +297,7 @@ SELECT fame FROM stats WHERE accId=@accId;";
                     };
                 }
             }
-
-            acc.Stats.ClassStates = ReadClassStates(acc);
-            if (acc.Stats.ClassStates.Count > 0)
-                acc.Stats.BestCharFame = acc.Stats.ClassStates.Max(_ => _.BestFame);
             acc.Vault = ReadVault(acc);
-        }
-
-        public List<ClassStats> ReadClassStates(Account acc)
-        {
-            var cmd = CreateQuery();
-            cmd.CommandText = "SELECT objType, bestLv, bestFame FROM classstats WHERE accId=@accId;";
-            cmd.Parameters.AddWithValue("@accId", acc.AccountId);
-            List<ClassStats> ret = new List<ClassStats>();
-            using (var rdr = cmd.ExecuteReader())
-            {
-                while (rdr.Read())
-                    ret.Add(new ClassStats()
-                    {
-                        ObjectType = rdr.GetInt32("objType"),
-                        BestFame = rdr.GetInt32("bestFame"),
-                        BestLevel = rdr.GetInt32("bestLv")
-                    });
-            }
-            return ret;
         }
 
         public VaultData ReadVault(Account acc)

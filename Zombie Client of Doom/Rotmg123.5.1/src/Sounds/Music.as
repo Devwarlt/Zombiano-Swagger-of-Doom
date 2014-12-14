@@ -36,7 +36,7 @@ package Sounds{
 			GA.global().trackEvent("sound", ((_arg1) ? "musicOn" : "musicOff"));
 			Parameters.data_.playMusic = _arg1;
 			Parameters.save();
-			currentSoundChannel.soundTransform = new SoundTransform(((Parameters.data_.playMusic) ? 0.65 : 0));
+			currentSoundChannel.soundTransform = new SoundTransform(((Parameters.data_.playMusic) ? Parameters.data_.musicVolume : 0));
 		}
 		
 		public static function randomMenu():String{

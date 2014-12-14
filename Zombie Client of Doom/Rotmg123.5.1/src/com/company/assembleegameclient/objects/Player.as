@@ -85,7 +85,7 @@ public class Player extends Character {
         public var _hv:Boolean = false;
         public var kills:int = 0;
         public var _n8:int = -1;
-        public var _2v:int = -1;
+        public var premium:Boolean = false;
         public var guildName_:String = null;
         public var guildRank_:int = -1;
         public var _N_n:Boolean = false;
@@ -805,7 +805,8 @@ public class Player extends Character {
             var _local9:BitmapData = _qm[_local8];
             if (_local9 == null)
             {
-                _local9 = TextureRedrawer.outlineGlow(_local8, 0, (((this._2v == -1)) ? 0 : 0xFF00FF));
+                //_local9 = TextureRedrawer.outlineGlow(_local8, 0, (((this.premium == -1)) ? 0 : 0xFF00FF)); //With Glowing
+                _local9 = TextureRedrawer.outlineGlow(_local8, 0, 0);
                 _qm[_local8] = _local9;
             }
             if (((isPaused()) || (_C_H_())))

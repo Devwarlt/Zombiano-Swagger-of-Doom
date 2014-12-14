@@ -82,14 +82,14 @@ package com.company.assembleegameclient.ui{
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }
         public function addText(_arg1:String, _arg2:String):void{
-            var _local3:_0A_t = new _0A_t(getTimer(), _arg1, -1, -1, "", false, _arg2);
+            var _local3:_0A_t = new _0A_t(getTimer(), _arg1, -1, -1, "", false, _arg2, false);
             _dL_.push(_local3);
             this._x5();
         }
-        public function _ro(_arg1:String, _arg2:int, _arg3:int, _arg4:String, _arg5:String):void{
+        public function _ro(_arg1:String, _arg2:int, _arg3:int, _arg4:String, _arg5:String, premium:Boolean = false):void{
             var _local6:Boolean = ((!((_arg4 == ""))) && ((_arg1 == this.gs_.charList_.name_)));
             var _local7 = (_arg4 == this.gs_.charList_.name_);
-            var _local8:_0A_t = new _0A_t(getTimer(), _arg1, _arg2, _arg3, _arg4, _local7, _arg5);
+            var _local8:_0A_t = new _0A_t(getTimer(), _arg1, _arg2, _arg3, _arg4, _local7, _arg5, premium);
             _dL_.push(_local8);
             this._x5();
             if (_local7)

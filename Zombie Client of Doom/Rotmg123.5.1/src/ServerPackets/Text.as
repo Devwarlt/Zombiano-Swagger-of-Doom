@@ -15,6 +15,7 @@ package ServerPackets{
         public var recipient_:String;
         public var text_:String;
         public var cleanText_:String;
+        public var premium:Boolean;
 
         public function Text(_arg1:uint){
             this.name_ = String("");
@@ -30,9 +31,10 @@ package ServerPackets{
             this.recipient_ = _arg1.readUTF();
             this.text_ = _arg1.readUTF();
             this.cleanText_ = _arg1.readUTF();
+            this.premium = _arg1.readBoolean();
         }
         override public function toString():String{
-            return (formatToString("TEXT", "name_", "objectId_", "numStars_", "bubbleTime_", "recipient_", "text_", "cleanText_"));
+            return (formatToString("TEXT", "name_", "objectId_", "numStars_", "bubbleTime_", "recipient_", "text_", "cleanText_", "premium"));
         }
 
     }

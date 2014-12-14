@@ -64,19 +64,22 @@ public class WebMain extends Sprite {
         stage.scaleMode = StageScaleMode.EXACT_FIT;
 
         yt = new YouTubePlayer("https://www.youtube.com/watch?v=daguDOE4Yd8&feature=youtu.be", true);
-        stage.addEventListener(KeyboardEvent.KEY_DOWN, function(event:KeyboardEvent) {
-            if(event.keyCode == _H_V_.ESCAPE) {
-                yt.stop();
-            }
-        });
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
         yt.endCallback = setup;
         yt.error = setup;
         yt.repeat = false;
         addChild(yt);
     }
 
+    private function onKeyDown(event:KeyboardEvent):void {
+        if(event.keyCode == _H_V_.ESCAPE) {
+            yt.stop();
+        }
+    }
+
     private function setup():void{
         removeChild(yt);
+        stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
         var _local1:_D_c = this.context._O_R_.getInstance(_D_c);
         _local1.dispatch();
         this._06p();

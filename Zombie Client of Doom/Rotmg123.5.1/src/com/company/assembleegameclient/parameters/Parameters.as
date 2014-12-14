@@ -208,6 +208,7 @@ import flash.display.DisplayObject;
 			_iw("rotationSpeed", 0.003);
             _iw("confirmCraftingBox", true);
             _iw("playAllyShootSound", true);
+            _iw("musicVolume", 1);
             if (!data_.hasOwnProperty("needsSurvey"))
             {
                 data_.needsSurvey = data_.needsTutorial;

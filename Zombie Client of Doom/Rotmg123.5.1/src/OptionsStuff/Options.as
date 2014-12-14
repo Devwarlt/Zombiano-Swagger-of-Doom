@@ -309,7 +309,7 @@ public class Options extends Sprite {
     }
     private function _Y_V_():void{
         this.registerOption(new SwitchOption("playMusic", new <String>["On", "Off"], [true, false], "Play Music", "This toggles whether music is played", this._05z));
-        this.registerOption(new Sprite());
+        this.registerOption(new SliderOption("musicVolume", "Music Volume", "This is the volume from the in game music.", this._05z));
         this.registerOption(new SwitchOption("playSFX", new <String>["On", "Off"], [true, false], "Play Sound Effects", "This toggles whether sound effects are played", this._super));
         this.registerOption(new Sprite());
         this.registerOption(new SwitchOption("playPewPew", new <String>["On", "Off"], [true, false], "Play Weapon Sounds", "This toggles whether weapon sounds are played", null));
