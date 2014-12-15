@@ -24,7 +24,9 @@ public class _sc extends Panel {
 
     public function _sc(_arg1:GameSprite, _arg2:Container) {
         super(_arg1);
-        LocalSoundEffects.play(LocalSounds.openChest);
+        if(_arg2.objectType_ == 0x0504 || _arg2.objectType_ == 0x0501) {
+            LocalSoundEffects.play(LocalSounds.openChest);
+        }
         this.inventory = new Inventory(gs_, _arg2, _arg2._include(), _hP_, 8, false);
         this.inventory.x = 8;
         addChild(this.inventory);
@@ -36,7 +38,9 @@ public class _sc extends Panel {
     }
 
     private function onRemovedFromStage(event:Event):void {
-        LocalSoundEffects.play(LocalSounds.closeChest);
+        if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
+            LocalSoundEffects.play(LocalSounds.closeChest);
+        }
     }
 }
 }//package Panels

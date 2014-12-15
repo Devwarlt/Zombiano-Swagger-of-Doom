@@ -81,8 +81,17 @@ package com.company.assembleegameclient.appengine{
             this.nextCharSlotPrice_ = int(_arg1.NextCharSlotPrice);
             this.rank = int(_arg1.Rank);
 
-            var skins = String(_arg1.OwnedSkins).replace(" ", "");
-            this.ownedSkins.push(skins.indexOf(',') == -1 ? int(skins) : [](skins.split(',')));
+            var skins:String = String(_arg1.OwnedSkins).replace(" ", "");
+            if(skins.indexOf(',') == -1) {
+                this.ownedSkins.push(int(skins));
+            }
+            else {
+                var sks:Array = (skins.split(','));
+
+                for each (var skin:String in sks) {
+                    this.ownedSkins.push(int(skin));
+                }
+            }
             Account._get().admin_ = (this.rank == 13);
         }
         private function _t6(_arg1:XML):void{

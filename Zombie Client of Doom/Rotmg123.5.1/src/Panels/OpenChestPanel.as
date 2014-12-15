@@ -38,7 +38,9 @@ public class OpenChestPanel extends SimpleButtonPanel {
                 addChild(this.inventory);
                 super.removeChild(super.button);
                 super.removeChild(super.text);
-                LocalSoundEffects.play(LocalSounds.openChest);
+                if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
+                    LocalSoundEffects.play(LocalSounds.openChest);
+                }
             }
         }
     }
@@ -48,6 +50,10 @@ public class OpenChestPanel extends SimpleButtonPanel {
             addChild(this.inventory);
             super.removeChild(super.button);
             super.removeChild(super.text);
+
+            if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
+                LocalSoundEffects.play(LocalSounds.openChest);
+            }
         }
     }
 
@@ -56,7 +62,9 @@ public class OpenChestPanel extends SimpleButtonPanel {
     }
 
     protected function onRemove(param1:Event):void {
-        LocalSoundEffects.play(LocalSounds.closeChest);
+        if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
+            LocalSoundEffects.play(LocalSounds.closeChest);
+        }
         stage.removeEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
     }
 

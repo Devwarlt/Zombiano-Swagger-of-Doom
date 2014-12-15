@@ -24,7 +24,8 @@ namespace wServer.realm
                 BubbleTime = 5,
                 Recipient = "",
                 Text = text,
-                CleanText = text
+                CleanText = text,
+                Premium = src.Premium
             }, null);
             log.InfoFormat("[{0}({1})] <{2}> {3}", src.Owner.Name, src.Owner.Id, src.Name, text);
         }

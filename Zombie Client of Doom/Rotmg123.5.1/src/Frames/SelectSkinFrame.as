@@ -99,7 +99,28 @@ public class SelectSkinFrame extends Sprite {
         skinInfo.y = 100;
         addChild(skinInfo);
 
+        var normalSkins:Vector.<XML> = new Vector.<XML>();
+        var premiumSkins:Vector.<XML> = new Vector.<XML>();
+
         for each(var skinXml:XML in ObjectLibrary.skins) {
+            if(skinXml.hasOwnProperty("PremiumSkin")) {
+                premiumSkins.push(skinXml);
+            }
+            else {
+                normalSkins.push(skinXml);
+            }
+        }
+
+        for each(var skinXml:XML in normalSkins) {
+            var skinRect = new SkinRect(skinXml, this, this.gs_.charList_.ownedSkins.indexOf(int(skinXml.@type)) > -1, this.gs_.map_.player_.skinId_ == int(skinXml.@type), h);
+            skinRect.x = 10;
+            skinRect.addEventListener(MouseEvent.CLICK, this.onRectClick);
+            skinsSprite.addChild(skinRect);
+            rects.push(skinRect);
+            h += SkinRect.HEIGHT + 2;
+        }
+
+        for each(var skinXml:XML in premiumSkins) {
             var skinRect = new SkinRect(skinXml, this, this.gs_.charList_.ownedSkins.indexOf(int(skinXml.@type)) > -1, this.gs_.map_.player_.skinId_ == int(skinXml.@type), h);
             skinRect.x = 10;
             skinRect.addEventListener(MouseEvent.CLICK, this.onRectClick);
@@ -143,11 +164,13 @@ import com.company.assembleegameclient.ui._return;
 import com.company.assembleegameclient.ui.boxButton;
 import com.company.assembleegameclient.util.RankUtils;
 import com.company.assembleegameclient.util.TextureRedrawer;
+import com.company.rotmg.graphics.ranks.premiumRank;
 import com.company.ui.SimpleText;
 import com.company.util.GraphicHelper;
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
+import flash.display.DisplayObject;
 import flash.display.GraphicsPath;
 import flash.display.GraphicsSolidFill;
 import flash.display.IGraphicsData;
@@ -168,6 +191,7 @@ class SkinRect extends Sprite {
     private var yBase:Number;
     private var background:Sprite;
     private var _selected:Boolean;
+    private var _premiumIcon:DisplayObject;
 
     public var xml:XML;
     public var icon:_Z_H_;
@@ -220,6 +244,15 @@ class SkinRect extends Sprite {
         skinName.updateMetrics();
         addChild(skinName);
 
+        if(_arg1.hasOwnProperty("PremiumSkin")) {
+            this._premiumIcon = new premiumRank();
+            this._premiumIcon.scaleX = this._premiumIcon.scaleY += 0.1;
+            this._premiumIcon.x = (WIDTH - this._premiumIcon.width - 20);
+            this._premiumIcon.y = (HEIGHT / 2) - (this._premiumIcon.height / 2);
+            this._premiumIcon.filters = [new GlowFilter(0xFFD700)];
+            addChild(this._premiumIcon);
+        }
+
         this.addEventListener(MouseEvent.ROLL_OVER, this.onRollOver);
         this.addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
     }
@@ -271,6 +304,7 @@ class SkinInfoScreen extends Sprite {
     private var specialText:SimpleText;
     private var gs_:GameSprite;
     private var selectBtn:boxButton;
+    private var premiumIcon:DisplayObject;
 
     public var parentSkinRect:SkinRect;
 
@@ -289,7 +323,7 @@ class SkinInfoScreen extends Sprite {
 
         this.filters = [new DropShadowFilter()];
 
-        var bmp = new Bitmap(_arg1.bitMapData);
+        var bmp:Bitmap = new Bitmap(_arg1.bitMapData);
         bmp.filters = [new DropShadowFilter()];//[new GlowFilter(0x000000, 1.0, 20, 20, 2)];
         addChild(bmp);
 
@@ -301,6 +335,15 @@ class SkinInfoScreen extends Sprite {
         this.skinName.updateMetrics();
         this.addChild(skinName);
         var h = (this.skinName.y + this.skinName.textHeight + 10);
+
+        if(_arg1.xml.hasOwnProperty("PremiumSkin")) {
+            this.premiumIcon = new premiumRank();
+            this.premiumIcon.scaleX = this.premiumIcon.scaleY += 0.2;
+            this.premiumIcon.x = (WIDTH - this.premiumIcon.width - 10);
+            this.premiumIcon.y = this.premiumIcon.height - 35;
+            this.premiumIcon.filters = [new GlowFilter(0xFFD700)];
+            addChild(this.premiumIcon);
+        }
 
         this.specialText = new SimpleText(16, 0xB3B3B3, false, 174, 0, "Myriad Pro");
         this.specialText.boldText(true);
@@ -327,7 +370,7 @@ class SkinInfoScreen extends Sprite {
         }
         this.specialText.text = text.slice(0, text.lastIndexOf("\n"));
         this.specialText.updateMetrics();
-        this.specialText.filters = [new DropShadowFilter(0, 0, 0)];
+        this.specialText.filters = [new DropShadowFilter(0, 0, 0, 1.0, 6.0, 6.0, 2.0)];
         this.specialText.x = 8;
         this.specialText.y = h;
         addChild(this.specialText);
@@ -378,10 +421,11 @@ class SkinInfoScreen extends Sprite {
         this.unlockText.filters = [new DropShadowFilter(0, 0, 0)];
         this.unlockText.x = 16;
         this.unlockText.y = h;
+        this.unlockText.filters = [new DropShadowFilter(0, 0, 0, 1.0, 6.0, 6.0, 2.0)];
         addChild(this.unlockText);
         h = (this.unlockText.y + this.unlockText.textHeight + 10);
 
-        if(_arg1.hasOwnProperty("ThanksTo")) {
+        if(_arg1.xml.hasOwnProperty("ThanksTo")) {
             this.spacer2 = new _return(100, 0x310800);
             this.spacer2.x = 6;
             this.spacer2.y = h;
@@ -393,9 +437,10 @@ class SkinInfoScreen extends Sprite {
             this.thanksToText.wordWrap = true;
             this.thanksToText.multiline = true;
             this.thanksToText.text = "Special thanks to:";
-            this.thanksToText.x = 110;
+            this.thanksToText.x = 10;
             this.thanksToText.y = h;
             this.thanksToText.updateMetrics();
+            this.thanksToText.filters = [new DropShadowFilter(0, 0, 0, 1.0, 6.0, 6.0, 2.0)];
             addChild(this.thanksToText);
             h = (this.thanksToText.y + this.thanksToText.textHeight + 10);
 
@@ -406,6 +451,7 @@ class SkinInfoScreen extends Sprite {
             this.thanksToText.text = _arg1.xml.ThanksTo;
             this.thanksToText.x = 16;
             this.thanksToText.y = h;
+            this.thanksToText.filters = [new DropShadowFilter(0, 0, 0, 1.0, 6.0, 6.0, 2.0)];
             this.thanksToText.updateMetrics();
             addChild(this.thanksToText);
         }

@@ -61,7 +61,7 @@ package _F_1{
             addChild(new _R_f());
             this._qR_ = new _H_o("play", 36, true);
             this._p6 = new _H_o("main", 22, false);
-            this._0G_N_ = new _H_o("classes", 22, false);
+            this._0G_N_ = new _H_o("skins", 22, false);
             super(CurrentCharacterScreen);
             this._n7 = new _aJ_();
             this.newCharacter = new _aJ_();

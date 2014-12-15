@@ -14,6 +14,7 @@
       <InGameReward>Defeat a zombie horde.</InGameReward>
     </Unlock>
     <PremiumSkin />
+    <ThanksTo>Liinkii</ThanksTo>
     <DisplayId>Police Officer</DisplayId>
   </Object>
   <Object type="0x0343" id="FGT">
