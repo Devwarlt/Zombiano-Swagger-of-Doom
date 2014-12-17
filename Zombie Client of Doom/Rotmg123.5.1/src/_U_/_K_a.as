@@ -4,7 +4,10 @@
 //_U_._K_a
 
 package _U_{
-    import _0_p._v;
+import AccountManagement.AccountEventDispatcher;
+import AccountManagement.AccountManagementScreen;
+
+import _0_p._v;
     import _eZ_._08b;
     import _0I_9._0J_r;
     import _A_G_._v1;
@@ -87,6 +90,7 @@ package _U_{
             this.mediatorMap.map(CurrentCharacterScreen)._Y_u(_xF_);
             this.mediatorMap.map(_05p)._Y_u(_V_M_);
             this.mediatorMap.map(_C_Q_)._Y_u(__for);
+            this.mediatorMap.map(AccountManagementScreen)._Y_u(AccountEventDispatcher);
             this.mediatorMap.map(_3V_)._Y_u(_fy);
             this.mediatorMap.map(_0H_2)._Y_u(_2H_);
             this.mediatorMap.map(_hj)._Y_u(_0D_L_);

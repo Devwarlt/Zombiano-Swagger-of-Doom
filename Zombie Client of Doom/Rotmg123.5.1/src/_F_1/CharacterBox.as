@@ -56,9 +56,7 @@ import flash.display.Sprite;
         public var _6S_:int = -2147483648;
         public var _P_:int;
         public var _N_K_:int;
-		
-		public var curSpinPos:int = 0;
-		public var spinFramesElapsed:int = 0;
+
 		public var selectedOver:Boolean = false;
         public var yBase:Number;
 
@@ -148,37 +146,6 @@ import flash.display.Sprite;
             dispatchEvent(new Event(DELETE_CHAR));
             _arg1.stopPropagation();
         }
-		public function tryUpdateSpin():void{
-			if (!selectedOver) {
-				this.setImage(_lJ_.DOWN, _lJ_._sS_, 0);
-				spinFramesElapsed = 0;
-				curSpinPos = 0;
-			} else {
-				spinFramesElapsed++;
-				if (spinFramesElapsed % 20 == 0) {
-					spinFramesElapsed = 0;
-					curSpinPos++;
-					
-					if (curSpinPos == 4) {
-						curSpinPos = 0;
-					}
-					switch (curSpinPos) {
-						case 0:
-							this.setImage(_lJ_.DOWN, _lJ_._sS_, 0);
-							break;
-						case 1:
-							this.setImage(_lJ_.LEFT, _lJ_._sS_, 0);
-							break;
-						case 2:
-							this.setImage(_lJ_.UP, _lJ_._sS_, 0);
-							break;
-						case 3:
-							this.setImage(_lJ_.RIGHT, _lJ_._sS_, 0);
-							break;
-					}
-				}
-			}
-		}
         private function onEnterFrame(_arg1:Event):void{
             var _local3:Number;
             var _local2:int = getTimer();

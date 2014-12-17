@@ -888,13 +888,9 @@
 
   <Object id="Reskin Vendor" ext="true">
     <Class>ReskinVendor</Class>
-    <!--<Texture>
+    <Texture>
       <File>lofiObj3</File>
       <Index>0x9</Index>
-    </Texture>-->
-    <Texture>
-      <File>anna</File>
-      <Index>0x0</Index>
     </Texture>
     <Static />
     <OccupySquare />

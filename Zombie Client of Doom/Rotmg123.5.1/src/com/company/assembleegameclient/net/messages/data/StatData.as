@@ -63,7 +63,7 @@ package com.company.assembleegameclient.net.messages.data{
         public static const _0E_c:int = 54;
         public static const _4z:int = 55;
         public static const _m0:int = 56;
-        public static const _03k:int = 57;
+        public static const KILLS:int = 57;
         public static const _dR_:int = 58;
         public static const PREMIUM:int = 59;
         public static const _hi:int = 60;

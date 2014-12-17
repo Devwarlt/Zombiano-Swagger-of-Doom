@@ -4,18 +4,18 @@
 //_zD_.__for
 
 package _zD_{
-import _0G_l._in;
+import AccountManagement.AccountManagementScreen;
 
 import _0_j._kW_;
 
 import _C__._cM_;
-    import _F_1._C_Q_;
-    import _W_D_._0I_H_;
-    import _U_5._dd;
-    import _05Z_._08i;
-    import _ke._0M_1;
-    import _0L_C_.DialogBox;
-    import _04w._07V_;
+import _F_1._C_Q_;
+import _W_D_._0I_H_;
+import _U_5._dd;
+import _05Z_._08i;
+import _ke._0M_1;
+import _0L_C_.DialogBox;
+import _04w._07V_;
 
 import _qN_.Account;
 
@@ -114,8 +114,13 @@ import com.company.assembleegameclient.parameters.Parameters;
         private function _0B_M_():void{
             this._T__.dispatch(new _01_());
         }
-        private function _0A_3():void{
-            this.view._0j();
+        private function _0A_3():void {
+            if (Parameters.isTesting) {
+                this._T__.dispatch(new AccountManagementScreen(this._eJ_._T_1));
+            }
+            else {
+                this.view._0j();
+            }
         }
         private function _N_E_():void{
             this._T__.dispatch(new _3V_());

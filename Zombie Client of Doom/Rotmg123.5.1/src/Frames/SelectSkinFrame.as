@@ -86,7 +86,7 @@ public class SelectSkinFrame extends Sprite {
 
         var noSkinXml:XML = <Object type="-1" id="No Skin" />;
 
-        var noSkinRect = new SkinRect(noSkinXml, this, true, this.gs_.map_.player_.skinId_ == -1, h);
+        var noSkinRect:SkinRect = new SkinRect(noSkinXml, this, true, this.gs_.map_.player_.skinId_ == -1, h);
         noSkinRect.filters = [new GlowFilter(0xFFF700)];
         noSkinRect.x = 10;
         noSkinRect.addEventListener(MouseEvent.CLICK, this.onRectClick);
@@ -111,8 +111,8 @@ public class SelectSkinFrame extends Sprite {
             }
         }
 
-        for each(var skinXml:XML in normalSkins) {
-            var skinRect = new SkinRect(skinXml, this, this.gs_.charList_.ownedSkins.indexOf(int(skinXml.@type)) > -1, this.gs_.map_.player_.skinId_ == int(skinXml.@type), h);
+        for each(skinXml in normalSkins) {
+            var skinRect:SkinRect = new SkinRect(skinXml, this, this.gs_.charList_.ownedSkins.indexOf(int(skinXml.@type)) > -1, this.gs_.map_.player_.skinId_ == int(skinXml.@type), h);
             skinRect.x = 10;
             skinRect.addEventListener(MouseEvent.CLICK, this.onRectClick);
             skinsSprite.addChild(skinRect);
@@ -120,8 +120,8 @@ public class SelectSkinFrame extends Sprite {
             h += SkinRect.HEIGHT + 2;
         }
 
-        for each(var skinXml:XML in premiumSkins) {
-            var skinRect = new SkinRect(skinXml, this, this.gs_.charList_.ownedSkins.indexOf(int(skinXml.@type)) > -1, this.gs_.map_.player_.skinId_ == int(skinXml.@type), h);
+        for each(skinXml in premiumSkins) {
+            skinRect = new SkinRect(skinXml, this, this.gs_.charList_.ownedSkins.indexOf(int(skinXml.@type)) > -1, this.gs_.map_.player_.skinId_ == int(skinXml.@type), h);
             skinRect.x = 10;
             skinRect.addEventListener(MouseEvent.CLICK, this.onRectClick);
             skinsSprite.addChild(skinRect);

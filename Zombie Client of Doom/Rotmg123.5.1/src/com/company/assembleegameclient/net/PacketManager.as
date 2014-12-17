@@ -1252,7 +1252,7 @@ import flash.events.TimerEvent;
                         (_arg1 as Player)._hv = !((_local4._h == 0));
                         _arg1._U_g = null;
                         break;
-                    case StatData._03k:
+                    case StatData.KILLS:
                         (_arg1 as Player).kills = _local4._h;
                         break;
                     case StatData._dR_:
