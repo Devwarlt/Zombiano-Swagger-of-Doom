@@ -117,6 +117,35 @@ public class Account
     public Stats Stats { get; set; }
     public Guild Guild { get; set; }
 
+    [XmlArray("News")]
+    [XmlArrayItem("Item")]
+    public List<NewsItem> News
+    {
+        get
+        {
+            return new List<NewsItem>
+            {
+                new NewsItem
+                {
+                    Date = 1000000,
+                    Icon = "fame",
+                    Link = "urcool",
+                    TagLine = ":D",
+                    Title = ":3"
+                },
+                new NewsItem
+                {
+                    Date = 100000,
+                    Icon = "icon",
+                    Link = "penis",
+                    TagLine = "der atom",
+                    Title = ":DDDDDDD"
+                }
+            };
+        }
+        set { }
+    }
+
 
     [XmlNamespaceDeclarations]
     public XmlSerializerNamespaces Namespaces

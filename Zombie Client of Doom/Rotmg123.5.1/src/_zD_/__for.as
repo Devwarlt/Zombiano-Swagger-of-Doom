@@ -42,6 +42,9 @@ import com.company.assembleegameclient.parameters.Parameters;
         override public function initialize():void{
             this.view._ft.add(this._F_A_);
             this.view.initialize(this._eJ_._T_1);
+            if(AccountManagementScreen.openNext) {
+                this._F_A_(_0M_1.ACCOUNT);
+            }
         }
         override public function destroy():void{
             this.view._ft.remove(this._F_A_);
@@ -116,7 +119,7 @@ import com.company.assembleegameclient.parameters.Parameters;
         }
         private function _0A_3():void {
             if (Parameters.isTesting) {
-                this._T__.dispatch(new AccountManagementScreen(this._eJ_._T_1));
+                this._T__.dispatch(new AccountManagementScreen(XML(this._eJ_._T_1._Q_I_.Account)));
             }
             else {
                 this.view._0j();

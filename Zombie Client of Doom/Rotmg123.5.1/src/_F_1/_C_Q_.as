@@ -18,8 +18,10 @@ import _sp._aJ_;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.rotmg.graphics.*;
     import com.company.ui.SimpleText;
-    
-    import flash.events.MouseEvent;
+
+import flash.events.Event;
+
+import flash.events.MouseEvent;
     import flash.filters.DropShadowFilter;
     import flash.net.URLRequest;
     import flash.net.navigateToURL;
@@ -44,7 +46,7 @@ public class _C_Q_ extends _05p {
 
 		private static const webUrl_:String = "http://localhost/";
 
-        public function _C_Q_(){
+        public function _C_Q_() {
             addChild(new _R_f());
             super(_C_Q_);
 			if (Parameters._I_O_()) {

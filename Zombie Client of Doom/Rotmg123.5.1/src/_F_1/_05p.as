@@ -118,7 +118,7 @@ package _F_1{
                 this._03I_.dispatch(this._H_W_);
             }
         }
-        protected function onAccountComplete(_arg1:Event):void{
+        protected function onAccountComplete(_arg1:Event):void {
             var _local2:Sprite = (_arg1.currentTarget as Sprite);
             _local2.removeEventListener(Event.COMPLETE, this.onAccountComplete);
             removeChild(_local2);
@@ -143,7 +143,10 @@ package _F_1{
                 addChild(_arg1._Q_j);
             }
         }
-        public function _0j():void{
+        public function reload():void {
+            _0j(true);
+        }
+        public function _0j(fake:Boolean = false):void {
             var _local1:Sprite = Account._get().newAccountManagement();
             if (_local1 == null)
             {
@@ -151,8 +154,11 @@ package _F_1{
             }
             _local1.addEventListener(Event.COMPLETE, this.onAccountComplete);
             addChild(_local1);
-        }
 
+            if(fake) {
+                _local1.dispatchEvent(new Event(Event.COMPLETE));
+            }
+        }
     }
 }//package _F_1
 

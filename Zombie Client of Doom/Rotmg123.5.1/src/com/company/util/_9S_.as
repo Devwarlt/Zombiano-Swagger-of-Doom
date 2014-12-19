@@ -6,7 +6,7 @@
 package com.company.util{
     public class _9S_ {
 
-        public static const _kK_:RegExp = /^[A-Z]{3,12}$/i;
+        public static const _kK_:RegExp = /^[A-Z0-9]{3,12}$/i;
 		public static const emailRes:RegExp = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
 		
         public static function _02A_(_arg1:String):Boolean{

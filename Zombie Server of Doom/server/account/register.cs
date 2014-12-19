@@ -8,8 +8,8 @@ namespace server.account
         private static bool IsUsername(string username)
         {
             string pattern;
-            // start with a letter, allow letter or number, length between 6 to 12.
-            pattern = @"^[a-zA-Z][a-zA-Z]{3,20}$";
+            // start with a letter, allow letter or number, length between 3 to 12.
+            pattern = @"^[a-zA-Z0-9]{3,12}$";
 
             var regex = new Regex(pattern);
             return regex.IsMatch(username);

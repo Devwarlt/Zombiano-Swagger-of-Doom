@@ -72,8 +72,8 @@ public class SelectSkinFrame extends Sprite {
 
     private function addSkins():void {
         rects = new Vector.<SkinRect>();
-        var skinsSprite = new Sprite();
-        var skinsMask = new Shape();
+        var skinsSprite:Sprite = new Sprite();
+        var skinsMask:Shape = new Shape();
         skinsMask.y = 90;
         skinsMask.graphics.beginFill(0);
         skinsMask.graphics.drawRect(0, 0, SkinRect.WIDTH + 20, 510);
@@ -82,7 +82,7 @@ public class SelectSkinFrame extends Sprite {
         addChild(skinsMask);
 
         skinsSprite.y = 100;
-        var h = 0;
+        var h:Number = 0;
 
         var noSkinXml:XML = <Object type="-1" id="No Skin" />;
 
@@ -183,8 +183,8 @@ import flash.geom.ColorTransform;
 
 class SkinRect extends Sprite {
 
-    public static const WIDTH = 300;
-    public static const HEIGHT = 50;
+    public static const WIDTH:int = 300;
+    public static const HEIGHT:int = 50;
 
     private var graphicsData_:Vector.<IGraphicsData>;
     private var path_:GraphicsPath;
@@ -226,7 +226,7 @@ class SkinRect extends Sprite {
 
         icon = ObjectLibrary._V_a[int(_arg1.@type) == -1 ? 0x030e : int(_arg1.@type)];
 
-        var bmp = new Bitmap(bitMapData = TextureRedrawer.resize(icon.getTexture(), null, 100, false, 0, 0));
+        var bmp:Bitmap = new Bitmap(bitMapData = TextureRedrawer.resize(icon.getTexture(), null, 100, false, 0, 0));
         bmp.x = (HEIGHT / 2) - (bmp.width / 2);
         bmp.y = (HEIGHT / 2) - (bmp.width / 2);
         bmp.filters = [new DropShadowFilter()];
@@ -290,8 +290,8 @@ class SkinRect extends Sprite {
 
 class SkinInfoScreen extends Sprite {
 
-    public static const WIDTH = 232;
-    public static const HEIGHT = 490;
+    public static const WIDTH:int = 232;
+    public static const HEIGHT:int = 490;
 
     private var graphicsData_:Vector.<IGraphicsData>;
     private var fill:GraphicsSolidFill;
@@ -334,7 +334,7 @@ class SkinInfoScreen extends Sprite {
         this.skinName.text = _arg1.skinName.text;
         this.skinName.updateMetrics();
         this.addChild(skinName);
-        var h = (this.skinName.y + this.skinName.textHeight + 10);
+        var h:Number = (this.skinName.y + this.skinName.textHeight + 10);
 
         if(_arg1.xml.hasOwnProperty("PremiumSkin")) {
             this.premiumIcon = new premiumRank();

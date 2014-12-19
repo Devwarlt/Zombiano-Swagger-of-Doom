@@ -46,7 +46,7 @@ package _0L_C_{
         private var _vV_:GraphicsSolidFill;
         private var path_:GraphicsPath;
 
-        public function DialogBox(_arg1:String, _arg2:String, _arg3:String, _arg4:String, _arg5:String){
+        public function DialogBox(bodyText:String, title:String, button1Text:String, button2Text:String, _arg5:String){
             this.box_ = new Sprite();
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this._0y = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
@@ -59,27 +59,27 @@ package _0L_C_{
             this._p.x = 20;
             this._p.multiline = true;
             this._p.wordWrap = true;
-            this._p.htmlText = (('<p align="center">' + _arg1) + "</p>");
+            this._p.htmlText = (('<p align="center">' + bodyText) + "</p>");
             this._p.autoSize = TextFieldAutoSize.CENTER;
             this._p.mouseEnabled = true;
             this._p.updateMetrics();
             this._p.filters = [new DropShadowFilter(0, 0, 0, 1, 6, 6, 1)];
-            if (_arg2 != null)
+            if (title != null)
             {
                 this._P_V_ = new SimpleText(18, 5746018, false, WIDTH, 0, "Myriad Pro");
                 this._P_V_.boldText(true);
-                this._P_V_.htmlText = (('<p align="center">' + _arg2) + "</p>");
+                this._P_V_.htmlText = (('<p align="center">' + title) + "</p>");
                 this._P_V_.updateMetrics();
                 this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
             }
-            if (_arg3 != null)
+            if (button1Text != null)
             {
-                this.button1_ = new boxButton(16, _arg3, 120);
+                this.button1_ = new boxButton(16, button1Text, 120);
                 this.button1_.addEventListener(MouseEvent.CLICK, this.onButton1Click);
             }
-            if (_arg4 != null)
+            if (button2Text != null)
             {
-                this.button2_ = new boxButton(16, _arg4, 120);
+                this.button2_ = new boxButton(16, button2Text, 120);
                 this.button2_.addEventListener(MouseEvent.CLICK, this.onButton2Click);
             }
             this.draw();

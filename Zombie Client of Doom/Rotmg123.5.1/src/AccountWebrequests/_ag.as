@@ -14,7 +14,7 @@ package AccountWebrequests{
     import _qN_.Account;
     import com.company.googleanalytics.GA;
 
-    internal class _ag extends Frame {
+    public class _ag extends Frame {
 
         public var password_:TextInput;
         public var _sY_:TextInput;

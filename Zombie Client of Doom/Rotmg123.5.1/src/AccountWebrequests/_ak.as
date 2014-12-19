@@ -4,7 +4,9 @@
 //AccountWebrequests._ak
 
 package AccountWebrequests{
-import _F_1._0H_h;
+import AccountManagement.AccountManagementScreen;
+
+import _F_1._C_Q_;
 
 import flash.display.Sprite;
     import Frames.Frame;
@@ -56,7 +58,8 @@ import flash.display.Sprite;
             this._zH_.sendRequest("verify", Account._get().credentials());
         }
         private function _3p(_arg1:_8C_):void{
-            this._dY_(new _0G_d(XML(_arg1.data_)));
+            AccountManagementScreen.openNext = true;
+            dispatchEvent(new Event(Event.COMPLETE));//this._dY_(new _0G_d(XML(_arg1.data_)));
         }
         private function _D_x(_arg1:_mS_):void{
             Account._get().clear();
