@@ -3,6 +3,7 @@
  */
 package AccountManagement {
 import AccountManagement.images.AccountManagementImages;
+import AccountManagement.tabHolders.TabHolder;
 
 import flash.display.Sprite;
 
@@ -13,7 +14,7 @@ public class AccountManagementBody extends Sprite{
 
     public var managementParent:AccountManagementScreen;
 
-    private var tabHolder:Sprite;
+    private var tabHolder:TabHolder;
 
     public function AccountManagementBody(parent:AccountManagementScreen) {
         this.managementParent = parent;
@@ -23,7 +24,7 @@ public class AccountManagementBody extends Sprite{
     public function initialize():void {
     }
 
-    public function updateScreen(holder:Sprite):void {
+    public function updateScreen(holder:TabHolder):void {
         if(this.tabHolder != null) {
             if (getChildIndex(this.tabHolder) != -1) {
                 removeChild(this.tabHolder);

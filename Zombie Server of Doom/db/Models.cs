@@ -127,19 +127,43 @@ public class Account
             {
                 new NewsItem
                 {
-                    Date = 1000000,
-                    Icon = "fame",
+                    Date = 1419068064,
+                    Icon = "bronzeFpcPack",
                     Link = "urcool",
-                    TagLine = ":D",
-                    Title = ":3"
+                    TagLine = "Item: Bronze FPC Pack",
+                    Title = "You received a new item."
                 },
                 new NewsItem
                 {
-                    Date = 100000,
-                    Icon = "icon",
-                    Link = "penis",
-                    TagLine = "der atom",
-                    Title = ":DDDDDDD"
+                    Date = 1419068064,
+                    Icon = "silverFpcPack",
+                    Link = "nope",
+                    TagLine = "Item: Silver FPC Pack",
+                    Title = "You received a new item."
+                },
+                new NewsItem
+                {
+                    Date = 1419068064,
+                    Icon = "goldFpcPack",
+                    Link = "urcool",
+                    TagLine = "Item: Gold FPC Pack",
+                    Title = "You received a new item."
+                },
+                new NewsItem
+                {
+                    Date = 1419068064,
+                    Icon = "premiumFpcPack",
+                    Link = "nope",
+                    TagLine = "Item: Premium FPC Pack",
+                    Title = "You received a new item."
+                },
+                new NewsItem
+                {
+                    Date = 1419068063,
+                    Icon = "premium",
+                    Link = "switchTo:Premium",
+                    TagLine = "You are now able to use special premium features",
+                    Title = "Premium access purchased"
                 }
             };
         }

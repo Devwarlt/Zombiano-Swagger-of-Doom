@@ -15,17 +15,20 @@ import flash.display.GraphicsSolidFill;
 import flash.display.IGraphicsData;
 import flash.display.Sprite;
 import flash.errors.IllegalOperationError;
+import flash.filters.DropShadowFilter;
 
 public class TabButton extends Sprite {
     public static const HEIGHT:int = 24;
 
     public var tabId:int = 0;
     public var w_:Number = 0;
+    public var text:SimpleText;
 
     private var holder_:TabHolder;
     private var bmp:Bitmap;
-    private var text:SimpleText;
     private var selected_:Boolean;
+    private var selectedColor_:uint = 0x473224;
+    private var deSelectedColor_:uint = 0x5C4434;
 
     private var fill_:GraphicsSolidFill;
     private var path_:GraphicsPath;
@@ -46,6 +49,13 @@ public class TabButton extends Sprite {
             this.bmp.y = -(this.bmp.height / 4) + 3;//-3.5;
             this.w_ += (this.bmp.width / 4) + 10;
             addChild(this.bmp);
+
+            var imageMask:Sprite = new Sprite();
+            imageMask.graphics.beginFill(0x000000, 0.0);
+            imageMask.graphics.drawRect(0, 0, this.w_ + 10, HEIGHT);
+            imageMask.graphics.endFill();
+            addChild(imageMask);
+            this.bmp.mask = imageMask;
         }
         this.tabId = _tabId;
 
@@ -54,6 +64,7 @@ public class TabButton extends Sprite {
         this.text.boldText(true);
         this.text.text = text;
         this.text.updateMetrics();
+        this.text.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
         addChild(this.text);
 
         this.w_ += (this.text.textWidth + 15);
@@ -74,6 +85,16 @@ public class TabButton extends Sprite {
         return this.selected_;
     }
 
+    public function set selectedColor(val:uint):void {
+        selectedColor_ = val;
+        draw();
+    }
+
+    public function set deSelectedColor(val:uint):void {
+        deSelectedColor_ = val;
+        draw();
+    }
+
     public function set holder(tabHolder:TabHolder):void {
         if(this.holder_ == null) {
             this.holder_ = tabHolder;
@@ -86,7 +107,7 @@ public class TabButton extends Sprite {
     }
 
     public function updateFill(_selected:Boolean):void {
-        this.fill_ = new GraphicsSolidFill(_selected ? 0x473224 : 0x5C4434, 1);
+        this.fill_ = new GraphicsSolidFill(_selected ? selectedColor_ : deSelectedColor_, 1);
         this.graphicsData_ = new <IGraphicsData>[this.fill_, this.path_, GraphicHelper.END_FILL];
     }
 

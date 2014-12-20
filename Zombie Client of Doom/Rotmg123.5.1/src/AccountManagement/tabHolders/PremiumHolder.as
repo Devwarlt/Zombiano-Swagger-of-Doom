@@ -4,6 +4,8 @@
 package AccountManagement.tabHolders {
 import AccountManagement.AccountManagementBody;
 import AccountManagement.images.AccountManagementImages;
+import AccountManagement.tabHolders.premium.PremiumEventCalendar;
+import AccountManagement.tabHolders.premium.PremiumTabHolder;
 import AccountManagement.ui.TabButton;
 
 import _0L_C_.DialogBox;
@@ -11,6 +13,7 @@ import _0L_C_.DialogBox;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
+import flash.display.BitmapData;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -19,10 +22,16 @@ import flash.filters.DropShadowFilter;
 public class PremiumHolder extends TabHolder {
 
     private var premiumPurchased:Boolean;
+    private var tabHolder:TabHolder;
+    private var tabs:Vector.<TabButton>;
+    private var tabSprite:Sprite;
+    private var nextTabWidth:Number = 10;
+    private var nextTabId:Number = 0;
 
     public function PremiumHolder(parent:AccountManagementBody, purchased:Boolean) {
         super(parent);
         this.premiumPurchased = purchased;
+        this.tabs = new Vector.<TabButton>();
     }
 
     public override function initialize(tab:TabButton):void {
@@ -68,20 +77,56 @@ public class PremiumHolder extends TabHolder {
             });
         }
         else {
-            var arrow = AccountManagementImages.nextArrow(0.5);
-            var arrow2 = AccountManagementImages.prevArrow(0.5);
+            tabSprite = new Sprite();
+            tabSprite.graphics.lineStyle(2, 0xFFD700);
+            tabSprite.graphics.moveTo(0, 29);
+            tabSprite.graphics.lineTo(800, 29);
+            tabSprite.graphics.lineStyle();
 
-            arrow.x = 800 - arrow.width;
-            arrow2.x = 400;
+            addTab("Event Calendar", null, new PremiumEventCalendar(bodyParent));
+            addTab("Upcoming DLCs", null, new PremiumTabHolder(bodyParent));
 
-            addChild(arrow);
-            addChild(arrow2);
-
-            var simpletext = new SimpleText(36, 0xffffff);
-            simpletext.text = "Premium Tab";
-            simpletext.updateMetrics();
-            addChild(simpletext);
+            addChild(tabSprite);
         }
+    }
+
+    public function updateScreen(holder:PremiumTabHolder):void {
+        if(this.tabHolder != null) {
+            if (getChildIndex(this.tabHolder) != -1) {
+                removeChild(this.tabHolder);
+            }
+        }
+        this.tabHolder = holder;
+        this.tabHolder.y = 30;
+        addChild(this.tabHolder);
+    }
+
+    private function onTabClick(event:MouseEvent):void {
+        for each (var tab:TabButton in this.tabs) {
+            tab.selected = false;
+        }
+
+        tab = event.target as TabButton;
+        tab.selected = true;
+        updateScreen(tab.holder as PremiumTabHolder);
+    }
+
+    private function addTab(text:String, icon:BitmapData, holder:PremiumTabHolder):void {
+        var tabButton:TabButton = new TabButton(text, icon, nextTabId, nextTabId == 0);
+        tabButton.deSelectedColor = 0x7A6700;
+        tabButton.selectedColor = 0xFFD700;
+        tabButton.holder = holder;
+        tabButton.x = nextTabWidth;
+        tabButton.y = 30 - (tabButton.height + 2);
+        tabButton.addEventListener(MouseEvent.CLICK, this.onTabClick);
+        tabs.push(tabButton);
+        tabSprite.addChild(tabButton);
+        if(nextTabId == 0) {
+            updateScreen(tabButton.holder as PremiumTabHolder);
+        }
+
+        nextTabId++;
+        nextTabWidth += tabButton.width + 5;
     }
 }
 }

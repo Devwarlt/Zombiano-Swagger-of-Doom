@@ -2,13 +2,18 @@
  * Created by Fabian on 18.12.2014.
  */
 package AccountManagement {
+import AccountManagement.images.AccountManagementImages;
+
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.ui.TextButton;
 import com.company.ui.SimpleText;
 
+import flash.display.Bitmap;
+
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
+import flash.filters.GlowFilter;
 
 public class AccountManagementFooter extends Sprite {
 
@@ -21,6 +26,11 @@ public class AccountManagementFooter extends Sprite {
 
     public function AccountManagementFooter(parent:AccountManagementScreen) {
         this.managementParent = parent;
+
+        var background:Bitmap = new AccountManagementImages.AccountHeaderBackground();
+        background.y++;
+        background.filters = [new GlowFilter()];
+        addChild(background);
     }
 
     public function initialize():void {

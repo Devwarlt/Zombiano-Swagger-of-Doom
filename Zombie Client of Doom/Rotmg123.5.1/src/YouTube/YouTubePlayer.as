@@ -41,18 +41,24 @@ public class YouTubePlayer extends Sprite {
     }
 
     public function play():void {
-        this.player.playVideo();
+        if(this.player != null) {
+            this.player.playVideo();
+        }
     }
 
     public function stop():void {
-        this.player.stopVideo();
-        if(endCallback != null) {
-            endCallback();
+        if(this.player != null) {
+            this.player.stopVideo();
+            if (endCallback != null) {
+                endCallback();
+            }
         }
     }
 
     public function pause():void {
-        this.player.pauseVideo();
+        if(this.player != null) {
+            this.player.pauseVideo();
+        }
     }
 
     private function onAddedToStage(event:Event):void {
