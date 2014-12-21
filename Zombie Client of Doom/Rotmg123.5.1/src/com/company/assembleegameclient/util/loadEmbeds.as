@@ -4,6 +4,8 @@
 //com.company.assembleegameclient.util.loadEmbeds
 
 package com.company.assembleegameclient.util{
+import AccountManagement.images.AccountManagementImages;
+
 import Sounds.LocalSoundEffects;
 import Sounds.LocalSounds;
 
@@ -71,6 +73,7 @@ import _0K_m._0H_Y_;
         AssetLibrary._05q("batteryCharges", new Embeds.batteryChargedEmbed_().bitmapData, 16, 16);
         AssetLibrary._05q("anna", new Embeds.testImage().bitmapData, 640, 480);
         AssetLibrary._05q("carbonFibre", new Embeds.carbon().bitmapData, 256, 256);
+        AssetLibrary._05q("openFpcPacks", new AccountManagementImages.openFpcPacks().bitmapData, 80, 80);
         var _local1:BitmapData = new BitmapData(8, 8, true, 0);
         AssetLibrary._05q("invisible", _local1, 8, 8);
         _0B_c.add("chars8x8rBeach", new Embeds.chars8x8rBeachEmbed_().bitmapData, null, 8, 8, 56, 8, _lJ_.RIGHT);

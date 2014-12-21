@@ -297,6 +297,34 @@ SELECT fame FROM stats WHERE accId=@accId;";
                     };
                 }
             }
+
+            acc.FpcPacks = new List<FpcPackItem>();
+
+            cmd = CreateQuery();
+            cmd.CommandText = "SELECT * FROM fpcpacks WHERE accId=@accId AND used=0;";
+            cmd.Parameters.AddWithValue("@accId", acc.AccountId);
+            using (var rdr = cmd.ExecuteReader())
+            {
+                if (rdr.HasRows)
+                {
+                    while (rdr.Read())
+                    {
+                        int type = rdr.GetInt32("type");
+                        acc.FpcPacks.Add(new FpcPackItem
+                        {
+                            Type = type,
+                            Id = rdr.GetInt64("id"),
+                            Contents = rdr.GetString("contents"),
+                            Name =
+                                type == 0 ? "BRONZE FPC PACK" :
+                                type == 1 ? "SILVER FPC PACK" :
+                                type == 2 ? "GOLD FPC PACK" :
+                                type == 3 ? "PREMIUM FPC PACK" : "Unknown FPC Pack"
+                        });
+                    }
+                }
+            }
+
             acc.Vault = ReadVault(acc);
         }
 

@@ -19,6 +19,8 @@ public class AccountManagementScreen extends Sprite {
     public var accountBody:AccountManagementBody;
     public var accountFooter:AccountManagementFooter;
 
+    public var selectedTab:String;
+
     public static const SHOW_MAIN_SCREEN:String = "SHOW_MAIN_SCREEN";
     public static const RELOAD:String = "RELOAD";
     public static const LOGOUT:String = "LOGOUT";
@@ -47,9 +49,23 @@ public class AccountManagementScreen extends Sprite {
         addChild(this.accountHeader);
         addChild(this.accountFooter);
 
+        if(this.selectedTab != null) {
+            this.accountHeader.switchToTab(this.selectedTab);
+        }
+
         if (!Account._get().isRegistered()) {
             this.register();
         }
+    }
+
+    public function destroy():void {
+        removeChild(this.accountBody);
+        removeChild(this.accountHeader);
+        removeChild(this.accountFooter);
+
+        this.accountHeader = null;
+        this.accountBody = null;
+        this.accountFooter = null;
     }
 
     public function dispatchAccountMouseEvent(event:MouseEvent):void {

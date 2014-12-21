@@ -175,6 +175,10 @@ CREATE TABLE IF NOT EXISTS `craftingrecipes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+--
+-- Tabellenstruktur für Tabelle `sprites`
+--
+
 CREATE TABLE IF NOT EXISTS `sprites` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `guid` varchar(128) NOT NULL,
@@ -185,6 +189,19 @@ CREATE TABLE IF NOT EXISTS `sprites` (
   `fileSize` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Tabellenstruktur für Tabelle `fpcpacks`
+--
+
+CREATE TABLE IF NOT EXISTS `fpcpacks` (
+  `id` bigint(19) NOT NULL AUTO_INCREMENT,
+  `accId` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `contents` text NOT NULL,
+  `used` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

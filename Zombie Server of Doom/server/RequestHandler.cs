@@ -69,6 +69,7 @@ namespace server
             { "/account/changePassword", new account.changePassword() },
             { "/account/purchaseCharSlot", new account.purchaseCharSlot() },
             { "/account/setName", new account.setName() },
+            { "/account/openFpcPack", new account.openFpcPack() },
             { "/credits/getoffers", new credits.getoffers() },
             { "/credits/add", new credits.add() },
             { "/crafting/getRecipes", new crafting.getRecipes() },

@@ -84,7 +84,7 @@ public class PremiumHolder extends TabHolder {
             tabSprite.graphics.lineStyle();
 
             addTab("Event Calendar", null, new PremiumEventCalendar(bodyParent));
-            addTab("Upcoming DLCs", null, new PremiumTabHolder(bodyParent));
+            addTab("TAB 2", null, new PremiumTabHolder(bodyParent));
 
             addChild(tabSprite);
         }

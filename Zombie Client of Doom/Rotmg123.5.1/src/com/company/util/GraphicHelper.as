@@ -6,17 +6,18 @@
 package com.company.util{
 
 
-    
-    import flash.display.Bitmap;
-    import flash.display.CapsStyle;
-    import flash.display.GraphicsEndFill;
-    import flash.display.GraphicsPath;
-    import flash.display.GraphicsPathCommand;
-    import flash.display.GraphicsSolidFill;
-    import flash.display.GraphicsStroke;
-    import flash.display.JointStyle;
-    import flash.display.LineScaleMode;
-    import flash.geom.Matrix;
+
+import flash.display.CapsStyle;
+import flash.display.Graphics;
+import flash.display.GraphicsEndFill;
+import flash.display.GraphicsPath;
+import flash.display.GraphicsPathCommand;
+import flash.display.GraphicsSolidFill;
+import flash.display.GraphicsStroke;
+import flash.display.JointStyle;
+import flash.display.LineScaleMode;
+import flash.display.Sprite;
+import flash.geom.Matrix;
 
     public class GraphicHelper {
 
@@ -105,6 +106,22 @@ package com.company.util{
 			data.lineTo((x - cornerRadius), y);
         }
 
+        public static function createBorder(sprite:Sprite, thickness:Number, color:uint):void {
+            var graphics:Graphics = sprite.graphics;
+            graphics.lineStyle(thickness, color);
+            graphics.moveTo(0, 0);
+            graphics.lineTo(sprite.width, 0);
+
+            graphics.moveTo(sprite.width - thickness, 0);
+            graphics.lineTo(sprite.width - thickness, sprite.height - thickness);
+
+            graphics.moveTo(sprite.width - thickness, sprite.height - thickness);
+            graphics.lineTo(0, sprite.height - thickness);
+
+            graphics.moveTo(0, sprite.height - thickness);
+            graphics.lineTo(0, 0);
+            graphics.lineStyle();
+        }
     }
 }//package com.company.util
 

@@ -32,6 +32,9 @@ public class AccountManagementImages {
     [Embed(source="premiumFpcPack.png")]
     public static const premiumFpcPack:Class;
 
+    [Embed(source="openFpcPacks.png")]
+    public static const openFpcPacks:Class;
+
     public static function nextArrow(scale:Number):Bitmap {
         var bmp:Bitmap = new Arrow();
         bmp.scaleX = bmp.scaleY = scale;

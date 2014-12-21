@@ -14,7 +14,7 @@ public class TabHolder extends Sprite {
     public static const WIDTH:int = 800;
     public static const HEIGHT:int = 450;
 
-    protected var bodyParent:AccountManagementBody;
+    public var bodyParent:AccountManagementBody;
     protected var tab:TabButton;
 
     private var nullHolder:Boolean;

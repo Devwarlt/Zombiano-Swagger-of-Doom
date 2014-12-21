@@ -89,6 +89,7 @@
     <Compile Include="account\purchaseCharSlot.cs" />
     <Compile Include="account\sendVerifyEmail.cs" />
     <Compile Include="account\forgotPassword.cs" />
+    <Compile Include="account\openFpcPack.cs" />
     <Compile Include="account\verify.cs" />
     <Compile Include="account\register.cs" />
     <Compile Include="char\fame.cs" />

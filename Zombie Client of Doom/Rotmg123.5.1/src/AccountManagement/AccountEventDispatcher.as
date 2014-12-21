@@ -12,8 +12,6 @@ import _zo._mS_;
 import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.parameters.Parameters;
 
-import flash.display.DisplayObjectContainer;
-
 public class AccountEventDispatcher extends _cM_ {
 
     [Inject]
@@ -26,6 +24,7 @@ public class AccountEventDispatcher extends _cM_ {
         this.view.initialize();
     }
     override public function destroy():void {
+        this.view.destroy();
         this.view.eventDispatcher.remove(this.dispatchEvent);
     }
     private function dispatchEvent(eventString:String):void {
@@ -47,17 +46,16 @@ public class AccountEventDispatcher extends _cM_ {
 
     private function reload():void {
         var req:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+        req._R_z("text");
         req.addEventListener(_8C_.GENERIC_DATA, this.onSuccess);
         req.addEventListener(_mS_.TEXT_ERROR, this.onError);
         req.sendRequest("verify", Account._get().credentials());
     }
 
     private function onSuccess(_arg1:_8C_):void {
-        var parent:DisplayObjectContainer = this.view.parent;
         destroy();
-        parent.removeChild(this.view);
-        this.view = new AccountManagementScreen(XML(_arg1.data_));
-        parent.addChild(view);
+        this.view.accountXml = XML(_arg1.data_);
+        trace(XML(_arg1.data_));
         initialize();
     }
 

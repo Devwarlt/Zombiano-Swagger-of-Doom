@@ -1,5 +1,6 @@
 <Objects>
   <Object type="0x0342" id="Police Officer">
+    <Description>Customize your character with this awesome skin.</Description>
     <Skin/>
     <Class>Skin</Class>
     <AnimatedTexture>
@@ -18,6 +19,7 @@
     <DisplayId>Police Officer</DisplayId>
   </Object>
   <Object type="0x0343" id="FGT">
+    <Description>Customize your character with this awesome skin.</Description>
     <Skin/>
     <Class>Skin</Class>
     <AnimatedTexture>
@@ -34,6 +36,7 @@
     <DisplayId>FGT</DisplayId>
   </Object>
   <Object type="0x0344" id="FGT1">
+    <Description>Customize your character with this awesome skin.</Description>
     <Skin/>
     <Class>Skin</Class>
     <AnimatedTexture>

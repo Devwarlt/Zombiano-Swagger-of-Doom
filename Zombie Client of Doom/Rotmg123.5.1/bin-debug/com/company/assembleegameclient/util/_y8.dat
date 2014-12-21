@@ -1,4 +1,80 @@
 <Objects>
+<Object type="0xc6c" id="Backpack">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>redLootBag</File>
+      <Index>0x00</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A backpack that will add 8 more slots to your inventory space!</Description>
+    <Sound>spell/light_heal</Sound>
+    <Consumable/>
+    <Backpack/>
+    <Soulbound/>
+    <BagType>2</BagType>
+    <OldSound>use_potion</OldSound>
+    <ThanksTo>ossimc82</ThanksTo>
+  </Object>
+  <Object id="Night Vision Goggles" type="0x802F">
+    <Class>Equipment</Class>
+    <Item/>
+    <RemoteTexture>
+      <Id>58</Id>
+    </RemoteTexture>
+    <SlotType>9</SlotType>
+    <ScaleValue>3</ScaleValue>
+    <Description>This goggles allow you to see more at night.</Description>
+    <Sound>spell/light_heal</Sound>
+    <BagType>2</BagType>
+    <OldSound>use_potion</OldSound>
+    <NightVisionGoggles />
+    <ElectricItem />
+    <ThanksTo type="idea">OwenHendry (MPGH)</ThanksTo>
+  </Object>
+  <Object id="dex" ext="true">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x37</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Tier>2</Tier>
+    <Description>A potion that permanently increases dexterity.</Description>
+    <Sound>use_potion</Sound>
+    <Activate stat="28" amount="1000">IncrementStat</Activate>
+    <Consumable />
+    <Potion />
+    <BagType>3</BagType>
+  </Object>
+  <Object id="MTAR-21" type="0x6025">
+    <DisplayId>MTAR-21</DisplayId>
+    <Class>Equipment</Class>
+    <Item />
+    <CraftingItem />
+    <Texture>
+      <File>weapons40x40</File>
+      <Index>0x01</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <ScaleValue>1</ScaleValue>
+    <Description>This bullpup carbine is the ultra-compact version of the Israeli army standard TAR-21 rifle.</Description>
+    <RateOfFire>1.6</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Blade</ObjectId>
+      <Speed>300</Speed>
+      <MinDamage>300</MinDamage>
+      <MaxDamage>400</MaxDamage>
+      <LifetimeMS>500</LifetimeMS>
+    </Projectile>
+    <BagType>0</BagType>
+    <NumProjectiles>1</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>weapon/mtar21</OldSound>
+  </Object>
+
 	<Object type="0xa00" id="Short Sword">
 		<Class>Equipment</Class>
 		<Item/>

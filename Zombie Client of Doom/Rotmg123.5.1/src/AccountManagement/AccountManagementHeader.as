@@ -109,6 +109,7 @@ public class AccountManagementHeader extends Sprite {
 
         tab = event.target as TabButton;
         tab.selected = true;
+        managementParent.selectedTab = tab.text.text;
         managementParent.accountBody.updateScreen(tab.holder);
     }
 }

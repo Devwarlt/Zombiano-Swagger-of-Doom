@@ -129,7 +129,7 @@ public class Account
                 {
                     Date = 1419068064,
                     Icon = "bronzeFpcPack",
-                    Link = "urcool",
+                    Link = "switchTo:FPC Packs",
                     TagLine = "Item: Bronze FPC Pack",
                     Title = "You received a new item."
                 },
@@ -137,7 +137,7 @@ public class Account
                 {
                     Date = 1419068064,
                     Icon = "silverFpcPack",
-                    Link = "nope",
+                    Link = "switchTo:FPC Packs",
                     TagLine = "Item: Silver FPC Pack",
                     Title = "You received a new item."
                 },
@@ -145,7 +145,7 @@ public class Account
                 {
                     Date = 1419068064,
                     Icon = "goldFpcPack",
-                    Link = "urcool",
+                    Link = "switchTo:FPC Packs",
                     TagLine = "Item: Gold FPC Pack",
                     Title = "You received a new item."
                 },
@@ -153,7 +153,7 @@ public class Account
                 {
                     Date = 1419068064,
                     Icon = "premiumFpcPack",
-                    Link = "nope",
+                    Link = "switchTo:FPC Packs",
                     TagLine = "Item: Premium FPC Pack",
                     Title = "You received a new item."
                 },
@@ -170,6 +170,10 @@ public class Account
         set { }
     }
 
+    [XmlArray("FpcPacks")]
+    [XmlArrayItem("Pack")]
+    public List<FpcPackItem> FpcPacks { get; set; }
+
 
     [XmlNamespaceDeclarations]
     public XmlSerializerNamespaces Namespaces
@@ -178,6 +182,19 @@ public class Account
     }
     private XmlSerializerNamespaces _namespaces;
 }
+
+[Serializable, XmlRoot()]
+public class FpcPackItem
+{
+    [XmlAttribute("type")]
+    public int Type { get; set; }
+    [XmlAttribute("id")]
+    public long Id { get; set; }
+    [XmlAttribute("name")]
+    public string Name { get; set; }
+    public string Contents { get; set; }
+}
+
 [Serializable, XmlRoot()]
 public class VaultData
 {
