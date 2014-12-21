@@ -10,6 +10,8 @@ import AccountManagement.ui.TabButton;
 
 import _0L_C_.DialogBox;
 
+import com.company.assembleegameclient.util.TextureRedrawer;
+
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
@@ -58,7 +60,7 @@ public class PremiumHolder extends TabHolder {
 
             var iconSprite:Sprite = new Sprite();
             iconSprite.buttonMode = true;
-            iconSprite.addChild(new Bitmap(new AccountManagementImages.premiumBig().bitmapData));
+            iconSprite.addChild(new Bitmap(new AccountManagementImages.premiumDLC().bitmapData));
             iconSprite.filters = [new DropShadowFilter()];
             iconSprite.x = ((WIDTH / 2) - (iconSprite.width / 2));
             iconSprite.y = 120 + ((320 / 2) - (iconSprite.height / 2));

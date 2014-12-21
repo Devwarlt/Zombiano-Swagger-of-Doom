@@ -31,6 +31,8 @@ public class AccountManagementImages {
     public static const goldFpcPack:Class;
     [Embed(source="premiumFpcPack.png")]
     public static const premiumFpcPack:Class;
+    [Embed(source="premiumDLC.png")]
+    public static const premiumDLC:Class;
 
     [Embed(source="openFpcPacks.png")]
     public static const openFpcPacks:Class;
