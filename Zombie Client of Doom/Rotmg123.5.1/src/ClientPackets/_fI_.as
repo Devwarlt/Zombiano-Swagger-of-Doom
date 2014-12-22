@@ -3,31 +3,33 @@
 
 //ClientPackets._fI_
 
-package ClientPackets{
-    import com.company.assembleegameclient.net.messages.data._0_3;
-    import com.company.assembleegameclient.net.messages.data.Position;
-    import flash.utils.IDataOutput;
+package ClientPackets {
+import com.company.assembleegameclient.net.messages.data.Position;
+import com.company.assembleegameclient.net.messages.data._0_3;
 
-    public class _fI_ extends ClientPacket {
+import flash.utils.IDataOutput;
 
-        public var time_:int;
-        public var slotObject_:_0_3;
-        public var itemUsePos_:Position;
+public class _fI_ extends ClientPacket {
 
-        public function _fI_(_arg1:uint){
-            this.slotObject_ = new _0_3();
-            this.itemUsePos_ = new Position();
-            super(_arg1);
-        }
-        override public function writeToOutput(_arg1:IDataOutput):void{
-            _arg1.writeInt(this.time_);
-            this.slotObject_.writeToOutput(_arg1);
-            this.itemUsePos_.writeToOutput(_arg1);
-        }
-        override public function toString():String{
-            return (formatToString("USEITEM", "slotObject_", "itemUsePos_"));
-        }
-
+    public function _fI_(_arg1:uint) {
+        this.slotObject_ = new _0_3();
+        this.itemUsePos_ = new Position();
+        super(_arg1);
     }
+    public var time_:int;
+    public var slotObject_:_0_3;
+    public var itemUsePos_:Position;
+
+    override public function writeToOutput(_arg1:IDataOutput):void {
+        _arg1.writeInt(this.time_);
+        this.slotObject_.writeToOutput(_arg1);
+        this.itemUsePos_.writeToOutput(_arg1);
+    }
+
+    override public function toString():String {
+        return (formatToString("USEITEM", "slotObject_", "itemUsePos_"));
+    }
+
+}
 }//package ClientPackets
 

@@ -4,38 +4,22 @@
 //com.company.assembleegameclient.ui._0A_t
 
 package com.company.assembleegameclient.ui {
+import com.company.assembleegameclient.parameters.Parameters;
+import com.company.assembleegameclient.util.RankUtils;
 import com.company.rotmg.graphics.ranks.premiumRank;
 
 import flash.display.DisplayObject;
-
-import com.company.assembleegameclient.util.RankUtils;
-
 import flash.filters.GlowFilter;
-
 import flash.text.engine.ContentElement;
-
 import flash.text.engine.ElementFormat;
-
-import com.company.assembleegameclient.parameters.Parameters;
-
-import flash.text.engine.TextElement;
 import flash.text.engine.GraphicElement;
 import flash.text.engine.GroupElement;
 import flash.text.engine.TextBlock;
-
+import flash.text.engine.TextElement;
 
 public class _0A_t {
 
     private static var _0I_T_:_vi = new _vi();
-
-    public var time_:int;
-    public var name_:String;
-    public var _L_P_:DisplayObject = null;
-    public var premium:DisplayObject = null;
-    public var rank:int;
-    public var recipient_:String;
-    public var _E_B_:Boolean;
-    public var text_:String;
 
     public function _0A_t(_arg1:int, _arg2:String, _arg3:int, _arg4:int, _arg5:String, _arg6:Boolean, _arg7:String, premium:Boolean) {
         this.time_ = _arg1;
@@ -48,11 +32,19 @@ public class _0A_t {
         this._E_B_ = _arg6;
         this.text_ = _arg7;
 
-        if(premium) {
+        if (premium) {
             this.premium = new premiumRank();
             this.premium.filters = [new GlowFilter(0xFFD000)];
         }
     }
+    public var time_:int;
+    public var name_:String;
+    public var _L_P_:DisplayObject = null;
+    public var premium:DisplayObject = null;
+    public var rank:int;
+    public var recipient_:String;
+    public var _E_B_:Boolean;
+    public var text_:String;
 
     public function _0H_u():TextBlock {
         var _local1:Vector.<ContentElement> = new <ContentElement>[];

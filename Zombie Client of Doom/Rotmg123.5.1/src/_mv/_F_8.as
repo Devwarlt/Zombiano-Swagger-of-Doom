@@ -3,14 +3,14 @@
 
 //_mv._F_8
 
-package _mv{
+package _mv {
 
-    import flash.display.DisplayObject;
+import flash.display.DisplayObject;
 
-    public interface _F_8 {
+public interface _F_8 {
 
-        function layout(_arg1:Vector.<DisplayObject>):void;
+    function layout(_arg1:Vector.<DisplayObject>):void;
 
-    }
+}
 }//package _mv
 

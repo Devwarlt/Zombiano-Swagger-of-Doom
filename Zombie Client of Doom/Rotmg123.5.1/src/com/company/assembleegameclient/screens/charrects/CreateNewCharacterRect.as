@@ -3,36 +3,26 @@
 
 //com.company.assembleegameclient.screens.charrects.CreateNewCharacterRect
 
-package com.company.assembleegameclient.screens.charrects{
-import com.company.assembleegameclient.appengine._0K_R_;
-import flash.display.Bitmap;
-import com.company.ui.SimpleText;
-
-import flash.display.DisplayObject;
-
-import flash.display.Sprite;
-import flash.display.Sprite;
+package com.company.assembleegameclient.screens.charrects {
 import _sp._aJ_;
-import com.company.assembleegameclient.objects.ObjectLibrary;
+
 import com.company.assembleegameclient.appengine.SavedCharacter;
-import com.company.assembleegameclient.util._lJ_;
-import flash.display.BitmapData;
-import com.company.util.BitmapUtil;
-import flash.filters.DropShadowFilter;
+import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.util.RankUtils;
+import com.company.assembleegameclient.util._lJ_;
 import com.company.rotmg.graphics.ranks.AdminRank;
-import flash.geom.ColorTransform;
+import com.company.ui.SimpleText;
+import com.company.util.BitmapUtil;
+
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.DisplayObject;
+import flash.filters.DropShadowFilter;
 
 public class CreateNewCharacterRect extends CharacterRect {
 
-    private var charList_:_0K_R_;
-    private var bitmap_:Bitmap;
-    private var classNameText_:SimpleText;
-    private var taglineIcon_:DisplayObject;
-    private var taglineText_:SimpleText;
-    public var newCharacter:_aJ_;
-
-    public function CreateNewCharacterRect(_arg1:_0K_R_){
+    public function CreateNewCharacterRect(_arg1:_0K_R_) {
         super(0x73543F, 0x6B472E);
         //super(0x691000, 0x8d1500);
         this.charList_ = _arg1;
@@ -50,8 +40,7 @@ public class CreateNewCharacterRect extends CharacterRect {
         this.classNameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
         this.classNameText_.x = 58;
         addChild(this.classNameText_);
-        if (this.charList_.rank != RankUtils._5e())
-        {
+        if (this.charList_.rank != RankUtils._5e()) {
             this.taglineIcon_ = new AdminRank();
             this.taglineIcon_.x = 58;
             this.taglineIcon_.y = 26;
@@ -66,6 +55,12 @@ public class CreateNewCharacterRect extends CharacterRect {
             addChild(this.taglineText_);
         }
     }
+    public var newCharacter:_aJ_;
+    private var charList_:_0K_R_;
+    private var bitmap_:Bitmap;
+    private var classNameText_:SimpleText;
+    private var taglineIcon_:DisplayObject;
+    private var taglineText_:SimpleText;
 }
 }//package com.company.assembleegameclient.screens.charrects
 

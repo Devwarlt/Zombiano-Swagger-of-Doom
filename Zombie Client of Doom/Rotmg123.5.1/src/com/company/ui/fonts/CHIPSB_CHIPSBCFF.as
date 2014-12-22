@@ -3,11 +3,11 @@
 
 //com.company.ui.fonts.MyriadPro_MyriadProCFF
 
-package com.company.ui.fonts{
-    import mx.core.FontAsset;
+package com.company.ui.fonts {
+import mx.core.FontAsset;
 
-    public class CHIPSB_CHIPSBCFF extends FontAsset {
+public class CHIPSB_CHIPSBCFF extends FontAsset {
 
-    }
+}
 }//package com.company.ui.fonts
 

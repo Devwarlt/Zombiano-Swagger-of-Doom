@@ -3,12 +3,12 @@
 
 //_eZ_._N_p
 
-package _eZ_{
-    public class _N_p extends Error {
+package _eZ_ {
+public class _N_p extends Error {
 
-        public function _N_p(_arg1:*="", _arg2:*=0){
-            super(_arg1, _arg2);
-        }
+    public function _N_p(_arg1:* = "", _arg2:* = 0) {
+        super(_arg1, _arg2);
     }
+}
 }//package _eZ_
 

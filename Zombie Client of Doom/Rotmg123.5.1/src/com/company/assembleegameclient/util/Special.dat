@@ -1,127 +1,146 @@
 <Objects>
-	<Object type="0x0926" id="Bonegrind the Butcher">
-		<Enemy/>
-		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16rEncounters</File><Index>14</Index></AnimatedTexture>
-		<HitSound>monster/pirates_hit</HitSound>
-		<DeathSound>monster/pirates_death</DeathSound>
-		<Size>80</Size>
-		<MaxHitPoints>300</MaxHitPoints>
-		<Defense>0</Defense>
-		<Quest/>
-		<Level>1</Level>
-		<XpMult>0.7</XpMult>
-		<NoArticle/>
-		<Projectile id="0">
-			<ObjectId>Blade</ObjectId>
-			<Damage>6</Damage>
-			<Size>100</Size>
-			<Speed>75</Speed>
-			<LifetimeMS>800</LifetimeMS>
-		</Projectile>
-	</Object>
-
-	<Object type="0x0940" id="XP Gift">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>70</XpMult>
-	</Object>
-
-	<Object type="0x0962" id="XP Gift A">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>400</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>70</XpMult>
-	</Object>
-
-	<Object type="0x0963" id="XP Gift B">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>800</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>70</XpMult>
-	</Object>
-
-	<Object type="0x0964" id="XP Gift C">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>50</XpMult>
-	</Object>
-
-	<Object type="0x0965" id="XP Gift D">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>90</XpMult>
-	</Object>
-
-	<Object type="0x0966" id="XP Gift E">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>120</XpMult>
-	</Object>
-
-	<Object type="0x0967" id="XP Gift F">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>200</XpMult>
-	</Object>
-
-	<Object type="0x0968" id="XP Gift G">
-		<Group>Evaluators</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
-		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
-		<Defense>0</Defense>
-		<XpMult>300</XpMult>
-	</Object>
+    <Object type="0x0926" id="Bonegrind the Butcher">
+        <Enemy />
+        <Class>Character</Class>
+        <AnimatedTexture>
+            <File>chars16x16rEncounters</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <HitSound>monster/pirates_hit</HitSound>
+        <DeathSound>monster/pirates_death</DeathSound>
+        <Size>80</Size>
+        <MaxHitPoints>300</MaxHitPoints>
+        <Defense>0</Defense>
+        <Quest />
+        <Level>1</Level>
+        <XpMult>0.7</XpMult>
+        <NoArticle />
+        <Projectile id="0">
+            <ObjectId>Blade</ObjectId>
+            <Damage>6</Damage>
+            <Size>100</Size>
+            <Speed>75</Speed>
+            <LifetimeMS>800</LifetimeMS>
+        </Projectile>
+    </Object>
+    <Object type="0x0940" id="XP Gift">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>600</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>70</XpMult>
+    </Object>
+    <Object type="0x0962" id="XP Gift A">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>400</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>70</XpMult>
+    </Object>
+    <Object type="0x0963" id="XP Gift B">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>800</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>70</XpMult>
+    </Object>
+    <Object type="0x0964" id="XP Gift C">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>600</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>50</XpMult>
+    </Object>
+    <Object type="0x0965" id="XP Gift D">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>600</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>90</XpMult>
+    </Object>
+    <Object type="0x0966" id="XP Gift E">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>600</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>120</XpMult>
+    </Object>
+    <Object type="0x0967" id="XP Gift F">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>600</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>200</XpMult>
+    </Object>
+    <Object type="0x0968" id="XP Gift G">
+        <Group>Evaluators</Group>
+        <Enemy />
+        <Class>Character</Class>
+        <Texture>
+            <File>lofiChar8x8</File>
+            <Index>0xcd</Index>
+        </Texture>
+        <HitSound>monster/chicken_hit</HitSound>
+        <DeathSound>monster/chicken_death</DeathSound>
+        <MaxHitPoints>600</MaxHitPoints>
+        <Size>180</Size>
+        <Defense>0</Defense>
+        <XpMult>300</XpMult>
+    </Object>
 </Objects>

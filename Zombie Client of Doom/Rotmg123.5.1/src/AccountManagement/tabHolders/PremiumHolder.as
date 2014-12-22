@@ -10,8 +10,6 @@ import AccountManagement.ui.TabButton;
 
 import _0L_C_.DialogBox;
 
-import com.company.assembleegameclient.util.TextureRedrawer;
-
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
@@ -23,6 +21,11 @@ import flash.filters.DropShadowFilter;
 
 public class PremiumHolder extends TabHolder {
 
+    public function PremiumHolder(parent:AccountManagementBody, purchased:Boolean) {
+        super(parent);
+        this.premiumPurchased = purchased;
+        this.tabs = new Vector.<TabButton>();
+    }
     private var premiumPurchased:Boolean;
     private var tabHolder:TabHolder;
     private var tabs:Vector.<TabButton>;
@@ -30,16 +33,10 @@ public class PremiumHolder extends TabHolder {
     private var nextTabWidth:Number = 10;
     private var nextTabId:Number = 0;
 
-    public function PremiumHolder(parent:AccountManagementBody, purchased:Boolean) {
-        super(parent);
-        this.premiumPurchased = purchased;
-        this.tabs = new Vector.<TabButton>();
-    }
-
     public override function initialize(tab:TabButton):void {
         super.tab = tab;
 
-        if(!premiumPurchased) {
+        if (!premiumPurchased) {
             var purchaseText:SimpleText = new SimpleText(46, 0xffffff);
             purchaseText.multiline = true;
             purchaseText.text = "You are not a premium member.";
@@ -66,14 +63,14 @@ public class PremiumHolder extends TabHolder {
             iconSprite.y = 120 + ((320 / 2) - (iconSprite.height / 2));
             addChild(iconSprite);
 
-            iconSprite.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
+            iconSprite.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
                 var dialogBox:DialogBox = new DialogBox("You will be redirected to another website.", "Continue?", "Ok", "Cancel", "");
                 addChild(dialogBox);
-                dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e1:Event):void {
+                dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function (e1:Event):void {
                     trace("Premium purchased");
                     removeChild(dialogBox);
                 });
-                dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function(e2:Event):void {
+                dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function (e2:Event):void {
                     removeChild(dialogBox);
                 });
             });
@@ -93,7 +90,7 @@ public class PremiumHolder extends TabHolder {
     }
 
     public function updateScreen(holder:PremiumTabHolder):void {
-        if(this.tabHolder != null) {
+        if (this.tabHolder != null) {
             if (getChildIndex(this.tabHolder) != -1) {
                 removeChild(this.tabHolder);
             }
@@ -101,16 +98,6 @@ public class PremiumHolder extends TabHolder {
         this.tabHolder = holder;
         this.tabHolder.y = 30;
         addChild(this.tabHolder);
-    }
-
-    private function onTabClick(event:MouseEvent):void {
-        for each (var tab:TabButton in this.tabs) {
-            tab.selected = false;
-        }
-
-        tab = event.target as TabButton;
-        tab.selected = true;
-        updateScreen(tab.holder as PremiumTabHolder);
     }
 
     private function addTab(text:String, icon:BitmapData, holder:PremiumTabHolder):void {
@@ -123,12 +110,22 @@ public class PremiumHolder extends TabHolder {
         tabButton.addEventListener(MouseEvent.CLICK, this.onTabClick);
         tabs.push(tabButton);
         tabSprite.addChild(tabButton);
-        if(nextTabId == 0) {
+        if (nextTabId == 0) {
             updateScreen(tabButton.holder as PremiumTabHolder);
         }
 
         nextTabId++;
         nextTabWidth += tabButton.width + 5;
+    }
+
+    private function onTabClick(event:MouseEvent):void {
+        for each (var tab:TabButton in this.tabs) {
+            tab.selected = false;
+        }
+
+        tab = event.target as TabButton;
+        tab.selected = true;
+        updateScreen(tab.holder as PremiumTabHolder);
     }
 }
 }

@@ -19,59 +19,60 @@ public class OpenChestPanel extends SimpleButtonPanel {
 
     private static const slots:Vector.<int> = new <int>[Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_, Slot.any_];
 
-    public var inventory:Inventory;
-    private var opened:Boolean;
-
-    public function OpenChestPanel(_arg1:GameSprite, _arg2:Container){
+    public function OpenChestPanel(_arg1:GameSprite, _arg2:Container) {
         super(_arg1, "Open chest", "Open");
 
-        this.addEventListener(Event.ADDED_TO_STAGE,this.onAdded);
-        this.addEventListener(Event.REMOVED_FROM_STAGE,this.onRemove);
+        this.addEventListener(Event.ADDED_TO_STAGE, this.onAdded);
+        this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemove);
 
         this.inventory = new Inventory(gs_, _arg2, _arg2._include(), slots, 8, false);
         this.inventory.x = 8;
     }
-    protected function onKeyDown(param1:KeyboardEvent):void{
-        if(param1.keyCode == Parameters.data_.interact){
-            if(!opened) {
-                opened = true;
-                addChild(this.inventory);
-                super.removeChild(super.button);
-                super.removeChild(super.text);
-                if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
-                    LocalSoundEffects.play(LocalSounds.openChest);
-                }
-            }
+    public var inventory:Inventory;
+    private var opened:Boolean;
+
+    override public function draw():void {
+        if (opened) {
+            this.inventory.draw(this.inventory.gameObject_.equipment_);
         }
     }
-    protected override function onButtonClick(param1:MouseEvent):void{
-        if(!opened) {
+
+    protected override function onButtonClick(param1:MouseEvent):void {
+        if (!opened) {
             opened = true;
             addChild(this.inventory);
             super.removeChild(super.button);
             super.removeChild(super.text);
 
-            if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
+            if (this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
                 LocalSoundEffects.play(LocalSounds.openChest);
             }
         }
     }
 
+    protected function onKeyDown(param1:KeyboardEvent):void {
+        if (param1.keyCode == Parameters.data_.interact) {
+            if (!opened) {
+                opened = true;
+                addChild(this.inventory);
+                super.removeChild(super.button);
+                super.removeChild(super.text);
+                if (this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
+                    LocalSoundEffects.play(LocalSounds.openChest);
+                }
+            }
+        }
+    }
+
     protected function onAdded(param1:Event):void {
-        stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
     }
 
     protected function onRemove(param1:Event):void {
-        if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
+        if (this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
             LocalSoundEffects.play(LocalSounds.closeChest);
         }
-        stage.removeEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
-    }
-
-    override public function draw():void{
-        if(opened) {
-            this.inventory.draw(this.inventory.gameObject_.equipment_);
-        }
+        stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
     }
 }
 }

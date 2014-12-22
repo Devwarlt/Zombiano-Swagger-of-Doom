@@ -3,29 +3,35 @@
 
 //_F_F_._V_2
 
-package _F_F_{
-    import _W_D_.Domain;
-    import _U_5._dd;
-    import com.company.assembleegameclient.util.loadEmbeds;
-    import _F_1._E_r;
-    import _0I_9._05b;
-    import flash.display.Sprite;
+package _F_F_ {
+import _0I_9._05b;
 
-    public class _V_2 {
+import _F_1._E_r;
 
-        [Inject]
-        public var domain:Domain;
-        [Inject]
-        public var _T__:_dd;
+import _U_5._dd;
 
-        public function execute():void{
-            loadEmbeds();
-            this._T__.dispatch(this._0E_M_());
-        }
-        private function _0E_M_():Sprite{
-            return (((this.domain._F_N_()) ? new _E_r() : new _05b()));
-        }
+import _W_D_.Domain;
 
+import com.company.assembleegameclient.util.loadEmbeds;
+
+import flash.display.Sprite;
+
+public class _V_2 {
+
+    [Inject]
+    public var domain:Domain;
+    [Inject]
+    public var _T__:_dd;
+
+    public function execute():void {
+        loadEmbeds();
+        this._T__.dispatch(this._0E_M_());
     }
+
+    private function _0E_M_():Sprite {
+        return (((this.domain._F_N_()) ? new _E_r() : new _05b()));
+    }
+
+}
 }//package _F_F_
 

@@ -3,17 +3,17 @@
 
 //_W_D_._G_J_
 
-package _W_D_{
-    import ServerPackets.Death;
+package _W_D_ {
+import ServerPackets.Death;
 
-    public class _G_J_ {
+public class _G_J_ {
 
-        public var _sr:Boolean;
-        public var info:Death;
-        public var _Z__:int;
-        public var _J_u:int;
-        public var _dA_:Boolean;
+    public var _sr:Boolean;
+    public var info:Death;
+    public var _Z__:int;
+    public var _J_u:int;
+    public var _dA_:Boolean;
 
-    }
+}
 }//package _W_D_
 

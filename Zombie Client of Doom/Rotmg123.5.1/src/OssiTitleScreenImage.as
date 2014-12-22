@@ -1,13 +1,10 @@
-package
-{
-	import mx.core.BitmapAsset;
-	
-	[Embed(source="Zombie Swagger OF DOOM.png")]
-	public class OssiTitleScreenImage extends BitmapAsset
-	{
-		public function OssiTitleScreenImage()
-		{
-			super();
-		}
-	}
+package {
+import mx.core.BitmapAsset;
+
+[Embed(source="img/Title Screen of Doom.png")]
+public class OssiTitleScreenImage extends BitmapAsset {
+    public function OssiTitleScreenImage() {
+        super();
+    }
+}
 }

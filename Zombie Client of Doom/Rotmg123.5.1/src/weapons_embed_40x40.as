@@ -3,8 +3,9 @@
  */
 package {
 import mx.core.BitmapAsset;
-[Embed(source="40x40 weapons.png")]
-public class weapons_embed_40x40 extends BitmapAsset{
+
+[Embed(source="img/weapons40x40.png")]
+public class weapons_embed_40x40 extends BitmapAsset {
     public function weapons_embed_40x40() {
         super();
     }

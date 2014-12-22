@@ -1,520 +1,509 @@
 <Objects>
-  <Object type="0x0342" id="Police Officer">
-    <Description>Customize your character with this awesome skin.</Description>
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>0</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <PremiumSkin />
-    <ThanksTo>Liinkii</ThanksTo>
-    <DisplayId>Police Officer</DisplayId>
-  </Object>
-  <Object type="0x0343" id="FGT">
-    <Description>Customize your character with this awesome skin.</Description>
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0344" id="FGT1">
-    <Description>Customize your character with this awesome skin.</Description>
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0345" id="FGT2">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0346" id="FGT3">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0347" id="FGT4">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0348" id="FGT5">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0349" id="FGT6">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-
-  <Object type="0x034A" id="FGT7">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x034B" id="FGT8">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x034C" id="FGT9">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x034D" id="FGT10">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x034E" id="FGT11">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x034F" id="FGT12">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  
-  
-  
-  
-  
-  <Object type="0x0350" id="FGT13">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0351" id="FGT14">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0352" id="FGT15">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0353" id="FGT16">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0354" id="FGT17">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0355" id="FGT18">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0356" id="FGT19">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0357" id="FGT20">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0358" id="FGT21">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x0359" id="FGT22">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x035A" id="FGT22">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <DisplayId>FGT</DisplayId>
-  </Object>
-
-
-
-
-
-  <Object type="0x035A" id="FGT23">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <PremiumSkin />
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x035B" id="FGT24">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <PremiumSkin />
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x035C" id="FGT25">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <PremiumSkin />
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x035D" id="FGT26">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <PremiumSkin />
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x035E" id="FGT27">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <PremiumSkin />
-    <DisplayId>FGT</DisplayId>
-  </Object>
-  <Object type="0x035F" id="FGT28">
-    <Skin/>
-    <Class>Skin</Class>
-    <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>14</Index>
-    </AnimatedTexture>
-    <Specials>
-      <Special>Chests are always open.</Special>
-    </Specials>
-    <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
-    </Unlock>
-    <PremiumSkin />
-    <DisplayId>FGT</DisplayId>
-  </Object>
+    <Object type="0x0342" id="Police Officer">
+        <Description>Customize your character with this awesome skin.</Description>
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>0</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <PremiumSkin />
+        <ThanksTo>Liinkii</ThanksTo>
+        <DisplayId>Police Officer</DisplayId>
+    </Object>
+    <Object type="0x0343" id="FGT">
+        <Description>Customize your character with this awesome skin.</Description>
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0344" id="FGT1">
+        <Description>Customize your character with this awesome skin.</Description>
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0345" id="FGT2">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0346" id="FGT3">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0347" id="FGT4">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0348" id="FGT5">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0349" id="FGT6">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034A" id="FGT7">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034B" id="FGT8">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034C" id="FGT9">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034D" id="FGT10">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034E" id="FGT11">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>1</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x034F" id="FGT12">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0350" id="FGT13">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0351" id="FGT14">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0352" id="FGT15">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0353" id="FGT16">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0354" id="FGT17">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0355" id="FGT18">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0356" id="FGT19">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0357" id="FGT20">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0358" id="FGT21">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x0359" id="FGT22">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x035A" id="FGT22">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x035A" id="FGT23">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <PremiumSkin />
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x035B" id="FGT24">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <PremiumSkin />
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x035C" id="FGT25">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <PremiumSkin />
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x035D" id="FGT26">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <PremiumSkin />
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x035E" id="FGT27">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <PremiumSkin />
+        <DisplayId>FGT</DisplayId>
+    </Object>
+    <Object type="0x035F" id="FGT28">
+        <Skin />
+        <Class>Skin</Class>
+        <AnimatedTexture>
+            <File>playerskins</File>
+            <Index>14</Index>
+        </AnimatedTexture>
+        <Specials>
+            <Special>Chests are always open.</Special>
+        </Specials>
+        <Unlock>
+            <Rank>2</Rank>
+            <InGameReward>Defeat a zombie horde.</InGameReward>
+        </Unlock>
+        <PremiumSkin />
+        <DisplayId>FGT</DisplayId>
+    </Object>
 </Objects>

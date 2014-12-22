@@ -3,12 +3,13 @@
 
 //_g2._06n
 
-package _g2{
-    public interface _06n {
+package _g2 {
+public interface _06n {
 
-        function _f0(_arg1:Class):void;
-        function _cp():void;
+    function _f0(_arg1:Class):void;
 
-    }
+    function _cp():void;
+
+}
 }//package _g2
 

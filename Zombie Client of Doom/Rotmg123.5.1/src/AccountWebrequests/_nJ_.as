@@ -3,21 +3,21 @@
 
 //AccountWebrequests._nJ_
 
-package AccountWebrequests{
-    import flash.events.Event;
+package AccountWebrequests {
+import flash.events.Event;
 
-    internal class _nJ_ extends Event {
+internal class _nJ_ extends Event {
 
-        public static const DONE:String = "ACCOUNT_DONE";
-        public static const _tp:String = "ACCOUNT_CURRENT";
-        public static const _G__:String = "ACCOUNT_REGISTER";
-        public static const _2K_:String = "ACCOUNT_SIGN_IN";
-        public static const _lS_:String = "ACCOUNT_FORGOT";
-        public static const CHANGE:String = "ACCOUNT_CHANGE";
+    public static const DONE:String = "ACCOUNT_DONE";
+    public static const _tp:String = "ACCOUNT_CURRENT";
+    public static const _G__:String = "ACCOUNT_REGISTER";
+    public static const _2K_:String = "ACCOUNT_SIGN_IN";
+    public static const _lS_:String = "ACCOUNT_FORGOT";
+    public static const CHANGE:String = "ACCOUNT_CHANGE";
 
-        public function _nJ_(_arg1:String){
-            super(_arg1);
-        }
+    public function _nJ_(_arg1:String) {
+        super(_arg1);
     }
+}
 }//package AccountWebrequests
 

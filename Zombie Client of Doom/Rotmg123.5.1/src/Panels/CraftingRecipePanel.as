@@ -5,15 +5,10 @@ package Panels {
 import Frames.CraftingRecipeFrame;
 import Frames.LearnCraftingRecipeFrame;
 
-import _0L_C_.DialogBox;
-
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.GameObject;
-import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.ui.FrameHolder;
 
-import flash.events.Event;
-import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
 
 public class CraftingRecipePanel extends DoubleButtonPanel {

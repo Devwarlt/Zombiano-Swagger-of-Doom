@@ -3,12 +3,12 @@
 
 //_0L_C_._s7
 
-package _0L_C_{
-    public class _s7 extends DialogBox {
+package _0L_C_ {
+public class _s7 extends DialogBox {
 
-        public function _s7(){
-            super("Deleting Character...", null, null, null, "/deletingChar");
-        }
+    public function _s7() {
+        super("Deleting Character...", null, null, null, "/deletingChar");
     }
+}
 }//package _0L_C_
 

@@ -3,21 +3,20 @@
 
 //_D_d._xQ_
 
-package _D_d{
-    import flash.events.Event;
+package _D_d {
+import com.company.util.IntPoint;
 
-    import com.company.util.IntPoint;
+import flash.events.Event;
 
-    internal class _xQ_ extends Event {
+internal class _xQ_ extends Event {
 
-        public static const TILES_EVENT:String = "TILES_EVENT";
+    public static const TILES_EVENT:String = "TILES_EVENT";
 
-        public var tiles_:Vector.<IntPoint>;
-
-        public function _xQ_(_arg1:Vector.<IntPoint>){
-            super(TILES_EVENT);
-            this.tiles_ = _arg1;
-        }
+    public function _xQ_(_arg1:Vector.<IntPoint>) {
+        super(TILES_EVENT);
+        this.tiles_ = _arg1;
     }
+    public var tiles_:Vector.<IntPoint>;
+}
 }//package _D_d
 

@@ -3,14 +3,15 @@
 
 //_060._P_2
 
-package _060{
-    public class _P_2 {
+package _060 {
+public class _P_2 {
 
-        public function execute():void{
-        }
-        public function unexecute():void{
-        }
-
+    public function execute():void {
     }
+
+    public function unexecute():void {
+    }
+
+}
 }//package _060
 

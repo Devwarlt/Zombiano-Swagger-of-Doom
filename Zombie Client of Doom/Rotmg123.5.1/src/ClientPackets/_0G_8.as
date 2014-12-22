@@ -3,23 +3,24 @@
 
 //ClientPackets._0G_8
 
-package ClientPackets{
-    import flash.utils.IDataOutput;
+package ClientPackets {
+import flash.utils.IDataOutput;
 
-    public class _0G_8 extends ClientPacket {
+public class _0G_8 extends ClientPacket {
 
-        public var guildName_:String;
-
-        public function _0G_8(_arg1:uint){
-            super(_arg1);
-        }
-        override public function writeToOutput(_arg1:IDataOutput):void{
-            _arg1.writeUTF(this.guildName_);
-        }
-        override public function toString():String{
-            return (formatToString("JOINGUILD", "guildName_"));
-        }
-
+    public function _0G_8(_arg1:uint) {
+        super(_arg1);
     }
+    public var guildName_:String;
+
+    override public function writeToOutput(_arg1:IDataOutput):void {
+        _arg1.writeUTF(this.guildName_);
+    }
+
+    override public function toString():String {
+        return (formatToString("JOINGUILD", "guildName_"));
+    }
+
+}
 }//package ClientPackets
 

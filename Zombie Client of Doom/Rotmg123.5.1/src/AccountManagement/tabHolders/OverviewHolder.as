@@ -11,53 +11,11 @@ import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.rotmg.graphics.ranks.premiumRank;
 
 import flash.display.Bitmap;
-
 import flash.display.BitmapData;
 import flash.events.Event;
 import flash.filters.GlowFilter;
 
 public class OverviewHolder extends TabHolder {
-
-    private var scrollBar:_0K_B_;
-    private var logItems:Vector.<LogItemHolder>;
-    private var itemsHeight:Number;
-
-    public function OverviewHolder(parent:AccountManagementBody) {
-        super(parent);
-        this.logItems = new Vector.<LogItemHolder>();
-    }
-
-    public override function initialize(tab:TabButton):void {
-        this.tab = tab;
-
-        this.scrollBar = new _0K_B_(16, HEIGHT - 20);
-        this.scrollBar.x = WIDTH - 20;
-        this.scrollBar.y = 10;
-        this.scrollBar.addEventListener(Event.CHANGE, this.onChange);
-        addChild(this.scrollBar);
-
-        var currentHeight:Number = 5;
-        var logHolder:LogItemHolder;
-        for each (var item:LogItem in parseItems(XML(bodyParent.managementParent.accountXml.News))) {
-            logHolder = new LogItemHolder(resolveImage(item.icon), item.title, item.tagLine, item.link, item.dateTime);
-            logHolder.x = 5;
-            logHolder.y = currentHeight;
-            logHolder.baseY = currentHeight;
-            logHolder.addEventListener("switchTo", function(event:SwitchToEvent):void {
-                bodyParent.managementParent.accountHeader.switchToTab(event.tabName);
-            });
-            addChild(logHolder);
-            this.logItems.push(logHolder);
-            currentHeight += LogItemHolder.HEIGHT + 5;
-        }
-        this.scrollBar._fA_(HEIGHT, this.itemsHeight = currentHeight);
-    }
-
-    private function onChange(event:Event):void {
-        for each (var item:LogItemHolder in this.logItems) {
-            item.setY(((-(this.scrollBar._Q_D_()) * (this.itemsHeight - HEIGHT))));
-        }
-    }
 
     private static function resolveImage(imageType:String):Bitmap {
         var bmp:Bitmap;
@@ -106,13 +64,52 @@ public class OverviewHolder extends TabHolder {
         items.sortOn("dateTime", Array.NUMERIC);
         return Vector.<LogItem>(items.reverse());
     }
+
+    public function OverviewHolder(parent:AccountManagementBody) {
+        super(parent);
+        this.logItems = new Vector.<LogItemHolder>();
+    }
+    private var scrollBar:_0K_B_;
+    private var logItems:Vector.<LogItemHolder>;
+    private var itemsHeight:Number;
+
+    public override function initialize(tab:TabButton):void {
+        this.tab = tab;
+
+        this.scrollBar = new _0K_B_(16, HEIGHT - 20);
+        this.scrollBar.x = WIDTH - 20;
+        this.scrollBar.y = 10;
+        this.scrollBar.addEventListener(Event.CHANGE, this.onChange);
+        addChild(this.scrollBar);
+
+        var currentHeight:Number = 5;
+        var logHolder:LogItemHolder;
+        for each (var item:LogItem in parseItems(XML(bodyParent.managementParent.accountXml.News))) {
+            logHolder = new LogItemHolder(resolveImage(item.icon), item.title, item.tagLine, item.link, item.dateTime);
+            logHolder.x = 5;
+            logHolder.y = currentHeight;
+            logHolder.baseY = currentHeight;
+            logHolder.addEventListener("switchTo", function (event:SwitchToEvent):void {
+                bodyParent.managementParent.accountHeader.switchToTab(event.tabName);
+            });
+            addChild(logHolder);
+            this.logItems.push(logHolder);
+            currentHeight += LogItemHolder.HEIGHT + 5;
+        }
+        this.scrollBar._fA_(HEIGHT, this.itemsHeight = currentHeight);
+    }
+
+    private function onChange(event:Event):void {
+        for each (var item:LogItemHolder in this.logItems) {
+            item.setY(((-(this.scrollBar._Q_D_()) * (this.itemsHeight - HEIGHT))));
+        }
+    }
 }
 }
 
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
-
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -142,7 +139,7 @@ class LogItemHolder extends Sprite {
     public var link:String;
     public var baseY:Number;
 
-    public function LogItemHolder(_arg1:Bitmap, _arg2:String, _arg3:String, _arg4:String, _arg5:int){
+    public function LogItemHolder(_arg1:Bitmap, _arg2:String, _arg3:String, _arg4:String, _arg5:int) {
         super();
         this.graphics.beginFill(0x000000, 0.5);
         this.graphics.drawRect(0, 0, WIDTH + 4, HEIGHT);
@@ -180,26 +177,27 @@ class LogItemHolder extends Sprite {
     }
 
     public function setY(value:Number):void {
-        if(isNaN(value)) {
+        if (isNaN(value)) {
             return;
         }
         y = baseY + value;
     }
 
-    protected function onMouseOver(_arg1:MouseEvent):void{
+    protected function onMouseOver(_arg1:MouseEvent):void {
         this.title._gp(mouseOverColor);
         this.tagLine._gp(mouseOverColor);
         this.timeAgo._gp(mouseOverColor);
     }
-    protected function onRollOut(_arg1:MouseEvent):void{
+
+    protected function onRollOut(_arg1:MouseEvent):void {
         this.title._gp(defaultColor);
         this.tagLine._gp(defaultColor);
         this.timeAgo._gp(defaultColor);
     }
-    protected function onMouseDown(_arg1:MouseEvent):void{
+
+    protected function onMouseDown(_arg1:MouseEvent):void {
         var _local2:Array = this.link.split(":", 2);
-        switch (_local2[0])
-        {
+        switch (_local2[0]) {
             case "switchTo":
                 dispatchEvent(new SwitchToEvent("switchTo", _local2[1]));
                 break;
@@ -208,7 +206,8 @@ class LogItemHolder extends Sprite {
                 navigateToURL(new URLRequest(this.link), "_blank");
         }
     }
-    private static function _06P_(_arg1:int):String{
+
+    private static function _06P_(_arg1:int):String {
         var curTime:Number = (new Date().time / 1000);
         var diff:int = (curTime - _arg1);
         if (diff <= 0) {

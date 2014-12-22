@@ -3,19 +3,18 @@
 
 //_0_j._B_T_
 
-package _0_j{
+package _0_j {
 
-    import com.company.util.IntPoint;
+import com.company.util.IntPoint;
 
+public class _B_T_ extends _2i {
 
-    public class _B_T_ extends _2i {
+    //object sizes
+    private static const _M_p:Vector.<IntPoint> = new <IntPoint>[new IntPoint(8, 8), new IntPoint(16, 8), new IntPoint(16, 16)];//, new IntPoint(40, 40)];
 
-        //object sizes
-        private static const _M_p:Vector.<IntPoint> = new <IntPoint>[new IntPoint(8, 8), new IntPoint(16, 8), new IntPoint(16, 16)];//, new IntPoint(40, 40)];
-
-        public function _B_T_(){
-            super(_M_p);
-        }
+    public function _B_T_() {
+        super(_M_p);
     }
+}
 }//package _0_j
 

@@ -3,23 +3,24 @@
 
 //ClientPackets._oy
 
-package ClientPackets{
-    import flash.utils.IDataOutput;
+package ClientPackets {
+import flash.utils.IDataOutput;
 
-    public class _oy extends ClientPacket {
+public class _oy extends ClientPacket {
 
-        public var name_:String;
-
-        public function _oy(_arg1:uint){
-            super(_arg1);
-        }
-        override public function writeToOutput(_arg1:IDataOutput):void{
-            _arg1.writeUTF(this.name_);
-        }
-        override public function toString():String{
-            return (formatToString("CHOOSENAME", "name_"));
-        }
-
+    public function _oy(_arg1:uint) {
+        super(_arg1);
     }
+    public var name_:String;
+
+    override public function writeToOutput(_arg1:IDataOutput):void {
+        _arg1.writeUTF(this.name_);
+    }
+
+    override public function toString():String {
+        return (formatToString("CHOOSENAME", "name_"));
+    }
+
+}
 }//package ClientPackets
 

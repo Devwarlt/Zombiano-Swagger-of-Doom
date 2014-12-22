@@ -7,25 +7,23 @@ import AccountManagement.tabHolders.TabHolder;
 
 import flash.display.Sprite;
 
-public class AccountManagementBody extends Sprite{
+public class AccountManagementBody extends Sprite {
 
     public static const WIDTH:int = 800;
     public static const HEIGHT:int = 450;
-
-    public var managementParent:AccountManagementScreen;
-
-    private var tabHolder:TabHolder;
 
     public function AccountManagementBody(parent:AccountManagementScreen) {
         this.managementParent = parent;
         addChild(new AccountManagementImages.carbonBackground());
     }
+    public var managementParent:AccountManagementScreen;
+    private var tabHolder:TabHolder;
 
     public function initialize():void {
     }
 
     public function updateScreen(holder:TabHolder):void {
-        if(this.tabHolder != null) {
+        if (this.tabHolder != null) {
             if (getChildIndex(this.tabHolder) != -1) {
                 removeChild(this.tabHolder);
             }

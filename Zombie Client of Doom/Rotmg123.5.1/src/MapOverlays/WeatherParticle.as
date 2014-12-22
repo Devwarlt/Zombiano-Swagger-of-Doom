@@ -17,19 +17,6 @@ public class WeatherParticle {
     protected static const sqCommands:Vector.<int> = new <int>[GraphicsPathCommand.MOVE_TO, GraphicsPathCommand.LINE_TO, GraphicsPathCommand.LINE_TO, GraphicsPathCommand.LINE_TO];
     protected static const END_FILL:GraphicsEndFill = new GraphicsEndFill();
 
-    public var x_:Number;
-    public var y_:Number;
-    public var x_spd:Number;
-    public var y_spd:Number;
-    public var scale_:Number;
-    public var bitmap_:BitmapData;
-    /*private*/
-    internal var w_:Number;
-    /*private*/
-    internal var h_:Number;
-    protected var bitmapFill_:GraphicsBitmapFill;
-    protected var path_:GraphicsPath;
-
     public function WeatherParticle(_arg1:Number, _arg2:Number, _arg3:Number, _arg4:BitmapData):void {
         this.bitmapFill_ = new GraphicsBitmapFill(null, new Matrix(), false, false);
         this.path_ = new GraphicsPath(sqCommands, new Vector.<Number>());
@@ -41,6 +28,18 @@ public class WeatherParticle {
         this.w_ = (this.bitmap_.width * this.scale_);
         this.h_ = (this.bitmap_.height * this.scale_);
     }
+    public var x_:Number;
+    public var y_:Number;
+    public var x_spd:Number;
+    public var y_spd:Number;
+    public var scale_:Number;
+    /*private*/
+    public var bitmap_:BitmapData;
+    /*private*/
+    protected var bitmapFill_:GraphicsBitmapFill;
+    protected var path_:GraphicsPath;
+    internal var w_:Number;
+    internal var h_:Number;
 
     public function draw(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void {
 

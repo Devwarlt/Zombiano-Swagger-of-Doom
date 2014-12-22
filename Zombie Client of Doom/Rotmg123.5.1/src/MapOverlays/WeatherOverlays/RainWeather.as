@@ -2,38 +2,26 @@
  * Created by Fabian on 19.11.2014.
  */
 package MapOverlays.WeatherOverlays {
-import MapOverlays.MapOverlay;
 import MapOverlays.Weather;
 import MapOverlays.WeatherParticle;
 
 import Sounds.WeatherSoundManager;
 
-import _05R_.GTween;
-
-import _0G_l._in;
-
 import com.company.assembleegameclient.map._0D_v;
-import com.company.assembleegameclient.parameters.Parameters;
 import com.company.util.AssetLibrary;
 import com.company.util._kp;
 
 import flash.display.IGraphicsData;
-import flash.media.Sound;
-import flash.media.SoundChannel;
-import flash.media.SoundTransform;
-import flash.net.URLRequest;
 
 public class RainWeather extends Weather {
 
-    protected var graphicsData_:Vector.<IGraphicsData>;
-
-    public function RainWeather(_arg1:Boolean){
+    public function RainWeather(_arg1:Boolean) {
         this.graphicsData_ = new Vector.<IGraphicsData>();
         this.weatherSound = new WeatherSoundManager();
         this.weatherSound.load("rain2");
 
         super();
-        if(_arg1) {
+        if (_arg1) {
             var _local1:int;
             while (_local1 < defaultParticles) {
                 this.addRainDrop();
@@ -41,22 +29,20 @@ public class RainWeather extends Weather {
             }
         }
     }
-    override public function draw(_arg1:_0D_v, _arg2:int):void{
+    protected var graphicsData_:Vector.<IGraphicsData>;
+
+    override public function get defaultParticles():int {
+        return 500;
+    }
+
+    override public function draw(_arg1:_0D_v, _arg2:int):void {
         var _local3:WeatherParticle;
         this.graphicsData_.length = 0;
-        for each (_local3 in this.particles_)
-        {
+        for each (_local3 in this.particles_) {
             _local3.draw(this.graphicsData_, _arg1, _arg2);
         }
         graphics.clear();
         graphics.drawGraphicsData(this.graphicsData_);
-    }
-    private function addRainDrop():void{
-        var _local1:_kp = AssetLibrary._18("rain");
-        var _local2:WeatherParticle = new WeatherParticle(((Math.random() * 1000) - 500), ((Math.random() * 1000) - 500), (4 * (0.5 + (0.5 * Math.random()))), _local1._W_u[int((_local1._W_u.length * Math.random()))]);
-        _local2.x_spd = 5 + (Math.random() * (1 - 0.5) + 0.5);
-        _local2.y_spd = 5 + (Math.random() * (1 - 0.5) + 0.5);
-        this.particles_.push(_local2);
     }
 
     override public function update():void {
@@ -65,17 +51,21 @@ public class RainWeather extends Weather {
             _local1.x_ += _local1.x_spd;
             _local1.y_ += _local1.y_spd;
 
-            if(_local1.x_ > 500) _local1.x_ -= 1000;
-            if(_local1.y_ > 500) _local1.y_ -= 1000;
+            if (_local1.x_ > 500) _local1.x_ -= 1000;
+            if (_local1.y_ > 500) _local1.y_ -= 1000;
         }
     }
 
-    override public function addParticle():void{
+    override public function addParticle():void {
         this.addRainDrop();
     }
 
-    override public function get defaultParticles():int {
-        return 500;
+    private function addRainDrop():void {
+        var _local1:_kp = AssetLibrary._18("rain");
+        var _local2:WeatherParticle = new WeatherParticle(((Math.random() * 1000) - 500), ((Math.random() * 1000) - 500), (4 * (0.5 + (0.5 * Math.random()))), _local1._W_u[int((_local1._W_u.length * Math.random()))]);
+        _local2.x_spd = 5 + (Math.random() * (1 - 0.5) + 0.5);
+        _local2.y_spd = 5 + (Math.random() * (1 - 0.5) + 0.5);
+        this.particles_.push(_local2);
     }
 }
 }//package MapOverlays

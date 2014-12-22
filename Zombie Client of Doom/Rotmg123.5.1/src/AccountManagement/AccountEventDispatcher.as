@@ -3,9 +3,13 @@
  */
 package AccountManagement {
 import _C__._cM_;
-import _F_1._C_Q_;
+
+import _F_1.MainTitleScreen;
+
 import _U_5._dd;
+
 import _qN_.Account;
+
 import _zo._8C_;
 import _zo._mS_;
 
@@ -23,21 +27,23 @@ public class AccountEventDispatcher extends _cM_ {
         this.view.eventDispatcher.add(this.dispatchEvent);
         this.view.initialize();
     }
+
     override public function destroy():void {
         this.view.destroy();
         this.view.eventDispatcher.remove(this.dispatchEvent);
     }
+
     private function dispatchEvent(eventString:String):void {
         switch (eventString) {
             case AccountManagementScreen.SHOW_MAIN_SCREEN:
-                this.target.dispatch(new _C_Q_());
+                this.target.dispatch(new MainTitleScreen());
                 break;
             case AccountManagementScreen.RELOAD:
                 this.reload();
                 break;
             case AccountManagementScreen.LOGOUT:
                 Account._get().clear();
-                var mainScreen:_C_Q_ = new _C_Q_();
+                var mainScreen:MainTitleScreen = new MainTitleScreen();
                 this.target.dispatch(mainScreen);
                 mainScreen.reload();
                 break;

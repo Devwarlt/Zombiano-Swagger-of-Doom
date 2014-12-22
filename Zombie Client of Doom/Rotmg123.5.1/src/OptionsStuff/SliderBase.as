@@ -23,21 +23,6 @@ public class SliderBase extends Sprite {
     public static const WIDTH:int = 80;
     public static const HEIGHT:int = 32;
 
-    private var graphicsData_:Vector.<IGraphicsData>;
-
-    public var maximumValue:int;
-    public var val:int = -1;
-    private var over_:Boolean = false;
-    private var internalFill_:GraphicsSolidFill;
-    private var _pq:GraphicsSolidFill;
-    private var _uN_:GraphicsSolidFill;
-    private var path_:GraphicsPath;
-    private var _0y:GraphicsStroke;
-
-    private var sliderKnob:Sprite;
-    private var sliderLine:_return;
-    private var valueText:SimpleText;
-
     public function SliderBase(value:int, maxVal:int = 100) {
         this.internalFill_ = new GraphicsSolidFill(0x6B472E, 1);
         this._pq = new GraphicsSolidFill(0x63432E, 1);
@@ -80,18 +65,47 @@ public class SliderBase extends Sprite {
         this._0y.fill = (this._uN_);
         graphics.drawGraphicsData(this.graphicsData_);
     }
+    public var maximumValue:int;
+    public var val:int = -1;
+    private var graphicsData_:Vector.<IGraphicsData>;
+    private var over_:Boolean = false;
+    private var internalFill_:GraphicsSolidFill;
+    private var _pq:GraphicsSolidFill;
+    private var _uN_:GraphicsSolidFill;
+    private var path_:GraphicsPath;
+    private var _0y:GraphicsStroke;
+    private var sliderKnob:Sprite;
+    private var sliderLine:_return;
+    private var valueText:SimpleText;
+
+    public function get value():int {
+        return ((this.sliderKnob.x - 5) * (maximumValue / (WIDTH - 10)));
+    }
+
     public function setValue(val:int, updateKnob:Boolean = true):void {
         this.val = val;
-        if(updateKnob) {
+        if (updateKnob) {
             this.sliderKnob.x = (val / (maximumValue / (WIDTH - 10))) + 5;
         }
         this.setValueText();
         dispatchEvent(new Event(Event.CHANGE));
     }
-    public function get value():int {
-        return ((this.sliderKnob.x - 5) * (maximumValue / (WIDTH - 10)));
+
+    private function updateDraw():void {
+        this.sliderKnob.graphics.clear();
+        this.sliderKnob.graphics.beginFill(this.over_ ? 0xF2FF00 : 0x919191, 1.0);
+        this.sliderKnob.graphics.drawCircle(0, 0, 5);
+        this.sliderKnob.graphics.endFill();
     }
-    private function onMouseOver(_arg1:MouseEvent):void{
+
+    private function setValueText():void {
+        this.valueText.text = this.val.toString();
+        this.valueText.updateMetrics();
+        this.valueText.x = (WIDTH / 2) - (this.valueText.textWidth / 2);
+        this.valueText.y = 12.5;
+    }
+
+    private function onMouseOver(_arg1:MouseEvent):void {
         this.over_ = true;
         this.updateDraw();
     }
@@ -117,24 +131,10 @@ public class SliderBase extends Sprite {
         this.updateDraw();
     }
 
-    private function updateDraw():void{
-        this.sliderKnob.graphics.clear();
-        this.sliderKnob.graphics.beginFill(this.over_ ? 0xF2FF00 : 0x919191, 1.0);
-        this.sliderKnob.graphics.drawCircle(0, 0, 5);
-        this.sliderKnob.graphics.endFill();
-    }
-
     private function onEnterFrame(event:Event):void {
-        if(this.val != this.value) {
+        if (this.val != this.value) {
             setValue(this.value, false);
         }
-    }
-
-    private function setValueText():void {
-        this.valueText.text = this.val.toString();
-        this.valueText.updateMetrics();
-        this.valueText.x = (WIDTH / 2) - (this.valueText.textWidth / 2);
-        this.valueText.y = 12.5;
     }
 }
 }

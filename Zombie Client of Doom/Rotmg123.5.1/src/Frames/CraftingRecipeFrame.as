@@ -15,7 +15,6 @@ import com.company.util._H_V_;
 
 import flash.display.DisplayObject;
 import flash.display.Shape;
-
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
@@ -24,44 +23,6 @@ import flash.filters.DropShadowFilter;
 import flash.filters.GlowFilter;
 
 public class CraftingRecipeFrame extends Sprite {
-
-    private var gs_:GameSprite;
-    private var obj_:GameObject;
-
-    private var dimScreen:Shape;
-    private var backgroundBook:DisplayObject;
-
-    private var frameTitle:SimpleText;
-    private var site1Text:SimpleText;
-    private var site2Text:SimpleText;
-    private var bookTitle1:SimpleText;
-    private var bookTitle2:SimpleText;
-
-    private var nextButton:boxButton;
-    private var prevButton:boxButton;
-    private var closeButton:xButton;
-
-    private var slot1_:Inventory;
-    private var slot2_:Inventory;
-    private var slot3_:Inventory;
-    private var slot4_:Inventory;
-    private var slot5_:Inventory;
-    private var slot6_:Inventory;
-    private var slot7_:Inventory;
-    private var slot8_:Inventory;
-    private var slot9_:Inventory;
-    private var output_:Inventory;
-
-    private var siteNumber:int = 0;
-    private var site1:int = 1;
-    private var site2:int = 2;
-
-    private var _xCenterRight:Number;
-    private var _xCenterLeft:Number;
-    private var _yCenterLeft:Number;
-
-    private var activeGlowFilter:GlowFilter;
-    private var restrictedGlowFilter:GlowFilter;
 
     public function CraftingRecipeFrame(_gs:GameSprite, _obj:GameObject) {
         this.gs_ = _gs;
@@ -154,14 +115,28 @@ public class CraftingRecipeFrame extends Sprite {
         this.bookTitle2.x = (_xCenterRight - (this.bookTitle2.textWidth / 2));
         this.bookTitle2.y = 125;
 
-        this.slot1_.x = (_xCenterLeft - 50);    this.slot2_.x = (_xCenterLeft);         this.slot3_.x = (_xCenterLeft + 50);
-        this.slot1_.y = (_yCenterLeft - 50);    this.slot2_.y = (_yCenterLeft - 50);    this.slot3_.y = (_yCenterLeft - 50);
+        this.slot1_.x = (_xCenterLeft - 50);
+        this.slot2_.x = (_xCenterLeft);
+        this.slot3_.x = (_xCenterLeft + 50);
+        this.slot1_.y = (_yCenterLeft - 50);
+        this.slot2_.y = (_yCenterLeft - 50);
+        this.slot3_.y = (_yCenterLeft - 50);
 
-        this.slot4_.x = (_xCenterLeft - 50);    this.slot5_.x = (_xCenterLeft);         this.slot6_.x = (_xCenterLeft + 50);    this.output_.x = (_xCenterRight - (this.output_.width / 2));
-        this.slot4_.y = (_yCenterLeft);         this.slot5_.y = (_yCenterLeft);         this.slot6_.y = (_yCenterLeft);         this.output_.y = (_yCenterLeft);
+        this.slot4_.x = (_xCenterLeft - 50);
+        this.slot5_.x = (_xCenterLeft);
+        this.slot6_.x = (_xCenterLeft + 50);
+        this.output_.x = (_xCenterRight - (this.output_.width / 2));
+        this.slot4_.y = (_yCenterLeft);
+        this.slot5_.y = (_yCenterLeft);
+        this.slot6_.y = (_yCenterLeft);
+        this.output_.y = (_yCenterLeft);
 
-        this.slot7_.x = (_xCenterLeft - 50);    this.slot8_.x = (_xCenterLeft);         this.slot9_.x = (_xCenterLeft + 50);
-        this.slot7_.y = (_yCenterLeft + 50);    this.slot8_.y = (_yCenterLeft + 50);    this.slot9_.y = (_yCenterLeft + 50);
+        this.slot7_.x = (_xCenterLeft - 50);
+        this.slot8_.x = (_xCenterLeft);
+        this.slot9_.x = (_xCenterLeft + 50);
+        this.slot7_.y = (_yCenterLeft + 50);
+        this.slot8_.y = (_yCenterLeft + 50);
+        this.slot9_.y = (_yCenterLeft + 50);
 
         this.addChild(this.dimScreen);
         this.addChild(this.backgroundBook);
@@ -192,6 +167,55 @@ public class CraftingRecipeFrame extends Sprite {
         this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
+    private var gs_:GameSprite;
+    private var obj_:GameObject;
+    private var dimScreen:Shape;
+    private var backgroundBook:DisplayObject;
+    private var frameTitle:SimpleText;
+    private var site1Text:SimpleText;
+    private var site2Text:SimpleText;
+    private var bookTitle1:SimpleText;
+    private var bookTitle2:SimpleText;
+    private var nextButton:boxButton;
+    private var prevButton:boxButton;
+    private var closeButton:xButton;
+    private var slot1_:Inventory;
+    private var slot2_:Inventory;
+    private var slot3_:Inventory;
+    private var slot4_:Inventory;
+    private var slot5_:Inventory;
+    private var slot6_:Inventory;
+    private var slot7_:Inventory;
+    private var slot8_:Inventory;
+    private var slot9_:Inventory;
+    private var output_:Inventory;
+    private var siteNumber:int = 0;
+    private var site1:int = 1;
+    private var site2:int = 2;
+    private var _xCenterRight:Number;
+    private var _xCenterLeft:Number;
+    private var _yCenterLeft:Number;
+    private var activeGlowFilter:GlowFilter;
+    private var restrictedGlowFilter:GlowFilter;
+
+    public function updateSiteText(add:Boolean):void {
+        if (add) {
+            site1 += 2;
+            site2 += 2;
+        }
+        else {
+            site1 -= 2;
+            site2 -= 2;
+        }
+
+        this.site1Text.text = String(site1);
+        this.site2Text.text = String(site2);
+
+        this.site1Text.x = (_xCenterLeft - (this.site1Text.textWidth / 2)) + (40 / 2);
+        this.site1Text.y = 425;
+        this.site2Text.x = (_xCenterRight - (this.site2Text.textWidth / 2));
+        this.site2Text.y = 425;
+    }
 
     public function onAddedToStage(param1:Event):void {
         stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown)
@@ -201,21 +225,21 @@ public class CraftingRecipeFrame extends Sprite {
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown)
     }
 
-    public function onKeyDown(param1:KeyboardEvent):void{
-        if(param1.keyCode == _H_V_.RIGHT) {
-            if(this.nextButton.mouseEnabled) {
+    public function onKeyDown(param1:KeyboardEvent):void {
+        if (param1.keyCode == _H_V_.RIGHT) {
+            if (this.nextButton.mouseEnabled) {
                 this.onNextClicked(new MouseEvent(MouseEvent.CLICK));
             }
         }
-        if(param1.keyCode == _H_V_.LEFT) {
-            if(this.prevButton.mouseEnabled) {
+        if (param1.keyCode == _H_V_.LEFT) {
+            if (this.prevButton.mouseEnabled) {
                 this.onPrevClicked(new MouseEvent(MouseEvent.CLICK));
             }
         }
     }
 
     public function onEnterFrame(param1:Event):void {
-        if(siteNumber < CraftingTerminal.recipes.length) {
+        if (siteNumber < CraftingTerminal.recipes.length) {
             var inputItems:Array = CraftingTerminal.recipes[siteNumber].split(';')[0].split(',');
             var outputItem:int = CraftingTerminal.recipes[siteNumber].split(";")[1];
 
@@ -238,39 +262,20 @@ public class CraftingRecipeFrame extends Sprite {
         prevButton.filters = [prevButton.mouseEnabled ? activeGlowFilter : restrictedGlowFilter];
     }
 
-    public function onClose(param1:MouseEvent) : void {
+    public function onClose(param1:MouseEvent):void {
         dispatchEvent(new Event(Event.COMPLETE));
         this.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         parent.removeChild(this);
     }
 
     public function onPrevClicked(param1:MouseEvent):void {
-        if(siteNumber > 0) siteNumber--;
+        if (siteNumber > 0) siteNumber--;
         updateSiteText(false);
     }
 
     public function onNextClicked(param1:MouseEvent):void {
-        if(siteNumber + 1 < CraftingTerminal.recipes.length) siteNumber++;
+        if (siteNumber + 1 < CraftingTerminal.recipes.length) siteNumber++;
         updateSiteText(true);
-    }
-
-    public function updateSiteText(add:Boolean):void{
-        if(add) {
-            site1 += 2;
-            site2 += 2;
-        }
-        else {
-            site1 -= 2;
-            site2 -= 2;
-        }
-
-        this.site1Text.text = String(site1);
-        this.site2Text.text = String(site2);
-
-        this.site1Text.x = (_xCenterLeft - (this.site1Text.textWidth / 2)) + (40 / 2);
-        this.site1Text.y = 425;
-        this.site2Text.x = (_xCenterRight - (this.site2Text.textWidth / 2));
-        this.site2Text.y = 425;
     }
 }
 }

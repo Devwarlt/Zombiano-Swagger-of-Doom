@@ -3,40 +3,40 @@
 
 //Panels.ChangeCharacterPanel
 
-package Panels{
-    import com.company.assembleegameclient.game.GameSprite;
-    import com.company.assembleegameclient.parameters.Parameters;
-    import flash.events.KeyboardEvent;
-    import flash.events.Event;
-    import flash.events.MouseEvent;
+package Panels {
+import com.company.assembleegameclient.game.GameSprite;
+import com.company.assembleegameclient.parameters.Parameters;
 
-    public class ChangeCharacterPanel extends SimpleButtonPanel {
+import flash.events.Event;
+import flash.events.KeyboardEvent;
+import flash.events.MouseEvent;
 
-        public function ChangeCharacterPanel(_arg1:GameSprite){
-            super(_arg1, "Change Characters", "Change");
-            this.addEventListener(Event.ADDED_TO_STAGE,this.onAdded);
-            this.addEventListener(Event.REMOVED_FROM_STAGE,this.onRemove);
-        }
+public class ChangeCharacterPanel extends SimpleButtonPanel {
 
-        protected function onKeyDown(param1:KeyboardEvent) : void {
-            if(param1.keyCode == Parameters.data_.interact)
-            {
-                gs_.dispatchEvent(new Event(Event.COMPLETE));
-            }
-        }
+    public function ChangeCharacterPanel(_arg1:GameSprite) {
+        super(_arg1, "Change Characters", "Change");
+        this.addEventListener(Event.ADDED_TO_STAGE, this.onAdded);
+        this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemove);
+    }
 
-        override protected function onButtonClick(_arg1:MouseEvent):void{
+    override protected function onButtonClick(_arg1:MouseEvent):void {
+        gs_.dispatchEvent(new Event(Event.COMPLETE));
+    }
+
+    protected function onKeyDown(param1:KeyboardEvent):void {
+        if (param1.keyCode == Parameters.data_.interact) {
             gs_.dispatchEvent(new Event(Event.COMPLETE));
         }
-
-        protected function onAdded(param1:Event) : void {
-            stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
-        }
-
-        protected function onRemove(param1:Event) : void {
-            stage.removeEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
-        }
-
     }
+
+    protected function onAdded(param1:Event):void {
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
+    }
+
+    protected function onRemove(param1:Event):void {
+        stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
+    }
+
+}
 }//package Panels
 

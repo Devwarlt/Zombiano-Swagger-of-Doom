@@ -24,14 +24,17 @@ public class Battery extends Sprite {
     public static const CHARGE_005:uint = 5;
     public static const CHARGE_000:uint = 0;
 
-    private var icon:Bitmap;
-    private var chargeText:SimpleText;
-    private var currentCharge:int;
-
     public function Battery(currentCharge:int = -1) {
         this.currentCharge = currentCharge;
         resolveImage();
         resolveChargeText();
+    }
+    private var icon:Bitmap;
+    private var chargeText:SimpleText;
+    private var currentCharge:int;
+
+    public function get isInitialized():Boolean {
+        return this.currentCharge != -1;
     }
 
     public function updateCharge(newCharge:int):void {
@@ -40,33 +43,53 @@ public class Battery extends Sprite {
         resolveChargeText();
     }
 
-    public function get isInitialized():Boolean {
-        return this.currentCharge != -1;
-    }
-
     private function resolveImage():void {
-        if(this.icon != null) {
+        if (this.icon != null) {
             removeChild(this.icon);
             this.icon = null;
         }
 
-        if(!isInitialized) {
+        if (!isInitialized) {
             return;
         }
 
-        switch(this.currentCharge) {
-            case CHARGE_100: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x00)); break;
-            case CHARGE_090: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x01)); break;
-            case CHARGE_080: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x02)); break;
-            case CHARGE_070: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x03)); break;
-            case CHARGE_060: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x04)); break;
-            case CHARGE_050: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x05)); break;
-            case CHARGE_040: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x06)); break;
-            case CHARGE_030: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x07)); break;
-            case CHARGE_020: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x08)); break;
-            case CHARGE_010: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x09)); break;
-            case CHARGE_005: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0xA)); break;
-            case CHARGE_000: this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0xB)); break;
+        switch (this.currentCharge) {
+            case CHARGE_100:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x00));
+                break;
+            case CHARGE_090:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x01));
+                break;
+            case CHARGE_080:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x02));
+                break;
+            case CHARGE_070:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x03));
+                break;
+            case CHARGE_060:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x04));
+                break;
+            case CHARGE_050:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x05));
+                break;
+            case CHARGE_040:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x06));
+                break;
+            case CHARGE_030:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x07));
+                break;
+            case CHARGE_020:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x08));
+                break;
+            case CHARGE_010:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0x09));
+                break;
+            case CHARGE_005:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0xA));
+                break;
+            case CHARGE_000:
+                this.icon = new Bitmap(AssetLibrary._xK_("batteryCharges", 0xB));
+                break;
         }
         this.icon.scaleX = this.icon.scaleY = 5.0;
         this.icon.filters = [new DropShadowFilter()];
@@ -78,12 +101,12 @@ public class Battery extends Sprite {
     }
 
     private function resolveChargeText():void {
-        if(this.chargeText != null) {
+        if (this.chargeText != null) {
             removeChild(this.chargeText);
             this.chargeText = null;
         }
 
-        if(!isInitialized) {
+        if (!isInitialized) {
             return;
         }
         this.chargeText = new SimpleText(16, 0x000000);

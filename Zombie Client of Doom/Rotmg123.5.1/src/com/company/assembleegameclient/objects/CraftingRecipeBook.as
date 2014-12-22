@@ -3,8 +3,10 @@
  */
 package com.company.assembleegameclient.objects {
 import CraftingWebRequests.CraftingRequest;
+
 import Panels.CraftingRecipePanel;
 import Panels.Panel;
+
 import com.company.assembleegameclient.game.GameSprite;
 
 public class CraftingRecipeBook extends GameObject implements IPanelProvider {

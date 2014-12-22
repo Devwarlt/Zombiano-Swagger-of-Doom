@@ -3,20 +3,20 @@
 
 //_9R_._3E_
 
-package _9R_{
-    import flash.events.Event;
-    import ServerPackets.NameResult;
+package _9R_ {
+import ServerPackets.NameResult;
 
-    public class _3E_ extends Event {
+import flash.events.Event;
 
-        public static const NAMERESULTEVENT:String = "NAMERESULTEVENT";
+public class _3E_ extends Event {
 
-        public var _yS_:NameResult;
+    public static const NAMERESULTEVENT:String = "NAMERESULTEVENT";
 
-        public function _3E_(_arg1:NameResult){
-            super(NAMERESULTEVENT);
-            this._yS_ = _arg1;
-        }
+    public function _3E_(_arg1:NameResult) {
+        super(NAMERESULTEVENT);
+        this._yS_ = _arg1;
     }
+    public var _yS_:NameResult;
+}
 }//package _9R_
 

@@ -3,20 +3,22 @@
 
 //com.company.assembleegameclient.objects.GuildChronicle
 
-package com.company.assembleegameclient.objects{
-    import Panels.GuildChroniclePanel;
-    import com.company.assembleegameclient.game.GameSprite;
-    import Panels.Panel;
+package com.company.assembleegameclient.objects {
+import Panels.GuildChroniclePanel;
+import Panels.Panel;
 
-    public class GuildChronicle extends GameObject implements IPanelProvider {
+import com.company.assembleegameclient.game.GameSprite;
 
-        public function GuildChronicle(_arg1:XML){
-            super(_arg1);
-        }
-        public function GetPanel(_arg1:GameSprite):Panel{
-            return (new GuildChroniclePanel(_arg1));
-        }
+public class GuildChronicle extends GameObject implements IPanelProvider {
 
+    public function GuildChronicle(_arg1:XML) {
+        super(_arg1);
     }
+
+    public function GetPanel(_arg1:GameSprite):Panel {
+        return (new GuildChroniclePanel(_arg1));
+    }
+
+}
 }//package com.company.assembleegameclient.objects
 

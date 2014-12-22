@@ -3,24 +3,21 @@
 
 //Frames._O_I_
 
-package Frames{
-import flash.display.Sprite;
+package Frames {
 import com.company.ui.SimpleText;
-import flash.filters.DropShadowFilter;
-import flash.display.LineScaleMode;
+
 import flash.display.CapsStyle;
 import flash.display.JointStyle;
+import flash.display.LineScaleMode;
+import flash.display.Sprite;
 import flash.events.Event;
+import flash.filters.DropShadowFilter;
 
 public class TextInput extends Sprite {
 
     public static const HEIGHT:int = 88;
 
-    public var nameText_:SimpleText;
-    public var inputText_:SimpleText;
-    public var errorText_:SimpleText;
-
-    public function TextInput(_arg1:String, _arg2:Boolean, _arg3:String){
+    public function TextInput(_arg1:String, _arg2:Boolean, _arg3:String) {
         this.nameText_ = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
         this.nameText_.boldText(true);
         this.nameText_.text = _arg1;
@@ -49,14 +46,20 @@ public class TextInput extends Sprite {
         this.errorText_.filters = [new DropShadowFilter(0, 0, 0)];
         addChild(this.errorText_);
     }
-    public function text():String{
+    public var nameText_:SimpleText;
+    public var inputText_:SimpleText;
+    public var errorText_:SimpleText;
+
+    public function text():String {
         return (this.inputText_.text);
     }
-    public function _0B_T_(_arg1:String):void{
+
+    public function _0B_T_(_arg1:String):void {
         this.errorText_.text = _arg1;
         this.errorText_.updateMetrics();
     }
-    public function _02L_(_arg1:Event):void{
+
+    public function _02L_(_arg1:Event):void {
         this._0B_T_("");
     }
 

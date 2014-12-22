@@ -13,18 +13,17 @@ public class WeatherPropertiesPacket extends ServerPacket {
     public static const WIND_SPEED:int = 3;
     public static const PARTICLE_DIRECTION:int = 4;
 
-    public var _type:int;
-    public var _particles:int;
-    public var _weather:int;
-    public var _windSpeed:Vector.<Number>;
-    public var _particleDirection:int; //<- = 0 ;; down = 1 ;; -> = 2
-    public var _currentTime:int;
-    public var _atmosphere:String;
-
     public function WeatherPropertiesPacket(_arg1:uint) {
         super(_arg1);
         _windSpeed = new Vector.<Number>();
     }
+    public var _type:int;
+    public var _particles:int;
+    public var _weather:int;
+        public var _windSpeed:Vector.<Number>; //<- = 0 ;; down = 1 ;; -> = 2
+public var _particleDirection:int;
+    public var _currentTime:int;
+    public var _atmosphere:String;
 
     override public function parseFromInput(_arg1:IDataInput):void {
         _type = _arg1.readUnsignedByte();

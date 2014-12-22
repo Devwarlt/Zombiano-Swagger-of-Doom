@@ -6,26 +6,23 @@ import _05R_.GTween;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.ObjectLibrary;
-import com.company.assembleegameclient.objects._Z_H_;
 import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
-import flash.display.BitmapData;
 import flash.filters.DropShadowFilter;
 
 public class NewItemUnlockedScreen extends PopUpScreen {
-
-    private var unlockText:SimpleText;
-    private var itemDescText:SimpleText;
-    private var itemIcon:Bitmap;
-    private var itemId:int;
 
     public function NewItemUnlockedScreen(gameSprite:GameSprite, itemId:int) {
         this.itemId = itemId;
 
         super(gameSprite);
     }
+    private var unlockText:SimpleText;
+    private var itemDescText:SimpleText;
+    private var itemIcon:Bitmap;
+    private var itemId:int;
 
     protected override function init():void {
         this.unlockText = new SimpleText(46, 0xFFFFFF, false, 0, 600);
@@ -52,7 +49,7 @@ public class NewItemUnlockedScreen extends PopUpScreen {
         this.itemDescText.size = 0;
 
         stage.addChild(unlockText);
-        var tween:GTween = new GTween(this.unlockText, 0.5, { "size": 46 });
+        var tween:GTween = new GTween(this.unlockText, 0.5, {"size": 46});
         tween._bR_ = updateMetrics;
         tween.onComplete = iconFadeIn;
     }
@@ -66,14 +63,14 @@ public class NewItemUnlockedScreen extends PopUpScreen {
 
     private function iconFadeIn(tween:GTween):void {
         stage.addChild(itemIcon);
-        tween = new GTween(this.itemIcon, 0.5, { "scaleX": 0.5, "scaleY": 0.5 });
+        tween = new GTween(this.itemIcon, 0.5, {"scaleX": 0.5, "scaleY": 0.5});
         tween._bR_ = updateMetrics;
         tween.onComplete = itemDescTextFadeIn;
     }
 
     private function itemDescTextFadeIn(tween:GTween):void {
         stage.addChild(itemDescText);
-        tween = new GTween(this.itemDescText, 0.3, { "size": 32 });
+        tween = new GTween(this.itemDescText, 0.3, {"size": 32});
         tween._bR_ = updateMetrics;
         tween.onComplete = waitForFadeOut;
     }
@@ -84,9 +81,9 @@ public class NewItemUnlockedScreen extends PopUpScreen {
     }
 
     private function fadeOut(tween:GTween):void {
-        var descTween = new GTween(this.itemDescText, 0.3, { "size": 0 });
-        var iconTween = new GTween(this.itemIcon, 0.3, { "scaleX": 0, "scaleY": 0 });
-        var textTween = new GTween(this.unlockText, 0.3, { "size": 0 });
+        var descTween = new GTween(this.itemDescText, 0.3, {"size": 0});
+        var iconTween = new GTween(this.itemIcon, 0.3, {"scaleX": 0, "scaleY": 0});
+        var textTween = new GTween(this.unlockText, 0.3, {"size": 0});
         textTween._bR_ = updateMetrics;
         textTween.onComplete = remove;
     }

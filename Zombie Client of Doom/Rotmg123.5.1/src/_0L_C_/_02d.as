@@ -3,26 +3,29 @@
 
 //_0L_C_._02d
 
-package _0L_C_{
-    import _qN_.Account;
-    import flash.events.Event;
+package _0L_C_ {
+import _qN_.Account;
 
-    public class _02d extends DialogBox {
+import flash.events.Event;
 
-        public function _02d(){
-            super(("You do not have enough Gold for this item.  " + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold", "/notEnoughGold");
-            Account._get().cacheOffers();
-            addEventListener(BUTTON1_EVENT, this.onCancel);
-            addEventListener(BUTTON2_EVENT, this._8v);
-        }
-        public function onCancel(_arg1:Event):void{
-            parent.removeChild(this);
-        }
-        public function _8v(_arg1:Event):void{
-            Account._get().showMoneyManagement(stage);
-            parent.removeChild(this);
-        }
+public class _02d extends DialogBox {
 
+    public function _02d() {
+        super(("You do not have enough Gold for this item.  " + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold", "/notEnoughGold");
+        Account._get().cacheOffers();
+        addEventListener(BUTTON1_EVENT, this.onCancel);
+        addEventListener(BUTTON2_EVENT, this._8v);
     }
+
+    public function onCancel(_arg1:Event):void {
+        parent.removeChild(this);
+    }
+
+    public function _8v(_arg1:Event):void {
+        Account._get().showMoneyManagement(stage);
+        parent.removeChild(this);
+    }
+
+}
 }//package _0L_C_
 

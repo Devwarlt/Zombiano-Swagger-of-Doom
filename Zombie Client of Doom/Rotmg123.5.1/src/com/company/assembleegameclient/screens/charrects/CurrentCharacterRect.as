@@ -3,48 +3,39 @@
 
 //com.company.assembleegameclient.screens.charrects.CurrentCharacterRect
 
-package com.company.assembleegameclient.screens.charrects{
+package com.company.assembleegameclient.screens.charrects {
+import _0I_S_._09s;
+
+import _E_7._0M_k;
 import _E_7._for_;
+
+import _S_K_._u3;
+
+import _sp._aJ_;
+
 import com.company.assembleegameclient.appengine.SavedCharacter;
 import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.objects.ObjectLibrary;
+import com.company.assembleegameclient.util._lJ_;
+import com.company.rotmg.graphics.DeleteXGraphic;
+import com.company.rotmg.graphics.ranks.AdminRank;
+import com.company.ui.SimpleText;
+import com.company.util.BitmapUtil;
 
+import flash.display.Bitmap;
+import flash.display.BitmapData;
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
-import flash.display.Bitmap;
-import com.company.ui.SimpleText;
 import flash.display.Sprite;
-import _sp._aJ_;
-import com.company.assembleegameclient.objects.ObjectLibrary;
-import _S_K_._u3;
-import flash.events.MouseEvent;
 import flash.events.Event;
-import com.company.assembleegameclient.util._lJ_;
+import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
-import com.company.rotmg.graphics.ranks.AdminRank;
-import com.company.rotmg.graphics.DeleteXGraphic;
-import _E_7._0M_k;
-import _0I_S_._09s;
-import flash.display.BitmapData;
-import com.company.util.BitmapUtil;
 
 public class CurrentCharacterRect extends CharacterRect {
 
     private static var toolTip_:_for_ = null;
 
-    public var _name:String;
-    public var character:SavedCharacter;
-    public var charlist:_0K_R_;
-    public var playerXML:XML;
-    private var selectContainer:DisplayObjectContainer;
-    private var bitmap:Bitmap;
-    private var classNameText:SimpleText;
-    private var taglineIcon:DisplayObject;
-    private var taglineText:SimpleText;
-    private var deleteButton:Sprite;
-    public var selected:_aJ_;
-    public var deleteCharacter:_aJ_;
-
-    public function CurrentCharacterRect(_arg1:String, _arg2:SavedCharacter, _arg3:_0K_R_){
+    public function CurrentCharacterRect(_arg1:String, _arg2:SavedCharacter, _arg3:_0K_R_) {
         super(0x73543F, 0x6B472E);
         //super(0x701100, 0x8D1500);
         this._name = _arg1;
@@ -60,18 +51,33 @@ public class CurrentCharacterRect extends CharacterRect {
         this.deleteCharacter = new _u3(this.deleteButton, MouseEvent.CLICK).mapTo(this.character);
         addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
-    private function makeSelectContainer():void{
+    public var _name:String;
+    public var character:SavedCharacter;
+    public var charlist:_0K_R_;
+    public var playerXML:XML;
+    public var selected:_aJ_;
+    public var deleteCharacter:_aJ_;
+    private var selectContainer:DisplayObjectContainer;
+    private var bitmap:Bitmap;
+    private var classNameText:SimpleText;
+    private var taglineIcon:DisplayObject;
+    private var taglineText:SimpleText;
+    private var deleteButton:Sprite;
+
+    private function makeSelectContainer():void {
         this.selectContainer = new Sprite();
         Sprite(this.selectContainer).graphics.beginFill(0xFF00FF, 0);
         Sprite(this.selectContainer).graphics.drawRect(0, 0, (WIDTH - 30), HEIGHT);
         addChild(this.selectContainer);
     }
-    private function makeBitmap():void{
+
+    private function makeBitmap():void {
         this.bitmap = new Bitmap();
         this.selectContainer.addChild(this.bitmap);
         this.setImage(_lJ_.RIGHT, _lJ_._sS_, 0);
     }
-    private function makeClassNameText():void{
+
+    private function makeClassNameText():void {
         this.classNameText = new SimpleText(18, 0xFFFFFF, false, 0, 0, "Myriad Pro");
         this.classNameText.boldText(true);
         this.classNameText.text = ((this.playerXML.@id + " ") + this.character.level());
@@ -80,25 +86,28 @@ public class CurrentCharacterRect extends CharacterRect {
         this.classNameText.x = 58;
         this.selectContainer.addChild(this.classNameText);
     }
-    private function makeTagline():void{
+
+    private function makeTagline():void {
         var _local1:int = this.getNextStarFame();
-        if (_local1 > 0)
-        {
+        if (_local1 > 0) {
             this.makeTaglineIcon();
             this.makeTaglineText(_local1);
         }
     }
-    private function getNextStarFame():int{
+
+    private function getNextStarFame():int {
         return 0;//(RankUtils._F_U_((((this.characterStats == null)) ? 0 : this.characterStats._0D_E_()), this.character.fame()));
     }
-    private function makeTaglineIcon():void{
+
+    private function makeTaglineIcon():void {
         this.taglineIcon = new AdminRank();
         this.taglineIcon.x = 58;
         this.taglineIcon.y = 26;
         this.taglineIcon.filters = [new DropShadowFilter(0, 0, 0)];
         this.selectContainer.addChild(this.taglineIcon);
     }
-    private function makeTaglineText(_arg1:int):void{
+
+    private function makeTaglineText(_arg1:int):void {
         this.taglineText = new SimpleText(14, 0xB3B3B3, false, 0, 0, "Myriad Pro");
         this.taglineText.text = (((("Class Quest: " + this.character.fame()) + " of ") + _arg1) + " Fame");
         this.taglineText.updateMetrics();
@@ -107,45 +116,50 @@ public class CurrentCharacterRect extends CharacterRect {
         this.taglineText.y = 24;
         this.selectContainer.addChild(this.taglineText);
     }
-    private function makeDeleteButton():void{
+
+    private function makeDeleteButton():void {
         this.deleteButton = new DeleteXGraphic();
         this.deleteButton.addEventListener(MouseEvent.MOUSE_DOWN, this.onDeleteDown);
         this.deleteButton.x = 292;
         this.deleteButton.y = ((HEIGHT / 2) - (this.deleteButton.height / 2));
         addChild(this.deleteButton);
     }
-    override protected function onMouseOver(_arg1:MouseEvent):void{
-        super.onMouseOver(_arg1);
-        this.removeToolTip();
-        toolTip_ = new _0M_k(this._name, this.character._iJ_, this.charlist);
-        stage.addChild(toolTip_);
-    }
-    override protected function onRollOut(_arg1:MouseEvent):void{
-        super.onRollOut(_arg1);
-        this.removeToolTip();
-    }
-    private function onRemovedFromStage(_arg1:Event):void{
-        this.removeToolTip();
-    }
-    private function removeToolTip():void{
-        if (toolTip_ != null)
-        {
-            if (((!((toolTip_.parent == null))) && (toolTip_.parent.contains(toolTip_))))
-            {
+
+    private function removeToolTip():void {
+        if (toolTip_ != null) {
+            if (((!((toolTip_.parent == null))) && (toolTip_.parent.contains(toolTip_)))) {
                 toolTip_.parent.removeChild(toolTip_);
             }
             toolTip_ = null;
         }
     }
-    private function onDeleteDown(_arg1:MouseEvent):void{
-        _arg1.stopImmediatePropagation();
-        dispatchEvent(new _09s(this.character));
-    }
-    private function setImage(_arg1:int, _arg2:int, _arg3:Number):void{
+
+    private function setImage(_arg1:int, _arg2:int, _arg3:Number):void {
         var _local4:BitmapData = SavedCharacter.getImage(this.character, this.playerXML, _arg1, _arg2, _arg3, true, true);
         _local4 = BitmapUtil._Y_d(_local4, 6, 6, (_local4.width - 12), (_local4.height - 6));
         this.bitmap.bitmapData = _local4;
         this.bitmap.x = 0;
+    }
+
+    override protected function onMouseOver(_arg1:MouseEvent):void {
+        super.onMouseOver(_arg1);
+        this.removeToolTip();
+        toolTip_ = new _0M_k(this._name, this.character._iJ_, this.charlist);
+        stage.addChild(toolTip_);
+    }
+
+    override protected function onRollOut(_arg1:MouseEvent):void {
+        super.onRollOut(_arg1);
+        this.removeToolTip();
+    }
+
+    private function onRemovedFromStage(_arg1:Event):void {
+        this.removeToolTip();
+    }
+
+    private function onDeleteDown(_arg1:MouseEvent):void {
+        _arg1.stopImmediatePropagation();
+        dispatchEvent(new _09s(this.character));
     }
 
 }

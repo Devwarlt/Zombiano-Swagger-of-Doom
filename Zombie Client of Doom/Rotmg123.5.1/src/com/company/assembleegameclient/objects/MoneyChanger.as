@@ -3,20 +3,22 @@
 
 //com.company.assembleegameclient.objects.MoneyChanger
 
-package com.company.assembleegameclient.objects{
-    import Panels.BuyRealmGoldPanel;
-    import com.company.assembleegameclient.game.GameSprite;
-    import Panels.Panel;
+package com.company.assembleegameclient.objects {
+import Panels.BuyRealmGoldPanel;
+import Panels.Panel;
 
-    public class MoneyChanger extends GameObject implements IPanelProvider {
+import com.company.assembleegameclient.game.GameSprite;
 
-        public function MoneyChanger(_arg1:XML){
-            super(_arg1);
-        }
-        public function GetPanel(_arg1:GameSprite):Panel{
-            return (new BuyRealmGoldPanel(_arg1));
-        }
+public class MoneyChanger extends GameObject implements IPanelProvider {
 
+    public function MoneyChanger(_arg1:XML) {
+        super(_arg1);
     }
+
+    public function GetPanel(_arg1:GameSprite):Panel {
+        return (new BuyRealmGoldPanel(_arg1));
+    }
+
+}
 }//package com.company.assembleegameclient.objects
 

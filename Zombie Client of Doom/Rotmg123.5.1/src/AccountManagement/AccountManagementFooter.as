@@ -9,7 +9,6 @@ import com.company.assembleegameclient.ui.TextButton;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
-
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
@@ -20,10 +19,6 @@ public class AccountManagementFooter extends Sprite {
     public static const WIDTH:int = 800;
     public static const HEIGHT:int = 70;
 
-    private var closeBtn:TextButton;
-
-    private var managementParent:AccountManagementScreen;
-
     public function AccountManagementFooter(parent:AccountManagementScreen) {
         this.managementParent = parent;
 
@@ -32,6 +27,8 @@ public class AccountManagementFooter extends Sprite {
         background.filters = [new GlowFilter()];
         addChild(background);
     }
+    private var closeBtn:TextButton;
+    private var managementParent:AccountManagementScreen;
 
     public function initialize():void {
         this.closeBtn = new TextButton(36, false, "Close");

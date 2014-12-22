@@ -12,14 +12,14 @@ import flash.events.MouseEvent;
 public class xButton extends Sprite {
 
     public static var buttonSprite:Class = EmbeddedAssets_btnEmbed_;
-    public var event:_aJ_ = new _aJ_();
-    public var disabled:Boolean = false;
 
     public function xButton() {
         addChild(new buttonSprite());
         buttonMode = true;
         addEventListener(MouseEvent.CLICK, this.onButtonClick);
     }
+    public var event:_aJ_ = new _aJ_();
+    public var disabled:Boolean = false;
 
     public function disable():void {
         this.disabled = true;

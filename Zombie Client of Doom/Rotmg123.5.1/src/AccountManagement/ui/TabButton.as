@@ -20,25 +20,11 @@ import flash.filters.DropShadowFilter;
 public class TabButton extends Sprite {
     public static const HEIGHT:int = 24;
 
-    public var tabId:int = 0;
-    public var w_:Number = 0;
-    public var text:SimpleText;
-
-    private var holder_:TabHolder;
-    private var bmp:Bitmap;
-    private var selected_:Boolean;
-    private var selectedColor_:uint = 0x473224;
-    private var deSelectedColor_:uint = 0x5C4434;
-
-    private var fill_:GraphicsSolidFill;
-    private var path_:GraphicsPath;
-    private var graphicsData_:Vector.<IGraphicsData>;
-
     public function TabButton(text:String, icon:BitmapData, _tabId:int, _selected:Boolean = false) {
         this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-        if(icon != null) {
+        if (icon != null) {
 
-            if(icon.width != 100 || icon.height != 100) {
+            if (icon.width != 100 || icon.height != 100) {
                 throw new IllegalOperationError("Image width and height needs to be 100");
             }
 
@@ -71,18 +57,29 @@ public class TabButton extends Sprite {
 
         this.selected = _selected;
     }
+    public var tabId:int = 0;
+    public var w_:Number = 0;
+    public var text:SimpleText;
+    private var holder_:TabHolder;
+    private var bmp:Bitmap;
+    private var selected_:Boolean;
+    private var selectedColor_:uint = 0x473224;
+    private var deSelectedColor_:uint = 0x5C4434;
+    private var fill_:GraphicsSolidFill;
+    private var path_:GraphicsPath;
+    private var graphicsData_:Vector.<IGraphicsData>;
 
     public override function get height():Number {
         return HEIGHT;
     }
 
+    public function get selected():Boolean {
+        return this.selected_;
+    }
+
     public function set selected(_selected:Boolean):void {
         this.selected_ = _selected;
         this.draw();
-    }
-
-    public function get selected():Boolean {
-        return this.selected_;
     }
 
     public function set selectedColor(val:uint):void {
@@ -95,15 +92,15 @@ public class TabButton extends Sprite {
         draw();
     }
 
+    public function get holder():TabHolder {
+        return this.holder_;
+    }
+
     public function set holder(tabHolder:TabHolder):void {
-        if(this.holder_ == null) {
+        if (this.holder_ == null) {
             this.holder_ = tabHolder;
             this.holder_.initialize(this);
         }
-    }
-
-    public function get holder():TabHolder {
-        return this.holder_;
     }
 
     public function updateFill(_selected:Boolean):void {

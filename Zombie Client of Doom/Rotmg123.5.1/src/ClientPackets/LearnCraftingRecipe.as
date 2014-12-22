@@ -6,10 +6,6 @@ import flash.utils.IDataOutput;
 
 public class LearnCraftingRecipe extends ClientPacket {
 
-    public var _slotId:int;
-    public var _itemId:int;
-    public var _recipeId:int;
-
     public function LearnCraftingRecipe(_arg1:uint) {
         super(_arg1);
 
@@ -17,6 +13,9 @@ public class LearnCraftingRecipe extends ClientPacket {
         this._itemId = -1;
         this._recipeId = -1;
     }
+    public var _slotId:int;
+    public var _itemId:int;
+    public var _recipeId:int;
 
     public override function writeToOutput(_arg1:IDataOutput):void {
         _arg1.writeInt(this._slotId);

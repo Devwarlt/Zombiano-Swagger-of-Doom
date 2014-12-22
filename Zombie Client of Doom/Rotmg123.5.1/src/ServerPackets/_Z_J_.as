@@ -3,33 +3,32 @@
 
 //ServerPackets._Z_J_
 
-package ServerPackets{
+package ServerPackets {
 
-    import flash.utils.IDataInput;
+import flash.utils.IDataInput;
 
+public class _Z_J_ extends ServerPacket {
 
-    public class _Z_J_ extends ServerPacket {
-
-        public var offer_:Vector.<Boolean>;
-
-        public function _Z_J_(_arg1:uint){
-            this.offer_ = new Vector.<Boolean>();
-            super(_arg1);
-        }
-        override public function parseFromInput(_arg1:IDataInput):void{
-            this.offer_.length = 0;
-            var _local2:int = _arg1.readShort();
-            var _local3:int;
-            while (_local3 < _local2)
-            {
-                this.offer_.push(_arg1.readBoolean());
-                _local3++;
-            }
-        }
-        override public function toString():String{
-            return (formatToString("TRADECHANGED", "offer_"));
-        }
-
+    public function _Z_J_(_arg1:uint) {
+        this.offer_ = new Vector.<Boolean>();
+        super(_arg1);
     }
+    public var offer_:Vector.<Boolean>;
+
+    override public function parseFromInput(_arg1:IDataInput):void {
+        this.offer_.length = 0;
+        var _local2:int = _arg1.readShort();
+        var _local3:int;
+        while (_local3 < _local2) {
+            this.offer_.push(_arg1.readBoolean());
+            _local3++;
+        }
+    }
+
+    override public function toString():String {
+        return (formatToString("TRADECHANGED", "offer_"));
+    }
+
+}
 }//package ServerPackets
 

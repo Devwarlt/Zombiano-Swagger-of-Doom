@@ -5,15 +5,10 @@ package Frames {
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.Player;
 import com.company.assembleegameclient.ui._0M_Y_;
+
 import flash.display.Sprite;
 
 public class VisibilityBar extends Sprite {
-    private var bar:_0M_Y_;
-    private var player:Player;
-    private var gs_:GameSprite;
-
-    //private var color:uint;
-
     public function VisibilityBar(player:Player, gamesprite:GameSprite) {
         this.player = player;
         this.gs_ = gamesprite;
@@ -23,9 +18,14 @@ public class VisibilityBar extends Sprite {
         //bar.width = 400;
         addChild(bar);
     }
+    private var bar:_0M_Y_;
+    private var player:Player;
 
-    public function draw():void{
-        if(!player.map_.showDisplays_ && this.player.visibilityRange != -1)
+    //private var color:uint;
+    private var gs_:GameSprite;
+
+    public function draw():void {
+        if (!player.map_.showDisplays_ && this.player.visibilityRange != -1)
             bar.visible = true;
         else
             bar.visible = false;

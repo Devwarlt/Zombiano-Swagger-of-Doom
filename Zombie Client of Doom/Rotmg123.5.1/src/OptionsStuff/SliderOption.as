@@ -4,13 +4,10 @@
 package OptionsStuff {
 
 import com.company.assembleegameclient.parameters.Parameters;
+
 import flash.events.Event;
 
-
 public class SliderOption extends _0_i {
-
-    private var callback_:Function;
-    private var slider:SliderBase;
 
     public function SliderOption(_arg1:String, _arg4:String, _arg5:String, _arg6:Function) {
         super(_arg1, _arg4, _arg5);
@@ -20,6 +17,8 @@ public class SliderOption extends _0_i {
         this.slider.addEventListener(Event.CHANGE, this._bR_);
         addChild(this.slider);
     }
+    private var callback_:Function;
+    private var slider:SliderBase;
 
     override public function refresh():void {
         this.slider.setValue(Parameters.data_[_W_Y_] * 100);
