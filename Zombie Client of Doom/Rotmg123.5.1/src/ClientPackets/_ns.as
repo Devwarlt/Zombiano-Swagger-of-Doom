@@ -3,24 +3,23 @@
 
 //ClientPackets._ns
 
-package ClientPackets {
-import flash.utils.IDataOutput;
+package ClientPackets{
+    import flash.utils.IDataOutput;
 
-public class _ns extends ClientPacket {
+    public class _ns extends ClientPacket {
 
-    public function _ns(_arg1:uint) {
-        super(_arg1);
+        public var time_:int;
+
+        public function _ns(_arg1:uint){
+            super(_arg1);
+        }
+        override public function writeToOutput(_arg1:IDataOutput):void{
+            _arg1.writeInt(this.time_);
+        }
+        override public function toString():String{
+            return (formatToString("GOTOACK", "time_"));
+        }
+
     }
-    public var time_:int;
-
-    override public function writeToOutput(_arg1:IDataOutput):void {
-        _arg1.writeInt(this.time_);
-    }
-
-    override public function toString():String {
-        return (formatToString("GOTOACK", "time_"));
-    }
-
-}
 }//package ClientPackets
 

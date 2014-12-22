@@ -3,16 +3,15 @@
 
 //_05Z_._08i
 
-package _05Z_ {
-import _04w._07V_;
+package _05Z_{
+    import _sp._aJ_;
+    import _04w._07V_;
 
-import _sp._aJ_;
+    public class _08i extends _aJ_ {
 
-public class _08i extends _aJ_ {
-
-    public function _08i() {
-        super(_07V_);
+        public function _08i(){
+            super(_07V_);
+        }
     }
-}
 }//package _05Z_
 

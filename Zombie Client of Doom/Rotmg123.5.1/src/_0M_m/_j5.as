@@ -3,19 +3,16 @@
 
 //_0M_m._j5
 
-package _0M_m {
-import _sp._aJ_;
+package _0M_m{
+    import com.company.assembleegameclient.util.offer.Offers;
+    import _sp._aJ_;
 
-import com.company.assembleegameclient.util.offer.Offers;
+    public interface _j5 {
 
-public interface _j5 {
+        function _002():void;
+        function _U_t():Offers;
+        function get _Z_8():_aJ_;
 
-    function get _Z_8():_aJ_;
-
-    function _002():void;
-
-    function _U_t():Offers;
-
-}
+    }
 }//package _0M_m
 

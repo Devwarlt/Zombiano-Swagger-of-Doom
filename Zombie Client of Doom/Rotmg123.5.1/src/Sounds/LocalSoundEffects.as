@@ -1,7 +1,7 @@
 /**
  * Created by Fabian on 13.12.2014.
  */
-package Sounds {
+package Sounds{
 import com.company.assembleegameclient.parameters.Parameters;
 
 import flash.events.Event;
@@ -28,8 +28,7 @@ public class LocalSoundEffects {
         soundsInCache[sound.name] = snd;
         return snd;
     }
-
-    public static function play(sound:LocalSound, loop:int = 0, volume:Number = 1, isFX:Boolean = true, playAlways:Boolean = true):void {
+    public static function play(sound:LocalSound, loop:int=0, volume:Number=1, isFX:Boolean=true, playAlways:Boolean=true):void{
         var actualVolume:Number;
         var trans:SoundTransform;
         var channel:SoundChannel;
@@ -42,17 +41,15 @@ public class LocalSoundEffects {
             channelVolumes[channel] = volume;
             channels[channel] = channel;
         }
-        catch (error:Error) {
+        catch(error:Error) {
         }
     }
-
-    public static function onIOError(_arg1:IOErrorEvent):void {
-    }
-
-    private static function completed(e:Event):void {
+    private static function completed(e:Event):void{
         var sndChannel:SoundChannel = (e.target as SoundChannel);
         delete channelVolumes[sndChannel];
         delete channels[sndChannel];
+    }
+    public static function onIOError(_arg1:IOErrorEvent):void{
     }
 }
 }

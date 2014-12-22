@@ -3,13 +3,12 @@
 
 //_mY_._0A_k
 
-package _mY_ {
-public interface _0A_k {
+package _mY_{
+    public interface _0A_k {
 
-    function _04_(_arg1:Class):void;
+        function _04_(_arg1:Class):void;
+        function _08h():void;
 
-    function _08h():void;
-
-}
+    }
 }//package _mY_
 

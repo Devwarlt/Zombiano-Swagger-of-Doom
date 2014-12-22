@@ -5,7 +5,7 @@ package com.company.rotmg.graphics.ranks {
 import flash.display.Bitmap;
 
 [Embed(source="noRank_Embed.png")]
-public class noRank extends Bitmap {
+public class noRank extends flash.display.Bitmap{
     public function noRank() {
         super();
         this.scaleX = 0;

@@ -12,11 +12,15 @@ import flash.text.TextFieldAutoSize;
 
 public class DoubleButtonPanel extends Panel {
 
+    private var displayText:SimpleText;
+    private var button1:boxButton;
+    private var button2:boxButton;
+
     public function DoubleButtonPanel(_arg1:GameSprite, text:String, button1Text:String, button2Text:String) {
         super(_arg1);
         this.displayText = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
         this.displayText.boldText(true);
-        this.displayText.htmlText = (('<p align="center">' + text + "</p>"));
+        this.displayText.htmlText = (('<p align="center">' + text+ "</p>"));
         this.displayText.wordWrap = true;
         this.displayText.multiline = true;
         this.displayText.autoSize = TextFieldAutoSize.CENTER;
@@ -37,14 +41,11 @@ public class DoubleButtonPanel extends Panel {
         addChild(this.button1);
         addChild(this.button2);
     }
-    private var displayText:SimpleText;
-    private var button1:boxButton;
-    private var button2:boxButton;
 
-    protected function onButton1Click(param1:MouseEvent):void {
+    protected function onButton1Click(param1:MouseEvent):void{
     }
 
-    protected function onButton2Click(param1:MouseEvent):void {
+    protected function onButton2Click(param1:MouseEvent):void{
     }
 }
 }

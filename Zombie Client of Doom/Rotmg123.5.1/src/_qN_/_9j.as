@@ -3,14 +3,14 @@
 
 //_qN_._9j
 
-package _qN_ {
-import flash.display.Sprite;
+package _qN_{
+    import flash.display.Sprite;
 
-public class _9j extends Sprite {
+    public class _9j extends Sprite {
 
-    public function refresh():void {
+        public function refresh():void{
+        }
+
     }
-
-}
 }//package _qN_
 

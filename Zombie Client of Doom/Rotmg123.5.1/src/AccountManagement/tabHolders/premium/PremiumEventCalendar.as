@@ -4,6 +4,7 @@
 package AccountManagement.tabHolders.premium {
 import AccountManagement.AccountManagementBody;
 import AccountManagement.images.AccountManagementImages;
+import AccountManagement.tabHolders.TabHolder;
 import AccountManagement.ui.TabButton;
 
 import _05R_.GTween;
@@ -15,21 +16,20 @@ import flash.events.MouseEvent;
 
 public class PremiumEventCalendar extends PremiumTabHolder {
 
+    private var title:SimpleText;
+    private var nextArrow:Sprite;
+    private var prevArrow:Sprite;
+
+    //private var currentHolders:Vector.<calendarEventHolder>;
+    private var holderSpritePos:Number;
+    private var holderSprite:Sprite;
+    private var numberOfEvents:int;
+
     public function PremiumEventCalendar(parent:AccountManagementBody) {
         super(parent);
         //this.currentHolders = new Vector.<calendarEventHolder>();
         this.holderSprite = new Sprite();
     }
-    private var title:SimpleText;
-    private var nextArrow:Sprite;
-
-    //private var currentHolders:Vector.<calendarEventHolder>;
-    private var prevArrow:Sprite;
-    private var holderSpritePos:Number;
-    private var holderSprite:Sprite;
-    private var numberOfEvents:int;
-    private var completed:Boolean = true;
-    private var queue:Vector.<Number> = new Vector.<Number>();
 
     public override function initialize(tab:TabButton):void {
         super.tab = tab;
@@ -103,36 +103,27 @@ public class PremiumEventCalendar extends PremiumTabHolder {
     }
 
     private function getName(i:int):String {
-        switch (i) {
-            case 0:
-                return "JAN";
-            case 1:
-                return "FEB";
-            case 2:
-                return "MAR";
-            case 3:
-                return "APR";
-            case 4:
-                return "MAY";
-            case 5:
-                return "JUN";
-            case 6:
-                return "JUL";
-            case 7:
-                return "AUG";
-            case 8:
-                return "SEP";
-            case 9:
-                return "OCT";
-            case 10:
-                return "NOV";
-            default:
-                return "DEC";
+        switch(i) {
+            case 0: return "JAN";
+            case 1: return "FEB";
+            case 2: return "MAR";
+            case 3: return "APR";
+            case 4: return "MAY";
+            case 5: return "JUN";
+            case 6: return "JUL";
+            case 7: return "AUG";
+            case 8: return "SEP";
+            case 9: return "OCT";
+            case 10: return "NOV";
+            default: return "DEC";
         }
     }
 
+    private var completed:Boolean = true;
+    private var queue:Vector.<Number> = new Vector.<Number>();
+
     private function animationCompleted(tween:GTween):void {
-        if (queue.length > 0) {
+        if(queue.length > 0) {
             tween = new GTween(holderSprite, 0.2, {"x": Number(queue.shift())});
             tween.onComplete = animationCompleted;
         }
@@ -142,14 +133,14 @@ public class PremiumEventCalendar extends PremiumTabHolder {
     }
 
     private function onArrowClick(event:MouseEvent):void {
-        if ((holderSpritePos + (numberOfEvents * calendarEventHolder.WIDTH) <= 720 && event.target.name == "next") ||
-                (holderSpritePos >= 0 && event.target.name == "previous")) {
+        if((holderSpritePos + (numberOfEvents * calendarEventHolder.WIDTH) <= 720 && event.target.name == "next") ||
+           (holderSpritePos >= 0 && event.target.name == "previous")) {
             return;
         }
 
         var oldPos:Number = holderSpritePos;
 
-        switch (event.target.name) {
+        switch(event.target.name){
             case "next":
                 holderSpritePos -= calendarEventHolder.WIDTH;
                 break;
@@ -158,8 +149,8 @@ public class PremiumEventCalendar extends PremiumTabHolder {
                 break;
         }
 
-        if (oldPos != holderSpritePos) {
-            if (completed) {
+        if(oldPos != holderSpritePos) {
+            if(completed) {
                 var animation:GTween = new GTween(holderSprite, 0.2, {"x": holderSpritePos});
                 animation.onComplete = animationCompleted;
                 completed = false;
@@ -171,7 +162,7 @@ public class PremiumEventCalendar extends PremiumTabHolder {
     }
 
     private function onArrowRollOver(event:MouseEvent):void {
-        if (event.target.name == "previous") {
+        if(event.target.name == "previous") {
             event.target.graphics.clear();
             event.target.graphics.beginFill(0x000000, 0.8);
             event.target.graphics.drawRect(0 - event.target.width, 0, event.target.width, event.target.height);
@@ -186,7 +177,7 @@ public class PremiumEventCalendar extends PremiumTabHolder {
     }
 
     private function onArrowRollOut(event:MouseEvent):void {
-        if (event.target.name == "previous") {
+        if(event.target.name == "previous") {
             event.target.graphics.clear();
             event.target.graphics.beginFill(0x000000, 0.4);
             event.target.graphics.drawRect(0 - event.target.width, 0, event.target.width, event.target.height);
@@ -204,6 +195,7 @@ public class PremiumEventCalendar extends PremiumTabHolder {
 
 import com.company.ui.SimpleText;
 
+import flash.display.Bitmap;
 import flash.display.Sprite;
 
 class calendarEventHolder extends Sprite {

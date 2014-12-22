@@ -5,7 +5,7 @@ package com.company.rotmg.graphics.ranks {
 import flash.display.Bitmap;
 
 [Embed(source="sgmRank_Embed.png")]
-public class sgmRank extends Bitmap {
+public class sgmRank extends flash.display.Bitmap{
     public function sgmRank() {
         super();
         this.scaleX = 0.11;

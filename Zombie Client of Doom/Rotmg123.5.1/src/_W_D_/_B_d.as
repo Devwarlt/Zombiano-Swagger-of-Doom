@@ -3,56 +3,55 @@
 
 //_W_D_._B_d
 
-package _W_D_ {
-import flash.display.DisplayObjectContainer;
-import flash.display.LoaderInfo;
-import flash.system.Capabilities;
+package _W_D_{
+    import flash.display.DisplayObjectContainer;
+    import flash.system.Capabilities;
+    import flash.display.LoaderInfo;
 
-public class _B_d {
+    public class _B_d {
 
-    private const _C_J_:String = "Desktop";
-    private static var platform:_0I_z;
-    [Inject]
-    public var root:DisplayObjectContainer;
+        private static var platform:_0I_z;
 
-    public function _0B_z():Boolean {
-        return (!((Capabilities.playerType == this._C_J_)));
-    }
+        private const _C_J_:String = "Desktop";
 
-    public function _H_z():Boolean {
-        return ((Capabilities.playerType == this._C_J_));
-    }
+        [Inject]
+        public var root:DisplayObjectContainer;
 
-    public function _R_K_():_0I_z {
-        return ((platform = ((platform) || (this._gQ_()))));
-    }
-
-    private function _gQ_():_0I_z {
-        var _local1:Object = LoaderInfo(this.root.stage.root.loaderInfo).parameters;
-        if (this._P_R_(_local1)) {
-            return (_0I_z._0C_i);
+        public function _0B_z():Boolean{
+            return (!((Capabilities.playerType == this._C_J_)));
         }
-        if (this._0J_x(_local1)) {
-            return (_0I_z._I_6);
+        public function _H_z():Boolean{
+            return ((Capabilities.playerType == this._C_J_));
         }
-        if (this._8w(_local1)) {
-            return (_0I_z._nB_);
+        public function _R_K_():_0I_z{
+            return ((platform = ((platform) || (this._gQ_()))));
         }
-        return (_0I_z._kj);
-    }
+        private function _gQ_():_0I_z{
+            var _local1:Object = LoaderInfo(this.root.stage.root.loaderInfo).parameters;
+            if (this._P_R_(_local1))
+            {
+                return (_0I_z._0C_i);
+            }
+            if (this._0J_x(_local1))
+            {
+                return (_0I_z._I_6);
+            }
+            if (this._8w(_local1))
+            {
+                return (_0I_z._nB_);
+            }
+            return (_0I_z._kj);
+        }
+        private function _P_R_(_arg1:Object):Boolean{
+            return (!((_arg1.kongregate_api_path == null)));
+        }
+        private function _0J_x(_arg1:Object):Boolean{
+            return (!((_arg1.steam_api_path == null)));
+        }
+        private function _8w(_arg1:Object):Boolean{
+            return (!((_arg1.kabam_signed_request == null)));
+        }
 
-    private function _P_R_(_arg1:Object):Boolean {
-        return (!((_arg1.kongregate_api_path == null)));
     }
-
-    private function _0J_x(_arg1:Object):Boolean {
-        return (!((_arg1.steam_api_path == null)));
-    }
-
-    private function _8w(_arg1:Object):Boolean {
-        return (!((_arg1.kabam_signed_request == null)));
-    }
-
-}
 }//package _W_D_
 

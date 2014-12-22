@@ -11,12 +11,13 @@ public class PopUpScreen extends Sprite {
 
     public static var CurrentPopUps:Vector.<PopUpScreen> = new Vector.<PopUpScreen>();
     public static var currentPopUp:PopUpScreen;
+    protected var gs_:GameSprite;
 
     public function PopUpScreen(gameSprite:GameSprite) {
         this.gs_ = gameSprite;
         this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
 
-        if (this.gs_.map_.stage != null) {
+        if(this.gs_.map_.stage != null) {
             if (currentPopUp == null) {
                 currentPopUp = this;
                 this.gs_.map_.stage.addChild(this);
@@ -31,7 +32,6 @@ public class PopUpScreen extends Sprite {
             currentPopUp = null;
         }
     }
-    protected var gs_:GameSprite;
 
     protected function init():void {
 
@@ -42,7 +42,7 @@ public class PopUpScreen extends Sprite {
     }
 
     protected function onRemovedFromStage(event:Event):void {
-        if (this.gs_.map_.stage != null) {
+        if(this.gs_.map_.stage != null) {
             var nextPopUp:PopUpScreen;
             if ((nextPopUp = CurrentPopUps.shift()) != null) {
                 currentPopUp = nextPopUp;

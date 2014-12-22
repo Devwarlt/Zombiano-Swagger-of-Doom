@@ -3,95 +3,93 @@
 
 //MapOverlays.NexusBackground
 
-package MapOverlays.Backgrounds {
+package MapOverlays.Backgrounds{
 import MapOverlays.*;
+    import flash.geom.Point;
+    import flash.display.BitmapData;
 
-import com.company.assembleegameclient.map._0D_v;
-import com.company.util.GraphicHelper;
+    import flash.display.IGraphicsData;
+    import flash.display.GraphicsBitmapFill;
+    import flash.display.GraphicsPath;
+    import flash.geom.Matrix;
+    import com.company.util.GraphicHelper;
+    import flash.display.BitmapDataChannel;
+    import flash.geom.Rectangle;
+    import com.company.assembleegameclient.map._0D_v;
 
-import flash.display.BitmapData;
-import flash.display.BitmapDataChannel;
-import flash.display.GraphicsBitmapFill;
-import flash.display.GraphicsPath;
-import flash.display.IGraphicsData;
-import flash.geom.Matrix;
-import flash.geom.Point;
-import flash.geom.Rectangle;
 
-public class NexusBackground extends MapOverlay {
+    public class NexusBackground extends MapOverlay {
 
-    public static const _cP_:Point = new Point(0.01, 0.01);
+        public static const _cP_:Point = new Point(0.01, 0.01);
 
-    public function NexusBackground() {
-        this._co = new Vector.<Island>();
-        this.graphicsData_ = new Vector.<IGraphicsData>();
-        this.bitmapFill_ = new GraphicsBitmapFill(null, new Matrix(), true, false);
-        this.path_ = new GraphicsPath(GraphicHelper._H_2, new Vector.<Number>());
-        super();
-        this._T_k = new BitmapData(0x0400, 0x0400, false, 0);
-        this._T_k.perlinNoise(0x0400, 0x0400, 8, Math.random(), true, true, BitmapDataChannel.BLUE, false, null);
-    }
-    protected var graphicsData_:Vector.<IGraphicsData>;
-    private var _T_k:BitmapData;
-    private var _co:Vector.<Island>;
-    private var bitmapFill_:GraphicsBitmapFill;
-    private var path_:GraphicsPath;
+        private var _T_k:BitmapData;
+        private var _co:Vector.<Island>;
+        protected var graphicsData_:Vector.<IGraphicsData>;
+        private var bitmapFill_:GraphicsBitmapFill;
+        private var path_:GraphicsPath;
 
-    override public function draw(_arg1:_0D_v, _arg2:int):void {
-        this.graphicsData_.length = 0;
-        var _local3:Matrix = this.bitmapFill_.matrix;
-        _local3.identity();
-        _local3.translate((_arg2 * _cP_.x), (_arg2 * _cP_.y));
-        _local3.rotate(-(_arg1.angleRad_));
-        this.bitmapFill_.bitmapData = this._T_k;
-        this.graphicsData_.push(this.bitmapFill_);
-        this.path_.data.length = 0;
-        var _local4:Rectangle = _arg1._F_L_;
-        this.path_.data.push(_local4.left, _local4.top, _local4.right, _local4.top, _local4.right, _local4.bottom, _local4.left, _local4.bottom);
-        this.graphicsData_.push(this.path_);
-        this.graphicsData_.push(GraphicHelper.END_FILL);
-        this._0E_O_(_arg1, _arg2);
-        graphics.clear();
-        graphics.drawGraphicsData(this.graphicsData_);
-    }
-
-    private function _0E_O_(_arg1:_0D_v, _arg2:int):void {
-        var _local4:Island;
-        var _local3:int;
-        while (_local3 < this._co.length) {
-            _local4 = this._co[_local3];
-            _local4.draw(_arg1, _arg2, this.graphicsData_);
-            _local3++;
+        public function NexusBackground(){
+            this._co = new Vector.<Island>();
+            this.graphicsData_ = new Vector.<IGraphicsData>();
+            this.bitmapFill_ = new GraphicsBitmapFill(null, new Matrix(), true, false);
+            this.path_ = new GraphicsPath(GraphicHelper._H_2, new Vector.<Number>());
+            super();
+            this._T_k = new BitmapData(0x0400, 0x0400, false, 0);
+            this._T_k.perlinNoise(0x0400, 0x0400, 8, Math.random(), true, true, BitmapDataChannel.BLUE, false, null);
         }
-    }
+        override public function draw(_arg1:_0D_v, _arg2:int):void{
+            this.graphicsData_.length = 0;
+            var _local3:Matrix = this.bitmapFill_.matrix;
+            _local3.identity();
+            _local3.translate((_arg2 * _cP_.x), (_arg2 * _cP_.y));
+            _local3.rotate(-(_arg1.angleRad_));
+            this.bitmapFill_.bitmapData = this._T_k;
+            this.graphicsData_.push(this.bitmapFill_);
+            this.path_.data.length = 0;
+            var _local4:Rectangle = _arg1._F_L_;
+            this.path_.data.push(_local4.left, _local4.top, _local4.right, _local4.top, _local4.right, _local4.bottom, _local4.left, _local4.bottom);
+            this.graphicsData_.push(this.path_);
+            this.graphicsData_.push(GraphicHelper.END_FILL);
+            this._0E_O_(_arg1, _arg2);
+            graphics.clear();
+            graphics.drawGraphicsData(this.graphicsData_);
+        }
+        private function _0E_O_(_arg1:_0D_v, _arg2:int):void{
+            var _local4:Island;
+            var _local3:int;
+            while (_local3 < this._co.length)
+            {
+                _local4 = this._co[_local3];
+                _local4.draw(_arg1, _arg2, this.graphicsData_);
+                _local3++;
+            }
+        }
 
-}
+    }
 }//package MapOverlays
 
-import MapOverlays.Backgrounds.NexusBackground;
-
-import com.company.assembleegameclient.map._0D_v;
-import com.company.util.AssetLibrary;
-import com.company.util.GraphicHelper;
-
+import flash.geom.Point;
 import flash.display.BitmapData;
 import flash.display.GraphicsBitmapFill;
 import flash.display.GraphicsPath;
-import flash.display.IGraphicsData;
 import flash.geom.Matrix;
-import flash.geom.Point;
+import com.company.util.GraphicHelper;
+import com.company.util.AssetLibrary;
+import MapOverlays.Backgrounds.NexusBackground;
+import com.company.assembleegameclient.map._0D_v;
+
+import flash.display.IGraphicsData;
+
 
 class Island {
 
     public var center_:Point;
     public var startTime_:int;
     public var bitmapData_:BitmapData;
-    /*private*/
-    internal var bitmapFill_:GraphicsBitmapFill;
-    /*private*/
-    internal var path_:GraphicsPath;
+    /*private*/ internal var bitmapFill_:GraphicsBitmapFill;
+    /*private*/ internal var path_:GraphicsPath;
 
-    public function Island(_arg1:Number, _arg2:Number, _arg3:int):void {
+    public function Island(_arg1:Number, _arg2:Number, _arg3:int):void{
         this.bitmapFill_ = new GraphicsBitmapFill(null, new Matrix(), true, false);
         this.path_ = new GraphicsPath(GraphicHelper._H_2, new Vector.<Number>());
         super();
@@ -99,8 +97,7 @@ class Island {
         this.startTime_ = _arg3;
         this.bitmapData_ = AssetLibrary.getImage("stars");
     }
-
-    public function draw(_arg1:_0D_v, _arg2:int, _arg3:Vector.<IGraphicsData>):void {
+    public function draw(_arg1:_0D_v, _arg2:int, _arg3:Vector.<IGraphicsData>):void{
         var _local4:int = (_arg2 - this.startTime_);
         var _local5:Number = (this.center_.x + (_local4 * NexusBackground._cP_.x));
         var _local6:Number = (this.center_.y + (_local4 * NexusBackground._cP_.y));

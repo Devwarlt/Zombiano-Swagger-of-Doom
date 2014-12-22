@@ -4,8 +4,8 @@
 package {
 import mx.core.BitmapAsset;
 
-[Embed(source="img/craftingBook.png")]
-public class craftingBookEmbed extends BitmapAsset {
+[Embed(source="craftingBook.png")]
+public class craftingBookEmbed extends BitmapAsset{
     public function craftingBookEmbed() {
         super();
     }

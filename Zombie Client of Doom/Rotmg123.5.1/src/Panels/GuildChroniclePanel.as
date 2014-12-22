@@ -3,24 +3,21 @@
 
 //Panels.GuildChroniclePanel
 
-package Panels {
-import _sP_._07x;
+package Panels{
+    import com.company.assembleegameclient.game.GameSprite;
+    import _sP_._07x;
+    import flash.events.MouseEvent;
 
-import com.company.assembleegameclient.game.GameSprite;
+    public class GuildChroniclePanel extends SimpleButtonPanel {
 
-import flash.events.MouseEvent;
+        public function GuildChroniclePanel(_arg1:GameSprite){
+            super(_arg1, "Guild Chronicle", "View");
+        }
+        override protected function onButtonClick(_arg1:MouseEvent):void{
+            gs_.mui_.clearInput();
+            gs_.addChild(new _07x(gs_));
+        }
 
-public class GuildChroniclePanel extends SimpleButtonPanel {
-
-    public function GuildChroniclePanel(_arg1:GameSprite) {
-        super(_arg1, "Guild Chronicle", "View");
     }
-
-    override protected function onButtonClick(_arg1:MouseEvent):void {
-        gs_.mui_.clearInput();
-        gs_.addChild(new _07x(gs_));
-    }
-
-}
 }//package Panels
 

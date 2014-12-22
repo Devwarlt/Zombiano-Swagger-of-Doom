@@ -3,21 +3,17 @@
 
 //com.hurlant.crypto.symmetric.ICipher
 
-package com.hurlant.crypto.symmetric {
-import flash.utils.ByteArray;
+package com.hurlant.crypto.symmetric{
+    import flash.utils.ByteArray;
 
-public interface ICipher {
+    public interface ICipher {
 
-    function getBlockSize():uint;
+        function getBlockSize():uint;
+        function encrypt(_arg1:ByteArray):void;
+        function decrypt(_arg1:ByteArray):void;
+        function dispose():void;
+        function toString():String;
 
-    function encrypt(_arg1:ByteArray):void;
-
-    function decrypt(_arg1:ByteArray):void;
-
-    function dispose():void;
-
-    function toString():String;
-
-}
+    }
 }//package com.hurlant.crypto.symmetric
 

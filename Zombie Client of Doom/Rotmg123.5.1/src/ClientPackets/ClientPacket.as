@@ -3,21 +3,19 @@
 
 //ClientPackets.ClientPacket
 
-package ClientPackets {
-import com.company.net.Packet;
+package ClientPackets{
+    import com.company.net.Packet;
+    import flash.utils.IDataInput;
 
-import flash.utils.IDataInput;
+    public class ClientPacket extends Packet {
 
-public class ClientPacket extends Packet {
+        public function ClientPacket(_arg1:uint){
+            super(_arg1);
+        }
+        final override public function parseFromInput(_arg1:IDataInput):void{
+            throw (new Error((("Client should not receive " + id_) + " messages")));
+        }
 
-    public function ClientPacket(_arg1:uint) {
-        super(_arg1);
     }
-
-    final override public function parseFromInput(_arg1:IDataInput):void {
-        throw (new Error((("Client should not receive " + id_) + " messages")));
-    }
-
-}
 }//package ClientPackets
 

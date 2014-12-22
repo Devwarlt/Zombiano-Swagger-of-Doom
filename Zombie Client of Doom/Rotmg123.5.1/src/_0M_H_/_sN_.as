@@ -3,19 +3,18 @@
 
 //_0M_H_._sN_
 
-package _0M_H_ {
-import _8Q_._1l;
+package _0M_H_{
+    import _sp._aJ_;
+    import _8Q_._1l;
 
-import _sp._aJ_;
+    public class _sN_ extends _aJ_ {
 
-public class _sN_ extends _aJ_ {
+        public static var instance:_sN_;
 
-    public static var instance:_sN_;
-
-    public function _sN_() {
-        super(_1l);
-        instance = this;
+        public function _sN_(){
+            super(_1l);
+            instance = this;
+        }
     }
-}
 }//package _0M_H_
 

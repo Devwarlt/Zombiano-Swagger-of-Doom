@@ -3,11 +3,11 @@
 
 //_W_G_._aK_
 
-package _W_G_ {
-public interface _aK_ extends _r6 {
+package _W_G_{
+    public interface _aK_ extends _r6 {
 
-    function clone():_024;
+        function clone():_024;
 
-}
+    }
 }//package _W_G_
 

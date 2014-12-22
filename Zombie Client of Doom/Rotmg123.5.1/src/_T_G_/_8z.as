@@ -3,17 +3,16 @@
 
 //_T_G_._8z
 
-package _T_G_ {
-import _g2._06n;
+package _T_G_{
+    import _g2._06n;
 
-public class _8z implements _06n {
+    public class _8z implements _06n {
 
-    public function _f0(_arg1:Class):void {
+        public function _f0(_arg1:Class):void{
+        }
+        public function _cp():void{
+        }
+
     }
-
-    public function _cp():void {
-    }
-
-}
 }//package _T_G_
 

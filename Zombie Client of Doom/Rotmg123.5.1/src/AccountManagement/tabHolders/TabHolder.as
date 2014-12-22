@@ -14,13 +14,15 @@ public class TabHolder extends Sprite {
     public static const WIDTH:int = 800;
     public static const HEIGHT:int = 450;
 
+    public var bodyParent:AccountManagementBody;
+    protected var tab:TabButton;
+
+    private var nullHolder:Boolean;
+
     public function TabHolder(parent:AccountManagementBody) {
         this.bodyParent = parent;
         nullHolder = true;
     }
-    public var bodyParent:AccountManagementBody;
-    protected var tab:TabButton;
-    private var nullHolder:Boolean;
 
     public function initialize(tab:TabButton):void {
         var text:SimpleText = new SimpleText(46, 0xffffff);

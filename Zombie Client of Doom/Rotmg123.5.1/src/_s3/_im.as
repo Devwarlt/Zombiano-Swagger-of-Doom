@@ -3,24 +3,20 @@
 
 //_s3._im
 
-package _s3 {
-import flash.display.DisplayObjectContainer;
-import flash.events.IEventDispatcher;
+package _s3{
+    import flash.events.IEventDispatcher;
 
-public interface _im extends IEventDispatcher {
+    import flash.display.DisplayObjectContainer;
 
-    function get _07z():Vector.<DisplayObjectContainer>;
+    public interface _im extends IEventDispatcher {
 
-    function _tP_(_arg1:DisplayObjectContainer):void;
+        function get _07z():Vector.<DisplayObjectContainer>;
+        function _tP_(_arg1:DisplayObjectContainer):void;
+        function _function(_arg1:DisplayObjectContainer):void;
+        function _eq(_arg1:_yp):void;
+        function _9k(_arg1:_yp):void;
+        function _F_P_():void;
 
-    function _function(_arg1:DisplayObjectContainer):void;
-
-    function _eq(_arg1:_yp):void;
-
-    function _9k(_arg1:_yp):void;
-
-    function _F_P_():void;
-
-}
+    }
 }//package _s3
 

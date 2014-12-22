@@ -1,11 +1,14 @@
-package {
-import mx.core.*;
+package 
+{
+    import mx.core.*;
+    
+    [Embed(source="_qd.png")]
+    public class _qd extends mx.core.BitmapAsset
+    {
+        public function _qd()
+        {
+            super();
 
-[Embed(source="img/_qd.png")]
-public class _qd extends BitmapAsset {
-    public function _qd() {
-        super();
-
+        }
     }
-}
 }

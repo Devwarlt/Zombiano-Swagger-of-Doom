@@ -3,11 +3,11 @@
 
 //_sp._08P_
 
-package _sp {
-public interface _08P_ extends _F_6 {
+package _sp{
+    public interface _08P_ extends _F_6 {
 
-    function add(_arg1:Function):_xN_;
+        function add(_arg1:Function):_xN_;
 
-}
+    }
 }//package _sp
 

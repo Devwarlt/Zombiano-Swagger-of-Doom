@@ -4,8 +4,8 @@
 package {
 import flash.display.Bitmap;
 
-[Embed(source="img/chargesBattery.png")]
-public class batteryChargedEmbed extends Bitmap {
+[Embed(source="batterycharges.png")]
+public class batteryChargedEmbed extends flash.display.Bitmap{
     public function batteryChargedEmbed() {
         super();
     }

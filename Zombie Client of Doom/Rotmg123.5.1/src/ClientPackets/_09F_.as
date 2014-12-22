@@ -3,26 +3,25 @@
 
 //ClientPackets._09F_
 
-package ClientPackets {
-import flash.utils.IDataOutput;
+package ClientPackets{
+    import flash.utils.IDataOutput;
 
-public class _09F_ extends ClientPacket {
+    public class _09F_ extends ClientPacket {
 
-    public function _09F_(_arg1:uint) {
-        super(_arg1);
+        public var name_:String;
+        public var guildRank_:int;
+
+        public function _09F_(_arg1:uint){
+            super(_arg1);
+        }
+        override public function writeToOutput(_arg1:IDataOutput):void{
+            _arg1.writeUTF(this.name_);
+            _arg1.writeInt(this.guildRank_);
+        }
+        override public function toString():String{
+            return (formatToString("CHANGEGUILDRANK", "name_", "guildRank_"));
+        }
+
     }
-    public var name_:String;
-    public var guildRank_:int;
-
-    override public function writeToOutput(_arg1:IDataOutput):void {
-        _arg1.writeUTF(this.name_);
-        _arg1.writeInt(this.guildRank_);
-    }
-
-    override public function toString():String {
-        return (formatToString("CHANGEGUILDRANK", "name_", "guildRank_"));
-    }
-
-}
 }//package ClientPackets
 

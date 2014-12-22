@@ -5,17 +5,27 @@ package Panels {
 import ServerPackets.TeleportRequest;
 
 import com.company.assembleegameclient.game.GameSprite;
+
 import com.company.assembleegameclient.ui.boxButton;
 import com.company.ui.SimpleText;
 
 import flash.events.Event;
+
 import flash.events.MouseEvent;
 import flash.events.TimerEvent;
 import flash.filters.DropShadowFilter;
+
 import flash.text.TextFieldAutoSize;
+
 import flash.utils.Timer;
 
 public class TeleportPanel extends Panel {
+
+    public var packet:TeleportRequest;
+    private var requestText:SimpleText;
+    private var rejectButton:boxButton;
+    private var acceptButton:boxButton;
+    private var timeoutTimer:Timer;
 
     public function TeleportPanel(_arg1:GameSprite, _arg2:TeleportRequest) {
         super(_arg1);
@@ -43,11 +53,6 @@ public class TeleportPanel extends Panel {
         this.timeoutTimer.start();
         this.timeoutTimer.addEventListener(TimerEvent.TIMER, this.closePanel);
     }
-    public var packet:TeleportRequest;
-    private var requestText:SimpleText;
-    private var rejectButton:boxButton;
-    private var acceptButton:boxButton;
-    private var timeoutTimer:Timer;
 
     private function closePanel(_arg1:TimerEvent):void {
         dispatchEvent(new Event(Event.COMPLETE));

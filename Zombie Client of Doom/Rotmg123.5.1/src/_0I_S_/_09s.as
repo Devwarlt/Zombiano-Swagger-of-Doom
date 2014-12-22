@@ -3,20 +3,20 @@
 
 //_0I_S_._09s
 
-package _0I_S_ {
-import com.company.assembleegameclient.appengine.SavedCharacter;
+package _0I_S_{
+    import flash.events.Event;
+    import com.company.assembleegameclient.appengine.SavedCharacter;
 
-import flash.events.Event;
+    public class _09s extends Event {
 
-public class _09s extends Event {
+        public static const DELETE_CHARACTER_EVENT:String = "DELETE_CHARACTER_EVENT";
 
-    public static const DELETE_CHARACTER_EVENT:String = "DELETE_CHARACTER_EVENT";
+        public var savedChar_:SavedCharacter;
 
-    public function _09s(_arg1:SavedCharacter) {
-        super(DELETE_CHARACTER_EVENT);
-        this.savedChar_ = _arg1;
+        public function _09s(_arg1:SavedCharacter){
+            super(DELETE_CHARACTER_EVENT);
+            this.savedChar_ = _arg1;
+        }
     }
-    public var savedChar_:SavedCharacter;
-}
 }//package _0I_S_
 

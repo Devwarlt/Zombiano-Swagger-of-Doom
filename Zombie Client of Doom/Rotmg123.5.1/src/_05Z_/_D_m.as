@@ -3,14 +3,14 @@
 
 //_05Z_._D_m
 
-package _05Z_ {
-import _sp._aJ_;
+package _05Z_{
+    import _sp._aJ_;
 
-public class _D_m extends _aJ_ {
+    public class _D_m extends _aJ_ {
 
-    public function _D_m() {
-        super(Boolean);
+        public function _D_m(){
+            super(Boolean);
+        }
     }
-}
 }//package _05Z_
 

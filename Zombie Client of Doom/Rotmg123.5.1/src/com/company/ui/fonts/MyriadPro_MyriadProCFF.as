@@ -3,11 +3,11 @@
 
 //com.company.ui.fonts.MyriadPro_MyriadProCFF
 
-package com.company.ui.fonts {
-import mx.core.FontAsset;
+package com.company.ui.fonts{
+    import mx.core.FontAsset;
 
-public class MyriadPro_MyriadProCFF extends FontAsset {
+    public class MyriadPro_MyriadProCFF extends FontAsset {
 
-}
+    }
 }//package com.company.ui.fonts
 

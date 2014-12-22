@@ -3,16 +3,15 @@
 
 //_U_5._sC_
 
-package _U_5 {
-import _E_7._for_;
+package _U_5{
+    import _sp._aJ_;
+    import _E_7._for_;
 
-import _sp._aJ_;
+    public class _sC_ extends _aJ_ {
 
-public class _sC_ extends _aJ_ {
-
-    public function _sC_() {
-        super(_for_);
+        public function _sC_(){
+            super(_for_);
+        }
     }
-}
 }//package _U_5
 

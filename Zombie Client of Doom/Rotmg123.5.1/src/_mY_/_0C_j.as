@@ -3,13 +3,13 @@
 
 //_mY_._0C_j
 
-package _mY_ {
-import _A_G_._08I_;
+package _mY_{
+    import _A_G_._08I_;
 
-public interface _0C_j {
+    public interface _0C_j {
 
-    function _vl(_arg1:Class):_08I_;
+        function _vl(_arg1:Class):_08I_;
 
-}
+    }
 }//package _mY_
 

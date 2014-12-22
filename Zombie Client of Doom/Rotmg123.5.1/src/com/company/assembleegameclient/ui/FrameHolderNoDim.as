@@ -3,24 +3,23 @@
 
 //com.company.assembleegameclient.ui._y3
 
-package com.company.assembleegameclient.ui {
-import Frames.Frame;
+package com.company.assembleegameclient.ui{
+    import flash.display.Sprite;
+    import Frames.Frame;
+    import flash.events.Event;
 
-import flash.display.Sprite;
-import flash.events.Event;
+    public class FrameHolderNoDim extends Sprite {
+        private var frame:Frame;
 
-public class FrameHolderNoDim extends Sprite {
-    public function FrameHolderNoDim(frame:Frame) {
-        this.frame = frame;
-        this.frame.addEventListener(Event.COMPLETE, this.onComplete);
-        addChild(this.frame);
+        public function FrameHolderNoDim(frame:Frame){
+            this.frame = frame;
+            this.frame.addEventListener(Event.COMPLETE, this.onComplete);
+            addChild(this.frame);
+        }
+        private function onComplete(_arg1:Event):void{
+            parent.removeChild(this);
+        }
+
     }
-    private var frame:Frame;
-
-    private function onComplete(_arg1:Event):void {
-        parent.removeChild(this);
-    }
-
-}
 }//package com.company.assembleegameclient.ui
 

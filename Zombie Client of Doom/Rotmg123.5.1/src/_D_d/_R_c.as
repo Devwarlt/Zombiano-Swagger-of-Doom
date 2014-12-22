@@ -3,35 +3,34 @@
 
 //_D_d._R_c
 
-package _D_d {
-import Frames.Frame;
-import Frames.TextInput;
+package _D_d{
+    import Frames.Frame;
+    import Frames.TextInput;
+    import flash.events.MouseEvent;
+    import flash.events.Event;
 
-import flash.events.Event;
-import flash.events.MouseEvent;
+    public class _R_c extends Frame {
 
-public class _R_c extends Frame {
+        public var _O_w:TextInput;
 
-    public function _R_c(_arg1:String) {
-        super("Tile properties", "Cancel", "Save", null);
-        this._O_w = new TextInput("Object Name", false, "");
-        if (_arg1 != null) {
-            this._O_w.inputText_.text = _arg1;
+        public function _R_c(_arg1:String){
+            super("Tile properties", "Cancel", "Save", null);
+            this._O_w = new TextInput("Object Name", false, "");
+            if (_arg1 != null)
+            {
+                this._O_w.inputText_.text = _arg1;
+            }
+            _vO_(this._O_w);
+            Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
+            Button2.addEventListener(MouseEvent.CLICK, this._F_H_);
         }
-        _vO_(this._O_w);
-        Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
-        Button2.addEventListener(MouseEvent.CLICK, this._F_H_);
-    }
-    public var _O_w:TextInput;
+        private function onCancel(_arg1:MouseEvent):void{
+            dispatchEvent(new Event(Event.CANCEL));
+        }
+        private function _F_H_(_arg1:MouseEvent):void{
+            dispatchEvent(new Event(Event.COMPLETE));
+        }
 
-    private function onCancel(_arg1:MouseEvent):void {
-        dispatchEvent(new Event(Event.CANCEL));
     }
-
-    private function _F_H_(_arg1:MouseEvent):void {
-        dispatchEvent(new Event(Event.COMPLETE));
-    }
-
-}
 }//package _D_d
 

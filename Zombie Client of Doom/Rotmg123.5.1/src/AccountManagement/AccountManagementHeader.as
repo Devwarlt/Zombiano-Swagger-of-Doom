@@ -2,12 +2,12 @@
  * Created by Fabian on 17.12.2014.
  */
 package AccountManagement {
-import AccountManagement.images.AccountManagementImages;
 import AccountManagement.tabHolders.FpcPacksHolder;
 import AccountManagement.tabHolders.OverviewHolder;
 import AccountManagement.tabHolders.PremiumHolder;
 import AccountManagement.tabHolders.SettingsHolder;
 import AccountManagement.tabHolders.TabHolder;
+import AccountManagement.images.AccountManagementImages;
 import AccountManagement.ui.TabButton;
 
 import _qN_.Account;
@@ -16,7 +16,9 @@ import com.company.rotmg.graphics.ranks.premiumRank;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
+
 import flash.display.BitmapData;
+
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
@@ -27,6 +29,17 @@ public class AccountManagementHeader extends Sprite {
     public static const WIDTH:int = 800;
     public static const HEIGHT:int = 80;
 
+    private var managementParent:AccountManagementScreen;
+
+    private var tabs:Vector.<TabButton>;
+
+    private var nextTabLeftWidth:Number = 10;
+    private var nextTabRightWidth:Number = WIDTH - 10;
+    private var nextTabId:Number = 0;
+
+    public var titleText:SimpleText;
+    public var email:SimpleText;
+
     public function AccountManagementHeader(parent:AccountManagementScreen) {
         this.managementParent = parent;
         this.tabs = new Vector.<TabButton>();
@@ -34,13 +47,6 @@ public class AccountManagementHeader extends Sprite {
         background.filters = [new GlowFilter()];
         addChild(background);
     }
-    public var titleText:SimpleText;
-    public var email:SimpleText;
-    private var managementParent:AccountManagementScreen;
-    private var tabs:Vector.<TabButton>;
-    private var nextTabLeftWidth:Number = 10;
-    private var nextTabRightWidth:Number = WIDTH - 10;
-    private var nextTabId:Number = 0;
 
     public function initialize():void {
 
@@ -68,7 +74,7 @@ public class AccountManagementHeader extends Sprite {
 
     public function switchToTab(name:String):void {
         for each (var tab:TabButton in tabs) {
-            if (tab.text.text == name) {
+            if(tab.text.text == name) {
                 tab.dispatchEvent(new MouseEvent(MouseEvent.CLICK));
             }
         }
@@ -83,11 +89,11 @@ public class AccountManagementHeader extends Sprite {
         tabs.push(tab);
         addChild(tab);
 
-        if (tab.selected) {
+        if(tab.selected) {
             managementParent.accountBody.updateScreen(tab.holder);
         }
 
-        if (!right) {
+        if(!right) {
             nextTabLeftWidth += (tab.w_ + 5);
         }
         else {

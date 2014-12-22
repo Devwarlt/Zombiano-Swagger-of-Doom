@@ -1,11 +1,14 @@
-package com.company.assembleegameclient.util {
-import mx.core.*;
+package com.company.assembleegameclient.util
+{
+    import mx.core.*;
+    
+    [Embed(source="GoundTiles.dat", mimeType="application/octet-stream")]
+    public class GroundTiles extends mx.core.ByteArrayAsset
+    {
+        public function GroundTiles()
+        {
+            super();
 
-[Embed(source="GoundTiles.dat", mimeType="application/octet-stream")]
-public class GroundTiles extends ByteArrayAsset {
-    public function GroundTiles() {
-        super();
-
+        }
     }
-}
 }

@@ -1,11 +1,14 @@
-package com.company.assembleegameclient.util {
-import mx.core.*;
+package com.company.assembleegameclient.util
+{
+    import mx.core.*;
+    
+    [Embed(source="players.dat", mimeType="application/octet-stream")]
+    public class players extends mx.core.ByteArrayAsset
+    {
+        public function players()
+        {
+            super();
 
-[Embed(source="players.dat", mimeType="application/octet-stream")]
-public class players extends ByteArrayAsset {
-    public function players() {
-        super();
-
+        }
     }
-}
 }

@@ -3,29 +3,43 @@
 
 //OptionsStuff._pw
 
-package OptionsStuff {
-import com.company.ui.SimpleText;
-import com.company.util.GraphicHelper;
-
-import flash.display.CapsStyle;
-import flash.display.Graphics;
-import flash.display.GraphicsPath;
-import flash.display.GraphicsSolidFill;
-import flash.display.GraphicsStroke;
-import flash.display.IGraphicsData;
-import flash.display.JointStyle;
-import flash.display.LineScaleMode;
+package OptionsStuff{
 import flash.display.Sprite;
-import flash.events.Event;
-import flash.events.MouseEvent;
+
+import flash.display.IGraphicsData;
+import com.company.util.GraphicHelper;
+import com.company.ui.SimpleText;
+import flash.display.GraphicsSolidFill;
+import flash.display.GraphicsPath;
+import flash.display.GraphicsStroke;
+import flash.display.LineScaleMode;
+import flash.display.CapsStyle;
+import flash.display.JointStyle;
 import flash.filters.DropShadowFilter;
+import flash.events.MouseEvent;
+import flash.events.Event;
+import flash.display.Graphics;
+
 
 public class _pw extends Sprite {
 
     public static const WIDTH:int = 80;
     public static const HEIGHT:int = 32;
 
-    public function _pw(_arg1:Vector.<String>, _arg2:Array, _arg3:Object) {
+    private var graphicsData_:Vector.<IGraphicsData>;
+
+    public var _C_h:Vector.<String>;
+    public var _0E_q:Array;
+    public var _7Y_:int = -1;
+    private var labelText_:SimpleText = null;
+    private var over_:Boolean = false;
+    private var internalFill_:GraphicsSolidFill;
+    private var _pq:GraphicsSolidFill;
+    private var _uN_:GraphicsSolidFill;
+    private var path_:GraphicsPath;
+    private var _0y:GraphicsStroke;
+
+    public function _pw(_arg1:Vector.<String>, _arg2:Array, _arg3:Object){
         this.internalFill_ = new GraphicsSolidFill(0x6B472E, 1);
         this._pq = new GraphicsSolidFill(0x63432E, 1);
         this._uN_ = new GraphicsSolidFill(0x73543F, 1);
@@ -44,23 +58,14 @@ public class _pw extends Sprite {
         addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
         addEventListener(MouseEvent.CLICK, this._021);
     }
-    public var _C_h:Vector.<String>;
-    public var _0E_q:Array;
-    public var _7Y_:int = -1;
-    private var graphicsData_:Vector.<IGraphicsData>;
-    private var labelText_:SimpleText = null;
-    private var over_:Boolean = false;
-    private var internalFill_:GraphicsSolidFill;
-    private var _pq:GraphicsSolidFill;
-    private var _uN_:GraphicsSolidFill;
-    private var path_:GraphicsPath;
-    private var _0y:GraphicsStroke;
-
-    public function setValue(_arg1:*):void {
+    public function setValue(_arg1:*):void{
         var _local2:int;
-        while (_local2 < this._0E_q.length) {
-            if (_arg1 == this._0E_q[_local2]) {
-                if (_local2 == this._7Y_) {
+        while (_local2 < this._0E_q.length)
+        {
+            if (_arg1 == this._0E_q[_local2])
+            {
+                if (_local2 == this._7Y_)
+                {
                     return;
                 }
                 this._7Y_ = _local2;
@@ -71,12 +76,22 @@ public class _pw extends Sprite {
         this.setSelected(this._7Y_);
         dispatchEvent(new Event(Event.CHANGE));
     }
-
-    public function value() {
+    public function value(){
         return (this._0E_q[this._7Y_]);
     }
-
-    private function _rC_():void {
+    private function onMouseOver(_arg1:MouseEvent):void{
+        this.over_ = true;
+        this._rC_();
+    }
+    private function onRollOut(_arg1:MouseEvent):void{
+        this.over_ = false;
+        this._rC_();
+    }
+    private function _021(_arg1:MouseEvent):void{
+        this.setSelected(((this._7Y_ + 1) % this._0E_q.length));
+        dispatchEvent(new Event(Event.CHANGE));
+    }
+    private function _rC_():void{
         GraphicHelper._0L_6(this.path_);
         GraphicHelper.drawUI(0, 0, WIDTH, HEIGHT, 4, [1, 1, 1, 1], this.path_);
         this._0y.fill = ((this.over_) ? this._pq : this._uN_);
@@ -85,33 +100,16 @@ public class _pw extends Sprite {
         _local1.clear();
         _local1.drawGraphicsData(this.graphicsData_);
     }
-
-    private function setSelected(_arg1:int):void {
+    private function setSelected(_arg1:int):void{
         this._7Y_ = _arg1;
         this._02C_(this._C_h[this._7Y_]);
     }
-
-    private function _02C_(_arg1:String):void {
+    private function _02C_(_arg1:String):void{
         this.labelText_.text = _arg1;
         this.labelText_.updateMetrics();
         this.labelText_.x = ((WIDTH / 2) - (this.labelText_.width / 2));
         this.labelText_.y = (((HEIGHT / 2) - (this.labelText_.height / 2)) - 2);
         this._rC_();
-    }
-
-    private function onMouseOver(_arg1:MouseEvent):void {
-        this.over_ = true;
-        this._rC_();
-    }
-
-    private function onRollOut(_arg1:MouseEvent):void {
-        this.over_ = false;
-        this._rC_();
-    }
-
-    private function _021(_arg1:MouseEvent):void {
-        this.setSelected(((this._7Y_ + 1) % this._0E_q.length));
-        dispatchEvent(new Event(Event.CHANGE));
     }
 
 }

@@ -3,13 +3,13 @@
 
 //com.google.analytics.external.AdSenseGlobals
 
-package com.google.analytics.external {
-import com.google.analytics.debug.DebugConfiguration;
+package com.google.analytics.external{
+    import com.google.analytics.debug.DebugConfiguration;
 
-public class AdSenseGlobals extends JavascriptProxy {
+    public class AdSenseGlobals extends JavascriptProxy {
 
-    public static var gaGlobal_js:XML = <script>
-                <![CDATA[
+        public static var gaGlobal_js:XML = <script>
+ <![CDATA[
  function()
  {
                     try
@@ -22,85 +22,86 @@ public class AdSenseGlobals extends JavascriptProxy {
                     }
  }
  ]]>
-            </script>
-            ;
+ </script>
+        ;
 
-    public function AdSenseGlobals(_arg1:DebugConfiguration) {
-        super(_arg1);
-    }
-    private var _gaGlobalVerified:Boolean = false;
+        private var _gaGlobalVerified:Boolean = false;
 
-    public function get hid():String {
-        if (!isAvailable()) {
-            return (null);
+        public function AdSenseGlobals(_arg1:DebugConfiguration){
+            super(_arg1);
         }
-        _verify();
-        return (getProperty("gaGlobal.hid"));
-    }
-
-    public function set hid(_arg1:String):void {
-        if (!isAvailable()) {
-            return;
+        public function set vid(_arg1:String):void{
+            if (!isAvailable())
+            {
+                return;
+            }
+            _verify();
+            setProperty("gaGlobal.vid", _arg1);
         }
-        _verify();
-        setProperty("gaGlobal.hid", _arg1);
-    }
-
-    public function get dh():String {
-        if (!isAvailable()) {
-            return (null);
+        public function get hid():String{
+            if (!isAvailable())
+            {
+                return (null);
+            }
+            _verify();
+            return (getProperty("gaGlobal.hid"));
         }
-        _verify();
-        return (getProperty("gaGlobal.dh"));
-    }
-
-    public function get sid():String {
-        if (!isAvailable()) {
-            return (null);
+        public function set hid(_arg1:String):void{
+            if (!isAvailable())
+            {
+                return;
+            }
+            _verify();
+            setProperty("gaGlobal.hid", _arg1);
         }
-        _verify();
-        return (getProperty("gaGlobal.sid"));
-    }
-
-    public function set sid(_arg1:String):void {
-        if (!isAvailable()) {
-            return;
+        public function get dh():String{
+            if (!isAvailable())
+            {
+                return (null);
+            }
+            _verify();
+            return (getProperty("gaGlobal.dh"));
         }
-        _verify();
-        setProperty("gaGlobal.sid", _arg1);
-    }
-
-    public function get vid():String {
-        if (!isAvailable()) {
-            return (null);
+        public function get sid():String{
+            if (!isAvailable())
+            {
+                return (null);
+            }
+            _verify();
+            return (getProperty("gaGlobal.sid"));
         }
-        _verify();
-        return (getProperty("gaGlobal.vid"));
-    }
-
-    public function set vid(_arg1:String):void {
-        if (!isAvailable()) {
-            return;
+        public function get vid():String{
+            if (!isAvailable())
+            {
+                return (null);
+            }
+            _verify();
+            return (getProperty("gaGlobal.vid"));
         }
-        _verify();
-        setProperty("gaGlobal.vid", _arg1);
-    }
-
-    public function get gaGlobal():Object {
-        if (!isAvailable()) {
-            return (null);
+        private function _verify():void{
+            if (!_gaGlobalVerified)
+            {
+                executeBlock(gaGlobal_js);
+                _gaGlobalVerified = true;
+            }
         }
-        _verify();
-        return (getProperty("gaGlobal"));
-    }
-
-    private function _verify():void {
-        if (!_gaGlobalVerified) {
-            executeBlock(gaGlobal_js);
-            _gaGlobalVerified = true;
+        public function set sid(_arg1:String):void{
+            if (!isAvailable())
+            {
+                return;
+            }
+            _verify();
+            setProperty("gaGlobal.sid", _arg1);
         }
-    }
+        public function get gaGlobal():Object{
+            if (!isAvailable())
+            {
+                return (null);
+            }
+            _verify();
+            return (getProperty("gaGlobal"));
+        }
 
-}
+    }
 }//package com.google.analytics.external
 

@@ -44,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `vaultCount` int(11) NOT NULL DEFAULT '1',
   `maxCharSlot` int(11) NOT NULL DEFAULT '1',
   `craftingRecipes` varchar(535) NOT NULL DEFAULT '1',
-  `ownedSkins` varchar(535) NOT NULL,
   `regTime` datetime NOT NULL,
   `guest` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)

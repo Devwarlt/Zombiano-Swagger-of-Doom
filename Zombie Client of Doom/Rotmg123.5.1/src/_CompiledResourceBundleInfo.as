@@ -4,16 +4,15 @@
 //_CompiledResourceBundleInfo
 
 package {
-public class _CompiledResourceBundleInfo {
+    public class _CompiledResourceBundleInfo {
 
-    public static function get compiledLocales():Array {
-        return (["en_US"]);
+        public static function get compiledLocales():Array{
+            return (["en_US"]);
+        }
+        public static function get compiledResourceBundleNames():Array{
+            return (["SharedResources", "formatters"]);
+        }
+
     }
-
-    public static function get compiledResourceBundleNames():Array {
-        return (["SharedResources", "formatters"]);
-    }
-
-}
 }//package 
 

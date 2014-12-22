@@ -8,17 +8,30 @@ import flash.events.Event;
 import flash.net.URLRequest;
 import flash.system.LoaderContext;
 import flash.system.Security;
+import flash.utils.ByteArray;
 
 public class YouTubePlayer extends Sprite {
 
     [Embed("apiplayer.swf", mimeType="application/octet-stream")]
     private static const playerBase:Class;
 
+    private var player:Object;
+    private var loader:Loader;
+
+    private var youtubeUrl:String;
+    private var videoId:String;
+    private var autoStart:Boolean;
+
+    public var repeat:Boolean;
+    public var endCallback:Function;
+    public var playerReady:Function;
+    public var error:Function;
+
     public function YouTubePlayer(url:String, autoStart:Boolean) {
         Security.allowDomain("*", "www.youtube.com");
         Security.allowInsecureDomain("*", "www.youtube.com");
 
-        if (url.indexOf("youtube.com/watch?v=") == -1) {
+        if(url.indexOf("youtube.com/watch?v=") == -1){
             throw new ArgumentError("Invalid url, the url should look like \"http://www.youtube.com/watch?v=HzI1KTZA1Ho\"");
         }
         this.youtubeUrl = url;
@@ -26,24 +39,15 @@ public class YouTubePlayer extends Sprite {
         this.buildYouTubeId();
         this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
     }
-    public var repeat:Boolean;
-    public var endCallback:Function;
-    public var playerReady:Function;
-    public var error:Function;
-    private var player:Object;
-    private var loader:Loader;
-    private var youtubeUrl:String;
-    private var videoId:String;
-    private var autoStart:Boolean;
 
     public function play():void {
-        if (this.player != null) {
+        if(this.player != null) {
             this.player.playVideo();
         }
     }
 
     public function stop():void {
-        if (this.player != null) {
+        if(this.player != null) {
             this.player.stopVideo();
             if (endCallback != null) {
                 endCallback();
@@ -52,17 +56,9 @@ public class YouTubePlayer extends Sprite {
     }
 
     public function pause():void {
-        if (this.player != null) {
+        if(this.player != null) {
             this.player.pauseVideo();
         }
-    }
-
-    private function buildYouTubeId():void {
-        var url:String = youtubeUrl.slice(youtubeUrl.indexOf("v=") + 2);
-        while (url.lastIndexOf("&") > -1) {
-            url = url.replace(url.slice(url.lastIndexOf("&")), "");
-        }
-        this.videoId = url;
     }
 
     private function onAddedToStage(event:Event):void {
@@ -85,15 +81,15 @@ public class YouTubePlayer extends Sprite {
     }
 
     private function onError(e:Event):void {
-        if (error != null) {
+        if(error != null) {
             error();
         }
     }
 
-    private function onPlayerReady(e:Event):void {
+    private function onPlayerReady(e:Event):void{
         player.setSize(800, 600);
         player.loadVideoById(this.videoId, 0);
-        if (this.autoStart) {
+        if(this.autoStart) {
             play();
         }
 
@@ -103,23 +99,31 @@ public class YouTubePlayer extends Sprite {
         watchOnYoutubeOverlay.graphics.endFill();
         addChild(watchOnYoutubeOverlay);
 
-        if (playerReady != null) {
+        if(playerReady != null) {
             playerReady(this);
         }
     }
 
-    private function onStateChanged(e:Event):void {
-        if (Object(e).data == YouTubePlayerState.ENDED || Object(e).data == YouTubePlayerState.PAUSED) {
-            if (repeat) {
+    private function onStateChanged(e:Event):void{
+        if(Object(e).data == YouTubePlayerState.ENDED || Object(e).data == YouTubePlayerState.PAUSED) {
+            if(repeat) {
                 play();
             }
         }
 
-        if (!repeat && Object(e).data == YouTubePlayerState.ENDED) {
-            if (endCallback != null) {
+        if(!repeat && Object(e).data == YouTubePlayerState.ENDED){
+            if(endCallback != null){
                 endCallback();
             }
         }
+    }
+
+    private function buildYouTubeId():void {
+        var url:String = youtubeUrl.slice(youtubeUrl.indexOf("v=") + 2);
+        while(url.lastIndexOf("&") > -1) {
+             url = url.replace(url.slice(url.lastIndexOf("&")), "");
+        }
+        this.videoId = url;
     }
 }
 }

@@ -3,23 +3,22 @@
 
 //_O_._finally
 
-package _O_ {
-import _s3._im;
+package _O_{
+    import flash.display.DisplayObjectContainer;
+    import _s3._im;
 
-import flash.display.DisplayObjectContainer;
+    public class _finally {
 
-public class _finally {
+        [Inject]
+        public var _fR_:DisplayObjectContainer;
+        [Inject]
+        public var viewManager:_im;
 
-    [Inject]
-    public var _fR_:DisplayObjectContainer;
-    [Inject]
-    public var viewManager:_im;
+        [PostConstruct]
+        public function init():void{
+            this.viewManager._tP_(this._fR_);
+        }
 
-    [PostConstruct]
-    public function init():void {
-        this.viewManager._tP_(this._fR_);
     }
-
-}
 }//package _O_
 

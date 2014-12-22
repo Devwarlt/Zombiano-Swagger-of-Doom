@@ -3,11 +3,11 @@
 
 //_g3.instanceOf
 
-package _g3 {
-import _qj._pn;
+package _g3{
+    import _qj._pn;
 
-public function instanceOf(_arg1:Class):_pn {
-    return (new _0J_u(_arg1));
-}
+    public function instanceOf(_arg1:Class):_pn{
+        return (new _0J_u(_arg1));
+    }
 }//package _g3
 

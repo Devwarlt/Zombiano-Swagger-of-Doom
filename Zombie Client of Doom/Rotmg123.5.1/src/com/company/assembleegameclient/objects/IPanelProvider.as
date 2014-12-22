@@ -3,15 +3,14 @@
 
 //com.company.assembleegameclient.objects.IPanelProvider
 
-package com.company.assembleegameclient.objects {
-import Panels.Panel;
+package com.company.assembleegameclient.objects{
+    import com.company.assembleegameclient.game.GameSprite;
+    import Panels.Panel;
 
-import com.company.assembleegameclient.game.GameSprite;
+    public interface IPanelProvider {
 
-public interface IPanelProvider {
+        function GetPanel(_arg1:GameSprite):Panel;
 
-    function GetPanel(_arg1:GameSprite):Panel;
-
-}
+    }
 }//package com.company.assembleegameclient.objects
 
