@@ -1,6 +1,8 @@
 ﻿using db;
+using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace server.account
@@ -24,8 +26,9 @@ namespace server.account
                     if (rdr.HasRows)
                     {
                         rdr.Read();
-                        addContentsToAccount(acc, rdr.GetString("contents"));
+                        var contents = rdr.GetString("contents");
                         rdr.Close();
+                        addContentsToAccount(acc, db, Utils.FromCommaSepString32(contents));
 
                         cmd = db.CreateQuery();
                         cmd.CommandText = "UPDATE fpcpacks SET used=1 WHERE accId=@accId AND id=@id;";
@@ -41,9 +44,27 @@ namespace server.account
             }
         }
 
-        private void addContentsToAccount(Account acc, string content)
+        private void addContentsToAccount(Account acc, Database db, int[] contents)
         {
-            //Todo: Implement da shizzle di dizzle
+            XElement xml;
+            foreach (var itemId in contents)
+            {
+                if (Program.GameData.Xmls.TryGetValue((ushort)itemId, out xml))
+                {
+                    switch (xml.Element("Class").Value)
+                    {
+                        case "Skin":
+                            acc.OwnedSkins.Add(itemId);
+                            break;
+                        case "Equipment":
+                        case "Dye":
+                            acc.Gifts.Add(itemId);
+                            break;
+                    }
+                }
+            }
+
+            db.SaveAccount(acc);
         }
     }
 }

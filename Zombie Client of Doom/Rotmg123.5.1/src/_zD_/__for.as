@@ -4,6 +4,7 @@
 //_zD_.__for
 
 package _zD_{
+import AccountManagement.AccountEventDispatcher;
 import AccountManagement.AccountManagementScreen;
 
 import _0_j._kW_;
@@ -39,10 +40,11 @@ import com.company.assembleegameclient.parameters.Parameters;
         [Inject]
         public var _D_u:_08i;
 
-        override public function initialize():void{
+        override public function initialize():void {
             this.view._ft.add(this._F_A_);
             this.view.initialize(this._eJ_._T_1);
-            if(AccountManagementScreen.openNext) {
+            if(AccountManagementScreen.openNext && AccountEventDispatcher.wasForced) {
+                AccountEventDispatcher.wasForced = false;
                 this._F_A_(_0M_1.ACCOUNT);
             }
         }

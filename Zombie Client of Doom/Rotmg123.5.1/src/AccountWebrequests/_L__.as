@@ -4,7 +4,9 @@
 //AccountWebrequests._L__
 
 package AccountWebrequests{
-    import Frames.Frame;
+import AccountManagement.AccountEventDispatcher;
+
+import Frames.Frame;
     import Frames.TextInput;
     import com.company.assembleegameclient.ui.TextButton;
     import flash.events.MouseEvent;
@@ -62,6 +64,7 @@ package AccountWebrequests{
                 "guid":this._xb.text(),
                 "password":this.password_.text()
             });
+            AccountEventDispatcher.wasForced = true;
             _pW_();
         }
         private function _G_L_(_arg1:_8C_):void{

@@ -36,6 +36,18 @@ public class AccountManagementImages {
 
     [Embed(source="openFpcPacks.png")]
     public static const openFpcPacks:Class;
+    [Embed(source="gold-x5.png")]
+    public static const gold_x5:Class;
+
+    [Embed(source="event_01_thumb.png")]
+    public static const event_01_thumb:Class;
+    [Embed(source="event_01_detail.png")]
+    public static const event_01_detail:Class;
+
+    [Embed(source="pack_01_thumb.png")]
+    public static const pack_01_thumb:Class;
+    [Embed(source="pack_01_detail.png")]
+    public static const pack_01_detail:Class;
 
     public static function nextArrow(scale:Number):Bitmap {
         var bmp:Bitmap = new Arrow();

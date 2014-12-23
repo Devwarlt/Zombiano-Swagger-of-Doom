@@ -33,11 +33,13 @@ public static class Utils
 
     public static int[] FromCommaSepString32(string x)
     {
+        if (String.IsNullOrWhiteSpace(x)) return new int[0];
         return x.Split(',').Select(_ => FromString(_.Trim())).ToArray();
     }
 
     public static ushort[] FromCommaSepString16(string x)
     {
+        if (String.IsNullOrWhiteSpace(x)) return new ushort[0];
         return x.Split(',').Select(_ => (ushort)FromString(_.Trim())).ToArray();
     }
 }

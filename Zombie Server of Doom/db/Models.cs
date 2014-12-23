@@ -71,10 +71,24 @@ public class Account
     public string _Admin { get; set; }
     [XmlIgnore]
     public bool Admin { get { return this._Admin != null; } set { this._Admin = value ? "True" : null; } }
-    [XmlElement("OwnedSkins")]
-    public string _OwnedSkins { get; set; }
+
+    [XmlElement("Gifts")]
+    public string _Gifts
+    {
+        get { return Utils.GetCommaSepString(this.Gifts == null ? new int[0] : this.Gifts.ToArray()); }
+        set { this.Gifts = Utils.FromCommaSepString32(value).ToList(); }
+    }
     [XmlIgnore]
-    public List<int> OwnedSkins { get { return Utils.FromCommaSepString32(this._OwnedSkins).ToList(); } set { this._OwnedSkins = Utils.GetCommaSepString<int>(value.ToArray()); } }
+    public List<int> Gifts { get; set; }
+
+    [XmlElement("OwnedSkins")]
+    public string _OwnedSkins
+    {
+        get { return Utils.GetCommaSepString(this.OwnedSkins == null ? new int[0] : this.OwnedSkins.ToArray()); }
+        set { this.OwnedSkins = Utils.FromCommaSepString32(value).ToList(); }
+    }
+    [XmlIgnore]
+    public List<int> OwnedSkins { get; set; }
     [XmlElement("VerifiedEmail")]
     public string _VerifiedEmail { get; set; }
     [XmlIgnore]
@@ -175,6 +189,36 @@ public class Account
     public List<FpcPackItem> FpcPacks { get; set; }
 
 
+    [XmlArray("PremiumNews")]
+    [XmlArrayItem("Item")]
+    public List<PremiumNewsItem> PremiumNews
+    {
+        get
+        {
+            return new List<PremiumNewsItem>
+            {
+                new PremiumNewsItem
+                {
+                    StartDate = 1420121952,//1419340503,
+                    EndDate = -1,
+                    Icon = "fpcPack",
+                    Description = "Your monthly Gold FPCpack for being a Premium member!",
+                    Title = "GOLD FPCPACK"
+                },
+                new PremiumNewsItem
+                {
+                    StartDate = 1419340503,
+                    EndDate = 1419426890,
+                    Icon = "premiumEvent",
+                    Description = "Every month there will be a different Premium Event in-game for members to participate in!",
+                    Title = "PREMIUM EVENT"
+                }
+            };
+        }
+        set { }
+    }
+
+
     [XmlNamespaceDeclarations]
     public XmlSerializerNamespaces Namespaces
     {
@@ -248,6 +292,16 @@ public class NewsItem
     public string TagLine { get; set; }
     public string Link { get; set; }
     public int Date { get; set; }
+}
+
+[Serializable, XmlRoot("Item")]
+public class PremiumNewsItem
+{
+    public string Icon { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public int StartDate { get; set; }
+    public int EndDate { get; set; }
 }
 
 [Serializable, XmlRoot("Server")]

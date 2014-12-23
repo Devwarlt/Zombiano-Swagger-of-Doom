@@ -19,25 +19,31 @@ public class AccountEventDispatcher extends _cM_ {
     [Inject]
     public var target:_dd;
 
+    public static var wasForced:Boolean;
+
     override public function initialize():void {
         this.view.eventDispatcher.add(this.dispatchEvent);
         this.view.initialize();
     }
     override public function destroy():void {
-        this.view.destroy();
         this.view.eventDispatcher.remove(this.dispatchEvent);
+        this.view.destroy();
     }
     private function dispatchEvent(eventString:String):void {
+        var mainScreen:_C_Q_;
         switch (eventString) {
             case AccountManagementScreen.SHOW_MAIN_SCREEN:
-                this.target.dispatch(new _C_Q_());
+                mainScreen = new _C_Q_();
+                this.target.dispatch(mainScreen);
+                mainScreen.reload();
                 break;
             case AccountManagementScreen.RELOAD:
                 this.reload();
                 break;
             case AccountManagementScreen.LOGOUT:
                 Account._get().clear();
-                var mainScreen:_C_Q_ = new _C_Q_();
+                wasForced = true;
+                mainScreen = new _C_Q_();
                 this.target.dispatch(mainScreen);
                 mainScreen.reload();
                 break;
@@ -46,7 +52,6 @@ public class AccountEventDispatcher extends _cM_ {
 
     private function reload():void {
         var req:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
-        req._R_z("text");
         req.addEventListener(_8C_.GENERIC_DATA, this.onSuccess);
         req.addEventListener(_mS_.TEXT_ERROR, this.onError);
         req.sendRequest("verify", Account._get().credentials());

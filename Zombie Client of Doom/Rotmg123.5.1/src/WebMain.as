@@ -62,6 +62,11 @@ public class WebMain extends Sprite {
         this._4y();
         this._i1();
         stage.scaleMode = StageScaleMode.EXACT_FIT;
+        stage.addEventListener(Event.RESIZE, function(event:Event):void {
+            if(stage.scaleMode != StageScaleMode.EXACT_FIT) {
+                stage.scaleMode = StageScaleMode.EXACT_FIT;
+            }
+        });
 
         yt = new YouTubePlayer("https://www.youtube.com/watch?v=daguDOE4Yd8&feature=youtu.be", true);
         stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);

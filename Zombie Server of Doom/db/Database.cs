@@ -144,6 +144,7 @@ AND characters.charId=death.chrId;";
                     Premium = rdr.GetInt32("premium") != 0,
                     Admin = rdr.GetBoolean("admin"),
                     _OwnedSkins = rdr.GetString("ownedSkins"),
+                    _Gifts = rdr.GetString("gifts"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
                     Guild = null,
@@ -221,6 +222,7 @@ AND characters.charId=death.chrId;";
                     Kills = rdr.GetInt32("kills"),
                     Premium = rdr.GetInt32("premium") != 0,
                     _OwnedSkins = rdr.GetString("ownedSkins"),
+                    _Gifts = rdr.GetString("gifts"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
                     Guild = null,
@@ -590,12 +592,16 @@ bestFame = GREATEST(bestFame, @bestFame);";
             cmd.CommandText = @"UPDATE accounts SET 
 name=@name,
 kills=@kills,
+ownedSkins=@skins,
+gifts=@gifts,
 craftingRecipes=@craftingRecipes
 WHERE id=@accId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
 
             cmd.Parameters.AddWithValue("@name", acc.Name);
             cmd.Parameters.AddWithValue("@kills", acc.Kills);
+            cmd.Parameters.AddWithValue("@skins", acc._OwnedSkins);
+            cmd.Parameters.AddWithValue("@gifts", acc._Gifts);
             cmd.Parameters.AddWithValue("@craftingRecipes", Utils.GetCommaSepString(acc.CraftingRecipes.ToArray()));
             cmd.ExecuteNonQuery();
         }

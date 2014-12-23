@@ -57,7 +57,7 @@ import flash.display.Sprite;
             this._zH_.addEventListener(_mS_.TEXT_ERROR, this._D_x);
             this._zH_.sendRequest("verify", Account._get().credentials());
         }
-        private function _3p(_arg1:_8C_):void{
+        private function _3p(_arg1:_8C_):void {
             AccountManagementScreen.openNext = true;
             dispatchEvent(new Event(Event.COMPLETE));//this._dY_(new _0G_d(XML(_arg1.data_)));
         }

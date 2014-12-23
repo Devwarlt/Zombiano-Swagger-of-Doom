@@ -167,7 +167,10 @@ public class XmlData : IDisposable
                 updateCount++;
             }
 
-            rawXml.Add(type, elem);
+            if (rawXml.ContainsKey(type))
+                log.ErrorFormat("Duplicated xml type: {0}", type);
+            else
+                rawXml.Add(type, elem);
         }
     }
     public void AddGrounds(XElement root)

@@ -42,7 +42,7 @@ public class FpcPacksHolder extends TabHolder {
         title.text = "FPC PACKS";
         title.boldText(true);
         title.x = ((WIDTH / 2) - (title.textWidth / 2));
-        title.y = 20;
+        title.y = 5;
         title.updateMetrics();
         title.filters = [new DropShadowFilter()];
         addChild(title);
@@ -56,14 +56,19 @@ public class FpcPacksHolder extends TabHolder {
         this.nextArrowBtn.addEventListener(MouseEvent.CLICK, this.onArrowClick);
         addChild(this.nextArrowBtn);
 
+        var gold5x:gold5xHolder = new gold5xHolder();
+        gold5x.x = ((WIDTH / 2) - (gold5x.width / 2));
+        gold5x.y = 250;
+        addChild(gold5x);
+
         this.holderSprite.x = 40;
-        this.holderSprite.y = ((HEIGHT / 2) - (fpcPackHolder.HEIGHT / 2));
+        this.holderSprite.y = 60;
         addChild(this.holderSprite);
         holderSpritePos = 40;
 
         var holderMask:Sprite = new Sprite();
         holderMask.x = 40;
-        holderMask.y = ((HEIGHT / 2) - (fpcPackHolder.HEIGHT / 2));
+        holderMask.y = this.holderSprite.y;
         holderMask.graphics.beginFill(0x000000, 0.0);
         holderMask.graphics.drawRect(0, 0, (fpcPackHolder.WIDTH * 4) + 1, fpcPackHolder.HEIGHT);
         holderMask.graphics.endFill();
@@ -166,6 +171,7 @@ public class FpcPacksHolder extends TabHolder {
 
 import AccountManagement.images.AccountManagementImages;
 import AccountManagement.tabHolders.FpcPacksHolder;
+import AccountManagement.ui.FancyTextButton;
 
 import _05R_.GTween;
 
@@ -188,7 +194,7 @@ class fpcPackHolder extends Sprite {
     private var image:Bitmap;
     private var text:SimpleText;
     public var info:packInfo;
-    public var button:fancyTextButton;
+    public var button:FancyTextButton;
 
     public function fpcPackHolder(info:packInfo) {
         this.info = info;
@@ -211,7 +217,7 @@ class fpcPackHolder extends Sprite {
             this.text.x = ((WIDTH / 2) - (this.text.width / 2));
             addChild(this.text);
 
-            this.button = new fancyTextButton(18, "OPEN");
+            this.button = new FancyTextButton(18, "OPEN");
             this.button.x = ((WIDTH / 2) - (this.button.width / 2));
             this.button.y = HEIGHT - this.button.height - 10;
             addChild(this.button);
@@ -245,7 +251,7 @@ class fpcPackHolder extends Sprite {
         var currentHolders:Vector.<itemHolder> = new Vector.<itemHolder>();
         var itemName:SimpleText = new SimpleText(20, 0xffffff, false, 40, 450);
         var itemDesc:SimpleText = new SimpleText(18, 0xffffff, false, 60, 450);
-        var closeBtn:fancyTextButton = new fancyTextButton(20, "CLOSE");
+        var closeBtn:FancyTextButton = new FancyTextButton(20, "CLOSE");
         var image:Bitmap = new Bitmap(TextureRedrawer.redraw(AssetLibrary._xK_("openFpcPacks",
                 info.type == 0 ? 0 : info.type == 1 ? 3 : info.type == 2 ? 1 : info.type == 3 ? 2 : 4), 100, false, 0, 0, false, 1));
 
@@ -489,48 +495,6 @@ class prevArrow extends Sprite {
     }
 }
 
-class fancyTextButton extends Sprite {
-
-    private var text:SimpleText;
-
-    public function fancyTextButton(size:int, text:String) {
-        this.text = new SimpleText(size, 0xE5C100);
-        this.text.boldText(true);
-        this.text.text = text;
-        this.text.updateMetrics();
-
-        graphics.beginFill(0x000000, 0.6);
-        graphics.drawRect(0, 0, this.text.width + 40, this.text.height + 6);
-        graphics.endFill();
-        GraphicHelper.createBorder(this, 1, 0xE5C100);
-
-        this.text.x = ((width / 2) - (this.text.width / 2) - 2);
-        this.text.y = ((height / 2) - (this.text.height / 2) - 2);
-        addChild(this.text);
-
-        this.addEventListener(MouseEvent.ROLL_OVER, this.onRollOver);
-        this.addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
-    }
-
-    private function onRollOver(event:MouseEvent):void {
-        graphics.clear();
-        var gradientMatrix:Matrix = new Matrix();
-        gradientMatrix.createGradientBox(this.text.width + 40, this.text.height + 6, (Math.PI / 180) * 90, 0, 0);
-        graphics.beginGradientFill(GradientType.LINEAR, [0xffffff, 0x000000], [0.6, 0.6], [0, 200], gradientMatrix);
-        graphics.drawRect(0, 0, this.text.width + 40, this.text.height + 6);
-        graphics.endFill();
-        GraphicHelper.createBorder(this, 1, 0xE5C100);
-    }
-
-    private function onRollOut(event:MouseEvent):void {
-        graphics.clear();
-        graphics.beginFill(0x000000, 0.6);
-        graphics.drawRect(0, 0, this.text.width + 40, this.text.height + 6);
-        graphics.endFill();
-        GraphicHelper.createBorder(this, 1, 0xE5C100);
-    }
-}
-
 class packInfo {
     public var name:String;
     public var type:int;
@@ -545,5 +509,45 @@ class packInfo {
             ret.push(int(i));
         }
         return ret;
+    }
+}
+
+class gold5xHolder extends Sprite {
+
+    private var image:Bitmap;
+
+    public function gold5xHolder() {
+
+        this.image = new Bitmap(new AccountManagementImages.gold_x5().bitmapData);
+
+        graphics.beginFill(0x000000, 0.6);
+        graphics.drawRect(0, 0, image.width + 20, image.height + 20);
+        graphics.endFill();
+        GraphicHelper.createBorder(this, 1, 0xE5C100);
+
+        image.x = ((width / 2) - (image.width / 2) - 2);
+        image.y = ((height / 2) - (image.height / 2) - 2);
+        addChild(image);
+
+        this.addEventListener(MouseEvent.ROLL_OVER, this.onRollOver);
+        this.addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
+    }
+
+    private function onRollOver(event:MouseEvent):void {
+        graphics.clear();
+        var gradientMatrix:Matrix = new Matrix();
+        gradientMatrix.createGradientBox(image.width + 20, image.height + 20, (Math.PI / 180) * 90, 0, 0);
+        graphics.beginGradientFill(GradientType.LINEAR, [0xffffff, 0x000000], [0.6, 0.6], [0, 200], gradientMatrix);
+        graphics.drawRect(0, 0, image.width + 20, image.height + 20);
+        graphics.endFill();
+        GraphicHelper.createBorder(this, 1, 0xE5C100);
+    }
+
+    private function onRollOut(event:MouseEvent):void {
+        graphics.clear();
+        graphics.beginFill(0x000000, 0.6);
+        graphics.drawRect(0, 0, image.width + 20, image.height + 20);
+        graphics.endFill();
+        GraphicHelper.createBorder(this, 1, 0xE5C100);
     }
 }
