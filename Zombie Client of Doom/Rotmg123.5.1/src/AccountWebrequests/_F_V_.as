@@ -12,7 +12,6 @@ package AccountWebrequests{
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
-    import com.company.googleanalytics.GA;
 
     internal class _F_V_ extends Frame {
 
@@ -20,11 +19,11 @@ package AccountWebrequests{
         public var _static:TextButton;
 
         public function _F_V_(){
-            super("Forgot your password?  We'll email it.", "Cancel", "Submit", "/forgotPassword");
+            super("Forgot your password?  We'll email it.", "Cancel", "Submit");
             this._xb = new TextInput("Email", false, "");
-            _vO_(this._xb);
+            addTextInput(this._xb);
             this._static = new TextButton(12, false, "New user?  Click here to Register");
-            __true(this._static);
+            addTextButton(this._static);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._08Y_);
             this._static.addEventListener(MouseEvent.CLICK, this._mO_);
@@ -45,7 +44,6 @@ package AccountWebrequests{
             _pW_();
         }
         private function _01v(_arg1:_8C_):void{
-            GA.global().trackEvent("account", "passwordSent");
             dispatchEvent(new _nJ_(_nJ_._2K_));
         }
         private function _Q_9(_arg1:_mS_):void{

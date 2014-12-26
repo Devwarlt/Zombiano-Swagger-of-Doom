@@ -10,7 +10,7 @@ package _0L_C_{
     public class _0G_H_ extends DialogBox {
 
         public function _0G_H_(_arg1:int){
-            super(((("Another character slot costs " + _arg1) + " Gold.  ") + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold", "/charSlotNeedGold");
+            super(((("Another character slot costs " + _arg1) + " Gold.  ") + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold");
             Account._get().cacheOffers();
             addEventListener(BUTTON1_EVENT, this.onCancel);
             addEventListener(BUTTON2_EVENT, this._8v);

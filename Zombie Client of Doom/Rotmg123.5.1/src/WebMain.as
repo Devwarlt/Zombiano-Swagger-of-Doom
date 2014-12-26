@@ -68,7 +68,7 @@ public class WebMain extends Sprite {
             }
         });
 
-        yt = new YouTubePlayer("https://www.youtube.com/watch?v=daguDOE4Yd8&feature=youtu.be", true);
+        yt = new YouTubePlayer("https://www.youtube.com/watch?v=x11Biz6ZFoE", true);
         stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
         yt.endCallback = setup;
         yt.error = setup;

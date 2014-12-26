@@ -16,7 +16,6 @@ package AccountWebrequests{
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.ui.TextButton;
-    import com.company.googleanalytics.GA;
     import com.company.util._9S_;
     
     import flash.events.Event;
@@ -33,21 +32,21 @@ package AccountWebrequests{
         public var _k4:TextButton;
 
         public function _0L_h(_arg1:Boolean=true){
-            super("Register in order to save your progress", "Cancel", "Register", "/registerAccount");
+            super("Register in order to save your progress", "Cancel", "Register");
             this.username_ = new TextInput("Username", false, "");
-            _vO_(this.username_);
+            addTextInput(this.username_);
 			this.email_ = new TextInput("Email", false, "");
-			_vO_(this.email_);
+			addTextInput(this.email_);
             this.password_ = new TextInput("Password", true, "");
-            _vO_(this.password_);
+            addTextInput(this.password_);
             this.password2_ = new TextInput("Retype Password", true, "");
-            _vO_(this.password2_);
+            addTextInput(this.password2_);
             this._8n = new _zb((('I agree to the <font color="#7777EE"><a href="' + Parameters.ToS_Url_) + '" target="_blank">Terms of Use</a></font>.'), false, "");
             _O_1(this._8n);
             if (_arg1)
             {
                 this._k4 = new TextButton(12, false, "Already Registered?  Click here to Sign In");
-                __true(this._k4);
+                addTextButton(this._k4);
             }
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._mO_);
@@ -100,7 +99,6 @@ package AccountWebrequests{
             _pW_();
         }
         private function _Q__(_arg1:_8C_):void{
-            GA.global().trackEvent("account", "accountRegistered");
             Account._get().modify(this.username_.text(), this.password_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }

@@ -23,7 +23,7 @@ package _rK_{
         public var _qh:TextButton;
 
         public function CurrentLoginFrame(){
-            super("Current account", "", "Continue", "/steamworksCurrentLogin");
+            super("Current account", "", "Continue");
             var _local1:_f7 = (Account._get() as _f7);
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
             this._lv.boldText(true);
@@ -61,9 +61,9 @@ package _rK_{
             } else
             {
                 this._static = new TextButton(12, false, "Register this account to play in a web browser");
-                __true(this._static);
+                addTextButton(this._static);
                 this._qh = new TextButton(12, false, "Replace this account with an existing web account");
-                __true(this._qh);
+                addTextButton(this._qh);
                 this._static.addEventListener(MouseEvent.CLICK, this._mO_);
                 this._qh.addEventListener(MouseEvent.CLICK, this.onLink);
             }

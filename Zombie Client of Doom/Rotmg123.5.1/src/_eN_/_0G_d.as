@@ -17,7 +17,7 @@ package _eN_{
         public var _ba:SimpleText;
 
         public function _0G_d(){
-            super("Current account", "", "Continue", "/currentKabamLogin");
+            super("Current account", "", "Continue");
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
             this._lv.boldText(true);
             this._lv.text = "Currently logged on Kabam.com as:";

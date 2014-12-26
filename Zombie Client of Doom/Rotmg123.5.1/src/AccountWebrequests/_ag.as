@@ -12,7 +12,6 @@ package AccountWebrequests{
     import _zo._8C_;
     import _zo._mS_;
     import _qN_.Account;
-    import com.company.googleanalytics.GA;
 
     public class _ag extends Frame {
 
@@ -21,13 +20,13 @@ package AccountWebrequests{
         public var _a9:TextInput;
 
         public function _ag(){
-            super("Change your password", "Cancel", "Submit", "/changePassword");
+            super("Change your password", "Cancel", "Submit");
             this.password_ = new TextInput("Password", true, "");
-            _vO_(this.password_);
+            addTextInput(this.password_);
             this._sY_ = new TextInput("New Password", true, "");
-            _vO_(this._sY_);
+            addTextInput(this._sY_);
             this._a9 = new TextInput("Retype New Password", true, "");
-            _vO_(this._a9);
+            addTextInput(this._a9);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._bR_);
         }
@@ -61,7 +60,6 @@ package AccountWebrequests{
             _pW_();
         }
         private function _0K_H_(_arg1:_8C_):void{
-            GA.global().trackEvent("account", "passwordChanged");
             Account._get().modify(Account._get().guid(), this._sY_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }

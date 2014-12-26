@@ -85,13 +85,13 @@ class changePasswordFrame extends Frame {
     public var confirmNewPassword:TextInput;
 
     public function changePasswordFrame() {
-        super("Change your password", "Cancel", "Submit", "/changePassword");
+        super("Change your password", "Cancel", "Submit");
         this.password_ = new TextInput("Password", true, "");
-        _vO_(this.password_);
+        addTextInput(this.password_);
         this.newPassword = new TextInput("New Password", true, "");
-        _vO_(this.newPassword);
+        addTextInput(this.newPassword);
         this.confirmNewPassword = new TextInput("Retype New Password", true, "");
-        _vO_(this.confirmNewPassword);
+        addTextInput(this.confirmNewPassword);
         Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
         Button2.addEventListener(MouseEvent.CLICK, this.changePassword);
     }

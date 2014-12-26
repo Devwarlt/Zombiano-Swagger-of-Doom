@@ -22,7 +22,6 @@ package _0L_C_{
     import flash.events.MouseEvent;
     import flash.events.Event;
     import flash.display.Graphics;
-    import com.company.googleanalytics.GA;
 
 
     public class DialogBox extends Sprite {
@@ -40,13 +39,12 @@ package _0L_C_{
         protected var _P_V_:SimpleText = null;
         protected var button1_:boxButton = null;
         protected var button2_:boxButton = null;
-        protected var _J_O_:String = null;
         private var outlineFill_:GraphicsSolidFill;
         private var _0y:GraphicsStroke;
         private var _vV_:GraphicsSolidFill;
         private var path_:GraphicsPath;
 
-        public function DialogBox(bodyText:String, title:String, button1Text:String, button2Text:String, _arg5:String){
+        public function DialogBox(bodyText:String, title:String, button1Text:String, button2Text:String){
             this.box_ = new Sprite();
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
             this._0y = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
@@ -54,7 +52,6 @@ package _0L_C_{
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
             this.graphicsData_ = new <IGraphicsData>[_0y, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
             super();
-            this._J_O_ = _arg5;
             this._p = new SimpleText(14, 0xB3B3B3, false, (WIDTH - 40), 0, "Myriad Pro");
             this._p.x = 20;
             this._p.multiline = true;
@@ -137,10 +134,6 @@ package _0L_C_{
             _local2.drawRect(0, 0, 800, 600);
             _local2.endFill();
             addChildAt(this._T_y, 0);
-            if (this._J_O_ != null)
-            {
-                GA.global().trackPageview(this._J_O_);
-            }
         }
         private function onRemovedFromStage(_arg1:Event):void{
         }

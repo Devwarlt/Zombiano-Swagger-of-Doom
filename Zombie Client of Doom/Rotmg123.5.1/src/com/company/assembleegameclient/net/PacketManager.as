@@ -1462,13 +1462,6 @@ import flash.events.TimerEvent;
             _8P_._V_O_().getInstance(_06a).dispatch(_arg1);
         }
         private function _cN_(_arg1:BuyResult):void{
-            if (_arg1.result_ == BuyResult._dV_)
-            {
-                if (this.outstandingBuy_ != null)
-                {
-                    this.outstandingBuy_._06m();
-                }
-            }
             this.outstandingBuy_ = null;
             switch (_arg1.result_)
             {
@@ -1614,7 +1607,7 @@ import flash.events.TimerEvent;
             this.gs_.dispatchEvent(new Event(Event.COMPLETE));
         }
         private function _ee(_arg1:_G_f):void{
-            var _local2:DialogBox = new DialogBox(((("Client version: " + Parameters.clientVersion) + "\nServer version: ") + _arg1.errorDescription_), "Client Update Needed", "Ok", null, "/clientUpdate");
+            var _local2:DialogBox = new DialogBox(((("Client version: " + Parameters.clientVersion) + "\nServer version: ") + _arg1.errorDescription_), "Client Update Needed", "Ok", null);
             _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._Y_h);
             this.gs_.stage.addChild(_local2);
             this._P_A_ = false;

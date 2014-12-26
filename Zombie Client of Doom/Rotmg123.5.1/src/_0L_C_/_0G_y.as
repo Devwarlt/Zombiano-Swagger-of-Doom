@@ -9,7 +9,6 @@ package _0L_C_{
     import _zo._8C_;
     import _zo._mS_;
     import _qN_.Account;
-    import com.company.googleanalytics.GA;
     import flash.events.Event;
 
     public class _0G_y extends DialogBox {
@@ -17,7 +16,7 @@ package _0L_C_{
         public var price_:int;
 
         public function _0G_y(_arg1:int){
-            super("Buying Character Slot...", null, null, null, "/buyingCharSlot");
+            super("Buying Character Slot...", null, null, null);
             this.price_ = _arg1;
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true, 2);
             _local2.addEventListener(_8C_.GENERIC_DATA, this._F_Q_);
@@ -25,7 +24,6 @@ package _0L_C_{
             _local2.sendRequest("purchaseCharSlot", Account._get().credentials());
         }
         private function _F_Q_(_arg1:Event):void{
-            GA.global().trackEvent("credits", "buyConverted", "Character Slot", this.price_);
             dispatchEvent(new Event(Event.COMPLETE));
         }
         private function _ix(_arg1:_mS_):void{

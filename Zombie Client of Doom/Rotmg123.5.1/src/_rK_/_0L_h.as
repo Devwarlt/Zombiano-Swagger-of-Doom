@@ -9,15 +9,12 @@ package _rK_{
     import Frames._zb;
     import com.company.assembleegameclient.parameters.Parameters;
     import flash.events.MouseEvent;
-    import _rK_._07s;
     import com.company.util._9S_;
     import _qN_.Account;
     import _01H_._f7;
     import com.company.assembleegameclient.appengine.WebRequest;
     import _zo._8C_;
     import _zo._mS_;
-    import com.company.googleanalytics.GA;
-    import _rK_.*;
 
     internal class _0L_h extends Frame {
 
@@ -27,13 +24,13 @@ package _rK_{
         public var _8n:_zb;
 
         public function _0L_h(){
-            super("Register a web account in order to play anywhere", "Cancel", "Register", "/steamworksRegisterAccount");
+            super("Register a web account in order to play anywhere", "Cancel", "Register");
             this._xb = new TextInput("Email", false, "");
-            _vO_(this._xb);
+            addTextInput(this._xb);
             this.password_ = new TextInput("Password", true, "");
-            _vO_(this.password_);
+            addTextInput(this.password_);
             this._0L_Y_ = new TextInput("Retype Password", true, "");
-            _vO_(this._0L_Y_);
+            addTextInput(this._0L_Y_);
             this._8n = new _zb((('I agree to the <font color="#7777EE"><a href="' + Parameters.ToS_Url_) + '" target="_blank">Terms of Use</a></font>.'), false, "");
             _O_1(this._8n);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
@@ -77,7 +74,6 @@ package _rK_{
             _pW_();
         }
         private function _Q__(_arg1:_8C_):void{
-            GA.global().trackEvent("steamworksAccount", "accountRegistered");
             var _local2:XML = new XML(_arg1.data_);
             Account._get().modify(_local2.GUID, null, _local2.Secret);
             dispatchEvent(new _07s(_07s._tp));

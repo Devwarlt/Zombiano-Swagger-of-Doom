@@ -10,15 +10,12 @@ package _L_7{
     import flash.text.StyleSheet;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
-    import _L_7._Y_S_;
     import _qN_.Account;
     import _Z_h._m7;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
-    import com.company.googleanalytics.GA;
-    import _L_7.*;
 
     internal class LinkFrame extends Frame {
 
@@ -30,7 +27,7 @@ package _L_7{
         public var password_:TextInput;
 
         public function LinkFrame(){
-            super("Replace with an existing web account", "Cancel", "Replace", "/linkKongregateAccount");
+            super("Replace with an existing web account", "Cancel", "Replace");
             h_ = (h_ + 4);
             var _local1:StyleSheet = new StyleSheet();
             _local1.parseCSS(_K_z);
@@ -45,9 +42,9 @@ package _L_7{
             addChild(this._P_H_);
             h_ = (h_ + 88);
             this._xb = new TextInput("Username", false, "");
-            _vO_(this._xb);
+            addTextInput(this._xb);
             this.password_ = new TextInput("Password", true, "");
-            _vO_(this.password_);
+            addTextInput(this.password_);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this.onLink);
         }
@@ -78,7 +75,6 @@ package _L_7{
             _pW_();
         }
         private function _018(_arg1:_8C_):void{
-            GA.global().trackEvent("account", "signedIn");
             var _local2:XML = new XML(_arg1.data_);
             Account._get().modify(_local2.GUID, null, _local2.Secret);
             dispatchEvent(new _Y_S_(_Y_S_._tp));

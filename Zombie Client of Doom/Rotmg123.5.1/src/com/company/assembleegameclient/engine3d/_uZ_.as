@@ -5,7 +5,7 @@
 
 package com.company.assembleegameclient.engine3d{
 
-    import flash.geom.Matrix3D;
+import flash.geom.Matrix3D;
     import flash.geom.Vector3D;
     import flash.geom.Utils3D;
     import flash.display.IGraphicsData;
@@ -48,7 +48,7 @@ package com.company.assembleegameclient.engine3d{
         }
         public static function getObject(_arg1:String):_uZ_{
             var _local2:_B_5 = _B_5._e6(_arg1);
-            return (new (_uZ_)(_local2));
+            return new _uZ_(_local2);
         }
 
         public function dispose():void{

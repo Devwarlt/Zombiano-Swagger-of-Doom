@@ -6,7 +6,6 @@
 package com.company.assembleegameclient.util{
 import AccountManagement.images.AccountManagementImages;
 
-import Sounds.LocalSoundEffects;
 import Sounds.LocalSounds;
 
 import _0K_m._0H_Y_;
@@ -134,6 +133,93 @@ import _0K_m._0H_Y_;
     }
 }
 
+import FPC.Embeds.Images.Embeds_chars16x16dEncounters2Embed_;
+import FPC.Embeds.Images.Embeds_chars16x16dEncountersEmbed_;
+import FPC.Embeds.Images.Embeds_chars16x16dMountains1Embed_;
+import FPC.Embeds.Images.Embeds_chars16x16dMountains2Embed_;
+import FPC.Embeds.Images.Embeds_chars16x16rEncountersEmbed_;
+import FPC.Embeds.Images.Embeds_chars16x8dEncountersEmbed_;
+import FPC.Embeds.Images.Embeds_chars16x8rEncountersEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8dBeachEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8dEncountersEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8dHero1Embed_;
+import FPC.Embeds.Images.Embeds_chars8x8rBeachEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8rEncountersEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8rHero1Embed_;
+import FPC.Embeds.Images.Embeds_chars8x8rHero2Embed_;
+import FPC.Embeds.Images.Embeds_chars8x8rHighEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8rLow1Embed_;
+import FPC.Embeds.Images.Embeds_chars8x8rLow2Embed_;
+import FPC.Embeds.Images.Embeds_chars8x8rMid2Embed_;
+import FPC.Embeds.Images.Embeds_chars8x8rMidEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8rPets1Embed_;
+import FPC.Embeds.Images.Embeds_chars8x8rPets1MaskEmbed_;
+import FPC.Embeds.Images.Embeds_chars8x8rPetsKaratePenguin_;
+import FPC.Embeds.Images.Embeds_innerP1MaskEmbed_;
+import FPC.Embeds.Images.Embeds_innerP2MaskEmbed_;
+import FPC.Embeds.Images.Embeds_lofiChar2Embed_;
+import FPC.Embeds.Images.Embeds_lofiCharEmbed_;
+import FPC.Embeds.Images.Embeds_lofiEnvironment2Embed_;
+import FPC.Embeds.Images.Embeds_lofiEnvironment3Embed_;
+import FPC.Embeds.Images.Embeds_lofiEnvironmentEmbed_;
+import FPC.Embeds.Images.Embeds_lofiInterfaceEmbed_;
+import FPC.Embeds.Images.Embeds_lofiObj2Embed_;
+import FPC.Embeds.Images.Embeds_lofiObj3Embed_;
+import FPC.Embeds.Images.Embeds_lofiObj40x40Embed_;
+import FPC.Embeds.Images.Embeds_lofiObj4Embed_;
+import FPC.Embeds.Images.Embeds_lofiObj5Embed_;
+import FPC.Embeds.Images.Embeds_lofiObj6Embed_;
+import FPC.Embeds.Images.Embeds_lofiObjEmbed_;
+import FPC.Embeds.Images.Embeds_weapons40x40Embed_;
+import FPC.Embeds.Images._09C_;
+import FPC.Embeds.Images._0L_i;
+import FPC.Embeds.Images._0M_D_;
+import FPC.Embeds.Images._9V_;
+import FPC.Embeds.Images._E_K_;
+import FPC.Embeds.Images._O_H_;
+import FPC.Embeds.Images._U_0;
+import FPC.Embeds.Images._W_r;
+import FPC.Embeds.Images._Z_F_;
+import FPC.Embeds.Images._hU_;
+import FPC.Embeds.Images._p1;
+import FPC.Embeds.Images._qd;
+import FPC.Embeds.Images._tI_;
+import FPC.Embeds.Images.batteryChargedEmbed;
+import FPC.Embeds.Models.Embeds_Tetrahedron;
+import FPC.Embeds.Models.Embeds_monsterTank1Embed_;
+import FPC.Embeds.Models.Embeds_monsterTank2Embed_;
+import FPC.Embeds.Models.Embeds_monsterTank3Embed_;
+import FPC.Embeds.Models.Embeds_monsterTank4Embed_;
+import FPC.Embeds.Images.Embeds_playerSkinsEmbed_;
+import FPC.Embeds.Images.Embeds_playerSkinsMaskEmbed_;
+import FPC.Embeds.Images.Embeds_rainEmbed_;
+import FPC.Embeds.Images.Embeds_starsEmbed_;
+import FPC.Embeds.Images.Embeds_textile10x10Embed_;
+import FPC.Embeds.Images.Embeds_textile4x4Embed_;
+import FPC.Embeds.Images.Embeds_textile5x5Embed_;
+import FPC.Embeds.Images.Embeds_textile9x9Embed_;
+import FPC.Embeds.Images.craftingBookEmbed;
+import FPC.Embeds.Models._03V_;
+import FPC.Embeds.Models._09R_;
+import FPC.Embeds.Models._0B_D_;
+import FPC.Embeds.Models._0G_4;
+import FPC.Embeds.Models._33;
+import FPC.Embeds.Models._3o;
+import FPC.Embeds.Models._E_W_;
+import FPC.Embeds.Models._J_C_;
+import FPC.Embeds.Models._S_5;
+import FPC.Embeds.Models._W_B_;
+import FPC.Embeds.Models._X_h;
+import FPC.Embeds.Models._br;
+import FPC.Embeds.Models._eR_;
+import FPC.Embeds.Models._gO_;
+import FPC.Embeds.Models._l3;
+import FPC.Embeds.Models._nn;
+import FPC.Embeds.Models._qC_;
+import FPC.Embeds.Models._ve;
+import FPC.Embeds.Models._xJ_;
+import FPC.Embeds.Models.skyscraper;
+
 import com.embeds.EmbeddedAssets_testImageEmbed_;
 
 //package com.company.assembleegameclient.util
@@ -245,7 +331,7 @@ class Embeds {
     public static var innerP1MaskEmbed_:Class = Embeds_innerP1MaskEmbed_;
     public static var innerP2MaskEmbed_:Class = Embeds_innerP2MaskEmbed_;
 
-    public static var weaponsEmbed40x40_:Class = weapons_embed_40x40;
+    public static var weaponsEmbed40x40_:Class = Embeds_weapons40x40Embed_;
     public static var craftingBookEmbed_:Class = craftingBookEmbed;
     public static var batteryChargedEmbed_:Class = batteryChargedEmbed;
     public static var testImage:Class = com.embeds.EmbeddedAssets_testImageEmbed_;
@@ -266,7 +352,8 @@ class Embeds {
     /*private*/ internal static var icosahedronEmbed_:Class = _S_5;
     /*private*/ internal static var octahedronEmbed_:Class = _l3;
     /*private*/ internal static var pyramidEmbed_:Class = _xJ_;
-    /*private*/ internal static var tetrahedronEmbed_:Class = _00B_;
+                internal static var skyscaperEmbed_:Class = skyscraper;
+    /*private*/ internal static var tetrahedronEmbed_:Class = Embeds_Tetrahedron;
     /*private*/ internal static var dodecahedronEmbed_:Class = _nn;
     /*private*/ internal static var pillarEmbed_:Class = _J_C_;
     /*private*/ internal static var brokenPillarEmbed_:Class = _09R_;
@@ -300,7 +387,8 @@ class Embeds {
         "Table":new tableEmbed_(),
         "Table Edge":new tableEdgeEmbed_(),
         "Sign":new signEmbed_(),
-        "Web":new webEmbed_()
+        "Web":new webEmbed_(),
+        "Skyscraper":new skyscaperEmbed_()
     };
 
 }

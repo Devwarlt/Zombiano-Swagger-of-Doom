@@ -212,6 +212,14 @@ public class Account
                     Icon = "premiumEvent",
                     Description = "Every month there will be a different Premium Event in-game for members to participate in!",
                     Title = "PREMIUM EVENT"
+                },
+                new PremiumNewsItem
+                {
+                    StartDate = 1419426890,
+                    EndDate = -1,
+                    Icon = "premiumEvent",
+                    Description = "Mpgh will be completely bug free!",
+                    Title = "MPGH EVENT"
                 }
             };
         }

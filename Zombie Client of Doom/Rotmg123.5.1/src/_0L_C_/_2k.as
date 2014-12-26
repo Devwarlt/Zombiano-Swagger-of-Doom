@@ -10,7 +10,7 @@ package _0L_C_{
     public class _2k extends DialogBox {
 
         public function _2k(_arg1:String){
-            super(_arg1, "Not Registered", "Cancel", "Register", "/needRegister");
+            super(_arg1, "Not Registered", "Cancel", "Register");
             addEventListener(BUTTON1_EVENT, this.onCancel);
             addEventListener(BUTTON2_EVENT, this._mO_);
         }

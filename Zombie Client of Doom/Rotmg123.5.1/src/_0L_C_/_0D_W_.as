@@ -23,7 +23,7 @@ package _0L_C_{
         }
         public function _02C_(_arg1:String, _arg2:String):void{
             var _local3:String = this._cR_.replace("${NAME}", _arg1).replace("${DISPLAYID}", _arg2);
-            var _local4:DialogBox = new DialogBox(_local3, "Verify Deletion", "Cancel", "Delete", "/deleteDialog");
+            var _local4:DialogBox = new DialogBox(_local3, "Verify Deletion", "Cancel", "Delete");
             _local4.addEventListener(this._0K_r, this.onCancel);
             _local4.addEventListener(this._M_4, this.onDelete);
             addChild(_local4);

@@ -36,8 +36,6 @@ package com.company.assembleegameclient.game{
     import com.company.assembleegameclient.ui._4D_;
     import com.company.assembleegameclient.ui._L_N_;
     import com.company.assembleegameclient.util.TextureRedrawer;
-    import com.company.googleanalytics.GA;
-    import com.company.ui.SimpleText;
     import com.company.util.MoreColorUtil;
     import com.company.util._G_;
     import com.company.util._H_U_;
@@ -46,7 +44,6 @@ package com.company.assembleegameclient.game{
     import flash.events.Event;
     import flash.external.ExternalInterface;
     import flash.filters.ColorMatrixFilter;
-    import flash.filters.DropShadowFilter;
     import flash.utils.ByteArray;
     import flash.utils.getTimer;
 
@@ -220,7 +217,6 @@ package com.company.assembleegameclient.game{
                 return;
             }
             this._2e = true;
-            GA.global().trackPageview("/gameStarted");
             this._V_1.x = 600;
             this._V_1.y = 0;
             this.packetManager.connect();
@@ -266,7 +262,6 @@ package com.company.assembleegameclient.game{
             if (this._bA_ > 300000)
             {
                 _local5 = int(Math.round(((1000 * this._qA_) / this._bA_)));
-                GA.global().trackEvent("performance", "frameRate", this.map_.name_, _local5);
                 this._qA_ = 0;
                 this._bA_ = 0;
             }

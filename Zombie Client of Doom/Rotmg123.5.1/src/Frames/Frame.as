@@ -19,7 +19,6 @@ import flash.display.JointStyle;
 import flash.filters.DropShadowFilter;
 import flash.events.Event;
 import flash.display.DisplayObject;
-import com.company.googleanalytics.GA;
 
 
 public class Frame extends Sprite {
@@ -29,7 +28,6 @@ public class Frame extends Sprite {
     public var _P_V_:SimpleText;
     public var Button1:TextButton;
     public var Button2:TextButton;
-    public var _J_O_:String;
     public var _Q_r:Vector.<TextInput>;
     public var _Z_Y_:Vector.<TextButton>;
     protected var w_:int = 288;
@@ -41,7 +39,7 @@ public class Frame extends Sprite {
     private var path1_:GraphicsPath;
     private var path2_:GraphicsPath;
 
-    public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg4:String, _arg5:int=288){
+    public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg4:int=288){
         this._Q_r = new Vector.<TextInput>();
         this._Z_Y_ = new Vector.<TextButton>();
         this._O_n = new GraphicsSolidFill(0x73543F, 1);
@@ -54,7 +52,7 @@ public class Frame extends Sprite {
         this.path2_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
         this.graphicsData_ = new <IGraphicsData>[_vV_, path2_, GraphicHelper.END_FILL, _O_n, path1_, GraphicHelper.END_FILL, _0y, path2_, GraphicHelper._H_B_];
         super();
-        this.w_ = _arg5;
+        this.w_ = _arg4;
         this._P_V_ = new SimpleText(12, 0xB3B3B3, false, 0, 0, "Myriad Pro");
         this._P_V_.text = _arg1;
         this._P_V_.updateMetrics();
@@ -73,19 +71,18 @@ public class Frame extends Sprite {
         this.Button2.buttonMode = true;
         this.Button2.x = ((this.w_ - this.Button2.width) - 26);
         addChild(this.Button2);
-        this._J_O_ = _arg4;
         filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
         addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
-    public function _vO_(_arg1:TextInput):void{
+    public function addTextInput(_arg1:TextInput):void{
         this._Q_r.push(_arg1);
         addChild(_arg1);
         _arg1.y = (this.h_ - 60);
         _arg1.x = 17;
         this.h_ = (this.h_ + TextInput.HEIGHT);
     }
-    public function __true(_arg1:TextButton):void{
+    public function addTextButton(_arg1:TextButton):void{
         this._Z_Y_.push(_arg1);
         addChild(_arg1);
         _arg1.y = (this.h_ - 66);
@@ -173,7 +170,6 @@ public class Frame extends Sprite {
         {
             (stage.focus = this._Q_r[0].inputText_);
         }
-        GA.global().trackPageview(this._J_O_);
     }
     private function onRemovedFromStage(_arg1:Event):void{
     }

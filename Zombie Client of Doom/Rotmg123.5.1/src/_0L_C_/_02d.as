@@ -10,7 +10,7 @@ package _0L_C_{
     public class _02d extends DialogBox {
 
         public function _02d(){
-            super(("You do not have enough Gold for this item.  " + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold", "/notEnoughGold");
+            super(("You do not have enough Gold for this item.  " + "Would you like to buy Gold?"), "Not Enough Gold", "Cancel", "Buy Gold");
             Account._get().cacheOffers();
             addEventListener(BUTTON1_EVENT, this.onCancel);
             addEventListener(BUTTON2_EVENT, this._8v);

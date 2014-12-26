@@ -113,21 +113,21 @@ class registerFrame extends Frame {
     public var login:TextButton;
 
     public function registerFrame(_arg1:Boolean=false){
-        super("Register in order to save your progress", "Cancel", "Register", "/registerAccount");
+        super("Register in order to save your progress", "Cancel", "Register");
         this.username = new TextInput("Username", false, "");
-        _vO_(this.username);
+        addTextInput(this.username);
         this.email = new TextInput("Email", false, "");
-        _vO_(this.email);
+        addTextInput(this.email);
         this.password = new TextInput("Password", true, "");
-        _vO_(this.password);
+        addTextInput(this.password);
         this.confirmPassword = new TextInput("Retype Password", true, "");
-        _vO_(this.confirmPassword);
+        addTextInput(this.confirmPassword);
         this.tosText = new _zb((('I agree to the <font color="#7777EE"><a href="' + Parameters.ToS_Url_) + '" target="_blank">Terms of Use</a></font>.'), false, "");
         _O_1(this.tosText);
         if (_arg1)
         {
             this.login = new TextButton(12, false, "Already Registered?  Click here to Sign In");
-            __true(this.login);
+            addTextButton(this.login);
         }
         Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
         Button2.addEventListener(MouseEvent.CLICK, this.register);

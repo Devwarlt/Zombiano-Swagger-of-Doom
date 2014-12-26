@@ -23,11 +23,11 @@ namespace wServer.networking
         public abstract PacketID ID { get; }
         public abstract Packet CreateInstance();
 
-        public abstract void Crypt(Client client, byte[] dat, int offset, int len);
+        //public abstract void Crypt(Client client, byte[] dat, int offset, int len);
 
         public void Read(Client client, byte[] body, int offset, int len)
         {
-            Crypt(client, body, offset, len);
+            //Crypt(client, body, offset, len);
             Read(new NReader(new MemoryStream(body)));
         }
         public int Write(Client client, byte[] buff, int offset)
@@ -36,7 +36,7 @@ namespace wServer.networking
             this.Write(new NWriter(s));
 
             var len = (int)s.Position;
-            Crypt(client, buff, offset + 5, len);
+            //Crypt(client, buff, offset + 5, len);
             Buffer.BlockCopy(BitConverter.GetBytes(IPAddress.HostToNetworkOrder(len + 5)), 0, buff, offset, 4);
             buff[offset + 4] = (byte)this.ID;
             return len + 5;
@@ -63,7 +63,7 @@ namespace wServer.networking
     {
         public override PacketID ID { get { return PacketID.Packet; } }
         public override Packet CreateInstance() { return new NopPacket(); }
-        public override void Crypt(Client client, byte[] dat, int offset, int len) { }
+        //public override void Crypt(Client client, byte[] dat, int offset, int len) { }
         protected override void Read(NReader rdr) { }
         protected override void Write(NWriter wtr) { }
     }

@@ -42,7 +42,7 @@ package _6e{
             this._08w.addEventListener(_8C_.GENERIC_DATA, this._02E_);
             this._08w.addEventListener(_mS_.TEXT_ERROR, this._D_N_);
             this._08w.sendRequest("getBoard", Account._get().credentials());
-            this._I_4 = new DialogBox("Loading...", null, null, null, null);
+            this._I_4 = new DialogBox("Loading...", null, null, null);
             addChild(this._I_4);
             this._T_y.visible = false;
         }
@@ -90,7 +90,7 @@ package _6e{
             this._08w.sendRequest("setBoard", _local2);
             removeChild(this._X_A_);
             this._X_A_ = null;
-            this._I_4 = new DialogBox("Saving...", null, null, null, null);
+            this._I_4 = new DialogBox("Saving...", null, null, null);
             addChild(this._I_4);
             this._T_y.visible = false;
         }

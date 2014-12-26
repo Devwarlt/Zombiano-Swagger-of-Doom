@@ -3,6 +3,8 @@
  */
 package Frames {
 
+import FPC.Embeds.Images.craftingRecipeBookEmbed_;
+
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.CraftingTerminal;
 import com.company.assembleegameclient.objects.GameObject;

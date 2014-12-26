@@ -24,7 +24,6 @@ package _0G_l{
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
     import flash.events.Event;
-    import com.company.googleanalytics.GA;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
@@ -133,7 +132,6 @@ package _0G_l{
             parent.removeChild(this);
         }
         private function _zJ_(_arg1:MouseEvent):void{
-            GA.global().trackEvent("texture", "search", this._p2._03h());
             this.search(0);
         }
         private function _hd(_arg1:MouseEvent):void{
@@ -205,7 +203,6 @@ package _0G_l{
         private function _J_m(_arg1:_mS_):void{
         }
         private function _set_(_arg1:_07k):void{
-            GA.global().trackEvent("texture", "load", _arg1.name_);
             dispatchEvent(_arg1.clone());
             parent.removeChild(this);
         }
@@ -300,7 +297,6 @@ package _0G_l{
                 this.draw();
                 this._1D_ = true;
             }
-            GA.global().trackPageview("/loadDialog");
         }
 
     }

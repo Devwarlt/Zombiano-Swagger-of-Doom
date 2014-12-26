@@ -4,8 +4,6 @@
 //com.company.assembleegameclient.net._W_v
 
 package com.company.assembleegameclient.net{
-    import com.company.googleanalytics.GA;
-    import com.company.assembleegameclient.util.Currency;
 
     internal class _W_v {
 
@@ -20,21 +18,6 @@ package com.company.assembleegameclient.net{
             this.currency_ = _arg3;
             this.converted_ = _arg4;
         }
-        public function _06m():void{
-            switch (this.currency_)
-            {
-                case Currency.GOLD:
-                    GA.global().trackEvent("credits", ((this.converted_) ? "buyConverted" : "buy"), this.id_, this.price_);
-                    return;
-                case Currency.SILVER:
-                    GA.global().trackEvent("credits", "buyFame", this.id_, this.price_);
-                    return;
-                case Currency.COPPER:
-                    GA.global().trackEvent("credits", "buyGuildFame", this.id_, this.price_);
-                    return;
-            }
-        }
-
     }
 }//package com.company.assembleegameclient.net
 

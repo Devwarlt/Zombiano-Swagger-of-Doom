@@ -73,7 +73,7 @@ import com.company.assembleegameclient.parameters.Parameters;
                     this._0E_r();
                     return;
                 case _0M_1.SPRITEEDITOR:
-                    var questionBox:DialogBox = new DialogBox("Open Sprite Editor?", "Enter Sprite Editor", "Open", "Cancel", "");
+                    var questionBox:DialogBox = new DialogBox("Open Sprite Editor?", "Enter Sprite Editor", "Open", "Cancel");
                     questionBox.addEventListener(DialogBox.BUTTON1_EVENT, spriteEditor);
                     questionBox.addEventListener(DialogBox.BUTTON2_EVENT, cancelOpen);
                     this.view.addChild(questionBox);
@@ -90,10 +90,10 @@ import com.company.assembleegameclient.parameters.Parameters;
             {
                 if (Parameters._I_O_())
                 {
-                    _local1 = new DialogBox(((("There are currently no testing servers available.  " + 'Please play on <font color="#7777EE">') + '<a href="http://www.amaymon.com/">') + "www.amaymon.com</a></font>."), "No Testing Servers", null, null, "/noTestingServers");
+                    _local1 = new DialogBox(((("There are currently no testing servers available.  " + 'Please play on <font color="#7777EE">') + '<a href="http://www.amaymon.com/">') + "www.amaymon.com</a></font>."), "No Testing Servers", null, null);
                 } else
                 {
-                    _local1 = new DialogBox((((("Realm of the Mad God is currently offline.\n\n" + "Go here for more information:\n") + '<font color="#7777EE">') + '<a href="http://forums.wildshadow.com/">') + "forums.wildshadow.com</a></font>."), "Oryx Sleeping", null, null, "/offLine");
+                    _local1 = new DialogBox((((("Realm of the Mad God is currently offline.\n\n" + "Go here for more information:\n") + '<font color="#7777EE">') + '<a href="http://forums.wildshadow.com/">') + "forums.wildshadow.com</a></font>."), "Oryx Sleeping", null, null);
                 }
                 this.view.stage.addChild(_local1);
                 return;
@@ -132,7 +132,7 @@ import com.company.assembleegameclient.parameters.Parameters;
         }
         private function _0E_r():void {
             if(Account._get().admin_) {
-                var questionBox:DialogBox = new DialogBox("", "Choose Editor", "Sprite Editor", "Map Editor", "");
+                var questionBox:DialogBox = new DialogBox("", "Choose Editor", "Sprite Editor", "Map Editor");
                 questionBox.addEventListener(DialogBox.BUTTON1_EVENT, spriteEditor);
                 questionBox.addEventListener(DialogBox.BUTTON2_EVENT, mapEditor);
                 this.view.addChild(questionBox);

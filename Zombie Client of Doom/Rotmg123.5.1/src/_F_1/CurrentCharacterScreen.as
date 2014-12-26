@@ -24,7 +24,6 @@ package _F_1{
     import com.company.assembleegameclient.ui.TextButton;
     import com.company.assembleegameclient.ui._0B_v;
     import com.company.assembleegameclient.ui._0K_B_;
-    import com.company.googleanalytics.GA;
     import com.company.rotmg.graphics.ScreenGraphic;
     import com.company.ui.SimpleText;
     
@@ -143,7 +142,6 @@ package _F_1{
             this._0G_N_.x = (((800 / 2) - (this._0G_N_.width / 2)) + 96);
             this._0G_N_.y = 534;
             addChild(this._0G_N_);
-            GA.global().trackPageview("/currentCharScreen");
         }
         private function _fT_(_arg1:Event):void{
             var _local3:_4B_;

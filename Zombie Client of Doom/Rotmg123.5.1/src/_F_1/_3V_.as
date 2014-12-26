@@ -18,7 +18,6 @@ package _F_1{
     import com.company.rotmg.graphics.ScreenGraphic;
     import flash.events.MouseEvent;
     import _S_K_._u3;
-    import com.company.googleanalytics.GA;
     import flash.events.Event;
 
 
@@ -119,7 +118,6 @@ package _F_1{
             stage;
             this._045.x = ((800 / 2) - (this._045.width / 2));
             this._045.y = 524;
-            GA.global().trackPageview("/legendsScreen");
         }
         private function _qi(_arg1:MouseEvent):void{
             this.setSelected((_arg1.currentTarget as _00A_));

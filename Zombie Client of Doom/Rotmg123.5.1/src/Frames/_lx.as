@@ -15,12 +15,12 @@ package Frames{
         private var gs_:GameSprite;
 
         public function _lx(_arg1:GameSprite){
-            super("Create a new Guild", "Cancel", "Create", "/createGuild");
+            super("Create a new Guild", "Cancel", "Create");
             this.gs_ = _arg1;
             this.name_ = new TextInput("Guild Name", false, "");
             this.name_.inputText_.restrict = "A-Za-z ";
             this.name_.inputText_.maxChars = 20;
-            _vO_(this.name_);
+            addTextInput(this.name_);
             _0D_I_("Maximum 20 characters");
             _0D_I_("No numbers or punctuation");
             _0D_I_("Racism or profanity gets your guild banned");

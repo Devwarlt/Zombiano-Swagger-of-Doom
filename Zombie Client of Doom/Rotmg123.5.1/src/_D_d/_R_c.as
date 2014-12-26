@@ -20,7 +20,7 @@ package _D_d{
             {
                 this._O_w.inputText_.text = _arg1;
             }
-            _vO_(this._O_w);
+            addTextInput(this._O_w);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._F_H_);
         }

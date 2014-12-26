@@ -8,23 +8,19 @@ package Frames{
     import flash.events.MouseEvent;
     import flash.events.Event;
     import _9R_._3E_;
-    import com.company.googleanalytics.GA;
-    import com.company.assembleegameclient.parameters.Parameters;
 
     public class _8x extends Frame {
 
         private var name_:TextInput;
         private var gs_:GameSprite;
-        private var _B_E_:Boolean;
 
-        public function _8x(_arg1:GameSprite, _arg2:Boolean){
-            super("Choose a unique account name", "Cancel", "Choose", "/chooseName");
+        public function _8x(_arg1:GameSprite){
+            super("Choose a unique account name", "Cancel", "Choose");
             this.gs_ = _arg1;
-            this._B_E_ = _arg2;
             this.name_ = new TextInput("Name", false, "");
             this.name_.inputText_.restrict = "A-Za-z";
             this.name_.inputText_.maxChars = 10;
-            _vO_(this.name_);
+            addTextInput(this.name_);
             _0D_I_("Maximum 10 characters");
             _0D_I_("No numbers, spaces or punctuation");
             _0D_I_("Racism or profanity gets you banned");
@@ -43,10 +39,6 @@ package Frames{
             this.gs_.removeEventListener(_3E_.NAMERESULTEVENT, this._0D_s);
             if (_arg1._yS_.success_)
             {
-                if (this._B_E_)
-                {
-                    GA.global().trackEvent("credits", ((this.gs_.charList_.converted_) ? "buyConverted" : "buy"), "Name Change", Parameters._0u);
-                }
                 this.gs_.charList_.name_ = this.name_.text();
                 this.gs_._V_1._02y.setName(this.name_.text());
                 dispatchEvent(new Event(Event.COMPLETE));

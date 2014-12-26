@@ -9,7 +9,6 @@ package Sounds{
 	import flash.net.URLRequest;
 	import com.company.assembleegameclient.parameters.Parameters;
 	import flash.media.SoundTransform;
-	import com.company.googleanalytics.GA;
 	
 	public class Music {
 		private static var currentSoundChannel:SoundChannel = null;
@@ -33,7 +32,6 @@ package Sounds{
             currentSoundChannel = currentSound.play(0, int.MAX_VALUE, currentSoundTransform);
         }
 		public static function _continue(_arg1:Boolean):void{
-			GA.global().trackEvent("sound", ((_arg1) ? "musicOn" : "musicOff"));
 			Parameters.data_.playMusic = _arg1;
 			Parameters.save();
 			currentSoundChannel.soundTransform = new SoundTransform(((Parameters.data_.playMusic) ? Parameters.data_.musicVolume : 0));

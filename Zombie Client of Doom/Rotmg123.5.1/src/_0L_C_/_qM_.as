@@ -9,7 +9,7 @@ package _0L_C_{
     public class _qM_ extends DialogBox {
 
         public function _qM_(_arg1:String){
-            super(_arg1, "Debug", "OK", null, null);
+            super(_arg1, "Debug", "OK", null);
             addEventListener(DialogBox.BUTTON1_EVENT, this.onDialogComplete);
         }
         private function onDialogComplete(_arg1:Event):void{

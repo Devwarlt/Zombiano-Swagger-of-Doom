@@ -67,7 +67,7 @@ public class PremiumHolder extends TabHolder {
             addChild(iconSprite);
 
             iconSprite.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
-                var dialogBox:DialogBox = new DialogBox("You will be redirected to another website.", "Continue?", "Ok", "Cancel", "");
+                var dialogBox:DialogBox = new DialogBox("You will be redirected to another website.", "Continue?", "Ok", "Cancel");
                 addChild(dialogBox);
                 dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e1:Event):void {
                     trace("Premium purchased");

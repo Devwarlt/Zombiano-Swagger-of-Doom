@@ -23,7 +23,6 @@ import flash.display.Sprite;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
     import flash.events.Event;
-    import com.company.googleanalytics.GA;
     import _0I_r.MultipartURLLoader;
     import _qN_.Account;
     import _q8._9l;
@@ -120,7 +119,6 @@ import flash.display.Sprite;
                 this._0B_T_("You must select a type");
                 return;
             }
-            GA.global().trackEvent("texture", "save", this.nameText_.text());
             this._ld();
         }
         private function _ld():void{
@@ -165,7 +163,6 @@ import flash.display.Sprite;
             _local2.drawRect(0, 0, 800, 600);
             _local2.endFill();
             addChildAt(this._T_y, 0);
-            GA.global().trackPageview("/saveDialog");
         }
 
     }

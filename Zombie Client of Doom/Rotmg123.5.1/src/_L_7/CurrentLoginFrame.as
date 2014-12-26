@@ -23,7 +23,7 @@ package _L_7{
         public var _qh:TextButton;
 
         public function CurrentLoginFrame(){
-            super("Current account", "", "Continue", "/kongregateCurrentLogin");
+            super("Current account", "", "Continue");
             var _local1:_m7 = (Account._get() as _m7);
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
             this._lv.boldText(true);
@@ -62,7 +62,7 @@ package _L_7{
             {
                 this._static = new TextButton(12, false, "Register this account as a web account");
                 this._qh = new TextButton(12, false, "Replace this account with an existing web account");
-                __true(this._qh);
+                addTextButton(this._qh);
                 this._static.addEventListener(MouseEvent.CLICK, this._mO_);
                 this._qh.addEventListener(MouseEvent.CLICK, this.onLink);
             }

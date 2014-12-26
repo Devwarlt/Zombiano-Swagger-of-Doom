@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using wServer.realm.entities;
 using wServer.realm.setpieces;
 using wServer.realm.terrain;
@@ -233,7 +234,7 @@ namespace wServer.realm
                 if (x % 2 == 0)
                     HandleAnnouncements();
                 if (x % 6 == 0)
-                    EnsurePopulation();
+                    Task.Factory.StartNew(new Action(EnsurePopulation));
                 x++;
                 prevTick = time.tickTimes;
             }

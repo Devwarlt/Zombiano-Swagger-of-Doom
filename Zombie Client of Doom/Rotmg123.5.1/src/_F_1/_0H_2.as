@@ -13,7 +13,6 @@ import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.ui._0B_v;
 import com.company.assembleegameclient.ui._0K_B_;
 import com.company.assembleegameclient.ui.boxButton;
-import com.company.googleanalytics.GA;
 import com.company.rotmg.graphics.ScreenGraphic;
 import com.company.ui.SimpleText;
 
@@ -174,7 +173,6 @@ public class _0H_2 extends _05p {
         this._p6.y = 524;
         this._H_t.x = 800;
         this._H_t.y = 20;
-        GA.global().trackPageview("/newCharScreen");
     }
 
     private function onChange(event:Event):void {
@@ -213,7 +211,6 @@ public class _0H_2 extends _05p {
         }
         var _local3:int = _local2.skinType();
         var _local4:String = ObjectLibrary._0D_N_[_local3];
-        GA.global().trackEvent("character", "create", _local4);
         this.play.dispatch(_local3);
     }
 
@@ -221,7 +218,6 @@ public class _0H_2 extends _05p {
         tooltip.dispatch(null);
         var _local3:int = -1;
         var _local4:String = ObjectLibrary._0D_N_[_local3];
-        GA.global().trackEvent("character", "create", _local4);
         this.play.dispatch(_local3);
     }
 }

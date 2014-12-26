@@ -4,7 +4,20 @@
 //com.company.assembleegameclient.util._H_f
 
 package com.company.assembleegameclient.util{
-    public class _H_f {
+import FPC.Embeds.CXML.Cloth;
+import FPC.Embeds.CXML.Dyes;
+import FPC.Embeds.CXML.GroundTiles;
+import FPC.Embeds.CXML.PetGenerators;
+import FPC.Embeds.CXML.Projectiles;
+import FPC.Embeds.CXML.Regions;
+import FPC.Embeds.CXML.Special;
+import FPC.Embeds.CXML.Specials2;
+import FPC.Embeds.CXML.TutorialUI;
+import FPC.Embeds.CXML.players;
+import FPC.Embeds.CXML.skins;
+import FPC.Embeds.CXML.tutorialObjects;
+
+public class _H_f {
 
         private static const _Q_N_:Class = GroundTiles;
         public static const _R_k:Array = [new _Q_N_()];

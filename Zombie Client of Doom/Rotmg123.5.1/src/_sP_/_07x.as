@@ -78,7 +78,7 @@ package _sP_{
             }
         }
         private function _L_I_(_arg1:String):void{
-            var _local2:DialogBox = new DialogBox(_arg1, "Error", "Ok", null, "/guildError");
+            var _local2:DialogBox = new DialogBox(_arg1, "Error", "Ok", null);
             _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._K__);
             stage.addChild(_local2);
         }

@@ -4,7 +4,10 @@
 //_F_1._C_Q_
 
 package _F_1{
-    import _02t._R_f;
+import FPC.Embeds.Images.OssiTitleScreenImage;
+import FPC.Embeds.Images.TitleScreenImage;
+
+import _02t._R_f;
     
     import _ke._0M_1;
 
@@ -53,6 +56,7 @@ public class _C_Q_ extends _05p {
 				addChild(new OssiTitleScreenImage());
 				addChild(new TitleScreenGraphic());
 			} else {
+                addChild(new TitleScreenImage());
             	addChild(new TitleScreenGraphic());
 			}
             this._ft = new _aJ_(String);

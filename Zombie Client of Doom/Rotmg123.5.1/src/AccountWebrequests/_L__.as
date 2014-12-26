@@ -14,7 +14,6 @@ import Frames.Frame;
     import com.company.assembleegameclient.parameters.Parameters;
     import _zo._8C_;
     import _zo._mS_;
-    import com.company.googleanalytics.GA;
     import _qN_.Account;
     import flash.events.Event;
     import flash.events.KeyboardEvent;
@@ -27,15 +26,15 @@ import Frames.Frame;
         public var _static:TextButton;
 
         public function _L__(){
-            super("Sign in", "Cancel", "Sign in", "/signIn");
+            super("Sign in", "Cancel", "Sign in");
             this._xb = new TextInput("Username", false, "");
-            _vO_(this._xb);
+            addTextInput(this._xb);
             this.password_ = new TextInput("Password", true, "");
-            _vO_(this.password_);
+            addTextInput(this.password_);
             this._5K_ = new TextButton(12, false, "Forgot your password?  Click here");
-            __true(this._5K_);
+            addTextButton(this._5K_);
             this._static = new TextButton(12, false, "New user?  Click here to Register");
-            __true(this._static);
+            addTextButton(this._static);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._q5);
             this._5K_.addEventListener(MouseEvent.CLICK, this._08Y_);
@@ -68,7 +67,6 @@ import Frames.Frame;
             _pW_();
         }
         private function _G_L_(_arg1:_8C_):void{
-            GA.global().trackEvent("account", "signedIn");
             Account._get().modify(this._xb.text(), this.password_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }

@@ -4,25 +4,20 @@
 //com.company.assembleegameclient.ui.InventorySide
 
 package com.company.assembleegameclient.ui{
-	import com.company.assembleegameclient.game.GameSprite;
-	import com.company.assembleegameclient.objects.Player;
-	import com.company.assembleegameclient.parameters.Parameters;
-	import com.company.googleanalytics.GA;
+import com.company.assembleegameclient.game.GameSprite;
+import com.company.assembleegameclient.objects.Player;
+import com.company.assembleegameclient.parameters.Parameters;
 import com.company.rotmg.graphics.ranks.premiumRank;
 import com.company.ui.SimpleText;
-	import com.company.util.AssetLibrary;
+import com.company.util.AssetLibrary;
 	
-	import flash.display.Bitmap;
+import flash.display.Bitmap;
 import flash.display.DisplayObject;
 import flash.display.Sprite;
-	import flash.events.Event;
-	import flash.events.KeyboardEvent;
-	import flash.events.MouseEvent;
-	import flash.filters.DropShadowFilter;
+import flash.events.MouseEvent;
+import flash.filters.DropShadowFilter;
 	
-	import OptionsStuff.Options;
-
-import flash.filters.GlowFilter;
+import OptionsStuff.Options;
 
 public class InventorySide extends Sprite {
 		
@@ -226,13 +221,11 @@ public class InventorySide extends Sprite {
 		}
 		private function _Q_C_(_arg1:MouseEvent):void{
 			this.gs_.packetManager._M_6();
-			GA.global().trackEvent("enterPortal", "Nexus xButton");
 			Parameters.data_.needsRandomRealm = false;
 			Parameters.save();
 		}
 		private function _nD_(_arg1:MouseEvent):void{
 			this.gs_.mui_.clearInput();
-			GA.global().trackEvent("options", "Options xButton");
 			this.gs_.addChild(new Options(this.gs_));
 		}
 		private function onTabClick(me:MouseEvent):void {

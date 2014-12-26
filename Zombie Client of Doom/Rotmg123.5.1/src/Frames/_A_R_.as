@@ -18,7 +18,6 @@ package Frames{
         private static const TITLE:String = "Support the game and buy Realm Gold";
         private static const _lQ_:String = "";
         private static const _j8:String = "Cancel";
-        private static const _E_N_:String = "/money";
         private static const _S_0:String = "Payment Method";
         private static const _Y_2:String = "Gold Amount";
         private static const _jA_:String = "Buy Now";
@@ -30,7 +29,7 @@ package Frames{
         private var _0B_q:boxButton;
 
         public function _A_R_(_arg1:_0H_i){
-            super(TITLE, _lQ_, _j8, _E_N_, WIDTH);
+            super(TITLE, _lQ_, _j8, WIDTH);
             this.mediator = _arg1;
             this._08Z_();
         }

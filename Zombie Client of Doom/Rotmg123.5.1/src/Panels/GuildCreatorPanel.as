@@ -71,7 +71,7 @@ package Panels{
                 return;
             }
             var _local2:Player = gs_.map_.player_;
-            var _local3:DialogBox = new DialogBox(("Are you sure you want to quit:\n" + _local2.guildName_), "Renounce Guild", "No, I'll stay", "Yes, I'll quit", "/renounceGuild");
+            var _local3:DialogBox = new DialogBox(("Are you sure you want to quit:\n" + _local2.guildName_), "Renounce Guild", "No, I'll stay", "Yes, I'll quit");
             _local3.addEventListener(DialogBox.BUTTON1_EVENT, this._S_V_);
             _local3.addEventListener(DialogBox.BUTTON2_EVENT, this._J_2);
             stage.addChild(_local3);

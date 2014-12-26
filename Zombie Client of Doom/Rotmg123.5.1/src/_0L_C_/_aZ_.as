@@ -9,7 +9,7 @@ package _0L_C_{
     public class _aZ_ extends DialogBox {
 
         public function _aZ_(){
-            super((("You do not have enough Fame for this item.  " + "You gain Fame when your character dies after having ") + "accomplished great things."), "Not Enough Fame", "Ok", null, "/notEnoughFame");
+            super((("You do not have enough Fame for this item.  " + "You gain Fame when your character dies after having ") + "accomplished great things."), "Not Enough Fame", "Ok", null);
             addEventListener(BUTTON1_EVENT, this._A_I_);
         }
         public function _A_I_(_arg1:Event):void{

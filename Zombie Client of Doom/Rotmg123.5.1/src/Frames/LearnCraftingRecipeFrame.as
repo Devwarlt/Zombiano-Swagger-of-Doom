@@ -31,7 +31,7 @@ public class LearnCraftingRecipeFrame extends Frame {
     private var _playerInvSprite:_playerInventory;
 
     public function LearnCraftingRecipeFrame(_arg1:GameSprite, _arg2:GameObject) {
-        super("Learn Recipe", "Learn", "Cancel", "/learnCraftingRecipe", 200);
+        super("Learn Recipe", "Learn", "Cancel", 200);
         this._gs = _arg1;
         this._obj = _arg2;
 

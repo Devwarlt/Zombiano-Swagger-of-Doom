@@ -46,13 +46,13 @@ package AccountWebrequests{
             if (!_local2)
             {
                 this._N_3 = new TextButton(12, false, ("Email not verified.  " + "Click here to resend email."));
-                __true(this._N_3);
+                addTextButton(this._N_3);
                 this._N_3.addEventListener(MouseEvent.CLICK, this._W_0);
             }
             this._H_ = new TextButton(12, false, "Click here to change password");
-            __true(this._H_);
+            addTextButton(this._H_);
             this._0J_7 = new TextButton(12, false, "Not you?  Click here");
-            __true(this._0J_7);
+            addTextButton(this._0J_7);
             Button2.addEventListener(MouseEvent.CLICK, this._03t);
             this._H_.addEventListener(MouseEvent.CLICK, this._bR_);
             this._0J_7.addEventListener(MouseEvent.CLICK, this._I_G_);

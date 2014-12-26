@@ -15,7 +15,6 @@ package _sP_{
     import flash.display.Graphics;
     import com.company.util.MoreColorUtil;
     import _0L_C_.DialogBox;
-    import _sP_._k6;
     import flash.events.Event;
 
     internal class _5N_ extends Sprite {
@@ -139,7 +138,7 @@ package _sP_{
             _local2.transform.colorTransform = MoreColorUtil.identity;
         }
         private function _0H_3(_arg1:MouseEvent):void{
-            var _local2:DialogBox = new DialogBox((((("Are you sure you want to promote " + this.name_) + " to ") + _07E_._0C_n(_07E_._0H_q(this._S_e))) + "?"), ("Promote " + this.name_), "Cancel", "Promote", "/promote");
+            var _local2:DialogBox = new DialogBox((((("Are you sure you want to promote " + this.name_) + " to ") + _07E_._0C_n(_07E_._0H_q(this._S_e))) + "?"), ("Promote " + this.name_), "Cancel", "Promote");
             _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._0C_f);
             _local2.addEventListener(DialogBox.BUTTON2_EVENT, this._ep);
             stage.addChild(_local2);
@@ -150,7 +149,7 @@ package _sP_{
             dispatchEvent(new _k6(_k6.SET_RANK, this.name_, _07E_._0H_q(this._S_e)));
         }
         private function _P_w(_arg1:MouseEvent):void{
-            var _local2:DialogBox = new DialogBox((((("Are you sure you want to demote " + this.name_) + " to ") + _07E_._0C_n(_07E_._4J_(this._S_e))) + "?"), ("Demote " + this.name_), "Cancel", "Demote", "/demote");
+            var _local2:DialogBox = new DialogBox((((("Are you sure you want to demote " + this.name_) + " to ") + _07E_._0C_n(_07E_._4J_(this._S_e))) + "?"), ("Demote " + this.name_), "Cancel", "Demote");
             _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._0C_f);
             _local2.addEventListener(DialogBox.BUTTON2_EVENT, this._gy);
             stage.addChild(_local2);
@@ -161,7 +160,7 @@ package _sP_{
             dispatchEvent(new _k6(_k6.SET_RANK, this.name_, _07E_._4J_(this._S_e)));
         }
         private function _Q_2(_arg1:MouseEvent):void{
-            var _local2:DialogBox = new DialogBox((("Are you sure you want to remove " + this.name_) + " from the guild?"), ("Remove " + this.name_), "Cancel", "Remove", "/removeFromGuild");
+            var _local2:DialogBox = new DialogBox((("Are you sure you want to remove " + this.name_) + " from the guild?"), ("Remove " + this.name_), "Cancel", "Remove");
             _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._0C_f);
             _local2.addEventListener(DialogBox.BUTTON2_EVENT, this._uy);
             stage.addChild(_local2);

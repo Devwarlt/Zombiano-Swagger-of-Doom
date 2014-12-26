@@ -19,11 +19,11 @@ package Frames{
         private var _zH_:WebRequest = null;
 
         public function _A_t(){
-            super("Choose a unique account name", "Cancel", "Choose", "/newChooseName");
+            super("Choose a unique account name", "Cancel", "Choose");
             this.name_ = new TextInput("Name", false, "");
             this.name_.inputText_.restrict = "A-Za-z";
             this.name_.inputText_.maxChars = 10;
-            _vO_(this.name_);
+            addTextInput(this.name_);
             _0D_I_("Maximum 10 characters");
             _0D_I_("No numbers, spaces or punctuation");
             _0D_I_("Racism or profanity gets you banned");

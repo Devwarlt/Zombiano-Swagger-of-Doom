@@ -28,8 +28,8 @@ package com.company.net{
         private var port_:int;
         private var _3I_:Dictionary;
         private var _aG_:Vector.<Packet>;
-        private var _0B_o:ICipher = null;
-        private var _0E_R_:ICipher = null;
+        //private var _0B_o:ICipher = null;
+        //private var _0E_R_:ICipher = null;
 
         public function ServerConnection(_arg1:Boolean=true){
             this._3I_ = new Dictionary();
@@ -38,10 +38,10 @@ package com.company.net{
             this._073 = _arg1;
         }
         public function _7s(_arg1:String, _arg2:ByteArray, _arg3:IPad=null):void{
-            this._0B_o = Crypto.getCipher(_arg1, _arg2, _arg3);
+            //this._0B_o = Crypto.getCipher(_arg1, _arg2, _arg3);
         }
         public function _wH_(_arg1:String, _arg2:ByteArray, _arg3:IPad=null):void{
-            this._0E_R_ = Crypto.getCipher(_arg1, _arg2, _arg3);
+            //this._0E_R_ = Crypto.getCipher(_arg1, _arg2, _arg3);
         }
         public function registerPacket(_arg1:uint, _arg2:Class, _arg3:Function):void{
             this._3I_[_arg1] = new MessageType(_arg2, _arg3);
@@ -98,11 +98,11 @@ package com.company.net{
                 _local2 = new ByteArray();
                 _local1.writeToOutput(_local2);
                 _local2.position = 0;
-                if (this._0B_o != null)
-                {
-                    this._0B_o.encrypt(_local2);
-                    _local2.position = 0;
-                }
+                //if (this._0B_o != null)
+                //{
+                //    this._0B_o.encrypt(_local2);
+                //    _local2.position = 0;
+                //}
                 this._A_T_.writeInt((_local2.bytesAvailable + 5));
                 this._A_T_.writeByte(_local1.id_);
                 this._A_T_.writeBytes(_local2);
@@ -182,11 +182,11 @@ package com.company.net{
                     this._A_T_.readBytes(data, 0, (this._05 - 5));
                 }
                 data.position = 0;
-                if (this._0E_R_ != null)
-                {
-                    this._0E_R_.decrypt(data);
-                    data.position = 0;
-                }
+                //if (this._0E_R_ != null)
+                //{
+                //    this._0E_R_.decrypt(data);
+                //    data.position = 0;
+                //}
                 this._05 = -1;
                 if (message == null)
                 {

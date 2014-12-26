@@ -15,7 +15,6 @@ package _F_1{
     import com.company.rotmg.graphics.ScreenGraphic;
     import flash.events.MouseEvent;
     import flash.display.Graphics;
-    import com.company.googleanalytics.GA;
     import com.company.assembleegameclient.appengine._0K_R_;
 
     public class _01_ extends _05p {
@@ -85,7 +84,6 @@ package _F_1{
             stage;
             this._045.x = ((800 / 2) - (this._045.width / 2));
             this._045.y = 524;
-            GA.global().trackPageview("/serversScreen");
         }
         private function _F_H_(_arg1:Event):void{
             this._4s.dispatch();

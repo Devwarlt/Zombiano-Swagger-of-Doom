@@ -94,7 +94,7 @@ package Panels{
             var _local2:Sprite;
             if (Account._get().isRegistered())
             {
-                _local2 = new FrameHolder(new _8x(gs_, this._B_E_));
+                _local2 = new FrameHolder(new _8x(gs_));
                 visible = false;
             } else
             {

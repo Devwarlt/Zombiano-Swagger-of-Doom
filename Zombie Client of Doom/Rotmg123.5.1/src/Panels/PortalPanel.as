@@ -16,7 +16,6 @@ package Panels{
     import com.company.assembleegameclient.ui._4D_;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.objects.ObjectLibrary;
-    import com.company.googleanalytics.GA;
     import com.company.assembleegameclient.tutorial.doneAction;
     import com.company.assembleegameclient.tutorial.Tutorial;
 
@@ -75,14 +74,6 @@ package Panels{
             }
         }
         private function enterPortal():void{
-            var _local1:String = ObjectLibrary._0D_N_[this._iA_.objectType_];
-            if (_local1 == "Nexus Portal")
-            {
-                GA.global().trackEvent("enterPortal", _local1);
-            } else
-            {
-                GA.global().trackEvent("enterPortal", this._iA_._include());
-            }
             doneAction(gs_, Tutorial._Y_5);
             gs_.packetManager.usePortal(this._iA_.objectId_);
         }

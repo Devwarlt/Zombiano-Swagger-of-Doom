@@ -9,15 +9,12 @@ package _L_7{
     import Frames._zb;
     import com.company.assembleegameclient.parameters.Parameters;
     import flash.events.MouseEvent;
-    import _L_7._Y_S_;
     import com.company.util._9S_;
     import _qN_.Account;
     import _Z_h._m7;
     import com.company.assembleegameclient.appengine.WebRequest;
     import _zo._8C_;
     import _zo._mS_;
-    import com.company.googleanalytics.GA;
-    import _L_7.*;
 
     internal class _0L_h extends Frame {
 
@@ -27,13 +24,13 @@ package _L_7{
         public var _8n:_zb;
 
         public function _0L_h(){
-            super("Register a web account in order to play anywhere", "Cancel", "Register", "/kongregateRegisterAccount");
+            super("Register a web account in order to play anywhere", "Cancel", "Register");
             this.username_ = new TextInput("Username", false, "");
-            _vO_(this.username_);
+            addTextInput(this.username_);
             this.password_ = new TextInput("Password", true, "");
-            _vO_(this.password_);
+            addTextInput(this.password_);
             this._0L_Y_ = new TextInput("Retype Password", true, "");
-            _vO_(this._0L_Y_);
+            addTextInput(this._0L_Y_);
             this._8n = new _zb((('I agree to the <font color="#7777EE"><a href="' + Parameters.ToS_Url_) + '" target="_blank">Terms of Use</a></font>.'), false, "");
             _O_1(this._8n);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
@@ -77,7 +74,6 @@ package _L_7{
             _pW_();
         }
         private function _Q__(_arg1:_8C_):void{
-            GA.global().trackEvent("kongregateAccount", "accountRegistered");
             var _local2:XML = new XML(_arg1.data_);
             Account._get().modify(_local2.GUID, null, _local2.Secret);
             dispatchEvent(new _Y_S_(_Y_S_._tp));

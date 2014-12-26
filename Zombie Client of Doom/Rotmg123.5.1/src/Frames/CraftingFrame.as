@@ -44,7 +44,7 @@ public class CraftingFrame extends Frame
         public static var thisCraftingFrame:CraftingFrame;
 
         public function CraftingFrame(_gs:GameSprite, _obj:GameObject) {
-            super("Craft Items", "Cancel", "Craft", "/craftItems", 275);
+            super("Craft Items", "Cancel", "Craft", 275);
             LocalSoundEffects.play(LocalSounds.openChest, 0, 1, true, true);
             CraftingPanel.terminalOpen = true;
             thisCraftingFrame = this;
@@ -143,7 +143,7 @@ public class CraftingFrame extends Frame
         }
         private function onCraft(param1:MouseEvent) : void {
             if(Parameters.data_.confirmCraftingBox) {
-                var dialog = new DialogBox('Are you sure you want to craft your items?', "Confirm Crafting", "Lemme craft", "Cancel", null);
+                var dialog = new DialogBox('Are you sure you want to craft your items?', "Confirm Crafting", "Lemme craft", "Cancel");
                 dialog.addEventListener(DialogBox.BUTTON1_EVENT, this.craft);
                 dialog.addEventListener(DialogBox.BUTTON2_EVENT, this.closeBox);
                 this.parent.addChild(dialog);
