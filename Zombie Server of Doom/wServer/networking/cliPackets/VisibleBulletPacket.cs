@@ -18,10 +18,5 @@ namespace wServer.networking.cliPackets
         {
             throw new NotImplementedException();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

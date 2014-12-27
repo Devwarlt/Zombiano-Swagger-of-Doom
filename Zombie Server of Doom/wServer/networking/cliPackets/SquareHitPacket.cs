@@ -16,11 +16,5 @@ namespace wServer.networking.cliPackets
             BulletId = rdr.ReadByte();
             ObjectId = rdr.ReadInt32();
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Time);
-            wtr.Write(BulletId);
-            wtr.Write(ObjectId);
-        }
     }
 }

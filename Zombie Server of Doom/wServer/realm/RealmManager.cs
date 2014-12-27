@@ -62,6 +62,15 @@ namespace wServer.realm
         {
             if (Clients.Count >= MaxClient)
                 return false;
+            if (Clients.ContainsKey(client.Account.AccountId))
+            {
+                if (!Clients[client.Account.AccountId].Socket.Connected)
+                {
+                    Disconnect(Clients[client.Account.AccountId]);
+                    return Clients.TryAdd(client.Account.AccountId, client);
+                }
+                return false;
+            }
             else
                 return Clients.TryAdd(client.Account.AccountId, client);
         }

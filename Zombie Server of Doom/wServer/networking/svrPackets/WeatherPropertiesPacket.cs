@@ -35,10 +35,6 @@ namespace wServer.networking.svrPackets
             return new WeatherPropertiesPacket();
         }
 
-        protected override void Read(NReader rdr)
-        {
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.Write(_type);

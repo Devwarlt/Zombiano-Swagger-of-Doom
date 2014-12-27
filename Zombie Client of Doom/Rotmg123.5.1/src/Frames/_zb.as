@@ -61,19 +61,19 @@ package Frames{
         private function _pi():void{
             var _local1:Graphics = this._8n.graphics;
             _local1.clear();
-            _local1.beginFill(0x3F0A00, 1);
+            _local1.beginFill(0x383838, 1);
             _local1.drawRect(0, 0, _02K_, _02K_);
             _local1.endFill();
             if (this._0J_B_)
             {
-                _local1.lineStyle(4, 0xB3B3B3, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
+                _local1.lineStyle(4, 0xA6A6A6, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
                 _local1.moveTo(2, 2);
                 _local1.lineTo((_02K_ - 2), (_02K_ - 2));
                 _local1.moveTo(2, (_02K_ - 2));
                 _local1.lineTo((_02K_ - 2), 2);
                 _local1.lineStyle();
             }
-            _local1.lineStyle(2, 0x610F00, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
+            _local1.lineStyle(2, 0xffffff, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
             _local1.drawRect(0, 0, _02K_, _02K_);
             _local1.lineStyle();
         }

@@ -32,22 +32,6 @@
     <ElectricItem />
     <ThanksTo type="idea">OwenHendry (MPGH)</ThanksTo>
   </Object>
-  <Object id="dex" ext="true">
-    <Class>Equipment</Class>
-    <Item />
-    <Texture>
-      <File>lofiObj2</File>
-      <Index>0x37</Index>
-    </Texture>
-    <SlotType>10</SlotType>
-    <Tier>2</Tier>
-    <Description>A potion that permanently increases dexterity.</Description>
-    <Sound>use_potion</Sound>
-    <Activate stat="28" amount="1000">IncrementStat</Activate>
-    <Consumable />
-    <Potion />
-    <BagType>3</BagType>
-  </Object>
   <Object id="MTAR-21" type="0x6025">
     <DisplayId>MTAR-21</DisplayId>
     <Class>Equipment</Class>

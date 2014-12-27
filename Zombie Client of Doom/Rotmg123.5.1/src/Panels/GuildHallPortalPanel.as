@@ -4,7 +4,9 @@
 //Panels.GuildHallPortalPanel
 
 package Panels{
-    import com.company.assembleegameclient.game.GameSprite;
+import AccountManagement.ui.FancyTextButton;
+
+import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.objects.GuildHallPortal;
     import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -22,7 +24,7 @@ package Panels{
 
         private var _iA_:GuildHallPortal;
         private var nameText_:SimpleText;
-        private var _O_M_:boxButton;
+        private var _O_M_:FancyTextButton;
         private var _0J_T_:SimpleText;
 
         public function GuildHallPortalPanel(_arg1:GameSprite, _arg2:GuildHallPortal){
@@ -44,7 +46,7 @@ package Panels{
             addChild(this.nameText_);
             if (((!((_local3.guildName_ == null))) && ((_local3.guildName_.length > 0))))
             {
-                this._O_M_ = new boxButton(16, "Enter");
+                this._O_M_ = new FancyTextButton(16, "Enter");
                 this._O_M_.addEventListener(MouseEvent.CLICK, this._xH_);
                 this._O_M_.x = ((WIDTH / 2) - (this._O_M_.width / 2));
                 this._O_M_.y = ((HEIGHT - this._O_M_.height) - 4);

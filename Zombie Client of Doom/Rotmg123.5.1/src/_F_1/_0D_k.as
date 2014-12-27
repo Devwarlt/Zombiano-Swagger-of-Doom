@@ -79,9 +79,9 @@ package _F_1{
             graphics.clear();
             if (this.selected_)
             {
-                graphics.lineStyle(2, 16777103);
+                graphics.lineStyle(2, 0xE5C100);
             }
-            graphics.beginFill(((this.over_) ? 0x6D1000 : 0x5D0E00), 1);
+            graphics.beginFill(((this.over_) ? 0x292929 : 0x000000), 1);
             graphics.drawRect(0, 0, WIDTH, HEIGHT);
             if (this.selected_)
             {

@@ -18,10 +18,5 @@
         {
             SkinId = rdr.ReadInt32();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(SkinId);
-        }
     }
 }

@@ -20,13 +20,5 @@ namespace wServer.networking.cliPackets
             Position = Position.Read(rdr);
             Angle = rdr.ReadSingle();
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Time);
-            wtr.Write(BulletId);
-            wtr.Write(ContainerType);
-            Position.Write(wtr);
-            wtr.Write(Angle);
-        }
     }
 }

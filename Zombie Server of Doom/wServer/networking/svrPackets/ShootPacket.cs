@@ -13,15 +13,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.Shoot; } }
         public override Packet CreateInstance() { return new ShootPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            BulletId = rdr.ReadByte();
-            OwnerId = rdr.ReadInt32();
-            ContainerType = rdr.ReadUInt16();
-            Position = Position.Read(rdr);
-            Angle = rdr.ReadSingle();
-            Damage = rdr.ReadInt16();
-        }
         protected override void Write(NWriter wtr)
         {
             wtr.Write(BulletId);

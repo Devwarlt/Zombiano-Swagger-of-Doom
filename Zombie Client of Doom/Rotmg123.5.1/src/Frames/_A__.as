@@ -4,7 +4,9 @@
 //Frames._A__
 
 package Frames{
-    import flash.display.Sprite;
+import com.company.util.GraphicHelper;
+
+import flash.display.Sprite;
     import _5H_._xY_;
     import com.company.assembleegameclient.util.offer.Offer;
     import _5H_._R_h;
@@ -20,9 +22,9 @@ package Frames{
 
     public class _A__ extends Sprite implements _xY_ {
 
-        private static const _K_A_:int = 0x721100;
-        private static const _00O_:int = 0x4C0C00;
-        private static const _9O_:int = 0x340800;
+        private static const _K_A_:int = 0x2B2B2B;
+        private static const _00O_:int = 0x404040;
+        private static const _9O_:int = 0x000000;
 
         public var offer:Offer;
         public var _yI_:String;
@@ -148,6 +150,7 @@ package Frames{
         private function _06f():void{
             var _local1:int = ((this._O_e) ? _K_A_ : ((this._052) ? _00O_ : _9O_));
             this.background._gp(_local1);
+            GraphicHelper.createBorder(this.background, 1, ((this._O_e) ? 0xE5C100 : ((this._052) ? 0xE5C100 : 0xffffff)));
         }
         private function onMouseOver(_arg1:MouseEvent):void{
             this._P_Y_(true);

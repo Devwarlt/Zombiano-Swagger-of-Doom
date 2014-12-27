@@ -12,10 +12,5 @@ namespace wServer.networking.cliPackets
         {
             SkinType = rdr.ReadInt16();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(SkinType);
-        }
     }
 }

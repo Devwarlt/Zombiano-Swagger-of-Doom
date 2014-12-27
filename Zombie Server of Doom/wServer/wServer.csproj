@@ -98,6 +98,7 @@
     <Compile Include="networking\cliPackets\AOEAckPacket.cs" />
     <Compile Include="networking\cliPackets\CheckCreditsPacket.cs" />
     <Compile Include="networking\cliPackets\CraftingPacket.cs" />
+    <Compile Include="networking\cliPackets\GetGiftPacket.cs" />
     <Compile Include="networking\cliPackets\GroundDamagePacket.cs" />
     <Compile Include="networking\cliPackets\EditAccountListPacket.cs" />
     <Compile Include="networking\cliPackets\GotoAckPacket.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="networking\handlers\CancelTradePacketHandler.cs" />
     <Compile Include="networking\handlers\AOEPacketHandler.cs" />
     <Compile Include="networking\handlers\CraftingHandler.cs" />
+    <Compile Include="networking\handlers\GetGiftHandler.cs" />
     <Compile Include="networking\handlers\GotoAckPacketHandler.cs" />
     <Compile Include="networking\handlers\LearnCraftingRecipePacketHandler.cs" />
     <Compile Include="networking\handlers\ReskinHandler.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="networking\svrPackets\PicPacket.cs" />
     <Compile Include="networking\svrPackets\RequestTeleportPacket.cs" />
     <Compile Include="networking\svrPackets\SwitchMusicPacket.cs" />
+    <Compile Include="networking\svrPackets\UnlockPacket.cs" />
     <Compile Include="networking\svrPackets\WeatherPropertiesPacket.cs" />
     <Compile Include="realm\ChatManager.cs" />
     <Compile Include="realm\Inventory.cs" />
@@ -219,6 +222,7 @@
     <Compile Include="networking\PolicyServer.cs" />
     <Compile Include="realm\entities\player\Player.Networking.cs" />
     <Compile Include="realm\VisibilityManager.cs" />
+    <Compile Include="realm\WeatherManager.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="realm\Collision.cs" />
     <Compile Include="realm\entities\Character.cs">

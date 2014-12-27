@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="account\changePassword.cs" />
+    <Compile Include="account\purchasePremium.cs" />
     <Compile Include="account\setName.cs" />
     <Compile Include="account\purchaseCharSlot.cs" />
     <Compile Include="account\sendVerifyEmail.cs" />

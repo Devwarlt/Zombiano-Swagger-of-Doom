@@ -19,10 +19,5 @@ namespace wServer.networking.cliPackets
         {
             SprintStart = rdr.ReadBoolean();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(SprintStart);
-        }
     }
 }

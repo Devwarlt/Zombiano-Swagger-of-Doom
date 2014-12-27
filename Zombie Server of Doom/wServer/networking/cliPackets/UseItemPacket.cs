@@ -16,11 +16,5 @@ namespace wServer.networking.cliPackets
             Slot = ObjectSlot.Read(rdr);
             Position = Position.Read(rdr);
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Time);
-            Slot.Write(wtr);
-            Position.Write(wtr);
-        }
     }
 }

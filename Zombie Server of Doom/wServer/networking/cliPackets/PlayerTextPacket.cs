@@ -12,10 +12,5 @@ namespace wServer.networking.cliPackets
         {
             Text = rdr.ReadUTF();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.WriteUTF(Text);
-        }
     }
 }

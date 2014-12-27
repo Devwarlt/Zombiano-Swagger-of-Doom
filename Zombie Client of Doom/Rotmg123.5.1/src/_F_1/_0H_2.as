@@ -5,6 +5,8 @@
 
 package _F_1 {
 
+import AccountManagement.ui.FancyTextButton;
+
 import _02t._R_f;
 import _sp._aJ_;
 
@@ -64,7 +66,7 @@ public class _0H_2 extends _05p {
         title.filters = [new DropShadowFilter()];
         addChild(title);
 
-        var noSkin:boxButton = new boxButton(20, "No skin");
+        var noSkin:FancyTextButton = new FancyTextButton(20, "No skin");
         noSkin.x = (400) - (noSkin.width / 2);
         noSkin.y = 65;
         noSkin.addEventListener(MouseEvent.CLICK, this.playWithNoSkin);

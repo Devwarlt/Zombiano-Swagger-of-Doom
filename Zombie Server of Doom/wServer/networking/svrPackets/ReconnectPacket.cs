@@ -13,16 +13,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.Reconnect; } }
         public override Packet CreateInstance() { return new ReconnectPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            Name = rdr.ReadUTF();
-            Host = rdr.ReadUTF();
-            Port = rdr.ReadInt32();
-            GameId = rdr.ReadInt32();
-            KeyTime = rdr.ReadInt32();
-            Key = rdr.ReadBytes(rdr.ReadInt16());
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.WriteUTF(Name);

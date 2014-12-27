@@ -72,6 +72,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound>weapon/mtar21</OldSound>
   </Object>
   <Object id="SCAR-H" ext="true">
@@ -98,6 +99,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound>weapon/scar-h2</OldSound>
   </Object>
   <Object id="M16A3" ext="true">
@@ -124,6 +126,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound>weapon/m16a3</OldSound>
   </Object>
 
@@ -152,6 +155,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound></OldSound>
   </Object>
   

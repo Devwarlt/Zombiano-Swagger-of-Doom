@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.tutorial._iI_
 
 package com.company.assembleegameclient.tutorial{
-    import flash.display.Sprite;
+import AccountManagement.ui.FancyTextButton;
+
+import flash.display.Sprite;
 
     import flash.display.IGraphicsData;
     import com.company.util.GraphicHelper;
@@ -31,7 +33,7 @@ package com.company.assembleegameclient.tutorial{
         private var tutorial_:Tutorial;
         private var rect_:Rectangle;
         private var _x4:SimpleText;
-        private var _07v:boxButton = null;
+        private var _07v:FancyTextButton = null;
         private var startTime_:int;
         private var _04c:GraphicsSolidFill;
         private var _0y:GraphicsStroke;
@@ -57,7 +59,7 @@ package com.company.assembleegameclient.tutorial{
             this._x4.y = (2 * BORDER);
             if (_arg3)
             {
-                this._07v = new boxButton(18, "Next");
+                this._07v = new FancyTextButton(18, "Next");
                 this._07v.addEventListener(MouseEvent.CLICK, this._B_x);
                 this._07v.x = ((this.rect_.width - this._07v.width) - 20);
                 this._07v.y = ((this.rect_.height - this._07v.height) - 10);

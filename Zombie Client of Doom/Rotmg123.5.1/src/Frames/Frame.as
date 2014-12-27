@@ -53,12 +53,15 @@ public class Frame extends Sprite {
         this.graphicsData_ = new <IGraphicsData>[_vV_, path2_, GraphicHelper.END_FILL, _O_n, path1_, GraphicHelper.END_FILL, _0y, path2_, GraphicHelper._H_B_];
         super();
         this.w_ = _arg4;
-        this._P_V_ = new SimpleText(12, 0xB3B3B3, false, 0, 0, "Myriad Pro");
+        this._P_V_ = new SimpleText(16, 0x000000, false, 0, 0, "Myriad Pro");
+        this._P_V_.boldText(true);
         this._P_V_.text = _arg1;
         this._P_V_.updateMetrics();
-        this._P_V_.filters = [new DropShadowFilter(0, 0, 0)];
+        //this._P_V_.filters = [new DropShadowFilter(0, 0, 0)];
         this._P_V_.x = 5;
-        this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
+        //this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
+
+
         addChild(this._P_V_);
         this.Button1 = new TextButton(18, true, _arg2);
         if (_arg2 != "")
@@ -154,7 +157,6 @@ public class Frame extends Sprite {
         for each (var _local5 in this._Z_Y_)
         {
             _local2 = _local5;
-            _local5;
             _local2._02W_(0xFFFFFF);
         }
         this.Button1._02W_(0xFFFFFF);
@@ -171,14 +173,26 @@ public class Frame extends Sprite {
             (stage.focus = this._Q_r[0].inputText_);
         }
     }
+
+    public override function get height():Number {
+        return this.h_;
+    }
+
     private function onRemovedFromStage(_arg1:Event):void{
     }
     public function draw():void{
         this.graphics.clear();
-        GraphicHelper._0L_6(this.path1_);
-        GraphicHelper.drawUI(-6, -6, this.w_, (20 + 12), 4, [1, 1, 0, 0], this.path1_);
-        GraphicHelper._0L_6(this.path2_);
-        GraphicHelper.drawUI(-6, -6, this.w_, this.h_, 4, [1, 1, 1, 1], this.path2_);
+
+        this.graphics.beginFill(0x000000, 1.0);
+        this.graphics.drawRect(0, 0, this.w_, this.h_);
+        this.graphics.endFill();
+
+        this.graphics.beginFill(0xffffff, 1.0);
+        this.graphics.drawRect(0, 0, this.w_, (20 + 12));
+        this.graphics.endFill();
+
+        GraphicHelper.createBorder(this, 1, 0xffffff);
+
         (this.Button1.y = (this.h_ - 48));
         (this.Button2.y = (this.h_ - 48));
         this.graphics.drawGraphicsData(this.graphicsData_);

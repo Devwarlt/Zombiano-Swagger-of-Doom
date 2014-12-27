@@ -2,16 +2,17 @@
  * Created by Fabian on 06.12.2014.
  */
 package PopUps {
+import Sounds.LocalSound;
+import Sounds.LocalSoundEffects;
+
 import _05R_.GTween;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.ObjectLibrary;
-import com.company.assembleegameclient.objects._Z_H_;
 import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
-import flash.display.BitmapData;
 import flash.filters.DropShadowFilter;
 
 public class NewItemUnlockedScreen extends PopUpScreen {
@@ -20,9 +21,11 @@ public class NewItemUnlockedScreen extends PopUpScreen {
     private var itemDescText:SimpleText;
     private var itemIcon:Bitmap;
     private var itemId:int;
+    private var sound:LocalSound;
 
-    public function NewItemUnlockedScreen(gameSprite:GameSprite, itemId:int) {
+    public function NewItemUnlockedScreen(gameSprite:GameSprite, itemId:int, sound:LocalSound) {
         this.itemId = itemId;
+        this.sound = sound;
 
         super(gameSprite);
     }
@@ -52,6 +55,9 @@ public class NewItemUnlockedScreen extends PopUpScreen {
         this.itemDescText.size = 0;
 
         stage.addChild(unlockText);
+        if(this.sound != null) {
+            LocalSoundEffects.play(this.sound);
+        }
         var tween:GTween = new GTween(this.unlockText, 0.5, { "size": 46 });
         tween._bR_ = updateMetrics;
         tween.onComplete = iconFadeIn;
@@ -79,7 +85,7 @@ public class NewItemUnlockedScreen extends PopUpScreen {
     }
 
     private function waitForFadeOut(tween:GTween):void {
-        tween = new GTween(null, 10);
+        tween = new GTween(null, 3);
         tween.onComplete = fadeOut;
     }
 

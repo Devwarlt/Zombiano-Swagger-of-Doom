@@ -16,10 +16,6 @@ namespace wServer.networking.svrPackets
             return new TeleportRequestPacket();
         }
 
-        protected override void Read(NReader rdr)
-        {
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.WriteUTF(Name);

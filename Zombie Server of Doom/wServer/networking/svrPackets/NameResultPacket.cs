@@ -9,12 +9,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.NameResult; } }
         public override Packet CreateInstance() { return new NameResultPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            Success = rdr.ReadBoolean();
-            Message = rdr.ReadUTF();
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.Write(Success);

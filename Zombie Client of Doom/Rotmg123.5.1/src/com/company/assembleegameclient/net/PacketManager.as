@@ -16,6 +16,10 @@ import Panels.CraftingPanel;
 
 import Panels.TeleportPanel;
 
+import PopUps.FPCPackPopUp;
+
+import PopUps.NewItemUnlockedScreen;
+
 import ServerPackets.*;
     import ServerPackets.AOE;
     import ServerPackets.BuyResult;
@@ -51,8 +55,10 @@ import ServerPackets.*;
     import ServerPackets._iD_;
     import ServerPackets._ic;
     import ServerPackets._qe;
-    
-    import _015._6T_;
+
+import Sounds.LocalSounds;
+
+import _015._6T_;
     import _015._O_P_;
     
     import ClientPackets.*;
@@ -269,6 +275,8 @@ import flash.events.TimerEvent;
         public static const TELEPORTREQUEST:int = 86;
         public static const WEATHERPROPERTIES:int = 87;
         public static const RESKIN:int = 88;
+        public static const UNLOCK:int = 89;
+        public static const GETGIFT:int = 90;
         private static const _vb:Vector.<uint> = new <uint>[14802908, 0xFFFFFF, 0x545454];
         private static const _Z_y:Vector.<uint> = new <uint>[5644060, 16549442, 13484223];
         private static const _0A_F_:Vector.<uint> = new <uint>[2493110, 61695, 13880567];
@@ -382,6 +390,8 @@ import flash.events.TimerEvent;
             this.serverConn.registerPacket(WEATHERPROPERTIES, WeatherPropertiesPacket, this.weatherProps)
             this.serverConn.registerPacket(LEARNCRAFTINGRECIPE, LearnCraftingRecipe, null);
             this.serverConn.registerPacket(RESKIN, ReskinPacket, null);
+            this.serverConn.registerPacket(UNLOCK, UnlockedPacket, this.unlockedSomething);
+            this.serverConn.registerPacket(GETGIFT, GetGift, null);
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
             this.serverConn.addEventListener(Event.CLOSE, this._of);
             this.serverConn.addEventListener(ErrorEvent.ERROR, this.onError);
@@ -541,6 +551,12 @@ import flash.events.TimerEvent;
             _local3.conditionEffect_ = _arg1;
             _local3.conditionDuration_ = _arg2;
             this.serverConn.sendPacket(_local3);
+        }
+
+        public function getGift(itemId:int):void {
+            var pkt:GetGift = this.serverConn.createPacketFromID(GETGIFT) as GetGift;
+            pkt.itemId = itemId;
+            this.serverConn.sendPacket(pkt);
         }
         public function move(_arg1:int, _arg2:Player):void{
             var _local7:int;
@@ -1642,7 +1658,17 @@ import flash.events.TimerEvent;
 		//	_packet.bulletId_ = _bulletId;
 		//	this.serverConn.sendPacket(_packet);
 		//}
-		
+
+        private function unlockedSomething(packet:UnlockedPacket):void {
+            switch (packet.type) {
+                case 0:
+                    new NewItemUnlockedScreen(this.gs_, packet.itemId, LocalSounds.UX_InGame_Unlock_Item);
+                    break;
+                case 1:
+                    new FPCPackPopUp(this.gs_, packet.itemId, LocalSounds.UX_InGame_Unlock_FPCPack);
+                    break;
+            }
+        }
     }
 }//package com.company.assembleegameclient.net
 

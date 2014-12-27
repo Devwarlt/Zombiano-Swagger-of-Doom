@@ -92,6 +92,7 @@ class changePasswordFrame extends Frame {
         addTextInput(this.newPassword);
         this.confirmNewPassword = new TextInput("Retype New Password", true, "");
         addTextInput(this.confirmNewPassword);
+        this._P_V_._gp(0xffffff);
         Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
         Button2.addEventListener(MouseEvent.CLICK, this.changePassword);
     }

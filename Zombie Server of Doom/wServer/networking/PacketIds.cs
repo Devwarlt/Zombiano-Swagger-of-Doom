@@ -152,6 +152,8 @@ namespace wServer.networking
         Sprint = 85,
         TeleportRequest = 86,
         WeatherProperties = 87,
-        Reskin = 88
+        Reskin = 88,
+        Unlock = 89,
+        GetGift = 90
     }
 }

@@ -13,15 +13,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.AOE; } }
         public override Packet CreateInstance() { return new AOEPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            Position = Position.Read(rdr);
-            Radius = rdr.ReadSingle();
-            Damage = rdr.ReadUInt16();
-            Effects = (ConditionEffectIndex)rdr.ReadByte();
-            EffectDuration = rdr.ReadSingle();
-            OriginType = rdr.ReadUInt16();
-        }
         protected override void Write(NWriter wtr)
         {
             Position.Write(wtr);

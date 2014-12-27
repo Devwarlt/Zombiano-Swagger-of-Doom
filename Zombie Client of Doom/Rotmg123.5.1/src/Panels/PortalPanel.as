@@ -4,7 +4,9 @@
 //Panels.PortalPanel
 
 package Panels{
-    import com.company.assembleegameclient.objects.Portal;
+import AccountManagement.ui.FancyTextButton;
+
+import com.company.assembleegameclient.objects.Portal;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui.boxButton;
     import flash.text.TextFieldAutoSize;
@@ -23,7 +25,7 @@ package Panels{
 
         public var _iA_:Portal;
         private var nameText_:SimpleText;
-        private var _O_M_:boxButton;
+        private var _O_M_:FancyTextButton;
         private var _0C_U_:SimpleText;
 
         public function PortalPanel(_arg1:GameSprite, _arg2:Portal){
@@ -37,7 +39,7 @@ package Panels{
             this.nameText_.autoSize = TextFieldAutoSize.CENTER;
             this.nameText_.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.nameText_);
-            this._O_M_ = new boxButton(16, "Enter");
+            this._O_M_ = new FancyTextButton(16, "Enter");
             addChild(this._O_M_);
             this._0C_U_ = new SimpleText(18, 0xFF0000, false, WIDTH, 0, "Myriad Pro");
             this._0C_U_.boldText(true);

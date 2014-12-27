@@ -16,12 +16,5 @@ namespace wServer.networking.cliPackets
             Add = rdr.ReadBoolean();
             ObjectId = rdr.ReadInt32();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(AccountListId);
-            wtr.Write(Add);
-            wtr.Write(ObjectId);
-        }
     }
 }

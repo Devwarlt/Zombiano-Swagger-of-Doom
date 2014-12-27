@@ -4,7 +4,9 @@
 //Panels.ChangeNamePanel
 
 package Panels{
-    import com.company.ui.SimpleText;
+import AccountManagement.ui.FancyTextButton;
+
+import com.company.ui.SimpleText;
     import flash.display.Sprite;
     import com.company.assembleegameclient.ui._u5;
     import com.company.assembleegameclient.objects.Player;
@@ -82,7 +84,7 @@ package Panels{
                     this._O_k.htmlText = '<p align="center">Choose Account Name</p>';
                     this._O_k.y = 6;
                     addChild(this._O_k);
-                    this._ek = new boxButton(16, "Choose");
+                    this._ek = new FancyTextButton(16, "Choose");
                     this._ek.addEventListener(MouseEvent.CLICK, this.onButtonClick);
                     this._ek.x = ((WIDTH / 2) - (this._ek.width / 2));
                     this._ek.y = ((HEIGHT - this._ek.height) - 4);

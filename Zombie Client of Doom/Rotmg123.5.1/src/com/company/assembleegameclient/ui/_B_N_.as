@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.ui._B_N_
 
 package com.company.assembleegameclient.ui{
-    import flash.display.Sprite;
+import AccountManagement.ui.FancyTextButton;
+
+import flash.display.Sprite;
     import flash.display.Bitmap;
     import flash.events.Event;
     import flash.display.BitmapData;
@@ -15,15 +17,15 @@ package com.company.assembleegameclient.ui{
     public class _B_N_ extends Sprite {
 
         private var bitmap_:Bitmap;
-        private var _B_k:boxButton;
-        private var _zF_:boxButton;
+        private var _B_k:FancyTextButton;
+        private var _zF_:FancyTextButton;
 
         public function _B_N_(_arg1:BitmapData){
             this.bitmap_ = new Bitmap(_arg1);
             addChild(this.bitmap_);
-            this._B_k = new boxButton(16, "Save");
+            this._B_k = new FancyTextButton(16, "Save");
             addChild(this._B_k);
-            this._zF_ = new boxButton(16, "Close");
+            this._zF_ = new FancyTextButton(16, "Close");
             addChild(this._zF_);
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);

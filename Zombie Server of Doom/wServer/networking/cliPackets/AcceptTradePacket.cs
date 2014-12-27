@@ -19,15 +19,5 @@ namespace wServer.networking.cliPackets
             for (int i = 0; i < YourOffers.Length; i++)
                 YourOffers[i] = rdr.ReadBoolean();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write((short)MyOffers.Length);
-            foreach (var i in MyOffers)
-                wtr.Write(i);
-            wtr.Write((short)YourOffers.Length);
-            foreach (var i in YourOffers)
-                wtr.Write(i);
-        }
     }
 }

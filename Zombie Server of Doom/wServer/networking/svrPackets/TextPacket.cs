@@ -15,17 +15,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.Text; } }
         public override Packet CreateInstance() { return new TextPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            Name = rdr.ReadUTF();
-            ObjectId = rdr.ReadInt32();
-            Stars = rdr.ReadInt32();
-            BubbleTime = rdr.ReadByte();
-            Recipient = rdr.ReadUTF();
-            Text = rdr.ReadUTF();
-            CleanText = rdr.ReadUTF();
-            Premium = rdr.ReadBoolean();
-        }
         protected override void Write(NWriter wtr)
         {
             wtr.WriteUTF(Name);

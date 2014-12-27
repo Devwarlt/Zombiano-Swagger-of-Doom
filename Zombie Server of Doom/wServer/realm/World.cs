@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using wServer.networking;
+using wServer.networking.svrPackets;
 using wServer.realm.entities;
 using wServer.realm.terrain;
 
@@ -34,11 +35,13 @@ namespace wServer.realm
             Music = Empty<string>.Array;
             AllowTeleport = true;
             ShowDisplays = true;
+            WeatherManager = new WeatherManager(this);
         }
 
         public bool IsLimbo { get; protected set; }
         public string[] Music { get; protected set; }
         public Weather Weather { get; protected set; }
+        public WeatherManager WeatherManager { get; private set; }
         public virtual World GetInstance(Client client) { return null; }
 
         RealmManager manager;
@@ -263,6 +266,8 @@ namespace wServer.realm
                 }
                 foreach (var i in Projectiles)
                     i.Value.Tick(time);
+
+                WeatherManager.Tick(time);
             }
             catch (Exception ex)
             {
@@ -278,5 +283,15 @@ namespace wServer.realm
         }
 
         public ConcurrentDictionary<int, Enemy> Quests { get; private set; }
+
+        public void ChangeWeather(global::Weather weather)
+        {
+            this.Weather = weather;
+            BroadcastPacket(new WeatherPropertiesPacket
+            {
+                _weather = weather,
+                _type = 2
+            }, null);
+        }
     }
 }

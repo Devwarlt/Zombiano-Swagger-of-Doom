@@ -14,10 +14,5 @@ namespace wServer.networking.cliPackets
             Time = rdr.ReadInt32();
             Position = Position.Read(rdr);
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Time);
-            Position.Write(wtr);
-        }
     }
 }

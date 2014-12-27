@@ -15,11 +15,6 @@ namespace wServer.networking.svrPackets
             return new PicPacket();
         }
 
-        protected override void Read(NReader rdr)
-        {
-            Bitmap = BitmapData.Read(rdr);
-        }
-
         protected override void Write(NWriter wtr)
         {
             Bitmap.Write(wtr);

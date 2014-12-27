@@ -12,14 +12,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.AllyShoot; } }
         public override Packet CreateInstance() { return new AllyShootPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            BulletId = rdr.ReadByte();
-            OwnerId = rdr.ReadInt32();
-            ContainerType = rdr.ReadUInt16();
-            Angle = rdr.ReadSingle();
-            Damage = rdr.ReadInt32();
-        }
         protected override void Write(NWriter wtr)
         {
             wtr.Write(BulletId);

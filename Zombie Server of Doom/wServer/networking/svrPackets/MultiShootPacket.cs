@@ -15,17 +15,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.MultiShoot; } }
         public override Packet CreateInstance() { return new MultiShootPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            BulletId = rdr.ReadByte();
-            OwnerId = rdr.ReadInt32();
-            BulletType = rdr.ReadByte();
-            Position = Position.Read(rdr);
-            Angle = rdr.ReadSingle();
-            Damage = rdr.ReadInt16();
-            NumShots = rdr.ReadByte();
-            AngleIncrement = rdr.ReadSingle();
-        }
         protected override void Write(NWriter wtr)
         {
             wtr.Write(BulletId);

@@ -4,7 +4,9 @@
 //_6e._0E_D_
 
 package _6e{
-    import flash.display.Sprite;
+import AccountManagement.ui.FancyTextButton;
+
+import flash.display.Sprite;
 
     import flash.display.IGraphicsData;
     import com.company.util.GraphicHelper;
@@ -38,8 +40,8 @@ package _6e{
         private var _017:Sprite;
         private var _gJ_:Sprite;
         private var _E_k:_0K_B_;
-        private var _t3:boxButton;
-        private var _B_k:boxButton;
+        private var _t3:FancyTextButton;
+        private var _B_k:FancyTextButton;
         private var _vV_:GraphicsSolidFill;
         private var outlineFill_:GraphicsSolidFill;
         private var _0y:GraphicsStroke;
@@ -79,12 +81,12 @@ package _6e{
             this._E_k.addEventListener(Event.CHANGE, this._A_E_);
             addChild(this._E_k);
             this.w_ = (_lV_ + 26);
-            this._t3 = new boxButton(14, "Cancel", 120);
+            this._t3 = new FancyTextButton(14, "Cancel", 120);
             this._t3.x = 4;
             this._t3.y = (_05N_ + 4);
             this._t3.addEventListener(MouseEvent.CLICK, this.onCancel);
             addChild(this._t3);
-            this._B_k = new boxButton(14, "Save", 120);
+            this._B_k = new FancyTextButton(14, "Save", 120);
             this._B_k.x = ((this.w_ - this._B_k.width) - 4);
             this._B_k.y = (_05N_ + 4);
             this._B_k.addEventListener(MouseEvent.CLICK, this._na);

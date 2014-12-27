@@ -21,11 +21,5 @@ namespace wServer.networking.cliPackets
             ObjectId = rdr.ReadInt32();
             RecipeString = rdr.ReadUTF();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(ObjectId);
-            wtr.WriteUTF(RecipeString);
-        }
     }
 }

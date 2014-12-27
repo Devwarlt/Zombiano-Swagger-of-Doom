@@ -4,7 +4,9 @@
 //_0G_l._in
 
 package _0G_l{
-    import flash.display.Sprite;
+import AccountManagement.ui.FancyTextButton;
+
+import flash.display.Sprite;
 
     import _0_j._D_Z_;
     import flash.display.IGraphicsData;
@@ -55,7 +57,7 @@ package _0G_l{
         protected var _P_V_:SimpleText = null;
         protected var _g5:_T_C_ = null;
         protected var _t3:DeleteXGraphic = null;
-        protected var _wu:boxButton;
+        protected var _wu:FancyTextButton;
         protected var _0B_e:TextButton;
         protected var _07v:TextButton;
         protected var _p2:_0G_s;
@@ -92,7 +94,7 @@ package _0G_l{
             this._t3.x = ((WIDTH - this._t3.width) - 10);
             this._t3.y = 10;
             this.box_.addChild(this._t3);
-            this._wu = new boxButton(16, "Search", 120);
+            this._wu = new FancyTextButton(16, "Search", 120);
             this._wu.x = ((WIDTH - this._wu.width) - 20);
             this._wu.y = 40;
             this._wu.addEventListener(MouseEvent.CLICK, this._zJ_);
@@ -181,7 +183,7 @@ package _0G_l{
             }
             _local3["num"] = (_dh * _H_7);
             _local2.sendRequest("list", _local3);
-            this._wu._A_w(false);
+            this._wu.enabled(false);
         }
         private function _0C_0(_arg1:_8C_):void{
             if (((!((this._g5 == null))) && (this.box_.contains(this._g5))))
@@ -196,7 +198,7 @@ package _0G_l{
             this._g5.addEventListener(_32.DELETE_PICTURE_EVENT, this._fs);
             this._g5.addEventListener(_E_C_.ADD_PICTURE_EVENT, this._0M_u);
             this.box_.addChildAt(this._g5, 1);
-            this._wu._A_w(true);
+            this._wu.enabled(true);
             this._07v.visible = (this._g5._09O_ >= (_dh * _H_7));
             this._0B_e.visible = !((this._g5._9U_ == 0));
         }

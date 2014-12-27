@@ -12,10 +12,5 @@ namespace wServer.networking.cliPackets
         {
             CharacterId = rdr.ReadInt32();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(CharacterId);
-        }
     }
 }

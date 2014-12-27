@@ -155,6 +155,8 @@ public class SelectSkinFrame extends Sprite {
 }
 
 
+import AccountManagement.ui.FancyTextButton;
+
 import Frames.SelectSkinFrame;
 
 import com.company.assembleegameclient.game.GameSprite;
@@ -303,7 +305,7 @@ class SkinInfoScreen extends Sprite {
     private var unlockText:SimpleText;
     private var specialText:SimpleText;
     private var gs_:GameSprite;
-    private var selectBtn:boxButton;
+    private var selectBtn:FancyTextButton;
     private var premiumIcon:DisplayObject;
 
     public var parentSkinRect:SkinRect;
@@ -457,10 +459,10 @@ class SkinInfoScreen extends Sprite {
         }
 
         if(!_arg1.selected) {
-            selectBtn = new boxButton(20, "Select");
+            selectBtn = new FancyTextButton(20, "Select");
             selectBtn.y = HEIGHT - 50;
             selectBtn.x = (WIDTH / 2) - (selectBtn.w_ / 2);
-            selectBtn._A_w(_arg1.available);
+            selectBtn.enabled(_arg1.available);
             selectBtn.addEventListener(MouseEvent.CLICK, this.onSkinSelect);
             addChild(selectBtn);
         }

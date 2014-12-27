@@ -2,6 +2,8 @@
  * Created by Fabian on 16.11.2014.
  */
 package Panels {
+import AccountManagement.ui.FancyTextButton;
+
 import ServerPackets.TeleportRequest;
 
 import com.company.assembleegameclient.game.GameSprite;
@@ -23,8 +25,8 @@ public class TeleportPanel extends Panel {
 
     public var packet:TeleportRequest;
     private var requestText:SimpleText;
-    private var rejectButton:boxButton;
-    private var acceptButton:boxButton;
+    private var rejectButton:FancyTextButton;
+    private var acceptButton:FancyTextButton;
     private var timeoutTimer:Timer;
 
     public function TeleportPanel(_arg1:GameSprite, _arg2:TeleportRequest) {
@@ -39,12 +41,12 @@ public class TeleportPanel extends Panel {
         this.requestText.filters = [new DropShadowFilter(0, 0, 0)];
         this.requestText.y = 0;
         addChild(this.requestText);
-        this.rejectButton = new boxButton(16, "Reject");
+        this.rejectButton = new FancyTextButton(16, "Reject");
         this.rejectButton.addEventListener(MouseEvent.CLICK, this.closePanel);
         this.rejectButton.x = ((WIDTH / 4) - (this.rejectButton.width / 2));
         this.rejectButton.y = ((HEIGHT - this.rejectButton.height) - 4);
         addChild(this.rejectButton);
-        this.acceptButton = new boxButton(16, "Accept");
+        this.acceptButton = new FancyTextButton(16, "Accept");
         this.acceptButton.addEventListener(MouseEvent.CLICK, this.acceptRequest);
         this.acceptButton.x = (((3 * WIDTH) / 4) - (this.acceptButton.width / 2));
         this.acceptButton.y = ((HEIGHT - this.acceptButton.height) - 4);

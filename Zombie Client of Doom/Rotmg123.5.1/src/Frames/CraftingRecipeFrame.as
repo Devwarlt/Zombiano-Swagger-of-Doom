@@ -3,6 +3,8 @@
  */
 package Frames {
 
+import AccountManagement.ui.FancyTextButton;
+
 import FPC.Embeds.Images.craftingRecipeBookEmbed_;
 
 import com.company.assembleegameclient.game.GameSprite;
@@ -39,8 +41,8 @@ public class CraftingRecipeFrame extends Sprite {
     private var bookTitle1:SimpleText;
     private var bookTitle2:SimpleText;
 
-    private var nextButton:boxButton;
-    private var prevButton:boxButton;
+    private var nextButton:FancyTextButton;
+    private var prevButton:FancyTextButton;
     private var closeButton:xButton;
 
     private var slot1_:Inventory;
@@ -129,12 +131,12 @@ public class CraftingRecipeFrame extends Sprite {
         this.site2Text.x = (_xCenterRight - (this.site2Text.textWidth / 2));
         this.site2Text.y = 425;
 
-        this.nextButton = new boxButton(20, "Next");
+        this.nextButton = new FancyTextButton(20, "Next");
         this.nextButton.x = _xCenterRight + this.site2Text.textWidth + 20;
         this.nextButton.y = 430;
         this.nextButton.addEventListener(MouseEvent.CLICK, this.onNextClicked);
 
-        this.prevButton = new boxButton(20, "Previous");
+        this.prevButton = new FancyTextButton(20, "Previous");
         this.prevButton.x = _xCenterLeft - this.prevButton.width - 10;
         this.prevButton.y = 430;
         this.prevButton.addEventListener(MouseEvent.CLICK, this.onPrevClicked);
@@ -233,11 +235,11 @@ public class CraftingRecipeFrame extends Sprite {
             this.output_.draw(new <int>[outputItem == 0 ? -1 : outputItem]);
         }
 
-        nextButton._A_w(siteNumber + 1 < CraftingTerminal.recipes.length);
-        prevButton._A_w(siteNumber > 0);
+        nextButton.enabled(siteNumber + 1 < CraftingTerminal.recipes.length);
+        prevButton.enabled(siteNumber > 0);
 
-        nextButton.filters = [nextButton.mouseEnabled ? activeGlowFilter : restrictedGlowFilter];
-        prevButton.filters = [prevButton.mouseEnabled ? activeGlowFilter : restrictedGlowFilter];
+        //nextButton.filters = [nextButton.mouseEnabled ? activeGlowFilter : restrictedGlowFilter];
+        //prevButton.filters = [prevButton.mouseEnabled ? activeGlowFilter : restrictedGlowFilter];
     }
 
     public function onClose(param1:MouseEvent) : void {

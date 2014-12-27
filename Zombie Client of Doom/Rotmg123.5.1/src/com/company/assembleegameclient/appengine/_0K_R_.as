@@ -42,6 +42,7 @@ package com.company.assembleegameclient.appengine{
         public var _hv:Boolean;
         public var converted_:Boolean;
         public var ownedSkins:Vector.<int>;
+        public var gifts:Vector.<int>;
         public var _V_v:Boolean;
         public var _tZ_:Vector.<_vt>;
         public var _0C_6:_0K_N_;
@@ -51,6 +52,7 @@ package com.company.assembleegameclient.appengine{
             this.charStats_ = {};
             this.servers_ = new Vector.<Server>();
             this.ownedSkins = new Vector.<int>();
+            this.gifts = new Vector.<int>();
             this._tZ_ = new Vector.<_vt>();
             super(SAVED_CHARS_LIST);
             this._0F_V_ = _arg1;
@@ -92,6 +94,19 @@ package com.company.assembleegameclient.appengine{
                     this.ownedSkins.push(int(skin));
                 }
             }
+
+            var gifts:String = String(_arg1.Gifts).replace(" ", "");
+            if(gifts.indexOf(',') == -1) {
+                this.gifts.push(int(gifts));
+            }
+            else {
+                var gfts:Array = (gifts.split(','));
+
+                for each (var gft:String in gfts) {
+                    this.gifts.push(int(gft));
+                }
+            }
+
             Account._get().admin_ = (this.rank == 13);
         }
         private function _t6(_arg1:XML):void{
@@ -265,10 +280,10 @@ package com.company.assembleegameclient.appengine{
             var _local4:Server;
             var _local5:int;
             var _local6:Number;
-            if (Parameters.isTesting)
-            {
-                return (new Server("Ent", "localhost", Parameters.gamePort));
-            }
+            //if (Parameters.isTesting)
+            //{
+            //    return (new Server("Ent", "localhost", Parameters.gamePort));
+            //}
             var _local1:Server;
             var _local2:Number = Number.MAX_VALUE;
             var _local3:int = int.MAX_VALUE;

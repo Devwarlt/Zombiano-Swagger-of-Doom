@@ -13,7 +13,7 @@ namespace ClientCrypter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Stream clientStream = typeof(Form1).Assembly.GetManifestResourceStream("Client_Loader.gameClient.WebMain.swf");
+            Stream clientStream = typeof(Form1).Assembly.GetManifestResourceStream("ClientCrypter.gameClient.WebMain.swf");
             byte[] buffer = new byte[clientStream.Length];
             clientStream.Read(buffer, 0, buffer.Length);
 

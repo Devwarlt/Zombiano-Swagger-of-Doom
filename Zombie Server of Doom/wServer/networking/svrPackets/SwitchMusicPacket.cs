@@ -15,11 +15,6 @@ namespace wServer.networking.svrPackets
             return new SwitchMusicPacket();
         }
 
-        protected override void Read(NReader rdr)
-        {
-            Music = rdr.ReadUTF();
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.WriteUTF(Music);

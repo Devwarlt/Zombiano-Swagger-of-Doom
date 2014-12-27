@@ -301,6 +301,7 @@ public class Item
     public bool Soulbound { get; private set; }
     public float Cooldown { get; private set; }
     public bool Resurrects { get; private set; }
+    public bool InPremiumPack { get; private set; }
 
     public KeyValuePair<int, int>[] StatsBoost { get; private set; }
     public ActivateEffect[] ActivateEffects { get; private set; }
@@ -362,6 +363,9 @@ public class Item
             Cooldown = float.Parse(n.Value);
         else
             Cooldown = 0;
+
+        InPremiumPack = elem.Element("CanBePremiumPackItem") != null;
+
         Resurrects = elem.Element("Resurrects") != null;
 
         List<KeyValuePair<int, int>> stats = new List<KeyValuePair<int, int>>();

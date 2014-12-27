@@ -18,12 +18,5 @@ namespace wServer.networking.cliPackets
             Obj1 = ObjectSlot.Read(rdr);
             Obj2 = ObjectSlot.Read(rdr);
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Time);
-            Position.Write(wtr);
-            Obj1.Write(wtr);
-            Obj2.Write(wtr);
-        }
     }
 }

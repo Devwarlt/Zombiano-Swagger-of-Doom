@@ -4,11 +4,11 @@
 //com.company.assembleegameclient.game._07a
 
 package com.company.assembleegameclient.game{
-import PopUps.NewItemUnlockedScreen;
+import FPC.Embeds.Models._br;
+
+import Frames.GiftViewFrame;
 
 import OptionsStuff.Options;
-
-import PopUps.YouHaveBeenPromotedPopUp;
 
 import _4K_.Stats;
     
@@ -18,6 +18,7 @@ import _4K_.Stats;
     import com.company.assembleegameclient.tutorial.Tutorial;
     import com.company.assembleegameclient.tutorial.doneAction;
 import com.company.assembleegameclient.ui.Battery;
+import com.company.assembleegameclient.ui.FrameHolder;
 import com.company.assembleegameclient.util.TextureRedrawer;
     import com.company.util._H_V_;
     
@@ -299,6 +300,9 @@ import flash.geom.Point;
                 case Parameters.data_.toggleCentering:
                     Parameters.data_.centerOnPlayer = !(Parameters.data_.centerOnPlayer);
                     Parameters.save();
+                    break;
+                case Parameters.data_.openGifts:
+                    gs_.addChild(new FrameHolder(new GiftViewFrame(this.gs_, this.gs_.charList_)));
                     break;
                 case Parameters.data_.toggleFullscreen:
                     if (Capabilities.playerType == "Desktop")

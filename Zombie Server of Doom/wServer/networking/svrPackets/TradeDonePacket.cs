@@ -9,12 +9,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.TradeDone; } }
         public override Packet CreateInstance() { return new TradeDonePacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            Result = rdr.ReadInt32();
-            Message = rdr.ReadUTF();
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.Write(Result);

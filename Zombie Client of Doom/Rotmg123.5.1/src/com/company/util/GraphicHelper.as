@@ -16,6 +16,7 @@ import flash.display.GraphicsSolidFill;
 import flash.display.GraphicsStroke;
 import flash.display.JointStyle;
 import flash.display.LineScaleMode;
+import flash.display.Shape;
 import flash.display.Sprite;
 import flash.geom.Matrix;
 
@@ -106,21 +107,13 @@ import flash.geom.Matrix;
 			data.lineTo((x - cornerRadius), y);
         }
 
-        public static function createBorder(sprite:Sprite, thickness:Number, color:uint):void {
+        public static function createBorder(sprite:Object, thickness:Number, color:uint):void {
+            if (!sprite.hasOwnProperty("graphics")) {
+                throw new DefinitionError("Object not supported.");
+            }
             var graphics:Graphics = sprite.graphics;
-            graphics.lineStyle(thickness, color);
-            graphics.moveTo(0, 0);
-            graphics.lineTo(sprite.width, 0);
-
-            graphics.moveTo(sprite.width - thickness, 0);
-            graphics.lineTo(sprite.width - thickness, sprite.height - thickness);
-
-            graphics.moveTo(sprite.width - thickness, sprite.height - thickness);
-            graphics.lineTo(0, sprite.height - thickness);
-
-            graphics.moveTo(0, sprite.height - thickness);
-            graphics.lineTo(0, 0);
-            graphics.lineStyle();
+            graphics.lineStyle(thickness, color, 1.0);
+            graphics.drawRect(0 ,0, sprite.width, sprite.height);
         }
     }
 }//package com.company.util

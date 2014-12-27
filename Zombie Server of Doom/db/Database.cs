@@ -646,5 +646,21 @@ VALUES(@accId, @chrId, @name, @objType, @tex1, @tex2, @items, @fame, @fameStats,
             cmd.Parameters.AddWithValue("@killer", killer);
             cmd.ExecuteNonQuery();
         }
+
+        public void AddFpcPack(Account acc, int packType, XmlData data, Random rand)
+        {
+            List<int> contentList = new List<int>();
+
+            for (int i = 0; i < rand.Next(1, 6); i++)
+                contentList.Add(data.Items.Select(_ => _.Value).Where(_ => (packType == 3 && _.InPremiumPack) || (packType < 3 && !_.InPremiumPack)).
+                    RandomElement<Item>(rand, _ => !contentList.Contains(_.ObjectType), false).ObjectType);
+
+            var cmd = CreateQuery();
+            cmd.CommandText = "INSERT INTO fpcpacks(accId, type, contents, used) VALUES(@accId, @packType, @contents, 0);";
+            cmd.Parameters.AddWithValue("@accId", acc.AccountId);
+            cmd.Parameters.AddWithValue("@packType", packType);
+            cmd.Parameters.AddWithValue("@contents", Utils.GetCommaSepString<int>(contentList.ToArray()));
+            cmd.ExecuteNonQuery();
+        }
     }
 }

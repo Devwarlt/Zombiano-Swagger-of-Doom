@@ -14,10 +14,5 @@ namespace wServer.networking.cliPackets
             Serial = rdr.ReadInt32();
             Time = rdr.ReadInt32();
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Serial);
-            wtr.Write(Time);
-        }
     }
 }

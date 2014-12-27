@@ -256,6 +256,7 @@ public class Options extends Sprite {
         this.registerOption(new KeyBindingOption("switchTabs", "Switch Tabs", "THis key will flip through your tabs."));
         this.registerOption(new SwitchOption("inventorySwap", new <String>["On", "Off"], [true, false], "Switch items to/from backpack.", "Hold the " + this.invSwap() + " key and click on an item to swap it between your inventory and your backpack.", null));
         this.registerOption(new KeyBindingOption("sprintKey", "Sprint Key", "This is the key you need to press if you wanna sprint"));
+        this.registerOption(new KeyBindingOption("openGifts", "Open Gift Menu", "This key will open your menu where you can see all your gifts"));
         if (Capabilities.playerType == "Desktop")
         {
             this.registerOption(new KeyBindingOption("toggleFullscreen", "Toggle Fullscreen Mode", ("Toggle whether the game is " + "run in a window or fullscreen")));

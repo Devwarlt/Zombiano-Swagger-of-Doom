@@ -2,6 +2,8 @@
  * Created by Fabian on 16.12.2014.
  */
 package AccountManagement {
+import _02t._R_f;
+
 import _qN_.Account;
 import _sp._aJ_;
 
@@ -44,7 +46,6 @@ public class AccountManagementScreen extends Sprite {
 
         this.accountBody.y = AccountManagementHeader.HEIGHT;
         this.accountFooter.y = AccountManagementHeader.HEIGHT + AccountManagementBody.HEIGHT;
-
         addChild(this.accountBody);
         addChild(this.accountHeader);
         addChild(this.accountFooter);

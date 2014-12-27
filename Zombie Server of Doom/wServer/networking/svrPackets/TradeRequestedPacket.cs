@@ -8,11 +8,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.TradeRequested; } }
         public override Packet CreateInstance() { return new TradeRequestedPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            Name = rdr.ReadUTF();
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.WriteUTF(Name);

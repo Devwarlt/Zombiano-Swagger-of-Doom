@@ -34,10 +34,8 @@ public class TextInput extends Sprite {
         this.inputText_.displayAsPassword = _arg2;
         this.inputText_.updateMetrics();
         addChild(this.inputText_);
-        graphics.lineStyle(2, 0x73543F, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
-        graphics.beginFill(0x6B472E, 1);
-        //graphics.lineStyle(2, 0x610F00, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
-        //graphics.beginFill(0x3F0A00, 1);
+        graphics.lineStyle(2, 0xffffff, 1, false, LineScaleMode.NORMAL, CapsStyle.ROUND, JointStyle.ROUND);
+        graphics.beginFill(0x383838, 1);
         graphics.drawRect(0, this.inputText_.y, 238, 30);
         graphics.endFill();
         graphics.lineStyle();

@@ -19,31 +19,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.MapInfo; } }
         public override Packet CreateInstance() { return new MapInfoPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            Width = rdr.ReadInt32();
-            Height = rdr.ReadInt32();
-            Name = rdr.ReadUTF();
-            Seed = rdr.ReadUInt32();
-            Background = rdr.ReadInt32();
-            AllowTeleport = rdr.ReadBoolean();
-            ShowDisplays = rdr.ReadBoolean();
-            Weather = (Weather)rdr.ReadByte();
-            CurrentDateTime = rdr.ReadInt32();
-
-            Music = new string[rdr.ReadInt16()];
-            for (int i = 0; i < Music.Length; i++)
-                Music[i] = rdr.ReadUTF();
-
-            ClientXML = new string[rdr.ReadInt16()];
-            for (int i = 0; i < ClientXML.Length; i++)
-                ClientXML[i] = rdr.Read32UTF();
-
-            ExtraXML = new string[rdr.ReadInt16()];
-            for (int i = 0; i < ExtraXML.Length; i++)
-                ExtraXML[i] = rdr.Read32UTF();
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.Write(Width);

@@ -9,11 +9,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.Goto; } }
         public override Packet CreateInstance() { return new GotoPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            ObjectId = rdr.ReadInt32();
-            Position = Position.Read(rdr);
-        }
         protected override void Write(NWriter wtr)
         {
             wtr.Write(ObjectId);

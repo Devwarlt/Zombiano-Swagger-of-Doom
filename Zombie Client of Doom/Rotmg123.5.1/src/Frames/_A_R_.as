@@ -4,7 +4,9 @@
 //Frames._A_R_
 
 package Frames{
-    import _00g._0H_i;
+import AccountManagement.ui.FancyTextButton;
+
+import _00g._0H_i;
     import com.company.assembleegameclient.ui.boxButton;
     import flash.events.MouseEvent;
 
@@ -15,18 +17,18 @@ package Frames{
 
     public class _A_R_ extends Frame {
 
-        private static const TITLE:String = "Support the game and buy Realm Gold";
+        private static const TITLE:String = "Support the game and buy in Game moni";
         private static const _lQ_:String = "";
         private static const _j8:String = "Cancel";
         private static const _S_0:String = "Payment Method";
-        private static const _Y_2:String = "Gold Amount";
+        private static const _Y_2:String = "Moni Amount";
         private static const _jA_:String = "Buy Now";
         private static const WIDTH:int = 550;
 
         private var mediator:_0H_i;
         private var _8K_:_mo;
         private var _9c:_4a;
-        private var _0B_q:boxButton;
+        private var _0B_q:FancyTextButton;
 
         public function _A_R_(_arg1:_0H_i){
             super(TITLE, _lQ_, _j8, WIDTH);
@@ -79,7 +81,7 @@ package Frames{
             _W_z(this._9c);
         }
         private function _1A_():void{
-            this._0B_q = new boxButton(16, _jA_);
+            this._0B_q = new FancyTextButton(16, _jA_);
             this._0B_q.addEventListener(MouseEvent.CLICK, this._Z_P_);
             this._0B_q.x = 8;
             this._0B_q.y = (h_ - 50);

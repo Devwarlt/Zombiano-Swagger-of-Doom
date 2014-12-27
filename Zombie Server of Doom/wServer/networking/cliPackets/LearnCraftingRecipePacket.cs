@@ -23,9 +23,5 @@ namespace wServer.networking.cliPackets
             ItemId = rdr.ReadInt32();
             RecipeId = rdr.ReadInt32();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-        }
     }
 }

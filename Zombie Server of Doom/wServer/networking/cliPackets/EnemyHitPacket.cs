@@ -18,12 +18,5 @@ namespace wServer.networking.cliPackets
             TargetId = rdr.ReadInt32();
             Killed = rdr.ReadBoolean();
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Time);
-            wtr.Write(BulletId);
-            wtr.Write(TargetId);
-            wtr.Write(Killed);
-        }
     }
 }

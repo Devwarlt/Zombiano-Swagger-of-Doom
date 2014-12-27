@@ -14,18 +14,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.Damage; } }
         public override Packet CreateInstance() { return new DamagePacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            TargetId = rdr.ReadInt32();
-            byte c = rdr.ReadByte();
-            Effects = 0;
-            for (int i = 0; i < c; i++)
-                Effects |= (ConditionEffects)(1 << rdr.ReadByte());
-            Damage = rdr.ReadUInt16();
-            Killed = rdr.ReadBoolean();
-            BulletId = rdr.ReadByte();
-            ObjectId = rdr.ReadInt32();
-        }
         protected override void Write(NWriter wtr)
         {
             wtr.Write(TargetId);

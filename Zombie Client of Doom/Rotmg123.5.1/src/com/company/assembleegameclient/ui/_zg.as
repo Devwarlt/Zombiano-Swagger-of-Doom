@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.ui._zg
 
 package com.company.assembleegameclient.ui{
-    import flash.display.Sprite;
+import AccountManagement.ui.FancyTextButton;
+
+import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
@@ -19,7 +21,7 @@ package com.company.assembleegameclient.ui{
         public var gs_:GameSprite;
         private var _rl:_eb;
         private var _8F_:_eb;
-        private var _t3:boxButton;
+        private var _t3:FancyTextButton;
         private var _0A_C_:_K_K_;
 
         public function _zg(_arg1:GameSprite, _arg2:_S_M_){
@@ -34,7 +36,7 @@ package com.company.assembleegameclient.ui{
             this._8F_.x = 14;
             this._8F_.y = 174;
             addChild(this._8F_);
-            this._t3 = new boxButton(16, "Cancel", 80);
+            this._t3 = new FancyTextButton(16, "Cancel", 80);
             this._t3.addEventListener(MouseEvent.CLICK, this._0G_U_);
             this._t3.x = ((WIDTH / 4) - (this._t3.width / 2));
             this._t3.y = ((HEIGHT - this._t3.height) - 10);

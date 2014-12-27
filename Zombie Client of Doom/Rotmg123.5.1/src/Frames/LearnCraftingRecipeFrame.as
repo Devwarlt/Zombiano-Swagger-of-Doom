@@ -32,6 +32,7 @@ public class LearnCraftingRecipeFrame extends Frame {
 
     public function LearnCraftingRecipeFrame(_arg1:GameSprite, _arg2:GameObject) {
         super("Learn Recipe", "Learn", "Cancel", 200);
+        this.w_ = 200;
         this._gs = _arg1;
         this._obj = _arg2;
 
@@ -44,10 +45,11 @@ public class LearnCraftingRecipeFrame extends Frame {
         this._slot1.y = (this.h_ / 2) - (this._slot1.height / 2) + 25;
         this._slot1.addEventListener(MouseEvent.CLICK, this.onSlotClicked);
 
-        this._text = new SimpleText(16, 0xFFFFFF, false, this.w_, this.h_);
+        this._text = new SimpleText(16, 0xFFFFFF, false, 150, 50);
         this._text.multiline = true;
         this._text.boldText(true);
         this._text.text = "Click on the slot\nto select an item.";
+        this._text.updateMetrics();
 
         this._text.x = ((this.w_ / 2) - (this._text.textWidth / 2));
         this._text.y = 35;
@@ -120,6 +122,7 @@ public class LearnCraftingRecipeFrame extends Frame {
         this._text.text = _arg1;
         this._text.x = ((this.w_ / 2) - (this._text.textWidth / 2));
         this._text.y = 35;
+        this._text.updateMetrics();
     }
 }
 }

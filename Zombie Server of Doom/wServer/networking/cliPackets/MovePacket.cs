@@ -20,14 +20,5 @@ namespace wServer.networking.cliPackets
             for (var i = 0; i < Records.Length; i++)
                 Records[i] = TimedPosition.Read(rdr);
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(TickId);
-            wtr.Write(Time);
-            Position.Write(wtr);
-            wtr.Write((short)Records.Length);
-            foreach (var i in Records)
-                i.Write(wtr);
-        }
     }
 }

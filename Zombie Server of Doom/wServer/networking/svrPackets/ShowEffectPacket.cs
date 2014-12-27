@@ -12,14 +12,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.Show_Effect; } }
         public override Packet CreateInstance() { return new ShowEffectPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            EffectType = (EffectType)rdr.ReadByte();
-            TargetId = rdr.ReadInt32();
-            PosA = Position.Read(rdr);
-            PosB = Position.Read(rdr);
-            Color = ARGB.Read(rdr);
-        }
         protected override void Write(NWriter wtr)
         {
             wtr.Write((byte)EffectType);

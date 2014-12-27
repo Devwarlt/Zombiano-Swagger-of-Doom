@@ -12,9 +12,5 @@ namespace wServer.networking.cliPackets
         {
             Time = rdr.ReadInt32();
         }
-        protected override void Write(NWriter wtr)
-        {
-            wtr.Write(Time);
-        }
     }
 }

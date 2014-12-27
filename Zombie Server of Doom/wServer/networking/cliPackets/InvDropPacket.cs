@@ -12,9 +12,5 @@ namespace wServer.networking.cliPackets
         {
             Slot = ObjectSlot.Read(rdr);
         }
-        protected override void Write(NWriter wtr)
-        {
-            Slot.Write(wtr);
-        }
     }
 }

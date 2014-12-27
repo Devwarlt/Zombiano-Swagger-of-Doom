@@ -36,23 +36,5 @@ namespace wServer.networking.cliPackets
             __LK = rdr.ReadUTF();
             PlayPlatform = rdr.ReadUTF();
         }
-
-        protected override void Write(NWriter wtr)
-        {
-            wtr.WriteUTF(Copyright);
-            wtr.WriteUTF(BuildVersion);
-            wtr.Write(GameId);
-            wtr.WriteUTF(RSA.Instance.Encrypt(GUID));
-            wtr.WriteUTF(RSA.Instance.Encrypt(Password));
-            wtr.WriteUTF(RSA.Instance.Encrypt(Secret));
-            wtr.Write(KeyTime);
-            wtr.Write((short)Key.Length);
-            wtr.Write(Key);
-            wtr.Write32UTF(MapInfo);
-            wtr.WriteUTF(__Rw);
-            wtr.WriteUTF(__06U);
-            wtr.WriteUTF(__LK);
-            wtr.WriteUTF(PlayPlatform);
-        }
     }
 }

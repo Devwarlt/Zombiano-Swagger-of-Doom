@@ -101,7 +101,8 @@ namespace wServer.networking
             }
             if (Account != null)
             {
-                Player.SaveToAccount();
+                if(Player != null)
+                    Player.SaveToAccount();
                 Manager.Database.SaveAccount(Account);
             }
         }

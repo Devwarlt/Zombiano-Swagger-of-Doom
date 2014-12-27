@@ -7,6 +7,8 @@ using wServer.realm.worlds;
 using wServer.networking.svrPackets;
 using wServer.networking;
 using wServer.realm.entities;
+using db;
+using System.Threading.Tasks;
 
 namespace wServer.realm.commands
 {
@@ -193,20 +195,26 @@ namespace wServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string args)
         {
-            player.Client.SendPacket(new WeatherPropertiesPacket
+            Task.Factory.StartNew(new Action(() =>
             {
-                _type = WeatherPropertiesPacket.CHANGE_WEATHER,
-                _particles = 500,
-                _weather = (Weather)255
-            });
+                List<Packet> pkts = new List<Packet>();
+                Random rand = new Random();
 
-            //player.Client.SendPacket(new WeatherPropertiesPacket
-            //{
-            //    _type = WeatherPropertiesPacket.NONE,
-            //    _currentTime = player.Manager.CurrentDatetime,
-            //    _atmosphere = "WEATHER_HIGH_CLOUDY"
-            //});
+                for (int i = 0; i < 10; i++)
+                {
+                    int packType = i % 4;
 
+                    pkts.Add(new UnlockPacket
+                    {
+                        ItemId = (ushort)packType,
+                        Type = UnlockType.FPCPack
+                    });
+
+                    player.Manager.Database.AddFpcPack(player.Client.Account, packType, player.Manager.GameData, rand);
+                }
+
+                player.Client.SendPackets(pkts);
+            }));
             return true;
         }
     }

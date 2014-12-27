@@ -4,7 +4,9 @@
 //Panels.GuildCreatorPanel
 
 package Panels{
-    import com.company.ui.SimpleText;
+import AccountManagement.ui.FancyTextButton;
+
+import com.company.ui.SimpleText;
     import flash.display.Sprite;
     import com.company.assembleegameclient.ui._u5;
     import com.company.assembleegameclient.objects.Player;
@@ -47,7 +49,7 @@ package Panels{
                 this._O_k.htmlText = (((('<p align="center">' + _local3) + " of \n") + _local2.guildName_) + "</p>");
                 this._O_k.y = 0;
                 addChild(this._O_k);
-                this._ek = new boxButton(16, "Renounce");
+                this._ek = new FancyTextButton(16, "Renounce");
                 this._ek.addEventListener(MouseEvent.CLICK, this._38);
                 this._ek.x = ((WIDTH / 2) - (this._ek.width / 2));
                 this._ek.y = ((HEIGHT - this._ek.height) - 4);

@@ -9,14 +9,6 @@ namespace wServer.networking.svrPackets
         public override PacketID ID { get { return PacketID.AccountList; } }
         public override Packet CreateInstance() { return new AccountListPacket(); }
 
-        protected override void Read(NReader rdr)
-        {
-            AccountListId = rdr.ReadInt32();
-            AccountIds = new int[rdr.ReadInt16()];
-            for (int i = 0; i < AccountIds.Length; i++)
-                AccountIds[i] = rdr.ReadInt32();
-        }
-
         protected override void Write(NWriter wtr)
         {
             wtr.Write(AccountListId);

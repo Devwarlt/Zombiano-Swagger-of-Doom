@@ -70,7 +70,7 @@ public class FpcPacksHolder extends TabHolder {
         holderMask.x = 40;
         holderMask.y = this.holderSprite.y;
         holderMask.graphics.beginFill(0x000000, 0.0);
-        holderMask.graphics.drawRect(0, 0, (fpcPackHolder.WIDTH * 4) + 1, fpcPackHolder.HEIGHT);
+        holderMask.graphics.drawRect(0, 0, (fpcPackHolder.WIDTH * 4) + 1, fpcPackHolder.HEIGHT + 1);
         holderMask.graphics.endFill();
         addChild(holderMask);
         this.holderSprite.mask = holderMask;

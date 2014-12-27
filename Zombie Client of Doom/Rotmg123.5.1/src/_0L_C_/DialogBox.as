@@ -4,24 +4,18 @@
 //_0L_C_.DialogBox
 
 package _0L_C_{
-    import flash.display.Sprite;
+import AccountManagement.ui.FancyTextButton;
 
-    import flash.display.IGraphicsData;
-    import com.company.util.GraphicHelper;
-    import flash.display.Shape;
-    import com.company.ui.SimpleText;
-    import com.company.assembleegameclient.ui.boxButton;
-    import flash.display.GraphicsSolidFill;
-    import flash.display.GraphicsStroke;
-    import flash.display.GraphicsPath;
-    import flash.display.LineScaleMode;
-    import flash.display.CapsStyle;
-    import flash.display.JointStyle;
-    import flash.text.TextFieldAutoSize;
-    import flash.filters.DropShadowFilter;
-    import flash.events.MouseEvent;
-    import flash.events.Event;
-    import flash.display.Graphics;
+import com.company.util.GraphicHelper;
+import com.company.ui.SimpleText;
+
+import flash.display.Shape;
+import flash.display.Sprite;
+import flash.text.TextFieldAutoSize;
+import flash.filters.DropShadowFilter;
+import flash.events.MouseEvent;
+import flash.events.Event;
+import flash.display.Graphics;
 
 
     public class DialogBox extends Sprite {
@@ -30,27 +24,16 @@ package _0L_C_{
         public static const BUTTON2_EVENT:String = "DIALOG_BUTTON2";
         private static const WIDTH:int = 300;
 
-        private var graphicsData_:Vector.<IGraphicsData>;
-
         protected var _T_y:Shape;
         protected var box_:Sprite;
-        protected var rect_:Shape;
+        protected var rect_:Sprite;
         protected var _p:SimpleText;
         protected var _P_V_:SimpleText = null;
-        protected var button1_:boxButton = null;
-        protected var button2_:boxButton = null;
-        private var outlineFill_:GraphicsSolidFill;
-        private var _0y:GraphicsStroke;
-        private var _vV_:GraphicsSolidFill;
-        private var path_:GraphicsPath;
+        protected var button1_:FancyTextButton = null;
+        protected var button2_:FancyTextButton = null;
 
         public function DialogBox(bodyText:String, title:String, button1Text:String, button2Text:String){
             this.box_ = new Sprite();
-            this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
-            this._0y = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
-            this._vV_ = new GraphicsSolidFill(0x73543F, 1);
-            this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-            this.graphicsData_ = new <IGraphicsData>[_0y, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
             super();
             this._p = new SimpleText(14, 0xB3B3B3, false, (WIDTH - 40), 0, "Myriad Pro");
             this._p.x = 20;
@@ -63,20 +46,19 @@ package _0L_C_{
             this._p.filters = [new DropShadowFilter(0, 0, 0, 1, 6, 6, 1)];
             if (title != null)
             {
-                this._P_V_ = new SimpleText(18, 5746018, false, WIDTH, 0, "Myriad Pro");
+                this._P_V_ = new SimpleText(18, 0x000000, false, WIDTH, 0, "Myriad Pro");
                 this._P_V_.boldText(true);
                 this._P_V_.htmlText = (('<p align="center">' + title) + "</p>");
                 this._P_V_.updateMetrics();
-                this._P_V_.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8, 1)];
             }
             if (button1Text != null)
             {
-                this.button1_ = new boxButton(16, button1Text, 120);
+                this.button1_ = new FancyTextButton(16, button1Text, 120);
                 this.button1_.addEventListener(MouseEvent.CLICK, this.onButton1Click);
             }
             if (button2Text != null)
             {
-                this.button2_ = new boxButton(16, button2Text, 120);
+                this.button2_ = new FancyTextButton(16, button2Text, 120);
                 this.button2_.addEventListener(MouseEvent.CLICK, this.onButton2Click);
             }
             this.draw();
@@ -111,11 +93,18 @@ package _0L_C_{
                     this.button2_.y = _local2;
                 }
             }
-            GraphicHelper._0L_6(this.path_);
-            GraphicHelper.drawUI(0, 0, WIDTH, (this.box_.height + 10), 4, [1, 1, 1, 1], this.path_);
-            this.rect_ = new Shape();
-            var _local1:Graphics = this.rect_.graphics;
-            _local1.drawGraphicsData(this.graphicsData_);
+            this.rect_ = new Sprite();
+            this.rect_.graphics.beginFill(0x000000, 1.0);
+            this.rect_.graphics.drawRect(0, 0, this.box_.width + 10, this.box_.height + 10);
+            this.rect_.graphics.endFill();
+
+            if(this._P_V_ != null) {
+                this.rect_.graphics.beginFill(0xffffff, 1.0);
+                this.rect_.graphics.drawRect(0, 0, this.box_.width + 10, this._P_V_.y + this._P_V_.height + 3);
+                this.rect_.graphics.endFill();
+            }
+            GraphicHelper.createBorder(this.rect_, 1, 0xffffff);
+
             this.box_.addChildAt(this.rect_, 0);
             this.box_.filters = [new DropShadowFilter(0, 0, 0, 1, 16, 16, 1)];
             addChild(this.box_);

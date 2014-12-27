@@ -4,7 +4,9 @@
 //Panels.InviteGuildPanel
 
 package Panels{
-    import com.company.ui.SimpleText;
+import AccountManagement.ui.FancyTextButton;
+
+import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui.boxButton;
     import flash.utils.Timer;
     import flash.text.TextFieldAutoSize;
@@ -20,8 +22,8 @@ package Panels{
         private var _O_k:SimpleText;
         private var guildName_:String;
         private var _J_K_:SimpleText;
-        private var _0A_h:boxButton;
-        private var _00a:boxButton;
+        private var _0A_h:FancyTextButton;
+        private var _00a:FancyTextButton;
         private var _T_U_:Timer;
 
         public function InviteGuildPanel(_arg1:GameSprite, _arg2:String, _arg3:String){
@@ -42,12 +44,12 @@ package Panels{
             this._J_K_.filters = [new DropShadowFilter(0, 0, 0)];
             this._J_K_.y = 20;
             addChild(this._J_K_);
-            this._0A_h = new boxButton(16, "Reject");
+            this._0A_h = new FancyTextButton(16, "Reject");
             this._0A_h.addEventListener(MouseEvent.CLICK, this._zd);
             this._0A_h.x = ((WIDTH / 4) - (this._0A_h.width / 2));
             this._0A_h.y = ((HEIGHT - this._0A_h.height) - 4);
             addChild(this._0A_h);
-            this._00a = new boxButton(16, "Accept");
+            this._00a = new FancyTextButton(16, "Accept");
             this._00a.addEventListener(MouseEvent.CLICK, this._K_m);
             this._00a.x = (((3 * WIDTH) / 4) - (this._00a.width / 2));
             this._00a.y = ((HEIGHT - this._00a.height) - 4);

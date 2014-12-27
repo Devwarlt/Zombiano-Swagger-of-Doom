@@ -1,6 +1,55 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+static class EnumerableUtils
+{
+    public static T RandomElement<T>(this IEnumerable<T> source, Random rng)
+    {
+        T current = default(T);
+        int count = 0;
+        foreach (T element in source)
+        {
+            count++;
+            if (rng.Next(count) == 0)
+            {
+                current = element;
+            }
+        }
+        if (count == 0)
+        {
+            throw new InvalidOperationException("Sequence was empty");
+        }
+        return current;
+    }
+
+    public static T RandomElement<T>(this IEnumerable<T> source, Random rng, Predicate<T> predict, bool allowNull = false)
+    {
+        T current = default(T);
+        do
+        {
+            int count = 0;
+            foreach (T element in source)
+            {
+                count++;
+                if (rng.Next(count) == 0)
+                {
+                    if (predict(element))
+                    {
+                        current = element;
+                    }
+                }
+            }
+            if (count == 0)
+            {
+                throw new InvalidOperationException("Sequence was empty");
+            }
+        }
+        while (current == null && !allowNull);
+        return current;
+    }
+}
 
 public static class Utils
 {

@@ -4,7 +4,9 @@
 //_6e._03v
 
 package _6e{
-    import flash.display.Sprite;
+import AccountManagement.ui.FancyTextButton;
+
+import flash.display.Sprite;
 
     import flash.display.IGraphicsData;
     import com.company.util.GraphicHelper;
@@ -40,8 +42,8 @@ package _6e{
         private var _017:Sprite;
         private var _gJ_:Sprite;
         private var _E_k:_0K_B_;
-        private var _5Y_:boxButton;
-        private var _zF_:boxButton;
+        private var _5Y_:FancyTextButton;
+        private var _zF_:FancyTextButton;
         private var _vV_:GraphicsSolidFill;
         private var outlineFill_:GraphicsSolidFill;
         private var _0y:GraphicsStroke;
@@ -86,13 +88,13 @@ package _6e{
                 addChild(this._E_k);
             }
             this.w_ = (_lV_ + ((_local6) ? 26 : 0));
-            this._5Y_ = new boxButton(14, "Edit", 120);
+            this._5Y_ = new FancyTextButton(14, "Edit", 120);
             this._5Y_.x = 4;
             this._5Y_.y = (_05N_ + 4);
             this._5Y_.addEventListener(MouseEvent.CLICK, this._L_n);
             addChild(this._5Y_);
             this._5Y_.visible = _arg2;
-            this._zF_ = new boxButton(14, "Close", 120);
+            this._zF_ = new FancyTextButton(14, "Close", 120);
             this._zF_.x = ((this.w_ - this._zF_.width) - 4);
             this._zF_.y = (_05N_ + 4);
             this._zF_.addEventListener(MouseEvent.CLICK, this._of);

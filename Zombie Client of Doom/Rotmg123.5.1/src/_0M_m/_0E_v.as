@@ -44,7 +44,7 @@ package _0M_m{
                 case _m7._000:
                     return ("/kongregate");
                 case _1T_._000:
-                case WebAccount._000:
+                case WebAccount.GAME_NETWORK:
                 default:
                     return ("/credits");
             }
