@@ -183,7 +183,8 @@ public enum ActivateEffects
     UnlockPortal,
     DazeBlast,
     ClearConditionEffectAura,
-    ClearConditionEffectSelf
+    ClearConditionEffectSelf,
+    Dye
 }
 public class ActivateEffect
 {
@@ -437,6 +438,7 @@ public class ObjectDesc
     public bool StasisImmune { get; private set; }
     public bool Oryx { get; private set; }
     public bool Hero { get; private set; }
+    public bool Connects { get; private set; }
     public int? PerRealmMax { get; private set; }
     public float? ExpMultiplier { get; private set; }    //Exp gained = level total / 10 * multi
 
@@ -466,6 +468,7 @@ public class ObjectDesc
         Flying = elem.Element("Flying") != null;
         ShowName = elem.Element("ShowName") != null;
         DontFaceAttacks = elem.Element("DontFaceAttacks") != null;
+        Connects = elem.Element("Connects") != null;
 
         if ((n = elem.Element("Size")) != null)
         {

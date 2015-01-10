@@ -200,8 +200,10 @@
     <Compile Include="networking\svrPackets\UnlockPacket.cs" />
     <Compile Include="networking\svrPackets\WeatherPropertiesPacket.cs" />
     <Compile Include="realm\ChatManager.cs" />
+    <Compile Include="realm\entities\Mountain.cs" />
     <Compile Include="realm\Inventory.cs" />
     <Compile Include="realm\setpieces\ArchMage.cs" />
+    <Compile Include="realm\setpieces\HimalayaMountains.cs" />
     <Compile Include="realm\setpieces\Outpost.cs" />
     <Compile Include="realm\Utils.cs" />
     <Compile Include="logic\Cooldown.cs" />
@@ -274,7 +276,7 @@
     <Compile Include="realm\setpieces\TempleB.cs" />
     <Compile Include="realm\setpieces\Temple.cs" />
     <Compile Include="realm\setpieces\TempleA.cs" />
-    <Compile Include="realm\setpieces\ISetPiece.cs" />
+    <Compile Include="realm\setpieces\SetPieceBase.cs" />
     <Compile Include="realm\setpieces\SetPieces.cs" />
     <Compile Include="realm\setpieces\Tower.cs" />
     <Compile Include="realm\terrain\Json2Wmap.cs" />
@@ -348,6 +350,9 @@
     <Compile Include="wRandom.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="himalaya.jm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="knownbugs.md" />
     <Content Include="packets.txt" />
     <Compile Include="realm\commands\AdminCommands.cs" />

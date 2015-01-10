@@ -1,134 +1,169 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using wServer.networking.svrPackets;
-using wServer.realm.terrain;
+
+
+#endregion
 
 namespace wServer.realm.entities
 {
     public partial class Player
     {
-        public const int RADIUS = 15;
-        const int APPOX_AREA_OF_SIGHT = (int)(Math.PI * RADIUS * RADIUS + 1);
+        public int UpdatesSend { get; private set; }
+        public int UpdatesReceived { get; set; }
 
-        int mapWidth, mapHeight;
+        public const int SIGHTRADIUS = 15;
 
-        HashSet<Entity> clientEntities = new HashSet<Entity>();
-        HashSet<IntPoint> clientStatic = new HashSet<IntPoint>(new IntPointComparer());
+        private static int AppoxAreaOfSight = (int)(Math.PI * SIGHTRADIUS * SIGHTRADIUS + 1);
 
-        IEnumerable<Entity> GetNewEntities()
+        private readonly HashSet<Entity> _clientEntities = new HashSet<Entity>();
+        private readonly HashSet<IntPoint> _clientStatic = new HashSet<IntPoint>(new IntPointComparer());
+        private readonly Dictionary<Entity, int> _lastUpdate = new Dictionary<Entity, int>();
+        private int _mapHeight;
+        private int _mapWidth;
+        private int _tickId;
+
+        private IEnumerable<Entity> GetNewEntities()
         {
-            foreach (var i in Owner.Players)
+            foreach (KeyValuePair<int, Player> i in Owner.Players.Where(i => _clientEntities.Add(i.Value)))
             {
-                if (clientEntities.Add(i.Value))
-                    yield return i.Value;
+                yield return i.Value;
             }
-            foreach (var i in Owner.PlayersCollision.HitTest(X, Y, RADIUS))
+            foreach (
+                Decoy i in
+                    Owner.PlayersCollision.HitTest(X, Y, SIGHTRADIUS).OfType<Decoy>().Where(i => _clientEntities.Add(i))
+                )
             {
-                if (i is Decoy)
+                yield return i;
+            }
+
+            foreach (Entity i in Owner.EnemiesCollision.HitTest(X, Y, SIGHTRADIUS))
+            {
+                if (MathsUtils.DistSqr(i.X, i.Y, X, Y) <= SIGHTRADIUS * SIGHTRADIUS)
                 {
-                    if (clientEntities.Add(i))
+                    if (_clientEntities.Add(i))
                         yield return i;
                 }
             }
-            foreach (var i in Owner.EnemiesCollision.HitTest(X, Y, RADIUS))
-            {
-                if (i is Container)
-                {
-                    int[] owners = (i as Container).BagOwners;
-                    if (owners.Length > 0 && Array.IndexOf(owners, AccountId) == -1) continue;
-                }
-                if (MathsUtils.DistSqr(i.X, i.Y, X, Y) <= RADIUS * RADIUS)
-                {
-                    if (clientEntities.Add(i))
-                        yield return i;
-                }
-            }
-            if (questEntity != null && clientEntities.Add(questEntity))
+            if (questEntity != null && _clientEntities.Add(questEntity))
                 yield return questEntity;
         }
-        IEnumerable<int> GetRemovedEntities()
+
+        private IEnumerable<int> GetRemovedEntities()
         {
-            foreach (var i in clientEntities)
+            foreach (Entity i in _clientEntities.Where(i => i is Player))
             {
-                if (i is Player && i.Owner != null) continue;
-                if (MathsUtils.DistSqr(i.X, i.Y, X, Y) > RADIUS * RADIUS &&
+                if (i != this)
+                {
+                    yield return i.Id;
+                }
+            }
+            foreach (Entity i in _clientEntities.Where(i => !(i is Player) || i.Owner == null))
+            {
+                if (MathsUtils.DistSqr(i.X, i.Y, X, Y) > SIGHTRADIUS * SIGHTRADIUS &&
                     !(i is StaticObject && (i as StaticObject).Static) &&
                     i != questEntity)
+                {
                     yield return i.Id;
+                }
                 else if (i.Owner == null)
                     yield return i.Id;
+
+                if (i is Player)
+                {
+                    if (i != this)
+                    {
+                        yield return i.Id;
+                    }
+                }
             }
         }
-        IEnumerable<ObjectDef> GetNewStatics(int _x, int _y)
+
+        private IEnumerable<ObjectDef> GetNewStatics(int _x, int _y)
         {
             List<ObjectDef> ret = new List<ObjectDef>();
-            foreach (var i in Sight.GetSightCircle(RADIUS))
+            foreach (var i in Sight.GetSightCircle(SIGHTRADIUS))
             {
                 int x = i.X + _x;
                 int y = i.Y + _y;
-                if (x < 0 || x >= mapWidth ||
-                    y < 0 || y >= mapHeight) continue;
+                if (x < 0 || x >= _mapWidth ||
+                    y < 0 || y >= _mapHeight) continue;
+
                 var tile = Owner.Map[x, y];
-                if (tile.ObjId != 0 && tile.ObjType != 0 && clientStatic.Add(new IntPoint(x, y)))
+
+                if (tile.ObjId != 0 && tile.ObjType != 0 && _clientStatic.Add(new IntPoint(x, y)))
+                {
+                    ObjectDef def = tile.ToDef(x, y);
+                    string cls = Manager.GameData.Xmls[tile.ObjType].Element("Class").Value;
+                    if (cls == "ConnectedWall" || cls == "CaveWall" || cls == "Mountain")
+                        if (def.Stats.Stats.Count(_ => _.Key == StatsType.ObjectConnection && (int)_.Value != 0) == 0)
+                            tile.Name = ConnectionComputer.GetConnString((xx, yy) => Owner.Map[x + xx, y + yy].ObjType == tile.ObjType);
                     ret.Add(tile.ToDef(x, y));
+                }
             }
             return ret;
         }
-        IEnumerable<IntPoint> GetRemovedStatics(int _x, int _y)
+
+        private IEnumerable<IntPoint> GetRemovedStatics(int _x, int _y)
         {
-            foreach (var i in clientStatic)
-            {
-                var dx = i.X - _x;
-                var dy = i.Y - _y;
-                var tile = Owner.Map[i.X, i.Y];
-                if (dx * dx + dy * dy > RADIUS * RADIUS ||
-                    tile.ObjType == 0)
-                {
-                    int objId = Owner.Map[i.X, i.Y].ObjId;
-                    if (objId != 0)
-                        yield return i;
-                }
-            }
+            return from i in _clientStatic
+                   let dx = i.X - _x
+                   let dy = i.Y - _y
+                   let tile = Owner.Map[i.X, i.Y]
+                   where dx * dx + dy * dy > SIGHTRADIUS * SIGHTRADIUS ||
+                         tile.ObjType == 0
+                   let objId = Owner.Map[i.X, i.Y].ObjId
+                   where objId != 0
+                   select i;
         }
 
-        Dictionary<Entity, int> lastUpdate = new Dictionary<Entity, int>();
-        void SendUpdate(RealmTime time)
+        public void SendUpdate(RealmTime time)
         {
-            if (Owner == null) return;
-            mapWidth = Owner.Map.Width;
-            mapHeight = Owner.Map.Height;
+            _mapWidth = Owner.Map.Width;
+            _mapHeight = Owner.Map.Height;
             var map = Owner.Map;
             int _x = (int)X; int _y = (int)Y;
 
             var sendEntities = new HashSet<Entity>(GetNewEntities());
 
-            var list = new List<UpdatePacket.TileData>(APPOX_AREA_OF_SIGHT);
+            var list = new List<UpdatePacket.TileData>(AppoxAreaOfSight);
             int sent = 0;
-            foreach (var i in Sight.GetSightCircle(RADIUS))
+            foreach (var i in Sight.GetSightCircle(SIGHTRADIUS))
             {
                 int x = i.X + _x;
                 int y = i.Y + _y;
+
                 WmapTile tile;
-                if (x < 0 || x >= mapWidth ||
-                    y < 0 || y >= mapHeight ||
+                if (x < 0 || x >= _mapWidth ||
+                    y < 0 || y >= _mapHeight ||
                     tiles[x, y] >= (tile = map[x, y]).UpdateCount) continue;
+
+                var world = Manager.GetWorld(this.Owner.Id);
+
                 list.Add(new UpdatePacket.TileData()
                 {
                     X = (short)x,
                     Y = (short)y,
-                    Tile = (Tile)tile.TileId
+                    Tile = (terrain.Tile)tile.TileId
                 });
                 tiles[x, y] = tile.UpdateCount;
                 sent++;
             }
-            fames.TileSent(sent);
+            FameCounter.TileSent(sent);
 
             var dropEntities = GetRemovedEntities().Distinct().ToArray();
-            clientEntities.RemoveWhere(_ => Array.IndexOf(dropEntities, _.Id) != -1);
+            _clientEntities.RemoveWhere(_ => Array.IndexOf(dropEntities, _.Id) != -1);
+
+            List<Entity> toRemove = new List<Entity>();
+            foreach (Entity i in _lastUpdate.Keys.Where(i => !_clientEntities.Contains(i)))
+                toRemove.Add(i);
+            toRemove.ForEach(i => _lastUpdate.Remove(i));
 
             foreach (var i in sendEntities)
-                lastUpdate[i] = i.UpdateCount;
+                _lastUpdate[i] = i.UpdateCount;
 
             var newStatics = GetNewStatics(_x, _y).ToArray();
             var removeStatics = GetRemovedStatics(_x, _y).ToArray();
@@ -136,47 +171,51 @@ namespace wServer.realm.entities
             foreach (var i in removeStatics)
             {
                 removedIds.Add(Owner.Map[i.X, i.Y].ObjId);
-                clientStatic.Remove(i);
+                _clientStatic.Remove(i);
             }
 
             if (sendEntities.Count > 0 || list.Count > 0 || dropEntities.Length > 0 ||
                 newStatics.Length > 0 || removedIds.Count > 0)
             {
-                UpdatePacket packet = new UpdatePacket();
-                packet.Tiles = list.ToArray();
-                packet.NewObjects = sendEntities.Select(_ => _.ToDefinition()).Concat(newStatics).ToArray();
-                packet.RemovedObjectIds = dropEntities.Concat(removedIds).ToArray();
-                client.SendPacket(packet);
+                UpdatePacket packet = new UpdatePacket()
+                {
+                    Tiles = list.ToArray(),
+                    NewObjects = sendEntities.Select(_ => _.ToDefinition()).Concat(newStatics).ToArray(),
+                    RemovedObjectIds = dropEntities.Concat(removedIds).ToArray()
+                };
+                Client.SendPacket(packet);
+                UpdatesSend++;
             }
             SendNewTick(time);
         }
 
-        int tickId = 0;
-        void SendNewTick(RealmTime time)
+        private void SendNewTick(RealmTime time)
         {
-            var sendEntities = new List<Entity>();
-            foreach (var i in clientEntities)
+            List<Entity> sendEntities = new List<Entity>();
+            try
             {
-                if (i.UpdateCount > lastUpdate[i])
+                foreach (Entity i in _clientEntities.Where(i => i.UpdateCount > _lastUpdate[i]))
                 {
                     sendEntities.Add(i);
-                    lastUpdate[i] = i.UpdateCount;
+                    _lastUpdate[i] = i.UpdateCount;
                 }
             }
-            if (questEntity != null && (!lastUpdate.ContainsKey(questEntity) || questEntity.UpdateCount > lastUpdate[questEntity]))
+            catch (Exception e)
+            {
+                log.Error(e);
+            }
+            if (questEntity != null &&
+                (!_lastUpdate.ContainsKey(questEntity) || questEntity.UpdateCount > _lastUpdate[questEntity]))
             {
                 sendEntities.Add(questEntity);
-                lastUpdate[questEntity] = questEntity.UpdateCount;
+                _lastUpdate[questEntity] = questEntity.UpdateCount;
             }
             NewTickPacket p = new NewTickPacket();
-            tickId++;
-            p.TickId = tickId;
+            _tickId++;
+            p.TickId = _tickId;
             p.TickTime = time.thisTickTimes;
             p.UpdateStatuses = sendEntities.Select(_ => _.ExportStats()).ToArray();
-            p.DateTime = Manager.CurrentDatetime;
-            client.SendPacket(p);
-
-            SaveToCharacter();
+            Client.SendPacket(p);
         }
     }
 }

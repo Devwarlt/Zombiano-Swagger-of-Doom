@@ -10,8 +10,11 @@ package _9R_{
 
         public static const CLIENT_UPDATE:String = "CLIENT_UPDATE";
 
-        public function _D_X_(){
+        public var newVersion:String;
+
+        public function _D_X_(newVersion:String){
             super(CLIENT_UPDATE);
+            this.newVersion = newVersion;
         }
     }
 }//package _9R_

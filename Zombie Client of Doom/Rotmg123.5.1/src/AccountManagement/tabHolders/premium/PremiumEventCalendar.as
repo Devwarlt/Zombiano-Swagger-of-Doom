@@ -418,7 +418,7 @@ class calendarEvent extends Sprite {
 
     private function getImage(thumb:Boolean = false):BitmapData {
         switch(event.icon) {
-            case "fpcPack": return thumb ? new AccountManagementImages.pack_01_thumb().bitmapData : new AccountManagementImages.pack_01_detail().bitmapData;
+            case "firePack": return thumb ? new AccountManagementImages.pack_01_thumb().bitmapData : new AccountManagementImages.pack_01_detail().bitmapData;
             case "premiumEvent": return thumb ? new AccountManagementImages.event_01_thumb().bitmapData : new AccountManagementImages.event_01_detail().bitmapData;
             default: return null;
         }

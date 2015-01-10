@@ -15,44 +15,44 @@ namespace wServer.networking.handlers
             client.Manager.Logic.AddPendingAction(t =>
             {
                 if (client.Player.Owner == null) return;
-                Handle(client.Player, packet.Slot.SlotId);
+                Handle(client.Player.Owner.GetEntity(packet.Slot.ObjectId) as IContainer, packet.Slot.SlotId);
             });
         }
 
 
         static Random invRand = new Random();
-        void Handle(Player player, int slot)
+        void Handle(IContainer con, int slot)
         {
+            if (con == null) return;
             const ushort NORM_BAG = 0x0500;
             const ushort SOUL_BAG = 0x0503;
 
-            IContainer con = player as IContainer;
             if (con.Inventory[slot] == null)
             {
                 //still count as dropped
-                player.Client.SendPacket(new InvResultPacket() { Result = 0 });
+                Client.SendPacket(new InvResultPacket() { Result = 0 });
                 return;
             }
 
             Item item = con.Inventory[slot];
             con.Inventory[slot] = null;
-            player.UpdateCount++;
+            Client.Player.UpdateCount++;
 
             Container container;
             if (item.Soulbound)
             {
-                container = new Container(player.Manager, SOUL_BAG, 1000 * 60, true);
-                container.BagOwners = new int[] { player.AccountId };
+                container = new Container(Client.Manager, SOUL_BAG, 1000 * 60, true);
+                container.BagOwners = new int[] { Client.Account.AccountId };
             }
             else
-                container = new Container(player.Manager, NORM_BAG, 1000 * 60, true);
+                container = new Container(Client.Manager, NORM_BAG, 1000 * 60, true);
             container.Inventory[0] = item;
-            container.Move(player.X + (float)((invRand.NextDouble() * 2 - 1) * 0.5),
-                           player.Y + (float)((invRand.NextDouble() * 2 - 1) * 0.5));
+            container.Move(Client.Player.X + (float)((invRand.NextDouble() * 2 - 1) * 0.5),
+                           Client.Player.Y + (float)((invRand.NextDouble() * 2 - 1) * 0.5));
             container.Size = 75;
-            player.Owner.EnterWorld(container);
+            Client.Player.Owner.EnterWorld(container);
 
-            player.Client.SendPacket(new InvResultPacket() { Result = 0 });
+            Client.SendPacket(new InvResultPacket() { Result = 0 });
         }
     }
 }

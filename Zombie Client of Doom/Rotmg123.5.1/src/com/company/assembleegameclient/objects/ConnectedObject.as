@@ -37,7 +37,7 @@ package com.company.assembleegameclient.objects{
 
         protected var rotation_:int = 0;
 
-        public function ConnectedObject(_arg1:XML){
+        public function ConnectedObject(_arg1:XML) {
             super(_arg1);
             _P_m = false;
         }
@@ -63,7 +63,7 @@ package com.company.assembleegameclient.objects{
             var _local3:int;
             while (_local3 < 4)
             {
-                if (!_aI_.hasOwnProperty(_arg1))
+                if (!_aI_.hasOwnProperty(String(_arg1)))
                 {
                     _aI_[_arg1] = new ConnectedResults(_arg2, _local3);
                     _local4 = (_arg1 & 0xFF);
@@ -105,7 +105,9 @@ package com.company.assembleegameclient.objects{
             var _local1:ConnectedResults = _0D_(_O_l);
             if (_local1 == null)
             {
-                _8J_ = null;
+                _8J_ = new _uZ_();
+                this.buildDot();
+                _8J_.setPosition(x_, y_, 0, (this.rotation_ * 90));
                 return;
             }
             this.rotation_ = _local1.rotation_;

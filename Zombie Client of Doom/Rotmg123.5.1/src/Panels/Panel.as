@@ -4,8 +4,8 @@
 //Panels.Panel
 
 package Panels{
-    import flash.display.Sprite;
-    import com.company.assembleegameclient.game.GameSprite;
+import flash.display.Sprite;
+import com.company.assembleegameclient.game.GameSprite;
 
     public class Panel extends Sprite {
 
@@ -17,9 +17,8 @@ package Panels{
         public function Panel(_arg1:GameSprite){
             this.gs_ = _arg1;
         }
-        public function draw():void{
+        public function draw():void {
         }
-
     }
 }//package Panels
 

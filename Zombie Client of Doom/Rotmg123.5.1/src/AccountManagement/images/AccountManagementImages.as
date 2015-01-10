@@ -23,19 +23,19 @@ public class AccountManagementImages {
     [Embed(source="defaultSpeechBubble.png")]
     public static const defaultSpeechBubble:Class;
 
-    [Embed(source="bronzeFpcPack.png")]
-    public static const bronzeFpcPack:Class;
-    [Embed(source="silverFpcPack.png")]
-    public static const silverFpcPack:Class;
-    [Embed(source="goldFpcPack.png")]
-    public static const goldFpcPack:Class;
-    [Embed(source="premiumFpcPack.png")]
-    public static const premiumFpcPack:Class;
+    [Embed(source="bronzeFirePack.png")]
+    public static const bronzeFirePack:Class;
+    [Embed(source="silverFirePack.png")]
+    public static const silverFirePack:Class;
+    [Embed(source="goldFirePack.png")]
+    public static const goldFirePack:Class;
+    [Embed(source="premiumFirePack.png")]
+    public static const premiumFirePack:Class;
     [Embed(source="premiumDLC.png")]
     public static const premiumDLC:Class;
 
-    [Embed(source="openFpcPacks.png")]
-    public static const openFpcPacks:Class;
+    [Embed(source="openFirePacks.png")]
+    public static const openFirePacks:Class;
     [Embed(source="gold-x5.png")]
     public static const gold_x5:Class;
 

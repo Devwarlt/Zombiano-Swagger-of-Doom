@@ -137,56 +137,14 @@ public class Account
     {
         get
         {
-            return new List<NewsItem>
-            {
-                new NewsItem
-                {
-                    Date = 1419068064,
-                    Icon = "bronzeFpcPack",
-                    Link = "switchTo:FPC Packs",
-                    TagLine = "Item: Bronze FPC Pack",
-                    Title = "You received a new item."
-                },
-                new NewsItem
-                {
-                    Date = 1419068064,
-                    Icon = "silverFpcPack",
-                    Link = "switchTo:FPC Packs",
-                    TagLine = "Item: Silver FPC Pack",
-                    Title = "You received a new item."
-                },
-                new NewsItem
-                {
-                    Date = 1419068064,
-                    Icon = "goldFpcPack",
-                    Link = "switchTo:FPC Packs",
-                    TagLine = "Item: Gold FPC Pack",
-                    Title = "You received a new item."
-                },
-                new NewsItem
-                {
-                    Date = 1419068064,
-                    Icon = "premiumFpcPack",
-                    Link = "switchTo:FPC Packs",
-                    TagLine = "Item: Premium FPC Pack",
-                    Title = "You received a new item."
-                },
-                new NewsItem
-                {
-                    Date = 1419068063,
-                    Icon = "premium",
-                    Link = "switchTo:Premium",
-                    TagLine = "You are now able to use special premium features",
-                    Title = "Premium access purchased"
-                }
-            };
+            return new List<NewsItem>();
         }
         set { }
     }
 
-    [XmlArray("FpcPacks")]
+    [XmlArray("FirePacks")]
     [XmlArrayItem("Pack")]
-    public List<FpcPackItem> FpcPacks { get; set; }
+    public List<FirePackItem> FirePacks { get; set; }
 
 
     [XmlArray("PremiumNews")]
@@ -199,27 +157,11 @@ public class Account
             {
                 new PremiumNewsItem
                 {
-                    StartDate = 1420121952,//1419340503,
-                    EndDate = -1,
-                    Icon = "fpcPack",
-                    Description = "Your monthly Gold FPCpack for being a Premium member!",
-                    Title = "GOLD FPCPACK"
-                },
-                new PremiumNewsItem
-                {
-                    StartDate = 1419340503,
-                    EndDate = 1419426890,
+                    Description = "MPGH is 100% bug free *NOT*",
+                    StartDate = db.Database.DateTimeToUnixTimestamp(DateTime.Now),
+                    EndDate = db.Database.DateTimeToUnixTimestamp(DateTime.Now.AddDays(1)),
                     Icon = "premiumEvent",
-                    Description = "Every month there will be a different Premium Event in-game for members to participate in!",
-                    Title = "PREMIUM EVENT"
-                },
-                new PremiumNewsItem
-                {
-                    StartDate = 1419426890,
-                    EndDate = -1,
-                    Icon = "premiumEvent",
-                    Description = "Mpgh will be completely bug free!",
-                    Title = "MPGH EVENT"
+                    Title = "MPGH REVOLUTION"
                 }
             };
         }
@@ -236,7 +178,7 @@ public class Account
 }
 
 [Serializable, XmlRoot()]
-public class FpcPackItem
+public class FirePackItem
 {
     [XmlAttribute("type")]
     public int Type { get; set; }

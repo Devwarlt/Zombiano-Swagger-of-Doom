@@ -5,7 +5,6 @@
 
 package com.company.assembleegameclient.util{
 import AccountManagement.images.AccountManagementImages;
-
 import Sounds.LocalSounds;
 
 import _0K_m._0H_Y_;
@@ -13,8 +12,10 @@ import _0K_m._0H_Y_;
     import Sounds.UrlSoundEffects;
     import Sounds._Q_P_;
     import Sounds.Music;
-    
-    import com.company.assembleegameclient.engine3d._B_5;
+
+import _F_1.MapInfoBackgrounds;
+
+import com.company.assembleegameclient.engine3d._B_5;
     import com.company.assembleegameclient.map._pf;
     import com.company.assembleegameclient.map._sn;
     import com.company.assembleegameclient.objects.ObjectLibrary;
@@ -72,7 +73,7 @@ import _0K_m._0H_Y_;
         AssetLibrary._05q("batteryCharges", new Embeds.batteryChargedEmbed_().bitmapData, 16, 16);
         AssetLibrary._05q("anna", new Embeds.testImage().bitmapData, 640, 480);
         AssetLibrary._05q("carbonFibre", new Embeds.carbon().bitmapData, 256, 256);
-        AssetLibrary._05q("openFpcPacks", new AccountManagementImages.openFpcPacks().bitmapData, 80, 80);
+        AssetLibrary._05q("openFirePacks", new AccountManagementImages.openFirePacks().bitmapData, 80, 80);
         var _local1:BitmapData = new BitmapData(8, 8, true, 0);
         AssetLibrary._05q("invisible", _local1, 8, 8);
         _0B_c.add("chars8x8rBeach", new Embeds.chars8x8rBeachEmbed_().bitmapData, null, 8, 8, 56, 8, _lJ_.RIGHT);
@@ -129,96 +130,101 @@ import _0K_m._0H_Y_;
         Parameters.load();
         Music.load();
         _Q_P_.load();
+        MapInfoBackgrounds.load();
         LocalSounds.load();
     }
 }
 
-import FPC.Embeds.Images.Embeds_chars16x16dEncounters2Embed_;
-import FPC.Embeds.Images.Embeds_chars16x16dEncountersEmbed_;
-import FPC.Embeds.Images.Embeds_chars16x16dMountains1Embed_;
-import FPC.Embeds.Images.Embeds_chars16x16dMountains2Embed_;
-import FPC.Embeds.Images.Embeds_chars16x16rEncountersEmbed_;
-import FPC.Embeds.Images.Embeds_chars16x8dEncountersEmbed_;
-import FPC.Embeds.Images.Embeds_chars16x8rEncountersEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8dBeachEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8dEncountersEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8dHero1Embed_;
-import FPC.Embeds.Images.Embeds_chars8x8rBeachEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8rEncountersEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8rHero1Embed_;
-import FPC.Embeds.Images.Embeds_chars8x8rHero2Embed_;
-import FPC.Embeds.Images.Embeds_chars8x8rHighEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8rLow1Embed_;
-import FPC.Embeds.Images.Embeds_chars8x8rLow2Embed_;
-import FPC.Embeds.Images.Embeds_chars8x8rMid2Embed_;
-import FPC.Embeds.Images.Embeds_chars8x8rMidEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8rPets1Embed_;
-import FPC.Embeds.Images.Embeds_chars8x8rPets1MaskEmbed_;
-import FPC.Embeds.Images.Embeds_chars8x8rPetsKaratePenguin_;
-import FPC.Embeds.Images.Embeds_innerP1MaskEmbed_;
-import FPC.Embeds.Images.Embeds_innerP2MaskEmbed_;
-import FPC.Embeds.Images.Embeds_lofiChar2Embed_;
-import FPC.Embeds.Images.Embeds_lofiCharEmbed_;
-import FPC.Embeds.Images.Embeds_lofiEnvironment2Embed_;
-import FPC.Embeds.Images.Embeds_lofiEnvironment3Embed_;
-import FPC.Embeds.Images.Embeds_lofiEnvironmentEmbed_;
-import FPC.Embeds.Images.Embeds_lofiInterfaceEmbed_;
-import FPC.Embeds.Images.Embeds_lofiObj2Embed_;
-import FPC.Embeds.Images.Embeds_lofiObj3Embed_;
-import FPC.Embeds.Images.Embeds_lofiObj40x40Embed_;
-import FPC.Embeds.Images.Embeds_lofiObj4Embed_;
-import FPC.Embeds.Images.Embeds_lofiObj5Embed_;
-import FPC.Embeds.Images.Embeds_lofiObj6Embed_;
-import FPC.Embeds.Images.Embeds_lofiObjEmbed_;
-import FPC.Embeds.Images.Embeds_weapons40x40Embed_;
-import FPC.Embeds.Images._09C_;
-import FPC.Embeds.Images._0L_i;
-import FPC.Embeds.Images._0M_D_;
-import FPC.Embeds.Images._9V_;
-import FPC.Embeds.Images._E_K_;
-import FPC.Embeds.Images._O_H_;
-import FPC.Embeds.Images._U_0;
-import FPC.Embeds.Images._W_r;
-import FPC.Embeds.Images._Z_F_;
-import FPC.Embeds.Images._hU_;
-import FPC.Embeds.Images._p1;
-import FPC.Embeds.Images._qd;
-import FPC.Embeds.Images._tI_;
-import FPC.Embeds.Images.batteryChargedEmbed;
-import FPC.Embeds.Models.Embeds_Tetrahedron;
-import FPC.Embeds.Models.Embeds_monsterTank1Embed_;
-import FPC.Embeds.Models.Embeds_monsterTank2Embed_;
-import FPC.Embeds.Models.Embeds_monsterTank3Embed_;
-import FPC.Embeds.Models.Embeds_monsterTank4Embed_;
-import FPC.Embeds.Images.Embeds_playerSkinsEmbed_;
-import FPC.Embeds.Images.Embeds_playerSkinsMaskEmbed_;
-import FPC.Embeds.Images.Embeds_rainEmbed_;
-import FPC.Embeds.Images.Embeds_starsEmbed_;
-import FPC.Embeds.Images.Embeds_textile10x10Embed_;
-import FPC.Embeds.Images.Embeds_textile4x4Embed_;
-import FPC.Embeds.Images.Embeds_textile5x5Embed_;
-import FPC.Embeds.Images.Embeds_textile9x9Embed_;
-import FPC.Embeds.Images.craftingBookEmbed;
-import FPC.Embeds.Models._03V_;
-import FPC.Embeds.Models._09R_;
-import FPC.Embeds.Models._0B_D_;
-import FPC.Embeds.Models._0G_4;
-import FPC.Embeds.Models._33;
-import FPC.Embeds.Models._3o;
-import FPC.Embeds.Models._E_W_;
-import FPC.Embeds.Models._J_C_;
-import FPC.Embeds.Models._S_5;
-import FPC.Embeds.Models._W_B_;
-import FPC.Embeds.Models._X_h;
-import FPC.Embeds.Models._br;
-import FPC.Embeds.Models._eR_;
-import FPC.Embeds.Models._gO_;
-import FPC.Embeds.Models._l3;
-import FPC.Embeds.Models._nn;
-import FPC.Embeds.Models._qC_;
-import FPC.Embeds.Models._ve;
-import FPC.Embeds.Models._xJ_;
-import FPC.Embeds.Models.skyscraper;
+import FireBite.Embeds.Images.Embeds_chars16x16dEncounters2Embed_;
+import FireBite.Embeds.Images.Embeds_chars16x16dEncountersEmbed_;
+import FireBite.Embeds.Images.Embeds_chars16x16dMountains1Embed_;
+import FireBite.Embeds.Images.Embeds_chars16x16dMountains2Embed_;
+import FireBite.Embeds.Images.Embeds_chars16x16rEncountersEmbed_;
+import FireBite.Embeds.Images.Embeds_chars16x8dEncountersEmbed_;
+import FireBite.Embeds.Images.Embeds_chars16x8rEncountersEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8dBeachEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8dEncountersEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8dHero1Embed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rBeachEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rEncountersEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rHero1Embed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rHero2Embed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rHighEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rLow1Embed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rLow2Embed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rMid2Embed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rMidEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rPets1Embed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rPets1MaskEmbed_;
+import FireBite.Embeds.Images.Embeds_chars8x8rPetsKaratePenguin_;
+import FireBite.Embeds.Images.Embeds_innerP1MaskEmbed_;
+import FireBite.Embeds.Images.Embeds_innerP2MaskEmbed_;
+import FireBite.Embeds.Images.Embeds_lofiChar2Embed_;
+import FireBite.Embeds.Images.Embeds_lofiCharEmbed_;
+import FireBite.Embeds.Images.Embeds_lofiEnvironment2Embed_;
+import FireBite.Embeds.Images.Embeds_lofiEnvironment3Embed_;
+import FireBite.Embeds.Images.Embeds_lofiEnvironmentEmbed_;
+import FireBite.Embeds.Images.Embeds_lofiInterfaceEmbed_;
+import FireBite.Embeds.Images.Embeds_lofiObj2Embed_;
+import FireBite.Embeds.Images.Embeds_lofiObj3Embed_;
+import FireBite.Embeds.Images.Embeds_lofiObj40x40Embed_;
+import FireBite.Embeds.Images.Embeds_lofiObj4Embed_;
+import FireBite.Embeds.Images.Embeds_lofiObj5Embed_;
+import FireBite.Embeds.Images.Embeds_lofiObj6Embed_;
+import FireBite.Embeds.Images.Embeds_lofiObjEmbed_;
+import FireBite.Embeds.Images.Embeds_weapons40x40Embed_;
+import FireBite.Embeds.Images._09C_;
+import FireBite.Embeds.Images._0L_i;
+import FireBite.Embeds.Images._0M_D_;
+import FireBite.Embeds.Images._9V_;
+import FireBite.Embeds.Images._E_K_;
+import FireBite.Embeds.Images._O_H_;
+import FireBite.Embeds.Images._U_0;
+import FireBite.Embeds.Images._W_r;
+import FireBite.Embeds.Images._Z_F_;
+import FireBite.Embeds.Images._hU_;
+import FireBite.Embeds.Images._p1;
+import FireBite.Embeds.Images._qd;
+import FireBite.Embeds.Images._tI_;
+import FireBite.Embeds.Images.batteryChargedEmbed;
+import FireBite.Embeds.Models.Embeds_Tetrahedron;
+import FireBite.Embeds.Models.Embeds_monsterTank1Embed_;
+import FireBite.Embeds.Models.Embeds_monsterTank2Embed_;
+import FireBite.Embeds.Models.Embeds_monsterTank3Embed_;
+import FireBite.Embeds.Models.Embeds_monsterTank4Embed_;
+import FireBite.Embeds.Images.Embeds_playerSkinsEmbed_;
+import FireBite.Embeds.Images.Embeds_playerSkinsMaskEmbed_;
+import FireBite.Embeds.Images.Embeds_rainEmbed_;
+import FireBite.Embeds.Images.Embeds_starsEmbed_;
+import FireBite.Embeds.Images.Embeds_textile10x10Embed_;
+import FireBite.Embeds.Images.Embeds_textile4x4Embed_;
+import FireBite.Embeds.Images.Embeds_textile5x5Embed_;
+import FireBite.Embeds.Images.Embeds_textile9x9Embed_;
+import FireBite.Embeds.Images.craftingBookEmbed;
+//import FireBite.Embeds.Models.FarmHouse;
+import FireBite.Embeds.Models._03V_;
+import FireBite.Embeds.Models._09R_;
+import FireBite.Embeds.Models._0B_D_;
+import FireBite.Embeds.Models._0G_4;
+import FireBite.Embeds.Models._33;
+import FireBite.Embeds.Models._3o;
+import FireBite.Embeds.Models._E_W_;
+import FireBite.Embeds.Models._J_C_;
+import FireBite.Embeds.Models._S_5;
+import FireBite.Embeds.Models._W_B_;
+import FireBite.Embeds.Models._X_h;
+import FireBite.Embeds.Models._br;
+import FireBite.Embeds.Models._eR_;
+import FireBite.Embeds.Models._gO_;
+import FireBite.Embeds.Models._l3;
+import FireBite.Embeds.Models._nn;
+import FireBite.Embeds.Models._qC_;
+import FireBite.Embeds.Models._ve;
+import FireBite.Embeds.Models._xJ_;
+import FireBite.Embeds.Models.skyscraper;
+//import FireBite.Embeds.Models.tradeTent1;
+
+import FireBite.Embeds.Images.Embeds_lofiCharEmbed_;
 
 import com.embeds.EmbeddedAssets_testImageEmbed_;
 
@@ -353,6 +359,8 @@ class Embeds {
     /*private*/ internal static var octahedronEmbed_:Class = _l3;
     /*private*/ internal static var pyramidEmbed_:Class = _xJ_;
                 internal static var skyscaperEmbed_:Class = skyscraper;
+                //internal static var tradeTendEmbed_:Class = tradeTent1;
+                //internal static var farmHouseEmbed_:Class = FarmHouse;
     /*private*/ internal static var tetrahedronEmbed_:Class = Embeds_Tetrahedron;
     /*private*/ internal static var dodecahedronEmbed_:Class = _nn;
     /*private*/ internal static var pillarEmbed_:Class = _J_C_;
@@ -389,6 +397,8 @@ class Embeds {
         "Sign":new signEmbed_(),
         "Web":new webEmbed_(),
         "Skyscraper":new skyscaperEmbed_()
+        //"TradeTent":new tradeTendEmbed_(),
+        //"FarmHouse":new farmHouseEmbed_()
     };
 
 }

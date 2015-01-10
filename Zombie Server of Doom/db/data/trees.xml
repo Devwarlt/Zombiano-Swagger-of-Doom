@@ -1514,7 +1514,25 @@
     <BlocksSight />
     <Connects />
   </Object>
-  <Object type="0x01cf" id="Grey Bars Wall">
+
+  <Object type="0x01cf" id="Mountain">
+    <Class>Mountain</Class>
+    <DisplayId>Himalayas</DisplayId>
+    <Description>The Himalaya are among the youngest mountain ranges on the planet and consist mostly of uplifted sedimentary and metamorphic rock. According to the modern theory of plate tectonics, their formation is a result of a continental collision or orogeny along the convergent boundary between the Indo-Australian Plate and the Eurasian Plate. The Arakan Yoma highlands in Myanmar and the Andaman and Nicobar Islands in the Bay of Bengal were also formed as a result of this collision.</Description>
+    <Texture>
+      <File>lofiEnvironment</File>
+      <Index>0x60</Index>
+    </Texture>
+    <ShadowSize>0</ShadowSize>
+    <Interactive />
+    <FullOccupy />
+    <Static />
+    <OccupySquare />
+    <EnemyOccupySquare />
+    <BlocksSight />
+    <Connects />
+  </Object>
+  <!--<Object type="0x01cf" id="Grey Bars Wall">
     <Class>Wall</Class>
     <Texture>
       <File>lofiEnvironment2</File>
@@ -1533,7 +1551,7 @@
     <OccupySquare />
     <EnemyOccupySquare />
     <BlocksSight />
-  </Object>
+  </Object>-->
   <Object type="0x01d0" id="Empty Wine Wall">
     <Class>Wall</Class>
     <Texture>

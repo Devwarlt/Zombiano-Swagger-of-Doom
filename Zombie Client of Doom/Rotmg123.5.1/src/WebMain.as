@@ -31,6 +31,7 @@ import flash.system.Capabilities;
 import flash.system.Security;
 import flash.utils.Timer;
 
+[SWF(width="800", height="600", backgroundColor="#000000", frameRate="120")]
 public class WebMain extends Sprite {
 
     public static var sStage:Stage;

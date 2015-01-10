@@ -5,9 +5,9 @@ using wServer.realm.entities;
 
 namespace wServer.realm.setpieces
 {
-    class ArchMage : ISetPiece
+    class ArchMage : SetPieceBase
     {
-        public int Size { get { return 11; } }
+        public override int Size { get { return 11; } }
 
 
         static readonly string Lava = "Lava Blend";
@@ -33,7 +33,7 @@ namespace wServer.realm.setpieces
             );
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[11, 11];
 

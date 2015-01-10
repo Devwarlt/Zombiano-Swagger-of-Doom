@@ -6,9 +6,9 @@ using wServer.realm.entities;
 
 namespace wServer.realm.setpieces
 {
-    class Graveyard : ISetPiece
+    class Graveyard : SetPieceBase
     {
-        public int Size { get { return 34; } }
+        public override int Size { get { return 34; } }
 
         static readonly string Floor = "Grass";
         static readonly string WallA = "Grey Wall";
@@ -35,7 +35,7 @@ namespace wServer.realm.setpieces
             );
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[23, 35];
 

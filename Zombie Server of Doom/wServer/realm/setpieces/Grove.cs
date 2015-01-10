@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace wServer.realm.setpieces
 {
-    class Grove : ISetPiece
+    class Grove : SetPieceBase
     {
-        public int Size
+        public override int Size
         {
             get { return 25; }
         }
@@ -14,7 +14,7 @@ namespace wServer.realm.setpieces
         static readonly string Tree = "Cherry Tree";
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int radius = rand.Next(Size - 5, Size + 1) / 2;
             List<IntPoint> border = new List<IntPoint>();

@@ -10,6 +10,7 @@ import com.company.assembleegameclient.objects.Container;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.ui.Inventory;
 import com.company.assembleegameclient.ui.Slot;
+import com.company.util._H_V_;
 
 import flash.events.Event;
 import flash.events.KeyboardEvent;
@@ -59,11 +60,14 @@ public class OpenChestPanel extends SimpleButtonPanel {
 
     protected function onAdded(param1:Event):void {
         stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
+        this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
     }
 
     protected function onRemove(param1:Event):void {
         if(this.inventory.gameObject_.objectType_ == 0x0504 || this.inventory.gameObject_.objectType_ == 0x0501) {
-            LocalSoundEffects.play(LocalSounds.closeChest);
+            if(opened) {
+                LocalSoundEffects.play(LocalSounds.closeChest);
+            }
         }
         stage.removeEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
     }

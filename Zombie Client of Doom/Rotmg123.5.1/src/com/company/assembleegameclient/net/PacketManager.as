@@ -10,119 +10,111 @@ import Frames.CraftingFrame;
 import Frames.LearnCraftingRecipeFrame;
 import Frames.NotificationBox;
 
-import MapOverlays.MapOverlay;
-
 import Panels.CraftingPanel;
-
 import Panels.TeleportPanel;
-
-import PopUps.FPCPackPopUp;
-
+import PopUps.FirePackPopUp;
 import PopUps.NewItemUnlockedScreen;
 
 import ServerPackets.*;
-    import ServerPackets.AOE;
-    import ServerPackets.BuyResult;
-    import ServerPackets.Damage;
-    import ServerPackets.Death;
-    import ServerPackets.File;
-    import ServerPackets.Goto;
-    import ServerPackets.InvResult;
-    import ServerPackets.InvitedToGuild;
-    import ServerPackets.MapInfo;
-    import ServerPackets.NameResult;
-    import ServerPackets.Notification;
-    import ServerPackets.Pic;
-    import ServerPackets.ShowEffect;
-    import ServerPackets.Text;
-    import ServerPackets.Update;
-    import ServerPackets._0F_I_;
-    import ServerPackets._0F_u;
-    import ServerPackets._0K_U_;
-    import ServerPackets._0_l;
-    import ServerPackets._8_;
-    import ServerPackets._A_L_;
-    import ServerPackets._C_3;
-    import ServerPackets._G_f;
-    import ServerPackets._I_o;
-    import ServerPackets._S_M_;
-    import ServerPackets._T_m;
-    import ServerPackets._T_n;
-    import ServerPackets._Y_F_;
-    import ServerPackets._Y_G_;
-    import ServerPackets._Z_J_;
-    import ServerPackets._bB_;
-    import ServerPackets._iD_;
-    import ServerPackets._ic;
-    import ServerPackets._qe;
+import ServerPackets.AOE;
+import ServerPackets.BuyResult;
+import ServerPackets.Damage;
+import ServerPackets.Death;
+import ServerPackets.File;
+import ServerPackets.Goto;
+import ServerPackets.InvResult;
+import ServerPackets.InvitedToGuild;
+import ServerPackets.MapInfo;
+import ServerPackets.NameResult;
+import ServerPackets.Notification;
+import ServerPackets.Pic;
+import ServerPackets.ShowEffect;
+import ServerPackets.Text;
+import ServerPackets.Update;
+import ServerPackets._0F_I_;
+import ServerPackets._0F_u;
+import ServerPackets._0K_U_;
+import ServerPackets._0_l;
+import ServerPackets._8_;
+import ServerPackets._A_L_;
+import ServerPackets._C_3;
+import ServerPackets.FailurePacket;
+import ServerPackets._I_o;
+import ServerPackets._S_M_;
+import ServerPackets._T_m;
+import ServerPackets._T_n;
+import ServerPackets._Y_F_;
+import ServerPackets._Y_G_;
+import ServerPackets._Z_J_;
+import ServerPackets._bB_;
+import ServerPackets._iD_;
+import ServerPackets._ic;
+import ServerPackets._qe;
 
 import Sounds.LocalSounds;
 
 import _015._6T_;
-    import _015._O_P_;
-    
-    import ClientPackets.*;
-    import ClientPackets.Buy;
-    import ClientPackets.Create;
-    import ClientPackets.RequestTeleport;
-    import ClientPackets._03l;
-    import ClientPackets._09F_;
-    import ClientPackets._0A_1;
-    import ClientPackets.HelloPacket;
-    import ClientPackets._0C_7;
-    import ClientPackets._0C_G_;
-    import ClientPackets._0F_i;
-    import ClientPackets._0G_8;
-    import ClientPackets._0I_8;
-    import ClientPackets._0L_P_;
-    import ClientPackets._2q;
-    import ClientPackets._99;
-    import ClientPackets._I_s;
-    import ClientPackets._J_I_;
-    import ClientPackets._K_w;
-    import ClientPackets._L_F_;
-    import ClientPackets._U_2;
-    import ClientPackets._V_3;
-    import ClientPackets._W_c;
-    import ClientPackets._X_c;
-    import ClientPackets._bG_;
-    import ClientPackets._fI_;
-    import ClientPackets._hJ_;
-    import ClientPackets._kL_;
-    import ClientPackets._kT_;
-    import ClientPackets._mw;
-    import ClientPackets._ns;
-    import ClientPackets._oy;
-    import ClientPackets._pa;
-    import ClientPackets._r5;
-    import ClientPackets._tN_;
-    import ClientPackets._vp;
+import _015._O_P_;
+
+import ClientPackets.*;
+import ClientPackets.Buy;
+import ClientPackets.Create;
+import ClientPackets.RequestTeleport;
+import ClientPackets._03l;
+import ClientPackets._09F_;
+import ClientPackets._0A_1;
+import ClientPackets.HelloPacket;
+import ClientPackets._0C_7;
+import ClientPackets._0C_G_;
+import ClientPackets._0F_i;
+import ClientPackets._0G_8;
+import ClientPackets._0I_8;
+import ClientPackets._0L_P_;
+import ClientPackets._2q;
+import ClientPackets._99;
+import ClientPackets._I_s;
+import ClientPackets._J_I_;
+import ClientPackets._K_w;
+import ClientPackets._L_F_;
+import ClientPackets._U_2;
+import ClientPackets._V_3;
+import ClientPackets._W_c;
+import ClientPackets._X_c;
+import ClientPackets._bG_;
+import ClientPackets._fI_;
+import ClientPackets._hJ_;
+import ClientPackets._kL_;
+import ClientPackets._kT_;
+import ClientPackets._mw;
+import ClientPackets._ns;
+import ClientPackets._oy;
+import ClientPackets._pa;
+import ClientPackets._r5;
+import ClientPackets._tN_;
+import ClientPackets._vp;
 
 import _05R_.GTween;
 
-import _0K_m.*;
-    import _0K_m.FlowEffect;
-    import _0K_m.StreamEffect;
-    import _0K_m.TeleportEffect;
-    import _0K_m.ThrowEffect;
-    import _0K_m._040;
-    import _0K_m._0H_T_;
-    import _0K_m._0I_o;
-    import _0K_m._0S_;
-    import _0K_m._9h;
-    import _0K_m._C_e;
-    import _0K_m._I_b;
-    import _0K_m._Q_s;
-    import _0K_m._l2;
-    import _0K_m._mn;
-    import _0K_m._pK_;
-    
-    import _0L_C_._02d;
-    import _0L_C_._aZ_;
-    import _0L_C_.DialogBox;
-    
-    import _0M_H_._W_O_;
-    import _0M_H_._sN_;
+import _0K_m.FlowEffect;
+import _0K_m.StreamEffect;
+import _0K_m.TeleportEffect;
+import _0K_m.ThrowEffect;
+import _0K_m._040;
+import _0K_m._0H_T_;
+import _0K_m._0I_o;
+import _0K_m._0S_;
+import _0K_m._9h;
+import _0K_m._C_e;
+import _0K_m._I_b;
+import _0K_m._Q_s;
+import _0K_m._l2;
+import _0K_m._mn;
+import _0K_m._pK_;
+import _0L_C_._02d;
+import _0L_C_._aZ_;
+import _0L_C_.DialogBox;
+import _0M_H_._W_O_;
+import _0M_H_._sN_;
 
 import _0_p._q7;
 
@@ -311,7 +303,7 @@ import flash.events.TimerEvent;
             this.key_ = _arg7;
             this._2B_ = _arg8;
             this.serverConn = new ServerConnection(false);
-            this.serverConn.registerPacket(FAILURE, _G_f, this._nc);
+            this.serverConn.registerPacket(FAILURE, FailurePacket, this._nc);
             this.serverConn.registerPacket(CREATE_SUCCESS, _T_n, this._cw);
             this.serverConn.registerPacket(CREATE, Create, null);
             this.serverConn.registerPacket(PLAYERSHOOT, _0L_P_, null);
@@ -532,7 +524,7 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(_local7);
         }
 
-        public function sprintStart(_arg1:Boolean){
+        public function sprintStart(_arg1:Boolean):void {
             var _local1:SprintPacket = (this.serverConn.createPacketFromID(SPRINT) as SprintPacket);
             _local1.sprintStart = _arg1;
             this.serverConn.sendPacket(_local1);
@@ -553,9 +545,10 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(_local3);
         }
 
-        public function getGift(itemId:int):void {
+        public function getGift(itemId:int, del:Boolean):void {
             var pkt:GetGift = this.serverConn.createPacketFromID(GETGIFT) as GetGift;
             pkt.itemId = itemId;
+            pkt.del = del;
             this.serverConn.sendPacket(pkt);
         }
         public function move(_arg1:int, _arg2:Player):void{
@@ -703,7 +696,7 @@ import flash.events.TimerEvent;
         private function _ux(_arg1:Event):void{
             this.gs_.textBox_.addText(Parameters.SendClient, "Connected!");
             var _local2:HelloPacket = (this.serverConn.createPacketFromID(HELLO) as HelloPacket);
-			_local2.Copyright = "FPC Inc. 2014";
+			_local2.Copyright = "Fire Inc. 2014";
             _local2.buildVersion_ = Parameters.clientVersion;
             _local2.gameId_ = this.gameId_;
             _local2.guid_ = this._J_X_(Account._get().guid());
@@ -1196,7 +1189,7 @@ import flash.events.TimerEvent;
                         _arg1.setTex2(_local4._h);
                         break;
                     case StatData._K_u:
-                        (_arg1 as Merchant).setMerchandiseType(_local4._h);
+                        //(_arg1 as Merchant).setMerchandiseType(_local4._h);
                         break;
                     case StatData._Q_c:
                         (_arg1 as Player)._F_S_(_local4._h);
@@ -1220,16 +1213,16 @@ import flash.events.TimerEvent;
                         _arg1._O_l = _local4._h;
                         break;
                     case StatData._e7:
-                        (_arg1 as Merchant)._1I_ = _local4._h;
-                        (_arg1 as Merchant)._z5 = 0;
+                        //(_arg1 as Merchant)._1I_ = _local4._h;
+                        //(_arg1 as Merchant)._z5 = 0;
                         break;
                     case StatData._ud:
-                        (_arg1 as Merchant)._gt = _local4._h;
-                        (_arg1 as Merchant)._z5 = 0;
+                        //(_arg1 as Merchant)._gt = _local4._h;
+                        //(_arg1 as Merchant)._z5 = 0;
                         break;
                     case StatData._V_c:
-                        (_arg1 as Merchant)._S_I_ = _local4._h;
-                        (_arg1 as Merchant)._z5 = 0;
+                        //(_arg1 as Merchant)._S_I_ = _local4._h;
+                        //(_arg1 as Merchant)._z5 = 0;
                         break;
                     case StatData._H_I_:
                         (_arg1 as SellableObject).setRankReq(_local4._h);
@@ -1597,53 +1590,43 @@ import flash.events.TimerEvent;
         private function onError(_arg1:ErrorEvent):void{
             this.gs_.textBox_.addText(Parameters.SendError, _arg1.text);
         }
-        private function _nc(_arg1:_G_f):void{
+        private function _nc(_arg1:FailurePacket):void{
             switch (_arg1.errorId_)
             {
-                case _G_f._00Z_:
+                case FailurePacket._00Z_:
                     this._ee(_arg1);
                     return;
-                case _G_f._C_w:
+                case FailurePacket._C_w:
                     this._0H_6(_arg1);
                     return;
-                case _G_f._oo:
+                case FailurePacket._oo:
                     this._0K_Z_(_arg1);
                     return;
                 default:
                     this._0M_G_(_arg1);
             }
         }
-        private function _0K_Z_(_arg1:_G_f):void{
+        private function _0K_Z_(_arg1:FailurePacket):void{
             this.gs_.textBox_.addText(Parameters.SendError, _arg1.errorDescription_);
             this.gs_.map_.player_.nextTeleportAt_ = 0;
         }
-        private function _0H_6(_arg1:_G_f):void{
+        private function _0H_6(_arg1:FailurePacket):void{
             this.gs_.textBox_.addText(Parameters.SendError, _arg1.errorDescription_);
             this._P_A_ = false;
             this.gs_.dispatchEvent(new Event(Event.COMPLETE));
         }
-        private function _ee(_arg1:_G_f):void{
-            var _local2:DialogBox = new DialogBox(((("Client version: " + Parameters.clientVersion) + "\nServer version: ") + _arg1.errorDescription_), "Client Update Needed", "Ok", null);
-            _local2.addEventListener(DialogBox.BUTTON1_EVENT, this._Y_h);
-            this.gs_.stage.addChild(_local2);
-            this._P_A_ = false;
+        private function _ee(_arg1:FailurePacket):void {
+            this.gs_.dispatchEvent(new _D_X_(_arg1.errorDescription_));
         }
-        private function _0M_G_(_arg1:_G_f):void{
+        private function _0M_G_(_arg1:FailurePacket):void{
             this.gs_.textBox_.addText(Parameters.SendError, _arg1.errorDescription_);
-        }
-        private function _H_8():void{
-            this.gs_.dispatchEvent(new Event(Event.COMPLETE));
-        }
-        private function _Y_h(_arg1:Event):void{
-            var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
-            _local2.parent.removeChild(_local2);
-            this.gs_.dispatchEvent(new _D_X_());
         }
 		
-		public function craftItems(_arg1:int, _arg2:String) : void {
+		public function craftItems(_arg1:int, _arg2:String, _arg3:Vector.<int>) : void {
 			var _loc2_:Craft = this.serverConn.createPacketFromID(CRAFT) as Craft;
 			_loc2_.objectId_ = _arg1;
             _loc2_.recipeString_ = _arg2;
+            _loc2_.slots = _arg3;
 			this.serverConn.sendPacket(_loc2_);
 		}
 		
@@ -1665,7 +1648,7 @@ import flash.events.TimerEvent;
                     new NewItemUnlockedScreen(this.gs_, packet.itemId, LocalSounds.UX_InGame_Unlock_Item);
                     break;
                 case 1:
-                    new FPCPackPopUp(this.gs_, packet.itemId, LocalSounds.UX_InGame_Unlock_FPCPack);
+                    new FirePackPopUp(this.gs_, packet.itemId, LocalSounds.UX_InGame_Unlock_FirePack);
                     break;
             }
         }

@@ -7,7 +7,9 @@ package Panels{
     import com.company.assembleegameclient.objects.SellableObject;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui._u5;
-    import flash.display.Sprite;
+import com.company.util._H_V_;
+
+import flash.display.Sprite;
     import flash.display.Bitmap;
     import _E_7._for_;
     import flash.text.TextFieldAutoSize;
@@ -98,6 +100,7 @@ package Panels{
             this._5U_.addEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
             this._5U_.addEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);
             stage.addEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
+            this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
             this._5U_.x = -4;
             this._5U_.y = -8;
             this.nameText_.x = 44;

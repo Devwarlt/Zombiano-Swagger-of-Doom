@@ -81,6 +81,7 @@ public class YouTubePlayer extends Sprite {
     }
 
     private function onError(e:Event):void {
+        trace(Object(e).data);
         if(error != null) {
             error();
         }

@@ -34,13 +34,25 @@ public class CraftingTerminal extends GameObject implements IPanelProvider {
     }
 
     public static function craftingRecipe(_arg1:String):int {
-        var i = 0;
-        var ret = -1;
+        var i:int = 0;
+        var ret:int = -1;
 
         if(recipes == null) return ret;
 
         while (i < recipes.length) {
-             if (recipes[i].split(";")[0] == _arg1) {
+            var recString:Array = String(recipes[i].split(";")[0]).split(",");
+            var s:String = "";
+            var c:int = 0;
+
+            for each (var val:String in recString) {
+                if(c == (recString.length - 1))
+                    s += String(int(val));
+                else
+                    s+= String(int(val)) + ",";
+                c++;
+            }
+
+             if (s == _arg1) {
                 ret = int(recipes[i].split(";")[1]);
                 break;
             }

@@ -2,9 +2,9 @@
 
 namespace wServer.realm.setpieces
 {
-    class Pentaract : ISetPiece
+    class Pentaract : SetPieceBase
     {
-        public int Size { get { return 41; } }
+        public override int Size { get { return 41; } }
 
         static readonly string Floor = "Scorch Blend";
         static readonly byte[,] Circle = new byte[,]
@@ -19,7 +19,7 @@ namespace wServer.realm.setpieces
         };
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[41, 41];
 

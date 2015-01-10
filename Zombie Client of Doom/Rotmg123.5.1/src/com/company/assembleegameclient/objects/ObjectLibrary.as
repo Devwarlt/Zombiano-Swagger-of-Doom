@@ -32,6 +32,8 @@ import flash.utils.Dictionary;
         CraftingTerminal;
         CraftingRecipeBook;
         ReskinVendor;
+        Mountain;
+        CaveWall;
 		
         public static const _020:Dictionary = new Dictionary();
         public static const Items:Dictionary = new Dictionary();

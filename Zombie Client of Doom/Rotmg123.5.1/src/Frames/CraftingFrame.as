@@ -161,12 +161,11 @@ public class CraftingFrame extends Frame
             if(param1 != null && param1.currentTarget is DialogBox) {
                 this.parent.removeChild(param1.currentTarget as DialogBox);
             }
-            var slotTypes:Vector.<int> = new Vector.<int>();
-            for (var k in playerItems)
-            {
-                slotTypes.push(int(playerItems[int(k)]));
-            }
-            this.gs_.packetManager.craftItems(this.obj_.objectId_, getCraftingString());
+
+            var slots:Vector.<int> = new Vector.<int>();
+            for (var key:* in playerItems) slots.push(playerItems[key]);
+
+            this.gs_.packetManager.craftItems(this.obj_.objectId_, getCraftingString(), slots);
         }
 
         public static function getCraftingString():String {

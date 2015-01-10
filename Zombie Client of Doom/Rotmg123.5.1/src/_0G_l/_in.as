@@ -111,7 +111,7 @@ import flash.display.Sprite;
             this._07v.y = (HEIGHT - 50);
             this._07v.addEventListener(MouseEvent.CLICK, this._0B_7);
             this.box_.addChild(this._07v);
-            this._uv = new _01c(new <String>["Mine", "All", "FPC"], 120, 30);
+            this._uv = new _01c(new <String>["Mine", "All", "Fire"], 120, 30);
             this._uv.x = 20;
             this._uv.y = 40;
             this.box_.addChild(this._uv);
@@ -161,7 +161,7 @@ import flash.display.Sprite;
                 _local3["guid"] = Account._get().guid();
             } else
             {
-                if (this._uv.getValue() == "FPC")
+                if (this._uv.getValue() == "Fire")
                 {
                     _local3["guid"] = "Admin";
                 }

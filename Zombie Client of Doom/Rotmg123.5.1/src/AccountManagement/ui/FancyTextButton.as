@@ -35,19 +35,28 @@ public class FancyTextButton extends Sprite {
         this.addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
     }
 
+    public function get text_():String {
+        return this.text.text;
+    }
+
+    public function boldText(val:Boolean):void {
+        this.text.boldText(val);
+    }
+
     public function enabled(_arg1:Boolean):void {
         if(mouseEnabled == _arg1) {
             return;
         }
         mouseEnabled = _arg1;
         graphics.clear();
-        graphics.beginFill(_arg1 ? 0x000000 : 0x787878, 1.0);
+        graphics.beginFill(_arg1 ? 0x000000 : 0x2E2E2E, 1.0);
         graphics.drawRect(0, 0, this.w_, this.text.height + 6);
         graphics.endFill();
         GraphicHelper.createBorder(this, 1, _arg1 ? 0xE5C100 : 0xffffff);
     }
 
     private function onRollOver(event:MouseEvent):void {
+        if(!mouseEnabled) return;
         graphics.clear();
         var gradientMatrix:Matrix = new Matrix();
         gradientMatrix.createGradientBox(this.w_, this.text.height + 6, (Math.PI / 180) * 90, 0, 0);
@@ -58,6 +67,7 @@ public class FancyTextButton extends Sprite {
     }
 
     private function onRollOut(event:MouseEvent):void {
+        if(!mouseEnabled) return;
         graphics.clear();
         graphics.beginFill(0x000000, 1.0);
         graphics.drawRect(0, 0, this.w_, this.text.height + 6);

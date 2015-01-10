@@ -10,6 +10,8 @@ namespace wServer
 {
     class Server
     {
+        public const string BUILD_VERSION = "1.0.0";
+
         static ILog log = LogManager.GetLogger(typeof(Server));
 
         public Socket Socket { get; private set; }

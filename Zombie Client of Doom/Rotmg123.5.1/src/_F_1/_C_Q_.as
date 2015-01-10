@@ -4,33 +4,23 @@
 //_F_1._C_Q_
 
 package _F_1{
-import FPC.Embeds.Images.OssiTitleScreenImage;
-import FPC.Embeds.Images.TitleScreenImage;
+import FireBite.Embeds.Images.OssiTitleScreenImage;
+import FireBite.Embeds.Images.TitleScreenImage;
 
 import _02t._R_f;
-    
-    import _ke._0M_1;
-
+import _ke._0M_1;
 import _qN_.Account;
-
-import _qN_.Account;
-
 import _sp._aJ_;
     
-    import com.company.assembleegameclient.appengine._0K_R_;
-    import com.company.assembleegameclient.parameters.Parameters;
-    import com.company.rotmg.graphics.*;
-    import com.company.ui.SimpleText;
-
-import flash.events.Event;
+import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.parameters.Parameters;
+import com.company.rotmg.graphics.*;
+import com.company.ui.SimpleText;
 
 import flash.events.MouseEvent;
-    import flash.filters.DropShadowFilter;
-    import flash.net.URLRequest;
-    import flash.net.navigateToURL;
-    import flash.system.Capabilities;
-
-import mx.skins.halo.TitleBackground;
+import flash.filters.DropShadowFilter;
+import flash.net.URLRequest;
+import flash.net.navigateToURL;
 
 public class _C_Q_ extends _05p {
 
@@ -96,7 +86,7 @@ public class _C_Q_ extends _05p {
             this.versionText.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.versionText);
             this.copyrightText = new SimpleText(12, 0x7F7F7F, false, 0, 0, "Myriad Pro");
-            this.copyrightText.text = "© 2014 by FPC Inc.";
+            this.copyrightText.text = "© 2014 by Fire Inc.";
             this.copyrightText.updateMetrics();
             this.copyrightText.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.copyrightText);

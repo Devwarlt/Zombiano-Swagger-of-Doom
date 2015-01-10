@@ -5,7 +5,10 @@
 
 package Panels{
     import _qN_.Account;
-    import flash.events.Event;
+
+import com.company.util._H_V_;
+
+import flash.events.Event;
     import com.company.assembleegameclient.game.GameSprite;
     import flash.events.MouseEvent;
     import flash.events.KeyboardEvent;
@@ -25,6 +28,7 @@ package Panels{
         }
         private function onRemovedFromStage(_arg1:Event):void{
             stage.removeEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
+            this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
         }
         private function onAddedToStage(_arg1:Event):void{
             stage.addEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);

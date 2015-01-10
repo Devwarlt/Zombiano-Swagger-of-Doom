@@ -5,7 +5,7 @@
 
 package _zD_{
     import _C__._cM_;
-    import _F_1._02a;
+    import _F_1.MapLoadingScreen;
     import _W_D_._0I_H_;
     import _04w._07V_;
     import _U_5._D_L_;
@@ -21,7 +21,7 @@ package _zD_{
     public class _jT_ extends _cM_ {
 
         [Inject]
-        public var view:_02a;
+        public var view:MapLoadingScreen;
         [Inject]
         public var _eJ_:_0I_H_;
         [Inject]
@@ -65,7 +65,7 @@ package _zD_{
                 _local8 = (((_local2)!=null) ? _local2.tex2() : null);
                 _local10 = TextureRedrawer.resize(_local6.image_, _local6.mask_, 100, false, _local7, _local8);
             }
-            this.view.display(_arg1.name_, 0, _local9, _local10);
+            this.view.display(_arg1.name_, 0, _local9, _local10, _arg1.backgroundImage_);
         }
 
     }

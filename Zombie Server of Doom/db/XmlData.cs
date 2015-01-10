@@ -138,6 +138,7 @@ public class XmlData : IDisposable
             switch (cls)
             {
                 case "Equipment":
+                case "Dye":
                     items[type] = new Item(type, elem);
                     break;
                 case "Portal":

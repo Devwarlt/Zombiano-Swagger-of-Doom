@@ -84,7 +84,7 @@ namespace wServer.realm
         public void Insert(T obj)
         {
             if (obj.CollisionNode != null)
-                throw new InvalidOperationException("Object already added into collision map.");
+                return;
 
             var x = (int)(obj.X / CHUNK_SIZE);
             var y = (int)(obj.Y / CHUNK_SIZE);

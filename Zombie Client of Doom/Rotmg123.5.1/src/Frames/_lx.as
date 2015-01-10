@@ -21,9 +21,9 @@ package Frames{
             this.name_.inputText_.restrict = "A-Za-z ";
             this.name_.inputText_.maxChars = 20;
             addTextInput(this.name_);
-            _0D_I_("Maximum 20 characters");
-            _0D_I_("No numbers or punctuation");
-            _0D_I_("Racism or profanity gets your guild banned");
+            addTextLine("Maximum 20 characters");
+            addTextLine("No numbers or punctuation");
+            addTextLine("Racism or profanity gets your guild banned");
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._U_p);
         }

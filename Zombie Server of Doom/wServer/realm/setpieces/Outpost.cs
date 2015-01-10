@@ -9,14 +9,14 @@ using wServer.realm.terrain;
 
 namespace wServer.realm.setpieces
 {
-    public class Outpost : ISetPiece
+    public class Outpost : SetPieceBase
     {
-        public int Size
+        public override int Size
         {
             get { return 300; }
         }
 
-        public unsafe void RenderSetPiece(World world, IntPoint pos)
+        public unsafe override void RenderSetPiece(World world, IntPoint pos)
         {
             string json = File.ReadAllText("outpost.jm");
 
@@ -44,27 +44,6 @@ namespace wServer.realm.setpieces
                     }
                     catch { }
                 }
-            }
-        }
-
-        public unsafe void LoadJson(void* world, string json, IntPoint* pos, void* wmap)
-        {
-            FromWorldMap(new MemoryStream(Json2Wmap.Convert((GCHandle.FromIntPtr(new IntPtr(world)).Target as World).Manager.GameData, json)), world, pos, wmap);
-        }
-
-        private unsafe void FromWorldMap(System.IO.Stream dat, void* world, IntPoint* pos, void* wmap)
-        {
-            Wmap map = (GCHandle.FromIntPtr(new IntPtr(wmap)).Target as Wmap);
-            map.Load(dat, 0);
-            int w = map.Width, h = map.Height;
-
-            pos->X = ((GCHandle.FromIntPtr(new IntPtr(world)).Target as World).Map.Width / 2) - (w / 2);
-            pos->Y = ((GCHandle.FromIntPtr(new IntPtr(world)).Target as World).Map.Width / 2) - (w / 2);
-
-            foreach (var i in map.InstantiateEntities((GCHandle.FromIntPtr(new IntPtr(world)).Target as World).Manager))
-            {
-                i.Move(i.X + pos->X, i.Y + pos->Y);
-                (GCHandle.FromIntPtr(new IntPtr(world)).Target as World).EnterWorld(i);
             }
         }
     }

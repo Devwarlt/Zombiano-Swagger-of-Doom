@@ -6,7 +6,7 @@ namespace wServer.realm.worlds
         public Nexus()
         {
             Id = NEXUS_ID;
-            Name = "Nexus";
+            Name = "Himalayas";
             Background = 2;
             Music = BuildMusic("sorc", "sorc2", "Menu", "Menu2");
             Weather = Weather.Snowy;

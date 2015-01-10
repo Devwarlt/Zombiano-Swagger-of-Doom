@@ -334,7 +334,7 @@ namespace wServer.realm
 
         private bool isSpecial(ushort objId)
         {
-            return objId == 1846 || objId == 1847 || objId == 1848 || objId == 457;
+            return objId == 1846 || objId == 1847 || objId == 1848 || objId == 457;// || objId == 0x01cf;
         }
 
         public IEnumerable<Entity> InstantiateEntities(RealmManager manager)

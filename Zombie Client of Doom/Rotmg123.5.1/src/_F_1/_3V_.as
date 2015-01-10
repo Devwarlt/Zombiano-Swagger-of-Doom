@@ -8,7 +8,7 @@ package _F_1{
     import com.company.assembleegameclient.ui._00A_;
     import com.company.ui.SimpleText;
     import flash.display.Shape;
-    import com.company.assembleegameclient.ui._0K_B_;
+    import com.company.assembleegameclient.ui.ScrollBar;
 
     import _sp._aJ_;
     import _02t._R_f;
@@ -38,7 +38,7 @@ package _F_1{
         private var _017:Sprite;
         private var _045:_H_o;
         private var _dL_:Shape;
-        private var _E_k:_0K_B_;
+        private var _E_k:ScrollBar;
         private var _C_F_:Vector.<_00A_>;
         private var _0A_z:Sprite;
         private var accountId_:int;
@@ -84,7 +84,7 @@ package _F_1{
             addChild(new ScreenGraphic());
             this._dL_ = new Shape();
             addChild(this._dL_);
-            this._E_k = new _0K_B_(16, 400);
+            this._E_k = new ScrollBar(16, 400);
             this._E_k.x = ((800 - this._E_k.width) - 4);
             this._E_k.y = 104;
             addChild(this._E_k);

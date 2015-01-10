@@ -9,7 +9,7 @@ package _sP_{
     import com.company.ui.SimpleText;
     import flash.display.Bitmap;
     import flash.display.Shape;
-    import com.company.assembleegameclient.ui._0K_B_;
+    import com.company.assembleegameclient.ui.ScrollBar;
     import flash.filters.DropShadowFilter;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.util._H_U_;
@@ -35,7 +35,7 @@ package _sP_{
         private var _017:Sprite;
         private var _0A_z:Sprite;
         private var _yT_:SimpleText;
-        private var _E_k:_0K_B_;
+        private var _E_k:ScrollBar;
 
         public function _if(_arg1:int, _arg2:int, _arg3:String="", _arg4:int=0){
             this._09O_ = _arg1;
@@ -135,7 +135,7 @@ package _sP_{
             this._017.addChild(this._0A_z);
             if (this._0A_z.height > 400)
             {
-                this._E_k = new _0K_B_(16, 400);
+                this._E_k = new ScrollBar(16, 400);
                 this._E_k.x = ((800 - this._E_k.width) - 4);
                 this._E_k.y = 104;
                 this._E_k._fA_(400, this._0A_z.height);

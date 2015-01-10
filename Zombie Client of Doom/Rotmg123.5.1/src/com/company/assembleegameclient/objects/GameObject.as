@@ -37,7 +37,8 @@ package com.company.assembleegameclient.objects{
     import flash.geom.Matrix;
     import flash.geom.Point;
     import flash.geom.Vector3D;
-    import flash.utils.Dictionary;
+import flash.sampler.getSavedThis;
+import flash.utils.Dictionary;
     import flash.utils.getQualifiedClassName;
     import flash.utils.getTimer;
     
@@ -121,8 +122,9 @@ package com.company.assembleegameclient.objects{
 		public var tempSkinId_:int = -1;
 		public var pvp_:Boolean = false;
 		public var team_:int = 0;
+        public var xml:XML = null;
 
-        public function GameObject(_arg1:XML){
+        public function GameObject(_arg1:XML) {
             var _local4:int;
             this.props_ = ObjectLibrary._w8;
             this._Z_M_ = new Point();
@@ -138,6 +140,7 @@ package com.company.assembleegameclient.objects{
             {
                 return;
             }
+            this.xml = _arg1;
             this.objectType_ = int(_arg1.@type);
             this.props_ = ObjectLibrary._020[this.objectType_];
             _P_m = (this.props_._0_Z_ > 0);

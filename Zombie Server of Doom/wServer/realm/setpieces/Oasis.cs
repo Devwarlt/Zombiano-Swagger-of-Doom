@@ -6,9 +6,9 @@ using wServer.realm.entities;
 
 namespace wServer.realm.setpieces
 {
-    class Oasis : ISetPiece
+    class Oasis : SetPieceBase
     {
-        public int Size
+        public override int Size
         {
             get { return 30; }
         }
@@ -36,7 +36,7 @@ namespace wServer.realm.setpieces
             );
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int outerRadius = 13;
             int waterRadius = 10;

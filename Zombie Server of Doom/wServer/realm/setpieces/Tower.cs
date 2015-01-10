@@ -2,7 +2,7 @@
 
 namespace wServer.realm.setpieces
 {
-    class Tower : ISetPiece
+    class Tower : SetPieceBase
     {
         static int[,] quarter;
         static Tower()
@@ -31,13 +31,13 @@ namespace wServer.realm.setpieces
                             (a[y][x] == '=' ? 2 : 0);
         }
 
-        public int Size { get { return 27; } }
+        public override int Size { get { return 27; } }
 
         static readonly string Floor = "Rock";
         static readonly string Wall = "Grey Wall";
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[27, 27];
 

@@ -56,7 +56,7 @@ import _0_p._v;
     import _zD_._Q_q;
     import _0L_C_._s7;
     import _zD_._G_9;
-    import _F_1._02a;
+    import _F_1.MapLoadingScreen;
     import _zD_._jT_;
     import _0M_H_._sN_;
     import _0M_H_._R_W_;
@@ -102,7 +102,7 @@ import _0_p._v;
             this.mediatorMap.map(_0B_m)._Y_u(__else);
             this.mediatorMap.map(_0D_W_)._Y_u(_Q_q);
             this.mediatorMap.map(_s7)._Y_u(_G_9);
-            this.mediatorMap.map(_02a)._Y_u(_jT_);
+            this.mediatorMap.map(MapLoadingScreen)._Y_u(_jT_);
             this._m6();
         }
         private function _m6():void{

@@ -1,9 +1,13 @@
-﻿<Credits backgroundVideo="https://www.youtube.com/watch?v=mOYZaiDZ7BM">
-  <!-- https://www.youtube.com/watch?v=lWbUx1X_CuM">-->
+﻿<!--<Credits backgroundVideo="https://www.youtube.com/watch?v=UeY1KhZRWg4">-->
+<Credits music="credits" local="true">
+  <DrawImage id="FireBiteLogo" />
   <DrawText size="56" color="0xffffff">
     <Bold />
     <DropShadowFilter />
-    <Text>Zombie Swagger of Doom</Text>
+    <Text>Zombiano Swagger of Doom</Text>
+  </DrawText>
+  <DrawText size="26" color="0xffffff">
+    <Text>In memory of Kjell Reuterswärd</Text>
   </DrawText>
   <DrawText size="56" color="0xffffff">
     <Text>|</Text>
@@ -14,7 +18,13 @@
     <DropShadowFilter />
   </DrawText>
   <DrawText size="40" color="0xffffff">
-    <Text>FPC Studios</Text>
+    <Text>FireBite® Studios</Text>
+  </DrawText>
+  <DrawText size="38" color="0xffffff">
+    <Text>and</Text>
+  </DrawText>
+  <DrawText size="40" color="0xffffff">
+    <Text>Aceticsoft® Inc. 2014-2015</Text>
   </DrawText>
   <DrawText size="56" color="0xffffff">
     <Text>|</Text>
@@ -41,21 +51,39 @@
     <Text>Fabian Fischer</Text>
   </DrawText>
   <DrawText size="36" color="0xffffff">
-    <Text>Slender Go</Text>
-  </DrawText>
-  <DrawText size="36" color="0xffffff">
-    <Text>Lithium</Text>
-  </DrawText>
-  <DrawText size="36" color="0xffffff">
-    <Text>Kieron</Text>
-  </DrawText>
-  <DrawText size="36" color="0xffffff">
-    <Text>BARm</Text>
+    <Text>Brayden Charls (BARm)</Text>
   </DrawText>
   <DrawText size="56" color="0xffffff">
     <Text>|</Text>
   </DrawText>
   <DrawText size="46" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+
+  <DrawText size="40" color="0xffffff">
+    <Text>Graphic Lead Development:</Text>
+    <Bold />
+    <DropShadowFilter />
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Brayden Charls (BARm)</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
+    <Text>|</Text>
+  </DrawText>
+
+  <DrawText size="40" color="0xffffff">
+    <Text>AI Development:</Text>
+    <Bold />
+    <DropShadowFilter />
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Brayden Charls (BARm)</Text>
+  </DrawText>
+  <DrawText size="36" color="0xffffff">
+    <Text>Fabian Fischer (ossimc82)</Text>
+  </DrawText>
+  <DrawText size="56" color="0xffffff">
     <Text>|</Text>
   </DrawText>
 
@@ -107,6 +135,6 @@
   <DrawText size="56" color="0xffffff">
     <Bold />
     <DropShadowFilter />
-    <Text>Zombie Swagger of Doom</Text>
+    <Text>Zombiano Swagger of Doom</Text>
   </DrawText>
 </Credits>

@@ -23,7 +23,7 @@ package _F_1{
     import com.company.assembleegameclient.screens.charrects.CharacterRect;
     import com.company.assembleegameclient.ui.TextButton;
     import com.company.assembleegameclient.ui._0B_v;
-    import com.company.assembleegameclient.ui._0K_B_;
+    import com.company.assembleegameclient.ui.ScrollBar;
     import com.company.rotmg.graphics.ScreenGraphic;
     import com.company.ui.SimpleText;
     
@@ -54,7 +54,7 @@ package _F_1{
         private var _p6:_H_o;
         private var _0G_N_:_H_o;
         private var _dL_:Shape;
-        private var _E_k:_0K_B_;
+        private var _E_k:ScrollBar;
 
         public function CurrentCharacterScreen(){
             addChild(new _R_f());
@@ -110,7 +110,7 @@ package _F_1{
             addChild(this._X_0);
             if (this._77 > 400)
             {
-                this._E_k = new _0K_B_(16, 400);
+                this._E_k = new ScrollBar(16, 400);
                 this._E_k.x = ((800 - this._E_k.width) - 4);
                 this._E_k.y = 104;
                 this._E_k._fA_(400, this._X_0.height);

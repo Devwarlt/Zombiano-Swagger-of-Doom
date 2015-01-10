@@ -606,8 +606,8 @@ public class Player extends Character {
             var _local2:BitmapData = new BitmapData((_arg1.width + 20), 64, true, 0);
             _local2.draw(_arg1, _0G_b);
             _local2.applyFilter(_local2, _local2.rect, PointUtil._P_5, new GlowFilter(0, 1, 3, 3, 2, 1));
-            var _local3:DisplayObject = RankUtils._0M_r(this.rank);
-            _local2.draw(_local3, _I_5);
+            //var _local3:DisplayObject = RankUtils._0M_r(this.rank);
+            //_local2.draw(_local3, _I_5);
             return (_local2);
         }
         protected function _071(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void{

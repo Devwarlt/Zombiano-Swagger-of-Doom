@@ -5,9 +5,9 @@ using wServer.realm.entities;
 
 namespace wServer.realm.setpieces
 {
-    class Pyre : ISetPiece
+    class Pyre : SetPieceBase
     {
-        public int Size
+        public override int Size
         {
             get { return 30; }
         }
@@ -33,7 +33,7 @@ namespace wServer.realm.setpieces
             );
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             var dat = world.Manager.GameData;
             for (int x = 0; x < Size; x++)

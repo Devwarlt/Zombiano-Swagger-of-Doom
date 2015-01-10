@@ -21,7 +21,6 @@ package ServerPackets{
         override public function toString():String{
             return (formatToString("GLOBAL_NOTIFICATION", "type", "text"));
         }
-
     }
 }//package ServerPackets
 

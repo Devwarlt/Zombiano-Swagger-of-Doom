@@ -17,7 +17,7 @@ package _F_1{
         private var _oT_:MovieClipAsset;
         private var _content:MovieClip;
 
-        public function _kd(_arg1:Class){
+        public function _kd(_arg1:Class) {
             this._oT_ = new (_arg1)();
             this._ready = new _aJ_(_kd);
             var _local2:Loader = Loader(this._oT_.getChildAt(0));

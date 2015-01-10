@@ -159,6 +159,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="data\trees.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="objects.txt" />
   </ItemGroup>

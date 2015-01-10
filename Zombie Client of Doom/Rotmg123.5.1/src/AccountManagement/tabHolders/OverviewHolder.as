@@ -6,7 +6,7 @@ import AccountManagement.AccountManagementBody;
 import AccountManagement.images.AccountManagementImages;
 import AccountManagement.ui.TabButton;
 
-import com.company.assembleegameclient.ui._0K_B_;
+import com.company.assembleegameclient.ui.ScrollBar;
 import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.rotmg.graphics.ranks.premiumRank;
 
@@ -18,7 +18,7 @@ import flash.filters.GlowFilter;
 
 public class OverviewHolder extends TabHolder {
 
-    private var scrollBar:_0K_B_;
+    private var scrollBar:ScrollBar;
     private var logItems:Vector.<LogItemHolder>;
     private var itemsHeight:Number;
 
@@ -30,7 +30,7 @@ public class OverviewHolder extends TabHolder {
     public override function initialize(tab:TabButton):void {
         this.tab = tab;
 
-        this.scrollBar = new _0K_B_(16, HEIGHT - 20);
+        this.scrollBar = new ScrollBar(16, HEIGHT - 20);
         this.scrollBar.x = WIDTH - 20;
         this.scrollBar.y = 10;
         this.scrollBar.addEventListener(Event.CHANGE, this.onChange);
@@ -67,17 +67,17 @@ public class OverviewHolder extends TabHolder {
                 bmp = new Bitmap(scaleDown(new premiumRank().bitmapData));
                 bmp.filters = [new GlowFilter(0xFFD700)];
                 break;
-            case "bronzeFpcPack":
-                bmp = new Bitmap(scaleDown(new AccountManagementImages.bronzeFpcPack().bitmapData));
+            case "bronzeFirePack":
+                bmp = new Bitmap(scaleDown(new AccountManagementImages.bronzeFirePack().bitmapData));
                 break;
-            case "silverFpcPack":
-                bmp = new Bitmap(scaleDown(new AccountManagementImages.silverFpcPack().bitmapData));
+            case "silverFirePack":
+                bmp = new Bitmap(scaleDown(new AccountManagementImages.silverFirePack().bitmapData));
                 break;
-            case "goldFpcPack":
-                bmp = new Bitmap(scaleDown(new AccountManagementImages.goldFpcPack().bitmapData));
+            case "goldFirePack":
+                bmp = new Bitmap(scaleDown(new AccountManagementImages.goldFirePack().bitmapData));
                 break;
-            case "premiumFpcPack":
-                bmp = new Bitmap(scaleDown(new AccountManagementImages.premiumFpcPack().bitmapData));
+            case "premiumFirePack":
+                bmp = new Bitmap(scaleDown(new AccountManagementImages.premiumFirePack().bitmapData));
                 break;
             default:
                 bmp = new Bitmap(scaleDown(new AccountManagementImages.defaultSpeechBubble().bitmapData));

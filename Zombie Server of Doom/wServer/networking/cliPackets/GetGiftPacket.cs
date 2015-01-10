@@ -8,6 +8,7 @@ namespace wServer.networking.cliPackets
     public class GetGiftPacket : ClientPacket
     {
         public ushort ItemId { get; set; }
+        public bool Delete { get; set; }
 
         public override PacketID ID
         {
@@ -22,6 +23,7 @@ namespace wServer.networking.cliPackets
         protected override void Read(NReader rdr)
         {
             ItemId = (ushort)rdr.ReadInt32();
+            Delete = rdr.ReadBoolean();
         }
     }
 }

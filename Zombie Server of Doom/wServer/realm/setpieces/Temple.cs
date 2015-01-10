@@ -2,11 +2,8 @@
 
 namespace wServer.realm.setpieces
 {
-    abstract class Temple : ISetPiece
+    abstract class Temple : SetPieceBase
     {
-        public abstract int Size { get; }
-        public abstract void RenderSetPiece(World world, IntPoint pos);
-
         protected static readonly string DarkGrass = "Dark Grass";
         protected static readonly string Floor = "Jungle Temple Floor";
         protected static readonly string WallA = "Jungle Temple Bricks";

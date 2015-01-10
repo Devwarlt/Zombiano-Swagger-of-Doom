@@ -5,9 +5,9 @@ using wServer.realm.entities;
 
 namespace wServer.realm.setpieces
 {
-    class Castle : ISetPiece
+    class Castle : SetPieceBase
     {
-        public int Size { get { return 40; } }
+        public override int Size { get { return 40; } }
 
         static readonly string Floor = "Rock";
         static readonly string Bridge = "Bridge";
@@ -36,7 +36,7 @@ namespace wServer.realm.setpieces
             );
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[31, 40];
 

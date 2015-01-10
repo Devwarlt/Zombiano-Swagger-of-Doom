@@ -11,7 +11,7 @@ import flash.events.MouseEvent;
 
 public class xButton extends Sprite {
 
-    public static var buttonSprite:Class = EmbeddedAssets_btnEmbed_;
+    private static var buttonSprite:Class = EmbeddedAssets_btnEmbed_;
     public var event:_aJ_ = new _aJ_();
     public var disabled:Boolean = false;
 

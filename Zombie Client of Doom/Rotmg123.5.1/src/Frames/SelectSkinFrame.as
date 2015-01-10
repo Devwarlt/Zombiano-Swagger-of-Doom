@@ -4,7 +4,7 @@
 package Frames {
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.ObjectLibrary;
-import com.company.assembleegameclient.ui._0K_B_;
+import com.company.assembleegameclient.ui.ScrollBar;
 import com.company.assembleegameclient.ui.xButton;
 import com.company.ui.SimpleText;
 import com.embeds.reskinVendorBackground_Embed;
@@ -20,7 +20,7 @@ import flash.filters.GlowFilter;
 public class SelectSkinFrame extends Sprite {
 
     private var gs_:GameSprite;
-    private var scrollbar:_0K_B_;
+    private var scrollbar:ScrollBar;
     private var background:Bitmap;
     private var closeBtn:xButton;
     private var charsHeight:Number;
@@ -49,7 +49,7 @@ public class SelectSkinFrame extends Sprite {
         this.closeBtn.event.add(onCloseClick);
         this.addChild(closeBtn);
 
-        this.scrollbar = new _0K_B_(16, 490);
+        this.scrollbar = new ScrollBar(16, 490);
         this.scrollbar.x = SkinRect.WIDTH + 20;
         this.scrollbar.y = 100;
         this.scrollbar._fA_(500, charsHeight);

@@ -5,7 +5,7 @@ package Frames {
 
 import AccountManagement.ui.FancyTextButton;
 
-import FPC.Embeds.Images.craftingRecipeBookEmbed_;
+import FireBite.Embeds.Images.craftingRecipeBookEmbed_;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.CraftingTerminal;

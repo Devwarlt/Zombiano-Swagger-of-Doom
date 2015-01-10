@@ -4,18 +4,18 @@
 //com.company.assembleegameclient.util._H_f
 
 package com.company.assembleegameclient.util{
-import FPC.Embeds.CXML.Cloth;
-import FPC.Embeds.CXML.Dyes;
-import FPC.Embeds.CXML.GroundTiles;
-import FPC.Embeds.CXML.PetGenerators;
-import FPC.Embeds.CXML.Projectiles;
-import FPC.Embeds.CXML.Regions;
-import FPC.Embeds.CXML.Special;
-import FPC.Embeds.CXML.Specials2;
-import FPC.Embeds.CXML.TutorialUI;
-import FPC.Embeds.CXML.players;
-import FPC.Embeds.CXML.skins;
-import FPC.Embeds.CXML.tutorialObjects;
+import FireBite.Embeds.CXML.Cloth;
+import FireBite.Embeds.CXML.Dyes;
+import FireBite.Embeds.CXML.GroundTiles;
+import FireBite.Embeds.CXML.PetGenerators;
+import FireBite.Embeds.CXML.Projectiles;
+import FireBite.Embeds.CXML.Regions;
+import FireBite.Embeds.CXML.Special;
+import FireBite.Embeds.CXML.Specials2;
+import FireBite.Embeds.CXML.TutorialUI;
+import FireBite.Embeds.CXML.players;
+import FireBite.Embeds.CXML.skins;
+import FireBite.Embeds.CXML.tutorialObjects;
 
 public class _H_f {
 

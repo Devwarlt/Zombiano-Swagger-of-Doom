@@ -3,9 +3,9 @@ using wServer.realm.entities;
 
 namespace wServer.realm.setpieces
 {
-    class Sphinx : ISetPiece
+    class Sphinx : SetPieceBase
     {
-        public int Size
+        public override int Size
         {
             get { return 81; }
         }
@@ -33,10 +33,10 @@ namespace wServer.realm.setpieces
 
         static readonly string Floor = "Gold Sand";
         static readonly string Central = "Sand Tile";
-        static readonly string Pillar = "Tomb Wall";
+        static readonly string Pillar = "TestThing";
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[81, 81];
             for (int x = 0; x < Size; x++)                      //Flooring

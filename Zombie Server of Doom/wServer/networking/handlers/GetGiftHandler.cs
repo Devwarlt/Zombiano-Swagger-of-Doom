@@ -15,17 +15,22 @@ namespace wServer.networking.handlers
             {
                 if (client.Player.Owner == null) return;
 
-                if (client.Account.Gifts.Contains(packet.ItemId))
-                {
-                    var bag = new Container(client.Manager, 0x0509);
-                    bag.Inventory[0] = client.Manager.GameData.Items[packet.ItemId];
-                    bag.Move(client.Player.X, client.Player.Y);
-                    bag.BagOwners = new int[1] { client.Player.AccountId };
-                    client.Player.Owner.EnterWorld(bag);
+                if (packet.Delete)
                     client.Account.Gifts.Remove(packet.ItemId);
-                }
                 else
-                    SendFailure("Gift not found");
+                {
+                    if (client.Account.Gifts.Contains(packet.ItemId))
+                    {
+                        var bag = new Container(client.Manager, 0x0509);
+                        bag.Inventory[0] = client.Manager.GameData.Items[packet.ItemId];
+                        bag.Move(client.Player.X, client.Player.Y);
+                        bag.BagOwners = new int[1] { client.Player.AccountId };
+                        client.Player.Owner.EnterWorld(bag);
+                        client.Account.Gifts.Remove(packet.ItemId);
+                    }
+                    else
+                        SendFailure("Gift not found");
+                }
             });
         }
 

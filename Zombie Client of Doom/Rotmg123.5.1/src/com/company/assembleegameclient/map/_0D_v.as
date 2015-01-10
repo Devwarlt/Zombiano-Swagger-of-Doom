@@ -68,6 +68,7 @@ package com.company.assembleegameclient.map{
             this._05K_.y = 0;
             this._05K_.z = -1;
         }
+
         public function _K_g(_arg1:Player):void{
             var _local2:Rectangle = ((Parameters.data_.centerOnPlayer) ? _z7 : _D__);
             if (Parameters._0F_o)

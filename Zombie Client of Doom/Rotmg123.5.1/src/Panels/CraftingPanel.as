@@ -9,6 +9,7 @@ import Panels.CraftingPanel;
 import com.company.assembleegameclient.objects.GameObject;
 import com.company.assembleegameclient.objects.CraftingTerminal;
 import com.company.assembleegameclient.ui.FrameHolder;
+import com.company.util._H_V_;
 
 import flash.events.KeyboardEvent;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -47,6 +48,7 @@ public class CraftingPanel extends SimpleButtonPanel
 
     protected function onAdded(param1:Event) : void {
         stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
+        this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
     }
 
     protected function onRemove(param1:Event) : void {

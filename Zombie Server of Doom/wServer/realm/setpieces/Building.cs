@@ -2,15 +2,15 @@
 
 namespace wServer.realm.setpieces
 {
-    class Building : ISetPiece
+    class Building : SetPieceBase
     {
-        public int Size { get { return 21; } }
+        public override int Size { get { return 21; } }
 
         static readonly string Floor = "Brown Lines";
         static readonly string Wall = "Wooden Wall";
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int w = rand.Next(19, 22), h = rand.Next(19, 22);
             int[,] t = new int[w, h];

@@ -24,9 +24,9 @@ package Frames{
             this.name_.inputText_.restrict = "A-Za-z";
             this.name_.inputText_.maxChars = 10;
             addTextInput(this.name_);
-            _0D_I_("Maximum 10 characters");
-            _0D_I_("No numbers, spaces or punctuation");
-            _0D_I_("Racism or profanity gets you banned");
+            addTextLine("Maximum 10 characters");
+            addTextLine("No numbers, spaces or punctuation");
+            addTextLine("Racism or profanity gets you banned");
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._J_p);
         }

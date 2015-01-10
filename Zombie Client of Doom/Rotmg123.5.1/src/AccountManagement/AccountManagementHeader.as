@@ -2,7 +2,7 @@
  * Created by Fabian on 17.12.2014.
  */
 package AccountManagement {
-import AccountManagement.tabHolders.FpcPacksHolder;
+import AccountManagement.tabHolders.FirePacksHolder;
 import AccountManagement.tabHolders.OverviewHolder;
 import AccountManagement.tabHolders.PremiumHolder;
 import AccountManagement.tabHolders.SettingsHolder;
@@ -67,7 +67,7 @@ public class AccountManagementHeader extends Sprite {
         addChild(this.email);
 
         addTab("Overview", new AccountManagementImages.homeIcon().bitmapData, new OverviewHolder(managementParent.accountBody));
-        addTab("FPC Packs", new AccountManagementImages.goldFpcPack().bitmapData, new FpcPacksHolder(managementParent.accountBody));
+        addTab("Fire Packs", new AccountManagementImages.goldFirePack().bitmapData, new FirePacksHolder(managementParent.accountBody));
         addTab("Settings", new AccountManagementImages.settings2Icon().bitmapData, new SettingsHolder(managementParent.accountBody));
         addTab("Premium", new premiumRank().bitmapData, new PremiumHolder(managementParent.accountBody, managementParent.accountXml.Premium.text().toLowerCase() == "true"), true);
     }

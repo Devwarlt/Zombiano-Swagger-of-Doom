@@ -4,26 +4,25 @@
 //OptionsStuff.Options
 
 package OptionsStuff{
-import _F_1._H_o;
-
-
-
-
+import AccountManagement.ui.FancyTextButton;
 import Sounds._Q_P_;
 import Sounds.Music;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.parameters.Parameters;
-import com.company.rotmg.graphics.ScreenGraphic;
+import com.company.assembleegameclient.ui.ScrollBar;
 import com.company.ui.SimpleText;
+import com.company.util.GraphicHelper;
 import com.company.util._H_V_;
 
+import flash.display.Shape;
 import flash.display.Sprite;
 import flash.display.StageDisplayState;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
+import flash.filters.GlowFilter;
 import flash.system.Capabilities;
 import flash.text.TextFieldAutoSize;
 
@@ -37,71 +36,84 @@ public class Options extends Sprite {
     private static const extras:String = "Extras";
     private static const optionsTabs:Vector.<String> = new <String>[controls, hotkeys, chat, _graphics, sound, extras];
 
+    public static const WIDTH:int = 570;
+    public static const HEIGHT:int = 500;
+
     private var gs_:GameSprite;
-    private var title:SimpleText;
-    private var continueButton:_H_o;
-    private var resetButton:_H_o;
-    private var homeButton:_H_o;
-    private var _C_F_:Vector.<_P_4>;
-    private var selected_:_P_4 = null;
+    //private var title:SimpleText;
+    private var continueButton:FancyTextButton;
+    private var resetButton:FancyTextButton;
+    private var _C_F_:Vector.<FancyTextButton>;
+    private var selected_:FancyTextButton = null;
     private var _03a:Vector.<Sprite>;
-    private var _00s:int = 0;
+    private var optionsSprite:Sprite;
+    private var scrollBar:ScrollBar;
+    private var optionsMask:Shape;
+    private var nextOptionHeight:int = 2;
 
     public function Options(_arg1:GameSprite){
-        var _local4:_P_4;
-        this._C_F_ = new Vector.<_P_4>();
+        var _local4:FancyTextButton;
+        this._C_F_ = new Vector.<FancyTextButton>();
         this._03a = new Vector.<Sprite>();
+        this.optionsSprite = new Sprite();
         super();
         this.gs_ = _arg1;
         graphics.clear();
-        graphics.beginFill(0x2B2B2B, 0.8);
-        graphics.drawRect(0, 0, 800, 600);
+        graphics.beginFill(0x000000/*0x2B2B2B*/, 0.8);
+        graphics.drawRect(0, 0, WIDTH, HEIGHT);
         graphics.endFill();
-        graphics.lineStyle(1, 0x5E5E5E);
-        graphics.moveTo(0, 100);
-        graphics.lineTo(800, 100);
-        graphics.lineStyle();
-        this.title = new SimpleText(36, 0xFFFFFF, false, 800, 0, "Myriad Pro");
-        this.title.boldText(true);
-        this.title.htmlText = '<p align="center">Options</p>';
-        this.title.autoSize = TextFieldAutoSize.CENTER;
-        this.title.filters = [new DropShadowFilter(0, 0, 0)];
-        this.title.updateMetrics();
-        this.title.x = ((800 / 2) - (this.title.width / 2));
-        this.title.y = 8;
-        addChild(this.title);
-        addChild(new ScreenGraphic());
-        this.continueButton = new _H_o("continue", 36, false);
+
+        graphics.beginFill(0x000000/*0x2B2B2B*/, 0.8);
+        graphics.drawRect(180, -100, 400, 100);
+        graphics.endFill();
+
+        this.optionsMask = new Shape();
+        this.optionsMask.x = 180;
+        this.optionsMask.graphics.beginFill(0x000000, 0.0);
+        this.optionsMask.graphics.drawRect(0, 0, 360, 400);
+        this.optionsMask.graphics.endFill();
+        addChild(this.optionsMask);
+        this.optionsSprite.mask = this.optionsMask;
+
+        var title:SimpleText = new SimpleText(36, 0xFFFFFF, false, 400, 0, "Myriad Pro");
+        title.y = -85;
+        title.x = 180;
+        title.boldText(true);
+        title.htmlText = '<p align="center">Options</p>';
+        title.autoSize = TextFieldAutoSize.CENTER;
+        title.filters = [new DropShadowFilter(0, 0, 0)];
+        addChild(title);
+        addChild(optionsSprite);
+        this.continueButton = new FancyTextButton(36, "Close Options", 200);
+        this.continueButton.boldText(true);
         this.continueButton.addEventListener(MouseEvent.CLICK, this.closeMenu);
         addChild(this.continueButton);
-        this.resetButton = new _H_o("reset to defaults", 22, false);
+        this.resetButton = new FancyTextButton(22, "Reset to defaults", 200);
+        this.resetButton.boldText(true);
         this.resetButton.addEventListener(MouseEvent.CLICK, this.resetOptions);
         addChild(this.resetButton);
-        this.homeButton = new _H_o("back to home", 22, false);
-        this.homeButton.addEventListener(MouseEvent.CLICK, this.backToHome);
-        addChild(this.homeButton);
-        var _local2:int = 14;
-        var _local3:int;
+        var _local2:int = 0;
+        var _local3:int = 0;
         while (_local3 < optionsTabs.length)
         {
-            _local4 = new _P_4(optionsTabs[_local3]);
-            _local4.x = _local2;
-            _local4.y = 70;
+            _local4 = new FancyTextButton(20, optionsTabs[_local3], 150);
+            _local4.x = 10;
+            _local4.y = _local2;
             addChild(_local4);
             _local4.addEventListener(MouseEvent.CLICK, this._ni);
             this._C_F_.push(_local4);
-            _local2 = (_local2 + 108);
+            _local2 += _local4.height + 5;
             _local3++;
         }
         addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
-    private function closeMenu(_arg1:MouseEvent):void{
+    private function closeMenu(_arg1:MouseEvent):void {
         this.close();
     }
     private function resetOptions(_arg1:MouseEvent):void{
         var _local3:_0_i;
-        var _local2:int;
+        var _local2:int = 0;
         while (_local2 < this._03a.length)
         {
             _local3 = (this._03a[_local2] as _0_i);
@@ -115,24 +127,19 @@ public class Options extends Sprite {
         Parameters.save();
         this.refresh();
     }
-    private function backToHome(_arg1:MouseEvent):void{
-        this.gs_.dispatchEvent(new Event(Event.COMPLETE));
-    }
     private function _ni(_arg1:MouseEvent):void{
-        var _local2:_P_4 = (_arg1.target as _P_4);
+        var _local2:FancyTextButton = (_arg1.target as FancyTextButton);
         this.setSelected(_local2);
     }
-    private function setSelected(_arg1:_P_4):void{
-        if (_arg1 == this.selected_)
-        {
+    private function setSelected(_arg1:FancyTextButton):void{
+        if (_arg1 == this.selected_) {
             return;
         }
-        if (this.selected_ != null)
-        {
-            this.selected_.setSelected(false);
+        if(this.selected_ != null) {
+            this.selected_.enabled(true);
         }
         this.selected_ = _arg1;
-        this.selected_.setSelected(true);
+        this.selected_.enabled(false);
         this._H_c();
         switch (this.selected_.text_)
         {
@@ -158,12 +165,10 @@ public class Options extends Sprite {
     }
     private function onAddedToStage(_arg1:Event):void{
         stage;
-        this.continueButton.x = ((800 / 2) - (this.continueButton.width / 2));
-        this.continueButton.y = 524;
-        this.resetButton.x = 20;
-        this.resetButton.y = 536;
-        this.homeButton.x = 620;
-        this.homeButton.y = 536;
+        this.continueButton.x = 10;
+        this.continueButton.y = HEIGHT - (50 + (this.continueButton.height  / 2));
+        this.resetButton.x = WIDTH - this.resetButton.width - 10;
+        this.resetButton.y = HEIGHT - (50 + (this.resetButton.height  / 2));
         if (Capabilities.playerType == "Desktop")
         {
             Parameters.data_.fullscreenMode = (stage.displayState == "fullScreenInteractive");
@@ -201,18 +206,22 @@ public class Options extends Sprite {
         var _local1:Sprite;
         for each (_local1 in this._03a)
         {
-            removeChild(_local1);
+            optionsSprite.removeChild(_local1);
         }
         this._03a.length = 0;
-        this._00s = 0;
+        this.nextOptionHeight = 2;
+        removeChild(this.optionsSprite);
+        this.optionsSprite = new Sprite();
+        this.optionsSprite.mask = this.optionsMask;
+        addChild(this.optionsSprite);
     }
     private function _q9():void{
         this.registerOption(new KeyBindingOption("moveUp", "Move Up", "Key to will move character up"));
         this.registerOption(new KeyBindingOption("moveLeft", "Move Left", "Key to will move character to the left"));
         this.registerOption(new KeyBindingOption("moveDown", "Move Down", "Key to will move character down"));
         this.registerOption(new KeyBindingOption("moveRight", "Move Right", "Key to will move character to the right"));
-        this.registerOption(new SwitchOption("allowRotation", new <String>["On", "Off"], [true, false], "Allow Camera Rotation", "Toggles whether to allow for camera rotation", this._F_x));
         this.registerOption(new Sprite());
+        this.registerOption(new SwitchOption("allowRotation", new <String>["On", "Off"], [true, false], "Allow Camera Rotation", "Toggles whether to allow for camera rotation", this._F_x));
         this.registerOption(new KeyBindingOption("rotateLeft", "Rotate Left", "Key to will rotate the camera to the left", !(Parameters.data_.allowRotation)));
         this.registerOption(new KeyBindingOption("rotateRight", "Rotate Right", "Key to will rotate the camera to the right", !(Parameters.data_.allowRotation)));
         this.registerOption(new KeyBindingOption("useSpecial", "Use Special Ability", "This key will activate your special ability"));
@@ -326,12 +335,30 @@ public class Options extends Sprite {
         _Q_P_._2c(Parameters.data_.playSFX);
     }
     private function registerOption(_arg1:Sprite):void{
-        _arg1.x = ((((this._00s % 2) == 0)) ? 20 : 415);
-        _arg1.y = ((int((this._00s / 2)) * 44) + 122);
-        addChild(_arg1);
+        _arg1.x = 180;
+        _arg1.y = this.nextOptionHeight;
+        this.optionsSprite.addChild(_arg1);
         _arg1.addEventListener(Event.CHANGE, this._bR_);
         this._03a.push(_arg1);
-        this._00s++;
+        this.nextOptionHeight += 40;
+
+        if(this.nextOptionHeight > 400) {
+            if(this.scrollBar == null) {
+                this.scrollBar = new ScrollBar(16, 400 - 10);
+                this.scrollBar.y = 5;
+                this.scrollBar.x = WIDTH - this.scrollBar.width - 5;
+                this.scrollBar.addEventListener(Event.CHANGE, this.onChange);
+                this.addChild(this.scrollBar);
+            }
+
+            this.scrollBar._fA_(400 - 10, this.nextOptionHeight - 40);
+        }
+        else {
+            if(this.scrollBar != null) {
+                removeChild(this.scrollBar);
+                this.scrollBar = null;
+            }
+        }
     }
     private function _bR_(_arg1:Event):void{
         this.refresh();
@@ -350,6 +377,12 @@ public class Options extends Sprite {
         }
     }
 
+    private function onChange(event:Event):void {
+        if(this.scrollBar == null) return;
+        var changeVal:Number = this.scrollBar._Q_D_();
+        if(isNaN(changeVal)) return;
+        optionsSprite.y = (((-(changeVal) * (this.nextOptionHeight - 400))));
+    }
 }
 }//package OptionsStuff
 

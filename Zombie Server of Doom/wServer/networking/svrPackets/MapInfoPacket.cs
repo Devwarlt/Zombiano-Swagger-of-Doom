@@ -6,6 +6,7 @@ namespace wServer.networking.svrPackets
         public int Width { get; set; }
         public int Height { get; set; }
         public string Name { get; set; }
+        public string BackgroundImage { get; set; }
         public uint Seed { get; set; }
         public int Background { get; set; }
         public bool AllowTeleport { get; set; }
@@ -24,6 +25,7 @@ namespace wServer.networking.svrPackets
             wtr.Write(Width);
             wtr.Write(Height);
             wtr.WriteUTF(Name);
+            wtr.WriteUTF(BackgroundImage);
             wtr.Write(Seed);
             wtr.Write(Background);
             wtr.Write(AllowTeleport);

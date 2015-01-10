@@ -7,6 +7,7 @@ import flash.utils.IDataOutput;
 public class GetGift extends ClientPacket {
 
     public var itemId:int;
+    public var del:Boolean;
 
     public function GetGift(packetId:uint) {
         super(packetId);
@@ -14,6 +15,7 @@ public class GetGift extends ClientPacket {
 
     override public function writeToOutput(_arg1:IDataOutput):void {
         _arg1.writeInt(itemId);
+        _arg1.writeBoolean(del);
     }
 }
 }

@@ -8,7 +8,7 @@ package com.company.assembleegameclient.game{
     
     import _9R_._B_w;
     
-    import _F_1._02a;
+    import _F_1.MapLoadingScreen;
     
     import _U_5._D_L_;
     import _U_5._zz;
@@ -21,7 +21,8 @@ package com.company.assembleegameclient.game{
     
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.appengine._0K_R_;
-    import com.company.assembleegameclient.map._0D_v;
+import com.company.assembleegameclient.game.menu.PauseMenu;
+import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.map._X_l;
     import com.company.assembleegameclient.net.Server;
     import com.company.assembleegameclient.net.PacketManager;
@@ -71,7 +72,8 @@ package com.company.assembleegameclient.game{
         public var moveRecords_:_uw;
         private var _bA_:int = 0;
         private var _qA_:int = 0;
-        private var _rz:_02a;
+        private var _rz:MapLoadingScreen;
+        private var interactiveText:InteractiveAction;
         private var _2e:Boolean;
 
         public function GameSprite(_arg1:Server, _arg2:int, _arg3:Boolean, _arg4:int, _arg5:int, _arg6:ByteArray, _arg7:_0K_R_, _arg8:String){
@@ -98,13 +100,13 @@ package com.company.assembleegameclient.game{
             return (this.map);
         }
         public function _S_z(_arg1:MapInfo):void{
-            this.map.setProps(_arg1.width_, _arg1.height_, _arg1.name_, _arg1.background_, _arg1.allowPlayerTeleport_, _arg1.showDisplays_, _arg1.music_, _arg1.weather_, _arg1.curentDatetime_);
+            this.map.setProps(_arg1.width_, _arg1.height_, _arg1.name_, _arg1.background_, _arg1.allowPlayerTeleport_, _arg1.showDisplays_, _arg1.music_, _arg1.weather_, _arg1.currentDatetime_);
             this._dO_(_arg1);
         }
         public function _dO_(_arg1:MapInfo):void{
             if (!this._rz)
             {
-                this._rz = new _02a();
+                this._rz = new MapLoadingScreen();
             }
             addChild(this._rz);
             _D_L_.getInstance().dispatch(_arg1);
@@ -114,6 +116,27 @@ package com.company.assembleegameclient.game{
             {
                 this._rz._pW_();
                 this._rz = null;
+            }
+        }
+        public function dispatchInteractiveObject(text:String):void {
+            if(this.interactiveText != null) {
+                if(this.interactiveText.isEqualTo(text)) return;
+                removeChild(this.interactiveText);
+            }
+            this.interactiveText = new InteractiveAction(text);
+            this.interactiveText.y = 530;
+            addChild(this.interactiveText);
+        }
+        public function pause():void {
+            if (!getChildByName("PauseMenu")) {
+                if (!map.player_.isPaused())
+                    packetManager._C_k("/pause");
+                var pauseMenu:PauseMenu = new PauseMenu(this);
+                pauseMenu.addEventListener(Event.COMPLETE, function (e:Event):void {
+                    packetManager._C_k("/pause");
+                    removeChild(pauseMenu);
+                });
+                addChild(pauseMenu);
             }
         }
         public function initialize():void{

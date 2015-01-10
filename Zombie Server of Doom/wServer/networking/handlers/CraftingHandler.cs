@@ -11,13 +11,7 @@ namespace wServer.networking.handlers
     {
         protected override void HandlePacket(Client client, CraftingPacket packet)
         {
-            getCraftingRecipes(client.Manager, client.Account);
             client.Manager.Logic.AddPendingAction(time => Handle(client.Player, packet));
-        }
-
-        private void getCraftingRecipes(RealmManager manager, Account acc)
-        {
-            
         }
 
         private void Handle(Player player, CraftingPacket packet)
@@ -29,7 +23,9 @@ namespace wServer.networking.handlers
             using (var rdr = cmd.ExecuteReader())
                 while (rdr.Read())
                     if (player.Client.Account.CraftingRecipes.Contains(rdr.GetInt32("id")))
-                        recipes.Add(rdr.GetString("row1") + "," + rdr.GetString("row2") + "," + rdr.GetString("row3"), rdr.GetInt32("result"));
+                        recipes.Add(Utils.GetCommaSepString(Utils.FromCommaSepString32(rdr.GetString("row1"))).Replace(" ", String.Empty) + "," +
+                            Utils.GetCommaSepString(Utils.FromCommaSepString32(rdr.GetString("row2"))).Replace(" ", String.Empty) + "," +
+                            Utils.GetCommaSepString(Utils.FromCommaSepString32(rdr.GetString("row3"))).Replace(" ", String.Empty), rdr.GetInt32("result"));
 
             int itemId;
 
@@ -41,23 +37,20 @@ namespace wServer.networking.handlers
                     SendFailure("Could not craft: Not a valid recipe!");
                     return;
                 }
-
+                int index = 0;
                 foreach (var i in packet.RecipeString.Split(','))
                 {
                     if (i.IsNumber())
                     {
                         if (int.Parse(i) == 0 || int.Parse(i) == -1) continue;
 
-                        if (player.Inventory.Contains(ushort.Parse(i)))
-                        {
-                            player.Inventory[(int)player.Inventory.GetFirstItemIndex(ushort.Parse(i))] = null;
-                        }
-                        else
+                        if (player.Inventory[packet.Slots[index]] == null && player.Inventory[packet.Slots[index]].ObjectType != ushort.Parse(i))
                         {
                             SendFailure("Could not craft: You dont have the required items!");
                             return;
                         }
 
+                        index++;
                     }
                     else
                     {
@@ -65,6 +58,9 @@ namespace wServer.networking.handlers
                         return;
                     }
                 }
+
+                foreach (var i in packet.Slots)
+                    player.Inventory[i] = null;
 
                 for (int i = 0; i < player.Inventory.Length; i++)
                 {
@@ -84,6 +80,7 @@ namespace wServer.networking.handlers
             }
             else
                 SendFailure("Could not craft: Not a valid recipe!");
+            player.UpdateCount++;
         }
 
         public override PacketID ID

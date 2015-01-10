@@ -5,6 +5,7 @@ namespace wServer.networking.cliPackets
     {
         public int ObjectId { get; set; }
         public string RecipeString { get; set; }
+        public int[] Slots { get; set; }
 
         public override PacketID ID
         {
@@ -20,6 +21,10 @@ namespace wServer.networking.cliPackets
         {
             ObjectId = rdr.ReadInt32();
             RecipeString = rdr.ReadUTF();
+
+            Slots = new int[rdr.ReadByte()];
+            for (int i = 0; i < Slots.Length; i++)
+                Slots[i] = rdr.ReadInt32();
         }
     }
 }

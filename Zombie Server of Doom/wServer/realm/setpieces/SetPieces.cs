@@ -26,12 +26,12 @@ namespace wServer.realm.setpieces
             }
         }
 
-        static Tuple<ISetPiece, int, int, WmapTerrain[]> SetPiece(ISetPiece piece, int min, int max, params WmapTerrain[] terrains)
+        static Tuple<SetPieceBase, int, int, WmapTerrain[]> SetPiece(SetPieceBase piece, int min, int max, params WmapTerrain[] terrains)
         {
             return Tuple.Create(piece, min, max, terrains);
         }
 
-        static readonly List<Tuple<ISetPiece, int, int, WmapTerrain[]>> setPieces = new List<Tuple<ISetPiece, int, int, WmapTerrain[]>>()
+        static readonly List<Tuple<SetPieceBase, int, int, WmapTerrain[]>> setPieces = new List<Tuple<SetPieceBase, int, int, WmapTerrain[]>>()
         {
             SetPiece(new Building(), 80, 100, WmapTerrain.LowForest, WmapTerrain.LowPlains, WmapTerrain.MidForest),
             SetPiece(new Graveyard(), 5, 10, WmapTerrain.LowSand, WmapTerrain.LowPlains),

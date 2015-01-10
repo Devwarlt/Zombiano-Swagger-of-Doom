@@ -3,18 +3,19 @@
 
 //Panels._Q_V_
 
-package Panels{
+package Panels {
 import com.company.assembleegameclient.objects.Container;
+import com.company.assembleegameclient.objects.Mountain;
 
 import flash.display.Sprite;
-    import com.company.assembleegameclient.game.GameSprite;
-    import com.company.assembleegameclient.objects.Player;
-    import com.company.assembleegameclient.objects.IPanelProvider;
-    import flash.events.Event;
-    import com.company.assembleegameclient.objects.GameObject;
-    import com.company.util.PointUtil;
+import com.company.assembleegameclient.game.GameSprite;
+import com.company.assembleegameclient.objects.Player;
+import com.company.assembleegameclient.objects.IPanelProvider;
+import flash.events.Event;
+import com.company.assembleegameclient.objects.GameObject;
+import com.company.util.PointUtil;
 
-    public class _Q_V_ extends Sprite {
+public class _Q_V_ extends Sprite {
 
         public static const _gZ_:Number = 1;
 
@@ -67,10 +68,10 @@ import flash.display.Sprite;
                     {
                         return;
                     }
-                    if (!((((((((_local3.x_ - this.player_.x_) > _gZ_)) || (((this.player_.x_ - _local3.x_) > _gZ_)))) || (((_local3.y_ - this.player_.y_) > _gZ_)))) || (((this.player_.y_ - _local3.y_) > _gZ_))))
+                    if (!((((((((_local3.x_ - this.player_.x_) > len(_local3))) || (((this.player_.x_ - _local3.x_) > len(_local3))))) || (((_local3.y_ - this.player_.y_) > len(_local3))))) || (((this.player_.y_ - _local3.y_) > len(_local3)))))
                     {
                         _local5 = PointUtil._R_O_(_local3.x_, _local3.y_, this.player_.x_, this.player_.y_);
-                        if ((((_local5 < _gZ_)) && ((_local5 < _local1))))
+                        if ((((_local5 < len(_local3))) && ((_local5 < _local1))))
                         {
                             _local1 = _local5;
                             _local2 = _local4;
@@ -85,6 +86,9 @@ import flash.display.Sprite;
                 this._tB_(_local6, !((this._dN_ == null)));
             }
             this._G_2.draw();
+        }
+        private static function len(obj:GameObject):Number {
+            return obj is Mountain ? _gZ_ + 0.5 : _gZ_;
         }
         private function onComplete(_arg1:Event):void{
             if (this._g != null)
@@ -103,6 +107,7 @@ import flash.display.Sprite;
             if (this._G_2 != null)
             {
                 removeChild(this._G_2);
+                this.gs_.dispatchInteractiveObject(null);
             }
             this._G_2 = _arg1;
             if (this._G_2 == null)

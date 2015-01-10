@@ -20,7 +20,7 @@ package _05H_{
             _t4 = (_t4 + this._M_l());
             _5n[this._E_y.toXMLString()] = true;
         }
-        private function _wD_():String{
+        private function _wD_():String {
             var _local1:int = int(this._E_y.MinDamage);
             var _local2:int = int(this._E_y.MaxDamage);
             var _local3:int = int(this._0F_j.MinDamage);

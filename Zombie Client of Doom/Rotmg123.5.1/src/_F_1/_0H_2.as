@@ -13,7 +13,7 @@ import _sp._aJ_;
 import com.company.assembleegameclient.appengine._0K_R_;
 import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.ui._0B_v;
-import com.company.assembleegameclient.ui._0K_B_;
+import com.company.assembleegameclient.ui.ScrollBar;
 import com.company.assembleegameclient.ui.boxButton;
 import com.company.rotmg.graphics.ScreenGraphic;
 import com.company.ui.SimpleText;
@@ -31,7 +31,7 @@ public class _0H_2 extends _05p {
     private var _break:Object;
     public var close:_aJ_;
     public var play:_aJ_;
-    public var scrollBar:_0K_B_;
+    public var scrollBar:ScrollBar;
 
     public var charBoxHolder:Sprite;
     public var charHeight:Number;
@@ -164,7 +164,7 @@ public class _0H_2 extends _05p {
         }
 
         this.charHeight = charBoxHolder.height + 10;
-        this.scrollBar = new _0K_B_(16, 410);
+        this.scrollBar = new ScrollBar(16, 410);
         this.scrollBar.x = 780;
         this.scrollBar.y = 110;
         this.scrollBar.addEventListener(Event.CHANGE, this.onChange);

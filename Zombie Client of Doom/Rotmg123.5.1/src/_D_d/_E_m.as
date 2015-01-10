@@ -9,7 +9,7 @@ package _D_d{
     import flash.display.IGraphicsData;
     import com.company.util.GraphicHelper;
     import _D_d._P_u;
-    import com.company.assembleegameclient.ui._0K_B_;
+    import com.company.assembleegameclient.ui.ScrollBar;
     import flash.display.Shape;
     import flash.display.GraphicsSolidFill;
     import flash.display.GraphicsStroke;
@@ -33,7 +33,7 @@ package _D_d{
         public var _09V_:int;
         private var _Y_i:Sprite;
         public var selected_:_P_u;
-        private var _E_k:_0K_B_;
+        private var _E_k:ScrollBar;
         private var mask_:Shape;
         private var _oX_:Vector.<_P_u>;
         private var outlineFill_:GraphicsSolidFill;
@@ -55,7 +55,7 @@ package _D_d{
             this._Y_i.x = 4;
             this._Y_i.y = 6;
             addChild(this._Y_i);
-            this._E_k = new _0K_B_(_xo, (HEIGHT - 8));
+            this._E_k = new ScrollBar(_xo, (HEIGHT - 8));
             this._E_k.x = ((WIDTH - _xo) - 6);
             this._E_k.y = 4;
             this._E_k.addEventListener(Event.CHANGE, this._A_E_);

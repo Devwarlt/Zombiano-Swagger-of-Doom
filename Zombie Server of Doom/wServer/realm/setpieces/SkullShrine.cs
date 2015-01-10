@@ -3,9 +3,9 @@ using terrain;
 
 namespace wServer.realm.setpieces
 {
-    class SkullShrine : ISetPiece
+    class SkullShrine : SetPieceBase
     {
-        public int Size { get { return 33; } }
+        public override int Size { get { return 33; } }
 
         static readonly string Grass = "Blue Grass";
         static readonly string Tile = "Castle Stone Floor Tile";
@@ -15,7 +15,7 @@ namespace wServer.realm.setpieces
         static readonly string PillarB = "Broken Blue Pillar";
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[33, 33];
 

@@ -1,7 +1,9 @@
 package Panels
 {
 	import com.company.assembleegameclient.objects.GameObject;
-	import flash.events.KeyboardEvent;
+import com.company.util._H_V_;
+
+import flash.events.KeyboardEvent;
 	import com.company.assembleegameclient.parameters.Parameters;
 	import com.company.assembleegameclient.ui.FrameHolderNoDim;
 	import flash.events.MouseEvent;
@@ -34,6 +36,7 @@ package Panels
 		
 		protected function onAdded(param1:Event) : void {
 			stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
+			this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
 		}
 		
 		protected function onRemove(param1:Event) : void {

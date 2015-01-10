@@ -11,7 +11,7 @@ import flash.display.Sprite;
     import flash.display.IGraphicsData;
     import com.company.util.GraphicHelper;
     import com.company.ui.SimpleText;
-    import com.company.assembleegameclient.ui._0K_B_;
+    import com.company.assembleegameclient.ui.ScrollBar;
     import com.company.assembleegameclient.ui.boxButton;
     import flash.display.GraphicsSolidFill;
     import flash.display.GraphicsStroke;
@@ -41,7 +41,7 @@ import flash.display.Sprite;
         private var _M_Z_:SimpleText;
         private var _017:Sprite;
         private var _gJ_:Sprite;
-        private var _E_k:_0K_B_;
+        private var _E_k:ScrollBar;
         private var _5Y_:FancyTextButton;
         private var _zF_:FancyTextButton;
         private var _vV_:GraphicsSolidFill;
@@ -80,7 +80,7 @@ import flash.display.Sprite;
             var _local6 = (this._M_Z_.height > 400);
             if (_local6)
             {
-                this._E_k = new _0K_B_(16, (_05N_ - 4));
+                this._E_k = new ScrollBar(16, (_05N_ - 4));
                 this._E_k.x = (_lV_ + 6);
                 this._E_k.y = 0;
                 this._E_k._fA_(400, this._M_Z_.height);

@@ -583,7 +583,7 @@ namespace wServer.realm
             player.SendInfo("Type \"/help\" for more help");
         }
 
-        void SpawnEvent(string name, ISetPiece setpiece)
+        void SpawnEvent(string name, SetPieceBase setpiece)
         {
             IntPoint pt = new IntPoint();
             do
@@ -601,15 +601,15 @@ namespace wServer.realm
             log.InfoFormat("Oryx spawned {0} at ({1}, {2}).", name, pt.X, pt.Y);
         }
 
-        List<Tuple<string, ISetPiece>> events = new List<Tuple<string, ISetPiece>>()
+        List<Tuple<string, SetPieceBase>> events = new List<Tuple<string, SetPieceBase>>()
         {
-            Tuple.Create("Skull Shrine", (ISetPiece) new SkullShrine()),
-            Tuple.Create("Pentaract", (ISetPiece) new Pentaract()),
-            Tuple.Create("Grand Sphinx", (ISetPiece) new Sphinx()),
+            Tuple.Create("Skull Shrine", (SetPieceBase) new SkullShrine()),
+            Tuple.Create("Pentaract", (SetPieceBase) new Pentaract()),
+            Tuple.Create("Grand Sphinx", (SetPieceBase) new Sphinx()),
             //"Lord of the Lost Lands",
             //"Hermit God",
             //"Ghost Ship",
-            Tuple.Create("Cube God", (ISetPiece) new CubeGod()),
+            Tuple.Create("Cube God", (SetPieceBase) new CubeGod()),
         };
         public void OnEnemyKilled(Enemy enemy, Player killer)
         {

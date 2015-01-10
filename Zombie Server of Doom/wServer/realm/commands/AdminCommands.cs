@@ -170,7 +170,7 @@ namespace wServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string args)
         {
-            ISetPiece piece = (ISetPiece)Activator.CreateInstance(Type.GetType(
+            SetPieceBase piece = (SetPieceBase)Activator.CreateInstance(Type.GetType(
                 "wServer.realm.setpieces." + args, true, true));
             piece.RenderSetPiece(player.Owner, new IntPoint((int)player.X + 1, (int)player.Y + 1));
             return true;

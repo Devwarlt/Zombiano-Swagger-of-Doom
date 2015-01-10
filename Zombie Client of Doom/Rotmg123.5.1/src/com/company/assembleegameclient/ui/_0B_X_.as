@@ -30,7 +30,7 @@ import flash.display.Sprite;
         private var h_:int;
         private var _L_C_:Boolean;
         private var background_:Shape;
-        public var _F_:_ej = null;
+        public var _F_:MiniMap = null;
         public var _02y:InventorySide;
         public var visiBar:VisibilityBar;
         public var _U_T_:_Q_V_;
@@ -109,7 +109,7 @@ import flash.display.Sprite;
             }
         }
         private function _4T_():void{
-            this._F_ = new _ej(this.gs_.map_, (200 - (2 * _08A_)), (200 - (2 * _08A_)));
+            this._F_ = new MiniMap(this.gs_.map_, (200 - (2 * _08A_)), (200 - (2 * _08A_)));
             this._F_.x = _08A_;
             this._F_.y = _08A_;
         }

@@ -158,7 +158,7 @@
     <CanBePremiumPackItem />
     <OldSound></OldSound>
   </Object>
-  
+
   <Object id="SCARH Crafting Book" ext="true">
     <DisplayId>Crafting Book</DisplayId>
     <Class>Equipment</Class>
@@ -952,4 +952,11 @@
       </Projectile>
     </Object>
   </Lithium>
+
+  <Ossi>
+    <Object id="trade" ext="true">
+      <Class>GameObject</Class>
+      <Model>TradeTent</Model>
+    </Object>
+  </Ossi>
 </Addition>

@@ -13,8 +13,9 @@ import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.ui._4D_;
     import com.company.assembleegameclient.ui.boxButton;
     import com.company.ui.SimpleText;
-    
-    import flash.events.Event;
+import com.company.util._H_V_;
+
+import flash.events.Event;
     import flash.events.KeyboardEvent;
     import flash.events.MouseEvent;
     import flash.filters.DropShadowFilter;
@@ -66,6 +67,7 @@ import com.company.assembleegameclient.game.GameSprite;
         }
         private function _W_Z_(_arg1:Event):void{
             stage.addEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
+            this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
         }
 		private function onRemovedFromStage(_arg1:Event):void{
 			stage.removeEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);

@@ -2,9 +2,9 @@
 
 namespace wServer.realm.setpieces
 {
-    class LichyTemple : ISetPiece
+    class LichyTemple : SetPieceBase
     {
-        public int Size { get { return 26; } }
+        public override int Size { get { return 26; } }
 
         static readonly string Floor = "Blue Floor";
         static readonly string WallA = "Blue Wall";
@@ -13,7 +13,7 @@ namespace wServer.realm.setpieces
         static readonly string PillarB = "Broken Blue Pillar";
 
         Random rand = new Random();
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             int[,] t = new int[25, 26];
 

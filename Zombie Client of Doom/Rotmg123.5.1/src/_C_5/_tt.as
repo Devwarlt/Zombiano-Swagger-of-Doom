@@ -10,7 +10,7 @@ package _C_5{
     import _E_E_._U_A_;
     import _05Z_._D_m;
     import com.company.assembleegameclient.game.GameSprite;
-    import _R_e._L_Z_;
+    import _R_e.GameSpriteEventDispatcher;
     import _05Z_._08i;
     import _0J_2._qQ_;
 
@@ -25,7 +25,7 @@ package _C_5{
 
         public function _K_():void{
             this._O_R_.map(_D_m)._hZ_();
-            this.mediatorMap.map(GameSprite)._Y_u(_L_Z_);
+            this.mediatorMap.map(GameSprite)._Y_u(GameSpriteEventDispatcher);
             this._1G_.map(_08i)._1N_(_qQ_);
         }
 

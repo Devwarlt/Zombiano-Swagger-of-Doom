@@ -15,18 +15,33 @@ namespace wServer.realm.entities
     public class ConnectionInfo
     {
         public static readonly Dictionary<uint, ConnectionInfo> Infos = new Dictionary<uint, ConnectionInfo>();
-        public static readonly Dictionary<Tuple<ConnectionType, int>, ConnectionInfo> Infos2 = new Dictionary<Tuple<ConnectionType, int>, ConnectionInfo>();
+
+        public static readonly Dictionary<Tuple<ConnectionType, int>, ConnectionInfo> Infos2 =
+            new Dictionary<Tuple<ConnectionType, int>, ConnectionInfo>();
+
         static ConnectionInfo()
         {
-            Build(0x02020202, ConnectionType.Dot);          //1111
-            Build(0x01020202, ConnectionType.ShortLine);    //0111
-            Build(0x01010202, ConnectionType.L);            //0011
-            Build(0x01020102, ConnectionType.Line);         //0101
-            Build(0x01010201, ConnectionType.T);            //0010
-            Build(0x01010101, ConnectionType.Cross);        //0000
+            Build(0x02020202, ConnectionType.Dot); //1111
+            Build(0x01020202, ConnectionType.ShortLine); //0111
+            Build(0x01010202, ConnectionType.L); //0011
+            Build(0x01020102, ConnectionType.Line); //0101
+            Build(0x01010201, ConnectionType.T); //0010
+            Build(0x01010101, ConnectionType.Cross); //0000
         }
 
-        static void Build(uint bits, ConnectionType type)
+        private ConnectionInfo(uint bits, ConnectionType type, int rotation)
+        {
+            Bits = bits;
+            Type = type;
+            Rotation = rotation;
+        }
+
+
+        public ConnectionType Type { get; private set; }
+        public int Rotation { get; private set; }
+        public uint Bits { get; private set; }
+
+        private static void Build(uint bits, ConnectionType type)
         {
             for (int i = 0; i < 4; i++)
                 if (!Infos.ContainsKey(bits))
@@ -35,19 +50,8 @@ namespace wServer.realm.entities
                     bits = (bits >> 8) | (bits << 24);
                 }
         }
-
-
-        public ConnectionType Type { get; private set; }
-        public int Rotation { get; private set; }
-        public uint Bits { get; private set; }
-
-        private ConnectionInfo(uint bits, ConnectionType type, int rotation)
-        {
-            Bits = bits;
-            Type = type;
-            Rotation = rotation;
-        }
     }
+
     public class ConnectionComputer
     {
         public static ConnectionInfo Compute(Func<int, int, bool> offset)
@@ -61,41 +65,41 @@ namespace wServer.realm.entities
             if (z[1, 0] && z[1, 2] && z[0, 1] && z[2, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.Cross, 0)];
 
-            else if (z[0, 1] && z[1, 1] && z[2, 1] && z[1, 0])
+            if (z[0, 1] && z[1, 1] && z[2, 1] && z[1, 0])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.T, 0)];
-            else if (z[1, 0] && z[1, 1] && z[1, 2] && z[2, 1])
+            if (z[1, 0] && z[1, 1] && z[1, 2] && z[2, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.T, 90)];
-            else if (z[0, 1] && z[1, 1] && z[2, 1] && z[1, 2])
+            if (z[0, 1] && z[1, 1] && z[2, 1] && z[1, 2])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.T, 180)];
-            else if (z[1, 0] && z[1, 1] && z[1, 2] && z[0, 1])
+            if (z[1, 0] && z[1, 1] && z[1, 2] && z[0, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.T, 270)];
 
-            else if (z[0, 1] && z[1, 1] && z[2, 1])
+            if (z[1, 0] && z[1, 1] && z[1, 2])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.Line, 0)];
-            else if (z[1, 0] && z[1, 1] && z[1, 2])
+            if (z[0, 1] && z[1, 1] && z[2, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.Line, 90)];
 
-            else if (z[1, 0] && z[2, 1])
+            if (z[1, 0] && z[2, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.L, 0)];
-            else if (z[2, 1] && z[1, 2])
+            if (z[2, 1] && z[1, 2])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.L, 90)];
-            else if (z[1, 2] && z[0, 1])
+            if (z[1, 2] && z[0, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.L, 180)];
-            else if (z[0, 1] && z[1, 0])
+            if (z[0, 1] && z[1, 0])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.L, 270)];
-                
-            else if (z[1, 0])
+
+            if (z[1, 0])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.ShortLine, 0)];
-            else if (z[2, 1])
+            if (z[2, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.ShortLine, 90)];
-            else if (z[1, 2])
+            if (z[1, 2])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.ShortLine, 180)];
-            else if (z[0, 1])
+            if (z[0, 1])
                 return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.ShortLine, 270)];
 
-            else
-                return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.Dot, 0)];
+            return ConnectionInfo.Infos2[Tuple.Create(ConnectionType.Dot, 0)];
         }
+
         public static string GetConnString(Func<int, int, bool> offset)
         {
             return "conn:" + Compute(offset).Bits;
@@ -113,7 +117,8 @@ namespace wServer.realm.entities
         }
         protected override void ExportStats(IDictionary<StatsType, object> stats)
         {
-            stats[StatsType.ObjectConnection] = (int)Connection.Bits;
+            if(Connection != null)
+                stats[StatsType.ObjectConnection] = (int)Connection.Bits;
             base.ExportStats(stats);
         }
 
@@ -122,6 +127,12 @@ namespace wServer.realm.entities
         {
         }
 
+        public override void Tick(RealmTime time)
+        {
+            Connection = ConnectionComputer.Compute((xx, yy) => Owner.Map[(int)(X - 0.5) + xx, (int)(Y - 0.5) + yy].ObjType == Owner.Map[(int)(X - 0.5), (int)(Y - 0.5)].ObjType);
+            base.Tick(time);
+            UpdateCount++;
+        }
 
         public override bool HitByProjectile(Projectile projectile, RealmTime time)
         {

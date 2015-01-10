@@ -4,35 +4,30 @@
 //com.company.assembleegameclient.game._07a
 
 package com.company.assembleegameclient.game{
-import FPC.Embeds.Models._br;
-
 import Frames.GiftViewFrame;
-
 import OptionsStuff.Options;
-
 import _4K_.Stats;
-    
-    import com.company.assembleegameclient.map.Square;
-    import com.company.assembleegameclient.objects.Player;
-    import com.company.assembleegameclient.parameters.Parameters;
-    import com.company.assembleegameclient.tutorial.Tutorial;
-    import com.company.assembleegameclient.tutorial.doneAction;
+import com.company.assembleegameclient.map.Square;
+import com.company.assembleegameclient.objects.Player;
+import com.company.assembleegameclient.parameters.Parameters;
+import com.company.assembleegameclient.tutorial.Tutorial;
+import com.company.assembleegameclient.tutorial.doneAction;
 import com.company.assembleegameclient.ui.Battery;
 import com.company.assembleegameclient.ui.FrameHolder;
 import com.company.assembleegameclient.util.TextureRedrawer;
-    import com.company.util._H_V_;
-    
-    import flash.display.Stage;
-    import flash.display.StageDisplayState;
-    import flash.events.Event;
-    import flash.events.KeyboardEvent;
-    import flash.events.MouseEvent;
-    import flash.events.TimerEvent;
-import flash.geom.Point;
-    import flash.system.Capabilities;
-    import flash.utils.Timer;
+import com.company.util._H_V_;
 
-    public class _07a {
+import flash.display.Stage;
+import flash.display.StageDisplayState;
+import flash.events.Event;
+import flash.events.KeyboardEvent;
+import flash.events.MouseEvent;
+import flash.events.TimerEvent;
+import flash.geom.Point;
+import flash.system.Capabilities;
+import flash.utils.Timer;
+
+public class _07a {
 
         private static const _0_X_:uint = 175;
 
@@ -304,6 +299,9 @@ import flash.geom.Point;
                 case Parameters.data_.openGifts:
                     gs_.addChild(new FrameHolder(new GiftViewFrame(this.gs_, this.gs_.charList_)));
                     break;
+                case _H_V_.J:
+                    this.gs_.pause();
+                    break;
                 case Parameters.data_.toggleFullscreen:
                     if (Capabilities.playerType == "Desktop")
                     {
@@ -381,7 +379,7 @@ import flash.geom.Point;
                         _local3.attack_ = 100;
                         break;
                     case _H_V_.H:
-                            this.gs_.map_.switchNightVision();
+                            this.gs_.addChild(new FoundVillageScreen());
                         //if(fgt == null) {
                         //    fgt = new Battery(Battery.CHARGE_100);
                         //    this.gs_.addChild(fgt);

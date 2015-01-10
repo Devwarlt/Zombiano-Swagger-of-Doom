@@ -8,7 +8,7 @@ package _F_1{
     import flash.geom.Rectangle;
     import flash.display.Shape;
 
-    import com.company.assembleegameclient.ui._0K_B_;
+    import com.company.assembleegameclient.ui.ScrollBar;
     import flash.events.Event;
     import com.company.assembleegameclient.util.RankUtils;
     import flash.display.BitmapData;
@@ -24,7 +24,7 @@ package _F_1{
         private var mask_:Shape;
         private var _8g:Sprite;
         private var _Q_k:Vector.<_2Z_>;
-        private var _V__:_0K_B_;
+        private var _V__:ScrollBar;
         private var startTime_:int;
 
         public function _no(_arg1:Rectangle, _arg2:XML){
@@ -37,7 +37,7 @@ package _F_1{
             graphics.lineStyle(1, 0x494949, 2);
             graphics.drawRect((this.rect_.x + 1), (this.rect_.y + 1), (this.rect_.width - 2), (this.rect_.height - 2));
             graphics.lineStyle();
-            this._V__ = new _0K_B_(16, this.rect_.height);
+            this._V__ = new ScrollBar(16, this.rect_.height);
             this._V__.addEventListener(Event.CHANGE, this._I_v);
             this.mask_.graphics.beginFill(0xFFFFFF, 1);
             this.mask_.graphics.drawRect(this.rect_.x, this.rect_.y, this.rect_.width, this.rect_.height);

@@ -7,7 +7,7 @@ package _F_1{
     import com.company.ui.SimpleText;
     import flash.display.Shape;
     import flash.display.Sprite;
-    import com.company.assembleegameclient.ui._0K_B_;
+    import com.company.assembleegameclient.ui.ScrollBar;
     import _sp._aJ_;
     import _02t._R_f;
     import flash.events.Event;
@@ -24,7 +24,7 @@ package _F_1{
         private var _dL_:Shape;
         private var _cc:Sprite;
         private var _I_d:_0M_L_;
-        private var _E_k:_0K_B_;
+        private var _E_k:ScrollBar;
         public var _4s:_aJ_;
 
         public function _01_(){
@@ -63,7 +63,7 @@ package _F_1{
             this._cc.addChild(this._I_d);
             if (this._I_d.height > 400)
             {
-                this._E_k = new _0K_B_(16, 400);
+                this._E_k = new ScrollBar(16, 400);
                 this._E_k.x = ((800 - this._E_k.width) - 4);
                 this._E_k.y = 104;
                 this._E_k._fA_(400, this._I_d.height);

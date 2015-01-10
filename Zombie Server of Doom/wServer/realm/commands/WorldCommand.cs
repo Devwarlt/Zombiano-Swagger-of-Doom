@@ -71,26 +71,16 @@ namespace wServer.realm.commands
                     Effect = ConditionEffectIndex.Paused,
                     DurationMS = 0
                 });
-                player.SendInfo("Game resumed.");
                 return true;
             }
             else
             {
-                if (player.Owner.EnemiesCollision.HitTest(player.X, player.Y, 8).OfType<Enemy>().Any())
+                player.ApplyConditionEffect(new ConditionEffect()
                 {
-                    player.SendError("Not safe to pause.");
-                    return false;
-                }
-                else
-                {
-                    player.ApplyConditionEffect(new ConditionEffect()
-                    {
-                        Effect = ConditionEffectIndex.Paused,
-                        DurationMS = -1
-                    });
-                    player.SendInfo("Game paused.");
-                    return true;
-                }
+                    Effect = ConditionEffectIndex.Paused,
+                    DurationMS = -1
+                });
+                return true;
             }
         }
     }

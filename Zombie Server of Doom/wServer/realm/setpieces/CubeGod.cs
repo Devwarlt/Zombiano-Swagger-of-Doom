@@ -1,11 +1,11 @@
 ﻿
 namespace wServer.realm.setpieces
 {
-    class CubeGod : ISetPiece
+    class CubeGod : SetPieceBase
     {
-        public int Size { get { return 5; } }
+        public override int Size { get { return 5; } }
 
-        public void RenderSetPiece(World world, IntPoint pos)
+        public override void RenderSetPiece(World world, IntPoint pos)
         {
             //Entity cube = Entity.Resolve(world.Manager, "Cube God");
             //cube.Move(pos.X + 2.5f, pos.Y + 2.5f);

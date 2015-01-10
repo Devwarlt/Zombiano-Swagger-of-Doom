@@ -4,6 +4,9 @@
 //_F_1._0H_h
 
 package _F_1{
+import FireBite.Embeds.Images.FireBiteLogo;
+
+import Sounds.LocalSounds;
 import Sounds.Music;
 
 import YouTube.YouTubePlayer;
@@ -15,12 +18,13 @@ import com.company.assembleegameclient.appengine.WebRequest;
 
 import com.company.assembleegameclient.parameters.Parameters;
 
+import flash.display.Bitmap;
+
 import flash.display.DisplayObject;
 import flash.display.Shape;
 import flash.display.Sprite;
 import _sp._aJ_;
 import com.company.ui.SimpleText;
-import _02t._R_f;
 import com.company.rotmg.graphics.ScreenGraphic;
 
 import flash.events.TimerEvent;
@@ -28,30 +32,32 @@ import flash.filters.DropShadowFilter;
 import flash.events.MouseEvent;
 import flash.filters.GlowFilter;
 import flash.media.Sound;
+import flash.media.SoundChannel;
 import flash.media.SoundTransform;
 import flash.net.navigateToURL;
 import flash.net.URLRequest;
 import flash.events.Event;
 import flash.utils.Timer;
+import flash.utils.getDefinitionByName;
 
 public class _0H_h extends Sprite {
+    FireBiteLogo;
 
     private static const _088:String = "http://www.wildshadow.com/";
     private static const _0L_O_:String = "http://www.kabam.com/";
-    private static const CREDITSTHEME:String = "AThemeforKjell";
 
     public var close:_aJ_;
 
     private var _045:_H_o;
     private var displayScreen:Sprite;
     private var items:Vector.<DisplayObject>;
-    private var totalHeight;
-    private var sound;
+    private var totalHeight:Number;
+    private var sound:SoundChannel;
     private var ytvid:YouTubePlayer;
 
     public function _0H_h() {
 
-        if(creditsXML.attribute("backgroundVideo") != "") {
+        if(creditsXML.hasOwnProperty("@backgroundVideo")) {
             ytvid = new YouTubePlayer(creditsXML.@backgroundVideo, true);
             ytvid.repeat = true;
             addChild(this.ytvid);
@@ -59,15 +65,18 @@ public class _0H_h extends Sprite {
         else {
             Music.reload("");
             var sound = new Sound();
-            sound.load(new URLRequest("http://" + Parameters.musicUrl_ + "/sfx/music/" + CREDITSTHEME + ".mp3"));
+            if(creditsXML.@local) {
+                sound.loadCompressedDataFromByteArray(LocalSounds.getSound(creditsXML.@music).data, LocalSounds.getSound(creditsXML.@music).data.length)
+            }
+            else {
+                sound.load(new URLRequest("http://" + Parameters.musicUrl_ + "/sfx/music/" + creditsXML.@music + ".mp3"));
+            }
             var soundTransform = new SoundTransform(0.65);
             this.sound = sound.play(0, int.MAX_VALUE, soundTransform);
-            addChild(new _R_f());
         }
         this.addEventListener(Event.REMOVED_FROM_STAGE, exited);
         this.close = new _aJ_();
         this.items = new Vector.<DisplayObject>();
-        addChild(new ScreenGraphic());
 
         this.displayScreen = new Sprite();
         var textMask = new Shape();
@@ -77,6 +86,12 @@ public class _0H_h extends Sprite {
         this.displayScreen.mask = textMask;
         addChild(textMask);
         addChild(this.displayScreen);
+
+        for each (var xml:XML in creditsXML.DrawImage) {
+            var cls:Class = getDefinitionByName("FireBite.Embeds.Images." + xml.@id) as Class;
+            var bmp:Bitmap = new cls();
+            items.push(bmp);
+        }
 
         for each (var item:XML in creditsXML.DrawText) {
             var text:SimpleText = new SimpleText(int(item.@size), uint(item.@color), false, int(item.@width), int(item.@height));
@@ -98,6 +113,7 @@ public class _0H_h extends Sprite {
             items.push(text);
         }
 
+        addChild(new ScreenGraphic());
         this._045 = new _H_o("close", 36, false);
         this._045.addEventListener(MouseEvent.CLICK, this._ly);
         addChild(this._045);
@@ -142,6 +158,11 @@ public class _0H_h extends Sprite {
                 if((obj as SimpleText).text == "|") {
                     (obj as SimpleText).text = "";
                 }
+            }
+            else {
+                obj.x = (400) - (obj.width / 2);
+                obj.y = h;
+                h += obj.height + 10;
             }
 
             this.displayScreen.addChild(obj);

@@ -11,6 +11,12 @@ namespace wServer.networking.handlers
 
         protected override void HandlePacket(Client client, HelloPacket packet)
         {
+            if (packet.BuildVersion != Server.BUILD_VERSION)
+            {
+                SendFailure(Server.BUILD_VERSION, 4);
+                return;
+            }
+
             Account acc = client.Manager.Database.Verify(packet.GUID, packet.Password);
             if (acc == null)
             {
@@ -54,6 +60,7 @@ namespace wServer.networking.handlers
                         Width = world.Map.Width,
                         Height = world.Map.Height,
                         Name = world.Name,
+                        BackgroundImage = world.BackgroundImage,
                         Seed = seed,
                         Background = world.Background,
                         AllowTeleport = world.AllowTeleport,

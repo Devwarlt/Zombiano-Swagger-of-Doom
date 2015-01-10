@@ -33,6 +33,7 @@ namespace wServer.realm
             Timers = new List<WorldTimer>();
             ExtraXML = Empty<string>.Array;
             Music = Empty<string>.Array;
+            BackgroundImage = "";
             AllowTeleport = true;
             ShowDisplays = true;
             WeatherManager = new WeatherManager(this);
@@ -57,6 +58,7 @@ namespace wServer.realm
         }
         public int Id { get; internal set; }
         public string Name { get; protected set; }
+        public string BackgroundImage { get; protected set; }
 
         public ConcurrentDictionary<int, Player> Players { get; private set; }
         public ConcurrentDictionary<int, Enemy> Enemies { get; private set; }
@@ -169,6 +171,40 @@ namespace wServer.realm
             }
             return entity.Id;
         }
+
+        public virtual void AddExistingEntity(Entity entity)
+        {
+            if (entity is Player)
+            {
+                entity.Init(this);
+                Players.TryAdd(entity.Id, entity as Player);
+                PlayersCollision.Insert(entity);
+            }
+            else if (entity is Enemy)
+            {
+                entity.Init(this);
+                Enemies.TryAdd(entity.Id, entity as Enemy);
+                EnemiesCollision.Insert(entity);
+                if (entity.ObjectDesc.Quest)
+                    Quests.TryAdd(entity.Id, entity as Enemy);
+            }
+            else if (entity is Projectile)
+            {
+                entity.Init(this);
+                Projectile prj = entity as Projectile;
+                Projectiles[new Tuple<int, byte>(prj.ProjectileOwner.Self.Id, prj.ProjectileId)] = prj;
+            }
+            else if (entity is StaticObject)
+            {
+                entity.Init(this);
+                StaticObjects.TryAdd(entity.Id, entity as StaticObject);
+                if (entity is Decoy)
+                    PlayersCollision.Insert(entity);
+                else
+                    EnemiesCollision.Insert(entity);
+            }
+        }
+
         public virtual void LeaveWorld(Entity entity)
         {
             if (entity is Player)
@@ -292,6 +328,11 @@ namespace wServer.realm
                 _weather = weather,
                 _type = 2
             }, null);
+        }
+
+        internal void SetNextEntityId(int p)
+        {
+            entityInc = p;
         }
     }
 }

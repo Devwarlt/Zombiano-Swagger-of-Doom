@@ -98,7 +98,7 @@ public class Frame extends Sprite {
         _arg1.x = _arg2;
         this.h_ = (this.h_ + _arg1.height);
     }
-    public function _0D_I_(_arg1:String):void{
+    public function addTextLine(_arg1:String):void{
         var _local2:SimpleText;
         _local2 = new SimpleText(12, 0xFFFFFF, false, 0, 0, "Myriad Pro");
         _local2.text = _arg1;

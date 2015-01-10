@@ -9,7 +9,9 @@ import AccountManagement.ui.FancyTextButton;
 import com.company.assembleegameclient.objects.Portal;
     import com.company.ui.SimpleText;
     import com.company.assembleegameclient.ui.boxButton;
-    import flash.text.TextFieldAutoSize;
+import com.company.util._H_V_;
+
+import flash.text.TextFieldAutoSize;
     import flash.filters.DropShadowFilter;
     import flash.events.Event;
     import com.company.assembleegameclient.game.GameSprite;
@@ -62,6 +64,7 @@ import com.company.assembleegameclient.objects.Portal;
             this._0C_U_.y = ((HEIGHT - this._0C_U_.height) - 12);
             this._O_M_.addEventListener(MouseEvent.CLICK, this._xH_);
             stage.addEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
+            this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
         }
         private function onRemovedFromStage(_arg1:Event):void{
             stage.removeEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
