@@ -4,7 +4,7 @@
 package CraftingWebRequests {
 import _qN_.Account;
 
-import _zo._8C_;
+import WebRequestEvents.WebRequestSuccessEvent;
 
 import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.objects.CraftingTerminal;
@@ -25,12 +25,12 @@ public class CraftingRequest extends WebRequest{
     }
 
     private function init():void{
-        addEventListener(_8C_.GENERIC_DATA, this.dataReceived);
+        addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.dataReceived);
         var _local1:Object = Account._get().credentials();
         sendRequest("getRecipes", _local1);
     }
 
-    public function dataReceived(_arg1:_8C_) {
+    public function dataReceived(_arg1:WebRequestSuccessEvent) {
         CraftingTerminal.recipes = Vector.<String>(_arg1.data_.toString().split("\n"));
         lockRequest = false;
     }

@@ -97,7 +97,8 @@ package com.company.assembleegameclient.appengine{
 
             var gifts:String = String(_arg1.Gifts).replace(" ", "");
             if(gifts.indexOf(',') == -1) {
-                this.gifts.push(int(gifts));
+                if(int(gifts) != 0)
+                    this.gifts.push(int(gifts));
             }
             else {
                 var gfts:Array = (gifts.split(','));
@@ -163,7 +164,7 @@ package com.company.assembleegameclient.appengine{
             var _local1:XML = XML(this._Q_I_.Servers);
             for each (_local2 in _local1.Server)
             {
-                this.servers_.push(new Server(_local2.Name, _local2.DNS, Parameters.gamePort, new _0K_N_(Number(_local2.Lat), Number(_local2.Long)), Number(_local2.Usage), _local2.hasOwnProperty("AdminOnly")));
+                this.servers_.push(new Server(_local2.Name, _local2.DNS, Parameters.gamePort, new _0K_N_(Number(_local2.Lat), Number(_local2.Long)), Number(_local2.Usage), _local2.hasOwnProperty("AdminOnly"), _local2.hasOwnProperty("IsUDP")));
             }
         }
         private function _09w():void{

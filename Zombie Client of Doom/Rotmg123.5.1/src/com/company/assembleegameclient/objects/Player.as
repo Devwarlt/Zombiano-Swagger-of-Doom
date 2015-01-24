@@ -896,7 +896,7 @@ public class Player extends Character {
             }
             for each (_local7 in _local4.Activate)
             {
-                if (_local7.toString() == "RequestTeleport")
+                if (_local7.toString() == "Teleport")
                 {
                     if (!this._M_S_(_local6.x, _local6.y))
                     {

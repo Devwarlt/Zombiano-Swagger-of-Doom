@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_rotmg123.5.1" default="compile.module.rotmg123.5.1">
+  <dirname property="module.rotmg123.5.1.basedir" file="${ant.file.module_rotmg123.5.1}"/>
+  
+  <property name="module.jdk.home.rotmg123.5.1" value="${jdk.home.flex_sdk}"/>
+  <property name="module.jdk.bin.rotmg123.5.1" value="${jdk.bin.flex_sdk}"/>
+  <property name="module.jdk.classpath.rotmg123.5.1" value="jdk.classpath.flex_sdk"/>
+  
+  <property name="compiler.args.rotmg123.5.1" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="rotmg123.5.1.output.dir" value="${module.rotmg123.5.1.basedir}/out/production/Rotmg123.5.1"/>
+  <property name="rotmg123.5.1.testoutput.dir" value="${module.rotmg123.5.1.basedir}/out/test/Rotmg123.5.1"/>
+  
+  <path id="rotmg123.5.1.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="rotmg123.5.1.module.production.classpath">
+    <path refid="${module.jdk.classpath.rotmg123.5.1}"/>
+  </path>
+  
+  <path id="rotmg123.5.1.runtime.production.module.classpath">
+    <pathelement location="${rotmg123.5.1.output.dir}"/>
+  </path>
+  
+  <path id="rotmg123.5.1.module.classpath">
+    <path refid="${module.jdk.classpath.rotmg123.5.1}"/>
+    <pathelement location="${rotmg123.5.1.output.dir}"/>
+  </path>
+  
+  <path id="rotmg123.5.1.runtime.module.classpath">
+    <pathelement location="${rotmg123.5.1.testoutput.dir}"/>
+    <pathelement location="${rotmg123.5.1.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.rotmg123.5.1">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.rotmg123.5.1">
+    <patternset refid="excluded.from.module.rotmg123.5.1"/>
+  </patternset>
+  
+  <path id="rotmg123.5.1.module.sourcepath">
+    <dirset dir="${module.rotmg123.5.1.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.rotmg123.5.1" depends="compile.module.rotmg123.5.1.production,compile.module.rotmg123.5.1.tests" description="Compile module Rotmg123.5.1"/>
+  
+  <target name="compile.module.rotmg123.5.1.production" depends="register.custom.compilers" description="Compile module Rotmg123.5.1; production classes">
+    <mkdir dir="${rotmg123.5.1.output.dir}"/>
+    <javac2 destdir="${rotmg123.5.1.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.rotmg123.5.1}/javac">
+      <compilerarg line="${compiler.args.rotmg123.5.1}"/>
+      <bootclasspath refid="rotmg123.5.1.module.bootclasspath"/>
+      <classpath refid="rotmg123.5.1.module.production.classpath"/>
+      <src refid="rotmg123.5.1.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.rotmg123.5.1"/>
+    </javac2>
+    
+    <copy todir="${rotmg123.5.1.output.dir}">
+      <fileset dir="${module.rotmg123.5.1.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.rotmg123.5.1.tests" depends="register.custom.compilers,compile.module.rotmg123.5.1.production" description="compile module Rotmg123.5.1; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.rotmg123.5.1" description="cleanup module">
+    <delete dir="${rotmg123.5.1.output.dir}"/>
+    <delete dir="${rotmg123.5.1.testoutput.dir}"/>
+  </target>
+</project>

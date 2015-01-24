@@ -9,7 +9,7 @@ package _02b{
     import _U_5._bo;
     import flash.utils.Timer;
     import com.company.assembleegameclient.appengine._2n;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestErrorEvent;
     import com.company.assembleegameclient.appengine._0K_R_;
     import _qN_.Account;
     import flash.events.TimerEvent;
@@ -27,14 +27,14 @@ package _02b{
 
         override protected function startTask():void{
             this._0D_b = new _2n();
-            this._0D_b.addEventListener(_mS_.TEXT_ERROR, this._ix);
+            this._0D_b.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
             this._0D_b.addEventListener(_0K_R_.SAVED_CHARS_LIST, this._dM_);
             this._J__();
         }
         private function _J__():void{
             this._0D_b._H_Q_();
         }
-        private function _ix(_arg1:_mS_):void{
+        private function _ix(_arg1:WebRequestErrorEvent):void{
             this._08e.dispatch('<p align="center">Load error, retrying</p>');
             if (_arg1.text_ == "Account credentials not valid")
             {

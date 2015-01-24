@@ -27,7 +27,7 @@ namespace server.picture
                         if (!rdr.HasRows) return;
                         rdr.Read();
 
-                        //Context.Response.ContentType = "image/png";
+                        Context.Response.ContentType = "image/png";
                         var fileSize = rdr.GetInt32("fileSize");
                         var raw = new byte[fileSize];
                         long len = rdr.GetBytes(rdr.GetOrdinal("data"), 0, raw, 0, fileSize);

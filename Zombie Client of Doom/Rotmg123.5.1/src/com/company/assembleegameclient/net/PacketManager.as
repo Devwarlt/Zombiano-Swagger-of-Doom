@@ -4,6 +4,8 @@
 //com.company.assembleegameclient.net.PacketManager
 
 package com.company.assembleegameclient.net{
+import Achievements.BasicAchievement;
+
 import CraftingWebRequests.CraftingRequest;
 
 import Frames.CraftingFrame;
@@ -166,7 +168,9 @@ import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.ui._return;
 import com.company.assembleegameclient.util.Currency;
     import com.company.assembleegameclient.util._wW_;
-    import com.company.net.ServerConnection;
+import com.company.net.GameServer;
+import com.company.net.TCPServerConnection;
+import com.company.net.UDPServerConnection;
     import com.company.net.Packet;
 import com.company.util.PointUtil;
 import com.company.util.Random;
@@ -269,6 +273,7 @@ import flash.events.TimerEvent;
         public static const RESKIN:int = 88;
         public static const UNLOCK:int = 89;
         public static const GETGIFT:int = 90;
+        public static const ACHIEVEMENTUNLOCKED:int = 91;
         private static const _vb:Vector.<uint> = new <uint>[14802908, 0xFFFFFF, 0x545454];
         private static const _Z_y:Vector.<uint> = new <uint>[5644060, 16549442, 13484223];
         private static const _0A_F_:Vector.<uint> = new <uint>[2493110, 61695, 13880567];
@@ -286,14 +291,14 @@ import flash.events.TimerEvent;
         public var _2B_:String;
         public var lastTickId_:int = -1;
         public var _0l:_17 = null;
-        public var serverConn:ServerConnection = null;
+        public var serverConn:GameServer = null;
         private var _5z:int = -1;
         private var _P_A_:Boolean = true;
         public var outstandingBuy_:_W_v = null;
         private var _7G_:Random = null;
         private var _0c:Timer;
 
-        public function PacketManager(_arg1:GameSprite, _arg2:Server, _arg3:int, _arg4:Boolean, _arg5:int, _arg6:int, _arg7:ByteArray, _arg8:String){
+        public function PacketManager(_arg1:GameSprite, _arg2:Server, _arg3:int, _arg4:Boolean, _arg5:int, _arg6:int, _arg7:ByteArray, _arg8:String) {
             this.gs_ = _arg1;
             this.server_ = _arg2;
             this.gameId_ = _arg3;
@@ -302,7 +307,7 @@ import flash.events.TimerEvent;
             this.keyTime_ = _arg6;
             this.key_ = _arg7;
             this._2B_ = _arg8;
-            this.serverConn = new ServerConnection(false);
+            this.serverConn = _arg2.isUDP ? new UDPServerConnection(false) : new TCPServerConnection(false);
             this.serverConn.registerPacket(FAILURE, FailurePacket, this._nc);
             this.serverConn.registerPacket(CREATE_SUCCESS, _T_n, this._cw);
             this.serverConn.registerPacket(CREATE, Create, null);
@@ -379,21 +384,22 @@ import flash.events.TimerEvent;
 			this.serverConn.registerPacket(VISIBULLET, Visibullet, null);
 			this.serverConn.registerPacket(SWITCHMUSIC, SwitchMusic, this.switchMusic);
             this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, this.teleportRequested);
-            this.serverConn.registerPacket(WEATHERPROPERTIES, WeatherPropertiesPacket, this.weatherProps)
+            this.serverConn.registerPacket(WEATHERPROPERTIES, WeatherPropertiesPacket, this.weatherProps);
             this.serverConn.registerPacket(LEARNCRAFTINGRECIPE, LearnCraftingRecipe, null);
             this.serverConn.registerPacket(RESKIN, ReskinPacket, null);
             this.serverConn.registerPacket(UNLOCK, UnlockedPacket, this.unlockedSomething);
             this.serverConn.registerPacket(GETGIFT, GetGift, null);
+            this.serverConn.registerPacket(ACHIEVEMENTUNLOCKED, AchievementUnlockedPacket, this.onAchievementUnlock);
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
             this.serverConn.addEventListener(Event.CLOSE, this._of);
             this.serverConn.addEventListener(ErrorEvent.ERROR, this.onError);
         }
         public function connect():void{
             this.gs_.textBox_.addText(Parameters.SendClient, ("Connecting to " + this.server_.name_));
-            if (Parameters._wZ_)
+            if (Parameters.cryptPackets)
             {
-                this.serverConn._7s("rc4", _L_2._Z_S_(Parameters.RANDOM1));
-                this.serverConn._wH_("rc4", _L_2._Z_S_(Parameters.RANDOM2));
+                //this.serverConn._7s("rc4", _L_2._Z_S_(Parameters.RANDOM1));
+                //this.serverConn._wH_("rc4", _L_2._Z_S_(Parameters.RANDOM2));
             }
             this.serverConn.connect(this.server_.host_, this.server_.port_);
         }
@@ -696,7 +702,7 @@ import flash.events.TimerEvent;
         private function _ux(_arg1:Event):void{
             this.gs_.textBox_.addText(Parameters.SendClient, "Connected!");
             var _local2:HelloPacket = (this.serverConn.createPacketFromID(HELLO) as HelloPacket);
-			_local2.Copyright = "Fire Inc. 2014";
+			_local2.Copyright = "FireBite Inc. 2014";
             _local2.buildVersion_ = Parameters.clientVersion;
             _local2.gameId_ = this.gameId_;
             _local2.guid_ = this._J_X_(Account._get().guid());
@@ -778,7 +784,6 @@ import flash.events.TimerEvent;
             _local2.setAttack(_arg1.containerType_, _arg1.angle_);
         }
         private function _0K_7(_arg1:_C_3):void{
-            var _local4:Projectile;
             var _local4:Projectile;
             var _local5:Number;
             var _local2:GameObject = this.gs_.map_.goDict_[_arg1.ownerId_];
@@ -1641,6 +1646,17 @@ import flash.events.TimerEvent;
 		//	_packet.bulletId_ = _bulletId;
 		//	this.serverConn.sendPacket(_packet);
 		//}
+
+        private function onAchievementUnlock(packet:AchievementUnlockedPacket):void {
+            switch (packet.type) {
+                case 0:
+                    new BasicAchievement(this.gs_, packet.title, packet.description);
+                    break;
+                case 1:
+                    throw new ArgumentError("Not Implemented yet");
+                    break;
+            }
+        }
 
         private function unlockedSomething(packet:UnlockedPacket):void {
             switch (packet.type) {

@@ -4,6 +4,8 @@
 //com.company.assembleegameclient.game._07a
 
 package com.company.assembleegameclient.game{
+import Achievements.BasicAchievement;
+
 import Frames.GiftViewFrame;
 import OptionsStuff.Options;
 import _4K_.Stats;
@@ -107,7 +109,6 @@ public class _07a {
         }
         private function onMouseMove(_arg1:MouseEvent):void{
             mouseMoved = true;
-            trace(mouseMoved);
         }
         private function onMouseDown(_arg1:MouseEvent):void{
             var _local2:Player = this.gs_.map_.player_;
@@ -379,7 +380,11 @@ public class _07a {
                         _local3.attack_ = 100;
                         break;
                     case _H_V_.H:
-                            this.gs_.addChild(new FoundVillageScreen());
+                        new BasicAchievement(this.gs_, "Army Killer", "Kill more than 1000000 players!");
+                        new BasicAchievement(this.gs_, "Digger", "Farm more than 100000000 stone bricks!");
+                        new BasicAchievement(this.gs_, "Loot God", "Collect more than 1000000 items!");
+                        new BasicAchievement(this.gs_, "Hi I am new", "Visit a different country!");
+                        new BasicAchievement(this.gs_, "Look what I found", "Open 1 loot bag!");
                         //if(fgt == null) {
                         //    fgt = new Battery(Battery.CHARGE_100);
                         //    this.gs_.addChild(fgt);

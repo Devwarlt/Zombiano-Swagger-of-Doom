@@ -70,7 +70,7 @@ package com.company.assembleegameclient.ui{
             this.w_ = _arg2;
             this.h_ = _arg3;
             this._eh = new Rectangle((-(this.w_) / 2), (-(this.h_) / 2), this.w_, this.h_);
-            this._0M_j = new Point(_arg1.width_, _arg1.height_);
+            this._0M_j = new Point(_arg1 ? _arg1.width_ : 1, _arg1 ? _arg1.height_ : 1);
             this._02q = new BitmapData(this._0M_j.x, this._0M_j.y, false, 0);
             var _local4:Number = Math.max((this.w_ / this._0M_j.x), (this.h_ / this._0M_j.y));
             var _local5:Number = 4;
@@ -233,7 +233,7 @@ package com.company.assembleegameclient.ui{
             }
             return (true);
         }
-        public function draw():void{
+        public function draw(point:Point = null):void{
             var _local7:Graphics;
             var _local10:GameObject;
             var _local15:uint;
@@ -247,6 +247,9 @@ package com.company.assembleegameclient.ui{
             this._6q.identity();
             if(this.map_.player_ != null) {
                 this._6q.translate(-(this.map_.player_.x_), -(this.map_.player_.y_));
+            }
+            else {
+                this._6q.translate(-point.x, -point.y);
             }
             this._6q.scale(_local1, _local1);
             var _local2:Point = this._6q.transformPoint(PointUtil._P_5);
@@ -382,8 +385,8 @@ package com.company.assembleegameclient.ui{
                     this.toolTip_ = null;
                 }
             }
-            var _local11:Number = this.map_.player_ ? this.map_.player_.x_ : 0;
-            var _local12:Number = this.map_.player_ ? this.map_.player_.y_ : 0;
+            var _local11:Number = this.map_.player_ ? this.map_.player_.x_ : point.x;
+            var _local12:Number = this.map_.player_ ? this.map_.player_.y_ : point.y;
             var _local13:Number = (((this._6q.a * _local11) + (this._6q.c * _local12)) + this._6q.tx);
             var _local14:Number = (((this._6q.b * _local11) + (this._6q.d * _local12)) + this._6q.ty);
             this._P_T_.identity();

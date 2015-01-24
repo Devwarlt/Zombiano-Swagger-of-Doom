@@ -44,8 +44,6 @@ import flash.geom.ColorTransform;
 import flash.geom.Transform;
 import flash.utils.Dictionary;
 
-import spark.primitives.Graphic;
-
 public class _X_l extends MapHandler {
 
         private static const _D_W_:Array = ["sortVal_", "objectId_"];

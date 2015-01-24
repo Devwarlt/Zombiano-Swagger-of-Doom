@@ -115,14 +115,24 @@ namespace server
                 }
 
                 RequestHandler handler;
-
-                if (!RequestHandlers.Handlers.TryGetValue(context.Request.Url.LocalPath, out handler))
+                Type t;
+                string s = "server" + context.Request.Url.LocalPath.Replace("/", ".");
+                if ((t = Type.GetType(s)) == null)
                 {
                     using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
                         wtr.Write("<Error>Bad request</Error>");
                 }
+
+                //if (!RequestHandlers.Handlers.TryGetValue(context.Request.Url.LocalPath, out handler))
+                //{
+                //    using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
+                //        wtr.Write("<Error>Bad request</Error>");
+                //}
                 else
+                {
+                    handler = Activator.CreateInstance(t, null, null) as RequestHandler;
                     handler.HandleRequest(context);
+                }
             }
             catch (Exception e)
             {

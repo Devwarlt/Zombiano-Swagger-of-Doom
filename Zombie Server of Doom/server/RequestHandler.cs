@@ -79,7 +79,7 @@ namespace server
             { "/picture/list", new picture.list() },
             { "/picture/save", new picture.save() },
             { "/picture/delete", new picture.delete() },
-            { "/credits/getInfo", new credits.getInfo() }
+            { "/credits/getInfo", new credits.getInfo() },
         };
     }
 }

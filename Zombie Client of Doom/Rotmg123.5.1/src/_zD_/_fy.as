@@ -12,8 +12,8 @@ package _zD_{
     import _U_5._01W_;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import _F_1.CurrentCharacterScreen;
     import _F_1._C_Q_;
     import _F_1._U_W_;
@@ -36,8 +36,8 @@ package _zD_{
         override public function initialize():void{
             this.timespan = "week";
             this._0K_y = new WebRequest(Parameters._fK_(), "/fame", true, 2);
-            this._0K_y.addEventListener(_8C_.GENERIC_DATA, this._S_s);
-            this._0K_y.addEventListener(_mS_.TEXT_ERROR, this._k9);
+            this._0K_y.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._S_s);
+            this._0K_y.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._k9);
             this.view.close.add(this._of);
             this.view._8m.add(this._B_L_);
             this.view._T_c.add(this._0A_I_);
@@ -73,11 +73,11 @@ package _zD_{
                 "charId":_local2
             });
         }
-        public function _S_s(_arg1:_8C_):void{
+        public function _S_s(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = XML(_arg1.data_);
             this.view._0d(_local2);
         }
-        private function _k9(_arg1:_mS_):void{
+        private function _k9(_arg1:WebRequestErrorEvent):void{
             this.view._cC_(_arg1.text_);
         }
         private function _0A_I_(_arg1:int, _arg2:int):void{

@@ -16,8 +16,8 @@ package _Z_h{
     import com.company.assembleegameclient.util.GUID;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import _0L_C_._qM_;
     import _9R_._W_h;
     import _L_7._rS_;
@@ -124,27 +124,27 @@ package _Z_h{
                 return;
             }
             var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true, 2);
-            _local3.addEventListener(_8C_.GENERIC_DATA, this._6l);
-            _local3.addEventListener(_mS_.TEXT_ERROR, this._T_);
+            _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._6l);
+            _local3.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._T_);
             _local3.sendRequest("getcredentials", {
                 "userId":this._nq.services.getUserId(),
                 "username":this._nq.services.getUsername(),
                 "gameAuthToken":this._nq.services.getGameAuthToken()
             });
         }
-        private function _6l(_arg1:_8C_):void{
+        private function _6l(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
             this.guid_ = _local2.GUID;
             this.secret_ = _local2.Secret;
             this.callback_();
         }
-        private function _T_(_arg1:_mS_):void{
+        private function _T_(_arg1:WebRequestErrorEvent):void{
             this._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
         }
         private function _pQ_(_arg1:Event):void{
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true, 2);
-            _local2.addEventListener(_8C_.GENERIC_DATA, this._I_9);
-            _local2.addEventListener(_mS_.TEXT_ERROR, this._0T_);
+            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._I_9);
+            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._0T_);
             _local2.sendRequest("internalRegister", {
                 "userId":this._nq.services.getUserId(),
                 "username":this._nq.services.getUsername(),
@@ -152,10 +152,10 @@ package _Z_h{
                 "guid":this._ya
             });
         }
-        private function _0T_(_arg1:_mS_):void{
+        private function _0T_(_arg1:WebRequestErrorEvent):void{
             this._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
         }
-        private function _I_9(_arg1:_8C_):void{
+        private function _I_9(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
             this.guid_ = _local2.GUID;
             this.secret_ = _local2.Secret;

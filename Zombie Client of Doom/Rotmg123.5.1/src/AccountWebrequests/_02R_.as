@@ -13,7 +13,7 @@ package AccountWebrequests{
     import com.company.assembleegameclient.util.offer.Offers;
     import _00g._02U_;
     import Frames._A_R_;
-    import _zo._8C_;
+    import WebRequestEvents.WebRequestSuccessEvent;
     import flash.display.Stage;
     import _9R_._B_w;
 
@@ -31,7 +31,7 @@ package AccountWebrequests{
             addChild(_local1);
             _02k._U_t("/credits", this._nK_);
         }
-        private function _nK_(_arg1:_8C_):void{
+        private function _nK_(_arg1:WebRequestSuccessEvent):void{
             var _local2:_0H_i = new _0H_i();
             _local2.addEventListener(Event.CANCEL, this.onCancel);
             _local2.addEventListener(Event.COMPLETE, this.onComplete);

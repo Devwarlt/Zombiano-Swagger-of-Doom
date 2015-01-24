@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Sockets;
 using wServer.networking.cliPackets;
 using wServer.networking.svrPackets;
@@ -26,6 +27,18 @@ namespace wServer.networking
 
         public RealmManager Manager { get; private set; }
         public Socket Socket { get { return skt; } }
+        public bool IsUdp { get; private set; }
+
+        private IPEndPoint cEndP;
+        public IPEndPoint EndPoint
+        {
+            get
+            {
+                return IsUdp ? cEndP : (IPEndPoint)Socket.RemoteEndPoint;
+            }
+        }
+
+        private UdpPacket receivePacket;
 
         public Client(RealmManager manager, Socket skt)
         {
@@ -35,21 +48,44 @@ namespace wServer.networking
             SendKey = new RC4(new byte[] { 0x72, 0xc5, 0x58, 0x3c, 0xaf, 0xb6, 0x81, 0x89, 0x95, 0xcb, 0xd7, 0x4b, 0x80 });
         }
 
+        public Client(RealmManager manager, UdpPacket pkt)
+        {
+            //this.skt = skt;
+            this.Manager = manager;
+            ReceiveKey = new RC4(new byte[] { 0x31, 0x1f, 0x80, 0x69, 0x14, 0x51, 0xc7, 0x1b, 0x09, 0xa1, 0x3a, 0x2a, 0x6e });
+            SendKey = new RC4(new byte[] { 0x72, 0xc5, 0x58, 0x3c, 0xaf, 0xb6, 0x81, 0x89, 0x95, 0xcb, 0xd7, 0x4b, 0x80 });
+            this.IsUdp = true;
+            this.cEndP = pkt.EndPoint;
+            this.receivePacket = pkt;
+        }
+
         NetworkHandler handler;
+        UdpNetworkHandler udpHandler;
         public void BeginProcess()
         {
-            log.InfoFormat("Received client @ {0}.", skt.RemoteEndPoint);
-            handler = new NetworkHandler(this, skt);
-            handler.BeginHandling();
+            if (!this.IsUdp)
+            {
+                log.InfoFormat("Received client @ {0}.", skt.RemoteEndPoint);
+                handler = new NetworkHandler(this, skt);
+                handler.BeginHandling();
+            }
+            else
+            {
+                udpHandler = new UdpNetworkHandler(this, this.receivePacket);
+                
+            }
         }
 
         public void SendPacket(Packet pkt)
         {
-            handler.SendPacket(pkt);
+            if (!this.IsUdp)
+                handler.SendPacket(pkt);
+            else
+                udpHandler.SendPacket(pkt);
         }
         public void SendPackets(IEnumerable<Packet> pkts)
         {
-            handler.SendPackets(pkts);
+            //handler.SendPackets(pkts);
         }
 
         public bool IsReady()
@@ -84,12 +120,13 @@ namespace wServer.networking
         public void Disconnect()
         {
             if (Stage == ProtocalStage.Disconnected) return;
-            log.DebugFormat("Disconnecting client @ {0}...", skt.RemoteEndPoint);
+            log.DebugFormat("Disconnecting client @ {0}...", EndPoint);
             var original = Stage;
             Stage = ProtocalStage.Disconnected;
             if (Account != null)
                 DisconnectFromRealm();
-            skt.Close();
+            if(!IsUdp)
+                skt.Close();
         }
         void Save()
         {
@@ -138,6 +175,11 @@ namespace wServer.networking
                 Manager.Disconnect(this);
                 SendPacket(pkt);
             }, PendingPriority.Destruction);
+        }
+
+        public void Handle(byte[] data)
+        {
+            udpHandler.Handle(data);
         }
     }
 }

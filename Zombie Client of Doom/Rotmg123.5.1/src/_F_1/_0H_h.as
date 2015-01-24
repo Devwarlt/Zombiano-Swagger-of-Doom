@@ -11,8 +11,8 @@ import Sounds.Music;
 
 import YouTube.YouTubePlayer;
 
-import _zo._8C_;
-import _zo._mS_;
+import WebRequestEvents.WebRequestSuccessEvent;
+import WebRequestEvents.WebRequestErrorEvent;
 
 import com.company.assembleegameclient.appengine.WebRequest;
 
@@ -187,14 +187,14 @@ public class _0H_h extends Sprite {
         this.close.dispatch();
     }
 
-    public static function setCredits(_arg1:_8C_):void {
+    public static function setCredits(_arg1:WebRequestSuccessEvent):void {
         creditsXML = XML(_arg1.data_);
     }
 
-    public static function onError(_arg1:_mS_):void {
+    public static function onError(_arg1:WebRequestErrorEvent):void {
         var webReq = new WebRequest(Parameters._fK_(), "/credits", true);
-        webReq.addEventListener(_8C_.GENERIC_DATA, _0H_h.setCredits);
-        webReq.addEventListener(_mS_.TEXT_ERROR, _0H_h.onError);
+        webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, _0H_h.setCredits);
+        webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, _0H_h.onError);
         webReq.sendRequest("getInfo", []);
     }
 

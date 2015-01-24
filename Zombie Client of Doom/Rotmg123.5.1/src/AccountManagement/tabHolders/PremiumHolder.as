@@ -12,7 +12,7 @@ import _0L_C_.DialogBox;
 
 import _qN_.Account;
 
-import _zo._8C_;
+import WebRequestEvents.WebRequestSuccessEvent;
 
 import avmplus.factoryXml;
 
@@ -80,7 +80,7 @@ public class PremiumHolder extends TabHolder {
                 addChild(dialogBox);
                 dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e1:Event):void {
                     var webReq:WebRequest = new WebRequest(Parameters._fK_(), "/account", false);
-                    webReq.addEventListener(_8C_.GENERIC_DATA, function(event:_8C_):void {
+                    webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, function(event:WebRequestSuccessEvent):void {
                         var successBox:DialogBox = new DialogBox("You are now a premium member.\nReopen the page to access premium.", "Success", "Ok", null);
                         addChild(successBox);
                         successBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e1:Event):void {

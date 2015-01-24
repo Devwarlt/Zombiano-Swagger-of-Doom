@@ -12,6 +12,8 @@ namespace wServer
 {
     static class Program
     {
+        public static UDPServer Server { get; set; }
+
         internal static SimpleSettings Settings;
 
         static ILog log = LogManager.GetLogger("Server");
@@ -34,19 +36,20 @@ namespace wServer
                 manager.Initialize();
                 manager.Run();
 
-                Server server = new Server(manager, 2050);
+                //Server = new UDPServer(manager);
+                TCPServer Server = new TCPServer(manager, 2050);
                 PolicyServer policy = new PolicyServer();
 
                 Console.CancelKeyPress += (sender, e) => e.Cancel = true;
 
                 policy.Start();
-                server.Start();
+                Server.Start();
                 log.Info("Server initialized.");
 
                 while (Console.ReadKey(true).Key != ConsoleKey.Escape) ;
 
                 log.Info("Terminating...");
-                server.Stop();
+                Server.Stop();
                 policy.Stop();
                 manager.Stop();
                 db.Dispose();

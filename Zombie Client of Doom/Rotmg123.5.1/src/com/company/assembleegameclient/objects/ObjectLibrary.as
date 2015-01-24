@@ -4,6 +4,7 @@
 //com.company.assembleegameclient.objects.ObjectLibrary
 
 package com.company.assembleegameclient.objects{
+import com.company.assembleegameclient.ui._return;
 import com.company.assembleegameclient.ui.xButton;
 
 import flash.utils.Dictionary;
@@ -143,8 +144,9 @@ import flash.utils.Dictionary;
             var _local2:int = _pb[_arg1];
             return (Items[_local2]);
         }
-        public static function _075(_arg1:int):GameObject{
+        public static function _075(_arg1:int):GameObject {
             var _local2:XML = Items[_arg1];
+            if(_local2 == null) return null;
             var _local3:Class = (getDefinitionByName(("com.company.assembleegameclient.objects." + _local2.Class)) as Class);
             var _local4:GameObject = new (_local3)(_local2);
             return (_local4);

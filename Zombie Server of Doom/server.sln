@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCrypter", "ClientCryp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientLoader", "ClientLoader\ClientLoader.csproj", "{0AB32C44-7FF4-401F-85C5-A94F92C0E57B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testUdpClient", "testUdpClient\testUdpClient.csproj", "{B4734900-E81E-4FD3-877A-3A4B9811E3F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,16 @@ Global
 		{0AB32C44-7FF4-401F-85C5-A94F92C0E57B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0AB32C44-7FF4-401F-85C5-A94F92C0E57B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0AB32C44-7FF4-401F-85C5-A94F92C0E57B}.Release|x86.ActiveCfg = Release|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

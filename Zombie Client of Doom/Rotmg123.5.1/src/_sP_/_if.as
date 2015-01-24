@@ -14,8 +14,8 @@ package _sP_{
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.util._H_U_;
     import _qN_.Account;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import flash.display.Graphics;
     import com.company.assembleegameclient.util._07E_;
     import flash.events.Event;
@@ -56,14 +56,14 @@ package _sP_{
                 "offset":_arg2
             };
             _H_U_._t2(_local5, Account._get().credentials());
-            this._3v.addEventListener(_8C_.GENERIC_DATA, this._L_5);
-            this._3v.addEventListener(_mS_.TEXT_ERROR, this._ix);
+            this._3v.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._L_5);
+            this._3v.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
             this._3v.sendRequest("listMembers", _local5);
         }
-        private function _L_5(_arg1:_8C_):void{
+        private function _L_5(_arg1:WebRequestSuccessEvent):void{
             this.build(XML(_arg1.data_));
         }
-        private function _ix(_arg1:_mS_):void{
+        private function _ix(_arg1:WebRequestErrorEvent):void{
         }
         private function build(_arg1:XML):void{
             var _local2:Graphics;

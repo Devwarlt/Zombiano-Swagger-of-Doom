@@ -10,8 +10,8 @@ package AccountWebrequests{
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
 
     internal class _F_V_ extends Frame {
 
@@ -38,15 +38,15 @@ package AccountWebrequests{
                 return;
             }
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
-            _local2.addEventListener(_8C_.GENERIC_DATA, this._01v);
-            _local2.addEventListener(_mS_.TEXT_ERROR, this._Q_9);
+            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._01v);
+            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._Q_9);
             _local2.sendRequest("forgotPassword", {"guid":this._xb.text()});
             _pW_();
         }
-        private function _01v(_arg1:_8C_):void{
+        private function _01v(_arg1:WebRequestSuccessEvent):void{
             dispatchEvent(new _nJ_(_nJ_._2K_));
         }
-        private function _Q_9(_arg1:_mS_):void{
+        private function _Q_9(_arg1:WebRequestErrorEvent):void{
             this._xb._0B_T_(_arg1.text_);
             _for();
         }

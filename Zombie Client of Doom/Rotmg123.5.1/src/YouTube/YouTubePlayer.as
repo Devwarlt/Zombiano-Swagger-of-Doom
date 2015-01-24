@@ -28,8 +28,8 @@ public class YouTubePlayer extends Sprite {
     public var error:Function;
 
     public function YouTubePlayer(url:String, autoStart:Boolean) {
-        Security.allowDomain("*", "www.youtube.com");
-        Security.allowInsecureDomain("*", "www.youtube.com");
+        //Security.allowDomain("*", "www.youtube.com");
+        //Security.allowInsecureDomain("*", "www.youtube.com");
 
         if(url.indexOf("youtube.com/watch?v=") == -1){
             throw new ArgumentError("Invalid url, the url should look like \"http://www.youtube.com/watch?v=HzI1KTZA1Ho\"");
@@ -62,22 +62,32 @@ public class YouTubePlayer extends Sprite {
     }
 
     private function onAddedToStage(event:Event):void {
-        var context:LoaderContext = new LoaderContext(false, this.loaderInfo.applicationDomain);
-        context.allowCodeImport = true;
+        try {
+            var context:LoaderContext = new LoaderContext(false, this.loaderInfo.applicationDomain);
+            context.allowCodeImport = true;
 
-        this.loader = new Loader();
-        this.loader.load(new URLRequest("https://www.youtube.com/apiplayer?version=3"));
-        //this.loader.loadBytes((new playerBase() as ByteArray), context);
-        this.loader.contentLoaderInfo.addEventListener(Event.INIT, onLoaderInit);
+            this.loader = new Loader();
+            this.loader.load(new URLRequest("https://www.youtube.com/apiplayer?version=3"));
+            //this.loader.loadBytes((new playerBase() as ByteArray), context);
+            this.loader.contentLoaderInfo.addEventListener(Event.INIT, onLoaderInit);
+        }
+        catch (e:Error) {
+            if(error != null) error();
+        }
     }
 
     private function onLoaderInit(event:Event):void {
-        addChild(this.loader);
+        try {
+            addChild(this.loader);
 
-        this.player = loader.content;
-        this.player.addEventListener(YouTubePlayerEvent.READY, onPlayerReady);
-        this.player.addEventListener(YouTubePlayerEvent.STATE_CHANGE, onStateChanged);
-        this.player.addEventListener(YouTubePlayerEvent.ERROR, onError);
+            this.player = loader.content;
+            this.player.addEventListener(YouTubePlayerEvent.READY, onPlayerReady);
+            this.player.addEventListener(YouTubePlayerEvent.STATE_CHANGE, onStateChanged);
+            this.player.addEventListener(YouTubePlayerEvent.ERROR, onError);
+        }
+        catch (e:Error) {
+            if(error != null) error();
+        }
     }
 
     private function onError(e:Event):void {

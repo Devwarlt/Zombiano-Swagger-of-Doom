@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 [Serializable, XmlRoot()]
@@ -168,6 +169,10 @@ public class Account
         set { }
     }
 
+    [XmlArray("Achievements")]
+    [XmlArrayItem("Item")]
+    public List<AchievementItem> Achievements { get; set; }
+
 
     [XmlNamespaceDeclarations]
     public XmlSerializerNamespaces Namespaces
@@ -254,6 +259,23 @@ public class PremiumNewsItem
     public int EndDate { get; set; }
 }
 
+[Serializable, XmlRoot("Item")]
+public class AchievementItem
+{
+    [XmlIgnore]
+    public int AchievementId { get; set; }
+
+    [XmlElement("Completed")]
+    public int CompletedTime { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+
+    public bool ShouldSerializeCompletedTime()
+    {
+        return this.CompletedTime != 0;
+    }
+}
+
 [Serializable, XmlRoot("Server")]
 public class ServerItem
 {
@@ -262,11 +284,29 @@ public class ServerItem
     public double Lat { get; set; }
     public double Long { get; set; }
     public double Usage { get; set; }
+    [XmlElement("IsUDP", IsNullable=true)]
+    public string _IsUDP { get; set; }
 
-    [XmlElement("AdminOnly")]
-    string _AdminOnly { get; set; }
     [XmlIgnore]
-    public bool AdminOnly { get { return this._AdminOnly != null; } set { this._AdminOnly = value ? "True" : null; } }
+    public bool IsUDP
+    {
+        get { return _IsUDP == null; }
+        set { _IsUDP = value ? null : String.Empty; }
+    }
+
+    public bool ShouldSerialize_IsUDP()
+    {
+        return IsUDP;
+    }
+
+    [XmlElement("AdminOnly", IsNullable=true)]
+    public string _AdminOnly { get; set; }
+    [XmlIgnore]
+    public bool AdminOnly
+    {
+        get { return _AdminOnly == null; }
+        set { _AdminOnly = value ? null : String.Empty; }
+    }
 }
 
 [Serializable, XmlRoot("Char")]

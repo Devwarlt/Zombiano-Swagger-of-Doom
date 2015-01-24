@@ -8,7 +8,7 @@ package _0M_m{
     import _sp._aJ_;
     import com.company.assembleegameclient.util.offer.Offer;
     import com.company.assembleegameclient.appengine._02k;
-    import _zo._8C_;
+    import WebRequestEvents.WebRequestSuccessEvent;
     import _qN_.Account;
     import _01H_._f7;
     import _Z_h._m7;
@@ -32,7 +32,7 @@ package _0M_m{
         public function get _Z_8():_aJ_{
             return ((this._U_k = ((this._U_k) || (new _aJ_()))));
         }
-        private function _y6(_arg1:_8C_):void{
+        private function _y6(_arg1:WebRequestSuccessEvent):void{
             this._0J_E_ = new Offers(XML(_arg1.data_));
             this._Z_8.dispatch();
         }

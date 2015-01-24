@@ -15,8 +15,8 @@ import flash.display.Sprite;
     import flash.display.Graphics;
     import _qN_.Account;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import flash.events.Event;
 
     public class _ak extends Sprite {
@@ -53,15 +53,15 @@ import flash.display.Sprite;
         private function _X_d():void{
             this._np();
             this._zH_ = new WebRequest(Parameters._fK_(), "/account", true);
-            this._zH_.addEventListener(_8C_.GENERIC_DATA, this._3p);
-            this._zH_.addEventListener(_mS_.TEXT_ERROR, this._D_x);
+            this._zH_.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._3p);
+            this._zH_.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._D_x);
             this._zH_.sendRequest("verify", Account._get().credentials());
         }
-        private function _3p(_arg1:_8C_):void {
+        private function _3p(_arg1:WebRequestSuccessEvent):void {
             AccountManagementScreen.openNext = true;
             dispatchEvent(new Event(Event.COMPLETE));//this._dY_(new _0G_d(XML(_arg1.data_)));
         }
-        private function _D_x(_arg1:_mS_):void{
+        private function _D_x(_arg1:WebRequestErrorEvent):void{
             Account._get().clear();
             this._dY_(new _L__());
         }

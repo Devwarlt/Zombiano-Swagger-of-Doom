@@ -10,8 +10,8 @@ package _6e{
     import _0L_C_.DialogBox;
     import flash.display.Graphics;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import _qN_.Account;
     import flash.events.Event;
     import com.company.util._H_U_;
@@ -39,14 +39,14 @@ package _6e{
         }
         private function load():void{
             this._08w = new WebRequest(Parameters._fK_(), "/guild", true);
-            this._08w.addEventListener(_8C_.GENERIC_DATA, this._02E_);
-            this._08w.addEventListener(_mS_.TEXT_ERROR, this._D_N_);
+            this._08w.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._02E_);
+            this._08w.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._D_N_);
             this._08w.sendRequest("getBoard", Account._get().credentials());
             this._I_4 = new DialogBox("Loading...", null, null, null);
             addChild(this._I_4);
             this._T_y.visible = false;
         }
-        private function _02E_(_arg1:_8C_):void{
+        private function _02E_(_arg1:WebRequestSuccessEvent):void{
             this._T_y.visible = true;
             removeChild(this._I_4);
             this._I_4 = null;
@@ -61,7 +61,7 @@ package _6e{
             this._0_0.addEventListener(Event.CHANGE, this._0D_0);
             addChild(this._0_0);
         }
-        private function _D_N_(_arg1:_mS_):void{
+        private function _D_N_(_arg1:WebRequestErrorEvent):void{
         }
         private function _N_q(_arg1:Event):void{
             parent.removeChild(this);
@@ -83,8 +83,8 @@ package _6e{
         }
         private function _P_c(_arg1:Event):void{
             this._08w = new WebRequest(Parameters._fK_(), "/guild", true);
-            this._08w.addEventListener(_8C_.GENERIC_DATA, this._sk);
-            this._08w.addEventListener(_mS_.TEXT_ERROR, this._da);
+            this._08w.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._sk);
+            this._08w.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._da);
             var _local2:Object = {"board":this._X_A_._03h()};
             _H_U_._t2(_local2, Account._get().credentials());
             this._08w.sendRequest("setBoard", _local2);
@@ -94,14 +94,14 @@ package _6e{
             addChild(this._I_4);
             this._T_y.visible = false;
         }
-        private function _sk(_arg1:_8C_):void{
+        private function _sk(_arg1:WebRequestSuccessEvent):void{
             this._T_y.visible = true;
             removeChild(this._I_4);
             this._I_4 = null;
             this.text_ = String(_arg1.data_);
             this.show();
         }
-        private function _da(_arg1:_mS_):void{
+        private function _da(_arg1:WebRequestErrorEvent):void{
         }
 
     }

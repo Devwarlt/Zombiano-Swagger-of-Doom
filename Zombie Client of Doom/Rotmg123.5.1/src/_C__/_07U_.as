@@ -25,7 +25,7 @@ package _C__{
 
         public function extend(_arg1:_L_y):void{
             _arg1.extend(_2l, _C_g, _kB_, _O_N_, _0Z_, _D_A_, _2Y_, _2W_, _06h, _pj, _jv, _0L_j, _C_T_);
-            _arg1._K_(_finally);
+            _arg1.configure(_finally);
         }
 
     }

@@ -86,7 +86,7 @@ public class _C_Q_ extends _05p {
             this.versionText.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.versionText);
             this.copyrightText = new SimpleText(12, 0x7F7F7F, false, 0, 0, "Myriad Pro");
-            this.copyrightText.text = "© 2014 by Fire Inc.";
+            this.copyrightText.text = "© 2014-2015 by FireBite Inc.";
             this.copyrightText.updateMetrics();
             this.copyrightText.filters = [new DropShadowFilter(0, 0, 0)];
             addChild(this.copyrightText);

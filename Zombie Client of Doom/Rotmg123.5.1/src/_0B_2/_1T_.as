@@ -16,8 +16,8 @@ package _0B_2{
     import flash.display.LoaderInfo;
     import _0L_C_.DialogBox;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import flash.net.navigateToURL;
     import flash.net.URLRequest;
     import _eN_._T_J_;
@@ -150,8 +150,8 @@ package _0B_2{
             {
                 this._mV_ = _local4;
                 _local7 = new WebRequest(Parameters._fK_(), "/kabam", true, 2);
-                _local7.addEventListener(_8C_.GENERIC_DATA, this._6l);
-                _local7.addEventListener(_mS_.TEXT_ERROR, this._T_);
+                _local7.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._6l);
+                _local7.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._T_);
                 _local7.sendRequest("getcredentials", {
                     "signedRequest":_local4,
                     "entrytag":this.entrytag()
@@ -177,13 +177,13 @@ package _0B_2{
         override public function newAccountText():_9j{
             return (new _0M_h());
         }
-        private function _6l(_arg1:_8C_):void{
+        private function _6l(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
             this.guid_ = _local2.GUID;
             this.secret_ = _local2.Secret;
             this.callback_();
         }
-        private function _T_(_arg1:_mS_):void{
+        private function _T_(_arg1:WebRequestErrorEvent):void{
             this._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
         }
         private function _T_3(_arg1:Event):void{

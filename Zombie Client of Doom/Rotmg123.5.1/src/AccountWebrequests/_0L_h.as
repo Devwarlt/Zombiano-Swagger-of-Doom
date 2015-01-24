@@ -10,8 +10,8 @@ package AccountWebrequests{
     
     import _qN_.Account;
     
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -87,8 +87,8 @@ package AccountWebrequests{
                 return;
             }
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
-            _local2.addEventListener(_8C_.GENERIC_DATA, this._Q__);
-            _local2.addEventListener(_mS_.TEXT_ERROR, this._J_o);
+            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Q__);
+            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._J_o);
             _local2.sendRequest("register", {
                 "guid":Account._get().guid(),
                 "newGUID":this.username_.text(),
@@ -98,11 +98,11 @@ package AccountWebrequests{
             });
             _pW_();
         }
-        private function _Q__(_arg1:_8C_):void{
+        private function _Q__(_arg1:WebRequestSuccessEvent):void{
             Account._get().modify(this.username_.text(), this.password_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }
-        private function _J_o(_arg1:_mS_):void{
+        private function _J_o(_arg1:WebRequestErrorEvent):void{
             this.username_._0B_T_(_arg1.text_);
             _for();
         }

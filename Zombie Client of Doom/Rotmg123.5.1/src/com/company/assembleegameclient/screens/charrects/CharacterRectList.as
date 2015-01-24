@@ -16,7 +16,7 @@ import _0L_C_._tc;
 import _qN_.Account;
 import _0L_C_._0G_H_;
 import _0L_C_._0G_y;
-import _zo._mS_;
+import WebRequestEvents.WebRequestErrorEvent;
 import _0L_C_._Z_t;
 
 public class CharacterRectList extends Sprite {
@@ -89,7 +89,7 @@ public class CharacterRectList extends Sprite {
             return;
         }
         var _local2:_0G_y = new _0G_y(this.charList_.nextCharSlotPrice_);
-        _local2.addEventListener(_mS_.TEXT_ERROR, this.onDialogError);
+        _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onDialogError);
         this.screen_.addChild(_local2);
     }
     private function onDialogRegister(_arg1:Event):void{
@@ -97,7 +97,7 @@ public class CharacterRectList extends Sprite {
         ((_local2.parent) && (_local2.parent.removeChild(_local2)));
         this.screen_._0j();
     }
-    private function onDialogError(_arg1:_mS_):void{
+    private function onDialogError(_arg1:WebRequestErrorEvent):void{
         var _local2:DialogBox = (_arg1.currentTarget as DialogBox);
         this.screen_.removeChild(_local2);
         var _local3:_Z_t = new _Z_t(_arg1.text_);

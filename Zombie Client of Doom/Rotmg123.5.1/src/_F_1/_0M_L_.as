@@ -42,7 +42,7 @@ package _F_1{
             }
         }
         private function onMouseDown(_arg1:MouseEvent):void{
-            var _local2:_0D_k = (_arg1.target as _0D_k);
+            var _local2:_0D_k = (_arg1.target is _0D_k ? _arg1.target as _0D_k : _arg1.target.parent as _0D_k);
             this.setSelected(_local2);
             Parameters.data_.preferredServer = _local2.value_;
             Parameters.save();

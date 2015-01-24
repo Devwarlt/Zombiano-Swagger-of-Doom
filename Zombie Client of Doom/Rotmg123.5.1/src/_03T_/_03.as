@@ -52,7 +52,7 @@ package _03T_{
             }
             return (this);
         }
-        public function _K_(... _args):_L_y{
+        public function configure(... _args):_L_y{
             var _local2:Object;
             for each (_local2 in _args)
             {

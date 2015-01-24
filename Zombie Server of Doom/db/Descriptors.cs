@@ -560,7 +560,7 @@ public class TileDesc
             Damaging = true;
         }
         if ((n = elem.Element("Speed")) != null)
-            Speed = float.Parse(n.Value);
+            Speed = float.Parse(n.Value.StartsWith(".") ? "0" + n.Value : n.Value);
         Push = elem.Element("Push") != null;
         if (Push)
         {

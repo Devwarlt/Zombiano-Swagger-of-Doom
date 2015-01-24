@@ -193,12 +193,14 @@
     <Compile Include="networking\handlers\CreatePacketHandler.cs" />
     <Compile Include="networking\handlers\HelloPacketHandler.cs" />
     <Compile Include="networking\IPacketHandler.cs" />
+    <Compile Include="networking\svrPackets\AchievementUnlockedPacket.cs" />
     <Compile Include="networking\svrPackets\NotificationBoxPacket.cs" />
     <Compile Include="networking\svrPackets\PicPacket.cs" />
     <Compile Include="networking\svrPackets\RequestTeleportPacket.cs" />
     <Compile Include="networking\svrPackets\SwitchMusicPacket.cs" />
     <Compile Include="networking\svrPackets\UnlockPacket.cs" />
     <Compile Include="networking\svrPackets\WeatherPropertiesPacket.cs" />
+    <Compile Include="networking\UdpNetworkHandler.cs" />
     <Compile Include="realm\ChatManager.cs" />
     <Compile Include="realm\entities\Mountain.cs" />
     <Compile Include="realm\Inventory.cs" />
@@ -225,7 +227,7 @@
     <Compile Include="realm\entities\player\Player.Networking.cs" />
     <Compile Include="realm\VisibilityManager.cs" />
     <Compile Include="realm\WeatherManager.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="TCPServer.cs" />
     <Compile Include="realm\Collision.cs" />
     <Compile Include="realm\entities\Character.cs">
       <SubType>Code</SubType>
@@ -345,6 +347,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="networking\RC4.cs" />
     <Compile Include="networking\RSA.cs" />
+    <Compile Include="UDPServer.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Vector2.cs" />
     <Compile Include="wRandom.cs" />

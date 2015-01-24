@@ -7,7 +7,7 @@ package com.company.assembleegameclient.appengine{
     import _qN_.Account;
     import flash.utils.getTimer;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
+    import WebRequestEvents.WebRequestSuccessEvent;
     import com.company.util._H_U_;
 
     public class _02k {
@@ -28,7 +28,7 @@ package com.company.assembleegameclient.appengine{
             var _local5:WebRequest = new WebRequest(Parameters._fK_(), _arg1, true, 2);
             if (_arg2 != null)
             {
-                _local5.addEventListener(_8C_.GENERIC_DATA, _arg2);
+                _local5.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, _arg2);
             }
             var _local6:Account = Account._get();
             var _local7:Object = {

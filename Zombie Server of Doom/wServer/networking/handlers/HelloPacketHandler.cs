@@ -11,9 +11,9 @@ namespace wServer.networking.handlers
 
         protected override void HandlePacket(Client client, HelloPacket packet)
         {
-            if (packet.BuildVersion != Server.BUILD_VERSION)
+            if (packet.BuildVersion != TCPServer.BUILD_VERSION)
             {
-                SendFailure(Server.BUILD_VERSION, 4);
+                SendFailure(TCPServer.BUILD_VERSION, 4);
                 return;
             }
 

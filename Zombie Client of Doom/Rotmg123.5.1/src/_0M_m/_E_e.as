@@ -7,7 +7,7 @@ package _0M_m{
     import _sp._aJ_;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.appengine.WebRequest;
-    import _zo._8C_;
+    import WebRequestEvents.WebRequestSuccessEvent;
     import com.company.util._H_U_;
     import _qN_.Account;
     import com.company.assembleegameclient.util._04d;
@@ -36,12 +36,12 @@ package _0M_m{
         }
         public function _03K_():void{
             var _local1:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
-            _local1.addEventListener(_8C_.GENERIC_DATA, this._0L_8);
+            _local1.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._0L_8);
             var _local2:Object = {};
             _H_U_._t2(_local2, Account._get().credentials());
             _local1.sendRequest("getBeginnerPackageTimeLeft", _local2);
         }
-        private function _0L_8(_arg1:_8C_):void{
+        private function _0L_8(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
             this._0H_C_ = true;
             this._08t = _04d._3r(_local2.text());

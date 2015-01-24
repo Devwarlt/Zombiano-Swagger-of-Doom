@@ -68,8 +68,8 @@ import Frames.Frame;
 import Frames.TextInput;
 
 import _qN_.Account;
-import _zo._8C_;
-import _zo._mS_;
+import WebRequestEvents.WebRequestSuccessEvent;
+import WebRequestEvents.WebRequestErrorEvent;
 
 import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -137,8 +137,8 @@ class changePasswordFrame extends Frame {
             return;
         }
         var req:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
-        req.addEventListener(_8C_.GENERIC_DATA, this.onSuccess);
-        req.addEventListener(_mS_.TEXT_ERROR, this.onError);
+        req.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.onSuccess);
+        req.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);
         req.sendRequest("changePassword", {
             "guid":Account._get().guid(),
             "password":this.password_.text(),
@@ -146,11 +146,11 @@ class changePasswordFrame extends Frame {
         });
         _pW_();
     }
-    private function onSuccess(_arg1:_8C_):void{
+    private function onSuccess(_arg1:WebRequestSuccessEvent):void{
         Account._get().modify(Account._get().guid(), this.newPassword.text(), null);
         parent.parent.removeChild(parent);
     }
-    private function onError(_arg1:_mS_):void{
+    private function onError(_arg1:WebRequestErrorEvent):void{
         this.password_._0B_T_(_arg1.text_);
         _for();
     }

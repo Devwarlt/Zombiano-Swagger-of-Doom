@@ -15,8 +15,8 @@ package _01H_{
     import _0L_C_.DialogBox;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import _rK_._D_T_;
     import _qN_._9j;
     import _rK_._B_c;
@@ -25,7 +25,9 @@ package _01H_{
     import _rK_._03W_;
     import com.company.assembleegameclient.util.*;
 
-    public class _f7 extends Account {
+import flash.system.System;
+
+public class _f7 extends Account {
 
         public static const _000:String = "steam";
 
@@ -111,8 +113,8 @@ package _01H_{
                 }
                 _9Q_ = true;
                 _local5 = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
-                _local5.addEventListener(_8C_.GENERIC_DATA, this._6l);
-                _local5.addEventListener(_mS_.TEXT_ERROR, this._T_);
+                _local5.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._6l);
+                _local5.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._T_);
                 _local5.sendRequest("getcredentials", {
                     "steamid":_local2,
                     "sessionticket":_arg1
@@ -123,13 +125,13 @@ package _01H_{
             this._Z_d = _arg1.target.content;
             this._Z_d.requestSessionTicket(this._029);
         }
-        private function _6l(_arg1:_8C_):void{
+        private function _6l(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
             this.guid_ = _local2.GUID;
             this.secret_ = _local2.Secret;
             this.callback_();
         }
-        private function _T_(_arg1:_mS_):void{
+        private function _T_(_arg1:WebRequestErrorEvent):void{
             this._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
         }
         override public function newAccountText():_9j{

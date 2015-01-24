@@ -22,11 +22,11 @@ namespace wServer.realm.entities
                 ts.Enqueue(time.tickTimes);
                 client.SendPacket(new PingPacket());
             }
-            else if (time.tickTimes - lastPong > 3000)
-            {
-                //client.Disconnect();
-                return false;
-            }
+            //else if (time.tickTimes - lastPong > 3000)
+            //{
+            //    //client.Disconnect();
+            //    return false;
+            //}
             return true;
         }
         internal void Pong(int time)

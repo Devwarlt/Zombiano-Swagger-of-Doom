@@ -154,6 +154,7 @@ namespace wServer.networking
         WeatherProperties = 87,
         Reskin = 88,
         Unlock = 89,
-        GetGift = 90
+        GetGift = 90,
+        AchievementUnlocked = 91
     }
 }

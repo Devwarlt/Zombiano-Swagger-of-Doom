@@ -62,7 +62,7 @@ public class GiftViewFrame extends Frame {
 
         var items:Vector.<item> = getItems();
 
-        var lastStart:String = "A";
+        var lastStart:String = "No Items Found";
         var text:SimpleText = new SimpleText(26, 0xffffff);
         text.boldText(true);
         text.text = lastStart;
@@ -70,13 +70,14 @@ public class GiftViewFrame extends Frame {
         giftHolder.addChild(text);
 
         for each (var i:item in items) {
-
-            if(i.name.substring(0, 1) != lastStart) {
-                while ((nextWidth % 4) != 0) {
-                    nextWidth++;
-                    nextHeight++;
+            if(i.name.substring(0, 1) != lastStart || lastStart == "No Items Found") {
+                if(lastStart != "No Items Found") {
+                    while ((nextWidth % 4) != 0) {
+                        nextWidth++;
+                        nextHeight++;
+                    }
+                    nextHeight += 4;
                 }
-                nextHeight += 4;
                 text = new SimpleText(26, 0xffffff);
                 text.boldText(true);
                 text.text = lastStart = i.name.substring(0, 1).toUpperCase();
@@ -124,9 +125,7 @@ public class GiftViewFrame extends Frame {
             return aA > bA ? 1 : -1;
         }
 
-        ret = ret.sort(sortAlphaNum);
-
-        return ret;
+        return ret.sort(sortAlphaNum);
     }
 
     override public function onAddedToStage(_arg1:Event):void {
@@ -205,6 +204,7 @@ class item {
     public var id:int;
 
     public function item(item:XML) {
+        if(item == null) return;
         name = item.hasOwnProperty("DisplayId") ? item.DisplayId : item.@id;
         id = item.@type;
     }

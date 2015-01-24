@@ -14,8 +14,8 @@ package _rK_{
     import _01H_._f7;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
 
     internal class LinkFrame extends Frame {
 
@@ -64,8 +64,8 @@ package _rK_{
             }
             var _local2:_f7 = (Account._get() as _f7);
             var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true);
-            _local3.addEventListener(_8C_.GENERIC_DATA, this._018);
-            _local3.addEventListener(_mS_.TEXT_ERROR, this._bi);
+            _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._018);
+            _local3.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._bi);
             _local3.sendRequest("link", {
                 "steamid":_local2._Z_d.getSteamID(),
                 "sessionticket":_local2._Z_d.getAuthSessionTicket(),
@@ -74,12 +74,12 @@ package _rK_{
             });
             _pW_();
         }
-        private function _018(_arg1:_8C_):void{
+        private function _018(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
             Account._get().modify(_local2.GUID, null, _local2.Secret);
             dispatchEvent(new _07s(_07s._tp));
         }
-        private function _bi(_arg1:_mS_):void{
+        private function _bi(_arg1:WebRequestErrorEvent):void{
             this.password_._0B_T_(_arg1.text_);
             _for();
         }

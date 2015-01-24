@@ -8,8 +8,8 @@ package Frames{
     import flash.events.MouseEvent;
     import flash.events.Event;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import com.company.util._H_U_;
     import _qN_.Account;
 
@@ -40,17 +40,17 @@ package Frames{
                 return;
             }
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
-            _local2.addEventListener(_8C_.GENERIC_DATA, this._E_0);
-            _local2.addEventListener(_mS_.TEXT_ERROR, this._06Q_);
+            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._E_0);
+            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._06Q_);
             var _local3:Object = {"name":this.name_.text()};
             _H_U_._t2(_local3, Account._get().credentials());
             _local2.sendRequest("setName", _local3);
             _pW_();
         }
-        private function _E_0(_arg1:_8C_):void{
+        private function _E_0(_arg1:WebRequestSuccessEvent):void{
             dispatchEvent(new Event(Event.COMPLETE));
         }
-        private function _06Q_(_arg1:_mS_):void{
+        private function _06Q_(_arg1:WebRequestErrorEvent):void{
             this.name_._0B_T_(_arg1.text_);
             _for();
         }

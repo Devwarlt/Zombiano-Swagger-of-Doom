@@ -27,6 +27,7 @@ namespace server.@char
                     Long = Program.Settings.GetValue<int>("svr" + i + "Long", "0"),
                     DNS = Program.Settings.GetValue("svr" + i + "Adr", "127.0.0.1"),
                     Usage = 0.2,
+                    IsUDP = Program.Settings.GetValue<bool>("svr" + i + "UDP", "false"),
                     AdminOnly = Program.Settings.GetValue<bool>("svr" + i + "Admin", "false")
                 });
             return ret;
@@ -61,8 +62,8 @@ namespace server.@char
                 XmlSerializer serializer = new XmlSerializer(chrs.GetType(), new XmlRootAttribute(chrs.GetType().Name) { Namespace = "" });
 
                 XmlWriterSettings xws = new XmlWriterSettings();
-                xws.Indent = true;
-                xws.IndentChars = "    ";
+                //xws.Indent = true;
+                //xws.IndentChars = "    ";
                 xws.OmitXmlDeclaration = true;
                 xws.Encoding = Encoding.UTF8;
                 XmlWriter xtw = XmlWriter.Create(Context.Response.OutputStream, xws);

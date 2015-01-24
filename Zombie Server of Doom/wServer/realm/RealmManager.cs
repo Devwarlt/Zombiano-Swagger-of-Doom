@@ -64,7 +64,8 @@ namespace wServer.realm
                 return false;
             if (Clients.ContainsKey(client.Account.AccountId))
             {
-                if (!Clients[client.Account.AccountId].Socket.Connected)
+                Client c = Clients[client.Account.AccountId];
+                if (c != null && c.EndPoint != client.EndPoint)
                 {
                     Disconnect(Clients[client.Account.AccountId]);
                     return Clients.TryAdd(client.Account.AccountId, client);

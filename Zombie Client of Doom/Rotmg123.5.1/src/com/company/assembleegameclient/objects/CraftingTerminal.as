@@ -9,8 +9,8 @@ import Panels.CraftingPanel;
 
 import _qN_.Account;
 
-import _zo._8C_;
-import _zo._mS_;
+import WebRequestEvents.WebRequestSuccessEvent;
+import WebRequestEvents.WebRequestErrorEvent;
 
 import com.company.assembleegameclient.appengine.WebRequest;
 

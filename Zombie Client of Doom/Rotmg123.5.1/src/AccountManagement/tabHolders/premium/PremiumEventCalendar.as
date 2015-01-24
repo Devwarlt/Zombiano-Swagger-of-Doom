@@ -4,12 +4,9 @@
 package AccountManagement.tabHolders.premium {
 import AccountManagement.AccountManagementBody;
 import AccountManagement.images.AccountManagementImages;
-import AccountManagement.tabHolders.TabHolder;
 import AccountManagement.ui.TabButton;
 
 import _05R_.GTween;
-
-import _0G_l._in;
 
 import com.company.ui.SimpleText;
 
@@ -21,8 +18,6 @@ public class PremiumEventCalendar extends PremiumTabHolder {
     private var title:SimpleText;
     private var nextArrow:Sprite;
     private var prevArrow:Sprite;
-
-    //private var currentHolders:Vector.<calendarEventHolder>;
     private var holderSpritePos:Number;
     private var holderSprite:Sprite;
     private var numberOfEvents:int;
@@ -31,7 +26,6 @@ public class PremiumEventCalendar extends PremiumTabHolder {
 
     public function PremiumEventCalendar(parent:AccountManagementBody) {
         super(parent);
-        //this.currentHolders = new Vector.<calendarEventHolder>();
         this.holderSprite = new Sprite();
     }
 
@@ -346,14 +340,11 @@ class calendarEventHolder extends Sprite {
         this.graphics.lineTo(WIDTH - 1, 0);
         this.graphics.moveTo(WIDTH - 1, 0);
         this.graphics.lineTo(WIDTH - 1, HEIGHT - 1);
-        //this.graphics.moveTo(WIDTH, HEIGHT);
-        //this.graphics.lineTo(0, HEIGHT);
         this.graphics.moveTo(0, HEIGHT - 1);
         this.graphics.lineTo(0, 0);
         this.graphics.lineStyle();
 
         var nextH:Number = 50;
-
         var ev:calendarEvent;
 
         for (var i:int = 0; i < 4; i++) {
@@ -364,7 +355,7 @@ class calendarEventHolder extends Sprite {
         }
     }
 
-    private function getIntForMonth(i:String):int {
+    private static function getIntForMonth(i:String):int {
         switch(i) {
             case "JAN": return 0;
             case "FEB": return 1;

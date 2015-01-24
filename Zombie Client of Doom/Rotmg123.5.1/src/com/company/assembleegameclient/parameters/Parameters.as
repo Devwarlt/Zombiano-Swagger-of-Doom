@@ -23,7 +23,7 @@ import flash.display.DisplayObject;
         public static const isTesting:Boolean = true;
 		public static const sendErrors:Boolean = false;
         public static const clientVersion:String = "1.0.0";
-        public static const _wZ_:Boolean = true;
+        public static const cryptPackets:Boolean = false;
         public static const gamePort:int = 2050;
         public static const _1h:Boolean = false;
         public static const _mg:uint = 10944349;
@@ -67,7 +67,7 @@ import flash.display.DisplayObject;
             return (!Parameters.isTesting ? "Production" : "Devel") + " Build #" + Parameters.clientVersion + (_I_O_() ? " Testing" : "");
         }
         public static function _I_O_():Boolean{
-            return true;
+            return false;
             var _local2:Object;
             var _local3:LocalConnection;
             var _local1:Boolean;
@@ -84,7 +84,7 @@ import flash.display.DisplayObject;
             if (_I_O_()) {
                 return ("25.185.44.56:80"); // _I_O_() -> TRUE -- Testing Enabled
             }
-            return ("213.112.253.104:8080"); // _I_O_() -> FALSE -- Testing Disabled
+            return ("192.168.2.100"); // _I_O_() -> FALSE -- Testing Disabled
         }
 		public static function _05w():String{
 			return ("UA-99999999-1");

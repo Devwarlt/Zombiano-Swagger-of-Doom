@@ -12,8 +12,8 @@ package com.company.assembleegameclient.appengine{
     import flash.net.URLVariables;
     import flash.events.SecurityErrorEvent;
     import flash.events.IOErrorEvent;
-    import _zo._mS_;
-    import _zo._8C_;
+    import WebRequestEvents.WebRequestErrorEvent;
+    import WebRequestEvents.WebRequestSuccessEvent;
     import flash.events.Event;
 	import com.company.assembleegameclient.parameters.Parameters;
 
@@ -81,10 +81,10 @@ package com.company.assembleegameclient.appengine{
             }
             if (_local2.substring(0, 12) == "<FatalError>")
             {
-                dispatchEvent(new _mS_(XML(_local2)));
+                dispatchEvent(new WebRequestErrorEvent(XML(_local2)));
                 return;
             }
-            dispatchEvent(new _8C_(this._04v.data));
+            dispatchEvent(new WebRequestSuccessEvent(this._04v.data));
         }
         private function error(_arg1:String):void{
             if (this._dF_ > 0)
@@ -93,7 +93,7 @@ package com.company.assembleegameclient.appengine{
                 this._0C_l();
                 return;
             }
-            dispatchEvent(new _mS_(_arg1));
+            dispatchEvent(new WebRequestErrorEvent(_arg1));
         }
         private function _01V_():URLLoader{
             var _local1:URLLoader = new URLLoader();

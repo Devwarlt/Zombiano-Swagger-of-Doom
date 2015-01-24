@@ -25,7 +25,8 @@ public class LocalSounds {
 
     public static function getSound(name:String):LocalSound {
         var ret:LocalSound = sounds[name];
-        ret.data.position = 0;
+        if(ret != null)
+            ret.data.position = 0;
         return ret;
     }
 }

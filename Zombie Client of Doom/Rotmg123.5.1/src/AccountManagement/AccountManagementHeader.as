@@ -68,6 +68,7 @@ public class AccountManagementHeader extends Sprite {
 
         addTab("Overview", new AccountManagementImages.homeIcon().bitmapData, new OverviewHolder(managementParent.accountBody));
         addTab("Fire Packs", new AccountManagementImages.goldFirePack().bitmapData, new FirePacksHolder(managementParent.accountBody));
+        addTab("Achievements", null, new TabHolder(managementParent.accountBody));
         addTab("Settings", new AccountManagementImages.settings2Icon().bitmapData, new SettingsHolder(managementParent.accountBody));
         addTab("Premium", new premiumRank().bitmapData, new PremiumHolder(managementParent.accountBody, managementParent.accountXml.Premium.text().toLowerCase() == "true"), true);
     }

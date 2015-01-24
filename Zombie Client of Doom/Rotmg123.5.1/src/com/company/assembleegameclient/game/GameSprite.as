@@ -255,7 +255,7 @@ import com.company.assembleegameclient.map._0D_v;
             }
             this._2e = false;
             this._0H_R_.stop();
-            this.packetManager.serverConn._0F_G_();
+            this.packetManager.serverConn.resetSocket();
             _zz.instance.dispatch();
             stage.removeEventListener(_B_w.MONEY_CHANGED, this._L_u);
             stage.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);

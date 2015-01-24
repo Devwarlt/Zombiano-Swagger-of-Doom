@@ -5,23 +5,36 @@
 
 package {
 import YouTube.YouTubePlayer;
-import _05G_._X_G_;
-import _0_p._L_y;
-import _9u._074;
-import _C_5._tt;
-import _C__._07U_;
 
-import _F_1._H_o;
+import _05G_._X_G_;
+
+import _0_p._L_y;
+
+import _9u._074;
+
+import _C_5._tt;
+
+import _C__._07U_;
 
 import _G_A_._8P_;
 import _G_A_._F_y;
+
 import _I_j._V_4;
+
 import _R_Q_._0K_S_;
+
 import _T_o._083;
+
 import _U_._K_a;
+
 import _U_5._D_c;
+
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.util._H_V_;
+
+import flash.desktop.NativeApplication;
+
+import flash.desktop.SystemIdleMode;
 
 import flash.display.Sprite;
 import flash.display.Stage;
@@ -29,22 +42,21 @@ import flash.display.StageScaleMode;
 import flash.events.*;
 import flash.system.Capabilities;
 import flash.system.Security;
-import flash.utils.Timer;
 
-[SWF(width="800", height="600", backgroundColor="#000000", frameRate="120")]
+[SWF(width="800", height="600", backgroundColor="#000000", frameRate="60")]
 public class WebMain extends Sprite {
 
-    public static var sStage:Stage;
-    public static var sWidth:Number = 1000;
-    public static var sHeight:Number = 800;
+    //public static var sStage:Stage;
+    //public static var sWidth:Number = 1000;
+    //public static var sHeight:Number = 800;
 
-    protected var context:_L_y;
+    private var context:_L_y;
 
     private var yt:YouTubePlayer;
 
     public function WebMain() {
-        Security.allowDomain("*", "www.youtube.com");
-        Security.allowInsecureDomain("*", "www.youtube.com");
+        //Security.allowDomain("*", "www.youtube.com");
+        //Security.allowInsecureDomain("*", "www.youtube.com");
 
         if (stage)
         {
@@ -62,19 +74,24 @@ public class WebMain extends Sprite {
     private function playYt():void {
         this._4y();
         this._i1();
+        trace(stage.wmodeGPU);
         stage.scaleMode = StageScaleMode.EXACT_FIT;
         stage.addEventListener(Event.RESIZE, function(event:Event):void {
             if(stage.scaleMode != StageScaleMode.EXACT_FIT) {
                 stage.scaleMode = StageScaleMode.EXACT_FIT;
             }
         });
-
-        yt = new YouTubePlayer("https://www.youtube.com/watch?v=x11Biz6ZFoE", true);
-        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-        yt.endCallback = setup;
-        yt.error = setup;
-        yt.repeat = false;
-        addChild(yt);
+        try {
+            //yt = new YouTubePlayer("https://www.youtube.com/watch?v=x11Biz6ZFoE", true);
+            //stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+            //yt.endCallback = setup;
+            //yt.error = setup;
+            //yt.repeat = false;
+            //addChild(yt);
+            setup();
+        } catch (e:Error) {
+            setup();
+        }
     }
 
     private function onKeyDown(event:KeyboardEvent):void {
@@ -84,7 +101,11 @@ public class WebMain extends Sprite {
     }
 
     private function setup():void{
-        removeChild(yt);
+        //this keeps the screen active (required for android and ios only)
+        NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+        //NativeApplication.nativeApplication.menu = null;
+
+        if(yt != null) removeChild(yt);
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
         var _local1:_D_c = this.context._O_R_.getInstance(_D_c);
         _local1.dispatch();
@@ -95,7 +116,7 @@ public class WebMain extends Sprite {
     }
     private function _i1():void{
         this.context = new _8P_();
-        this.context.extend(_07U_).extend(_083)._K_(_F_y)._K_(_074)._K_(_tt)._K_(_K_a)._K_(_0K_S_)._K_(_V_4)._K_(_X_G_)._K_(this);
+        this.context.extend(_07U_).extend(_083).configure(_F_y).configure(_074).configure(_tt).configure(_K_a).configure(_0K_S_).configure(_V_4).configure(_X_G_).configure(this);
     }
     private function _06p():void{
         if (Capabilities.playerType == "Desktop")

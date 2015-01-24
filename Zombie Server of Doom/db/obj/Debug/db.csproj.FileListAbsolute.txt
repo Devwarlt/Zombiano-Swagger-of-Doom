@@ -63,7 +63,6 @@ D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\De
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\Ionic.Zlib.dll
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\log4net.dll
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\log4net.xml
-D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\obj\Debug\db.csprojResolveAssemblyReference.cache
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\obj\Debug\db.dll
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\obj\Debug\db.pdb
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\texture\_dark_fire.png
@@ -106,3 +105,4 @@ F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\data\projectiles.xml
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\data\trees.xml
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\bin\Debug\data\skins.xml
+D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\db\obj\Debug\db.csprojResolveAssemblyReference.cache

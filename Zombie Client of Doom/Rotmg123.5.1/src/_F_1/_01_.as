@@ -5,7 +5,10 @@
 
 package _F_1{
     import com.company.ui.SimpleText;
-    import flash.display.Shape;
+
+import flash.display.DisplayObject;
+import flash.display.DisplayObjectContainer;
+import flash.display.Shape;
     import flash.display.Sprite;
     import com.company.assembleegameclient.ui.ScrollBar;
     import _sp._aJ_;
@@ -27,10 +30,14 @@ package _F_1{
         private var _E_k:ScrollBar;
         public var _4s:_aJ_;
 
+        private static var protocolInfo:Sprite;
+        private static var thisObject:_01_;
+
         public function _01_(){
             addChild(new _R_f());
             this._4s = new _aJ_();
             super(_C_Q_);
+            thisObject = this;
         }
         private function _A_E_(_arg1:Event):void{
             this._I_d.y = (8 - (this._E_k._Q_D_() * (this._I_d.height - 400)));
@@ -89,6 +96,20 @@ package _F_1{
             this._4s.dispatch();
         }
 
+        public static function setProtocolInfo(info:Sprite) {
+            if(protocolInfo) {
+                thisObject.removeChild(protocolInfo);
+                if(info){
+                    thisObject.addChild(info);
+                }
+            }
+            else {
+                if(info){
+                    thisObject.addChild(info);
+                }
+            }
+            protocolInfo = info;
+        }
     }
 }//package _F_1
 

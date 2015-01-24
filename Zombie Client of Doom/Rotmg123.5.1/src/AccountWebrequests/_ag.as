@@ -9,8 +9,8 @@ package AccountWebrequests{
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import _qN_.Account;
 
     public class _ag extends Frame {
@@ -50,8 +50,8 @@ package AccountWebrequests{
                 return;
             }
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
-            _local2.addEventListener(_8C_.GENERIC_DATA, this._0K_H_);
-            _local2.addEventListener(_mS_.TEXT_ERROR, this._1X_);
+            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._0K_H_);
+            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._1X_);
             _local2.sendRequest("changePassword", {
                 "guid":Account._get().guid(),
                 "password":this.password_.text(),
@@ -59,11 +59,11 @@ package AccountWebrequests{
             });
             _pW_();
         }
-        private function _0K_H_(_arg1:_8C_):void{
+        private function _0K_H_(_arg1:WebRequestSuccessEvent):void{
             Account._get().modify(Account._get().guid(), this._sY_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }
-        private function _1X_(_arg1:_mS_):void{
+        private function _1X_(_arg1:WebRequestErrorEvent):void{
             this.password_._0B_T_(_arg1.text_);
             _for();
         }

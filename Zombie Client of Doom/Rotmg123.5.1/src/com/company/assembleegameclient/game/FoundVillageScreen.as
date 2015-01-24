@@ -2,47 +2,70 @@
  * Created by Fabian on 08.01.2015.
  */
 package com.company.assembleegameclient.game {
+import _02t._final;
 import _02t._pM_;
+
+import _K_D_._p0;
 
 import com.company.assembleegameclient.map.Square;
 
 import com.company.assembleegameclient.map._X_l;
 import com.company.assembleegameclient.ui.MiniMap;
+import com.company.util._H_V_;
 
 import flash.display.Sprite;
 import flash.events.Event;
+import flash.events.KeyboardEvent;
+import flash.geom.Point;
+import flash.utils.ByteArray;
 
 public class FoundVillageScreen extends Sprite {
 
-    private var map:typeMap;
+    private var realMap:_X_l;
     private var minimap:MiniMap;
+    private var mapPoint:Point;
+
+    [Embed(source="gameworld.jm", mimeType="application/octet-stream")]
+    private static var _map:Class;
 
     public function FoundVillageScreen() {
-        map = new typeMap();
-        //map.setProps()
-        map.scaleX = map.scaleY = 0.05;
-        map.alpha = 0.5;
-        map.x = 0;//400;
-        map.y = 0;//300;
-        map.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
+        this.realMap = new _X_l(null);
+        this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
-        addChild(map);
     }
 
     private function onAddedToStage(event:Event):void {
-        minimap = new MiniMap(map.map, 300, 300);
-        addChild(minimap);
-        for each (var i:Square in map.map._8L_) {
-            minimap.setGroundTile(i.x_, i.y_, i.tileType_);
-        }
-
-        for each (var i:Square in map.map._fr) {
-            minimap.setGroundTile(i.x_, i.y_, i.tileType_);
-        }
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
+        var _local1:ByteArray = new _map();
+        var _local2:String = _local1.readUTFBytes(_local1.length);
+        var mapData:Object = _p0.loadMapWithMiniMap(_local2, 300, 300);
+        this.realMap = mapData["RealMap"];
+        this.minimap = mapData["MiniMap"];
+        this.minimap.alpha = 1.0;
+        addChild(this.minimap);
+        this.mapPoint = new Point(this.realMap.width_ / 2, this.realMap.height_ / 2);
     }
 
     private function onEnterFrame(event:Event):void {
-        this.minimap.draw();
+        this.minimap.draw(this.mapPoint);
+    }
+
+    private function onKeyDown(event:KeyboardEvent):void {
+        if(event.keyCode == _H_V_.LEFT) {
+            this.mapPoint.x--;
+        }
+
+        if(event.keyCode == _H_V_.RIGHT) {
+            this.mapPoint.x++;
+        }
+
+        if(event.keyCode == _H_V_.UP) {
+            this.mapPoint.y--;
+        }
+
+        if(event.keyCode == _H_V_.DOWN) {
+            this.mapPoint.y++;
+        }
     }
 }
 }
@@ -62,6 +85,7 @@ import com.company.util._H_V_;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
+import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.utils.ByteArray;
 import flash.utils.getTimer;
@@ -83,7 +107,10 @@ class typeMap extends Sprite {
     private var _7n:int;
     private var time:Number;
 
-    public function typeMap(){
+    private var point:Point;
+
+    public function typeMap() {
+        point = new Point();
         addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
@@ -92,6 +119,8 @@ class typeMap extends Sprite {
         addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
         this._7n = getTimer();
+
+
     }
     private function onRemovedFromStage(_arg1:Event):void{
         removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
@@ -106,7 +135,7 @@ class typeMap extends Sprite {
         //if (Sounds.Music.music_ != "Death" || Sounds.Music.music_ != "Menu") Sounds.Music.reload("Menu");
         //Sounds.Music.updateFade();
         if(_R_m) {
-            drawAll();
+            //drawAll();
             _0F_q._K_(_jJ_, _U_b, 12, 0, _R_m, false);
             map.draw(_0F_q, this.time);
         }
@@ -126,38 +155,12 @@ class typeMap extends Sprite {
     private function _P_i():_X_l{
         var _local1:ByteArray = new _01N_();
         var _local2:String = _local1.readUTFBytes(_local1.length);
-        _sl = _p0._0M_t(_local2);
-        _jJ_ = BORDER;
-        _U_b = (BORDER + int(((_sl.y_ - (2 * BORDER)) * Math.random())));
-        _0F_q = new _0D_v();
-        _0F_q._uo.fieldOfView = 179;
-        var _local3:_X_l = new _X_l(null);
-        var music:Vector.<String> = new Vector.<String>();
-        _R_m = new Rectangle(0, 0, 10000, 10000);
-        _local3.setProps(_sl.x_, _sl.y_, "MapOverlay Map", MapOverlay._0H_W_, false, false, music, 0, -1);
-        _local3.initialize();
-        _p0._T_6(_local2, _local3, 0, 0);
-        _p0._T_6(_local2, _local3, _sl.x_, _sl.x_);
-        return (_local3);
+        return _p0._0L_k(_local2);
     }
 
     private function onKeyDown(event:KeyboardEvent):void {
         event.stopImmediatePropagation();
 
-        if(event.keyCode == _H_V_.LEFT) {
-            _jJ_--;
-        }
 
-        if(event.keyCode == _H_V_.RIGHT) {
-            _jJ_++;
-        }
-
-        if(event.keyCode == _H_V_.UP) {
-            _U_b--;
-        }
-
-        if(event.keyCode == _H_V_.DOWN) {
-            _U_b++;
-        }
     }
 }

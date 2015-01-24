@@ -28,8 +28,8 @@ import flash.display.Sprite;
     import flash.events.Event;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import _qN_.Account;
     import _tg._07k;
     import _tg._32;
@@ -152,8 +152,8 @@ import flash.display.Sprite;
         }
         private function search(_arg1:int):void{
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/picture", false);
-            _local2.addEventListener(_8C_.GENERIC_DATA, this._0C_0);
-            _local2.addEventListener(_mS_.TEXT_ERROR, this._J_m);
+            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._0C_0);
+            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._J_m);
             var _local3:Object = {};
             _local3["myGUID"] = Account._get().guid();
             if (this._uv.getValue() == "Mine")
@@ -185,7 +185,7 @@ import flash.display.Sprite;
             _local2.sendRequest("list", _local3);
             this._wu.enabled(false);
         }
-        private function _0C_0(_arg1:_8C_):void{
+        private function _0C_0(_arg1:WebRequestSuccessEvent):void{
             if (((!((this._g5 == null))) && (this.box_.contains(this._g5))))
             {
                 this.box_.removeChild(this._g5);
@@ -202,7 +202,7 @@ import flash.display.Sprite;
             this._07v.visible = (this._g5._09O_ >= (_dh * _H_7));
             this._0B_e.visible = !((this._g5._9U_ == 0));
         }
-        private function _J_m(_arg1:_mS_):void{
+        private function _J_m(_arg1:WebRequestErrorEvent):void{
         }
         private function _set_(_arg1:_07k):void{
             dispatchEvent(_arg1.clone());
@@ -260,12 +260,12 @@ import flash.display.Sprite;
             _local2.parent.removeChild(_local2);
             this._g5.visible = false;
             var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/picture", false);
-            _local3.addEventListener(_8C_.GENERIC_DATA, this._Q_M_);
+            _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Q_M_);
             var _local4:Object = {"id":_local2.id_.toString()};
             _H_U_._t2(_local4, Account._get().credentials());
             _local3.sendRequest("delete", _local4);
         }
-        private function _Q_M_(_arg1:_8C_):void{
+        private function _Q_M_(_arg1:WebRequestSuccessEvent):void{
             this.search(this._g5._9U_);
         }
         private function draw():void{

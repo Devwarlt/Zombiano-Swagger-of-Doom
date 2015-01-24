@@ -8,8 +8,8 @@ package _01H_{
     import _qN_.Account;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _zo._8C_;
-    import _zo._mS_;
+    import WebRequestEvents.WebRequestSuccessEvent;
+    import WebRequestEvents.WebRequestErrorEvent;
     import _0L_C_._qM_;
     import flash.events.Event;
 
@@ -23,14 +23,14 @@ package _01H_{
         override public function execute():void{
             var _local1:_f7 = (Account._get() as _f7);
             var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
-            _local2.addEventListener(_8C_.GENERIC_DATA, this._dW_);
-            _local2.addEventListener(_mS_.TEXT_ERROR, this._sB_);
+            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._dW_);
+            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._sB_);
             _local2.sendRequest("purchaseOffer", {
                 "steamid":_local1._Z_d.getSteamID(),
                 "data":offer.data_
             });
         }
-        private function _dW_(_arg1:_8C_):void{
+        private function _dW_(_arg1:WebRequestSuccessEvent):void{
             var _local2:_f7 = (Account._get() as _f7);
             _local2._Z_d.addEventListener("STEAM_MICRO_TXN_AUTH", this._P__);
         }
@@ -45,23 +45,23 @@ package _01H_{
             _local6 = _local6.replace("${isAuthorized}", _local5);
             _local2._Z_d.removeEventListener("STEAM_MICRO_TXN_AUTH", this._P__);
             var _local7:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
-            _local7.addEventListener(_8C_.GENERIC_DATA, this._dT_);
-            _local7.addEventListener(_mS_.TEXT_ERROR, this._O_X_);
+            _local7.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._dT_);
+            _local7.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._O_X_);
             _local7.sendRequest("finalizePurchase", {
                 "appid":_local3,
                 "orderid":_local4,
                 "authorized":((_local5) ? 1 : 0)
             });
         }
-        private function _dT_(_arg1:_8C_):void{
+        private function _dT_(_arg1:WebRequestSuccessEvent):void{
             this._D_(null);
         }
-        private function _O_X_(_arg1:_mS_):void{
+        private function _O_X_(_arg1:WebRequestErrorEvent):void{
             var _local2:_f7 = (Account._get() as _f7);
             _local2._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
             this._D_(null);
         }
-        private function _sB_(_arg1:_mS_):void{
+        private function _sB_(_arg1:WebRequestErrorEvent):void{
             var _local2:_f7 = (Account._get() as _f7);
             _local2._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
             this._D_(null);

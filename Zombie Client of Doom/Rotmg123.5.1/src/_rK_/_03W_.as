@@ -15,7 +15,7 @@ package _rK_{
     import com.company.assembleegameclient.util.offer.Offers;
     import _01H_._6z;
     import Frames._A_R_;
-    import _zo._8C_;
+    import WebRequestEvents.WebRequestSuccessEvent;
 
     import com.company.assembleegameclient.util.offer.Offer;
     import _9R_._B_w;
@@ -53,7 +53,7 @@ package _rK_{
             parent.addChild(new _lA_());
             parent.removeChild(this);
         }
-        private function _nK_(_arg1:_8C_):void{
+        private function _nK_(_arg1:WebRequestSuccessEvent):void{
             var _local2:_0H_i = new _0H_i();
             _local2.addEventListener(Event.CANCEL, this.onCancel);
             _local2.addEventListener(Event.COMPLETE, this.onComplete);

@@ -11,7 +11,7 @@ package com.hurlant.util{
         public static function toArray(_arg1:String):ByteArray{
             _arg1 = _arg1.replace(/\s|:/gm, "");
             var _local2:ByteArray = new ByteArray();
-            if ((_arg1.length & (1 == 1)))
+            if (((_arg1.length & 1) == 1))
             {
                 _arg1 = ("0" + _arg1);
             }

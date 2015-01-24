@@ -14,14 +14,16 @@ package com.company.assembleegameclient.net{
         public var _00r:_0K_N_;
         public var _mR_:Number;
         public var _03y:Boolean;
+        public var isUDP:Boolean;
 
-        public function Server(_arg1:String, _arg2:String, _arg3:int, _arg4:_0K_N_=null, _arg5:Number=0, _arg6:Boolean=false):void{
+        public function Server(_arg1:String, _arg2:String, _arg3:int, _arg4:_0K_N_=null, _arg5:Number=0, _arg6:Boolean=false, isUDP:Boolean=false):void{
             this.name_ = _arg1;
             this.host_ = _arg2;
             this.port_ = _arg3;
             this._00r = _arg4;
             this._mR_ = _arg5;
             this._03y = _arg6;
+            this.isUDP = isUDP;
         }
         public function priority():int{
             if (this._03y)
@@ -41,7 +43,7 @@ package com.company.assembleegameclient.net{
             return ((this._mR_ >= 1));
         }
         public function toString():String{
-            return ("[" + this.name_ + ": " + this.host_ + ":" + this.port_ + ":" + this._00r + ":" + this._mR_ + ":" + this._03y + "]");
+            return ("[" + this.name_ + ": " + this.host_ + ":" + this.port_ + ":" + this._00r + ":" + this._mR_ + ":" + this._03y + ":" + this.isUDP + "]");
         }
 
     }
