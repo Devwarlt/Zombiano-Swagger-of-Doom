@@ -49,6 +49,11 @@ public class AccountManagementImages {
     [Embed(source="pack_01_detail.png")]
     public static const pack_01_detail:Class;
 
+    [Embed(source="achievements.png")]
+    public static const achievements:Class;
+    [Embed(source="achievement_image.png")]
+    public static const achievement_image:Class;
+
     public static function nextArrow(scale:Number):Bitmap {
         var bmp:Bitmap = new Arrow();
         bmp.scaleX = bmp.scaleY = scale;

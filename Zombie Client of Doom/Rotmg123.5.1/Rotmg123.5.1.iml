@@ -9,7 +9,7 @@
         <compiler-options>
           <map>
             <entry key="compiler.debug.swf" value="true" />
-            <entry key="compiler.keep-generated-actionscript" value="true" />
+            <entry key="compiler.keep-generated-actionscript" value="false" />
             <entry key="compiler.locale" value="" />
           </map>
           <option name="additionalOptions" value="-default-size 800 600 -default-frame-rate 60 -default-background-color #000000 -static-link-runtime-shared-libraries=true -debug=true" />

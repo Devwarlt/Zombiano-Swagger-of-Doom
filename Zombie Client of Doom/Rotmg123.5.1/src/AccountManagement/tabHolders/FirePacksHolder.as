@@ -35,9 +35,7 @@ public class FirePacksHolder extends TabHolder {
 
     private var nextWidth:Number = 0;
 
-    public override function initialize(tab:TabButton):void {
-        super.tab = tab;
-
+    public override function initialize():void {
         var title:SimpleText = new SimpleText(46, 0xffffff);
         title.text = "FIRE PACKS";
         title.boldText(true);

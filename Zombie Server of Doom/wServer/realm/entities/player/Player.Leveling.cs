@@ -215,8 +215,11 @@ namespace wServer.realm.entities
         public void EnemyKilled(Enemy host)
         {
             //Usage of host will come later
-            if(host != null)
+            if (host != null)
+            {
                 Kills++;
+                FireAnalytics.TrackAction(this, FireAnalyticsActions.MonsterKilled);
+            }
 
             if (this.Client.Account.Admin) return;
             else if (this.Kills > 0 && this.Kills < 100)

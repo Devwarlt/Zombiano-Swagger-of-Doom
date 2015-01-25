@@ -28,7 +28,8 @@ import com.company.assembleegameclient.map.Square;
     import com.company.assembleegameclient.tutorial.Tutorial;
     import com.company.assembleegameclient.tutorial.doneAction;
     import com.company.assembleegameclient.ui.Inventory;
-    import com.company.assembleegameclient.util.ConditionEffect;
+import com.company.assembleegameclient.ui._return;
+import com.company.assembleegameclient.util.ConditionEffect;
     import com.company.assembleegameclient.util.TextureRedrawer;
     import com.company.assembleegameclient.util._J_H_;
     import com.company.assembleegameclient.util.RankUtils;
@@ -581,6 +582,7 @@ public class Player extends Character {
             return (true);
         }
         public function _01w():void{
+            if(map_ == null) return;
             var _local1:Square = map_.getSquare(x_, y_);
             if (_local1.props_._rr)
             {

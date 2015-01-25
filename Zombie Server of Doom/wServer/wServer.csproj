@@ -89,6 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FireAnalytics.cs" />
     <Compile Include="logic\db\BehaviorDb.Lithium.cs" />
     <Compile Include="networking\Client.cs" />
     <Compile Include="networking\cliPackets\ClientPacket.cs" />

@@ -17,6 +17,9 @@ namespace wServer.networking.handlers
 
         void Handle(Player player, UsePortalPacket packet)
         {
+            if (player.Owner is Tutorial)
+                FireAnalytics.TrackAction(player, FireAnalyticsActions.CompleteTutorial);
+
             Portal entity = player.Owner.GetEntity(packet.ObjectId) as Portal;
             if (entity == null || !entity.Usable) return;
             World world = entity.WorldInstance;
@@ -60,6 +63,7 @@ namespace wServer.networking.handlers
                 player.Manager.PlayerWorldMapping.TryRemove(player.AccountId, out tempWorld);
             }
             player.Manager.PlayerWorldMapping.TryAdd(player.AccountId, player.Owner);
+            FireAnalytics.TrackAction(player, FireAnalyticsActions.EnterPortal);
             player.Client.Reconnect(new ReconnectPacket()
             {
                 Host = "",

@@ -61,12 +61,12 @@ package com.company.assembleegameclient.ui{
         public function _Q_D_():Number{
             return (((this.sliderDrag.y - this._gC_.y) / (this._gC_.height - this.sliderDrag.height)));
         }
-        public function _fA_(_arg1:Number, _arg2:Number, _arg3:Boolean=true):void{
-            var _local4:int = (((_arg2 == 0)) ? this._gC_.height : ((_arg1 / _arg2) * this._gC_.height));
+        public function _fA_(baseValue:Number, totalHeight:Number, moveToTop:Boolean=true):void{
+            var _local4:int = (((totalHeight == 0)) ? this._gC_.height : ((baseValue / totalHeight) * this._gC_.height));
             _local4 = Math.min(this._gC_.height, Math.max(this.width_, _local4));
             this._5s(this.width_, _local4, this.sliderDrag);
-            this._oI_ = (_arg1 / (_arg2 - _arg1));
-            if (_arg3)
+            this._oI_ = (baseValue / (totalHeight - baseValue));
+            if (moveToTop)
             {
                 this._0D__(0);
             }
@@ -177,7 +177,7 @@ package com.company.assembleegameclient.ui{
             _arg3.graphics.endFill();
 
             _arg3.graphics.lineStyle(1, 0xffffff, 1.0);
-            _arg3.graphics.drawRect(1, 0, _arg3.width - 2.5, _arg3.height);
+            _arg3.graphics.drawRect(0.5, 0.5, _arg1 - 1, _arg2 - 1);
             _arg3.graphics.lineStyle();
         }
     }

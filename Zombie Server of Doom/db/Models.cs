@@ -1,4 +1,5 @@
-﻿using System;
+﻿using db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
@@ -132,6 +133,9 @@ public class Account
     public Stats Stats { get; set; }
     public Guild Guild { get; set; }
 
+    [XmlIgnore]
+    public List<AchievementUtils.AchievementStruct> AchievementData { get; set; }
+
     [XmlArray("News")]
     [XmlArrayItem("Item")]
     public List<NewsItem> News
@@ -169,10 +173,7 @@ public class Account
         set { }
     }
 
-    [XmlArray("Achievements")]
-    [XmlArrayItem("Item")]
-    public List<AchievementItem> Achievements { get; set; }
-
+    public Achievements Achievements { get; set; }
 
     [XmlNamespaceDeclarations]
     public XmlSerializerNamespaces Namespaces
@@ -262,7 +263,7 @@ public class PremiumNewsItem
 [Serializable, XmlRoot("Item")]
 public class AchievementItem
 {
-    [XmlIgnore]
+    [XmlAttribute("achievementId")]
     public int AchievementId { get; set; }
 
     [XmlElement("Completed")]
@@ -403,4 +404,21 @@ public class Pic
     public string Tags { get; set; }
     public string Data { get; set; }
     public string Mine { get; set; }
+}
+
+[Serializable, XmlRoot("Achievements")]
+public class Achievements
+{
+    [XmlElement("Item")]
+    public List<AchievementItem> Data { get; set; }
+
+    public Achievements()
+    {
+        Data = new List<AchievementItem>();
+    }
+
+    [XmlAttribute("completed")]
+    public int Completed { get; set; }
+    [XmlAttribute("total")]
+    public int Total { get; set; }
 }

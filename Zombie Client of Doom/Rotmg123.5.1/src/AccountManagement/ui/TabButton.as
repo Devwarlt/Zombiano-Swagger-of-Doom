@@ -98,7 +98,7 @@ public class TabButton extends Sprite {
     public function set holder(tabHolder:TabHolder):void {
         if(this.holder_ == null) {
             this.holder_ = tabHolder;
-            this.holder_.initialize(this);
+            this.holder_.initialize();
         }
     }
 

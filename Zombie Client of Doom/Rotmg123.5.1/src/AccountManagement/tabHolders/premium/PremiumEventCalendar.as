@@ -29,9 +29,7 @@ public class PremiumEventCalendar extends PremiumTabHolder {
         this.holderSprite = new Sprite();
     }
 
-    public override function initialize(tab:TabButton):void {
-        super.tab = tab;
-
+    public override function initialize():void {
         this.title = new SimpleText(18, 0xffffff);
         this.title.boldText(true);
         this.title.text = "PREMIUM CALENDAR";

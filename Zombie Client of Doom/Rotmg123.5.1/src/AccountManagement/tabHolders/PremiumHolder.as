@@ -45,9 +45,7 @@ public class PremiumHolder extends TabHolder {
         this.tabs = new Vector.<TabButton>();
     }
 
-    public override function initialize(tab:TabButton):void {
-        super.tab = tab;
-
+    public override function initialize():void {
         if(!premiumPurchased) {
             var purchaseText:SimpleText = new SimpleText(46, 0xffffff);
             purchaseText.multiline = true;

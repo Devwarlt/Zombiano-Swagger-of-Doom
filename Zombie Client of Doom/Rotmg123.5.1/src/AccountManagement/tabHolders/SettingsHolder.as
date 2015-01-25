@@ -26,9 +26,7 @@ public class SettingsHolder extends TabHolder {
         super(parent);
     }
 
-    public override function initialize(tab:TabButton):void {
-        super.tab = tab;
-
+    public override function initialize():void {
         var emailVerified:Boolean = bodyParent.managementParent.accountXml.hasOwnProperty("VerifiedEmail");
         if (!emailVerified)
         {

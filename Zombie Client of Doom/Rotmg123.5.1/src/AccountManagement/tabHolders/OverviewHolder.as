@@ -27,9 +27,7 @@ public class OverviewHolder extends TabHolder {
         this.logItems = new Vector.<LogItemHolder>();
     }
 
-    public override function initialize(tab:TabButton):void {
-        this.tab = tab;
-
+    public override function initialize():void {
         this.scrollBar = new ScrollBar(16, HEIGHT - 20);
         this.scrollBar.x = WIDTH - 20;
         this.scrollBar.y = 10;

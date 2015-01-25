@@ -29,9 +29,14 @@ namespace db
             return con.CreateCommand();
         }
 
+        public static DateTime UnixTimestampToDateTime(double unixTime)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).AddSeconds(unixTime).ToLocalTime();
+        }
+
         public static int DateTimeToUnixTimestamp(DateTime dateTime)
         {
-            return (int)(dateTime - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds;
+            return (int)(dateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime()).TotalSeconds;
         }
 
         public List<NewsItem> GetNews(XmlData dat, Account acc)
@@ -151,7 +156,8 @@ AND characters.charId=death.chrId;";
                     NameChosen = rdr.GetBoolean("namechosen"),
                     NextCharSlotPrice = 100,
                     VerifiedEmail = rdr.GetBoolean("verified"),
-                    CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList()
+                    CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList(),
+                    AchievementData = AchievementUtils.DeserializeFromEncryptedBase64String(rdr.GetString("achievements"))
                 };
             }
             ReadStats(ret);
@@ -322,6 +328,34 @@ SELECT fame FROM stats WHERE accId=@accId;";
                                 type == 1 ? "SILVER FIRE PACK" :
                                 type == 2 ? "GOLD FIRE PACK" :
                                 type == 3 ? "PREMIUM FIRE PACK" : "Unknown Fire Pack"
+                        });
+                    }
+                }
+            }
+
+            acc.Achievements = new Achievements();
+            cmd = CreateQuery();
+            cmd.CommandText = "SELECT * FROM achievements;";
+            using (var rdr = cmd.ExecuteReader())
+            {
+                if (rdr.HasRows)
+                {
+                    while (rdr.Read())
+                    {
+                        int id = rdr.GetInt32("id");
+
+                        int completed = acc.AchievementData.Count(_ => _.AchievementId == id) > 0 ?
+                                acc.AchievementData.First(_ => _.AchievementId == id).CompletedAt : 0;
+
+                        if (completed > 0) acc.Achievements.Completed++;
+                        acc.Achievements.Total++;
+
+                        acc.Achievements.Data.Add(new AchievementItem
+                        {
+                            AchievementId = id,
+                            Title = rdr.GetString("title"),
+                            Description = rdr.GetString("desc"),
+                            CompletedTime = completed
                         });
                     }
                 }
@@ -594,7 +628,8 @@ name=@name,
 kills=@kills,
 ownedSkins=@skins,
 gifts=@gifts,
-craftingRecipes=@craftingRecipes
+craftingRecipes=@craftingRecipes,
+achievements=@achievements
 WHERE id=@accId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
 
@@ -603,6 +638,7 @@ WHERE id=@accId;";
             cmd.Parameters.AddWithValue("@skins", acc._OwnedSkins);
             cmd.Parameters.AddWithValue("@gifts", acc._Gifts);
             cmd.Parameters.AddWithValue("@craftingRecipes", Utils.GetCommaSepString(acc.CraftingRecipes.ToArray()));
+            cmd.Parameters.AddWithValue("@achievements", AchievementUtils.SerializeToEncryptedBase64String(acc.AchievementData));
             cmd.ExecuteNonQuery();
         }
 

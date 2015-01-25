@@ -47,7 +47,9 @@ namespace wServer.networking.handlers
                     cmd.Parameters.AddWithValue("@name", packet.Name);
                     if (cmd.ExecuteNonQuery() > 0)
                     {
-                        client.Account.Credits = db.UpdateCredit(client.Account, -1000);
+                        if(client.Player.NameChosen)
+                            client.Account.Credits = db.UpdateCredit(client.Account, -1000);
+
                         client.Account.Name = packet.Name;
                         client.Manager.Logic.AddPendingAction(t => Handle(client.Player));
                         client.SendPacket(new NameResultPacket()
@@ -55,6 +57,7 @@ namespace wServer.networking.handlers
                             Success = true,
                             Message = ""
                         });
+                        FireAnalytics.TrackAction(client.Player, FireAnalyticsActions.ChooseName);
                     }
                     else
                         client.SendPacket(new NameResultPacket()

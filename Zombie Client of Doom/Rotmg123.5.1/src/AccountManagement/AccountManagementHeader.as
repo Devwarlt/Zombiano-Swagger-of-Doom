@@ -2,6 +2,7 @@
  * Created by Fabian on 17.12.2014.
  */
 package AccountManagement {
+import AccountManagement.tabHolders.AchievementsHolder;
 import AccountManagement.tabHolders.FirePacksHolder;
 import AccountManagement.tabHolders.OverviewHolder;
 import AccountManagement.tabHolders.PremiumHolder;
@@ -59,7 +60,7 @@ public class AccountManagementHeader extends Sprite {
         this.titleText.x = 10;
         addChild(this.titleText);
 
-        this.email = new SimpleText(20, 0xB3B3B3, false, 238, 30, "Myriad Pro");
+        this.email = new SimpleText(20, 0xB3B3B3, false, 0, 30, "Myriad Pro");
         this.email.text = Account._get().guid();
         this.email.updateMetrics();
         this.email.y = 26;
@@ -68,7 +69,8 @@ public class AccountManagementHeader extends Sprite {
 
         addTab("Overview", new AccountManagementImages.homeIcon().bitmapData, new OverviewHolder(managementParent.accountBody));
         addTab("Fire Packs", new AccountManagementImages.goldFirePack().bitmapData, new FirePacksHolder(managementParent.accountBody));
-        addTab("Achievements", null, new TabHolder(managementParent.accountBody));
+        addTab("Achievements (" + managementParent.accountXml.Achievements.@completed + "/" + managementParent.accountXml.Achievements.@total + ")",
+                new AccountManagementImages.achievement_image().bitmapData, new AchievementsHolder(managementParent.accountBody));
         addTab("Settings", new AccountManagementImages.settings2Icon().bitmapData, new SettingsHolder(managementParent.accountBody));
         addTab("Premium", new premiumRank().bitmapData, new PremiumHolder(managementParent.accountBody, managementParent.accountXml.Premium.text().toLowerCase() == "true"), true);
     }

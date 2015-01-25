@@ -16,6 +16,9 @@ namespace wServer.realm
 
         public void Say(Player src, string text)
         {
+            if (text.ToLower() == "u r cool")
+                FireAnalytics.TrackAction(src, FireAnalyticsActions.URCOOL);
+
             src.Owner.BroadcastPacket(new TextPacket()
             {
                 Name = (src.Client.Account.Admin ? "@" : "") + src.Name,
