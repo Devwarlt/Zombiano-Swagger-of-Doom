@@ -14,7 +14,7 @@ package _D_d{
         public var _O_w:TextInput;
 
         public function _R_c(_arg1:String){
-            super("Tile properties", "Cancel", "Save", null);
+            super("Tile properties", "Cancel", "Save", 300);
             this._O_w = new TextInput("Object Name", false, "");
             if (_arg1 != null)
             {

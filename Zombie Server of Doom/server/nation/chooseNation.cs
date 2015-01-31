@@ -16,6 +16,11 @@ namespace server.nation
 
                 if ((acc = db.Verify(Query["guid"], Query["password"])) != null)
                 {
+                    if (acc.Country != -1)
+                    {
+                        WriteErrorLine("Nation already has already been set.");
+                        return;
+                    }
                     var cmd = db.CreateQuery();
                     cmd.CommandText = "UPDATE accounts SET country=@nation WHERE id=@accId;";
                     cmd.Parameters.AddWithValue("@accId", acc.AccountId);

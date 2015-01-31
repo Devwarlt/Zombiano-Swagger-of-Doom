@@ -63,8 +63,8 @@ public class ChooseNationScreen extends Sprite {
     }
 
     private function addNationWithId(id:int):void {
-        var h:Number = 100 + ((Math.floor(this.nH / 3) * 125) + (Math.floor(this.nH / 3) * 10));
-        var w:Number = 100 + (((this.nW % 3) * 200) + ((this.nW % 3) * 10));
+        var h:Number = (100 + ((Math.floor(this.nH / 3) * 125) + (Math.floor(this.nH / 3) * 10)));
+        var w:Number = (100 + (((this.nW % 3) * 200) + ((this.nW % 3) * 10)));
         var country:Country = new Country(id);
 
         var n:nation = new nation(country.name, country.id, country.image);
