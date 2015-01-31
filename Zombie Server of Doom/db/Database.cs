@@ -214,7 +214,7 @@ AND characters.charId=death.chrId;";
         public Account GetAccount(int id)
         {
             var cmd = CreateQuery();
-            cmd.CommandText = "SELECT id, name, admin, namechosen, verified, guild, guildRank FROM accounts WHERE id=@id;";
+            cmd.CommandText = "SELECT * FROM accounts WHERE id=@id;";
             cmd.Parameters.AddWithValue("@id", id);
             Account ret;
             using (var rdr = cmd.ExecuteReader())
@@ -225,10 +225,10 @@ AND characters.charId=death.chrId;";
                 {
                     Name = rdr.GetString("name"),
                     AccountId = rdr.GetInt32("id"),
-                    Admin = rdr.GetBoolean("admin"),
                     Kills = rdr.GetInt32("kills"),
                     Premium = rdr.GetInt32("premium") != 0,
                     Country = rdr.GetInt32("country"),
+                    Admin = rdr.GetBoolean("admin"),
                     _OwnedSkins = rdr.GetString("ownedSkins"),
                     _Gifts = rdr.GetString("gifts"),
                     BeginnerPackageTimeLeft = 0,
@@ -236,7 +236,9 @@ AND characters.charId=death.chrId;";
                     Guild = null,
                     NameChosen = rdr.GetBoolean("namechosen"),
                     NextCharSlotPrice = 100,
-                    VerifiedEmail = rdr.GetBoolean("verified")
+                    VerifiedEmail = rdr.GetBoolean("verified"),
+                    CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList(),
+                    AchievementData = AchievementUtils.DeserializeFromEncryptedBase64String(rdr.GetString("achievements"))
                 };
             }
             ReadStats(ret);

@@ -12,6 +12,7 @@ namespace wServer
 
         public string Name { get { return m_name; } }
         public CountryType Type { get { return m_type; } }
+        public bool Choosen { get { return this.m_name != "Unknown Country"; } }
 
         public Country(CountryType type)
         {

@@ -40,6 +40,8 @@ namespace wServer.realm.entities
         public int KillGoal { get; set; }
         public int Rank { get; set; }
 
+        public Country Nation { get; set; }
+
         public string Guild { get; set; }
         public int GuildRank { get; set; }
 
@@ -332,6 +334,7 @@ namespace wServer.realm.entities
             }
 
             Visibility = new VisibilityManager(this);
+            Nation = new Country((CountryType)client.Account.Country);
         }
 
         byte[,] tiles;
@@ -340,6 +343,7 @@ namespace wServer.realm.entities
 
         public override void Init(World owner)
         {
+            base.Init(owner);
             Random rand = new System.Random();
             if (!(owner is GameWorld))
             {
@@ -358,7 +362,7 @@ namespace wServer.realm.entities
             SetNewbiePeriod();
             _hungertime = HUNGERCOOLDOWNMS;
             AbilityCooldown = Inventory[1] == null ? 0 : Inventory[1].MpCost;
-            base.Init(owner);
+            FireAnalytics.TrackAction(this, FireAnalyticsActions.EnterWorld);
         }
 
         public override void Tick(RealmTime time)

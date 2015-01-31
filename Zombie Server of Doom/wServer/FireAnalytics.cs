@@ -14,11 +14,20 @@ namespace wServer
         {
             switch (action)
             {
+                case FireAnalyticsActions.EnterWorld:
+                    if (!player.Nation.Choosen) checkForAchievement(player, FireAnalyticsActions.ChoosedNation);
+                    if (player.Owner.Name == "America") checkForAchievement(player, FireAnalyticsActions.VisitAmerica);
+                    return;
                 case FireAnalyticsActions.PlayerKilled:
                     //TODO: Implement Counter
                     break;
             }
 
+            checkForAchievement(player, action);
+        }
+
+        private static void checkForAchievement(Player player, string action)
+        {
             var id = fireAnalyticsHelper.resolveAchievementIdFromName(action);
             if (id == -1) return;
             if (player.Client.Account.AchievementData.Count(_ => _.AchievementId == id) == 0)
@@ -68,6 +77,7 @@ namespace wServer
                     case FireAnalyticsActions.URCOOL: return 11;
                     case FireAnalyticsActions.SpcRankReached: return 12;
                     case FireAnalyticsActions.CraftItem: return 13;
+                    case FireAnalyticsActions.ChoosedNation: return 14;
                 }
                 return -1;
             }
@@ -93,5 +103,9 @@ namespace wServer
         public const string OwnPlayerKilledByMonster =  "ownPlayerKilledByMonster";
         public const string OwnPlayerKilledByPlayer =   "ownPlayerKilledByPlayer";
         public const string EnterPortal =               "enterPortal";
+        public const string ChoosedNation =             "choosedNation";
+
+
+        public const string EnterWorld =                "enterWorld";
     }
 }
