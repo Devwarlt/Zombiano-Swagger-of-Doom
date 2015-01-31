@@ -16,7 +16,7 @@ import flash.events.Event;
     public class _2n extends WebRequest {
 
         public function _2n(_arg1:int=0){
-            super(Parameters._fK_(), "/char", true, _arg1);
+            super(Parameters.getAccountServerIP(), "/char", true, _arg1);
         }
         public function _H_Q_():void{
             addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._D_D_);
@@ -31,7 +31,7 @@ import flash.events.Event;
             sendRequest("list", _local2);
             Parameters._hk = false;
 
-            var webReq:WebRequest = new WebRequest(Parameters._fK_(), "/credits", true);
+            var webReq:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/credits", true);
             webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, _0H_h.setCredits);
             webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, _0H_h.onError);
             webReq.sendRequest("getInfo", []);

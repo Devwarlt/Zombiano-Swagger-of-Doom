@@ -112,7 +112,7 @@ public class _f7 extends Account {
                     return;
                 }
                 _9Q_ = true;
-                _local5 = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
+                _local5 = new WebRequest(Parameters.getAccountServerIP(), "/steamworks", true, 2);
                 _local5.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._6l);
                 _local5.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._T_);
                 _local5.sendRequest("getcredentials", {
@@ -137,9 +137,9 @@ public class _f7 extends Account {
         override public function newAccountText():_9j{
             return (new _D_T_());
         }
-        override public function newAccountManagement():Sprite{
-            return (new _B_c());
-        }
+        //override public function newAccountManagement():Sprite{
+        //    return (new _B_c());
+        //}
         override public function showInGameRegister(_arg1:Stage):void{
             this._Z_d.services.showRegistrationBox();
         }

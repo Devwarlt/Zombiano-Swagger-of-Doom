@@ -6,7 +6,7 @@
 package Panels{
     import com.company.assembleegameclient.objects.SellableObject;
     import com.company.ui.SimpleText;
-    import com.company.assembleegameclient.ui._u5;
+    import com.company.assembleegameclient.ui.SellableButton;
 import com.company.util._H_V_;
 
 import flash.display.Sprite;
@@ -33,7 +33,7 @@ import flash.display.Sprite;
 
         private var _iA_:SellableObject;
         private var nameText_:SimpleText;
-        private var _8O_:_u5;
+        private var _8O_:SellableButton;
         private var _0F_y:Sprite = null;
         private var _0C_:SimpleText = null;
         private var _5U_:Sprite;
@@ -54,7 +54,7 @@ import flash.display.Sprite;
             addChild(this._5U_);
             this.bitmap_ = new Bitmap(null);
             this._5U_.addChild(this.bitmap_);
-            this._8O_ = new _u5("Buy for ", 16, 0, Currency.INVALID);
+            this._8O_ = new SellableButton("Buy for ", 16, 0, Currency.INVALID);
             this._8O_.addEventListener(MouseEvent.CLICK, this._i);
             addChild(this._8O_);
             this._r(_arg2);

@@ -42,17 +42,17 @@ package _rK_{
         private function _mO_(_arg1:MouseEvent):void{
             if (!_9S_._02A_(this._xb.text()))
             {
-                this._xb._0B_T_("Not a valid email address");
+                this._xb.setErrorText("Not a valid email address");
                 return;
             }
             if (this.password_.text().length < 5)
             {
-                this.password_._0B_T_("Password too short");
+                this.password_.setErrorText("Password too short");
                 return;
             }
             if (this.password_.text() != this._0L_Y_.text())
             {
-                this._0L_Y_._0B_T_("Password does not match");
+                this._0L_Y_.setErrorText("Password does not match");
                 return;
             }
             if (!this._8n._u6())
@@ -61,7 +61,7 @@ package _rK_{
                 return;
             }
             var _local2:_f7 = (Account._get() as _f7);
-            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true);
+            var _local3:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/steamworks", true);
             _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Q__);
             _local3.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._J_o);
             _local3.sendRequest("register", {
@@ -71,7 +71,7 @@ package _rK_{
                 "newPassword":this.password_.text(),
                 "entrytag":_local2.entrytag()
             });
-            _pW_();
+            lockButtons();
         }
         private function _Q__(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
@@ -79,8 +79,8 @@ package _rK_{
             dispatchEvent(new _07s(_07s._tp));
         }
         private function _J_o(_arg1:WebRequestErrorEvent):void{
-            this._xb._0B_T_(_arg1.text_);
-            _for();
+            this._xb.setErrorText(_arg1.text_);
+            releaseButtons();
         }
 
     }

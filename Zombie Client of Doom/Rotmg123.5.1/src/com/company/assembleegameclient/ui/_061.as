@@ -4,7 +4,7 @@
 //com.company.assembleegameclient.ui._061
 
 package com.company.assembleegameclient.ui{
-import ClientPackets.Craft;
+import ClientPackets.CraftPacket;
 
 import Frames.CraftingFrame;
 import Frames.CraftingFrame;

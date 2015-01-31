@@ -18,7 +18,7 @@ package _0L_C_{
         public function _0G_y(_arg1:int){
             super("Buying Character Slot...", null, null, null);
             this.price_ = _arg1;
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true, 2);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true, 2);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._F_Q_);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
             _local2.sendRequest("purchaseCharSlot", Account._get().credentials());

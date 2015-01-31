@@ -32,7 +32,7 @@ package com.company.assembleegameclient.ui{
         private var _I_n:int;
         private var _H_:Number;
 
-        public function ScrollBar(_arg1:int, _arg2:int, _arg3:Number=1){
+        public function ScrollBar(width:int, height:int, scrollSpeed:Number=1){
             super();
             this.background_ = new Sprite();
             this.background_.addEventListener(MouseEvent.MOUSE_DOWN, this._06t);
@@ -43,14 +43,14 @@ package com.company.assembleegameclient.ui{
             addChild(this._pr);
             this.sliderDrag = this._y9(this._0N_3);
             addChild(this.sliderDrag);
-            this.resize(_arg1, _arg2, _arg3);
+            this.resize(width, height, scrollSpeed);
         }
         private static function _G_k(_arg1:int, _arg2:int, _arg3:Graphics):void{
             _arg3.clear();
             _arg3.beginFill(0x353535, 0.01);
             _arg3.drawRect((-(_arg1) / 2), (-(_arg2) / 2), _arg1, _arg2);
             _arg3.endFill();
-            _arg3.beginFill(0x3D3D3D, 1);
+            _arg3.beginFill(0x6E6E6E, 1);
             _arg3.moveTo((-(_arg1) / 2), (-(_arg2) / 2));
             _arg3.lineTo((_arg1 / 2), 0);
             _arg3.lineTo((-(_arg1) / 2), (_arg2 / 2));

@@ -19,7 +19,7 @@ public class CraftingRequest extends WebRequest{
     public function CraftingRequest() {
         if(!lockRequest) {
             lockRequest = true;
-            super(Parameters._fK_(), "/crafting", true);
+            super(Parameters.getAccountServerIP(), "/crafting", true);
             init();
         }
     }
@@ -30,13 +30,8 @@ public class CraftingRequest extends WebRequest{
         sendRequest("getRecipes", _local1);
     }
 
-    public function dataReceived(_arg1:WebRequestSuccessEvent) {
+    public function dataReceived(_arg1:WebRequestSuccessEvent):void {
         CraftingTerminal.recipes = Vector.<String>(_arg1.data_.toString().split("\n"));
-        lockRequest = false;
-    }
-
-    public function errorReceived(_arg1:String) {
-        dispatchEvent(new Event(Event.COMPLETE));
         lockRequest = false;
     }
 }

@@ -21,14 +21,14 @@ import com.company.ui.fonts.*;
 
         private var font:Font;
 
-        public var _X_o:int;
+        public var definedWidth:int;
         public var _p5:int;
         public var _c9:int;
         public var _I_x:int;
 
         public function SimpleText(_arg1:int, _arg2:uint, _arg3:Boolean=false, _arg4:int=0, _arg5:int=0, _arg6:String="Myriad Pro"){
-            this._X_o = _arg4;
-            if (this._X_o != 0)
+            this.definedWidth = _arg4;
+            if (this.definedWidth != 0)
             {
                 width = _arg4;
             }
@@ -134,11 +134,11 @@ import com.company.ui.fonts.*;
                 this._I_x = (this._I_x + _local4);
                 _local1++;
             }
-            width = (((this._X_o)==0) ? this._c9 : this._X_o);
+            width = (((this.definedWidth)==0) ? this._c9 : this.definedWidth);
             height = (((this._p5)==0) ? this._I_x : this._p5);
         }
         public function _08S_():void{
-            width = (((this._X_o)==0) ? (textWidth + 4) : this._X_o);
+            width = (((this.definedWidth)==0) ? (textWidth + 4) : this.definedWidth);
             height = (((this._p5)==0) ? (textHeight + 4) : this._p5);
         }
 

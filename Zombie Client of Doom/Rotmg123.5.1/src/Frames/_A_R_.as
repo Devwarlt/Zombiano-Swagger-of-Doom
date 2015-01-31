@@ -88,7 +88,7 @@ import _00g._0H_i;
             addChild(this._0B_q);
         }
         protected function _Z_P_(_arg1:MouseEvent):void{
-            _pW_();
+            lockButtons();
             if (this._8K_ != null)
             {
                 this.mediator.paymentMethod = this._8K_._rq();

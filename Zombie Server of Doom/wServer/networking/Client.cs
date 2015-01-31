@@ -85,7 +85,7 @@ namespace wServer.networking
         }
         public void SendPackets(IEnumerable<Packet> pkts)
         {
-            //handler.SendPackets(pkts);
+            handler.SendPackets(pkts);
         }
 
         public bool IsReady()

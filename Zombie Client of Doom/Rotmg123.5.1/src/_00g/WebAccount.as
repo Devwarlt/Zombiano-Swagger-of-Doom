@@ -4,7 +4,9 @@
 //_00g.WebAccount
 
 package _00g{
-    import _qN_.Account;
+import AccountManagement.AccountManagementScreen;
+
+import _qN_.Account;
     import flash.external.ExternalInterface;
     import flash.net.SharedObject;
     import com.company.assembleegameclient.util.GUID;
@@ -101,8 +103,8 @@ public class WebAccount extends Account {
         override public function newAccountText():_9j{
             return (new _jz());
         }
-        override public function newAccountManagement():Sprite{
-            return (new _ak(false));
+        override public function newAccountManagement(accountXml:XML):Sprite{
+            return new AccountManagementScreen(accountXml);//(new _ak(false));
         }
         override public function showInGameRegister(_arg1:Stage):void{
             var _local2:_0A_c = new _0A_c();

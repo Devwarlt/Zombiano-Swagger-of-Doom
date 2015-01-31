@@ -106,7 +106,7 @@ public class FirePacksHolder extends TabHolder {
 
     private function onOpenClick(event:MouseEvent):void {
         if(packInfoScreen == null) {
-            var req:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var req:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             var query:Object = Account._get().credentials();
             query["packId"] = (event.target.parent as FirePackHolder).info.id;
             req.sendRequest("openFirePack", query);

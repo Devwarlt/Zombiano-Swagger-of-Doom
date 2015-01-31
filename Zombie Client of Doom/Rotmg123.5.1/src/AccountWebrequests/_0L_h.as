@@ -63,22 +63,22 @@ package AccountWebrequests{
         private function _mO_(_arg1:MouseEvent):void{
             if (!_9S_._02A_(this.username_.text()))
             {
-                this.username_._0B_T_("Not a valid username");
+                this.username_.setErrorText("Not a valid username");
                 return;
             }
             if (!_9S_.isEmail(this.email_.text()))
 			{
-				this.email_._0B_T_("Not a valid email address");
+				this.email_.setErrorText("Not a valid email address");
 				return;
 			}
             if (this.password_.text().length < 5)
             {
-                this.password_._0B_T_("Password too short");
+                this.password_.setErrorText("Password too short");
                 return;
             }
             if (this.password_.text() != this.password2_.text())
             {
-                this.password2_._0B_T_("Password does not match");
+                this.password2_.setErrorText("Password does not match");
                 return;
             }
             if (!this._8n._u6())
@@ -86,7 +86,7 @@ package AccountWebrequests{
                 this._8n._0B_T_("Must agree to register");
                 return;
             }
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Q__);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._J_o);
             _local2.sendRequest("register", {
@@ -96,15 +96,15 @@ package AccountWebrequests{
                 "newPassword":this.password_.text(),
                 "entrytag":Account._get().entrytag()
             });
-            _pW_();
+            lockButtons();
         }
         private function _Q__(_arg1:WebRequestSuccessEvent):void{
             Account._get().modify(this.username_.text(), this.password_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }
         private function _J_o(_arg1:WebRequestErrorEvent):void{
-            this.username_._0B_T_(_arg1.text_);
-            _for();
+            this.username_.setErrorText(_arg1.text_);
+            releaseButtons();
         }
         private function _q5(_arg1:MouseEvent):void{
             dispatchEvent(new _nJ_(_nJ_._2K_));

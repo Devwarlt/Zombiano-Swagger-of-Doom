@@ -17,10 +17,10 @@ package ClientPackets{
         public var secret_:String;
         public var keyTime_:int = 0;
         public var key_:ByteArray;
-        public var _2B_:String;
-        public var _8U_:String = "";
-        public var _yt:String = "";
-        public var _J_k:String = "";
+        public var mapInfo:String;
+        public var entrytag:String = "";
+        public var gameNetwork:String = "";
+        public var gameNetworkUserId:String = "";
         public var playPlatform:String = "";
 
         public function HelloPacket(_arg1:uint){
@@ -30,7 +30,7 @@ package ClientPackets{
             this.password_ = String("");
             this.secret_ = String("");
             this.key_ = new ByteArray();
-            this._2B_ = String("");
+            this.mapInfo = String("");
             super(_arg1);
         }
         override public function writeToOutput(_arg1:IDataOutput):void{
@@ -43,11 +43,11 @@ package ClientPackets{
             _arg1.writeInt(this.keyTime_);
             _arg1.writeShort(this.key_.length);
             _arg1.writeBytes(this.key_);
-            _arg1.writeInt(this._2B_.length);
-            _arg1.writeUTFBytes(this._2B_);
-            _arg1.writeUTF(this._8U_);
-            _arg1.writeUTF(this._yt);
-            _arg1.writeUTF(this._J_k);
+            _arg1.writeInt(this.mapInfo.length);
+            _arg1.writeUTFBytes(this.mapInfo);
+            _arg1.writeUTF(this.entrytag);
+            _arg1.writeUTF(this.gameNetwork);
+            _arg1.writeUTF(this.gameNetworkUserId);
             _arg1.writeUTF(this.playPlatform);
         }
         override public function toString():String{

@@ -59,41 +59,41 @@ import _015._6T_;
 import _015._O_P_;
 
 import ClientPackets.*;
-import ClientPackets.Buy;
-import ClientPackets.Create;
-import ClientPackets.RequestTeleport;
-import ClientPackets._03l;
-import ClientPackets._09F_;
-import ClientPackets._0A_1;
+import ClientPackets.BuyPacket;
+import ClientPackets.CreatePacket;
+import ClientPackets.RequestTeleportPacket;
+import ClientPackets.UsePortalPacket;
+import ClientPackets.ChangeVillageRankPacket;
+import ClientPackets.AcceptTradePacket;
 import ClientPackets.HelloPacket;
-import ClientPackets._0C_7;
-import ClientPackets._0C_G_;
-import ClientPackets._0F_i;
-import ClientPackets._0G_8;
-import ClientPackets._0I_8;
-import ClientPackets._0L_P_;
-import ClientPackets._2q;
-import ClientPackets._99;
-import ClientPackets._I_s;
-import ClientPackets._J_I_;
-import ClientPackets._K_w;
-import ClientPackets._L_F_;
-import ClientPackets._U_2;
-import ClientPackets._V_3;
-import ClientPackets._W_c;
-import ClientPackets._X_c;
-import ClientPackets._bG_;
-import ClientPackets._fI_;
-import ClientPackets._hJ_;
-import ClientPackets._kL_;
-import ClientPackets._kT_;
-import ClientPackets._mw;
-import ClientPackets._ns;
-import ClientPackets._oy;
-import ClientPackets._pa;
-import ClientPackets._r5;
-import ClientPackets._tN_;
-import ClientPackets._vp;
+import ClientPackets.EditAccountListPacket;
+import ClientPackets.InvDropPacket;
+import ClientPackets.EscapePacket;
+import ClientPackets.JoinVillagePacket;
+import ClientPackets.ShootAckPacket;
+import ClientPackets.PlayerShootPacket;
+import ClientPackets.ChangeTradePacket;
+import ClientPackets.InvSwapPacket;
+import ClientPackets.RequestTradePacket;
+import ClientPackets.EnemyHitPacket;
+import ClientPackets.GroundDamagePacket;
+import ClientPackets.PlayerHitPacket;
+import ClientPackets.CreateVillagePacket;
+import ClientPackets.VillageInvitePacket;
+import ClientPackets.MovePacket;
+import ClientPackets.CheckCreditsPacket;
+import ClientPackets.AoeAckPacket;
+import ClientPackets.UseItemPacket;
+import ClientPackets.SquareHitPacket;
+import ClientPackets.PongPacket;
+import ClientPackets.OtherHitPacket;
+import ClientPackets.SetConditionPacket;
+import ClientPackets.GotoAckPacket;
+import ClientPackets.ChooseNamePacket;
+import ClientPackets.PlayerTextPacket;
+import ClientPackets.LoadPacket;
+import ClientPackets.VillageRemovePacket;
+import ClientPackets.CancelTradePacket;
 
 import _05R_.GTween;
 
@@ -124,7 +124,7 @@ import _8Q_._1l;
     
     import _9R_._3E_;
     import _9R_._D_X_;
-    import _9R_._J_F_;
+    import _9R_.VillageResultEvent;
     import _9R_._j_;
     
     import _G_A_._8P_;
@@ -310,10 +310,10 @@ import flash.events.TimerEvent;
             this.serverConn = _arg2.isUDP ? new UDPServerConnection(false) : new TCPServerConnection(false);
             this.serverConn.registerPacket(FAILURE, FailurePacket, this._nc);
             this.serverConn.registerPacket(CREATE_SUCCESS, _T_n, this._cw);
-            this.serverConn.registerPacket(CREATE, Create, null);
-            this.serverConn.registerPacket(PLAYERSHOOT, _0L_P_, null);
-            this.serverConn.registerPacket(MOVE, _W_c, null);
-            this.serverConn.registerPacket(PLAYERTEXT, _pa, null);
+            this.serverConn.registerPacket(CREATE, CreatePacket, null);
+            this.serverConn.registerPacket(PLAYERSHOOT, PlayerShootPacket, null);
+            this.serverConn.registerPacket(MOVE, MovePacket, null);
+            this.serverConn.registerPacket(PLAYERTEXT, PlayerTextPacket, null);
             this.serverConn.registerPacket(TEXT, Text, this._A_i);
             this.serverConn.registerPacket(_lE_, _T_m, this._C_i);
             this.serverConn.registerPacket(DAMAGE, Damage, this._0A_K_);
@@ -323,64 +323,64 @@ import flash.events.TimerEvent;
             this.serverConn.registerPacket(NOTIFICATION_BOX, NotificationBoxPacket, this.notificationBox);
             this.serverConn.registerPacket(GLOBAL_NOTIFICATION, _iD_, this._nG_);
             this.serverConn.registerPacket(_29, _0_l, this._02H_);
-            this.serverConn.registerPacket(INVSWAP, _99, null);
-            this.serverConn.registerPacket(USEITEM, _fI_, null);
+            this.serverConn.registerPacket(INVSWAP, InvSwapPacket, null);
+            this.serverConn.registerPacket(USEITEM, UseItemPacket, null);
             this.serverConn.registerPacket(_0E_H_, ShowEffect, this._V_z);
             this.serverConn.registerPacket(HELLO, HelloPacket, null);
             this.serverConn.registerPacket(GOTO, Goto, this._gk);
-            this.serverConn.registerPacket(INVDROP, _0C_G_, null);
+            this.serverConn.registerPacket(INVDROP, InvDropPacket, null);
             this.serverConn.registerPacket(INVRESULT, InvResult, this._I_I_);
             this.serverConn.registerPacket(RECONNECT, _8_, this._X_3);
             this.serverConn.registerPacket(PING, _0F_I_, this._94);
-            this.serverConn.registerPacket(PONG, _kL_, null);
+            this.serverConn.registerPacket(PONG, PongPacket, null);
             this.serverConn.registerPacket(MAPINFO, MapInfo, this._ju);
-            this.serverConn.registerPacket(LOAD, _r5, null);
+            this.serverConn.registerPacket(LOAD, LoadPacket, null);
             this.serverConn.registerPacket(PIC, Pic, this._F_E_);
-            this.serverConn.registerPacket(SETCONDITION, _mw, null);
+            this.serverConn.registerPacket(SETCONDITION, SetConditionPacket, null);
             this.serverConn.registerPacket(SPRINT, SprintPacket, null);
-            this.serverConn.registerPacket(REQUESTTELEPORT, RequestTeleport, null);
-            this.serverConn.registerPacket(USEPORTAL, _03l, null);
+            this.serverConn.registerPacket(REQUESTTELEPORT, RequestTeleportPacket, null);
+            this.serverConn.registerPacket(USEPORTAL, UsePortalPacket, null);
             this.serverConn.registerPacket(DEATH, Death, this._038);
-            this.serverConn.registerPacket(BUY, Buy, null);
+            this.serverConn.registerPacket(BUY, BuyPacket, null);
             this.serverConn.registerPacket(BUYRESULT, BuyResult, this._cN_);
             this.serverConn.registerPacket(AOE_, AOE, this._06y);
-            this.serverConn.registerPacket(GROUNDDAMAGE, _K_w, null);
-            this.serverConn.registerPacket(PLAYERHIT, _L_F_, null);
-            this.serverConn.registerPacket(ENEMYHIT, _J_I_, null);
-            this.serverConn.registerPacket(AOEACK, _bG_, null);
-            this.serverConn.registerPacket(SHOOTACK, _0I_8, null);
-            this.serverConn.registerPacket(OTHERHIT, _kT_, null);
-            this.serverConn.registerPacket(SQUAREHIT, _hJ_, null);
-            this.serverConn.registerPacket(GOTOACK, _ns, null);
-            this.serverConn.registerPacket(EDITACCOUNTLIST, _0C_7, null);
+            this.serverConn.registerPacket(GROUNDDAMAGE, GroundDamagePacket, null);
+            this.serverConn.registerPacket(PLAYERHIT, PlayerHitPacket, null);
+            this.serverConn.registerPacket(ENEMYHIT, EnemyHitPacket, null);
+            this.serverConn.registerPacket(AOEACK, AoeAckPacket, null);
+            this.serverConn.registerPacket(SHOOTACK, ShootAckPacket, null);
+            this.serverConn.registerPacket(OTHERHIT, OtherHitPacket, null);
+            this.serverConn.registerPacket(SQUAREHIT, SquareHitPacket, null);
+            this.serverConn.registerPacket(GOTOACK, GotoAckPacket, null);
+            this.serverConn.registerPacket(EDITACCOUNTLIST, EditAccountListPacket, null);
             this.serverConn.registerPacket(ACCOUNTLIST, _0K_U_, this._0J_R_);
             this.serverConn.registerPacket(QUESTOBJID, _Y_F_, this._fF_);
-            this.serverConn.registerPacket(CHOOSENAME, _oy, null);
+            this.serverConn.registerPacket(CHOOSENAME, ChooseNamePacket, null);
             this.serverConn.registerPacket(NAMERESULT, NameResult, this._0D_s);
-            this.serverConn.registerPacket(CREATEGUILD, _U_2, null);
+            this.serverConn.registerPacket(CREATEGUILD, CreateVillagePacket, null);
             this.serverConn.registerPacket(_0F_w, _ic, this._Z_g);
-            this.serverConn.registerPacket(GUILDREMOVE, _tN_, null);
-            this.serverConn.registerPacket(GUILDINVITE, _V_3, null);
+            this.serverConn.registerPacket(GUILDREMOVE, VillageRemovePacket, null);
+            this.serverConn.registerPacket(GUILDINVITE, VillageInvitePacket, null);
             this.serverConn.registerPacket(ALLYSHOOT, _I_o, this._P_F_);
             this.serverConn.registerPacket(_0_k, _C_3, this._0K_7);
-            this.serverConn.registerPacket(REQUESTTRADE, _I_s, null);
+            this.serverConn.registerPacket(REQUESTTRADE, RequestTradePacket, null);
             this.serverConn.registerPacket(TRADEREQUESTED, _Y_G_, this._G_r);
             this.serverConn.registerPacket(TRADESTART, _S_M_, this._47);
-            this.serverConn.registerPacket(CHANGETRADE, _2q, null);
+            this.serverConn.registerPacket(CHANGETRADE, ChangeTradePacket, null);
             this.serverConn.registerPacket(TRADECHANGED, _Z_J_, this._0D_U_);
-            this.serverConn.registerPacket(ACCEPTTRADE, _0A_1, null);
-            this.serverConn.registerPacket(CANCELTRADE, _vp, null);
+            this.serverConn.registerPacket(ACCEPTTRADE, AcceptTradePacket, null);
+            this.serverConn.registerPacket(CANCELTRADE, CancelTradePacket, null);
             this.serverConn.registerPacket(TRADEDONE, _A_L_, this._2d);
             this.serverConn.registerPacket(TRADEACCEPTED, _qe, this._087);
             this.serverConn.registerPacket(CLIENTSTAT, _0F_u, this._oA_);
-            this.serverConn.registerPacket(CHECKCREDITS, _X_c, null);
-            this.serverConn.registerPacket(ESCAPE, _0F_i, null);
+            this.serverConn.registerPacket(CHECKCREDITS, CheckCreditsPacket, null);
+            this.serverConn.registerPacket(ESCAPE, EscapePacket, null);
             this.serverConn.registerPacket(_02h, File, this._J_0);
             this.serverConn.registerPacket(INVITEDTOGUILD, InvitedToGuild, this._cS_);
-            this.serverConn.registerPacket(JOINGUILD, _0G_8, null);
-            this.serverConn.registerPacket(CHANGEGUILDRANK, _09F_, null);
+            this.serverConn.registerPacket(JOINGUILD, JoinVillagePacket, null);
+            this.serverConn.registerPacket(CHANGEGUILDRANK, ChangeVillageRankPacket, null);
             this.serverConn.registerPacket(PLAYSOUND, _bB_, this._A_C_);
-			this.serverConn.registerPacket(CRAFT, Craft, null);
+			this.serverConn.registerPacket(CRAFT, CraftPacket, null);
 			this.serverConn.registerPacket(VISIBULLET, Visibullet, null);
 			this.serverConn.registerPacket(SWITCHMUSIC, SwitchMusic, this.switchMusic);
             this.serverConn.registerPacket(TELEPORTREQUEST, TeleportRequest, this.teleportRequested);
@@ -388,7 +388,7 @@ import flash.events.TimerEvent;
             this.serverConn.registerPacket(LEARNCRAFTINGRECIPE, LearnCraftingRecipe, null);
             this.serverConn.registerPacket(RESKIN, ReskinPacket, null);
             this.serverConn.registerPacket(UNLOCK, UnlockedPacket, this.unlockedSomething);
-            this.serverConn.registerPacket(GETGIFT, GetGift, null);
+            this.serverConn.registerPacket(GETGIFT, GetGiftPacket, null);
             this.serverConn.registerPacket(ACHIEVEMENTUNLOCKED, AchievementUnlockedPacket, this.onAchievementUnlock);
             this.serverConn.addEventListener(Event.CONNECT, this._ux);
             this.serverConn.addEventListener(Event.CLOSE, this._of);
@@ -422,17 +422,17 @@ import flash.events.TimerEvent;
             _zz.instance.dispatch();
         }
         private function create():void{
-            var _local1:Create = (this.serverConn.createPacketFromID(CREATE) as Create);
+            var _local1:CreatePacket = (this.serverConn.createPacketFromID(CREATE) as CreatePacket);
             _local1.objectType_ = Parameters.data_.playerObjectType;
             this.serverConn.sendPacket(_local1);
         }
         private function load():void{
-            var _local1:_r5 = (this.serverConn.createPacketFromID(LOAD) as _r5);
-            _local1.charId_ = this.charId_;
+            var _local1:LoadPacket = (this.serverConn.createPacketFromID(LOAD) as LoadPacket);
+            _local1.skinId_ = this.charId_;
             this.serverConn.sendPacket(_local1);
         }
         public function playerShoot(_arg1:int, _arg2:Projectile):void{
-            var _local3:_0L_P_ = (this.serverConn.createPacketFromID(PLAYERSHOOT) as _0L_P_);
+            var _local3:PlayerShootPacket = (this.serverConn.createPacketFromID(PLAYERSHOOT) as PlayerShootPacket);
             _local3.time_ = _arg1;
             _local3.bulletId_ = _arg2.bulletId_;
             _local3.containerType_ = _arg2.containerType_;
@@ -442,7 +442,7 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(_local3);
         }
         public function playerHit(_arg1:int, _arg2:int):void{
-            var _local3:_L_F_ = (this.serverConn.createPacketFromID(PLAYERHIT) as _L_F_);
+            var _local3:PlayerHitPacket = (this.serverConn.createPacketFromID(PLAYERHIT) as PlayerHitPacket);
             _local3.bulletId_ = _arg1;
             _local3.objectId_ = _arg2;
             this.serverConn.sendPacket(_local3);
@@ -453,7 +453,7 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(rs);
         }
         public function enemyHit(_arg1:int, _arg2:int, _arg3:int, _arg4:Boolean):void{
-            var _local5:_J_I_ = (this.serverConn.createPacketFromID(ENEMYHIT) as _J_I_);
+            var _local5:EnemyHitPacket = (this.serverConn.createPacketFromID(ENEMYHIT) as EnemyHitPacket);
             _local5.time_ = _arg1;
             _local5.bulletId_ = _arg2;
             _local5.targetId_ = _arg3;
@@ -461,7 +461,7 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(_local5);
         }
         public function otherHit(_arg1:int, _arg2:int, _arg3:int, _arg4:int):void{
-            var _local5:_kT_ = (this.serverConn.createPacketFromID(OTHERHIT) as _kT_);
+            var _local5:OtherHitPacket = (this.serverConn.createPacketFromID(OTHERHIT) as OtherHitPacket);
             _local5.time_ = _arg1;
             _local5.bulletId_ = _arg2;
             _local5.objectId_ = _arg3;
@@ -469,38 +469,38 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(_local5);
         }
         public function squareHit(_arg1:int, _arg2:int, _arg3:int):void{
-            var _local4:_hJ_ = (this.serverConn.createPacketFromID(SQUAREHIT) as _hJ_);
+            var _local4:SquareHitPacket = (this.serverConn.createPacketFromID(SQUAREHIT) as SquareHitPacket);
             _local4.time_ = _arg1;
             _local4.bulletId_ = _arg2;
             _local4.objectId_ = _arg3;
             this.serverConn.sendPacket(_local4);
         }
         public function _H_q(_arg1:int, _arg2:Number, _arg3:Number):void{
-            var _local4:_bG_ = (this.serverConn.createPacketFromID(AOEACK) as _bG_);
+            var _local4:AoeAckPacket = (this.serverConn.createPacketFromID(AOEACK) as AoeAckPacket);
             _local4.time_ = _arg1;
             _local4.position_.x_ = _arg2;
             _local4.position_.y_ = _arg3;
             this.serverConn.sendPacket(_local4);
         }
         public function groundDamage(_arg1:int, _arg2:Number, _arg3:Number):void{
-            var _local4:_K_w = (this.serverConn.createPacketFromID(GROUNDDAMAGE) as _K_w);
+            var _local4:GroundDamagePacket = (this.serverConn.createPacketFromID(GROUNDDAMAGE) as GroundDamagePacket);
             _local4.time_ = _arg1;
             _local4.position_.x_ = _arg2;
             _local4.position_.y_ = _arg3;
             this.serverConn.sendPacket(_local4);
         }
         public function _eC_(_arg1:int):void{
-            var _local2:_0I_8 = (this.serverConn.createPacketFromID(SHOOTACK) as _0I_8);
+            var _local2:ShootAckPacket = (this.serverConn.createPacketFromID(SHOOTACK) as ShootAckPacket);
             _local2.time_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function _C_k(_arg1:String):void{
-            var _local2:_pa = (this.serverConn.createPacketFromID(PLAYERTEXT) as _pa);
+            var _local2:PlayerTextPacket = (this.serverConn.createPacketFromID(PLAYERTEXT) as PlayerTextPacket);
             _local2.text_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function _P_a(_arg1:int, _arg2:Number, _arg3:Number, _arg4:int, _arg5:int, _arg6:int, _arg7:int, _arg8:int, _arg9:int):void{
-            var _local10:_99 = (this.serverConn.createPacketFromID(INVSWAP) as _99);
+            var _local10:InvSwapPacket = (this.serverConn.createPacketFromID(INVSWAP) as InvSwapPacket);
             _local10.time_ = _arg1;
             _local10.position_.x_ = _arg2;
             _local10.position_.y_ = _arg3;
@@ -513,14 +513,14 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(_local10);
         }
         public function _8q(_arg1:int, _arg2:int, _arg3:int):void{
-            var _local4:_0C_G_ = (this.serverConn.createPacketFromID(INVDROP) as _0C_G_);
+            var _local4:InvDropPacket = (this.serverConn.createPacketFromID(INVDROP) as InvDropPacket);
             _local4.slotObject_.objectId_ = _arg1;
             _local4.slotObject_.slotId_ = _arg2;
             _local4.slotObject_.objectType_ = _arg3;
             this.serverConn.sendPacket(_local4);
         }
         public function useItem(_arg1:int, _arg2:int, _arg3:int, _arg4:int, _arg5:Number, _arg6:Number):void{
-            var _local7:_fI_ = (this.serverConn.createPacketFromID(USEITEM) as _fI_);
+            var _local7:UseItemPacket = (this.serverConn.createPacketFromID(USEITEM) as UseItemPacket);
             _local7.time_ = _arg1;
             _local7.slotObject_.objectId_ = _arg2;
             _local7.slotObject_.slotId_ = _arg3;
@@ -545,14 +545,14 @@ import flash.events.TimerEvent;
         }
 
         public function _6v(_arg1:uint, _arg2:Number):void{
-            var _local3:_mw = (this.serverConn.createPacketFromID(SETCONDITION) as _mw);
+            var _local3:SetConditionPacket = (this.serverConn.createPacketFromID(SETCONDITION) as SetConditionPacket);
             _local3.conditionEffect_ = _arg1;
             _local3.conditionDuration_ = _arg2;
             this.serverConn.sendPacket(_local3);
         }
 
         public function getGift(itemId:int, del:Boolean):void {
-            var pkt:GetGift = this.serverConn.createPacketFromID(GETGIFT) as GetGift;
+            var pkt:GetGiftPacket = this.serverConn.createPacketFromID(GETGIFT) as GetGiftPacket;
             pkt.itemId = itemId;
             pkt.del = del;
             this.serverConn.sendPacket(pkt);
@@ -567,7 +567,7 @@ import flash.events.TimerEvent;
                 _local3 = _arg2.x_;
                 _local4 = _arg2.y_;
             }
-            var _local5:_W_c = (this.serverConn.createPacketFromID(MOVE) as _W_c);
+            var _local5:MovePacket = (this.serverConn.createPacketFromID(MOVE) as MovePacket);
             _local5.tickId_ = _arg1;
             _local5.time_ = this.gs_.lastUpdate_;
             _local5.newPosition_.x_ = _local3;
@@ -590,12 +590,12 @@ import flash.events.TimerEvent;
             _arg2._01w();
         }
         public function teleportRequest(_arg1:int):void{
-            var _local2:RequestTeleport = (this.serverConn.createPacketFromID(REQUESTTELEPORT) as RequestTeleport);
+            var _local2:RequestTeleportPacket = (this.serverConn.createPacketFromID(REQUESTTELEPORT) as RequestTeleportPacket);
             _local2.objectId_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function usePortal(_arg1:int):void{
-            var _local2:_03l = (this.serverConn.createPacketFromID(USEPORTAL) as _03l);
+            var _local2:UsePortalPacket = (this.serverConn.createPacketFromID(USEPORTAL) as UsePortalPacket);
             _local2.objectId_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
@@ -615,54 +615,54 @@ import flash.events.TimerEvent;
                 _local3 = ((((this.gs_.charList_.converted_) || ((this.gs_.map_.player_.credits_ > 100)))) || ((_local2.price_ > this.gs_.map_.player_.credits_)));
             }
             this.outstandingBuy_ = new _W_v(_local2.soldObjectInternalName(), _local2.price_, _local2.currency_, _local3);
-            var _local4:Buy = (this.serverConn.createPacketFromID(BUY) as Buy);
+            var _local4:BuyPacket = (this.serverConn.createPacketFromID(BUY) as BuyPacket);
             _local4.objectId_ = _arg1;
             this.serverConn.sendPacket(_local4);
         }
         public function _S__(_arg1:int):void{
-            var _local2:_ns = (this.serverConn.createPacketFromID(GOTOACK) as _ns);
+            var _local2:GotoAckPacket = (this.serverConn.createPacketFromID(GOTOACK) as GotoAckPacket);
             _local2.time_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function _eH_(_arg1:int, _arg2:Boolean, _arg3:int):void{
-            var _local4:_0C_7 = (this.serverConn.createPacketFromID(EDITACCOUNTLIST) as _0C_7);
+            var _local4:EditAccountListPacket = (this.serverConn.createPacketFromID(EDITACCOUNTLIST) as EditAccountListPacket);
             _local4.accountListId_ = _arg1;
             _local4.add_ = _arg2;
             _local4.objectId_ = _arg3;
             this.serverConn.sendPacket(_local4);
         }
         public function _K_Q_(_arg1:String):void{
-            var _local2:_oy = (this.serverConn.createPacketFromID(CHOOSENAME) as _oy);
+            var _local2:ChooseNamePacket = (this.serverConn.createPacketFromID(CHOOSENAME) as ChooseNamePacket);
             _local2.name_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
-        public function _S_W_(_arg1:String):void{
-            var _local2:_U_2 = (this.serverConn.createPacketFromID(CREATEGUILD) as _U_2);
+        public function createVillage(_arg1:String):void{
+            var _local2:CreateVillagePacket = (this.serverConn.createPacketFromID(CREATEGUILD) as CreateVillagePacket);
             _local2.name_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function guildRemove(_arg1:String):void{
-            var _local2:_tN_ = (this.serverConn.createPacketFromID(GUILDREMOVE) as _tN_);
+            var _local2:VillageRemovePacket = (this.serverConn.createPacketFromID(GUILDREMOVE) as VillageRemovePacket);
             _local2.name_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function _H_X_(_arg1:String):void{
-            var _local2:_V_3 = (this.serverConn.createPacketFromID(GUILDINVITE) as _V_3);
+            var _local2:VillageInvitePacket = (this.serverConn.createPacketFromID(GUILDINVITE) as VillageInvitePacket);
             _local2.name_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function requestTrade(_arg1:String):void{
-            var _local2:_I_s = (this.serverConn.createPacketFromID(REQUESTTRADE) as _I_s);
+            var _local2:RequestTradePacket = (this.serverConn.createPacketFromID(REQUESTTRADE) as RequestTradePacket);
             _local2.name_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function _rQ_(_arg1:Vector.<Boolean>):void{
-            var _local2:_2q = (this.serverConn.createPacketFromID(CHANGETRADE) as _2q);
+            var _local2:ChangeTradePacket = (this.serverConn.createPacketFromID(CHANGETRADE) as ChangeTradePacket);
             _local2.offer_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function _E_i(_arg1:Vector.<Boolean>, _arg2:Vector.<Boolean>):void{
-            var _local3:_0A_1 = (this.serverConn.createPacketFromID(ACCEPTTRADE) as _0A_1);
+            var _local3:AcceptTradePacket = (this.serverConn.createPacketFromID(ACCEPTTRADE) as AcceptTradePacket);
             _local3.myOffer_ = _arg1;
             _local3.yourOffer_ = _arg2;
             this.serverConn.sendPacket(_local3);
@@ -681,12 +681,12 @@ import flash.events.TimerEvent;
             this.serverConn.sendPacket(this.serverConn.createPacketFromID(ESCAPE));
         }
         public function joinGuild(_arg1:String):void{
-            var _local2:_0G_8 = (this.serverConn.createPacketFromID(JOINGUILD) as _0G_8);
+            var _local2:JoinVillagePacket = (this.serverConn.createPacketFromID(JOINGUILD) as JoinVillagePacket);
             _local2.guildName_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
         public function _k8(_arg1:String, _arg2:int):void{
-            var _local3:_09F_ = (this.serverConn.createPacketFromID(CHANGEGUILDRANK) as _09F_);
+            var _local3:ChangeVillageRankPacket = (this.serverConn.createPacketFromID(CHANGEGUILDRANK) as ChangeVillageRankPacket);
             _local3.name_ = _arg1;
             _local3.guildRank_ = _arg2;
             this.serverConn.sendPacket(_local3);
@@ -714,10 +714,10 @@ import flash.events.TimerEvent;
             {
                 _local2.key_.writeBytes(this.key_);
             }
-            _local2._2B_ = (((this._2B_ == null)) ? "" : this._2B_);
-            _local2._8U_ = Account._get().entrytag();
-            _local2._yt = Account._get().gameNetwork();
-            _local2._J_k = Account._get().gameNetworkUserId();
+            _local2.mapInfo = (((this._2B_ == null)) ? "" : this._2B_);
+            _local2.entrytag = Account._get().entrytag();
+            _local2.gameNetwork = Account._get().gameNetwork();
+            _local2.gameNetworkUserId = Account._get().gameNetworkUserId();
             _local2.playPlatform = Account._get().playPlatform();
             this.serverConn.sendPacket(_local2);
         }
@@ -1428,7 +1428,7 @@ import flash.events.TimerEvent;
             this.gs_.dispatchEvent(_local2);
         }
         private function _94(_arg1:_0F_I_):void{
-            var _local2:_kL_ = (this.serverConn.createPacketFromID(PONG) as _kL_);
+            var _local2:PongPacket = (this.serverConn.createPacketFromID(PONG) as PongPacket);
             _local2.serial_ = _arg1.serial_;
             _local2.time_ = getTimer();
             this.serverConn.sendPacket(_local2);
@@ -1549,7 +1549,7 @@ import flash.events.TimerEvent;
         }
         private function _Z_g(_arg1:_ic):void{
             this.gs_.textBox_.addText(Parameters.SendError, _arg1.errorText_);
-            this.gs_.dispatchEvent(new _J_F_(_arg1.success_, _arg1.errorText_));
+            this.gs_.dispatchEvent(new VillageResultEvent(_arg1.success_, _arg1.errorText_));
         }
         private function _oA_(_arg1:_0F_u):void{
             Account._get().reportIntStat(_arg1.name_, _arg1.value_);
@@ -1598,7 +1598,7 @@ import flash.events.TimerEvent;
         private function _nc(_arg1:FailurePacket):void{
             switch (_arg1.errorId_)
             {
-                case FailurePacket._00Z_:
+                case FailurePacket.UPDATE_CLIENT:
                     this._ee(_arg1);
                     return;
                 case FailurePacket._C_w:
@@ -1628,7 +1628,7 @@ import flash.events.TimerEvent;
         }
 		
 		public function craftItems(_arg1:int, _arg2:String, _arg3:Vector.<int>) : void {
-			var _loc2_:Craft = this.serverConn.createPacketFromID(CRAFT) as Craft;
+			var _loc2_:CraftPacket = this.serverConn.createPacketFromID(CRAFT) as CraftPacket;
 			_loc2_.objectId_ = _arg1;
             _loc2_.recipeString_ = _arg2;
             _loc2_.slots = _arg3;

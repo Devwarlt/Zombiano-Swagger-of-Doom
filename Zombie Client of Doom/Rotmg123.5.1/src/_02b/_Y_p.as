@@ -33,7 +33,7 @@ import flash.utils.Timer;
             this._zB_();
         }
         private function _zB_():void{
-            this._01S_ = new WebRequest(Parameters._fK_(), "/char", true);
+            this._01S_ = new WebRequest(Parameters.getAccountServerIP(), "/char", true);
             this._01S_.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._00C_);
             this._01S_.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._C_I_);
             this._01S_.sendRequest("fame", this._2N_());

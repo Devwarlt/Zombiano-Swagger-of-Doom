@@ -34,21 +34,21 @@ package AccountWebrequests{
         private function _08Y_(_arg1:MouseEvent):void{
             if (this._xb.text() == "")
             {
-                this._xb._0B_T_("Not a valid email address");
+                this._xb.setErrorText("Not a valid email address");
                 return;
             }
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._01v);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._Q_9);
             _local2.sendRequest("forgotPassword", {"guid":this._xb.text()});
-            _pW_();
+            lockButtons();
         }
         private function _01v(_arg1:WebRequestSuccessEvent):void{
             dispatchEvent(new _nJ_(_nJ_._2K_));
         }
         private function _Q_9(_arg1:WebRequestErrorEvent):void{
-            this._xb._0B_T_(_arg1.text_);
-            _for();
+            this._xb.setErrorText(_arg1.text_);
+            releaseButtons();
         }
         private function _mO_(_arg1:MouseEvent):void{
             dispatchEvent(new _nJ_(_nJ_._G__));

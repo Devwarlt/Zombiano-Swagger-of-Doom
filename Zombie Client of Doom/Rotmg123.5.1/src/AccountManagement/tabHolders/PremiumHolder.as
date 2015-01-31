@@ -77,7 +77,7 @@ public class PremiumHolder extends TabHolder {
                 var dialogBox:DialogBox = new DialogBox("Purchase Premium?", "Continue?", "Ok", "Cancel");
                 addChild(dialogBox);
                 dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e1:Event):void {
-                    var webReq:WebRequest = new WebRequest(Parameters._fK_(), "/account", false);
+                    var webReq:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", false);
                     webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, function(event:WebRequestSuccessEvent):void {
                         var successBox:DialogBox = new DialogBox("You are now a premium member.\nReopen the page to access premium.", "Success", "Ok", null);
                         addChild(successBox);

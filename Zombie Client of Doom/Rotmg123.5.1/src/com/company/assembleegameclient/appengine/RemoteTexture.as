@@ -26,7 +26,7 @@ package com.company.assembleegameclient.appengine{
             this.callback_ = _arg3;
         }
         public function run():void{
-            var _local1:String = (this._Z_Q_ == "testing") ? "rotmgtesting.appspot.com" : (this._Z_Q_ == "production") ? "realmofthemadgod.appspot.com" : Parameters._fK_();
+            var _local1:String = (this._Z_Q_ == "testing") ? "rotmgtesting.appspot.com" : (this._Z_Q_ == "production") ? "realmofthemadgod.appspot.com" : Parameters.getAccountServerIP();
             var _local2:WebRequest = new WebRequest(_local1, "/picture", false);
             _local2._R_z(URLLoaderDataFormat.BINARY);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.onURLLoadComplete);

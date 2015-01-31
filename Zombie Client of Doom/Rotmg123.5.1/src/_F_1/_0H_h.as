@@ -192,7 +192,7 @@ public class _0H_h extends Sprite {
     }
 
     public static function onError(_arg1:WebRequestErrorEvent):void {
-        var webReq = new WebRequest(Parameters._fK_(), "/credits", true);
+        var webReq = new WebRequest(Parameters.getAccountServerIP(), "/credits", true);
         webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, _0H_h.setCredits);
         webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, _0H_h.onError);
         webReq.sendRequest("getInfo", []);

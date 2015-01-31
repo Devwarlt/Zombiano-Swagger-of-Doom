@@ -22,7 +22,7 @@ package _01H_{
 
         override public function execute():void{
             var _local1:_f7 = (Account._get() as _f7);
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/steamworks", true, 2);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._dW_);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._sB_);
             _local2.sendRequest("purchaseOffer", {
@@ -44,7 +44,7 @@ package _01H_{
             _local6 = _local6.replace("${orderID}", _local4);
             _local6 = _local6.replace("${isAuthorized}", _local5);
             _local2._Z_d.removeEventListener("STEAM_MICRO_TXN_AUTH", this._P__);
-            var _local7:WebRequest = new WebRequest(Parameters._fK_(), "/steamworks", true, 2);
+            var _local7:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/steamworks", true, 2);
             _local7.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._dT_);
             _local7.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._O_X_);
             _local7.sendRequest("finalizePurchase", {

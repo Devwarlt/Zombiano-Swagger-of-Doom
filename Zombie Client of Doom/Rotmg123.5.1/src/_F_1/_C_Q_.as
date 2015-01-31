@@ -8,6 +8,11 @@ import FireBite.Embeds.Images.OssiTitleScreenImage;
 import FireBite.Embeds.Images.TitleScreenImage;
 
 import _02t._R_f;
+
+import _0L_C_.DialogBox;
+
+import _9R_._D_X_;
+
 import _ke._0M_1;
 import _qN_.Account;
 import _sp._aJ_;
@@ -16,6 +21,8 @@ import com.company.assembleegameclient.appengine._0K_R_;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.rotmg.graphics.*;
 import com.company.ui.SimpleText;
+
+import flash.events.Event;
 
 import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
@@ -115,6 +122,18 @@ public class _C_Q_ extends _05p {
             this.copyrightText.x = (800 - this.copyrightText.width);
             stage;
             this.copyrightText.y = (600 - this.copyrightText.height);
+
+            if(_arg1.serverVersion != Parameters.clientVersion) {
+                var _local2:DialogBox = new DialogBox(((("You will not be able to play\n\rClient version: " + Parameters.clientVersion) + "\nServer version: ") + _arg1.serverVersion), "Your Client is outdated", "Ok", null);
+                _local2.addEventListener(DialogBox.BUTTON1_EVENT, function(event:Event):void {
+                    event.target.parent.removeChild(_local2);
+                });
+                addChild(_local2);
+            }
+
+            if(_arg1._Q_I_.Account.Country == -1 && Account._get().isRegistered()) {
+                this._ft.dispatch("ChooseCountry");
+            }
         }
         private function _021(_arg1:MouseEvent):void{
             var _local2:_H_o = (_arg1.target as _H_o);
@@ -123,7 +142,6 @@ public class _C_Q_ extends _05p {
 		private function onClick(_arg1:MouseEvent):void{
 			navigateToURL(new URLRequest(webUrl_), "_blank");
 		}
-
     }
 }//package _F_1
 

@@ -48,31 +48,31 @@ import Frames.Frame;
         private function _q5(_arg1:MouseEvent):void{
             if (this._xb.text() == "")
             {
-                this._xb._0B_T_("Not a valid username");
+                this._xb.setErrorText("Not a valid username");
                 return;
             }
             if (this.password_.text() == "")
             {
-                this.password_._0B_T_("Password too short");
+                this.password_.setErrorText("Password too short");
                 return;
             }
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._G_L_);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._V_5);
             _local2.sendRequest("verify", {
                 "guid":this._xb.text(),
                 "password":this.password_.text()
             });
-            AccountEventDispatcher.wasForced = true;
-            _pW_();
+            AccountEventDispatcher.logoutWasForced = true;
+            lockButtons();
         }
         private function _G_L_(_arg1:WebRequestSuccessEvent):void{
             Account._get().modify(this._xb.text(), this.password_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }
         private function _V_5(_arg1:WebRequestErrorEvent):void{
-            this.password_._0B_T_(_arg1.text_);
-            _for();
+            this.password_.setErrorText(_arg1.text_);
+            releaseButtons();
         }
         private function _08Y_(_arg1:MouseEvent):void{
             dispatchEvent(new _nJ_(_nJ_._lS_));

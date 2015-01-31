@@ -35,7 +35,7 @@ package _0M_m{
             Parameters.data_.beginnersOfferShowNow = false;
         }
         public function _03K_():void{
-            var _local1:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var _local1:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local1.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._0L_8);
             var _local2:Object = {};
             _H_U_._t2(_local2, Account._get().credentials());

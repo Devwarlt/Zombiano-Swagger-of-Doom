@@ -33,7 +33,7 @@ package Frames{
         private function _J_p(_arg1:MouseEvent):void{
             this.gs_.addEventListener(_3E_.NAMERESULTEVENT, this._0D_s);
             this.gs_.packetManager._K_Q_(this.name_.text());
-            _pW_();
+            lockButtons();
         }
         public function _0D_s(_arg1:_3E_):void{
             this.gs_.removeEventListener(_3E_.NAMERESULTEVENT, this._0D_s);
@@ -44,8 +44,8 @@ package Frames{
                 dispatchEvent(new Event(Event.COMPLETE));
             } else
             {
-                this.name_._0B_T_(_arg1._yS_.errorText_);
-                _for();
+                this.name_.setErrorText(_arg1._yS_.errorText_);
+                releaseButtons();
             }
         }
 

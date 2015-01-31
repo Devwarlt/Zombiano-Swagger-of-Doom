@@ -35,9 +35,9 @@ namespace server.picture
                     }
                 }
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
-                System.Console.WriteLine(e);
+                Console.WriteLine(e);
             }
             Context.Response.OutputStream.Write(status, 0, status.Length);
         }

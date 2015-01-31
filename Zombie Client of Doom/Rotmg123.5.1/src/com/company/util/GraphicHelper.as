@@ -107,7 +107,7 @@ import flash.geom.Matrix;
 			data.lineTo((x - cornerRadius), y);
         }
 
-        public static function createBorder(sprite:Object, thickness:Number, color:uint):void {
+        public static function createBorder(sprite:Object, thickness:Number, color:uint=0xFFD700):void {
             if (!sprite.hasOwnProperty("graphics")) {
                 throw new DefinitionError("Object not supported.");
             }

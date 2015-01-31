@@ -80,7 +80,7 @@ package _qN_{
         public function newAccountText():_9j{
             return (null);
         }
-        public function newAccountManagement():Sprite{
+        public function newAccountManagement(accountXml:XML):Sprite{
             return (null);
         }
         public function showInGameRegister(_arg1:Stage):void{

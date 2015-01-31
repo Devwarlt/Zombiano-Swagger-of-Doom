@@ -123,7 +123,7 @@ package _Z_h{
                 this.callback_();
                 return;
             }
-            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true, 2);
+            var _local3:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/kongregate", true, 2);
             _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._6l);
             _local3.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._T_);
             _local3.sendRequest("getcredentials", {
@@ -142,7 +142,7 @@ package _Z_h{
             this._cd.addChild(new _qM_(("Error: " + _arg1.text_)));
         }
         private function _pQ_(_arg1:Event):void{
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true, 2);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/kongregate", true, 2);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._I_9);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._0T_);
             _local2.sendRequest("internalRegister", {
@@ -164,16 +164,16 @@ package _Z_h{
         override public function newAccountText():_9j{
             return (new _rS_());
         }
-        override public function newAccountManagement():Sprite{
-            var _local1:_m7;
-            if (!Account._get().isRegistered())
-            {
-                _local1 = (Account._get() as _m7);
-                _local1._nq.services.showRegistrationBox();
-                return (null);
-            }
-            return (new _mf());
-        }
+        //override public function newAccountManagement():Sprite{
+        //    var _local1:_m7;
+        //    if (!Account._get().isRegistered())
+        //    {
+        //        _local1 = (Account._get() as _m7);
+        //        _local1._nq.services.showRegistrationBox();
+        //        return (null);
+        //    }
+        //    return (new _mf());
+        //}
         override public function showInGameRegister(_arg1:Stage):void{
             this._nq.services.showRegistrationBox();
         }

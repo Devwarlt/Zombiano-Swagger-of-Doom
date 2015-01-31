@@ -52,7 +52,7 @@ import flash.display.Sprite;
         }
         private function _X_d():void{
             this._np();
-            this._zH_ = new WebRequest(Parameters._fK_(), "/account", true);
+            this._zH_ = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             this._zH_.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._3p);
             this._zH_.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._D_x);
             this._zH_.sendRequest("verify", Account._get().credentials());

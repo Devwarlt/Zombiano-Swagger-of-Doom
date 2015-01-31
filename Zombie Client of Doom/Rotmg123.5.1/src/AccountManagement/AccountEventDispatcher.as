@@ -12,6 +12,8 @@ import WebRequestEvents.WebRequestErrorEvent;
 import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.parameters.Parameters;
 
+import flash.events.Event;
+
 public class AccountEventDispatcher extends _cM_ {
 
     [Inject]
@@ -19,7 +21,7 @@ public class AccountEventDispatcher extends _cM_ {
     [Inject]
     public var target:_dd;
 
-    public static var wasForced:Boolean;
+    public static var logoutWasForced:Boolean;
 
     override public function initialize():void {
         this.view.eventDispatcher.add(this.dispatchEvent);
@@ -33,6 +35,7 @@ public class AccountEventDispatcher extends _cM_ {
         var mainScreen:_C_Q_;
         switch (eventString) {
             case AccountManagementScreen.SHOW_MAIN_SCREEN:
+                this.view.dispatchEvent(new Event(Event.COMPLETE));
                 mainScreen = new _C_Q_();
                 this.target.dispatch(mainScreen);
                 mainScreen.reload();
@@ -42,7 +45,7 @@ public class AccountEventDispatcher extends _cM_ {
                 break;
             case AccountManagementScreen.LOGOUT:
                 Account._get().clear();
-                wasForced = true;
+                logoutWasForced = true;
                 mainScreen = new _C_Q_();
                 this.target.dispatch(mainScreen);
                 mainScreen.reload();
@@ -51,7 +54,7 @@ public class AccountEventDispatcher extends _cM_ {
     }
 
     private function reload():void {
-        var req:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+        var req:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
         req.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.onSuccess);
         req.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);
         req.sendRequest("verify", Account._get().credentials());
@@ -60,7 +63,6 @@ public class AccountEventDispatcher extends _cM_ {
     private function onSuccess(_arg1:WebRequestSuccessEvent):void {
         destroy();
         this.view.accountXml = XML(_arg1.data_);
-        trace(XML(_arg1.data_));
         initialize();
     }
 

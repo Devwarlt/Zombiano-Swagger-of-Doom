@@ -7,7 +7,7 @@ package Frames{
     import com.company.assembleegameclient.game.GameSprite;
     import flash.events.MouseEvent;
     import flash.events.Event;
-    import _9R_._J_F_;
+    import _9R_.VillageResultEvent;
 
     public class _lx extends Frame {
 
@@ -31,19 +31,19 @@ package Frames{
             dispatchEvent(new Event(Event.COMPLETE));
         }
         private function _U_p(_arg1:MouseEvent):void{
-            this.gs_.addEventListener(_J_F_._hx, this._0J_I_);
-            this.gs_.packetManager._S_W_(this.name_.text());
-            _pW_();
+            this.gs_.addEventListener(VillageResultEvent.VILLAGE_RESULT, this._0J_I_);
+            this.gs_.packetManager.createVillage(this.name_.text());
+            lockButtons();
         }
-        private function _0J_I_(_arg1:_J_F_):void{
-            this.gs_.removeEventListener(_J_F_._hx, this._0J_I_);
+        private function _0J_I_(_arg1:VillageResultEvent):void{
+            this.gs_.removeEventListener(VillageResultEvent.VILLAGE_RESULT, this._0J_I_);
             if (_arg1.success_)
             {
                 dispatchEvent(new Event(Event.COMPLETE));
             } else
             {
-                this.name_._0B_T_(_arg1.errorText_);
-                _for();
+                this.name_.setErrorText(_arg1.errorText_);
+                releaseButtons();
             }
         }
 

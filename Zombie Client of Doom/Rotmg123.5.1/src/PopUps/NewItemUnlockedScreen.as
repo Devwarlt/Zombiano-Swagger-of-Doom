@@ -90,8 +90,8 @@ public class NewItemUnlockedScreen extends PopUpScreen {
     }
 
     private function fadeOut(tween:GTween):void {
-        var descTween = new GTween(this.itemDescText, 0.3, { "size": 0 });
-        var iconTween = new GTween(this.itemIcon, 0.3, { "scaleX": 0, "scaleY": 0 });
+        new GTween(this.itemDescText, 0.3, { "size": 0 });
+        new GTween(this.itemIcon, 0.3, { "scaleX": 0, "scaleY": 0 });
         var textTween = new GTween(this.unlockText, 0.3, { "size": 0 });
         textTween._bR_ = updateMetrics;
         textTween.onComplete = remove;

@@ -8,7 +8,7 @@ import AccountManagement.ui.FancyTextButton;
 
 import com.company.ui.SimpleText;
     import flash.display.Sprite;
-    import com.company.assembleegameclient.ui._u5;
+    import com.company.assembleegameclient.ui.SellableButton;
     import com.company.assembleegameclient.objects.Player;
     import flash.text.TextFieldAutoSize;
     import flash.filters.DropShadowFilter;
@@ -30,7 +30,7 @@ import com.company.ui.SimpleText;
         private var _ek:Sprite;
 
         public function ChangeNamePanel(_arg1:GameSprite, _arg2:int){
-            var _local5:_u5;
+            var _local5:SellableButton;
             var _local6:Sprite;
             var _local7:SimpleText;
             var _local8:Sprite;
@@ -53,7 +53,7 @@ import com.company.ui.SimpleText;
                 this._O_k.htmlText = (('<p align="center">Your name is: \n' + _local4) + "</p>");
                 this._O_k.y = 0;
                 addChild(this._O_k);
-                _local5 = new _u5("Change ", 16, Parameters._0u, Currency.GOLD);
+                _local5 = new SellableButton("Change ", 16, Parameters._0u, Currency.GOLD);
                 _local5.addEventListener(MouseEvent.CLICK, this.onButtonClick);
                 _local5.x = ((WIDTH / 2) - (_local5.w_ / 2));
                 _local5.y = ((HEIGHT - (_local5.height / 2)) - 10);

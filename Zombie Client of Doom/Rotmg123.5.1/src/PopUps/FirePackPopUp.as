@@ -90,7 +90,7 @@ public class FirePackPopUp extends PopUpScreen {
     }
 
     private function fadeOut(tween:GTween):void {
-        var nameTween = new GTween(this.packName, 0.3, { "size": 0 });
+        new GTween(this.packName, 0.3, { "size": 0 });
         var iconTween = new GTween(this.packIcon, 0.3, { "scaleX": 0, "scaleY": 0 });
         iconTween._bR_ = updateMetrics;
         iconTween.onComplete = remove;

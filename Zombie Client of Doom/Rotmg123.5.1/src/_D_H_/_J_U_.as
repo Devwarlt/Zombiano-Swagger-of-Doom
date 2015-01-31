@@ -136,7 +136,7 @@ import flash.display.Sprite;
             var _local2:ByteArray = _9l.encode(this.bitmapData_);
             _local1._d(_local2, "Foo.png", "data");
             _local1.addEventListener(Event.COMPLETE, this._053);
-            _local1.load((("http://" + Parameters._fK_()) + "/picture/save"));
+            _local1.load((("http://" + Parameters.getAccountServerIP()) + "/picture/save"));
             this._t3.enabled(false);
             this._B_k.enabled(false);
         }

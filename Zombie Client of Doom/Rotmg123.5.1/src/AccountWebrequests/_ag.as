@@ -36,20 +36,20 @@ package AccountWebrequests{
         private function _bR_(_arg1:MouseEvent):void{
             if (this.password_.text().length < 5)
             {
-                this.password_._0B_T_("Incorrect password");
+                this.password_.setErrorText("Incorrect password");
                 return;
             }
             if (this._sY_.text().length < 5)
             {
-                this._sY_._0B_T_("Password too short");
+                this._sY_.setErrorText("Password too short");
                 return;
             }
             if (this._sY_.text() != this._a9.text())
             {
-                this._a9._0B_T_("Password does not match");
+                this._a9.setErrorText("Password does not match");
                 return;
             }
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._0K_H_);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._1X_);
             _local2.sendRequest("changePassword", {
@@ -57,15 +57,15 @@ package AccountWebrequests{
                 "password":this.password_.text(),
                 "newPassword":this._sY_.text()
             });
-            _pW_();
+            lockButtons();
         }
         private function _0K_H_(_arg1:WebRequestSuccessEvent):void{
             Account._get().modify(Account._get().guid(), this._sY_.text(), null);
             dispatchEvent(new _nJ_(_nJ_._tp));
         }
         private function _1X_(_arg1:WebRequestErrorEvent):void{
-            this.password_._0B_T_(_arg1.text_);
-            _for();
+            this.password_.setErrorText(_arg1.text_);
+            releaseButtons();
         }
 
     }

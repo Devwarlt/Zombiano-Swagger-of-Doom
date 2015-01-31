@@ -50,7 +50,7 @@ package _sP_{
             this._j7.x = ((800 / 2) - (this._j7.width / 2));
             this._j7.y = ((600 / 2) - (this._j7.height / 2));
             addChild(this._j7);
-            this._3v = new WebRequest(Parameters._fK_(), "/guild", true, 2);
+            this._3v = new WebRequest(Parameters.getAccountServerIP(), "/guild", true, 2);
             var _local5:Object = {
                 "num":_arg1,
                 "offset":_arg2

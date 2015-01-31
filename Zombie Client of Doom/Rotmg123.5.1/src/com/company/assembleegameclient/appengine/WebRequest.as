@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.appengine.WebRequest
 
 package com.company.assembleegameclient.appengine{
-    import flash.events.EventDispatcher;
+import WebRequestEvents.WebRequestRetryEvent;
+
+import flash.events.EventDispatcher;
     import flash.net.URLRequest;
     import flash.net.URLLoader;
     import flash.utils.getTimer;
@@ -19,6 +21,8 @@ package com.company.assembleegameclient.appengine{
 
     public class WebRequest extends EventDispatcher {
 
+
+
         public var _E_v:String;
         private var _009:String = "text";
         private var _om:URLRequest = null;
@@ -28,14 +32,14 @@ package com.company.assembleegameclient.appengine{
         private var _C_u:Object;
         private var _dF_:int;
 
-        public function WebRequest(_arg1:String, _arg2:String, _arg3:Boolean, _arg4:int=0){
-            var _local5:String = ((((!(_arg3)) || ((_arg1.indexOf(Parameters.connection) == 0)))) ? "http://" : "http://");
-            this._E_v = (((_local5 + _arg1) + _arg2) + "/");
-            this._0D_R_ = _arg4;
+        public function WebRequest(url:String, path:String, httpRequest:Boolean=true, retries:int=0){
+            var _local5:String = ((((!(httpRequest)) || ((url.indexOf(Parameters.connection) == 0)))) ? "http://" : "https://");
+            this._E_v = (((_local5 + url) + path) + "/");
+            this._0D_R_ = retries;
         }
         public function sendRequest(_arg1:String, _arg2:Object):void{
             this.name_ = _arg1;
-            this._C_u = _arg2;
+            this._C_u = _arg2 ? _arg2 : { };
             this._C_u["ignore"] = getTimer();
             this._dF_ = this._0D_R_;
             this._0C_l();
@@ -91,6 +95,9 @@ package com.company.assembleegameclient.appengine{
             {
                 this._dF_--;
                 this._0C_l();
+                if(this.hasEventListener(WebRequestRetryEvent.RETRY)) {
+                    this.dispatchEvent(new WebRequestRetryEvent(Math.abs(this._dF_ - this._0D_R_)));
+                }
                 return;
             }
             dispatchEvent(new WebRequestErrorEvent(_arg1));

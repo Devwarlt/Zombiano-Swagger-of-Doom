@@ -25,7 +25,7 @@ package com.company.assembleegameclient.appengine{
                 _n_ = _local3;
                 _0F_F_ = _local4;
             }
-            var _local5:WebRequest = new WebRequest(Parameters._fK_(), _arg1, true, 2);
+            var _local5:WebRequest = new WebRequest(Parameters.getAccountServerIP(), _arg1, true, 2);
             if (_arg2 != null)
             {
                 _local5.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, _arg2);

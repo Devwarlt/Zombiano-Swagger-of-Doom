@@ -35,7 +35,7 @@ package _zD_{
 
         override public function initialize():void{
             this.timespan = "week";
-            this._0K_y = new WebRequest(Parameters._fK_(), "/fame", true, 2);
+            this._0K_y = new WebRequest(Parameters.getAccountServerIP(), "/fame", true, 2);
             this._0K_y.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._S_s);
             this._0K_y.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._k9);
             this.view.close.add(this._of);

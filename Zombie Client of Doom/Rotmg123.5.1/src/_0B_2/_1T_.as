@@ -149,7 +149,7 @@ package _0B_2{
             } else
             {
                 this._mV_ = _local4;
-                _local7 = new WebRequest(Parameters._fK_(), "/kabam", true, 2);
+                _local7 = new WebRequest(Parameters.getAccountServerIP(), "/kabam", true, 2);
                 _local7.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._6l);
                 _local7.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._T_);
                 _local7.sendRequest("getcredentials", {
@@ -171,9 +171,9 @@ package _0B_2{
             this.guid_ = _arg1;
             this.secret_ = _arg3;
         }
-        override public function newAccountManagement():Sprite{
-            return (new _T_J_());
-        }
+        //override public function newAccountManagement():Sprite{
+        //    return (new _T_J_());
+        //}
         override public function newAccountText():_9j{
             return (new _0M_h());
         }

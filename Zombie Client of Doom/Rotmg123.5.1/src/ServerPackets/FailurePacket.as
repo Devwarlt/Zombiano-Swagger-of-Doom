@@ -12,7 +12,7 @@ package ServerPackets{
         public static const _D_4:int = 1;
         public static const _I_h:int = 2;
         public static const _vE_:int = 3;
-        public static const _00Z_:int = 4;
+        public static const UPDATE_CLIENT:int = 4;
         public static const _C_w:int = 5;
         public static const _oo:int = 6;
 

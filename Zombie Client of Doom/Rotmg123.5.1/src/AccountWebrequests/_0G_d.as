@@ -58,7 +58,7 @@ package AccountWebrequests{
             this._0J_7.addEventListener(MouseEvent.CLICK, this._I_G_);
         }
         private function _W_0(_arg1:MouseEvent):void{
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Z_e);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._0F_0);
             _local2.sendRequest("sendVerifyEmail", Account._get().credentials());

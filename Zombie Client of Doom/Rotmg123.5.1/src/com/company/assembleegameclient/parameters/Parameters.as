@@ -46,7 +46,7 @@ import flash.display.DisplayObject;
         public static const _K_5:Number = 18;
         public static const ToS_Url_:String = "http://www.realmofthemadgod.com/TermsofUse.html";
 		public static const musicUrl_:String = "127.0.0.1";//"rotmg.zerorealms.com";
-		public static const connection:String = _fK_();
+		public static const connection:String = getAccountServerIP();
         public static const HelpCommand:String = "Help:\n" + "[/pause]: pause the game (until you [/pause] again\n" + "[/who]: list players online\n" + "[/tutorial]: enter the tutorial\n" + "[/yell <message>]: send message to all players in Nexus\n" + "[/tell <player name> <message>]: send a private message to a player\n" + "[/guild <message>]: send a message to your guild\n" + "[/ignore <player name>]: don't show chat messages from player\n" + "[/unignore <player name>]: stop ignoring a player\n" + "[/teleport <player name>]: teleport to a player\n" + "[/trade <player name>]: request a trade with a player\n" + "[/invite <player name>]: invite a player to your guild\n" + "[/join <guild name>]: join a guild (invite necessary\n" + "[/?]: this message";
         public static const RANDOM1:String = "311f80691451c71b09a13a2a6e";
         public static const RANDOM2:String = "72c5583cafb6818995cbd74b80";
@@ -80,7 +80,7 @@ import flash.display.DisplayObject;
             }
             return (_local1);
         }
-        public static function _fK_():String{
+        public static function getAccountServerIP():String{
             if (_I_O_()) {
                 return ("25.185.44.56:80"); // _I_O_() -> TRUE -- Testing Enabled
             }

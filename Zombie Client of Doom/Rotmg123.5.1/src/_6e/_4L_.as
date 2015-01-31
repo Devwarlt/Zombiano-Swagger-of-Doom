@@ -38,7 +38,7 @@ package _6e{
             this.load();
         }
         private function load():void{
-            this._08w = new WebRequest(Parameters._fK_(), "/guild", true);
+            this._08w = new WebRequest(Parameters.getAccountServerIP(), "/guild", true);
             this._08w.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._02E_);
             this._08w.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._D_N_);
             this._08w.sendRequest("getBoard", Account._get().credentials());
@@ -82,7 +82,7 @@ package _6e{
             this.show();
         }
         private function _P_c(_arg1:Event):void{
-            this._08w = new WebRequest(Parameters._fK_(), "/guild", true);
+            this._08w = new WebRequest(Parameters.getAccountServerIP(), "/guild", true);
             this._08w.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._sk);
             this._08w.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._da);
             var _local2:Object = {"board":this._X_A_._03h()};

@@ -23,6 +23,8 @@ public class Chars
     public int NextCharId { get; set; }
     [XmlAttribute("maxNumChars")]
     public int MaxNumChars { get; set; }
+    [XmlAttribute("serverVersion")]
+    public string ServerVersion { get; set; }
 
     public Account Account { get; set; }
 
@@ -99,6 +101,8 @@ public class Account
     public List<int> CraftingRecipes { get; set; }
 
     public bool Premium { get; set; }
+
+    public int Country { get; set; }
 
     [XmlElement("Rank")]
     public int Rank

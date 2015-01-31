@@ -36,23 +36,23 @@ package Frames{
         private function _J_p(_arg1:MouseEvent):void{
             if (this.name_.text().length < 1)
             {
-                this.name_._0B_T_("Name too short");
+                this.name_.setErrorText("Name too short");
                 return;
             }
-            var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._E_0);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._06Q_);
             var _local3:Object = {"name":this.name_.text()};
             _H_U_._t2(_local3, Account._get().credentials());
             _local2.sendRequest("setName", _local3);
-            _pW_();
+            lockButtons();
         }
         private function _E_0(_arg1:WebRequestSuccessEvent):void{
             dispatchEvent(new Event(Event.COMPLETE));
         }
         private function _06Q_(_arg1:WebRequestErrorEvent):void{
-            this.name_._0B_T_(_arg1.text_);
-            _for();
+            this.name_.setErrorText(_arg1.text_);
+            releaseButtons();
         }
 
     }

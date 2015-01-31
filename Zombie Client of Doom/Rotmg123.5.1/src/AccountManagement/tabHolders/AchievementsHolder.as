@@ -131,6 +131,7 @@ class achievement extends Sprite {
             graphics.lineGradientStyle(GradientType.LINEAR, [0xffffff, data.hasOwnProperty("Completed") ? 0x37FF00 : 0xFF0000], [1.0, 1.0], [0, 255], gradientMatrix);
             graphics.drawRect(0, 0, WIDTH, HEIGHT);
             graphics.endFill();
+            this.oldTime = time;
         }
     }
 }

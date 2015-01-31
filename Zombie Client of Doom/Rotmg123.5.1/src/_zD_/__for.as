@@ -7,6 +7,8 @@ package _zD_{
 import AccountManagement.AccountEventDispatcher;
 import AccountManagement.AccountManagementScreen;
 
+import Villages.ChooseNationScreen;
+
 import _0_j._kW_;
 
 import _C__._cM_;
@@ -43,8 +45,8 @@ import com.company.assembleegameclient.parameters.Parameters;
         override public function initialize():void {
             this.view._ft.add(this._F_A_);
             this.view.initialize(this._eJ_._T_1);
-            if(AccountManagementScreen.openNext && AccountEventDispatcher.wasForced) {
-                AccountEventDispatcher.wasForced = false;
+            if(AccountManagementScreen.openNext && AccountEventDispatcher.logoutWasForced) {
+                AccountEventDispatcher.logoutWasForced = false;
                 this._F_A_(_0M_1.ACCOUNT);
             }
         }
@@ -80,6 +82,9 @@ import com.company.assembleegameclient.parameters.Parameters;
                     return;
                 case _0M_1.QUIT:
                     this._uz();
+                    return;
+                case "ChooseCountry":
+                    this.view.addChild(new ChooseNationScreen());
                     return;
             }
         }
@@ -120,12 +125,7 @@ import com.company.assembleegameclient.parameters.Parameters;
             this._T__.dispatch(new _01_());
         }
         private function _0A_3():void {
-            if (Parameters.isTesting) {
-                this._T__.dispatch(new AccountManagementScreen(XML(this._eJ_._T_1._Q_I_.Account)));
-            }
-            else {
-                this.view._0j();
-            }
+            this._T__.dispatch(new AccountManagementScreen(XML(this._eJ_._T_1._Q_I_.Account)));
         }
         private function _N_E_():void{
             this._T__.dispatch(new _3V_());

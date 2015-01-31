@@ -46,6 +46,7 @@ package com.company.assembleegameclient.appengine{
         public var _V_v:Boolean;
         public var _tZ_:Vector.<_vt>;
         public var _0C_6:_0K_N_;
+        public var serverVersion:String;
 
         public function _0K_R_(_arg1:String){
             this.savedChars_ = new Vector.<SavedCharacter>();
@@ -58,20 +59,21 @@ package com.company.assembleegameclient.appengine{
             this._0F_V_ = _arg1;
             this._Q_I_ = new XML(this._0F_V_);
             var _local2:XML = XML(this._Q_I_.Account);
-            this._cb(_local2);
-            this._t6(_local2);
-            this._09g(_local2);
-            this._0E_U_();
-            this._G_C_();
-            this._5Z_();
-            this._09w();
-            this._Q_();
-            this._0I_M_();
+            this.loadAccount(_local2);
+            this.loadBeginnerPackage(_local2);
+            this.loadGuild(_local2);
+            this.initChars();
+            this.loadClassStats();
+            this.loadServerVersion();
+            this.loadServers();
+            this.loadNews();
+            this.loadLatLong();
+            this.loadUnlockedClasses();
             Account._get().reportIntStat("BestLevel", this._04F_());
             Account._get().reportIntStat("BestFame", this._0I_Q_());
             Account._get().reportIntStat("Rank", this.rank);
         }
-        private function _cb(_arg1:XML):void{
+        private function loadAccount(_arg1:XML):void{
             this.accountId_ = _arg1.AccountId;
             this.name_ = _arg1.Name;
             this._hv = _arg1.hasOwnProperty("NameChosen");
@@ -110,7 +112,7 @@ package com.company.assembleegameclient.appengine{
 
             Account._get().admin_ = (this.rank == 13);
         }
-        private function _t6(_arg1:XML):void{
+        private function loadBeginnerPackage(_arg1:XML):void{
             var _local2:int;
             var _local3:Number;
             var _local4:Boolean;
@@ -127,7 +129,7 @@ package com.company.assembleegameclient.appengine{
                 }
             }
         }
-        private function _09g(_arg1:XML):void{
+        private function loadGuild(_arg1:XML):void{
             var _local2:XML;
             if (_arg1.hasOwnProperty("Guild"))
             {
@@ -136,7 +138,7 @@ package com.company.assembleegameclient.appengine{
                 this.guildRank_ = int(_local2.Rank);
             }
         }
-        private function _0E_U_():void{
+        private function initChars():void{
             var _local1:XML;
             this.nextCharId_ = int(this._Q_I_.@nextCharId);
             this.maxNumChars_ = int(this._Q_I_.@maxNumChars);
@@ -147,7 +149,7 @@ package com.company.assembleegameclient.appengine{
             }
             this.savedChars_.sort(SavedCharacter._N_Q_);
         }
-        private function _G_C_():void{
+        private function loadClassStats():void{
             var _local2:XML;
             var _local3:int;
             var _local4:_0A_H_;
@@ -159,7 +161,7 @@ package com.company.assembleegameclient.appengine{
                 this.charStats_[_local3] = _local4;
             }
         }
-        private function _5Z_():void{
+        private function loadServers():void{
             var _local2:XML;
             var _local1:XML = XML(this._Q_I_.Servers);
             for each (_local2 in _local1.Server)
@@ -167,7 +169,10 @@ package com.company.assembleegameclient.appengine{
                 this.servers_.push(new Server(_local2.Name, _local2.DNS, Parameters.gamePort, new _0K_N_(Number(_local2.Lat), Number(_local2.Long)), Number(_local2.Usage), _local2.hasOwnProperty("AdminOnly"), _local2.hasOwnProperty("IsUDP")));
             }
         }
-        private function _09w():void{
+        private function loadServerVersion():void {
+            this.serverVersion = this._Q_I_.@serverVersion;
+        }
+        private function loadNews():void{
             var _local2:XML;
             var _local1:XML = XML(this._Q_I_.News);
             for each (_local2 in _local1.Item)
@@ -175,7 +180,7 @@ package com.company.assembleegameclient.appengine{
                 this._tZ_.push(new _vt(_local2.Icon, _local2.Title, _local2.TagLine, _local2.Link, int(_local2.Date)));
             }
         }
-        private function _Q_():void{
+        private function loadLatLong():void{
             if (((this._Q_I_.hasOwnProperty("Lat")) && (this._Q_I_.hasOwnProperty("Long"))))
             {
                 this._0C_6 = new _0K_N_(Number(this._Q_I_.Lat), Number(this._Q_I_.Long));
@@ -314,7 +319,7 @@ package com.company.assembleegameclient.appengine{
         override public function toString():String{
             return (((((("[" + " numChars: ") + this.numChars_) + " maxNumChars: ") + this.maxNumChars_) + " ]"));
         }
-        private function _0I_M_():void{
+        private function loadUnlockedClasses():void{
             var _local3:XML;
             var _local4:int;
             var _local1:int;

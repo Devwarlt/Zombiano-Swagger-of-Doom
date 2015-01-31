@@ -40,6 +40,7 @@ package _F_1{
         private var _I_Q_:_L_N_;
         private var _0_4:_9j;
         private var _06e:Boolean;
+        private var charList:_0K_R_;
 
         public function _05p(_arg1:Class){
             this.tooltip = new _aJ_();
@@ -83,6 +84,7 @@ package _F_1{
             this._dS_.addChild(this._B_D_);
         }
         public function initialize(_arg1:_0K_R_):void{
+            this.charList = _arg1;
             if (this._06e)
             {
                 return;
@@ -147,7 +149,7 @@ package _F_1{
             _0j(true);
         }
         public function _0j(fake:Boolean = false):void {
-            var _local1:Sprite = Account._get().newAccountManagement();
+            var _local1:Sprite = Account._get().newAccountManagement(XML(this.charList._Q_I_.Account));
             if (_local1 == null)
             {
                 return;

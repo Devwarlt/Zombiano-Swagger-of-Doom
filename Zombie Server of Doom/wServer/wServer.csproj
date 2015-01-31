@@ -89,6 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Country.cs" />
     <Compile Include="FireAnalytics.cs" />
     <Compile Include="logic\db\BehaviorDb.Lithium.cs" />
     <Compile Include="networking\Client.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="networking\cliPackets\AOEAckPacket.cs" />
     <Compile Include="networking\cliPackets\CheckCreditsPacket.cs" />
     <Compile Include="networking\cliPackets\CraftingPacket.cs" />
+    <Compile Include="networking\cliPackets\CreateVillagePacket.cs" />
     <Compile Include="networking\cliPackets\GetGiftPacket.cs" />
     <Compile Include="networking\cliPackets\GroundDamagePacket.cs" />
     <Compile Include="networking\cliPackets\EditAccountListPacket.cs" />
@@ -167,6 +169,7 @@
     <Compile Include="networking\handlers\CancelTradePacketHandler.cs" />
     <Compile Include="networking\handlers\AOEPacketHandler.cs" />
     <Compile Include="networking\handlers\CraftingHandler.cs" />
+    <Compile Include="networking\handlers\CreateVillagePacketHandler.cs" />
     <Compile Include="networking\handlers\GetGiftHandler.cs" />
     <Compile Include="networking\handlers\GotoAckPacketHandler.cs" />
     <Compile Include="networking\handlers\LearnCraftingRecipePacketHandler.cs" />
@@ -195,6 +198,7 @@
     <Compile Include="networking\handlers\HelloPacketHandler.cs" />
     <Compile Include="networking\IPacketHandler.cs" />
     <Compile Include="networking\svrPackets\AchievementUnlockedPacket.cs" />
+    <Compile Include="networking\svrPackets\CreateVillageResultPacket.cs" />
     <Compile Include="networking\svrPackets\NotificationBoxPacket.cs" />
     <Compile Include="networking\svrPackets\PicPacket.cs" />
     <Compile Include="networking\svrPackets\RequestTeleportPacket.cs" />

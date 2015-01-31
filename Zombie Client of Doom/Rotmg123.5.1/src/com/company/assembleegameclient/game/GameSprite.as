@@ -158,7 +158,7 @@ import com.company.assembleegameclient.map._0D_v;
                 addChild(this._4v);
             }
             this.isNexus_ = (this.map_.name_ == "Nexus" || this.map_.name_ == "Shop" || this.map_.name_ == "Editor");
-            var _local1:WebRequest = new WebRequest(Parameters._fK_(), "/log", true, 0);
+            var _local1:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/log", true, 0);
             var _local2:Account = Account._get();
             var _local3:Object = {
                 "game_net_user_id":_local2.gameNetworkUserId(),

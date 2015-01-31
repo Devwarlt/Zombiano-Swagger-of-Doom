@@ -34,7 +34,7 @@ public class SettingsHolder extends TabHolder {
             this.sendVerifyEmail.x = 10;
             this.sendVerifyEmail.y = 10;
             this.sendVerifyEmail.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
-                var req:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+                var req:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
                 req.sendRequest("sendVerifyEmail", Account._get().credentials());
                 sendVerifyEmail.clickAble(false);
                 sendVerifyEmail.text_.text = "Sent...";
@@ -121,20 +121,20 @@ class changePasswordFrame extends Frame {
     private function changePassword(_arg1:MouseEvent):void {
         if (this.password_.text().length < 5)
         {
-            this.password_._0B_T_("Incorrect password");
+            this.password_.setErrorText("Incorrect password");
             return;
         }
         if (this.newPassword.text().length < 5)
         {
-            this.newPassword._0B_T_("Password too short");
+            this.newPassword.setErrorText("Password too short");
             return;
         }
         if (this.newPassword.text() != this.confirmNewPassword.text())
         {
-            this.confirmNewPassword._0B_T_("Password does not match");
+            this.confirmNewPassword.setErrorText("Password does not match");
             return;
         }
-        var req:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+        var req:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
         req.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.onSuccess);
         req.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);
         req.sendRequest("changePassword", {
@@ -142,15 +142,15 @@ class changePasswordFrame extends Frame {
             "password":this.password_.text(),
             "newPassword":this.newPassword.text()
         });
-        _pW_();
+        lockButtons();
     }
     private function onSuccess(_arg1:WebRequestSuccessEvent):void{
         Account._get().modify(Account._get().guid(), this.newPassword.text(), null);
         parent.parent.removeChild(parent);
     }
     private function onError(_arg1:WebRequestErrorEvent):void{
-        this.password_._0B_T_(_arg1.text_);
-        _for();
+        this.password_.setErrorText(_arg1.text_);
+        releaseButtons();
     }
 
 }

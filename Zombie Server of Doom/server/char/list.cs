@@ -43,6 +43,7 @@ namespace server.@char
                     Characters = new List<Char>() { },
                     NextCharId = 2,
                     MaxNumChars = 1,
+                    ServerVersion = Program.Settings.GetValue<string>("svrVersion"),
                     Account = db.Verify(Query["guid"], Query["password"]),
                     Servers = GetServerList()
                 };

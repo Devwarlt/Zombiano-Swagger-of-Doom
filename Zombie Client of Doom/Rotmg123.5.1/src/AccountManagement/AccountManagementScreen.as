@@ -10,6 +10,7 @@ import _sp._aJ_;
 import com.company.assembleegameclient.ui.FrameHolder;
 
 import flash.display.Sprite;
+import flash.events.Event;
 import flash.events.MouseEvent;
 
 public class AccountManagementScreen extends Sprite {
@@ -145,22 +146,22 @@ class registerFrame extends Frame {
     private function register(_arg1:MouseEvent):void{
         if (!_9S_._02A_(this.username.text()))
         {
-            this.username._0B_T_("Not a valid username");
+            this.username.setErrorText("Not a valid username");
             return;
         }
         if (!_9S_.isEmail(this.email.text()))
         {
-            this.email._0B_T_("Not a valid email address");
+            this.email.setErrorText("Not a valid email address");
             return;
         }
         if (this.password.text().length < 5)
         {
-            this.password._0B_T_("Password too short");
+            this.password.setErrorText("Password too short");
             return;
         }
         if (this.password.text() != this.confirmPassword.text())
         {
-            this.confirmPassword._0B_T_("Password does not match");
+            this.confirmPassword.setErrorText("Password does not match");
             return;
         }
         if (!this.tosText._u6())
@@ -168,7 +169,7 @@ class registerFrame extends Frame {
             this.tosText._0B_T_("Must agree to register");
             return;
         }
-        var _local2:WebRequest = new WebRequest(Parameters._fK_(), "/account", true);
+        var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
         _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.onSuccess);
         _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);
         _local2.sendRequest("register", {
@@ -178,15 +179,15 @@ class registerFrame extends Frame {
             "newPassword":this.password.text(),
             "entrytag":Account._get().entrytag()
         });
-        _pW_();
+        lockButtons();
     }
     private function onSuccess(_arg1:WebRequestSuccessEvent):void{
         Account._get().modify(this.username.text(), this.password.text(), null);
         (parent.parent as AccountManagementScreen).dispatch(AccountManagementScreen.RELOAD);
     }
     private function onError(_arg1:WebRequestErrorEvent):void{
-        this.username._0B_T_(_arg1.text_);
-        _for();
+        this.username.setErrorText(_arg1.text_);
+        releaseButtons();
     }
     private function onLoginClick(_arg1:MouseEvent):void{
         //dispatchEvent(new _nJ_(_nJ_._2K_));

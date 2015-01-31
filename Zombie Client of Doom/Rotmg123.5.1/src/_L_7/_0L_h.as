@@ -42,17 +42,17 @@ package _L_7{
         private function _mO_(_arg1:MouseEvent):void{
             if (!_9S_._02A_(this.username_.text()))
             {
-                this.username_._0B_T_("Not a valid username");
+                this.username_.setErrorText("Not a valid username");
                 return;
             }
             if (this.password_.text().length < 5)
             {
-                this.password_._0B_T_("Password too short");
+                this.password_.setErrorText("Password too short");
                 return;
             }
             if (this.password_.text() != this._0L_Y_.text())
             {
-                this._0L_Y_._0B_T_("Password does not match");
+                this._0L_Y_.setErrorText("Password does not match");
                 return;
             }
             if (!this._8n._u6())
@@ -61,7 +61,7 @@ package _L_7{
                 return;
             }
             var _local2:_m7 = (Account._get() as _m7);
-            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true);
+            var _local3:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/kongregate", true);
             _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Q__);
             _local3.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._J_o);
             _local3.sendRequest("register", {
@@ -71,7 +71,7 @@ package _L_7{
                 "newPassword":this.password_.text(),
                 "entrytag":_local2.entrytag()
             });
-            _pW_();
+            lockButtons();
         }
         private function _Q__(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
@@ -79,8 +79,8 @@ package _L_7{
             dispatchEvent(new _Y_S_(_Y_S_._tp));
         }
         private function _J_o(_arg1:WebRequestErrorEvent):void{
-            this.username_._0B_T_(_arg1.text_);
-            _for();
+            this.username_.setErrorText(_arg1.text_);
+            releaseButtons();
         }
 
     }

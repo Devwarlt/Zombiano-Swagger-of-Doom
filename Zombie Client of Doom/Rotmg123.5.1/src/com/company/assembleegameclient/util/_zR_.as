@@ -53,7 +53,7 @@ package com.company.assembleegameclient.util{
                     _local4["paymentid"] = this._iV_;
                     break;
             }
-            return (((("http://" + Parameters._fK_()) + "/credits/add?") + _local4.toString()));
+            return (((("http://" + Parameters.getAccountServerIP()) + "/credits/add?") + _local4.toString()));
         }
 
     }

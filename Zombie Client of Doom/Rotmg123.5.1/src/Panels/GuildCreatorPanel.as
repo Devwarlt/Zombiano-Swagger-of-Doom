@@ -8,7 +8,7 @@ import AccountManagement.ui.FancyTextButton;
 
 import com.company.ui.SimpleText;
     import flash.display.Sprite;
-    import com.company.assembleegameclient.ui._u5;
+    import com.company.assembleegameclient.ui.SellableButton;
     import com.company.assembleegameclient.objects.Player;
     import flash.text.TextFieldAutoSize;
     import flash.filters.DropShadowFilter;
@@ -30,7 +30,7 @@ import com.company.ui.SimpleText;
 
         public function GuildCreatorPanel(_arg1:GameSprite){
             var _local3:String;
-            var _local4:_u5;
+            var _local4:SellableButton;
             super(_arg1);
             if ((((gs_.map_ == null)) || ((gs_.map_.player_ == null))))
             {
@@ -59,7 +59,7 @@ import com.company.ui.SimpleText;
                 this._O_k.htmlText = '<p align="center">Create a Guild</p>';
                 this._O_k.y = 0;
                 addChild(this._O_k);
-                _local4 = new _u5("Create ", 16, Parameters._0H_m, Currency.SILVER);
+                _local4 = new SellableButton("Create ", 16, Parameters._0H_m, Currency.SILVER);
                 _local4.addEventListener(MouseEvent.CLICK, this._0M_n);
                 _local4.x = ((WIDTH / 2) - (_local4.w_ / 2));
                 _local4.y = ((HEIGHT - (_local4.height / 2)) - 10);

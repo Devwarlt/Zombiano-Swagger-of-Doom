@@ -11,6 +11,8 @@ import AccountManagement.tabHolders.TabHolder;
 import AccountManagement.images.AccountManagementImages;
 import AccountManagement.ui.TabButton;
 
+import Villages.nations.Country;
+
 import _qN_.Account;
 
 import com.company.rotmg.graphics.ranks.premiumRank;
@@ -67,8 +69,27 @@ public class AccountManagementHeader extends Sprite {
         this.email.x = 10;
         addChild(this.email);
 
+        if(managementParent.accountXml.Country != -1) {
+            var c:Country = new Country(managementParent.accountXml.Country);
+
+            var cText:SimpleText = new SimpleText(18, 0xB3B3B3);
+            cText.htmlText = '<b>Nation:</b>\n' + c.name;
+            cText.x = this.titleText.width > this.email.width ? (this.titleText.x + this.titleText.width + 50) : (this.email.x + this.email.width + 50);
+            cText.y = 4;
+            cText.updateMetrics();
+            cText.filters = [new DropShadowFilter()];
+            addChild(cText);
+
+            var img:Bitmap = c.image;
+            img.x = cText.x + cText.width + 10;
+            img.y = 2;
+            img.scaleX = img.scaleY = 0.35;
+            img.filters = [new DropShadowFilter()];
+            addChild(img);
+        }
+
         addTab("Overview", new AccountManagementImages.homeIcon().bitmapData, new OverviewHolder(managementParent.accountBody));
-        addTab("Fire Packs", new AccountManagementImages.goldFirePack().bitmapData, new FirePacksHolder(managementParent.accountBody));
+        addTab("Fire Packs (" + XMLList(managementParent.accountXml.FirePacks.Pack).length() + ")", new AccountManagementImages.goldFirePack().bitmapData, new FirePacksHolder(managementParent.accountBody));
         addTab("Achievements (" + managementParent.accountXml.Achievements.@completed + "/" + managementParent.accountXml.Achievements.@total + ")",
                 new AccountManagementImages.achievement_image().bitmapData, new AchievementsHolder(managementParent.accountBody));
         addTab("Settings", new AccountManagementImages.settings2Icon().bitmapData, new SettingsHolder(managementParent.accountBody));
@@ -77,7 +98,9 @@ public class AccountManagementHeader extends Sprite {
 
     public function switchToTab(name:String):void {
         for each (var tab:TabButton in tabs) {
-            if(tab.text.text == name) {
+            var text:String = tab.text.text.slice(0, tab.text.text.indexOf("(") == -1 ? tab.text.text.length : tab.text.text.indexOf("(") - 1);
+            name = name.slice(0, name.indexOf("(") == -1 ? name.length : name.indexOf("(") - 1);
+            if(text == name) {
                 tab.dispatchEvent(new MouseEvent(MouseEvent.CLICK));
             }
         }

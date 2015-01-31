@@ -54,16 +54,16 @@ package _L_7{
         private function onLink(_arg1:MouseEvent):void{
             if (this._xb.text() == "")
             {
-                this._xb._0B_T_("Not a valid username");
+                this._xb.setErrorText("Not a valid username");
                 return;
             }
             if (this.password_.text() == "")
             {
-                this.password_._0B_T_("Password too short");
+                this.password_.setErrorText("Password too short");
                 return;
             }
             var _local2:_m7 = (Account._get() as _m7);
-            var _local3:WebRequest = new WebRequest(Parameters._fK_(), "/kongregate", true);
+            var _local3:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/kongregate", true);
             _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._018);
             _local3.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._bi);
             _local3.sendRequest("link", {
@@ -72,7 +72,7 @@ package _L_7{
                 "guid":this._xb.text(),
                 "password":this.password_.text()
             });
-            _pW_();
+            lockButtons();
         }
         private function _018(_arg1:WebRequestSuccessEvent):void{
             var _local2:XML = new XML(_arg1.data_);
@@ -80,8 +80,8 @@ package _L_7{
             dispatchEvent(new _Y_S_(_Y_S_._tp));
         }
         private function _bi(_arg1:WebRequestErrorEvent):void{
-            this.password_._0B_T_(_arg1.text_);
-            _for();
+            this.password_.setErrorText(_arg1.text_);
+            releaseButtons();
         }
 
     }

@@ -74,6 +74,7 @@ import com.company.assembleegameclient.engine3d._B_5;
         AssetLibrary._05q("anna", new Embeds.testImage().bitmapData, 640, 480);
         AssetLibrary._05q("carbonFibre", new Embeds.carbon().bitmapData, 256, 256);
         AssetLibrary._05q("openFirePacks", new AccountManagementImages.openFirePacks().bitmapData, 80, 80);
+        AssetLibrary._05q("coins", new Embeds.coins().bitmapData, 8, 8);
         var _local1:BitmapData = new BitmapData(8, 8, true, 0);
         AssetLibrary._05q("invisible", _local1, 8, 8);
         _0B_c.add("chars8x8rBeach", new Embeds.chars8x8rBeachEmbed_().bitmapData, null, 8, 8, 56, 8, _lJ_.RIGHT);
@@ -135,6 +136,7 @@ import com.company.assembleegameclient.engine3d._B_5;
     }
 }
 
+import FireBite.Embeds.Images.Embeds_Coins;
 import FireBite.Embeds.Images.Embeds_chars16x16dEncounters2Embed_;
 import FireBite.Embeds.Images.Embeds_chars16x16dEncountersEmbed_;
 import FireBite.Embeds.Images.Embeds_chars16x16dMountains1Embed_;
@@ -342,6 +344,7 @@ class Embeds {
     public static var batteryChargedEmbed_:Class = batteryChargedEmbed;
     public static var testImage:Class = com.embeds.EmbeddedAssets_testImageEmbed_;
     public static var carbon:Class = com.embeds.carbonEmbed;
+    public static var coins:Class = Embeds_Coins;
 
 
     /*private*/ internal static var monsterTank1Embed_:Class = Embeds_monsterTank1Embed_;

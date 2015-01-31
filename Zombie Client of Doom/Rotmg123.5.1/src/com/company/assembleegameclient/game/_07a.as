@@ -8,6 +8,12 @@ import Achievements.BasicAchievement;
 
 import Frames.GiftViewFrame;
 import OptionsStuff.Options;
+
+import Villages.ChooseNationScreen;
+
+import Villages.CreateVillageScreen;
+import Villages.TownHallScreen;
+
 import _4K_.Stats;
 import com.company.assembleegameclient.map.Square;
 import com.company.assembleegameclient.objects.Player;
@@ -380,11 +386,8 @@ public class _07a {
                         _local3.attack_ = 100;
                         break;
                     case _H_V_.H:
-                        new BasicAchievement(this.gs_, "Army Killer", "Kill more than 1000000 players!");
-                        new BasicAchievement(this.gs_, "Digger", "Farm more than 100000000 stone bricks!");
-                        new BasicAchievement(this.gs_, "Loot God", "Collect more than 1000000 items!");
-                        new BasicAchievement(this.gs_, "Hi I am new", "Visit a different country!");
-                        new BasicAchievement(this.gs_, "Look what I found", "Open 1 loot bag!");
+                            this.gs_.stage.addChild(new ChooseNationScreen());
+                        //this.gs_.addChild(new TownHallScreen([1, 10]));
                         //if(fgt == null) {
                         //    fgt = new Battery(Battery.CHARGE_100);
                         //    this.gs_.addChild(fgt);

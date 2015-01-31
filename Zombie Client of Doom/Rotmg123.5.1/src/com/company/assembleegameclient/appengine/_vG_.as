@@ -44,7 +44,7 @@ package com.company.assembleegameclient.appengine{
             if (Parameters.sendErrors)
             {
                 _local6 = ((((((((("Build: " + Parameters._02Q_()) + "\n") + "message: ") + _local4) + "\n") + "stackTrace: ") + _local5) + "\n") + _gv._00f());
-                _local7 = new WebRequest(Parameters._fK_(), "/clientError", false);
+                _local7 = new WebRequest(Parameters.getAccountServerIP(), "/clientError", false);
                 _local7.sendRequest("add", {
                     "text":_local6,
                     "guid":Account._get().guid()

@@ -135,7 +135,7 @@ public class Frame extends Sprite {
     public function _0E_n(_arg1:int):void{
         this.h_ = (this.h_ + _arg1);
     }
-    public function _pW_():void{
+    public function lockButtons():void{
         var _local1:TextButton;
         mouseEnabled = false;
         mouseChildren = false;
@@ -146,7 +146,7 @@ public class Frame extends Sprite {
         this.Button1._02W_(0xB3B3B3);
         this.Button2._02W_(0xB3B3B3);
     }
-    public function _for():void{
+    public function releaseButtons():void{
         var _local1:TextInput;
         var _local2:TextButton;
         mouseEnabled = true;
