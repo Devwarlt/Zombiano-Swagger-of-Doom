@@ -57,7 +57,7 @@ namespace wServer.networking.handlers
                             Success = true,
                             Message = ""
                         });
-                        FireAnalytics.TrackAction(client.Player, FireAnalyticsActions.ChooseName);
+                        FireAnalytics.TrackAction(client.Player, AchievementGUID.ChooseName);
                     }
                     else
                         client.SendPacket(new NameResultPacket()

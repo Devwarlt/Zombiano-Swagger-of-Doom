@@ -17,7 +17,7 @@ namespace wServer.realm
         public void Say(Player src, string text)
         {
             if (text.ToLower() == "u r cool")
-                FireAnalytics.TrackAction(src, FireAnalyticsActions.URCOOL);
+                FireAnalytics.TrackAction(src, AchievementGUID.URCOOL);
 
             src.Owner.BroadcastPacket(new TextPacket()
             {

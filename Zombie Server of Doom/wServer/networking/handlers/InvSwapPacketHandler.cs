@@ -53,7 +53,7 @@ namespace wServer.networking.handlers
             else
             {
                 if (conA is Container && conB is Player)
-                    FireAnalytics.TrackAction(player, FireAnalyticsActions.LootbagPickup);
+                    FireAnalytics.TrackAction(player, AchievementGUID.LootbagPickup);
                 conA.Inventory[slotA] = itemB;
                 conB.Inventory[slotB] = itemA;
                 a.UpdateCount++;

@@ -335,32 +335,26 @@ SELECT fame FROM stats WHERE accId=@accId;";
             }
 
             acc.Achievements = new Achievements();
-            cmd = CreateQuery();
-            cmd.CommandText = "SELECT * FROM achievements;";
-            using (var rdr = cmd.ExecuteReader())
+
+            foreach (var achievement in Achievement.Enumerate())
             {
-                if (rdr.HasRows)
+                if (achievement.UnknownAchievement) continue;
+
+                int completed = acc.AchievementData.Count(_ => _.AchievementId == achievement.ID) > 0 ?
+                        acc.AchievementData.First(_ => _.AchievementId == achievement.ID).CompletedAt : 0;
+
+                if (completed > 0) acc.Achievements.Completed++;
+                acc.Achievements.Total++;
+
+                acc.Achievements.Data.Add(new AchievementItem
                 {
-                    while (rdr.Read())
-                    {
-                        int id = rdr.GetInt32("id");
-
-                        int completed = acc.AchievementData.Count(_ => _.AchievementId == id) > 0 ?
-                                acc.AchievementData.First(_ => _.AchievementId == id).CompletedAt : 0;
-
-                        if (completed > 0) acc.Achievements.Completed++;
-                        acc.Achievements.Total++;
-
-                        acc.Achievements.Data.Add(new AchievementItem
-                        {
-                            AchievementId = id,
-                            Title = rdr.GetString("title"),
-                            Description = rdr.GetString("desc"),
-                            CompletedTime = completed
-                        });
-                    }
-                }
+                    AchievementId = achievement.ID,
+                    Title = achievement.Title,
+                    Description = achievement.Description,
+                    CompletedTime = completed
+                });
             }
+
             GetAccountNews(acc);
             acc.Vault = ReadVault(acc);
         }

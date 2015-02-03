@@ -218,7 +218,7 @@ namespace wServer.realm.entities
             if (host != null)
             {
                 Kills++;
-                FireAnalytics.TrackAction(this, FireAnalyticsActions.MonsterKilled);
+                FireAnalytics.TrackAction(this, AchievementGUID.MonsterKilled);
             }
 
             if (this.Client.Account.Admin) return;

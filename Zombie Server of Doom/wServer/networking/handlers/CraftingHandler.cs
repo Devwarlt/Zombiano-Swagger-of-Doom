@@ -74,7 +74,7 @@ namespace wServer.networking.handlers
                             Result = 7,
                             Message = String.Empty
                         });
-                        FireAnalytics.TrackAction(player, FireAnalyticsActions.CraftItem);
+                        FireAnalytics.TrackAction(player, AchievementGUID.CraftItem);
                         break;
                     }
                 }

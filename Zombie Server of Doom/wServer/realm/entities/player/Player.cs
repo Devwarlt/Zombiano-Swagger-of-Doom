@@ -362,7 +362,7 @@ namespace wServer.realm.entities
             SetNewbiePeriod();
             _hungertime = HUNGERCOOLDOWNMS;
             AbilityCooldown = Inventory[1] == null ? 0 : Inventory[1].MpCost;
-            FireAnalytics.TrackAction(this, FireAnalyticsActions.EnterWorld);
+            FireAnalytics.TrackAction(this, AchievementGUID.EnterWorld);
         }
 
         public override void Tick(RealmTime time)

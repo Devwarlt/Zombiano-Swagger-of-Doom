@@ -27,7 +27,7 @@ namespace wServer.realm.worlds
         {
             int ret = base.EnterWorld(entity);
             if (entity is Player)
-                FireAnalytics.TrackAction(entity as Player, FireAnalyticsActions.EnterTutorial);
+                FireAnalytics.TrackAction(entity as Player, AchievementGUID.EnterTutorial);
 
             return ret;
         }
