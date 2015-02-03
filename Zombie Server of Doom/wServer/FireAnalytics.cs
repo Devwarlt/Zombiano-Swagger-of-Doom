@@ -15,7 +15,7 @@ namespace wServer
             switch (action)
             {
                 case FireAnalyticsActions.EnterWorld:
-                    if (!player.Nation.Choosen) checkForAchievement(player, FireAnalyticsActions.ChoosedNation);
+                    if (player.Nation.Choosen) checkForAchievement(player, FireAnalyticsActions.ChoosedNation);
                     if (player.Owner.Name == "America") checkForAchievement(player, FireAnalyticsActions.VisitAmerica);
                     return;
                 case FireAnalyticsActions.PlayerKilled:
@@ -30,29 +30,34 @@ namespace wServer
         {
             var id = fireAnalyticsHelper.resolveAchievementIdFromName(action);
             if (id == -1) return;
-            if (player.Client.Account.AchievementData.Count(_ => _.AchievementId == id) == 0)
+
+            if (player != null && player.Client != null &&
+                player.Client.Account != null && player.Client.Account.AchievementData != null)
             {
-                using (var db = new Database(Program.Settings.GetValue<string>("conn")))
+                if (player.Client.Account.AchievementData.Count(_ => _.AchievementId == id) == 0)
                 {
-                    var cmd = db.CreateQuery();
-                    cmd.CommandText = "SELECT * FROM achievements WHERE id=@id;";
-                    cmd.Parameters.AddWithValue("@id", id);
-                    using (var rdr = cmd.ExecuteReader())
+                    using (var db = new Database(Program.Settings.GetValue<string>("conn")))
                     {
-                        if (!rdr.HasRows || !rdr.Read()) return;
-
-                        player.Client.Account.AchievementData.Add(new AchievementUtils.AchievementStruct
+                        var cmd = db.CreateQuery();
+                        cmd.CommandText = "SELECT * FROM achievements WHERE id=@id;";
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (var rdr = cmd.ExecuteReader())
                         {
-                            AchievementId = id,
-                            CompletedAt = Database.DateTimeToUnixTimestamp(DateTime.Now)
-                        });
+                            if (!rdr.HasRows || !rdr.Read()) return;
 
-                        player.Client.SendPacket(new AchievementUnlockedPacket
-                        {
-                            Type = AchievementUnlockedPacket.AchievementType.Normal,
-                            Title = rdr.GetString("title"),
-                            Description = rdr.GetString("desc")
-                        });
+                            player.Client.Account.AchievementData.Add(new AchievementUtils.AchievementStruct
+                            {
+                                AchievementId = id,
+                                CompletedAt = Database.DateTimeToUnixTimestamp(DateTime.Now)
+                            });
+
+                            player.Client.SendPacket(new AchievementUnlockedPacket
+                            {
+                                Type = AchievementUnlockedPacket.AchievementType.Normal,
+                                Title = rdr.GetString("title"),
+                                Description = rdr.GetString("desc")
+                            });
+                        }
                     }
                 }
             }

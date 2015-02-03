@@ -9,7 +9,7 @@ package _fh{
     import com.company.assembleegameclient.objects.GameObject;
 
     import flash.display.Shape;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import flash.geom.Point;
     import flash.events.MouseEvent;
     import flash.filters.DropShadowFilter;
@@ -35,7 +35,7 @@ package _fh{
         public var _68:Boolean = false;
         private var _0H_M_:Boolean;
         private var _7Q_:Shape;
-        protected var _fO_:_for_ = null;
+        protected var _fO_:ToolTip = null;
         private var _0B_:Point;
 
         public function _rB_(_arg1:uint, _arg2:uint, _arg3:Boolean){
@@ -76,7 +76,7 @@ package _fh{
         protected function onMouseDown(_arg1:MouseEvent):void{
             _arg1.stopImmediatePropagation();
         }
-        protected function _V_B_(_arg1:_for_):void{
+        protected function _V_B_(_arg1:ToolTip):void{
             this._X_S_();
             this._fO_ = _arg1;
             if (this._fO_ != null)
@@ -193,7 +193,7 @@ package _fh{
             }
             visible = true;
         }
-        private function _mM_(_arg1:_for_):void{
+        private function _mM_(_arg1:ToolTip):void{
             var _local8:Number;
             var _local9:Number;
             var _local2:Number = this._7Q_.rotation;

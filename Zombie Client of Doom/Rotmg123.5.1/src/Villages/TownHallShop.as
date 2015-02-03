@@ -83,11 +83,15 @@ public class TownHallShop extends VillageManagementScreenBase {
 }
 }
 
+import ToolTips.ToolTip;
+
 import com.company.assembleegameclient.ui.SellableButton;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
+import flash.display.BitmapData;
 import flash.display.Sprite;
+import flash.events.MouseEvent;
 
 class shopOffer extends Sprite {
 
@@ -102,16 +106,21 @@ class shopOffer extends Sprite {
     [Embed(source="ui/tradingPost.png")]
     private static var tradingPost:Class;
 
+    private static var toolTip:ToolTip;
+    private var offerData:XML;
+    private var offerIcon:Bitmap;
+
     public function shopOffer(offerData:XML) {
         graphics.beginFill(0x000000, 1.0);
         graphics.drawRect(0, 0, WIDTH, HEIGHT);
         graphics.endFill();
 
-        var image:Bitmap;
-        if(image = new shopOffer[offerData.@image]) {
-            image.x = 10;
-            image.y = 15;
-            addChild(image);
+        this.offerData = offerData;
+
+        if(this.offerIcon = new shopOffer[offerData.@image]) {
+            this.offerIcon.x = 10;
+            this.offerIcon.y = 15;
+            addChild(this.offerIcon);
         }
 
         this.offerTitle = new SimpleText(20, 0xffffff);
@@ -137,10 +146,94 @@ class shopOffer extends Sprite {
 
         graphics.lineStyle(2, 0xFFD700);
         graphics.drawRect(0, 0, WIDTH, HEIGHT);
+
+        this.addEventListener(MouseEvent.ROLL_OVER, this.dispatchTooltip);
+        this.addEventListener(MouseEvent.ROLL_OUT, this.removeTooltip);
+    }
+
+    private function dispatchTooltip(event:MouseEvent):void {
+        if(toolTip) {
+            if(toolTip.parent) {
+                toolTip.parent.removeChild(toolTip);
+            }
+        }
+
+        toolTip = new offerInformation(this.offerData.@image, this.offerIcon ? this.offerIcon.bitmapData : null);
+        parent.parent.parent.stage.addChild(toolTip);
+    }
+
+    private function removeTooltip(event:MouseEvent):void {
+        if(toolTip) {
+            if(toolTip.parent) {
+                toolTip.parent.removeChild(toolTip);
+            }
+        }
     }
 }
 
-//Todo: Implement later
-class offerInformation extends Sprite {
+class offerInformation extends ToolTip {
 
+    private var icon:Bitmap;
+    private var objectName:SimpleText;
+    private var objectInfo:SimpleText;
+
+    public function offerInformation(offerType:String, icon:BitmapData) {
+        super(0x000000, 1.0, 0xffffff, 1.0, true);
+
+        this.icon = new Bitmap(icon);
+        this.objectName = new SimpleText(20, 0xffffff, false, 180);
+        this.objectInfo = new SimpleText(16, 0xffffff, false, 250);
+
+        this.objectName.boldText(true);
+
+        this.objectName.wordWrap =
+        this.objectInfo.wordWrap =
+        this.objectName.multiline =
+        this.objectInfo.multiline = true;
+
+        this.objectName.text = informationDetails._get(offerType).name;
+        this.objectInfo.text = informationDetails._get(offerType).info;
+
+        this.objectName.updateMetrics();
+        this.objectInfo.updateMetrics();
+
+        addChild(this.icon);
+        addChild(this.objectName);
+        addChild(this.objectInfo);
+
+        align();
+    }
+
+    private function align():void {
+        this.icon.x = 5;
+        this.icon.y = 5;
+        this.objectName.x = this.icon.width + 20;
+        this.objectName.y = (((this.icon.height / 2) + 5) - (this.objectName.textHeight / 2));
+        this.objectInfo.x = 10;
+        this.objectInfo.y = 80;
+    }
+}
+
+class informationDetails {
+    private static var m_details:informationDetails;
+
+    private var data:Object;
+
+    public function informationDetails() {
+        data = {
+            "house": {
+                "name": "House",
+                "info": "This building will increase your maximum population by the specific amount."
+            },
+            "tradingPost": {
+                "name": "Trading Post",
+                "info": "This building will allow you to buy/sell goods with other villages/countries, and it will also allow you to create trade agreements with other villages"
+            }
+        }
+    }
+
+    public static function _get(offerType:String):Object {
+        if(!m_details) m_details = new informationDetails();
+        return m_details.data[offerType];
+    }
 }

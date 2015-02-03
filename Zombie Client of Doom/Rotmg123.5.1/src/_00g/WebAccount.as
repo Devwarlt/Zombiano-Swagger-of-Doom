@@ -94,7 +94,7 @@ public class WebAccount extends Account {
         }
         override public function clear():void{
             this.modify(GUID.create(), null, null);
-            Parameters._hk = true;
+            Parameters.doLogin = true;
             Parameters.data_.charIdUseMap = {};
             Parameters.save();
         }

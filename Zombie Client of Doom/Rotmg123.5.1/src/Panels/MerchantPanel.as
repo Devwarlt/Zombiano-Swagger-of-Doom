@@ -11,7 +11,7 @@ import com.company.util._H_V_;
 
 import flash.display.Sprite;
     import flash.display.Bitmap;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import flash.text.TextFieldAutoSize;
     import flash.filters.DropShadowFilter;
     import com.company.assembleegameclient.util.Currency;
@@ -38,7 +38,7 @@ import flash.display.Sprite;
         private var _0C_:SimpleText = null;
         private var _5U_:Sprite;
         private var bitmap_:Bitmap;
-        private var toolTip_:_for_;
+        private var toolTip_:ToolTip;
 
         public function MerchantPanel(_arg1:GameSprite, _arg2:SellableObject){
             super(_arg1);

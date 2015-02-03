@@ -4,7 +4,7 @@
 //_fh._A_p
 
 package _fh{
-    import _E_7._zY_;
+    import ToolTips._zY_;
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.objects.Player;
     import _0D_B_._06M_;

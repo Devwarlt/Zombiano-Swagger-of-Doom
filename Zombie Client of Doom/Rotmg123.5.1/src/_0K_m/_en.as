@@ -20,7 +20,6 @@ package _0K_m{
         private var _ge:Number = 0;
         private var _0G_x:_D_J_;
         private var bitmapData:BitmapData;
-        private var _hX_:Number;
 
         public function _en(_arg1:_D_J_, _arg2:GameObject){
             this._J_7 = _arg2;
@@ -37,7 +36,7 @@ package _0K_m{
             }
         }
         public static function _rU_(_arg1:_D_J_, _arg2:GameObject):_en{
-            return (new (_en)(_arg1, _arg2));
+            return (new _en(_arg1, _arg2));
         }
 
         override public function update(_arg1:int, _arg2:int):Boolean{
@@ -45,7 +44,6 @@ package _0K_m{
             var _local7:int;
             var _local8:_7M_;
             var _local9:_7M_;
-            var _local3:Number = (_arg1 / 1000);
             _local4 = (_arg2 / 1000);
             if (this._J_7.map_ == null)
             {

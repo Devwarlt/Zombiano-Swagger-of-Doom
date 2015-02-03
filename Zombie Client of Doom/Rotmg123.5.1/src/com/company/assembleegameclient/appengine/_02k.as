@@ -8,7 +8,7 @@ package com.company.assembleegameclient.appengine{
     import flash.utils.getTimer;
     import com.company.assembleegameclient.parameters.Parameters;
     import WebRequestEvents.WebRequestSuccessEvent;
-    import com.company.util._H_U_;
+    import com.company.util.QueryHelper;
 
     public class _02k {
 
@@ -37,7 +37,7 @@ package com.company.assembleegameclient.appengine{
                 "game_net":_local6.gameNetwork(),
                 "play_platform":_local6.playPlatform()
             };
-            _H_U_._t2(_local7, Account._get().credentials());
+            QueryHelper.mergeQueries(_local7, Account._get().credentials());
             _local5.sendRequest("getoffers", _local7);
         }
 

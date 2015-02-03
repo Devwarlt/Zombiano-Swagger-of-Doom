@@ -5,13 +5,13 @@
 
 package _6r{
     import flash.display.Sprite;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
 
     public class _0F_X_ extends Sprite {
 
-        private var _vP_:_for_;
+        private var _vP_:ToolTip;
 
-        public function show(_arg1:_for_):void{
+        public function show(_arg1:ToolTip):void{
             this.hide();
             this._vP_ = _arg1;
             if (_arg1)

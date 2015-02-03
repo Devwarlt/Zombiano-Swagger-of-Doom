@@ -23,9 +23,9 @@ import com.company.assembleegameclient.net.PacketManager;
     import flash.utils.Timer;
     import flash.utils.getTimer;
     
-    import _E_7.EquipmentToolTip;
-    import _E_7._aS_;
-    import _E_7._for_;
+    import ToolTips.EquipmentToolTip;
+    import ToolTips._aS_;
+    import ToolTips.ToolTip;
     
 
     
@@ -45,7 +45,7 @@ import com.company.assembleegameclient.net.PacketManager;
         private static const _01M_:String = "Treasure Chest";
         public static const _P_r:Array = [new ColorMatrixFilter([0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 0.4, 0, 0, 0, 0, 0, 1, 0])];
 
-        public static var toolTip_:_for_;
+        public static var toolTip_:ToolTip;
 
         public var _e9:Inventory;
         public var id_:int;

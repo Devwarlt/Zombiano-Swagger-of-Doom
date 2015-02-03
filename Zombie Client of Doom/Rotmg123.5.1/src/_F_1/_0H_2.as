@@ -10,9 +10,9 @@ import AccountManagement.ui.FancyTextButton;
 import _02t._R_f;
 import _sp._aJ_;
 
-import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.objects.ObjectLibrary;
-import com.company.assembleegameclient.ui._0B_v;
+import com.company.assembleegameclient.ui.CreditsUI;
 import com.company.assembleegameclient.ui.ScrollBar;
 import com.company.assembleegameclient.ui.boxButton;
 import com.company.rotmg.graphics.ScreenGraphic;
@@ -27,7 +27,7 @@ import flash.filters.DropShadowFilter;
 public class _0H_2 extends _05p {
 
     private var _p6:_H_o;
-    private var _H_t:_0B_v;
+    private var _H_t:CreditsUI;
     private var _break:Object;
     public var close:_aJ_;
     public var play:_aJ_;
@@ -46,7 +46,7 @@ public class _0H_2 extends _05p {
         this.close = new _aJ_();
     }
 
-    override public function initialize(_arg1:_0K_R_):void {
+    override public function initialize(_arg1:SavedCharsList):void {
         var _local3:XML;
         var _local4:int;
         var _local5:CharacterBox;
@@ -55,8 +55,8 @@ public class _0H_2 extends _05p {
         this._p6 = new _H_o("back", 36, false);
         this._p6.addEventListener(MouseEvent.CLICK, this._0K_0);
         addChild(this._p6);
-        this._H_t = new _0B_v();
-        this._H_t.draw(_arg1.credits_, _arg1._Q_7);
+        this._H_t = new CreditsUI();
+        this._H_t.draw(_arg1.credits_);
         addChild(this._H_t);
 
         var title:SimpleText = new SimpleText(36, 0xffffff, false, 800, 600);

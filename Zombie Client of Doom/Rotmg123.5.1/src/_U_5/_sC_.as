@@ -5,12 +5,12 @@
 
 package _U_5{
     import _sp._aJ_;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
 
     public class _sC_ extends _aJ_ {
 
         public function _sC_(){
-            super(_for_);
+            super(ToolTip);
         }
     }
 }//package _U_5

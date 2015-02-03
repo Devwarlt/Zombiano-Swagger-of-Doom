@@ -84,7 +84,7 @@ public class PremiumEventCalendar extends PremiumTabHolder {
         var center:Number;
         for (var i:int = 0; i < 24; i++) {
             month = i % 12;
-            year = i > 11 ? "2015" : "2014";
+            year = i > 11 ? "2016" : "2015";
 
             if(new Date().getFullYear() == Number(year) && new Date().getMonth() == month) {
                 center = nextW - 360;

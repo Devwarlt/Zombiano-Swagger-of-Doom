@@ -24,7 +24,7 @@ import _qN_.Account;
 
 import com.company.assembleegameclient.parameters.Parameters;
     import _F_1.CurrentCharacterScreen;
-    import _F_1._0H_h;
+    import _F_1.CreditsScreen;
     import _F_1._01_;
     import _F_1._3V_;
     import _D_d._hj;
@@ -119,13 +119,13 @@ import com.company.assembleegameclient.parameters.Parameters;
             }
         }
         private function _C_0():void{
-            this._T__.dispatch(new _0H_h());
+            this._T__.dispatch(new CreditsScreen());
         }
         private function _0B_M_():void{
             this._T__.dispatch(new _01_());
         }
         private function _0A_3():void {
-            this._T__.dispatch(new AccountManagementScreen(XML(this._eJ_._T_1._Q_I_.Account)));
+            this._T__.dispatch(new AccountManagementScreen(XML(this._eJ_._T_1.rawCharList.Account)));
         }
         private function _N_E_():void{
             this._T__.dispatch(new _3V_());

@@ -5,7 +5,7 @@
 
 package com.company.assembleegameclient.ui{
     import flash.display.Sprite;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.ui.SimpleText;
 
@@ -13,7 +13,7 @@ package com.company.assembleegameclient.ui{
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
     import flash.events.Event;
-    import _E_7.EquipmentToolTip;
+    import ToolTips.EquipmentToolTip;
     import _ke._U_c;
 
 
@@ -26,7 +26,7 @@ package com.company.assembleegameclient.ui{
         public static const _Q_p:int = 2;
         public static const _iR_:int = 3;
 
-        private static var _fO_:_for_ = null;
+        private static var _fO_:ToolTip = null;
 
         public var gs_:GameSprite;
         public var _9y:String;
@@ -174,7 +174,7 @@ package com.company.assembleegameclient.ui{
         private function onRollOut(_arg1:Event):void{
             this._X_S_();
         }
-        private function _V_B_(_arg1:_for_):void{
+        private function _V_B_(_arg1:ToolTip):void{
             this._X_S_();
             _fO_ = _arg1;
             if (_fO_ != null)

@@ -450,10 +450,10 @@ dynamic class TargetProxy extends Proxy {
     public function TargetProxy(_arg1:GTween):void{
         this.tween = _arg1;
     }
-    override flash_proxy function callProperty(_arg1:*, ... _args){
+    override flash_proxy function callProperty(_arg1:*, ... _args):*{
         return (this.tween.target[_arg1].apply(null, _args));
     }
-    override flash_proxy function getProperty(_arg1:*){
+    override flash_proxy function getProperty(_arg1:*):*{
         var _local2:Number = this.tween.getValue(_arg1);
         return (((isNaN(_local2)) ? this.tween.target[_arg1] : _local2));
     }

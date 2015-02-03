@@ -17,14 +17,14 @@ package Panels{
     
     import _0D_B_._02p;
     
-    import _E_7.playerTooltip;
+    import ToolTips.PlayerToolTip;
     
 
 
     public class PlayerViewPanel extends Panel {
 
         public var _X_T_:Vector.<_gV_>;
-        private var toolTip_:playerTooltip = null;
+        private var toolTip_:PlayerToolTip = null;
         private var _0G_Y_:_02p = null;
         private var _68:Boolean = false;
 
@@ -79,7 +79,7 @@ package Panels{
             {
                 return;
             }
-            this.toolTip_ = new playerTooltip(_local3);
+            this.toolTip_ = new PlayerToolTip(_local3);
             stage.addChild(this.toolTip_);
             this._68 = true;
         }

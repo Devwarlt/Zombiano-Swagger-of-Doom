@@ -2,7 +2,7 @@
  * Created by Fabian on 04.12.2014.
  */
 package com.company.assembleegameclient.ui {
-import _E_7._aS_;
+import ToolTips._aS_;
 
 import com.company.assembleegameclient.objects.Player;
 

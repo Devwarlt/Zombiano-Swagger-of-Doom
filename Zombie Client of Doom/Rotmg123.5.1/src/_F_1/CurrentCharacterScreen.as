@@ -19,10 +19,10 @@ package _F_1{
     
     import _sp._aJ_;
     
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
     import com.company.assembleegameclient.screens.charrects.CharacterRect;
     import com.company.assembleegameclient.ui.TextButton;
-    import com.company.assembleegameclient.ui._0B_v;
+    import com.company.assembleegameclient.ui.CreditsUI;
     import com.company.assembleegameclient.ui.ScrollBar;
     import com.company.rotmg.graphics.ScreenGraphic;
     import com.company.ui.SimpleText;
@@ -41,10 +41,10 @@ package _F_1{
         public var _1V_:_aJ_;
         public var _O_v:_aJ_;
         public var _D_u:_aJ_;
-        private var _T_1:_0K_R_;
+        private var _T_1:SavedCharsList;
         private var nameText_:SimpleText;
         private var _0_9:TextButton;
-        private var _H_t:_0B_v;
+        private var _H_t:CreditsUI;
         private var _A_e:SimpleText;
         private var _Q_f:SimpleText;
         private var _X_0:CharsAndNews;
@@ -69,7 +69,7 @@ package _F_1{
             this._O_v = new _aJ_();
             this._D_u = new _aJ_();
         }
-        override public function initialize(_arg1:_0K_R_):void{
+        override public function initialize(_arg1:SavedCharsList):void{
             this._T_1 = _arg1;
             super.initialize(_arg1);
             this.nameText_ = new SimpleText(22, 0xB3B3B3, false, 0, 0, "Myriad Pro");
@@ -81,7 +81,7 @@ package _F_1{
             stage;
             this.nameText_.x = ((800 / 2) - (this.nameText_.width / 2));
             addChild(this.nameText_);
-            if (!_arg1._hv)
+            if (!_arg1.nameChosen_)
             {
                 this._0_9 = new TextButton(16, false, "choose name");
                 this._0_9.addEventListener(MouseEvent.CLICK, this._fT_);
@@ -90,8 +90,8 @@ package _F_1{
                 this._0_9.x = ((800 / 2) - (this._0_9.width / 2));
                 addChild(this._0_9);
             }
-            this._H_t = new _0B_v();
-            this._H_t.draw(_arg1.credits_, _arg1._Q_7);
+            this._H_t = new CreditsUI();
+            this._H_t.draw(_arg1.credits_);
             stage;
             this._H_t.x = 800;
             this._H_t.y = 20;

@@ -18,7 +18,7 @@ import flash.display.Shape;
     import com.company.rotmg.graphics.ScreenGraphic;
     import flash.events.MouseEvent;
     import flash.display.Graphics;
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
 
     public class _01_ extends _05p {
 
@@ -42,7 +42,7 @@ import flash.display.Shape;
         private function _A_E_(_arg1:Event):void{
             this._I_d.y = (8 - (this._E_k._Q_D_() * (this._I_d.height - 400)));
         }
-        override public function initialize(_arg1:_0K_R_):void{
+        override public function initialize(_arg1:SavedCharsList):void{
             super.initialize(_arg1);
             this._S_w = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
             this._S_w.boldText(true);

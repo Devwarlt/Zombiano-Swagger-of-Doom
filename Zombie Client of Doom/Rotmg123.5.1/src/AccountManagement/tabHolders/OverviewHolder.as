@@ -36,17 +36,19 @@ public class OverviewHolder extends TabHolder {
 
         var currentHeight:Number = 5;
         var logHolder:LogItemHolder;
-        for each (var item:LogItem in parseItems(XML(bodyParent.managementParent.accountXml.News))) {
-            logHolder = new LogItemHolder(resolveImage(item.icon), item.title, item.tagLine, item.link, item.dateTime);
-            logHolder.x = 5;
-            logHolder.y = currentHeight;
-            logHolder.baseY = currentHeight;
-            logHolder.addEventListener("switchTo", function(event:SwitchToEvent):void {
-                bodyParent.managementParent.accountHeader.switchToTab(event.tabName);
-            });
-            addChild(logHolder);
-            this.logItems.push(logHolder);
-            currentHeight += LogItemHolder.HEIGHT + 5;
+        if (XML(bodyParent.managementParent.accountXml).hasOwnProperty("News")) {
+            for each (var item:LogItem in parseItems(XML(bodyParent.managementParent.accountXml.News))) {
+                logHolder = new LogItemHolder(resolveImage(item.icon), item.title, item.tagLine, item.link, item.dateTime);
+                logHolder.x = 5;
+                logHolder.y = currentHeight;
+                logHolder.baseY = currentHeight;
+                logHolder.addEventListener(SwitchToEvent.SWITCH_TO, function (event:SwitchToEvent):void {
+                    bodyParent.managementParent.accountHeader.switchToTab(event.tabName);
+                });
+                addChild(logHolder);
+                this.logItems.push(logHolder);
+                currentHeight += LogItemHolder.HEIGHT + 5;
+            }
         }
         this.scrollBar._fA_(HEIGHT, this.itemsHeight = currentHeight);
     }
@@ -199,7 +201,7 @@ class LogItemHolder extends Sprite {
         switch (_local2[0])
         {
             case "switchTo":
-                dispatchEvent(new SwitchToEvent("switchTo", _local2[1]));
+                dispatchEvent(new SwitchToEvent(_local2[1]));
                 break;
             case "http":
             case "https":
@@ -227,10 +229,12 @@ class LogItemHolder extends Sprite {
 
 class SwitchToEvent extends Event {
 
+    public static const SWITCH_TO:String = "switchTo";
+
     public var tabName:String;
 
-    public function SwitchToEvent(eventType:String, tabName:String) {
-        super(eventType);
+    public function SwitchToEvent(tabName:String) {
+        super(SWITCH_TO);
         this.tabName = tabName;
     }
 }

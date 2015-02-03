@@ -10,8 +10,8 @@ package com.company.assembleegameclient.objects{
     
     import _1s._yx;
     
-    import _E_7.EquipmentToolTip;
-    import _E_7._for_;
+    import ToolTips.EquipmentToolTip;
+    import ToolTips.ToolTip;
     
 
 
@@ -185,7 +185,7 @@ package com.company.assembleegameclient.objects{
             var _local1:XML = ObjectLibrary.Items[this._0E_];
             return (_local1.@id.toString());
         }
-        override public function getTooltip():_for_{
+        override public function getTooltip():ToolTip{
             return (new EquipmentToolTip(this._0E_, map_.player_, -1, _U_c.NPC));
         }
         override public function getIcon():BitmapData{

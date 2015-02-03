@@ -20,7 +20,7 @@ package com.company.assembleegameclient.game{
     import Sounds.Music;
     
     import com.company.assembleegameclient.appengine.WebRequest;
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.game.menu.PauseMenu;
 import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.map._X_l;
@@ -32,14 +32,14 @@ import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.tutorial.Tutorial;
     import com.company.assembleegameclient.ui.Protip;
     import com.company.assembleegameclient.ui._0B_X_;
-    import com.company.assembleegameclient.ui._0B_v;
+    import com.company.assembleegameclient.ui.CreditsUI;
     import com.company.assembleegameclient.ui._0G_h;
     import com.company.assembleegameclient.ui._4D_;
     import com.company.assembleegameclient.ui._L_N_;
     import com.company.assembleegameclient.util.TextureRedrawer;
     import com.company.util.MoreColorUtil;
     import com.company.util._G_;
-    import com.company.util._H_U_;
+    import com.company.util.QueryHelper;
     
     import flash.display.Sprite;
     import flash.events.Event;
@@ -60,13 +60,13 @@ import com.company.assembleegameclient.map._0D_v;
         public var textBox_:_4D_;
         public var _V_1:_0B_X_;
         public var tutorial_:Tutorial;
-        public var charList_:_0K_R_;
+        public var charList_:SavedCharsList;
         public var isNexus_:Boolean = false;
         public var _H_E_:Protip = null;
         public var _0H_R_:_0H__;
         public var _pg:_0G_h;
         public var _4v:_L_N_;
-        public var _H_t:_0B_v;
+        public var _H_t:CreditsUI;
         public var _3c:Boolean;
         public var lastUpdate_:int = 0;
         public var moveRecords_:_uw;
@@ -76,7 +76,7 @@ import com.company.assembleegameclient.map._0D_v;
         private var interactiveText:InteractiveAction;
         private var _2e:Boolean;
 
-        public function GameSprite(_arg1:Server, _arg2:int, _arg3:Boolean, _arg4:int, _arg5:int, _arg6:ByteArray, _arg7:_0K_R_, _arg8:String){
+        public function GameSprite(_arg1:Server, _arg2:int, _arg3:Boolean, _arg4:int, _arg5:int, _arg6:ByteArray, _arg7:SavedCharsList, _arg8:String){
             this._on = new _0D_v();
             this.moveRecords_ = new _uw();
             super();
@@ -142,7 +142,7 @@ import com.company.assembleegameclient.map._0D_v;
         public function initialize():void{
             this.map_.initialize();
             this._V_1.initialize();
-            this._H_t = new _0B_v(this);
+            this._H_t = new CreditsUI(this);
             this._H_t.x = 594;
             this._H_t.y = 0;
             addChild(this._H_t);
@@ -165,7 +165,7 @@ import com.company.assembleegameclient.map._0D_v;
                 "game_net":_local2.gameNetwork(),
                 "play_platform":_local2.playPlatform()
             };
-            _H_U_._t2(_local3, Account._get().credentials());
+            QueryHelper.mergeQueries(_local3, Account._get().credentials());
             if (!this.map_.name_ == "Kitchen" && !this.map_.name_ == "Tutorial" && Parameters.data_.watchForTutorialExit == true)
             {
                 Parameters.data_.watchForTutorialExit = false;
@@ -263,7 +263,7 @@ import com.company.assembleegameclient.map._0D_v;
         private function _L_u(_arg1:Event):void{
             this.packetManager._0J_l();
         }
-        public function _vw():Boolean{
+        public function isInSafePlace():Boolean{
             var _local1:Boolean;
             if (this.map_.name_ == "Nexus" || this.map_.name_ == "Vault" || this.map_.name_ == "Guild Hall")
             {
@@ -296,7 +296,7 @@ import com.company.assembleegameclient.map._0D_v;
             {
                 this._on._K_g(_local4);
                 this.map_.draw(this._on, _local2);
-                this._H_t.draw(_local4.credits_, _local4._Q_7);
+                this._H_t.draw(_local4.credits_);
                 this._V_1.draw();
                 if (this.map_.showDisplays_)
                 {

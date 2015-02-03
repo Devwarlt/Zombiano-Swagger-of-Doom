@@ -12,7 +12,7 @@ package com.company.assembleegameclient.ui{
     import flash.display.BitmapData;
 
     import flash.display.Shape;
-    import _E_7._zY_;
+    import ToolTips._zY_;
     import _0D_B_._06M_;
     import flash.geom.Matrix;
     import com.company.assembleegameclient.objects.Player;

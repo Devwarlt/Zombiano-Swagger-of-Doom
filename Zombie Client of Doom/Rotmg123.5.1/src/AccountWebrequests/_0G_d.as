@@ -14,8 +14,6 @@ package AccountWebrequests{
     import com.company.assembleegameclient.parameters.Parameters;
     import WebRequestEvents.WebRequestSuccessEvent;
     import WebRequestEvents.WebRequestErrorEvent;
-    import com.company.googleanalytics.GA;
-    import AccountWebrequests.*;
 
     internal class _0G_d extends Frame {
 
@@ -26,7 +24,7 @@ package AccountWebrequests{
         public var _0J_7:TextButton;
 
         public function _0G_d(_arg1:XML){
-            super("Current account", "", "Continue", "/currentLogin");
+            super("Current account", "", "Continue");
             var _local2:Boolean = _arg1.hasOwnProperty("VerifiedEmail");
             this._lv = new SimpleText(18, 0xB3B3B3, false, 0, 0, "Myriad Pro");
             this._lv.boldText(true);
@@ -59,13 +57,9 @@ package AccountWebrequests{
         }
         private function _W_0(_arg1:MouseEvent):void{
             var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
-            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Z_e);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._0F_0);
             _local2.sendRequest("sendVerifyEmail", Account._get().credentials());
             this._N_3._bu("Sent...");
-        }
-        private function _Z_e(_arg1:WebRequestSuccessEvent):void{
-            GA.global().trackEvent("account", "verifyEmailSent");
         }
         private function _0F_0(_arg1:WebRequestErrorEvent):void{
             Account._get().clear();
@@ -78,7 +72,6 @@ package AccountWebrequests{
             dispatchEvent(new _nJ_(_nJ_.CHANGE));
         }
         public function _I_G_(_arg1:MouseEvent):void{
-            GA.global().trackEvent("account", "loggedOut");
             Account._get().clear();
             dispatchEvent(new _nJ_(_nJ_._2K_));
         }

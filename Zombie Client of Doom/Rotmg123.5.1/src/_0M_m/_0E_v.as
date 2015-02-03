@@ -10,9 +10,6 @@ package _0M_m{
     import com.company.assembleegameclient.appengine._02k;
     import WebRequestEvents.WebRequestSuccessEvent;
     import _qN_.Account;
-    import _01H_._f7;
-    import _Z_h._m7;
-    import _0B_2._1T_;
     import _00g.WebAccount;
 
     public class _0E_v implements _j5 {
@@ -39,11 +36,6 @@ package _0M_m{
         private function _E_A_():String{
             switch (Account._get().gameNetwork())
             {
-                case _f7._000:
-                    return ("/steamworks");
-                case _m7._000:
-                    return ("/kongregate");
-                case _1T_._000:
                 case WebAccount.GAME_NETWORK:
                 default:
                     return ("/credits");

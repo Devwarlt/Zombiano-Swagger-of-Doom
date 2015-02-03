@@ -4,7 +4,7 @@
 //_F_1.CharsAndNews
 
 package _F_1{
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
     import com.company.assembleegameclient.screens.charrects.CharacterRectList;
     import com.company.assembleegameclient.ui.TextButton;
     
@@ -21,7 +21,7 @@ package _F_1{
         public var charRectList_:CharacterRectList;
         public var _tZ_:News;
 
-        public function CharsAndNews(_arg1:_0K_R_, _arg2:_05p){
+        public function CharsAndNews(_arg1:SavedCharsList, _arg2:_05p){
             var _local3:Shape;
             var _local4:Graphics;
             super();

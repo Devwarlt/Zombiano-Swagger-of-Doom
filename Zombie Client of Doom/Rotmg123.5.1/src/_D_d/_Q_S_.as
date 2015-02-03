@@ -15,7 +15,7 @@ package _D_d{
     import com.company.assembleegameclient.map._ik;
     import com.company.assembleegameclient.map._M_X_;
     import _D_d._0E_2;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
 
     import _D_d.*;
 
@@ -43,7 +43,7 @@ package _D_d{
             this._G_m.y = (HEIGHT / 2);
             addChild(this._G_m);
         }
-        override protected function getToolTip():_for_{
+        override protected function getToolTip():ToolTip{
             return (new _0E_2(this._5b));
         }
 

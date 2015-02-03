@@ -4,8 +4,8 @@
 //_F_1.CharacterBox
 
 package _F_1{
-    import _E_7._E_J_;
-    import _E_7._for_;
+    import ToolTips._E_J_;
+    import ToolTips.ToolTip;
 
 import _qN_.Account;
 
@@ -13,7 +13,7 @@ import avmplus.methodXml;
 
 import com.company.assembleegameclient.appengine.SavedCharacter;
     import com.company.assembleegameclient.appengine._0A_H_;
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
     import com.company.assembleegameclient.util.RankUtils;
     import com.company.assembleegameclient.util._lJ_;
     import com.company.rotmg.graphics.FullCharBoxGraphic;
@@ -47,7 +47,7 @@ import flash.display.Sprite;
 
         public var skinXml_:XML = null;
         public var charStats_:_0A_H_;
-        public var charList_:_0K_R_;
+        public var charList_:SavedCharsList;
         public var _F_I_:Boolean;
         private var _87:DisplayObject;
         private var bitmap_:Bitmap;
@@ -60,7 +60,7 @@ import flash.display.Sprite;
 		public var selectedOver:Boolean = false;
         public var yBase:Number;
 
-        public function CharacterBox(_arg1:XML, _arg2:_0A_H_, _arg3:_0K_R_){
+        public function CharacterBox(_arg1:XML, _arg2:_0A_H_, _arg3:SavedCharsList){
             super();
             this.skinXml_ = _arg1;
             this.charStats_ = _arg2;
@@ -119,7 +119,7 @@ import flash.display.Sprite;
         public function skinType():int{
             return (int(this.skinXml_.@type));
         }
-        public function getTooltip():_for_{
+        public function getTooltip():ToolTip{
             return (new _E_J_(this.skinXml_, this.charList_));
         }
         public function _P_Y_(_arg1:Boolean):void{

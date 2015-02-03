@@ -7,7 +7,7 @@ package _6r{
     import _C__._cM_;
     import _U_5._sC_;
     import _U_5._sT_;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
 
     public class _iy extends _cM_ {
 
@@ -26,7 +26,7 @@ package _6r{
             this._0C__.remove(this._06X_);
             this._H_F_.remove(this._rG_);
         }
-        private function _06X_(_arg1:_for_):void{
+        private function _06X_(_arg1:ToolTip):void{
             this.view.show(_arg1);
         }
         private function _rG_():void{

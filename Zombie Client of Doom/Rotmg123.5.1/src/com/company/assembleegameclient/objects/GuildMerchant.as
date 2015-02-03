@@ -6,8 +6,8 @@
 package com.company.assembleegameclient.objects{
     import com.company.assembleegameclient.util.Currency;
     import com.company.assembleegameclient.util._07E_;
-    import _E_7._aS_;
-    import _E_7._for_;
+    import ToolTips._aS_;
+    import ToolTips.ToolTip;
     import flash.display.BitmapData;
 
     public class GuildMerchant extends SellableObject implements IPanelProvider {
@@ -28,7 +28,7 @@ package com.company.assembleegameclient.objects{
             var _local1:XML = ObjectLibrary.Items[objectType_];
             return (_local1.@id.toString());
         }
-        override public function getTooltip():_for_{
+        override public function getTooltip():ToolTip{
             return (new _aS_(0x500C00, 0x9B9B9B, this.soldObjectName(), this.description_, 200));
         }
         override public function getIcon():BitmapData{

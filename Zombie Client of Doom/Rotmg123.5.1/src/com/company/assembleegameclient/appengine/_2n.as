@@ -7,16 +7,16 @@ package com.company.assembleegameclient.appengine{
 import WebRequestEvents.WebRequestErrorEvent;
 
 import com.company.assembleegameclient.parameters.Parameters;
-import _F_1._0H_h;
+import _F_1.CreditsScreen;
 import WebRequestEvents.WebRequestSuccessEvent;
 import _qN_.Account;
-import com.company.util._H_U_;
+import com.company.util.QueryHelper;
 import flash.events.Event;
 
     public class _2n extends WebRequest {
 
-        public function _2n(_arg1:int=0){
-            super(Parameters.getAccountServerIP(), "/char", true, _arg1);
+        public function _2n(retriesIfFailed:int=0){
+            super(Parameters.getAccountServerIP(), "/char", true, retriesIfFailed);
         }
         public function _H_Q_():void{
             addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._D_D_);
@@ -25,15 +25,15 @@ import flash.events.Event;
                 "game_net_user_id":Account._get().gameNetworkUserId(),
                 "game_net":Account._get().gameNetwork(),
                 "play_platform":Account._get().playPlatform(),
-                "do_login":Parameters._hk
+                "do_login":Parameters.doLogin
             };
-            _H_U_._t2(_local2, _local1);
+            QueryHelper.mergeQueries(_local2, _local1);
             sendRequest("list", _local2);
-            Parameters._hk = false;
+            Parameters.doLogin = false;
 
             var webReq:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/credits", true);
-            webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, _0H_h.setCredits);
-            webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, _0H_h.onError);
+            webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, CreditsScreen.setCredits);
+            webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, CreditsScreen.onError);
             webReq.sendRequest("getInfo", []);
         }
         public function deleteCharacter(_arg1:int):void{
@@ -42,11 +42,11 @@ import flash.events.Event;
                 "charId":_arg1,
                 "reason":1
             };
-            _H_U_._t2(_local2, Account._get().credentials());
+            QueryHelper.mergeQueries(_local2, Account._get().credentials());
             sendRequest("delete", _local2);
         }
         private function _D_D_(_arg1:WebRequestSuccessEvent):void{
-            dispatchEvent(new _0K_R_(_arg1.data_.toString()));
+            dispatchEvent(new SavedCharsList(_arg1.data_.toString()));
         }
         private function _Q_M_(_arg1:WebRequestSuccessEvent):void{
             dispatchEvent(new Event(Event.COMPLETE));

@@ -6,7 +6,7 @@
 package Panels{
 import AccountManagement.ui.FancyTextButton;
 
-import _E_7._for_;
+import ToolTips.ToolTip;
 
 import com.company.assembleegameclient.objects.Mountain;
 import com.company.ui.SimpleText;
@@ -30,7 +30,7 @@ import flash.events.KeyboardEvent;
         private var climbButton:FancyTextButton;
         private var bitmap_:Bitmap;
         private var bitmapSprite:Sprite;
-        private var toolTip:_for_;
+        private var toolTip:ToolTip;
 
         [Embed("../FireBite/Embeds/Images/data/mountainLogo.png")]
         public static var logo:Class;
@@ -135,14 +135,14 @@ import flash.events.KeyboardEvent;
 
 import Panels.MountainPanel;
 
-import _E_7._for_;
+import ToolTips.ToolTip;
 
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
 import flash.filters.DropShadowFilter;
 
-class mountainTooltip extends _for_ {
+class mountainTooltip extends ToolTip {
 
     private var title:SimpleText;
     private var desc:SimpleText;

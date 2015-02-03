@@ -5,7 +5,7 @@
 
 package _D_d{
     import flash.display.Sprite;
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.parameters.Parameters;
     import flash.events.Event;
@@ -15,7 +15,7 @@ package _D_d{
 
     public class _hj extends Sprite {
 
-        private var _T_1:_0K_R_;
+        private var _T_1:SavedCharsList;
         private var _xG_:_0K_V_;
         private var _0B_9:GameSprite;
 
@@ -24,7 +24,7 @@ package _D_d{
             this._xG_.addEventListener(_0C_r._048, this._0D_9);
             addChild(this._xG_);
         }
-        public function initialize(_arg1:_0K_R_):void{
+        public function initialize(_arg1:SavedCharsList):void{
             this._T_1 = _arg1;
         }
         private function _0D_9(_arg1:_0C_r):void{

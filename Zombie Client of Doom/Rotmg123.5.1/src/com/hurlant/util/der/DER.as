@@ -111,7 +111,7 @@ package com.hurlant.util.der{
                     _local6 = new ByteArray();
                     _arg1.readBytes(_local6, 0, _local5);
                     _local6.position = 0;
-                    return (new Integer(_local3, _local5, _local6));
+                    return IAsn1Type((new Integer(_local3, _local5, _local6)));
                 case 6:
                     _local6 = new ByteArray();
                     _arg1.readBytes(_local6, 0, _local5);

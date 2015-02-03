@@ -71,8 +71,9 @@ public class AtmosphereHandler extends Sprite{
 
         if(CurrentAtmosphereString != OldAtmosphereString){
             var color = getCurrentAtmosphereColor();
+            var _local1:GTween;
             if(color == uint.MAX_VALUE) {
-                var _local1:GTween = new GTween(this.atmOvl, 50, {"alpha": -1.0});
+                _local1 = new GTween(this.atmOvl, 50, {"alpha": -1.0});
                 _local1._bR_ = endIfAlphaChanged;
             }
             else {
@@ -80,7 +81,7 @@ public class AtmosphereHandler extends Sprite{
                 this.atmOvl.graphics.drawRect(-300, -325, 600, 600);
                 this.atmOvl.graphics.endFill();
                 this.atmOvl.alpha = 0.0;
-                var _local1:GTween = new GTween(this.atmOvl, 50, {"alpha": 1.0});
+                _local1 = new GTween(this.atmOvl, 50, {"alpha": 1.0});
                 _local1._bR_ = endIfAlphaChanged;
             }
 

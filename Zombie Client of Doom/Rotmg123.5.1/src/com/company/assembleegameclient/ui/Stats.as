@@ -5,7 +5,7 @@
 
 package com.company.assembleegameclient.ui{
     import flash.display.Sprite;
-    import _E_7._aS_;
+    import ToolTips._aS_;
     import flash.events.Event;
     import com.company.assembleegameclient.objects.Player;
     import flash.events.MouseEvent;

@@ -626,9 +626,8 @@ package com.hurlant.math{
             }
             _override._6(ys, t);
             t._kA_(y, y);
-            while (y.t < ys)
-            {
-                y.(y.t++, 0); //not popped
+            while (y.t < ys) {
+                y.(y.t++, 0);
             }
             while (--j >= 0)
             {

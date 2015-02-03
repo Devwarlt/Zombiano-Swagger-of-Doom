@@ -4,7 +4,7 @@
 //_05H_._09A_
 
 package _05H_{
-    import _E_7._0J_n;
+    import ToolTips._0J_n;
 
     public class _09A_ extends _U_y {
 

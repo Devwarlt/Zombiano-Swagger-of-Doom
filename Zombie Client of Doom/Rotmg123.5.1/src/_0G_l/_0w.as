@@ -7,7 +7,7 @@ package _0G_l{
 import _qN_.Account;
 import com.hurlant.util.Base64;
 import flash.display.Sprite;
-import _E_7._for_;
+import ToolTips.ToolTip;
 import flash.display.BitmapData;
 import com.company.assembleegameclient.util._lJ_;
 import flash.display.Bitmap;
@@ -26,7 +26,7 @@ import flash.events.Event;
 import flash.utils.getTimer;
 import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.assembleegameclient.util._0B_c;
-import _E_7._aS_;
+import ToolTips._aS_;
 
     public class _0w extends Sprite {
 
@@ -35,7 +35,7 @@ import _E_7._aS_;
 
         private static var _t9:Class = _8E_;
         private static var _4l:Class = _kI_;
-        private static var toolTip_:_for_ = null;
+        private static var toolTip_:ToolTip = null;
 
         public var id_:String;
         public var name_:String;

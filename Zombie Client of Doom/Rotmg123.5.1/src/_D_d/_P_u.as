@@ -5,7 +5,7 @@
 
 package _D_d{
     import flash.display.Sprite;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import flash.events.Event;
     import flash.events.MouseEvent;
 
@@ -14,7 +14,7 @@ package _D_d{
         public static const WIDTH:int = 50;
         public static const HEIGHT:int = 50;
 
-        protected static var toolTip_:_for_ = null;
+        protected static var toolTip_:ToolTip = null;
 
         public var type_:int;
         protected var selected_:Boolean = false;
@@ -47,7 +47,7 @@ package _D_d{
             this.draw();
             this._X_S_();
         }
-        protected function _V_B_(_arg1:_for_):void{
+        protected function _V_B_(_arg1:ToolTip):void{
             this._X_S_();
             toolTip_ = _arg1;
             if (toolTip_ != null)
@@ -65,7 +65,7 @@ package _D_d{
                 toolTip_ = null;
             }
         }
-        protected function getToolTip():_for_{
+        protected function getToolTip():ToolTip{
             return (null);
         }
         private function draw():void{

@@ -4,11 +4,7 @@
 package Panels {
 import Frames.CraftingFrame;
 
-import Panels.CraftingPanel;
-
 import com.company.assembleegameclient.objects.GameObject;
-import com.company.assembleegameclient.objects.CraftingTerminal;
-import com.company.assembleegameclient.ui.FrameHolder;
 import com.company.util._H_V_;
 
 import flash.events.KeyboardEvent;
@@ -17,7 +13,6 @@ import com.company.assembleegameclient.ui.FrameHolderNoDim;
 import flash.events.MouseEvent;
 import flash.events.Event;
 import com.company.assembleegameclient.game.GameSprite;
-import Frames.ReforgeFrame;
 
 public class CraftingPanel extends SimpleButtonPanel
 {

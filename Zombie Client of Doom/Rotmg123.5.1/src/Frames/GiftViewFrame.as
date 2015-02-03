@@ -5,7 +5,7 @@ package Frames {
 
 import _0L_C_.DialogBox;
 
-import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.ui.ScrollBar;
@@ -18,7 +18,7 @@ import flash.events.MouseEvent;
 
 public class GiftViewFrame extends Frame {
     private var gs:GameSprite;
-    private var charList:_0K_R_;
+    private var charList:SavedCharsList;
     private var scrollBar:ScrollBar;
 
     private var giftHolder:Sprite;
@@ -29,7 +29,7 @@ public class GiftViewFrame extends Frame {
 
     private var curPos:Number;
 
-    public function GiftViewFrame(gameSprite:GameSprite, charList:_0K_R_) {
+    public function GiftViewFrame(gameSprite:GameSprite, charList:SavedCharsList) {
         super("Select Gifts", "Give", "Close", 450);
 
         this.gs = gameSprite;

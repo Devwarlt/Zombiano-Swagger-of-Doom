@@ -5,16 +5,16 @@
 
 package OptionsStuff{
     import flash.display.Sprite;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import com.company.ui.SimpleText;
     import flash.filters.DropShadowFilter;
     import flash.events.MouseEvent;
     import flash.events.Event;
-    import _E_7._aS_;
+    import ToolTips._aS_;
 
     public class _0_i extends Sprite {
 
-        private static var _fO_:_for_;
+        private static var _fO_:ToolTip;
 
         public var _W_Y_:String;
         public var _Z_E_:String;

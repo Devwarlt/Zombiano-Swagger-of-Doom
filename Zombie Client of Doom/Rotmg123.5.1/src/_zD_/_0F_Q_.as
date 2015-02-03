@@ -5,14 +5,14 @@
 
 package _zD_{
     import _C__._cM_;
-    import _F_1._0H_h;
+    import _F_1.CreditsScreen;
     import _U_5._dd;
     import _F_1._C_Q_;
 
     public class _0F_Q_ extends _cM_ {
 
         [Inject]
-        public var view:_0H_h;
+        public var view:CreditsScreen;
         [Inject]
         public var _T__:_dd;
 

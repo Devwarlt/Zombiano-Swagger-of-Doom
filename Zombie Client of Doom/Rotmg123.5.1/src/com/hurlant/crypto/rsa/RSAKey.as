@@ -36,14 +36,14 @@ package com.hurlant.crypto.rsa{
             this.canDecrypt = ((this.canEncrypt) && (!((this.d == null))));
         }
         public static function parsePublicKey(_arg1:String, _arg2:String):RSAKey{
-            return (new (RSAKey)(new _03Q_(_arg1, 16, true), parseInt(_arg2, 16)));
+            return (new RSAKey(new _03Q_(_arg1, 16, true), parseInt(_arg2, 16)));
         }
         public static function parsePrivateKey(_arg1:String, _arg2:String, _arg3:String, _arg4:String=null, _arg5:String=null, _arg6:String=null, _arg7:String=null, _arg8:String=null):RSAKey{
             if (_arg4 == null)
             {
-                return (new (RSAKey)(new _03Q_(_arg1, 16, true), parseInt(_arg2, 16), new _03Q_(_arg3, 16, true)));
+                return (new RSAKey(new _03Q_(_arg1, 16, true), parseInt(_arg2, 16), new _03Q_(_arg3, 16, true)));
             }
-            return (new (RSAKey)(new _03Q_(_arg1, 16, true), parseInt(_arg2, 16), new _03Q_(_arg3, 16, true), new _03Q_(_arg4, 16, true), new _03Q_(_arg5, 16, true), new _03Q_(_arg6, 16, true), new _03Q_(_arg7, 16, true), new _03Q_(_arg8, 16, true)));
+            return (new RSAKey(new _03Q_(_arg1, 16, true), parseInt(_arg2, 16), new _03Q_(_arg3, 16, true), new _03Q_(_arg4, 16, true), new _03Q_(_arg5, 16, true), new _03Q_(_arg6, 16, true), new _03Q_(_arg7, 16, true), new _03Q_(_arg8, 16, true)));
         }
         public static function generate(_arg1:uint, _arg2:String):RSAKey{
             var _local7:_03Q_;
@@ -52,7 +52,7 @@ package com.hurlant.crypto.rsa{
             var _local10:_03Q_;
             var _local3:Random = new Random();
             var _local4:uint = (_arg1 >> 1);
-            var _local5:RSAKey = new (RSAKey)(null, 0, null);
+            var _local5:RSAKey = new RSAKey(null, 0, null);
             _local5.e = parseInt(_arg2, 16);
             var _local6:_03Q_ = new _03Q_(_arg2, 16, true);
             while (true)

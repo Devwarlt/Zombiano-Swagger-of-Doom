@@ -25,7 +25,7 @@ package com.hurlant.crypto.symmetric{
             _local2.writeUnsignedInt(parseInt(_arg1.substr(16, 8), 16));
             _local2.writeUnsignedInt(parseInt(_arg1.substr(24, 8), 16));
             _local2.position = 0;
-            return (new (XTeaKey)(_local2));
+            return (new XTeaKey(_local2));
         }
 
         public function getBlockSize():uint{

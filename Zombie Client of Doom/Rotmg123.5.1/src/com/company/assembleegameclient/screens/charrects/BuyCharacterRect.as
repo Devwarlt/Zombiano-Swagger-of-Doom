@@ -11,7 +11,7 @@ import flash.filters.DropShadowFilter;
 import com.company.assembleegameclient.ui.SellableButton;
 import flash.display.BitmapData;
 import com.company.util.BitmapUtil;
-import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.appengine.SavedCharsList;
 import flash.display.Graphics;
 
 public class BuyCharacterRect extends CharacterRect {
@@ -21,7 +21,7 @@ public class BuyCharacterRect extends CharacterRect {
     private var priceText_:SimpleText;
     private var coin_:Bitmap;
 
-    public function BuyCharacterRect(_arg1:_0K_R_){
+    public function BuyCharacterRect(_arg1:SavedCharsList){
         super(0x73543F, 0x6B472E);//0x280700, 0x450c00);
         var _local2:Shape = this.buildIcon();
         _local2.x = 7;

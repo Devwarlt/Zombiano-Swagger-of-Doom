@@ -5,7 +5,7 @@
 
 package com.company.assembleegameclient.screens.charrects{
 import flash.display.Sprite;
-import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.appengine.SavedCharsList;
 import _F_1._05p;
 import _sp._aJ_;
 import com.company.assembleegameclient.appengine.SavedCharacter;
@@ -21,12 +21,12 @@ import _0L_C_._Z_t;
 
 public class CharacterRectList extends Sprite {
 
-    private var charList_:_0K_R_;
+    private var charList_:SavedCharsList;
     private var screen_:_05p;
     public var newCharacter:_aJ_;
     public var deleteCharacter:_aJ_;
 
-    public function CharacterRectList(_arg1:_0K_R_, _arg2:_05p){
+    public function CharacterRectList(_arg1:SavedCharsList, _arg2:_05p){
         var _local5:SavedCharacter;
         var _local6:BuyCharacterRect;
         var _local7:CurrentCharacterRect;

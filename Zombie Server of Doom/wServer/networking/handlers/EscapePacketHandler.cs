@@ -14,8 +14,8 @@ namespace wServer.networking.handlers
             {
                 Host = "",
                 Port = 2050,
-                GameId = World.NEXUS_ID,
-                Name = "Nexus",
+                GameId = -55,
+                Name = "Berlin",
                 Key = Empty<byte>.Array,
             });
         }

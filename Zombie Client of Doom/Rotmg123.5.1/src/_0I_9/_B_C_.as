@@ -8,7 +8,7 @@ package _0I_9{
     import flash.display.DisplayObjectContainer;
     import flash.display.LoaderInfo;
     import flash.events.IEventDispatcher;
-    import com.company.assembleegameclient.appengine._vG_;
+    import com.company.assembleegameclient.appengine.ClientError;
     import flash.events.ErrorEvent;
 
     public class _B_C_ extends _cM_ {
@@ -46,7 +46,7 @@ package _0I_9{
         }
         private function _79(_arg1:ErrorEvent):void{
             _arg1.preventDefault();
-            _vG_._A_U_(_arg1["error"]);
+            ClientError.reportClientError(_arg1["error"]);
         }
 
     }

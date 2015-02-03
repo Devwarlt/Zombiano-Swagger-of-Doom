@@ -142,14 +142,7 @@ public class Account
 
     [XmlArray("News")]
     [XmlArrayItem("Item")]
-    public List<NewsItem> News
-    {
-        get
-        {
-            return new List<NewsItem>();
-        }
-        set { }
-    }
+    public List<NewsItem> News { get; set; }
 
     [XmlArray("FirePacks")]
     [XmlArrayItem("Pack")]

@@ -17,7 +17,7 @@ import _ke._0M_1;
 import _qN_.Account;
 import _sp._aJ_;
     
-import com.company.assembleegameclient.appengine._0K_R_;
+import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.rotmg.graphics.*;
 import com.company.ui.SimpleText;
@@ -42,7 +42,7 @@ public class _C_Q_ extends _05p {
 		private var webButton:_H_o;
         private var versionText:SimpleText;
         private var copyrightText:SimpleText;
-        private var _T_1:_0K_R_;
+        private var _T_1:SavedCharsList;
 
 		private static const webUrl_:String = "http://localhost/";
 
@@ -58,7 +58,7 @@ public class _C_Q_ extends _05p {
 			}
             this._ft = new _aJ_(String);
         }
-        override public function initialize(_arg1:_0K_R_):void{
+        override public function initialize(_arg1:SavedCharsList):void{
             super.initialize(_arg1);
             this._T_1 = _arg1;
             this.playButton = new _H_o(_0M_1.PLAY, 36, true);
@@ -131,7 +131,7 @@ public class _C_Q_ extends _05p {
                 addChild(_local2);
             }
 
-            if(_arg1._Q_I_.Account.Country == -1 && Account._get().isRegistered()) {
+            if(_arg1.rawCharList.Account.Country == -1 && Account._get().isRegistered()) {
                 this._ft.dispatch("ChooseCountry");
             }
         }

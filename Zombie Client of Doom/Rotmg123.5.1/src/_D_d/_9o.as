@@ -4,11 +4,11 @@
 //_D_d._9o
 
 package _D_d{
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import com.company.ui.SimpleText;
     import flash.filters.DropShadowFilter;
 
-    public class _9o extends _for_ {
+    public class _9o extends ToolTip {
 
         private static const _be:int = 180;
 

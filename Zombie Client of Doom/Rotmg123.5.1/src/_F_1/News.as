@@ -6,23 +6,23 @@
 package _F_1{
     import flash.display.Sprite;
 
-    import com.company.assembleegameclient.appengine._vt;
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.NewsItem;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
 
 
     public class News extends Sprite {
 
         private var _dL_:Vector.<_0B_m>;
 
-        public function News(_arg1:_0K_R_){
-            var _local2:_vt;
+        public function News(_arg1:SavedCharsList){
+            var _local2:NewsItem;
             this._dL_ = new Vector.<_0B_m>();
             super();
-            for each (_local2 in _arg1._tZ_)
+            for each (_local2 in _arg1.news_)
             {
-                if (_local2._5U_)
+                if (_local2.icon)
                 {
-                    this._yQ_(new _0B_m(_local2._5U_, _local2._O_k, _local2._03P_, _local2._qh, _local2._W_e, _arg1.accountId_));
+                    this._yQ_(new _0B_m(_local2.icon, _local2._O_k, _local2._03P_, _local2._qh, _local2._W_e, _arg1.accountId_));
                 }
             }
         }

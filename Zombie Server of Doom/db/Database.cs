@@ -10,23 +10,33 @@ namespace db
 {
     public class Database : IDisposable
     {
-        static ILog log = LogManager.GetLogger(typeof(Database));
+        private static ILog log = LogManager.GetLogger(typeof(Database));
 
-        MySqlConnection con;
+        private MySqlConnection m_con;
+
+        private static string connectionStr;
+
         public Database(string connStr)
         {
-            con = new MySqlConnection(connStr);
-            con.Open();
+            if (connectionStr == null) connectionStr = connStr;
+            this.m_con = new MySqlConnection(connectionStr);
+            this.m_con.Open();
+        }
+
+        public Database()
+        {
+            this.m_con = new MySqlConnection(connectionStr);
+            this.m_con.Open();
         }
 
         public void Dispose()
         {
-            con.Close();
+            this.m_con.Close();
         }
 
         public MySqlCommand CreateQuery()
         {
-            return con.CreateCommand();
+            return this.m_con.CreateCommand();
         }
 
         public static DateTime UnixTimestampToDateTime(double unixTime)
@@ -108,6 +118,7 @@ AND characters.charId=death.chrId;";
                 NameChosen = false,
                 NextCharSlotPrice = 100,
                 VerifiedEmail = false,
+                Country = -1,
                 Stats = new Stats()
                 {
                     BestCharFame = 0,
@@ -130,10 +141,10 @@ AND characters.charId=death.chrId;";
             return (int)(long)cmd.ExecuteScalar() > 0;
         }
 
-        public Account Verify(string uuid, string password)
+        public Account Verify(string uuid, string password, bool isPasswordPlainText=true)
         {
             var cmd = CreateQuery();
-            cmd.CommandText = "SELECT * FROM accounts WHERE uuid=@uuid AND password=SHA1(@password);";
+            cmd.CommandText = String.Format("SELECT * FROM accounts WHERE uuid=@uuid AND password={0};", isPasswordPlainText ? "SHA1(@password)" : "@password");
             cmd.Parameters.AddWithValue("@uuid", uuid);
             cmd.Parameters.AddWithValue("@password", password);
             Account ret;
@@ -214,33 +225,19 @@ AND characters.charId=death.chrId;";
         public Account GetAccount(int id)
         {
             var cmd = CreateQuery();
-            cmd.CommandText = "SELECT * FROM accounts WHERE id=@id;";
+            cmd.CommandText = "SELECT uuid, password FROM accounts WHERE id=@id;";
             cmd.Parameters.AddWithValue("@id", id);
             Account ret;
+            string uuid;
+            string password;
             using (var rdr = cmd.ExecuteReader())
             {
                 if (!rdr.HasRows) return null;
                 rdr.Read();
-                ret = new Account()
-                {
-                    Name = rdr.GetString("name"),
-                    AccountId = rdr.GetInt32("id"),
-                    Kills = rdr.GetInt32("kills"),
-                    Premium = rdr.GetInt32("premium") != 0,
-                    Country = rdr.GetInt32("country"),
-                    Admin = rdr.GetBoolean("admin"),
-                    _OwnedSkins = rdr.GetString("ownedSkins"),
-                    _Gifts = rdr.GetString("gifts"),
-                    BeginnerPackageTimeLeft = 0,
-                    Converted = false,
-                    Guild = null,
-                    NameChosen = rdr.GetBoolean("namechosen"),
-                    NextCharSlotPrice = 100,
-                    VerifiedEmail = rdr.GetBoolean("verified"),
-                    CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList(),
-                    AchievementData = AchievementUtils.DeserializeFromEncryptedBase64String(rdr.GetString("achievements"))
-                };
+                uuid = rdr.GetString("uuid");
+                password = rdr.GetString("password");
             }
+            ret = Verify(uuid, password, false);
             ReadStats(ret);
             return ret;
         }
@@ -364,7 +361,7 @@ SELECT fame FROM stats WHERE accId=@accId;";
                     }
                 }
             }
-
+            GetAccountNews(acc);
             acc.Vault = ReadVault(acc);
         }
 
@@ -701,6 +698,44 @@ VALUES(@accId, @chrId, @name, @objType, @tex1, @tex2, @items, @fame, @fameStats,
             cmd.Parameters.AddWithValue("@packType", packType);
             cmd.Parameters.AddWithValue("@contents", Utils.GetCommaSepString<int>(contentList.ToArray()));
             cmd.ExecuteNonQuery();
+
+            AddClientNewsItem(acc, String.Format("{0}FirePack", packType == 0 ? "bronze" : packType == 1 ? "silver" : packType == 2 ? "gold" : "premium"),
+                "You've received a new FirePack", "Click to open the FirePacks page.", "switchTo:Fire Packs", -1);
+        }
+
+        public void AddClientNewsItem(Account acc, string icon, string title, string tagline, string link, int date=-1)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "INSERT INTO clinews(accId, icon, title, tagline, link, date) VALUES(@accId, @icon, @title, @tagline, @link, @date);";
+            cmd.Parameters.AddWithValue("@accId", acc.AccountId);
+            cmd.Parameters.AddWithValue("@icon", icon);
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Parameters.AddWithValue("@tagline", tagline);
+            cmd.Parameters.AddWithValue("@link", link);
+            cmd.Parameters.AddWithValue("@date", date == -1 ? Database.DateTimeToUnixTimestamp(DateTime.Now) : date);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void GetAccountNews(Account acc)
+        {
+            acc.News = new List<NewsItem>();
+            var cmd = CreateQuery();
+            cmd.CommandText = "SELECT * FROM clinews WHERE accId=@accId ORDER BY date LIMIT 20;";
+            cmd.Parameters.AddWithValue("@accId", acc.AccountId);
+            using (var rdr = cmd.ExecuteReader())
+            {
+                while (rdr.Read())
+                {
+                    acc.News.Add(new NewsItem
+                    {
+                        Title = rdr.GetString("title"),
+                        TagLine = rdr.GetString("tagline"),
+                        Icon = rdr.GetString("icon"),
+                        Link = rdr.GetString("link"),
+                        Date = rdr.GetInt32("date")
+                    });
+                }
+            }
         }
     }
 }

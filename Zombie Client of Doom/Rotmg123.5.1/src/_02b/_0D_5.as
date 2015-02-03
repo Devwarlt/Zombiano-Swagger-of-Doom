@@ -10,7 +10,7 @@ package _02b{
     import flash.utils.Timer;
     import com.company.assembleegameclient.appengine._2n;
     import WebRequestEvents.WebRequestErrorEvent;
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
     import _qN_.Account;
     import flash.events.TimerEvent;
 
@@ -28,7 +28,7 @@ package _02b{
         override protected function startTask():void{
             this._0D_b = new _2n();
             this._0D_b.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
-            this._0D_b.addEventListener(_0K_R_.SAVED_CHARS_LIST, this._dM_);
+            this._0D_b.addEventListener(SavedCharsList.SAVED_CHARS_LIST, this._dM_);
             this._J__();
         }
         private function _J__():void{
@@ -56,8 +56,8 @@ package _02b{
         private function _F_z(_arg1:TimerEvent):void{
             this._J__();
         }
-        private function _dM_(_arg1:_0K_R_):void{
-            this._0I_s._T_1 = new _0K_R_(_arg1._Q_I_);
+        private function _dM_(_arg1:SavedCharsList):void{
+            this._0I_s._T_1 = new SavedCharsList(_arg1.rawCharList);
             this._0I_s._34 = false;
             _C_t(true);
             if (this._Z_w != null)

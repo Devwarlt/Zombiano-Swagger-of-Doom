@@ -386,7 +386,7 @@ public class _07a {
                         _local3.attack_ = 100;
                         break;
                     case _H_V_.H:
-                            this.gs_.stage.addChild(new ChooseNationScreen());
+                            this.gs_.stage.addChild(new TownHallScreen([1, 10]));
                         //this.gs_.addChild(new TownHallScreen([1, 10]));
                         //if(fgt == null) {
                         //    fgt = new Battery(Battery.CHARGE_100);

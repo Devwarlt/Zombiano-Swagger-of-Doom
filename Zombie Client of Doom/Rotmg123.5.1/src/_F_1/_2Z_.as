@@ -5,7 +5,7 @@
 
 package _F_1{
     import flash.display.Sprite;
-    import _E_7._aS_;
+    import ToolTips._aS_;
     import com.company.ui.SimpleText;
     import flash.display.DisplayObject;
     import flash.filters.DropShadowFilter;

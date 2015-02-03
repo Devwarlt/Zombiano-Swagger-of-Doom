@@ -27,8 +27,8 @@ package com.company.assembleegameclient.appengine{
         public static function getImage(_arg1:SavedCharacter, _arg2:XML, _arg3:int, _arg4:int, _arg5:Number, _arg6:Boolean, _arg7:Boolean):BitmapData{
             //var _local8:_lJ_ = _0B_c._J_v(String(_arg2.AnimatedTexture.File), int(_arg2.AnimatedTexture.Index));
             //var _local9:_J_H_ = _local8.imageFromDir(_arg3, _arg4, _arg5);
-            var _local10:int = (((_arg1)!=null) ? _arg1.tex1() : null);
-            var _local11:int = (((_arg1)!=null) ? _arg1.tex2() : null);
+            var _local10:int = (((_arg1)!=null) ? _arg1.tex1() : 0);
+            var _local11:int = (((_arg1)!=null) ? _arg1.tex2() : 0);
 			var _skin:int = (_arg1 != null ? _arg1.skin() : -1);
 			var _local8:_lJ_ = _0B_c._J_v(String(_arg2.AnimatedTexture.File), int(_arg2.AnimatedTexture.Index));
 			if (_skin != -1) {

@@ -6,7 +6,7 @@
 package _D_d{
     import flash.display.Shape;
     import com.company.assembleegameclient.map._sn;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
 
     public class _0E_w extends _P_u {
 
@@ -23,7 +23,7 @@ package _D_d{
             _local2.y = ((HEIGHT / 2) - (_local2.height / 2));
             addChild(_local2);
         }
-        override protected function getToolTip():_for_{
+        override protected function getToolTip():ToolTip{
             return (new _D_M_(this._hI_));
         }
 

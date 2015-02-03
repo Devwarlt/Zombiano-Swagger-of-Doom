@@ -7,7 +7,7 @@ package _F_1{
     import _9R_._B_w;
     import _9R_._W_h;
     
-    import _E_7.RankToolTip;
+    import ToolTips.RankToolTip;
     
     import _qN_.Account;
     import _qN_._9j;
@@ -17,7 +17,7 @@ package _F_1{
     
     import _zD_._xF_;
     
-    import com.company.assembleegameclient.appengine._0K_R_;
+    import com.company.assembleegameclient.appengine.SavedCharsList;
     import com.company.assembleegameclient.ui._0G_h;
     import com.company.assembleegameclient.ui._L_N_;
     
@@ -40,7 +40,7 @@ package _F_1{
         private var _I_Q_:_L_N_;
         private var _0_4:_9j;
         private var _06e:Boolean;
-        private var charList:_0K_R_;
+        private var charList:SavedCharsList;
 
         public function _05p(_arg1:Class){
             this.tooltip = new _aJ_();
@@ -83,7 +83,7 @@ package _F_1{
             this._B_D_.addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
             this._dS_.addChild(this._B_D_);
         }
-        public function initialize(_arg1:_0K_R_):void{
+        public function initialize(_arg1:SavedCharsList):void{
             this.charList = _arg1;
             if (this._06e)
             {
@@ -149,7 +149,7 @@ package _F_1{
             _0j(true);
         }
         public function _0j(fake:Boolean = false):void {
-            var _local1:Sprite = Account._get().newAccountManagement(XML(this.charList._Q_I_.Account));
+            var _local1:Sprite = Account._get().newAccountManagement(XML(this.charList.rawCharList.Account));
             if (_local1 == null)
             {
                 return;

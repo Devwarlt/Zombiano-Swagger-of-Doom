@@ -8,7 +8,7 @@ package _0M_m{
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.appengine.WebRequest;
     import WebRequestEvents.WebRequestSuccessEvent;
-    import com.company.util._H_U_;
+    import com.company.util.QueryHelper;
     import _qN_.Account;
     import com.company.assembleegameclient.util._04d;
     import com.company.assembleegameclient.util.offer.Offer;
@@ -38,7 +38,7 @@ package _0M_m{
             var _local1:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             _local1.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._0L_8);
             var _local2:Object = {};
-            _H_U_._t2(_local2, Account._get().credentials());
+            QueryHelper.mergeQueries(_local2, Account._get().credentials());
             _local1.sendRequest("getBeginnerPackageTimeLeft", _local2);
         }
         private function _0L_8(_arg1:WebRequestSuccessEvent):void{

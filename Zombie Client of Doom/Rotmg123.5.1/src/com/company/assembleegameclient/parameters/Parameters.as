@@ -59,7 +59,7 @@ import flash.display.DisplayObject;
         public static var _Q_w:Boolean = true;
         public static var _0F_o:Boolean = false;
         public static var _ih:Boolean = false;
-        public static var _hk:Boolean = true;
+        public static var doLogin:Boolean = true;
         private static var _Z_U_:SharedObject = null;
         private static var _C_o:Dictionary = new Dictionary();
 

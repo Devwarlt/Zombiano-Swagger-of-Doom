@@ -12,7 +12,7 @@ package _sP_{
     import com.company.assembleegameclient.ui.ScrollBar;
     import flash.filters.DropShadowFilter;
     import com.company.assembleegameclient.parameters.Parameters;
-    import com.company.util._H_U_;
+    import com.company.util.QueryHelper;
     import _qN_.Account;
     import WebRequestEvents.WebRequestSuccessEvent;
     import WebRequestEvents.WebRequestErrorEvent;
@@ -55,7 +55,7 @@ package _sP_{
                 "num":_arg1,
                 "offset":_arg2
             };
-            _H_U_._t2(_local5, Account._get().credentials());
+            QueryHelper.mergeQueries(_local5, Account._get().credentials());
             this._3v.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._L_5);
             this._3v.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
             this._3v.sendRequest("listMembers", _local5);

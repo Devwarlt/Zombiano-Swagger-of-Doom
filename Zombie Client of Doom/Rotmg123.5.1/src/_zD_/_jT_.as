@@ -57,12 +57,12 @@ package _zD_{
 						_local5 = _0B_c._J_v(String(_skinx.AnimatedTexture.File), int(_skinx.AnimatedTexture.Index));
 				}
                 _local6 = _local5.imageFromDir(_lJ_.RIGHT, _lJ_._m1, 0);
-                _local7 = (((_local2)!=null) ? _local2.tex1() : null);
-                _local8 = (((_local2)!=null) ? _local2.tex2() : null);
+                _local7 = (((_local2)!=null) ? _local2.tex1() : 0);
+                _local8 = (((_local2)!=null) ? _local2.tex2() : 0);
                 _local9 = TextureRedrawer.resize(_local6.image_, _local6.mask_, 100, false, _local7, _local8);
                 _local6 = _local5.imageFromDir(_lJ_.RIGHT, _lJ_._m1, 0.5);
-                _local7 = (((_local2)!=null) ? _local2.tex1() : null);
-                _local8 = (((_local2)!=null) ? _local2.tex2() : null);
+                _local7 = (((_local2)!=null) ? _local2.tex1() : 0);
+                _local8 = (((_local2)!=null) ? _local2.tex2() : 0);
                 _local10 = TextureRedrawer.resize(_local6.image_, _local6.mask_, 100, false, _local7, _local8);
             }
             this.view.display(_arg1.name_, 0, _local9, _local10, _arg1.backgroundImage_);

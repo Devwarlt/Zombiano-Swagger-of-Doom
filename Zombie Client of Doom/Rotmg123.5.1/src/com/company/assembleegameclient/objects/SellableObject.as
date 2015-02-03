@@ -4,7 +4,7 @@
 //com.company.assembleegameclient.objects.SellableObject
 
 package com.company.assembleegameclient.objects{
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import flash.display.BitmapData;
     import Panels.MerchantPanel;
     import com.company.assembleegameclient.game.GameSprite;
@@ -35,7 +35,7 @@ package com.company.assembleegameclient.objects{
         public function soldObjectInternalName():String{
             return (null);
         }
-        public function getTooltip():_for_{
+        public function getTooltip():ToolTip{
             return (null);
         }
         public function getIcon():BitmapData{

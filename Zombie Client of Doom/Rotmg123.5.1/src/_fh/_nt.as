@@ -7,11 +7,11 @@ package _fh{
     import com.company.assembleegameclient.map._X_l;
     import flash.utils.getTimer;
     import flash.events.MouseEvent;
-    import _E_7._ap;
+    import ToolTips._ap;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _E_7._C_8;
+    import ToolTips._C_8;
     import com.company.assembleegameclient.objects.GameObject;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import com.company.assembleegameclient.map.Quest;
     import com.company.assembleegameclient.map._0D_v;
 
@@ -34,7 +34,7 @@ package _fh{
             super.onMouseOut(_arg1);
             this.refreshToolTip();
         }
-        private function getToolTip(_arg1:GameObject, _arg2:int):_for_{
+        private function getToolTip(_arg1:GameObject, _arg2:int):ToolTip{
             if ((((_arg1 == null)) || ((_arg1.texture_ == null))))
             {
                 return (null);

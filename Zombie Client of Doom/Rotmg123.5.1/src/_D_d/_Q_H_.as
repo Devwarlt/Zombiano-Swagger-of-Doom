@@ -9,7 +9,7 @@ package _D_d{
     import flash.display.BitmapData;
     import flash.display.Bitmap;
     import _D_d._9o;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import _D_d.*;
 
     internal class _Q_H_ extends _P_u {
@@ -27,7 +27,7 @@ package _D_d{
             _local3.y = ((HEIGHT / 2) - (_local3.height / 2));
             addChild(_local3);
         }
-        override protected function getToolTip():_for_{
+        override protected function getToolTip():ToolTip{
             return (new _9o(this._J_i));
         }
 

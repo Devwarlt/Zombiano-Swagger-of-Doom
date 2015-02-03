@@ -14,7 +14,7 @@ package _6e{
     import WebRequestEvents.WebRequestErrorEvent;
     import _qN_.Account;
     import flash.events.Event;
-    import com.company.util._H_U_;
+    import com.company.util.QueryHelper;
 
     public class _4L_ extends Sprite {
 
@@ -86,7 +86,7 @@ package _6e{
             this._08w.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._sk);
             this._08w.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._da);
             var _local2:Object = {"board":this._X_A_._03h()};
-            _H_U_._t2(_local2, Account._get().credentials());
+            QueryHelper.mergeQueries(_local2, Account._get().credentials());
             this._08w.sendRequest("setBoard", _local2);
             removeChild(this._X_A_);
             this._X_A_ = null;

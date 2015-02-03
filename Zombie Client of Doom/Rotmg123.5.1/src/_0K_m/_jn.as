@@ -35,7 +35,7 @@ package _0K_m{
             var _local8:_jn = (_wW_.getObject(_arg1) as _jn);
             if (!_local8)
             {
-                _local8 = new (_jn)(_arg2, _arg3, _arg4, _arg5, _arg6, _arg7);
+                _local8 = new _jn(_arg2, _arg3, _arg4, _arg5, _arg6, _arg7);
             }
             return (_local8);
         }

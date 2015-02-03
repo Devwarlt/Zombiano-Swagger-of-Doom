@@ -8,7 +8,7 @@ package com.company.assembleegameclient.ui{
     import flash.geom.ColorTransform;
     import flash.display.BitmapData;
     import flash.display.Bitmap;
-    import _E_7._aS_;
+    import ToolTips._aS_;
     import com.company.assembleegameclient.util.TextureRedrawer;
     import flash.events.Event;
     import flash.events.MouseEvent;

@@ -66,9 +66,15 @@ public class _sc extends Panel {
 
             for (var index:int = 0; index < con.equipment_.length; index++){
                 if(con.equipment_[index] != -1 && player.equipment_.indexOf(-1) > -1) {
+                    for (var playerIndex:int = 0; playerIndex < player.equipment_.length; playerIndex++) {
+                        var item:XML = ObjectLibrary.Items[con.objectType_];
+                        if(item == null) return;
+
+                        if(player.equipment_[playerIndex] == -1 && (player._9A_[playerIndex] == 0 || player._9A_[playerIndex] == 10 || player._9A_[playerIndex] == item.SlotId)) break;
+                    }
                     this.gs_.packetManager._P_a(time,
                             con.x_, con.y_, con.objectId_, index, con.objectType_,
-                            player.objectId_, player.equipment_.indexOf(-1), player.objectType_);
+                            player.objectId_, playerIndex, player.objectType_);
 
                     var itemName:String;
                     if((itemName = resolveItemName(index)) != null) {

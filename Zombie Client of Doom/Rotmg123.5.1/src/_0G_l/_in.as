@@ -37,7 +37,7 @@ import flash.display.Sprite;
     import _0L_C_.DialogBox;
     import flash.utils.ByteArray;
     import flash.net.FileReference;
-    import com.company.util._H_U_;
+    import com.company.util.QueryHelper;
     import flash.display.Graphics;
 
 
@@ -262,7 +262,7 @@ import flash.display.Sprite;
             var _local3:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/picture", false);
             _local3.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._Q_M_);
             var _local4:Object = {"id":_local2.id_.toString()};
-            _H_U_._t2(_local4, Account._get().credentials());
+            QueryHelper.mergeQueries(_local4, Account._get().credentials());
             _local3.sendRequest("delete", _local4);
         }
         private function _Q_M_(_arg1:WebRequestSuccessEvent):void{

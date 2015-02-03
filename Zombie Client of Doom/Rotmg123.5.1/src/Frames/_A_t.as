@@ -10,7 +10,7 @@ package Frames{
     import com.company.assembleegameclient.parameters.Parameters;
     import WebRequestEvents.WebRequestSuccessEvent;
     import WebRequestEvents.WebRequestErrorEvent;
-    import com.company.util._H_U_;
+    import com.company.util.QueryHelper;
     import _qN_.Account;
 
     public class _A_t extends Frame {
@@ -43,7 +43,7 @@ package Frames{
             _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._E_0);
             _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._06Q_);
             var _local3:Object = {"name":this.name_.text()};
-            _H_U_._t2(_local3, Account._get().credentials());
+            QueryHelper.mergeQueries(_local3, Account._get().credentials());
             _local2.sendRequest("setName", _local3);
             lockButtons();
         }

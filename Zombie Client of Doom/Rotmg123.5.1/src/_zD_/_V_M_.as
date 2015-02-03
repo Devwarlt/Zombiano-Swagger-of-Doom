@@ -11,7 +11,7 @@ package _zD_{
     import _U_5._sT_;
     import _U_5._M_d;
     import _U_5._01W_;
-    import _E_7._for_;
+    import ToolTips.ToolTip;
     import _F_1._C_Q_;
     import flash.display.Sprite;
 
@@ -40,7 +40,7 @@ package _zD_{
             this.view.destroy();
             this._H_F_.dispatch();
         }
-        private function _Y_Y_(_arg1:_for_):void{
+        private function _Y_Y_(_arg1:ToolTip):void{
             this._0C__.dispatch(_arg1);
         }
         private function _C_R_(_arg1:Class):void{
