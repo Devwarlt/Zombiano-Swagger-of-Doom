@@ -4,9 +4,10 @@
 //com.company.assembleegameclient.screens.charrects.CharacterRectList
 
 package com.company.assembleegameclient.screens.charrects{
+import _F_1._05p;
+
 import flash.display.Sprite;
 import com.company.assembleegameclient.appengine.SavedCharsList;
-import _F_1._05p;
 import _sp._aJ_;
 import com.company.assembleegameclient.appengine.SavedCharacter;
 import flash.events.MouseEvent;

@@ -16,6 +16,17 @@ namespace wServer
             {
                 if (player.Nation.Choosen) checkForAchievement(player, AchievementGUID.ChoosedNation);
                 if (player.Owner.Name == "America") checkForAchievement(player, AchievementGUID.VisitAmerica);
+                if (player.Client.Account.OwnedSkins.Contains(0x0343))
+                {
+                    if (checkForAchievement(player, AchievementGUID.Unicorn))
+                    {
+                        player.Client.SendPacket(new UnlockPacket
+                        {
+                            Type = UnlockType.Item,
+                            ItemId = 0x0343
+                        });
+                    }
+                }
                 return;
             }
             else if (action == AchievementGUID.PlayerKilled)
@@ -26,10 +37,10 @@ namespace wServer
             checkForAchievement(player, action);
         }
 
-        private static void checkForAchievement(Player player, AchievementGUID action)
+        private static bool checkForAchievement(Player player, AchievementGUID action)
         {
             var achievement = Achievement.GetAchievementWithGUID(action);
-            if (achievement.UnknownAchievement) return;
+            if (achievement.UnknownAchievement) return false;
 
             if (player != null && player.Client != null &&
                 player.Client.Account != null && player.Client.Account.AchievementData != null)
@@ -48,8 +59,11 @@ namespace wServer
                         Title = achievement.Title,
                         Description = achievement.Description
                     });
+
+                    return true;
                 }
             }
+            return false;
         }
     }
 }

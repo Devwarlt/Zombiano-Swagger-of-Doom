@@ -45,7 +45,7 @@ public class AchievementsHolder extends TabHolder {
             nextHeight++;
         }
 
-        this.totalHeight = ((Math.floor(nextHeight / 3) + 1) * achievement.HEIGHT) + ((Math.floor(nextHeight / 3) + 2) * 10);
+        this.totalHeight = ((Math.floor((nextHeight - 1) / 3) + 1) * achievement.HEIGHT) + ((Math.floor((nextHeight - 1) / 3) + 2) * 10);
 
         if(this.totalHeight > HEIGHT) {
             this.scrollBar = new ScrollBar(16, HEIGHT - 20, 1);

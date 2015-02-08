@@ -6,8 +6,6 @@
 package com.company.assembleegameclient.ui{
 import Frames.VisibilityBar;
 
-import _F_1._0B_m;
-
 import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
     import flash.display.Shape;

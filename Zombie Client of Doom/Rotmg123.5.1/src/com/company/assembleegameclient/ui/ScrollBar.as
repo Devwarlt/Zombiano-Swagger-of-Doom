@@ -32,6 +32,8 @@ package com.company.assembleegameclient.ui{
         private var _I_n:int;
         private var _H_:Number;
 
+        public var totalHeight:int;
+
         public function ScrollBar(width:int, height:int, scrollSpeed:Number=1){
             super();
             this.background_ = new Sprite();
@@ -66,6 +68,7 @@ package com.company.assembleegameclient.ui{
             _local4 = Math.min(this._gC_.height, Math.max(this.width_, _local4));
             this._5s(this.width_, _local4, this.sliderDrag);
             this._oI_ = (baseValue / (totalHeight - baseValue));
+            this.totalHeight = totalHeight;
             if (moveToTop)
             {
                 this._0D__(0);

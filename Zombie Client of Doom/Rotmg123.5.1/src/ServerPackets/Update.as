@@ -6,7 +6,7 @@
 package ServerPackets{
 
     import com.company.assembleegameclient.net.messages.data._iZ_;
-    import com.company.assembleegameclient.net.messages.data._0H_9;
+    import com.company.assembleegameclient.net.messages.data.ObjectStatus;
     import com.company.assembleegameclient.util._wW_;
     import flash.utils.IDataInput;
 
@@ -14,12 +14,12 @@ package ServerPackets{
     public class Update extends ServerPacket {
 
         public var tiles_:Vector.<_iZ_>;
-        public var newObjs_:Vector.<_0H_9>;
+        public var newObjs_:Vector.<ObjectStatus>;
         public var drops_:Vector.<int>;
 
         public function Update(_arg1:uint){
             this.tiles_ = new Vector.<_iZ_>();
-            this.newObjs_ = new Vector.<_0H_9>();
+            this.newObjs_ = new Vector.<ObjectStatus>();
             this.drops_ = new Vector.<int>();
             super(_arg1);
         }
@@ -54,7 +54,7 @@ package ServerPackets{
             this.newObjs_.length = Math.min(_local3, this.newObjs_.length);
             while (this.newObjs_.length < _local3)
             {
-                this.newObjs_.push((_wW_._B_1(_0H_9) as _0H_9));
+                this.newObjs_.push((_wW_._B_1(ObjectStatus) as ObjectStatus));
             }
             _local2 = 0;
             while (_local2 < _local3)

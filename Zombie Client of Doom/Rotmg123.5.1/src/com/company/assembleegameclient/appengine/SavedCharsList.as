@@ -29,7 +29,6 @@ package com.company.assembleegameclient.appengine{
         public var maxNumChars_:int;
         public var numChars_:int = 0;
         public var savedChars_:Vector.<SavedCharacter>;
-        public var charStats_:Object;
         public var totalFame_:int = 0;
         public var fame_:int = 0;
         public var credits_:int = 0;
@@ -50,7 +49,6 @@ package com.company.assembleegameclient.appengine{
 
         public function SavedCharsList(_arg1:String){
             this.savedChars_ = new Vector.<SavedCharacter>();
-            this.charStats_ = {};
             this.servers_ = new Vector.<Server>();
             this.ownedSkins = new Vector.<int>();
             this.gifts = new Vector.<int>();
@@ -63,14 +61,10 @@ package com.company.assembleegameclient.appengine{
             this.loadBeginnerPackage(_local2);
             this.loadGuild(_local2);
             this.initChars();
-            this.loadClassStats();
             this.loadServerVersion();
             this.loadServers();
             this.loadNews();
             this.loadLatLong();
-            this.loadUnlockedClasses();
-            Account._get().reportIntStat("BestLevel", this.getBestLevel());
-            Account._get().reportIntStat("BestFame", this.getBestFame());
             Account._get().reportIntStat("Rank", this.rank);
         }
         private function loadAccount(_arg1:XML):void{
@@ -149,18 +143,6 @@ package com.company.assembleegameclient.appengine{
             }
             this.savedChars_.sort(SavedCharacter._N_Q_);
         }
-        private function loadClassStats():void{
-            var _local2:XML;
-            var _local3:int;
-            var _local4:_0A_H_;
-            var _local1:XML = XML(this.rawCharList.Account.Stats);
-            for each (_local2 in _local1.ClassStats)
-            {
-                _local3 = int(_local2.@objectType);
-                _local4 = new _0A_H_(_local2);
-                this.charStats_[_local3] = _local4;
-            }
-        }
         private function loadServers():void{
             var _local2:XML;
             var _local1:XML = XML(this.rawCharList.Servers);
@@ -189,98 +171,11 @@ package com.company.assembleegameclient.appengine{
                 this.latLong_ = defaultLatLong;
             }
         }
-        public function _bI_(_arg1:int):int{
-            var _local2:_0A_H_ = this.charStats_[_arg1];
-            return ((((_local2 == null)) ? 0 : _local2._bI_()));
-        }
-        public function getBestLevel():int{
-            var _local2:_0A_H_;
-            var _local1:int;
-            for each (_local2 in this.charStats_)
-            {
-                if (_local2._bI_() > _local1)
-                {
-                    _local1 = _local2._bI_();
-                }
-            }
-            return (_local1);
-        }
-        public function _0D_E_(_arg1:int):int{
-            var _local2:_0A_H_ = this.charStats_[_arg1];
-            return ((((_local2 == null)) ? 0 : _local2._0D_E_()));
-        }
-        public function getBestFame():int{
-            var _local2:_0A_H_;
-            var _local1:int;
-            for each (_local2 in this.charStats_)
-            {
-                if (_local2._0D_E_() > _local1)
-                {
-                    _local1 = _local2._0D_E_();
-                }
-            }
-            return (_local1);
-        }
-        public function isAvailable(_arg1:int):Boolean{
-            var _local3:XML;
-            var _local4:int;
-            var _local2:XML = ObjectLibrary.Items[_arg1];
-            for each (_local3 in _local2.UnlockLevel)
-            {
-                _local4 = ObjectLibrary._pb[_local3.toString()];
-                if (this._bI_(_local4) < int(_local3.@level))
-                {
-                    return (false);
-                }
-            }
-            return (true);
-        }
         public function _rv():int{
             return ((this.maxNumChars_ - this.numChars_));
         }
         public function hasAvailableCharSlot():Boolean{
             return ((this.numChars_ < this.maxNumChars_));
-        }
-        public function _B_7(_arg1:int, _arg2:int):Array{
-            var _local5:XML;
-            var _local6:int;
-            var _local7:Boolean;
-            var _local8:Boolean;
-            var _local9:XML;
-            var _local10:int;
-            var _local11:int;
-            var _local3:Array = [];
-            var _local4:int;
-            while (_local4 < ObjectLibrary._tj.length)
-            {
-                _local5 = ObjectLibrary._tj[_local4];
-                _local6 = int(_local5.@type);
-                if (!this.isAvailable(_local6))
-                {
-                    _local7 = true;
-                    _local8 = false;
-                    for each (_local9 in _local5.UnlockLevel)
-                    {
-                        _local10 = ObjectLibrary._pb[_local9.toString()];
-                        _local11 = int(_local9.@level);
-                        if (this._bI_(_local10) < _local11)
-                        {
-                            if (((!((_local10 == _arg1))) || (!((_local11 == _arg2)))))
-                            {
-                                _local7 = false;
-                                break;
-                            }
-                            _local8 = true;
-                        }
-                    }
-                    if (((_local7) && (_local8)))
-                    {
-                        _local3.push(_local6);
-                    }
-                }
-                _local4++;
-            }
-            return (_local3);
         }
         public function _04D_():Server{
             var _local4:Server;
@@ -319,25 +214,6 @@ package com.company.assembleegameclient.appengine{
         override public function toString():String{
             return (((((("[" + " numChars: ") + this.numChars_) + " maxNumChars: ") + this.maxNumChars_) + " ]"));
         }
-        private function loadUnlockedClasses():void{
-            var _local3:XML;
-            var _local4:int;
-            var _local1:int;
-            var _local2:int;
-            while (_local2 < ObjectLibrary._tj.length)
-            {
-                _local3 = ObjectLibrary._tj[_local2];
-                _local4 = int(_local3.@type);
-                if (this.isAvailable(_local4))
-                {
-                    Account._get().reportIntStat((_local3.@id + "Unlocked"), 1);
-                    _local1++;
-                }
-                _local2++;
-            }
-            Account._get().reportIntStat("ClassesUnlocked", _local1);
-        }
-
     }
 }//package com.company.assembleegameclient.appengine
 

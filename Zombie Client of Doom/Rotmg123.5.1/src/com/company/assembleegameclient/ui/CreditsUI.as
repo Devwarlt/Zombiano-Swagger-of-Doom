@@ -4,6 +4,8 @@
 //com.company.assembleegameclient.ui._0B_v
 
 package com.company.assembleegameclient.ui {
+import com.company.assembleegameclient.util.Currency;
+
 import flash.display.Sprite;
 import com.company.ui.SimpleText;
 import flash.display.Bitmap;
@@ -69,20 +71,22 @@ public class CreditsUI extends Sprite {
         }
         this.credits_ = value;
 
+        var credits:Object = Currency.parseCredits(this.credits_);
+
         this.copperIcon.x = -(this.copperIcon.width);
-        this.copperText.text = int((this.credits_ - (int((this.credits_ / 10000)) * 10000) - (int(((this.credits_ - (int((this.credits_ / 10000)) * 10000)) / 100)) * 100))).toString();
+        this.copperText.text = credits.copper;
         this.copperText.updateMetrics();
         this.copperText.x = ((this.copperIcon.x - this.copperText.width) + 8);
         this.copperText.y = ((this.copperIcon.height / 2) - (this.copperText.height / 2));
 
         this.silverIcon.x = (this.copperText.x - this.silverIcon.width);
-        this.silverText.text = int(((this.credits_ - (int((this.credits_ / 10000)) * 10000)) / 100)).toString();
+        this.silverText.text = credits.silver;
         this.silverText.updateMetrics();
         this.silverText.x = ((this.silverIcon.x - this.silverText.width) + 8);
         this.silverText.y = ((this.silverIcon.height / 2) - (this.silverText.height / 2));
 
         this.goldIcon.x = (this.silverText.x - this.goldIcon.width);
-        this.goldText.text = int((this.credits_ / 10000)).toString();
+        this.goldText.text = credits.gold;
         this.goldText.updateMetrics();
         this.goldText.x = ((this.goldIcon.x - this.goldText.width) + 8);
         this.goldText.y = ((this.goldIcon.height / 2) - (this.goldText.height / 2));

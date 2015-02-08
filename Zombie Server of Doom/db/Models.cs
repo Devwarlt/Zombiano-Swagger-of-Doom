@@ -104,6 +104,8 @@ public class Account
 
     public int Country { get; set; }
 
+    public VillageStruct Village { get; set; }
+
     [XmlElement("Rank")]
     public int Rank
     {
@@ -418,4 +420,16 @@ public class Achievements
     public int Completed { get; set; }
     [XmlAttribute("total")]
     public int Total { get; set; }
+}
+
+public class VillageStruct
+{
+    [XmlAttribute("id")]
+    public int ID { get; set; }
+    [XmlAttribute("name")]
+    public string Name { get; set; }
+    public int Rank { get; set; }
+    public int TotalTownMoney { get; set; }
+    public int Population { get; set; }
+    public int MaxPopulation { get; set; }
 }

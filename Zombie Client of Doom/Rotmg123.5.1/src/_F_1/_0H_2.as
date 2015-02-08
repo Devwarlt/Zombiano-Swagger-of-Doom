@@ -115,7 +115,7 @@ public class _0H_2 extends _05p {
         while (_local2 < normalSkins.length) {
             _local3 = normalSkins[_local2];
             _local4 = int(_local3.@type);
-            _local5 = new CharacterBox(_local3, _arg1.charStats_[_local4], _arg1);
+            _local5 = new CharacterBox(_local3, _arg1);
             _local5.x = (((50 + (140 * int((_local2 % 5)))) + 70) - (_local5.width / 2));
             _local5.y = (110 + (140 * int((_local2 / 5))));
             _local5.yBase = _local5.y;
@@ -147,7 +147,7 @@ public class _0H_2 extends _05p {
         while (_local2 < (normalSkins.length + premiumSkins.length)) {
             _local3 = premiumSkins[_local2 - normalSkins.length];
             _local4 = int(_local3.@type);
-            _local5 = new CharacterBox(_local3, _arg1.charStats_[_local4], _arg1);
+            _local5 = new CharacterBox(_local3, _arg1);
             _local5.x = (((50 + (140 * int((pX % 5)))) + 70) - (_local5.width / 2));
             _local5.y = (base + (140 * int((pY / 5))));
             _local5.yBase = _local5.y;

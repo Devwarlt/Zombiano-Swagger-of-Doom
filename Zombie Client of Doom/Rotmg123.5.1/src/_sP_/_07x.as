@@ -4,9 +4,10 @@
 //_sP_._07x
 
 package _sP_{
-    import flash.display.Sprite;
+import _F_1._H_o;
+
+import flash.display.Sprite;
     import com.company.assembleegameclient.game.GameSprite;
-    import _F_1._H_o;
     import com.company.rotmg.graphics.ScreenGraphic;
     import flash.events.MouseEvent;
     import flash.events.Event;

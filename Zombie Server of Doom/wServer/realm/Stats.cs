@@ -109,6 +109,7 @@ namespace wServer.realm
         Backpack2_7 = 86,
 
         HasBackpack1 = 87,
-        HasBackpack2 = 88
+        HasBackpack2 = 88,
+        Effect = 89
     }
 }

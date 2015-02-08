@@ -6,7 +6,7 @@
 package ClientPackets{
     import com.company.assembleegameclient.net.messages.data.Position;
 
-    import com.company.assembleegameclient.net.messages.data._jg;
+    import com.company.assembleegameclient.net.messages.data.TimedPosition;
     import flash.utils.IDataOutput;
 
 
@@ -15,11 +15,11 @@ package ClientPackets{
         public var tickId_:int;
         public var time_:int;
         public var newPosition_:Position;
-        public var records_:Vector.<_jg>;
+        public var records_:Vector.<TimedPosition>;
 
         public function MovePacket(_arg1:uint){
             this.newPosition_ = new Position();
-            this.records_ = new Vector.<_jg>();
+            this.records_ = new Vector.<TimedPosition>();
             super(_arg1);
         }
         override public function writeToOutput(_arg1:IDataOutput):void{

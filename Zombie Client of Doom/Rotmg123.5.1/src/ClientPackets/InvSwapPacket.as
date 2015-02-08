@@ -5,20 +5,20 @@
 
 package ClientPackets{
     import com.company.assembleegameclient.net.messages.data.Position;
-    import com.company.assembleegameclient.net.messages.data._0_3;
+    import com.company.assembleegameclient.net.messages.data.SlotObject;
     import flash.utils.IDataOutput;
 
     public class InvSwapPacket extends ClientPacket {
 
         public var time_:int;
         public var position_:Position;
-        public var slotObject1_:_0_3;
-        public var slotObject2_:_0_3;
+        public var slotObject1_:SlotObject;
+        public var slotObject2_:SlotObject;
 
         public function InvSwapPacket(_arg1:uint){
             this.position_ = new Position();
-            this.slotObject1_ = new _0_3();
-            this.slotObject2_ = new _0_3();
+            this.slotObject1_ = new SlotObject();
+            this.slotObject2_ = new SlotObject();
             super(_arg1);
         }
         override public function writeToOutput(_arg1:IDataOutput):void{

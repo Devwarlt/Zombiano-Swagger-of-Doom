@@ -5,8 +5,10 @@
 
 package _zD_{
     import _C__._cM_;
-    import _F_1.MapLoadingScreen;
-    import _W_D_._0I_H_;
+
+import _F_1.MapLoadingScreen;
+
+import _W_D_._0I_H_;
     import _04w._07V_;
     import _U_5._D_L_;
     import com.company.assembleegameclient.appengine.SavedCharacter;

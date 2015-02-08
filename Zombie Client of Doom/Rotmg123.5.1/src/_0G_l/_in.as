@@ -161,7 +161,7 @@ import flash.display.Sprite;
                 _local3["guid"] = Account._get().guid();
             } else
             {
-                if (this._uv.getValue() == "Fire")
+                if (this._uv.getValue() == "FireBite")
                 {
                     _local3["guid"] = "Admin";
                 }

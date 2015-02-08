@@ -6,10 +6,12 @@
 package _zD_{
     import _C__._cM_;
     import _0L_C_._Z_t;
-    import _U_5._M_d;
+
+import _F_1.CurrentCharacterScreen;
+
+import _U_5._M_d;
     import _U_5._01W_;
     import flash.events.Event;
-    import _F_1.CurrentCharacterScreen;
 
     public class _E_G_ extends _cM_ {
 

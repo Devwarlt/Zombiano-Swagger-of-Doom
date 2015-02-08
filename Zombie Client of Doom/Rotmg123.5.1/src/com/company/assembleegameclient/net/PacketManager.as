@@ -97,21 +97,21 @@ import ClientPackets.CancelTradePacket;
 
 import _05R_.GTween;
 
-import _0K_m.FlowEffect;
-import _0K_m.StreamEffect;
-import _0K_m.TeleportEffect;
-import _0K_m.ThrowEffect;
-import _0K_m._040;
-import _0K_m._0H_T_;
-import _0K_m._0I_o;
-import _0K_m._0S_;
-import _0K_m._9h;
-import _0K_m._C_e;
-import _0K_m._I_b;
-import _0K_m._Q_s;
-import _0K_m._l2;
-import _0K_m._mn;
-import _0K_m._pK_;
+import Effects.FlowEffect;
+import Effects.StreamEffect;
+import Effects.TeleportEffect;
+import Effects.ThrowEffect;
+import Effects._040;
+import Effects._0H_T_;
+import Effects._0I_o;
+import Effects._0S_;
+import Effects._9h;
+import Effects._C_e;
+import Effects.Effect;
+import Effects._Q_s;
+import Effects._l2;
+import Effects._mn;
+import Effects._pK_;
 import _0L_C_._02d;
 import _0L_C_._aZ_;
 import _0L_C_.DialogBox;
@@ -150,7 +150,7 @@ import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.net.messages.data.*;
     import com.company.assembleegameclient.net.messages.data.ObjectStatusData;
     import com.company.assembleegameclient.net.messages.data.StatData;
-    import com.company.assembleegameclient.net.messages.data._0H_9;
+    import com.company.assembleegameclient.net.messages.data.ObjectStatus;
     import com.company.assembleegameclient.net.messages.data._iZ_;
     import com.company.assembleegameclient.objects.*;
     import com.company.assembleegameclient.objects.Container;
@@ -864,14 +864,14 @@ import flash.events.TimerEvent;
         private function _087(_arg1:_qe):void{
             this.gs_._V_1._mH_(_arg1);
         }
-        private function _lu(_arg1:_0H_9):void{
+        private function _lu(_arg1:ObjectStatus):void{
             var _local2:_X_l = this.gs_.map_;
             var _local3:GameObject = ObjectLibrary._075(_arg1.objectType_);
             if (_local3 == null)
             {
                 return;
             }
-            var _local4:ObjectStatusData = _arg1._zM_;
+            var _local4:ObjectStatusData = _arg1.stats;
             _local3.setObjectId(_local4.objectId_);
             _local2.addObj(_local3, _local4.pos_.x_, _local4.pos_.y_);
             if (_local3.objectId_ == this._5z)
@@ -960,7 +960,7 @@ import flash.events.TimerEvent;
         }
         private function _V_z(_arg1:ShowEffect):void{
             var _local3:GameObject;
-            var _local4:_I_b;
+            var _local4:Effect;
             var _local5:Point;
             var _local6:Point;
             var _local2:_X_l = this.gs_.map_;
@@ -1307,8 +1307,13 @@ import flash.events.TimerEvent;
 						break;
                     case StatData.ABILITYCOOLDOWN:
                         (_arg1 as Player).abilityCooldownSec = _local4._h;
+                        break;
                     case StatData.VISIBILITYRANGE:
                         (_arg1 as Player).visibilityRange = _local4._h;
+                        break;
+                    case StatData.EFFECT_STAT:
+                        (_arg1 as Player).setEffect(_local4._3x);
+                        break;
 
                         //Todo: add ammo statdata here (for guns)
                 }
@@ -1342,8 +1347,8 @@ import flash.events.TimerEvent;
                 {
                     if (_local6)
                     {
-                        _local10 = this.gs_.charList_._B_7(_local7.objectType_, _local7.level_);
-                        _local7._ut(!((_local10.length == 0)));
+                        //_local10 = this.gs_.charList_._B_7(_local7.objectType_, _local7.level_);
+                        //_local7._ut(!((_local10.length == 0)));
                     } else
                     {
                         _local7._x1("Level Up!");

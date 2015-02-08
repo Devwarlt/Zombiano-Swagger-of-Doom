@@ -2,8 +2,6 @@
  * Created by Fabian on 28.01.2015.
  */
 package Villages.ui {
-import AccountManagement.tabHolders.TabHolder;
-
 import Villages.VillageManagementScreenBase;
 
 import com.company.assembleegameclient.util.TextureRedrawer;

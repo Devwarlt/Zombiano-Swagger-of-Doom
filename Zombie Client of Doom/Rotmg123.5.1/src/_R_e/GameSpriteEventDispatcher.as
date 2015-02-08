@@ -7,7 +7,10 @@ package _R_e{
 import _0L_C_.DialogBox;
 
 import _C__._cM_;
-    import com.company.assembleegameclient.game.GameSprite;
+
+import _F_1.CurrentCharacterScreen;
+
+import com.company.assembleegameclient.game.GameSprite;
     import _05Z_._D_m;
     import _U_5._M_d;
     import _U_5._01W_;
@@ -21,7 +24,6 @@ import com.company.assembleegameclient.parameters.Parameters;
 import flash.events.Event;
     import _9R_._j_;
     import _9R_._D_X_;
-    import _F_1.CurrentCharacterScreen;
     import _04w._07V_;
 
     public class GameSpriteEventDispatcher extends _cM_ {

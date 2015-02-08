@@ -4,10 +4,11 @@
 //_F_F_._V_2
 
 package _F_F_{
-    import _W_D_.Domain;
+import _F_1._E_r;
+
+import _W_D_.Domain;
     import _U_5._dd;
     import com.company.assembleegameclient.util.loadEmbeds;
-    import _F_1._E_r;
     import _0I_9._05b;
     import flash.display.Sprite;
 

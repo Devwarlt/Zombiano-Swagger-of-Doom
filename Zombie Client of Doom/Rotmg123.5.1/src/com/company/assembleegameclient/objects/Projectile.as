@@ -28,8 +28,8 @@ package com.company.assembleegameclient.objects{
     import flash.geom.Vector3D;
     import flash.utils.Dictionary;
     
-    import _0K_m.HitEffect;
-    import _0K_m._06s;
+    import Effects.HitEffect;
+    import Effects._06s;
 
 
     public class Projectile extends BasicObject {

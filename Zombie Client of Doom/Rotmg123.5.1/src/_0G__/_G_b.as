@@ -4,12 +4,13 @@
 //_0G__._G_b
 
 package _0G__{
-    import _W_D_._0I_H_;
+import _F_1._zf;
+
+import _W_D_._0I_H_;
     import _U_5._dd;
     import flash.display.Sprite;
     import _4X_._E_h;
     import _02b._0D_5;
-    import _F_1._zf;
     import _4X_._o8;
     import _4X_._03L_;
 

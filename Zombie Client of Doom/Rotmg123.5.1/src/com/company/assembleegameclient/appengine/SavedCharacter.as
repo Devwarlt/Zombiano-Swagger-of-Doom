@@ -14,8 +14,9 @@ package com.company.assembleegameclient.appengine{
     
     import flash.display.BitmapData;
     import flash.geom.ColorTransform;
+import flash.geom.Matrix;
 
-    public class SavedCharacter {
+public class SavedCharacter {
 
         public var _iJ_:XML;
         public var name_:String = null;

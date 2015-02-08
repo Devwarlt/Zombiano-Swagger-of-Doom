@@ -96,6 +96,7 @@ package com.company.assembleegameclient.net.messages.data{
         public static const Backpack2_7:int = 86;
         public static const HasBackpack1:int = 87;
         public static const HasBackpack2:int = 88;
+        public static const EFFECT_STAT:int = 89;
 
         public var _0F_4:uint = 0;
         public var _h:int;
@@ -139,6 +140,7 @@ package com.company.assembleegameclient.net.messages.data{
             {
                 case _hK_:
                 case _07q:
+                case EFFECT_STAT:
                     return (true);
             }
             return (false);

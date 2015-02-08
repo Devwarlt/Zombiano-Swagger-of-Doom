@@ -16,9 +16,7 @@ package ToolTips{
     import flash.geom.ColorTransform;
     import flash.filters.DropShadowFilter;
     import com.company.assembleegameclient.util.RankUtils;
-    import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.appengine.SavedCharsList;
-    import com.company.assembleegameclient.appengine._0A_H_;
 
     public class _E_J_ extends ToolTip {
 

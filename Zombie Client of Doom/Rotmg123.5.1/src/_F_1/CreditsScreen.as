@@ -48,6 +48,7 @@ public class CreditsScreen extends Sprite {
 
     public var close:_aJ_;
 
+    private var creditsXML:XML;
     private var _045:_H_o;
     private var displayScreen:Sprite;
     private var items:Vector.<DisplayObject>;
@@ -56,70 +57,12 @@ public class CreditsScreen extends Sprite {
     private var ytvid:YouTubePlayer;
 
     public function CreditsScreen() {
-
-        if(creditsXML.hasOwnProperty("@backgroundVideo")) {
-            ytvid = new YouTubePlayer(creditsXML.@backgroundVideo, true);
-            ytvid.repeat = true;
-            addChild(this.ytvid);
-        }
-        else {
-            Music.reload("");
-            var sound = new Sound();
-            if(creditsXML.@local) {
-                sound.loadCompressedDataFromByteArray(LocalSounds.getSound(creditsXML.@music).data, LocalSounds.getSound(creditsXML.@music).data.length)
-            }
-            else {
-                sound.load(new URLRequest("http://" + Parameters.musicUrl_ + "/sfx/music/" + creditsXML.@music + ".mp3"));
-            }
-            var soundTransform = new SoundTransform(0.65);
-            this.sound = sound.play(0, int.MAX_VALUE, soundTransform);
-        }
-        this.addEventListener(Event.REMOVED_FROM_STAGE, exited);
         this.close = new _aJ_();
-        this.items = new Vector.<DisplayObject>();
-
-        this.displayScreen = new Sprite();
-        var textMask = new Shape();
-        textMask.graphics.beginFill(0);
-        textMask.graphics.drawRect(0, 0, 800, 525);
-        textMask.graphics.endFill();
-        this.displayScreen.mask = textMask;
-        addChild(textMask);
-        addChild(this.displayScreen);
-
-        for each (var xml:XML in creditsXML.DrawImage) {
-            var cls:Class = getDefinitionByName("FireBite.Embeds.Images." + xml.@id) as Class;
-            var bmp:Bitmap = new cls();
-            items.push(bmp);
-        }
-
-        for each (var item:XML in creditsXML.DrawText) {
-            var text:SimpleText = new SimpleText(int(item.@size), uint(item.@color), false, int(item.@width), int(item.@height));
-            text.text = item.Text;
-            text.boldText(item.hasOwnProperty("Bold"));
-            text.multiline = item.hasOwnProperty("MultiLine");
-            text.wordWrap = item.hasOwnProperty("WordWrap");
-            var filters:Array = [];
-
-            if(item.hasOwnProperty("DropShadowFilter")) {
-                filters.push(new DropShadowFilter());
-            }
-            if(item.hasOwnProperty("GlowFilter")){
-                filters.push(new GlowFilter());
-            }
-            text.filters = filters;
-            text.updateMetrics();
-
-            items.push(text);
-        }
-
-        addChild(new ScreenGraphic());
-        this._045 = new _H_o("close", 36, false);
-        this._045.addEventListener(MouseEvent.CLICK, this._ly);
-        addChild(this._045);
+        var webReq:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/credits", true);
+        webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.setCredits);
+        webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);
+        webReq.sendRequest("getInfo", []);
     }
-
-
 
     private function exited(event:Event):void {
         if(this.sound != null) {
@@ -131,13 +74,14 @@ public class CreditsScreen extends Sprite {
     }
 
     public function timerHandler(event:TimerEvent):void {
+        var obj:DisplayObject;
         if(items[items.length - 1].y + items[items.length - 1].height < -2) {
-            for each (var obj:DisplayObject in this.items) {
+            for each (obj in this.items) {
                 obj.y += this.totalHeight;
             }
         }
 
-        for each (var obj:DisplayObject in this.items) {
+        for each (obj in this.items) {
             obj.y -= 0.5;
         }
 
@@ -187,18 +131,77 @@ public class CreditsScreen extends Sprite {
         this.close.dispatch();
     }
 
-    public static function setCredits(_arg1:WebRequestSuccessEvent):void {
-        creditsXML = XML(_arg1.data_);
+    public function setCredits(_arg1:WebRequestSuccessEvent):void {
+        this.creditsXML = XML(_arg1.data_);
+
+        if(this.creditsXML.hasOwnProperty("@backgroundVideo")) {
+            this.ytvid = new YouTubePlayer(this.creditsXML.@backgroundVideo, true);
+            this.ytvid.repeat = true;
+            addChild(this.ytvid);
+        }
+        else {
+            Music.reload("");
+            var sound:Sound = new Sound();
+            if(this.creditsXML.@local) {
+                sound.loadCompressedDataFromByteArray(LocalSounds.getSound(creditsXML.@music).data, LocalSounds.getSound(creditsXML.@music).data.length)
+            }
+            else {
+                sound.load(new URLRequest("http://" + Parameters.musicUrl_ + "/sfx/music/" + creditsXML.@music + ".mp3"));
+            }
+            var soundTransform:SoundTransform = new SoundTransform(0.65);
+            this.sound = sound.play(0, int.MAX_VALUE, soundTransform);
+        }
+        this.addEventListener(Event.REMOVED_FROM_STAGE, exited);
+        this.items = new Vector.<DisplayObject>();
+
+        this.displayScreen = new Sprite();
+        var textMask:Shape = new Shape();
+        textMask.graphics.beginFill(0);
+        textMask.graphics.drawRect(0, 0, 800, 525);
+        textMask.graphics.endFill();
+        this.displayScreen.mask = textMask;
+        addChild(textMask);
+        addChild(this.displayScreen);
+
+        for each (var xml:XML in creditsXML.DrawImage) {
+            var cls:Class = getDefinitionByName("FireBite.Embeds.Images." + xml.@id) as Class;
+            var bmp:Bitmap = new cls();
+            this.items.push(bmp);
+        }
+
+        for each (var item:XML in creditsXML.DrawText) {
+            var text:SimpleText = new SimpleText(int(item.@size), uint(item.@color), false, int(item.@width), int(item.@height));
+            text.text = item.Text;
+            text.boldText(item.hasOwnProperty("Bold"));
+            text.multiline = item.hasOwnProperty("MultiLine");
+            text.wordWrap = item.hasOwnProperty("WordWrap");
+            var filters:Array = [];
+
+            if(item.hasOwnProperty("DropShadowFilter")) {
+                filters.push(new DropShadowFilter());
+            }
+            if(item.hasOwnProperty("GlowFilter")){
+                filters.push(new GlowFilter());
+            }
+            text.filters = filters;
+            text.updateMetrics();
+
+            this.items.push(text);
+        }
+
+        addChild(new ScreenGraphic());
+        this._045 = new _H_o("close", 36, false);
+        this._045.addEventListener(MouseEvent.CLICK, this._ly);
+        addChild(this._045);
+        initialize();
     }
 
-    public static function onError(_arg1:WebRequestErrorEvent):void {
-        var webReq = new WebRequest(Parameters.getAccountServerIP(), "/credits", true);
-        webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, CreditsScreen.setCredits);
-        webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, CreditsScreen.onError);
+    public function onError(_arg1:WebRequestErrorEvent):void {
+        var webReq:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/credits", true);
+        webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.setCredits);
+        webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);
         webReq.sendRequest("getInfo", []);
     }
-
-    private static var creditsXML:XML;
 }
 }//package _F_1
 

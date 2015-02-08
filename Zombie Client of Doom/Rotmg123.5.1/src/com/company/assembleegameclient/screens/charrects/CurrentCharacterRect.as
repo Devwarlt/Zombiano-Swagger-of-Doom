@@ -144,8 +144,13 @@ public class CurrentCharacterRect extends CharacterRect {
     private function setImage(_arg1:int, _arg2:int, _arg3:Number):void{
         var _local4:BitmapData = SavedCharacter.getImage(this.character, this.playerXML, _arg1, _arg2, _arg3, true, true);
         _local4 = BitmapUtil._Y_d(_local4, 6, 6, (_local4.width - 12), (_local4.height - 6));
+        var is16x16:Boolean = _local4.width == 92 && _local4.height == 87;
         this.bitmap.bitmapData = _local4;
         this.bitmap.x = 0;
+
+        if(is16x16) {
+            this.bitmap.scaleX = this.bitmap.scaleY = 0.5;
+        }
     }
 
 }

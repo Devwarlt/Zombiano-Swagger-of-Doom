@@ -200,8 +200,8 @@ package _fh{
             var _local3:int = ((_K_c + _C_9) + 12);
             var _local4:Number = (_local3 * Math.cos((_local2 * Trig._km)));
             var _local5:Number = (_local3 * Math.sin((_local2 * Trig._km)));
-            var _local6:Number = _arg1._R_A_;
-            var _local7:Number = _arg1._D_f;
+            var _local6:Number = _arg1.w_;
+            var _local7:Number = _arg1.h_;
             if ((((_local2 >= 45)) && ((_local2 <= 135))))
             {
                 _local8 = (_local4 + (_local6 / Math.tan((_local2 * Trig._km))));

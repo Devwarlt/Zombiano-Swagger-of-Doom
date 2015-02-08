@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public struct Achievement
+public struct Achievement : IEnumerable
 {
     private static Dictionary<int, Achievement> m_achievements = new Dictionary<int, Achievement>
     {
@@ -20,8 +21,11 @@ public struct Achievement
         { 10, new Achievement(10, "u r cool", "Type: \"u r cool\" in the chat", AchievementGUID.URCOOL) },
         { 11, new Achievement(11, "Now I am a specialist", "Reach rank: SPC.", AchievementGUID.SpcRankReached) },
         { 12, new Achievement(12, "It looks so beautiful", "Craft 1 item", AchievementGUID.CraftItem) },
-        { 13, new Achievement(13, "Yey", "Choose a nation", AchievementGUID.ChoosedNation) }
+        { 13, new Achievement(13, "Yey", "Choose a nation", AchievementGUID.ChoosedNation) },
+        { 14, new Achievement(14, "I am a unicorn", "Find the secret unicorn Easter Egg", AchievementGUID.Unicorn) }
     };
+
+    public static Achievement Default { get { return new Achievement(); } }
 
     private int m_id;
     private string m_title;
@@ -58,21 +62,59 @@ public struct Achievement
         return default(Achievement);
     }
 
-    public static List<Achievement> Enumerate()
+    public AchievementEnumerator GetEnumerator()
     {
-        return m_achievements.Values.ToList();
+        return new AchievementEnumerator(m_achievements);
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return (IEnumerator)GetEnumerator();
+    }
+
+    public class AchievementEnumerator : IEnumerator
+    {
+        private readonly Dictionary<int, Achievement> m_items;
+        private int m_pos;
+
+        public AchievementEnumerator(Dictionary<int, Achievement> items)
+        {
+            this.m_items = items;
+            this.m_pos = -1;
+        }
+
+
+        public object Current
+        {
+            get { return this.m_items.Values.ToArray<Achievement>()[this.m_pos]; }
+        }
+
+        public bool MoveNext()
+        {
+            this.m_pos++;
+            return this.m_pos < this.m_items.Count;
+        }
+
+        public void Reset()
+        {
+            this.m_pos = -1;
+        }
     }
 }
 
 public class AchievementGUID
 {
-    public string GUID { get; private set; }
+    private string m_guid;
+    public string GUID { get { return m_guid; } }
+
+    private AchievementGUID(string guid)
+    {
+        this.m_guid = guid;
+    }
 
     public static implicit operator AchievementGUID (string guid)
     {
-        var g = new AchievementGUID();
-        g.GUID = guid;
-        return g;
+        return new AchievementGUID(guid);
     }
 
     public static readonly AchievementGUID EnterTutorial =              "enterTutorial";
@@ -95,4 +137,5 @@ public class AchievementGUID
     public static readonly AchievementGUID ChoosedNation =              "choosedNation";
 
     public static readonly AchievementGUID EnterWorld =                 "enterWorld";
+    public static readonly AchievementGUID Unicorn =                    "iAmAUnicorn";
 }

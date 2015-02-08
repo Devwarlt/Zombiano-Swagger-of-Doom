@@ -4,18 +4,18 @@
 //ClientPackets._fI_
 
 package ClientPackets{
-    import com.company.assembleegameclient.net.messages.data._0_3;
+    import com.company.assembleegameclient.net.messages.data.SlotObject;
     import com.company.assembleegameclient.net.messages.data.Position;
     import flash.utils.IDataOutput;
 
     public class UseItemPacket extends ClientPacket {
 
         public var time_:int;
-        public var slotObject_:_0_3;
+        public var slotObject_:SlotObject;
         public var itemUsePos_:Position;
 
         public function UseItemPacket(_arg1:uint){
-            this.slotObject_ = new _0_3();
+            this.slotObject_ = new SlotObject();
             this.itemUsePos_ = new Position();
             super(_arg1);
         }

@@ -100,7 +100,8 @@ namespace wServer.realm.entities
 
             stats[StatsType.HasBackpack1] = Inventory.Length > 12 ? 1 : 0;
             stats[StatsType.HasBackpack2] = Inventory.Length > 20 ? 1 : 0;
-
+            stats[StatsType.Effect] = "Explosion";
+            
             if (Inventory.Length > 12)
             {
                 stats[StatsType.Backpack1_0] = (Inventory[12] != null ? Inventory[12].ObjectType : -1);

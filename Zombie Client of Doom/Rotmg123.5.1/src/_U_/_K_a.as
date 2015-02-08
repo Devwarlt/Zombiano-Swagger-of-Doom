@@ -8,7 +8,24 @@ import AccountManagement.AccountEventDispatcher;
 import AccountManagement.AccountManagementScreen;
 
 import _0_p._v;
-    import _eZ_._08b;
+
+import _F_1.CreditsScreen;
+
+import _F_1.CurrentCharacterScreen;
+import _F_1.MapLoadingScreen;
+import _F_1._01_;
+
+import _F_1._05p;
+import _F_1._0B_m;
+
+import _F_1._0H_2;
+import _F_1._3V_;
+import _F_1._C_Q_;
+import _F_1._E_r;
+import _F_1._U_W_;
+import _F_1._zf;
+
+import _eZ_._08b;
     import _0I_9._0J_r;
     import _A_G_._v1;
     import _E_E_._U_A_;
@@ -20,23 +37,17 @@ import _0_p._v;
     import _0G__._E_Z_;
     import _U_5._057;
     import _0G__._M_y;
-    import _F_1._zf;
-    import _zD_._0D_h;
-    import _F_1._E_r;
-    import _zD_._uf;
-    import _F_1._01_;
-    import _zD_._N_N_;
-    import _F_1.CreditsScreen;
-    import _zD_._0F_Q_;
-    import _F_1.CurrentCharacterScreen;
-    import _zD_._xF_;
-    import _F_1._05p;
+
+import _zD_._09b;
+
+import _zD_._0D_h;
+import _zD_._0F_Q_;
+import _zD_._N_N_;
+import _zD_._uf;
+import _zD_._xF_;
     import _zD_._V_M_;
-    import _F_1._C_Q_;
     import _zD_.__for;
-    import _F_1._3V_;
     import _zD_._fy;
-    import _F_1._0H_2;
     import _zD_._2H_;
     import _D_d._hj;
     import _zD_._0D_L_;
@@ -48,15 +59,11 @@ import _0_p._v;
     import _zD_._1k;
     import _0L_C_._Z_t;
     import _zD_._E_G_;
-    import _F_1._U_W_;
-    import _zD_._09b;
-    import _F_1._0B_m;
     import _zD_.__else;
     import _0L_C_._0D_W_;
     import _zD_._Q_q;
     import _0L_C_._s7;
     import _zD_._G_9;
-    import _F_1.MapLoadingScreen;
     import _zD_._jT_;
     import _0M_H_._sN_;
     import _0M_H_._R_W_;
@@ -79,7 +86,7 @@ import _0_p._v;
         public var _1G_:_U_A_;
 
         public function _K_():void{
-            this._1G_.map(_D_c, true)._1N_(_V_2);
+            this._1G_.map(_D_c, false)._1N_(_V_2);
             this._1G_.map(_06a)._1N_(_0C_O_);
             this._1G_.map(_V_l)._1N_(_E_Z_);
             this._1G_.map(_057)._1N_(_M_y);

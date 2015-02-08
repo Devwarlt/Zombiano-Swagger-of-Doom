@@ -7,7 +7,7 @@ package com.company.assembleegameclient.util{
 import AccountManagement.images.AccountManagementImages;
 import Sounds.LocalSounds;
 
-import _0K_m._0H_Y_;
+import Effects._0H_Y_;
     
     import Sounds.UrlSoundEffects;
     import Sounds._Q_P_;
@@ -98,6 +98,7 @@ import com.company.assembleegameclient.engine3d._B_5;
         _0B_c.add("chars16x16rEncounters", new Embeds.chars16x16rEncountersEmbed_().bitmapData, null, 16, 16, 112, 16, _lJ_.RIGHT);
         _0B_c.add("players", new Embeds.playersEmbed_().bitmapData, new Embeds.playersMaskEmbed_().bitmapData, 8, 8, 56, 24, _lJ_.RIGHT);
 		_0B_c.add("playerskins", new Embeds.playerSkinsEmbed_().bitmapData, new Embeds.playerSkinsMaskEmbed_().bitmapData, 8, 8, 56, 24, _lJ_.RIGHT);
+        _0B_c.add("playerskins16x16", new Embeds.playerSkins16x16Embed_().bitmapData, null, 16, 16, 112, 2000, _lJ_.RIGHT);
         _0B_c.add("chars8x8rPets1", new Embeds.chars8x8rPets1Embed_().bitmapData, new Embeds.chars8x8rPets1MaskEmbed_().bitmapData, 8, 8, 56, 8, _lJ_.RIGHT);
         UrlSoundEffects.load("button_click");
         UrlSoundEffects.load("death_screen");
@@ -175,6 +176,7 @@ import FireBite.Embeds.Images.Embeds_lofiObj5Embed_;
 import FireBite.Embeds.Images.Embeds_lofiObj6Embed_;
 import FireBite.Embeds.Images.Embeds_lofiObjEmbed_;
 import FireBite.Embeds.Images.Embeds_weapons40x40Embed_;
+import FireBite.Embeds.Images.PlayerSkins16x16;
 import FireBite.Embeds.Images._09C_;
 import FireBite.Embeds.Images._0L_i;
 import FireBite.Embeds.Images._0M_D_;
@@ -322,6 +324,7 @@ class Embeds {
     public static var playersEmbed_:Class = _U_0;
     public static var playersMaskEmbed_:Class = _tI_;
 	public static var playerSkinsEmbed_:Class = Embeds_playerSkinsEmbed_;
+	public static var playerSkins16x16Embed_:Class = PlayerSkins16x16;
 	public static var playerSkinsMaskEmbed_:Class = Embeds_playerSkinsMaskEmbed_;
     public static var chars8x8rPets1Embed_:Class = Embeds_chars8x8rPets1Embed_;
     public static var chars8x8rPets1MaskEmbed_:Class = Embeds_chars8x8rPets1MaskEmbed_;

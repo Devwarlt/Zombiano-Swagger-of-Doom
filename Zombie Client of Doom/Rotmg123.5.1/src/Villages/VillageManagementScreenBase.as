@@ -4,6 +4,8 @@
 package Villages {
 
 import com.company.ui.SimpleText;
+
+import flash.display.DisplayObject;
 import flash.display.Sprite;
 
 public class VillageManagementScreenBase extends Sprite {
@@ -20,6 +22,10 @@ public class VillageManagementScreenBase extends Sprite {
         text.x = ((WIDTH / 2) - (text.textWidth / 2));
         text.y = ((HEIGHT / 2) - (text.textHeight / 2));
         addChild(text);
+    }
+
+    public override function contains(child:DisplayObject):Boolean {
+        return child && super.contains(child);
     }
 }
 }

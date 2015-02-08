@@ -7,13 +7,11 @@ package com.company.assembleegameclient.game{
     import ServerPackets.MapInfo;
     
     import _9R_._B_w;
-    
-    import _F_1.MapLoadingScreen;
-    
-    import _U_5._D_L_;
+
+import _F_1.MapLoadingScreen;
+
+import _U_5._D_L_;
     import _U_5._zz;
-    
-    import _nA_._ax;
     
     import _qN_.Account;
     

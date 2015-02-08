@@ -687,4 +687,21 @@
             <Index>0x192</Index>
         </Texture>
     </Object>
+
+
+
+    <Object type="0x193c" id="Wood Fence">
+          <Class>ConnectedWall</Class>
+          <Texture>
+             <File>lofiEnvironment</File>
+             <Index>0x60</Index>
+          </Texture>
+          <BaseIndent>0.4</BaseIndent>
+          <TopIndent>0.4</TopIndent>
+          <Height>0.75</Height>
+          <Static/>
+          <OccupySquare/>
+          <EnemyOccupySquare/>
+          <Connects/>
+       </Object>
 </Objects>

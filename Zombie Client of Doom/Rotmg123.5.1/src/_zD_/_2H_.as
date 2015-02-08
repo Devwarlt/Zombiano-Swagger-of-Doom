@@ -5,11 +5,13 @@
 
 package _zD_{
     import _C__._cM_;
-    import _F_1._0H_2;
-    import _W_D_._0I_H_;
+
+import _F_1.CurrentCharacterScreen;
+import _F_1._0H_2;
+
+import _W_D_._0I_H_;
     import _U_5._dd;
     import _05Z_._08i;
-    import _F_1.CurrentCharacterScreen;
     import com.company.assembleegameclient.parameters.Parameters;
     import _04w._07V_;
 

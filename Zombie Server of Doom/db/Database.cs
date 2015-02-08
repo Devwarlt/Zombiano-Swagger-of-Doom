@@ -307,6 +307,41 @@ SELECT fame FROM stats WHERE accId=@accId;";
                 }
             }
 
+            cmd = CreateQuery();
+            cmd.CommandText = "SELECT village, villageRank FROM accounts WHERE id=@accId;";
+            cmd.Parameters.AddWithValue("@accId", acc.AccountId);
+            using (var rdr = cmd.ExecuteReader())
+            {
+                if (rdr.HasRows)
+                {
+                    rdr.Read();
+                    acc.Village = new VillageStruct
+                    {
+                        ID = rdr.GetInt32("village"),
+                        Rank = rdr.GetInt32("villageRank")
+                    };
+                }
+            }
+
+            if (acc.Village != null)
+            {
+                cmd = CreateQuery();
+                cmd.CommandText = "SELECT * FROM villages WHERE id=@villageId;";
+                cmd.Parameters.AddWithValue("@villageId", acc.Village.ID);
+                using (var rdr = cmd.ExecuteReader())
+                {
+                    if (rdr.HasRows)
+                    {
+                        rdr.Read();
+                        acc.Village = new VillageStruct
+                        {
+                            ID = rdr.GetInt32("village"),
+                            Rank = rdr.GetInt32("villageRank")
+                        };
+                    }
+                }
+            }
+
             acc.FirePacks = new List<FirePackItem>();
 
             cmd = CreateQuery();
@@ -336,7 +371,7 @@ SELECT fame FROM stats WHERE accId=@accId;";
 
             acc.Achievements = new Achievements();
 
-            foreach (var achievement in Achievement.Enumerate())
+            foreach (Achievement achievement in Achievement.Default)
             {
                 if (achievement.UnknownAchievement) continue;
 

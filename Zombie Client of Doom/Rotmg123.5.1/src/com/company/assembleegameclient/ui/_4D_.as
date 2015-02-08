@@ -81,6 +81,10 @@ package com.company.assembleegameclient.ui{
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }
+        public function get isOpen():Boolean {
+            if(stage == null) return false;
+            return stage.focus == this._bn;
+        }
         public function addText(_arg1:String, _arg2:String):void{
             var _local3:_0A_t = new _0A_t(getTimer(), _arg1, -1, -1, "", false, _arg2, false);
             _dL_.push(_local3);

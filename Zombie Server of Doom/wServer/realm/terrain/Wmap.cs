@@ -33,6 +33,11 @@ namespace wServer.realm
         Hallway_2,
         Hallway_3,
         Enemy,
+
+        House,
+        Shop,
+        LeaveTown,
+        EnterTown
     }
 
     public enum WmapTerrain : byte

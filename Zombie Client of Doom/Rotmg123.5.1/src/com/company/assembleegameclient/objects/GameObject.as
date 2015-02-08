@@ -4,7 +4,9 @@
 //com.company.assembleegameclient.objects.GameObject
 
 package com.company.assembleegameclient.objects{
-    import com.company.assembleegameclient.engine3d._B_5;
+import Sounds.Music;
+
+import com.company.assembleegameclient.engine3d._B_5;
     import com.company.assembleegameclient.engine3d._uZ_;
     import com.company.assembleegameclient.map.Square;
     import com.company.assembleegameclient.map._0D_v;
@@ -44,9 +46,9 @@ import flash.utils.Dictionary;
     
     import _015._O_P_;
     
-    import _0K_m.ExplosionEffect;
-    import _0K_m.HitEffect;
-    import _0K_m._I_b;
+    import Effects.ExplosionEffect;
+    import Effects.HitEffect;
+    import Effects.Effect;
     
     import _0_P_.Animations;
     import _0_P_._0F_7;
@@ -74,7 +76,7 @@ import flash.utils.Dictionary;
         public var mask_:BitmapData = null;
         public var _07_:Vector.<_Z_H_> = null;
         public var _8J_:_uZ_ = null;
-        public var effect_:_I_b = null;
+        public var effect_:Effect = null;
         public var _09e:Animations = null;
         public var _aE_:Boolean = false;
         protected var _tm:BitmapData = null;
@@ -151,7 +153,7 @@ import flash.utils.Dictionary;
             this._07_ = _local2._07_;
             if (_local2._0L_G_ != null)
             {
-                this.effect_ = _I_b._Y_B_(_local2._0L_G_, this);
+                this.effect_ = Effect.resolve(_local2._0L_G_, this);
             }
             if (this.texture_ != null)
             {
@@ -257,7 +259,7 @@ import flash.utils.Dictionary;
             }
             if (_local3._0L_G_ != null)
             {
-                this.effect_ = _I_b._Y_B_(_local3._0L_G_, this);
+                this.effect_ = Effect.resolve(_local3._0L_G_, this);
                 if (map_ != null)
                 {
                     map_.addObj(this.effect_, x_, y_);
@@ -298,6 +300,9 @@ import flash.utils.Dictionary;
 				this.mask_ = _local2.mask_;
 				this._yN_ = _local2._yN_;
 				this._07_ = _local2._07_;
+                if(this.map_.player_ != null && this.skinId_ == 0x0343 && this.map_.player_.objectId_ == this.objectId_) {
+                    Music.reload("IreneCara-WhatAFeeling");
+                }
 			}
 		}
 		public function previewSkin(_arg1:int):void{

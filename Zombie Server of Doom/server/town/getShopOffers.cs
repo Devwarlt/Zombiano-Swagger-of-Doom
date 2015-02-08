@@ -16,7 +16,9 @@ namespace server.town
     <Offer id=""0"" price=""1000"" currency=""0"" image=""house"" offerTitle=""House"" description=""This house increases the capacity from your maximum population by 32."" />
     <Offer id=""1"" price=""500"" currency=""1"" image=""house"" offerTitle=""House"" description=""This house increases the capacity from your maximum population by 16."" />
     <Offer id=""2"" price=""100"" currency=""2"" image=""house"" offerTitle=""House"" description=""This house increases the capacity from your maximum population by 8."" />
-    <Offer id=""3"" price=""5000"" currency=""0"" image=""tradingPost"" offerTitle=""Trading Post"" description=""This makes your village merchantable."" />
+    <Offer id=""3"" price=""50"" currency=""2"" image=""house"" offerTitle=""House"" description=""This house increases the capacity from your maximum population by 4."" />
+    <Offer id=""4"" price=""20"" currency=""2"" image=""house"" offerTitle=""House"" description=""This house increases the capacity from your maximum population by 1."" />
+    <Offer id=""5"" price=""5000"" currency=""0"" image=""tradingPost"" offerTitle=""Trading Post"" description=""This makes your village merchantable."" />
   </Offers>
 </TownShop>");
         }

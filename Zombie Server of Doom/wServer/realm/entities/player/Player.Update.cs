@@ -32,13 +32,10 @@ namespace wServer.realm.entities
             {
                 yield return i.Value;
             }
-            foreach (
-                Decoy i in
-                    Owner.PlayersCollision.HitTest(X, Y, SIGHTRADIUS).OfType<Decoy>().Where(i => _clientEntities.Add(i))
-                )
-            {
-                yield return i;
-            }
+            //foreach (Decoy i in Owner.PlayersCollision.HitTest(X, Y, SIGHTRADIUS).OfType<Decoy>().Where(i => _clientEntities.Add(i)))
+            //{
+            //    yield return i;
+            //}
 
             foreach (Entity i in Owner.EnemiesCollision.HitTest(X, Y, SIGHTRADIUS))
             {

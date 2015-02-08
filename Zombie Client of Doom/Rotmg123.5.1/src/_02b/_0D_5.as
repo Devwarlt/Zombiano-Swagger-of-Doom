@@ -8,7 +8,7 @@ package _02b{
     import _W_D_._0I_H_;
     import _U_5._bo;
     import flash.utils.Timer;
-    import com.company.assembleegameclient.appengine._2n;
+    import com.company.assembleegameclient.appengine.CharWebRequests;
     import WebRequestEvents.WebRequestErrorEvent;
     import com.company.assembleegameclient.appengine.SavedCharsList;
     import _qN_.Account;
@@ -23,10 +23,10 @@ package _02b{
         [Inject]
         public var _08e:_bo;
         private var _Z_w:Timer;
-        private var _0D_b:_2n;
+        private var _0D_b:CharWebRequests;
 
         override protected function startTask():void{
-            this._0D_b = new _2n();
+            this._0D_b = new CharWebRequests();
             this._0D_b.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
             this._0D_b.addEventListener(SavedCharsList.SAVED_CHARS_LIST, this._dM_);
             this._J__();

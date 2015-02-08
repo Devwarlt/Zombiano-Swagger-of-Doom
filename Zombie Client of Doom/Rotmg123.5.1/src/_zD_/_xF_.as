@@ -5,8 +5,12 @@
 
 package _zD_{
     import _C__._cM_;
-    import _F_1.CurrentCharacterScreen;
-    import _W_D_._0I_H_;
+
+import _F_1.CurrentCharacterScreen;
+import _F_1._0H_2;
+import _F_1._C_Q_;
+
+import _W_D_._0I_H_;
     import _P_E_._W_2;
     import _0M_m._00V_;
     import _U_5._7e;
@@ -17,8 +21,6 @@ package _zD_{
     import _02b._fn;
     import com.company.util._0A_s;
     import com.company.assembleegameclient.parameters.Parameters;
-    import _F_1._0H_2;
-    import _F_1._C_Q_;
     import com.company.assembleegameclient.appengine.SavedCharacter;
     import _04w._07V_;
 

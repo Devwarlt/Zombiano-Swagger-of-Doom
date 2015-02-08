@@ -114,13 +114,17 @@ namespace server
                     return;
                 }
 
-                RequestHandler handler;
+                Object handler;
                 Type t;
-                string s = "server" + context.Request.Url.LocalPath.Replace("/", ".");
+                string s;
+                if(context.Request.Url.LocalPath.IndexOf(".") == -1)
+                    s = "server" + context.Request.Url.LocalPath.Replace("/", ".");
+                else
+                    s = "server" + context.Request.Url.LocalPath.Remove(context.Request.Url.LocalPath.IndexOf(".")).Replace("/", ".");
                 if ((t = Type.GetType(s)) == null)
                 {
                     using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
-                        wtr.Write("<Error>Bad request</Error>");
+                        wtr.Write("<Error>Class \"{0}\" not found.</Error>", s);
                 }
 
                 //if (!RequestHandlers.Handlers.TryGetValue(context.Request.Url.LocalPath, out handler))
@@ -130,8 +134,19 @@ namespace server
                 //}
                 else
                 {
-                    handler = Activator.CreateInstance(t, null, null) as RequestHandler;
-                    handler.HandleRequest(context);
+                    handler = Activator.CreateInstance(t, null, null);
+                    if (!(handler is RequestHandler))
+                    {
+                        if(handler == null)
+                            using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
+                                wtr.Write("<Error>Class \"{0}\" not found.</Error>", t.FullName);
+                        else
+                            using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
+                                wtr.Write("<Error>Class \"{0}\" is not of the type RequestHandler.</Error>", t.FullName);
+                    }
+                    else
+                        (handler as RequestHandler).HandleRequest(context);
+                        
                 }
             }
             catch (Exception e)

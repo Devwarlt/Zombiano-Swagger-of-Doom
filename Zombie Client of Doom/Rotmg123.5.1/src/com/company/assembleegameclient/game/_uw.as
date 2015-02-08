@@ -5,16 +5,16 @@
 
 package com.company.assembleegameclient.game{
 
-    import com.company.assembleegameclient.net.messages.data._jg;
+    import com.company.assembleegameclient.net.messages.data.TimedPosition;
 
 
     public class _uw {
 
         public var lastClearTime_:int = -1;
-        public var records_:Vector.<_jg>;
+        public var records_:Vector.<TimedPosition>;
 
         public function _uw(){
-            this.records_ = new Vector.<_jg>();
+            this.records_ = new Vector.<TimedPosition>();
             super();
         }
         public function _F_5(_arg1:int, _arg2:Number, _arg3:Number):void{
@@ -29,14 +29,14 @@ package com.company.assembleegameclient.game{
             }
             if (this.records_.length == 0)
             {
-                this.records_.push(new _jg(_arg1, _arg2, _arg3));
+                this.records_.push(new TimedPosition(_arg1, _arg2, _arg3));
                 return;
             }
-            var _local5:_jg = this.records_[(this.records_.length - 1)];
+            var _local5:TimedPosition = this.records_[(this.records_.length - 1)];
             var _local6:int = this._0E_8(_local5.time_);
             if (_local4 != _local6)
             {
-                this.records_.push(new _jg(_arg1, _arg2, _arg3));
+                this.records_.push(new TimedPosition(_arg1, _arg2, _arg3));
                 return;
             }
             var _local7:int = this._0F_a(_local4, _arg1);

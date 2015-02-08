@@ -64,19 +64,19 @@ package com.company.assembleegameclient.util{
             }
             return (_local9);
         }
-        public static function resize(_arg1:BitmapData, _arg2:BitmapData, _arg3:int, _arg4:Boolean, _arg5:int, _arg6:int, _arg7:int=5):BitmapData{
-            if (((!((_arg2 == null))) && (((!((_arg5 == 0))) || (!((_arg6 == 0)))))))
+        public static function resize(baseData:BitmapData, mask:BitmapData, size:int, _arg4:Boolean, tex1:int, tex2:int, _arg7:int=5):BitmapData{
+            if (((!((mask == null))) && (((!((tex1 == 0))) || (!((tex2 == 0)))))))
             {
-                _arg1 = retexture(_arg1, _arg2, _arg5, _arg6);
-                _arg3 = (_arg3 / 5);
+                baseData = retexture(baseData, mask, tex1, tex2);
+                size = (size / 5);
             }
-            var _local8:Number = ((_arg7 * (_arg3 / 100)) * _arg1.width);
-            var _local9:Number = ((_arg7 * (_arg3 / 100)) * _arg1.height);
+            var _local8:Number = ((_arg7 * (size / 100)) * baseData.width);
+            var _local9:Number = ((_arg7 * (size / 100)) * baseData.height);
             var _local10:Matrix = new Matrix();
-            _local10.scale((_local8 / _arg1.width), (_local9 / _arg1.height));
+            _local10.scale((_local8 / baseData.width), (_local9 / baseData.height));
             _local10.translate(12, 12);
             var _local11:BitmapData = new BitmapData(((_local8 + 12) + 12), ((_local9 + ((_arg4) ? 12 : 1)) + 12), true, 0);
-            _local11.draw(_arg1, _local10);
+            _local11.draw(baseData, _local10);
             return (_local11);
         }
         public static function outlineGlow(_arg1:BitmapData, _arg2:uint, _arg3:uint):BitmapData{

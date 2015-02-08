@@ -6,11 +6,13 @@
 package _zD_{
     import _C__._cM_;
     import _0L_C_._s7;
-    import com.company.assembleegameclient.appengine.SavedCharacter;
+
+import _F_1.CurrentCharacterScreen;
+
+import com.company.assembleegameclient.appengine.SavedCharacter;
     import _02b._0F_A_;
     import _U_5._M_d;
     import _U_5._01W_;
-    import _F_1.CurrentCharacterScreen;
     import _4X_._zU_;
 
     public class _G_9 extends _cM_ {

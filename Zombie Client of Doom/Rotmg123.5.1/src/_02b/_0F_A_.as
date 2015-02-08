@@ -6,7 +6,7 @@
 package _02b{
     import _4X_._zU_;
     import com.company.assembleegameclient.appengine.SavedCharacter;
-    import com.company.assembleegameclient.appengine._2n;
+    import com.company.assembleegameclient.appengine.CharWebRequests;
     import flash.events.Event;
     import WebRequestEvents.WebRequestErrorEvent;
 
@@ -16,7 +16,7 @@ package _02b{
         public var character:SavedCharacter;
 
         override protected function startTask():void{
-            var _local1:_2n = new _2n(2);
+            var _local1:CharWebRequests = new CharWebRequests(2);
             _local1.addEventListener(Event.COMPLETE, this._Q_M_);
             _local1.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
             _local1.deleteCharacter(this.character.charId());

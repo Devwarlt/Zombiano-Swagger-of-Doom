@@ -368,6 +368,7 @@
     <None Include="outpost.jm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="realm\worlds\Village_1.jm" />
     <None Include="todolist.md" />
   </ItemGroup>
   <ItemGroup>

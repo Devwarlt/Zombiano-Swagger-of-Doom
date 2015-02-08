@@ -4,10 +4,10 @@
 //_yY_._pz
 
 package _yY_{
-    import _0K_m._I_b;
+    import Effects.Effect;
     import flash.geom.Point;
 
-    public class _pz extends _I_b {
+    public class _pz extends Effect {
 
         public var start_:Point;
         public var end_:Point;

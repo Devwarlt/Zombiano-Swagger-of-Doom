@@ -4,6 +4,8 @@
 //com.company.assembleegameclient.objects.ObjectLibrary
 
 package com.company.assembleegameclient.objects{
+import _0B_K_._try;
+
 import com.company.assembleegameclient.ui._return;
 import com.company.assembleegameclient.ui.xButton;
 
@@ -50,82 +52,73 @@ import flash.utils.Dictionary;
         public static var _J_G_:Vector.<XML> = new Vector.<XML>();
         public static var _9x:Dictionary = new Dictionary();
 
-        public static function _nY_(_arg1:XML):void{
-            var _local2:XML;
-            var _local3:String;
-            var _local4:String;
-            var _local5:int;
-            var _local6:Boolean;
-            var _local7:int;
-            for each (_local2 in _arg1.Object)
-            {
-                _local3 = String(_local2.@id);
-                _local4 = _local3;
-                if (_local2.hasOwnProperty("DisplayId"))
-                {
-                    _local4 = _local2.DisplayId;
-                }
-                if (_local2.hasOwnProperty("Group"))
-                {
-                    if (_local2.Group == "Hexable")
-                    {
-                        _J_G_.push(_local2);
+        public static function _nY_(_arg1:XML):void {
+            try {
+                var _local2:XML;
+                var _local3:String;
+                var _local4:String;
+                var _local5:int;
+                var _local6:Boolean;
+                var _local7:int;
+                for each (_local2 in _arg1.Object) {
+                    _local3 = String(_local2.@id);
+                    _local4 = _local3;
+                    if (_local2.hasOwnProperty("DisplayId")) {
+                        _local4 = _local2.DisplayId;
                     }
-                }
-                _local5 = int(_local2.@type);
-                _020[_local5] = new ObjectProperties(_local2);
-                Items[_local5] = _local2;
-                _pb[_local3] = _local5;
-                _0D_N_[_local5] = _local4;
-                if (String(_local2.Class) == "Player")
-                {
-                    _9x[_local5] = String(_local2.@id).substr(0, 2);
-                    _local6 = false;
-                    _local7 = 0;
-                    while (_local7 < _tj.length)
-                    {
-                        if (int(_tj[_local7].@type) == _local5)
-                        {
-                            _tj[_local7] = _local2;
-                            _local6 = true;
+                    if (_local2.hasOwnProperty("Group")) {
+                        if (_local2.Group == "Hexable") {
+                            _J_G_.push(_local2);
                         }
-                        _local7++;
                     }
-                    if (!_local6)
-                    {
-                        _tj.push(_local2);
-                    }
-                }
-
-                if (String(_local2.Class) == "Skin")
-                {
-                    _9x[_local5] = String(_local2.@id).substr(0, 2);
-                    _local6 = false;
-                    _local7 = 0;
-                    while (_local7 < skins.length)
-                    {
-                        if (int(skins[_local7].@type) == _local5)
-                        {
-                            skins[_local7] = _local2;
-                            _local6 = true;
+                    _local5 = int(_local2.@type);
+                    _020[_local5] = new ObjectProperties(_local2);
+                    Items[_local5] = _local2;
+                    _pb[_local3] = _local5;
+                    _0D_N_[_local5] = _local4;
+                    if (String(_local2.Class) == "Player") {
+                        _9x[_local5] = String(_local2.@id).substr(0, 2);
+                        _local6 = false;
+                        _local7 = 0;
+                        while (_local7 < _tj.length) {
+                            if (int(_tj[_local7].@type) == _local5) {
+                                _tj[_local7] = _local2;
+                                _local6 = true;
+                            }
+                            _local7++;
                         }
-                        _local7++;
+                        if (!_local6) {
+                            _tj.push(_local2);
+                        }
                     }
-                    if (!_local6)
-                    {
-                        skins.push(_local2);
-                    }
-                }
 
-                _V_a[_local5] = new _Z_H_(_local2);
-                if (_local2.hasOwnProperty("Top"))
-                {
-                    _5Q_[_local5] = new _Z_H_(XML(_local2.Top));
+                    if (String(_local2.Class) == "Skin") {
+                        _9x[_local5] = String(_local2.@id).substr(0, 2);
+                        _local6 = false;
+                        _local7 = 0;
+                        while (_local7 < skins.length) {
+                            if (int(skins[_local7].@type) == _local5) {
+                                skins[_local7] = _local2;
+                                _local6 = true;
+                            }
+                            _local7++;
+                        }
+                        if (!_local6) {
+                            skins.push(_local2);
+                        }
+                    }
+
+                    _V_a[_local5] = new _Z_H_(_local2);
+                    if (_local2.hasOwnProperty("Top")) {
+                        _5Q_[_local5] = new _Z_H_(XML(_local2.Top));
+                    }
+                    if (_local2.hasOwnProperty("Animation")) {
+                        _Q_z[_local5] = new _0F_7(_local2);
+                    }
                 }
-                if (_local2.hasOwnProperty("Animation"))
-                {
-                    _Q_z[_local5] = new _0F_7(_local2);
-                }
+            }
+            catch (e:Error) {
+                trace(e.getStackTrace());
             }
         }
         public static function _6H_(_arg1:int):String{

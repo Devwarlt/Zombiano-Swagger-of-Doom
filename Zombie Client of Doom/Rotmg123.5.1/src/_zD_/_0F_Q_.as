@@ -5,9 +5,11 @@
 
 package _zD_{
     import _C__._cM_;
-    import _F_1.CreditsScreen;
-    import _U_5._dd;
-    import _F_1._C_Q_;
+
+import _F_1.CreditsScreen;
+import _F_1._C_Q_;
+
+import _U_5._dd;
 
     public class _0F_Q_ extends _cM_ {
 
@@ -18,7 +20,6 @@ package _zD_{
 
         override public function initialize():void{
             this.view.close.add(this._0H_N_);
-            this.view.initialize();
         }
         override public function destroy():void{
             this.view.close.remove(this._0H_N_);

@@ -5,8 +5,14 @@
 
 package _zD_{
     import _C__._cM_;
-    import _F_1._3V_;
-    import _W_D_._0I_H_;
+
+import _F_1.CurrentCharacterScreen;
+import _F_1._3V_;
+
+import _F_1._C_Q_;
+import _F_1._U_W_;
+
+import _W_D_._0I_H_;
     import _W_D_._G_J_;
     import _U_5._M_d;
     import _U_5._01W_;
@@ -14,9 +20,6 @@ package _zD_{
     import com.company.assembleegameclient.parameters.Parameters;
     import WebRequestEvents.WebRequestSuccessEvent;
     import WebRequestEvents.WebRequestErrorEvent;
-    import _F_1.CurrentCharacterScreen;
-    import _F_1._C_Q_;
-    import _F_1._U_W_;
 
     public class _fy extends _cM_ {
 

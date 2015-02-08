@@ -18,22 +18,21 @@
     <ThanksTo>Liinkii</ThanksTo>
     <DisplayId>Police Officer</DisplayId>
   </Object>
-  <Object type="0x0343" id="FGT">
-    <Description>Customize your character with this awesome skin.</Description>
+  <Object type="0x0343" id="Unicorn">
+    <Description>???</Description>
     <Skin/>
     <Class>Skin</Class>
     <AnimatedTexture>
-      <File>playerskins</File>
-      <Index>1</Index>
+      <File>playerskins16x16</File>
+      <Index>0</Index>
     </AnimatedTexture>
     <Specials>
-      <Special>Chests are always open.</Special>
+      <Special>U R COOL.</Special>
     </Specials>
     <Unlock>
-      <Rank>2</Rank>
-      <InGameReward>Defeat a zombie horde.</InGameReward>
+      <InGameReward>???</InGameReward>
     </Unlock>
-    <DisplayId>FGT</DisplayId>
+    <DisplayId>Unicorn</DisplayId>
   </Object>
   <Object type="0x0344" id="FGT1">
     <Description>Customize your character with this awesome skin.</Description>

@@ -27,19 +27,19 @@ package ToolTips{
         private var outlineColor:uint;
         private var outlineAlpha:Number;
         private var updatePosition:Boolean;
-        public var _R_A_:int;
-        public var _D_f:int;
+        public var w_:int;
+        public var h_:int;
         private var _vV_:GraphicsSolidFill;
         private var outlineFill_:GraphicsSolidFill;
-        private var _0y:GraphicsStroke;
+        private var stroke_:GraphicsStroke;
         private var path_:GraphicsPath;
 
         public function ToolTip(backgroundColor:uint, backgroundAlpha:Number, outlineColor:uint, outlineAlpha:Number, updatePosition:Boolean=true){
             this._vV_ = new GraphicsSolidFill(0, 1);
             this.outlineFill_ = new GraphicsSolidFill(0xFFFFFF, 1);
-            this._0y = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
+            this.stroke_ = new GraphicsStroke(1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3, this.outlineFill_);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-			this.graphicsData_ = new <IGraphicsData>[_0y, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
+			this.graphicsData_ = new <IGraphicsData>[stroke_, _vV_, path_, GraphicHelper.END_FILL, GraphicHelper._H_B_];
             super();
             this.background_ = backgroundColor;
             this.backgroundAlpha = backgroundAlpha;
@@ -105,10 +105,10 @@ package ToolTips{
             this.outlineFill_.color = this.outlineColor;
             this.outlineFill_.alpha = this.outlineAlpha;
             graphics.clear();
-            this._R_A_ = width;
-            this._D_f = height;
+            this.w_ = width;
+            this.h_ = height;
             GraphicHelper._0L_6(this.path_);
-            GraphicHelper.drawUI(-6, -6, (this._R_A_ + 12), (this._D_f + 12), 4, [1, 1, 1, 1], this.path_);
+            GraphicHelper.drawUI(-6, -6, (this.w_ + 12), (this.h_ + 12), 4, [1, 1, 1, 1], this.path_);
             graphics.drawGraphicsData(this.graphicsData_);
         }
 

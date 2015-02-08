@@ -56,4 +56,17 @@
 	<Region type="0x10" id="Hallway 3">
 		<Color>0x62FFEC</Color>
 	</Region>
+
+	<Region type="0x11" id="House">
+    	<Color>0xC3D490</Color>
+    </Region>
+    <Region type="0x12" id="Shop">
+    	<Color>0xFF00D9</Color>
+    </Region>
+    <Region type="0x13" id="LeaveTown">
+    	<Color>0x19B57F</Color>
+    </Region>
+    <Region type="0x14" id="EnterTown">
+    	<Color>0x15FF00</Color>
+    </Region>
 </Regions>

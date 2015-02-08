@@ -24,6 +24,14 @@ package com.company.assembleegameclient.util{
             return ("");
         }
 
+        public static function parseCredits(credits:int):Object {
+            return {
+                "copper": int((credits - (int((credits / 10000)) * 10000) - (int(((credits - (int((credits / 10000)) * 10000)) / 100)) * 100))),
+                "silver": int(((credits - (int((credits / 10000)) * 10000)) / 100)),
+                "gold": int((credits / 10000)),
+                "totalValue": credits
+            };
+        }
     }
 }//package com.company.assembleegameclient.util
 

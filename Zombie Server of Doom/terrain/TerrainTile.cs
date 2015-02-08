@@ -40,6 +40,11 @@ namespace terrain
         Hallway_2,
         Hallway_3,
         Enemy,
+        
+        House,
+        Shop,
+        LeaveTown,
+        EnterTown
     }
     struct TerrainTile : IEquatable<TerrainTile>
     {

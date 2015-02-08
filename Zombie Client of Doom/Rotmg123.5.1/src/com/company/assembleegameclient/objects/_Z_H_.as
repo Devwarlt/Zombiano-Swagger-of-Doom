@@ -8,7 +8,7 @@ package com.company.assembleegameclient.objects{
     import com.company.assembleegameclient.util._lJ_;
 
     import flash.utils.Dictionary;
-    import _0K_m._D_J_;
+    import Effects._D_J_;
     import com.company.assembleegameclient.util._J_H_;
     import com.company.assembleegameclient.appengine.RemoteTexture;
     import com.company.util.AssetLibrary;

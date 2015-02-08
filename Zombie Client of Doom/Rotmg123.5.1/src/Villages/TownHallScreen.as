@@ -67,6 +67,10 @@ public class TownHallScreen extends Sprite {
         tab.y = 100 - tab.height;
         addChild(tab);
 
+        if(nextTabId == 0) {
+            this.dispatchManagementScreen(tab.holder);
+        }
+
         if(tab.selected) {
             this.selectedTab = tab;
         }
@@ -85,8 +89,11 @@ public class TownHallScreen extends Sprite {
             removeChild(this.currentManagementScreen);
         }
         this.currentManagementScreen = screen;
-        this.currentManagementScreen.x = this.currentManagementScreen.y = 100;
-        addChild(this.currentManagementScreen);
+
+        if(this.currentManagementScreen != null) {
+            this.currentManagementScreen.x = this.currentManagementScreen.y = 100;
+            addChild(this.currentManagementScreen);
+        }
     }
 
     private function onTabClick(event:MouseEvent):void {

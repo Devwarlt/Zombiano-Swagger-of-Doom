@@ -12,7 +12,15 @@ import Villages.ChooseNationScreen;
 import _0_j._kW_;
 
 import _C__._cM_;
+
+import _F_1.CreditsScreen;
+
+import _F_1.CurrentCharacterScreen;
+import _F_1._01_;
+import _F_1._3V_;
+
 import _F_1._C_Q_;
+
 import _W_D_._0I_H_;
 import _U_5._dd;
 import _05Z_._08i;
@@ -23,10 +31,6 @@ import _04w._07V_;
 import _qN_.Account;
 
 import com.company.assembleegameclient.parameters.Parameters;
-    import _F_1.CurrentCharacterScreen;
-    import _F_1.CreditsScreen;
-    import _F_1._01_;
-    import _F_1._3V_;
     import _D_d._hj;
     import flash.events.Event;
     import flash.system.fscommand;

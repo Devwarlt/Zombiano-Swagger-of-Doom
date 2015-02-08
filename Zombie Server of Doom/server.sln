@@ -26,8 +26,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientLoader", "ClientLoade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testUdpClient", "testUdpClient\testUdpClient.csproj", "{B4734900-E81E-4FD3-877A-3A4B9811E3F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testitest", "testitest\testitest.csproj", "{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -118,16 +116,6 @@ Global
 		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B4734900-E81E-4FD3-877A-3A4B9811E3F0}.Release|x86.ActiveCfg = Release|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{3D6114EB-6F20-411D-8B14-7B579A7BCDE2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
