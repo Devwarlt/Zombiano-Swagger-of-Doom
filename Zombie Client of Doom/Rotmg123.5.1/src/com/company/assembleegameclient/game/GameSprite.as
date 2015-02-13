@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //com.company.assembleegameclient.game.GameSprite
@@ -64,7 +78,7 @@ import com.company.assembleegameclient.map._0D_v;
         public var _0H_R_:_0H__;
         public var _pg:_0G_h;
         public var _4v:_L_N_;
-        public var _H_t:CreditsUI;
+        public var creditsUI:CreditsUI;
         public var _3c:Boolean;
         public var lastUpdate_:int = 0;
         public var moveRecords_:_uw;
@@ -126,12 +140,13 @@ import com.company.assembleegameclient.map._0D_v;
             addChild(this.interactiveText);
         }
         public function pause():void {
+            if(map == null || map.player_ == null) return;
             if (!getChildByName("PauseMenu")) {
                 if (!map.player_.isPaused())
-                    packetManager._C_k("/pause");
+                    packetManager.playerText("/pause");
                 var pauseMenu:PauseMenu = new PauseMenu(this);
                 pauseMenu.addEventListener(Event.COMPLETE, function (e:Event):void {
-                    packetManager._C_k("/pause");
+                    packetManager.playerText("/pause");
                     removeChild(pauseMenu);
                 });
                 addChild(pauseMenu);
@@ -140,10 +155,10 @@ import com.company.assembleegameclient.map._0D_v;
         public function initialize():void{
             this.map_.initialize();
             this._V_1.initialize();
-            this._H_t = new CreditsUI(this);
-            this._H_t.x = 594;
-            this._H_t.y = 0;
-            addChild(this._H_t);
+            this.creditsUI = new CreditsUI(this);
+            this.creditsUI.x = 594;
+            this.creditsUI.y = 0;
+            addChild(this.creditsUI);
             if (this.map_.showDisplays_)
             {
                 this._pg = new _0G_h(-1, true, false);
@@ -261,13 +276,8 @@ import com.company.assembleegameclient.map._0D_v;
         private function _L_u(_arg1:Event):void{
             this.packetManager._0J_l();
         }
-        public function isInSafePlace():Boolean{
-            var _local1:Boolean;
-            if (this.map_.name_ == "Nexus" || this.map_.name_ == "Vault" || this.map_.name_ == "Guild Hall")
-            {
-                return (true);
-            }
-            return (false);
+        public function isInSafePlace():Boolean {
+            return this.map_.name_ == "Nexus" || this.map_.name_ == "Vault" || this.map_.name_ == "Guild Hall";
         }
         private function onEnterFrame(_arg1:Event):void{
             var _local5:Number;
@@ -294,7 +304,7 @@ import com.company.assembleegameclient.map._0D_v;
             {
                 this._on._K_g(_local4);
                 this.map_.draw(this._on, _local2);
-                this._H_t.draw(_local4.credits_);
+                this.creditsUI.draw(_local4.credits_);
                 this._V_1.draw();
                 if (this.map_.showDisplays_)
                 {

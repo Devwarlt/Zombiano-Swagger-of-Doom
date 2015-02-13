@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //com.company.assembleegameclient.game._07a
@@ -8,7 +22,7 @@ import Achievements.BasicAchievement;
 
 import DoubleSunPower.Unicorn;
 
-import EasterEgg.EasterEggHandler;
+import EasterEggs.EasterEggHandler;
 
 import Frames.GiftViewFrame;
 import OptionsStuff.Options;
@@ -33,8 +47,8 @@ import com.company.assembleegameclient.tutorial.doneAction;
 import com.company.assembleegameclient.ui.Battery;
 import com.company.assembleegameclient.ui.FrameHolder;
 import com.company.assembleegameclient.util.TextureRedrawer;
-import com.company.util._H_V_;
-import com.company.util._H_V_;
+import com.company.util.Keys;
+import com.company.util.Keys;
 
 import flash.display.Stage;
 import flash.display.StageDisplayState;
@@ -73,7 +87,7 @@ public class _07a {
     public function _07a(_arg1:GameSprite){
         this.gs_ = _arg1;
         this._lD_ = new Timer(_0_X_, 1);
-        this.unicornEasterEgg = new EasterEggHandler(new <uint>[_H_V_.I, _H_V_.A, _H_V_.M, _H_V_.A, _H_V_.U, _H_V_.N, _H_V_.I, _H_V_.C, _H_V_.O, _H_V_.R, _H_V_.N], this.onUnicornFound, false);
+        this.unicornEasterEgg = new EasterEggHandler(new <uint>[Keys.I, Keys.A, Keys.M, Keys.A, Keys.U, Keys.N, Keys.I, Keys.C, Keys.O, Keys.R, Keys.N], this.onUnicornFound, false);
         this._lD_.addEventListener(TimerEvent.TIMER_COMPLETE, this._0C_J_);
         this.gs_.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         this.gs_.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
@@ -202,19 +216,19 @@ public class _07a {
         var _local2:Stage = this.gs_.stage;
         switch (_arg1.keyCode)
         {
-            case _H_V_.F1:
-            case _H_V_.F2:
-            case _H_V_.F3:
-            case _H_V_.F4:
-            case _H_V_.F5:
-            case _H_V_.F6:
-            case _H_V_.F7:
-            case _H_V_.F8:
-            case _H_V_.F9:
-            case _H_V_.F10:
-            case _H_V_.F11:
-            case _H_V_.F12:
-            case _H_V_.INSERT:
+            case Keys.F1:
+            case Keys.F2:
+            case Keys.F3:
+            case Keys.F4:
+            case Keys.F5:
+            case Keys.F6:
+            case Keys.F7:
+            case Keys.F8:
+            case Keys.F9:
+            case Keys.F10:
+            case Keys.F11:
+            case Keys.F12:
+            case Keys.INSERT:
                 break;
             default:
                 if (_local2.focus != null)
@@ -315,7 +329,7 @@ public class _07a {
             case Parameters.data_.openGifts:
                 this.gs_.addChild(new FrameHolder(new GiftViewFrame(this.gs_, this.gs_.charList_)));
                 break;
-            case _H_V_.J:
+            case Keys.J:
                 this.gs_.pause();
                 break;
             case Parameters.data_.toggleFullscreen:
@@ -335,13 +349,13 @@ public class _07a {
         {
             switch (_arg1.keyCode)
             {
-                case _H_V_.F2:
+                case Keys.F2:
                     this._0D_2();
                     break;
-                case _H_V_.F3:
+                case Keys.F3:
                     Parameters._ih = !(Parameters._ih);
                     break;
-                case _H_V_.F4:
+                case Keys.F4:
                     this.gs_.map_.mapOverlay_.visible = !(this.gs_.map_.mapOverlay_.visible);
                     this.gs_.map_.partyOverlay_.visible = !(this.gs_.map_.partyOverlay_.visible);
                     break;
@@ -351,12 +365,12 @@ public class _07a {
         {
             switch (_arg1.keyCode)
             {
-                case _H_V_.F6:
+                case Keys.F6:
                     TextureRedrawer.clearCache();
                     Parameters._Q_b = ((Parameters._Q_b + 1) % 7);
                     this.gs_.textBox_.addText(Parameters.SendError, ("Projectile Color Type: " + Parameters._Q_b));
                     break;
-                case _H_V_.F7:
+                case Keys.F7:
                     for each (_local4 in this.gs_.map_.squares_)
                     {
                         if (_local4 != null)
@@ -367,16 +381,13 @@ public class _07a {
                     Parameters._R_P_ = ((Parameters._R_P_ + 1) % 2);
                     this.gs_.textBox_.addText(Parameters.SendClient, ("Blend type: " + Parameters._R_P_));
                     break;
-                case _H_V_.F8:
-                    Parameters.data_.surveyDate = 0;
-                    Parameters.data_.needsSurvey = true;
-                    Parameters.data_.playTimeLeftTillSurvey = 5;
-                    Parameters.data_.surveyGroup = "testing";
+                case Keys.F8:
+
                     break;
-                case _H_V_.F9:
+                case Keys.F9:
                     Parameters._Q_w = !(Parameters._Q_w);
                     break;
-                case _H_V_.F12:
+                case Keys.F12:
                     this.gs_.textBox_.addText(Parameters.SendInfo, "Server Chat");
                     this.gs_.textBox_.addText(Parameters.SendClient, "Client Chat");
                     this.gs_.textBox_.addText(Parameters.SendHelp, "Help Chat");
@@ -390,11 +401,11 @@ public class _07a {
                     this.gs_.textBox_._ro("Crunchy", -1, 5, "", "Premium Chat", true);
                     this.gs_.textBox_._ro("Crunchy", -1, 0, Parameters.SendGuild, "Guild Chat");
                     break;
-                case _H_V_.C:
+                case Keys.C:
                     this.gs_.textBox_.addText(Parameters.SendError, "Cheated");
                     _local3.attack_ = 100;
                     break;
-                case _H_V_.H:
+                case Keys.H:
                         this.gs_.stage.addChild(new TownHallScreen([1, 10]));
                     //this.gs_.addChild(new TownHallScreen([1, 10]));
                     //if(fgt == null) {

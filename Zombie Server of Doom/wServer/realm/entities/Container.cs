@@ -32,42 +32,22 @@ namespace wServer.realm.entities
         public Inventory Inventory { get; private set; }
         public int[] BagOwners { get; set; }
 
-        protected override void ImportStats(StatsType stats, object val)
+        protected override void ExportEntityStats()
         {
-            switch (stats)
-            {
-                case StatsType.Inventory0: Inventory[0] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory1: Inventory[1] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory2: Inventory[2] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory3: Inventory[3] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory4: Inventory[4] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory5: Inventory[5] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory6: Inventory[6] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory7: Inventory[7] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory8: Inventory[8] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory9: Inventory[9] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory10: Inventory[10] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.Inventory11: Inventory[11] = (int)val == -1 ? null : Manager.GameData.Items[(ushort)(int)val]; break;
-                case StatsType.OwnerAccountId: break;// BagOwner = (int)val == -1 ? (int?)null : (int)val; break;
-            }
-            base.ImportStats(stats, val);
-        }
-        protected override void ExportStats(IDictionary<StatsType, object> stats)
-        {
-            stats[StatsType.Inventory0] = (Inventory[0] != null ? Inventory[0].ObjectType : -1);
-            stats[StatsType.Inventory1] = (Inventory[1] != null ? Inventory[1].ObjectType : -1);
-            stats[StatsType.Inventory2] = (Inventory[2] != null ? Inventory[2].ObjectType : -1);
-            stats[StatsType.Inventory3] = (Inventory[3] != null ? Inventory[3].ObjectType : -1);
-            stats[StatsType.Inventory4] = (Inventory[4] != null ? Inventory[4].ObjectType : -1);
-            stats[StatsType.Inventory5] = (Inventory[5] != null ? Inventory[5].ObjectType : -1);
-            stats[StatsType.Inventory6] = (Inventory[6] != null ? Inventory[6].ObjectType : -1);
-            stats[StatsType.Inventory7] = (Inventory[7] != null ? Inventory[7].ObjectType : -1);
-            stats[StatsType.Inventory8] = (Inventory[8] != null ? Inventory[8].ObjectType : -1);
-            stats[StatsType.Inventory9] = (Inventory[9] != null ? Inventory[9].ObjectType : -1);
-            stats[StatsType.Inventory10] = (Inventory[10] != null ? Inventory[10].ObjectType : -1);
-            stats[StatsType.Inventory11] = (Inventory[11] != null ? Inventory[11].ObjectType : -1);
-            stats[StatsType.OwnerAccountId] = BagOwners.Length == 1 ? BagOwners[0] : -1;
-            base.ExportStats(stats);
+            ExportStatIfChanged(StatsType.Inventory0, (Inventory[0] != null ? Inventory[0].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory1, (Inventory[1] != null ? Inventory[1].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory2, (Inventory[2] != null ? Inventory[2].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory3, (Inventory[3] != null ? Inventory[3].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory4, (Inventory[4] != null ? Inventory[4].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory5, (Inventory[5] != null ? Inventory[5].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory6, (Inventory[6] != null ? Inventory[6].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory7, (Inventory[7] != null ? Inventory[7].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory8, (Inventory[8] != null ? Inventory[8].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory9, (Inventory[9] != null ? Inventory[9].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory10, (Inventory[10] != null ? Inventory[10].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory11, (Inventory[11] != null ? Inventory[11].ObjectType : -1));
+            ExportStatIfChanged(StatsType.OwnerAccountId, BagOwners.Length == 1 ? BagOwners[0] : -1);
+            base.ExportEntityStats();
         }
 
         public override void Tick(RealmTime time)

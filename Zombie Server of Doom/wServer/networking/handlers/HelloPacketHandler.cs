@@ -17,6 +17,12 @@ namespace wServer.networking.handlers
                 return;
             }
 
+            if (packet.IsDebugClient && !Program.Settings.GetValue<bool>("allowDebugClients", "false"))
+            {
+                SendFailure("Debug Clients are not allowed.");
+                return;
+            }
+
             Account acc = client.Manager.Database.Verify(packet.GUID, packet.Password);
             if (acc == null)
             {
@@ -29,7 +35,7 @@ namespace wServer.networking.handlers
                 //    return;
                 //}
             }
-
+            client.Debug = packet.IsDebugClient;
             client.Account = acc;
             if (!client.Manager.TryConnect(client))
             {

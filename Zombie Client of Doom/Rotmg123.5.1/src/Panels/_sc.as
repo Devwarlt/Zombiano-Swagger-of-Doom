@@ -1,4 +1,18 @@
-﻿package Panels {
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+package Panels {
 
 import Sounds.LocalSoundEffects;
 import Sounds.LocalSounds;
@@ -10,7 +24,7 @@ import com.company.assembleegameclient.ui.Slot;
 import com.company.assembleegameclient.ui.Inventory;
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.Container;
-import com.company.util._H_V_;
+import com.company.util.Keys;
 
 import flash.events.Event;
 import flash.events.KeyboardEvent;
@@ -50,7 +64,7 @@ public class _sc extends Panel {
         var itemName:String;
         if((itemName = resolveItemName()) != null) {
             if(this.gs_.map_.player_.equipment_.indexOf(-1) > -1)
-                this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to pick up: " + itemName);
+                this.gs_.dispatchInteractiveObject("Press [" + Keys.KeyNames[Parameters.data_.interact] + "] to pick up: " + itemName);
             else
                 this.gs_.dispatchInteractiveObject("Inventory Full!");
         }
@@ -79,7 +93,7 @@ public class _sc extends Panel {
                     var itemName:String;
                     if((itemName = resolveItemName(index)) != null) {
                         if(this.gs_.map_.player_.equipment_.indexOf(-1) > -1)
-                            this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to pick up: " + itemName);
+                            this.gs_.dispatchInteractiveObject("Press [" + Keys.KeyNames[Parameters.data_.interact] + "] to pick up: " + itemName);
                         else
                             this.gs_.dispatchInteractiveObject("Inventory Full!");
                     }

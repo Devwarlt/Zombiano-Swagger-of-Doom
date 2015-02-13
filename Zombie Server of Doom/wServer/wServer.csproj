@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Country.cs" />
     <Compile Include="FireAnalytics.cs" />
+    <Compile Include="IServer.cs" />
     <Compile Include="logic\db\BehaviorDb.Lithium.cs" />
     <Compile Include="networking\Client.cs" />
     <Compile Include="networking\cliPackets\ClientPacket.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="realm\entities\player\Player.Networking.cs" />
     <Compile Include="realm\VisibilityManager.cs" />
     <Compile Include="realm\WeatherManager.cs" />
+    <Compile Include="realm\worlds\TownMap.cs" />
     <Compile Include="TCPServer.cs" />
     <Compile Include="realm\Collision.cs" />
     <Compile Include="realm\entities\Character.cs">
@@ -355,6 +357,7 @@
     <Compile Include="UDPServer.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Vector2.cs" />
+    <Compile Include="Village.cs" />
     <Compile Include="wRandom.cs" />
   </ItemGroup>
   <ItemGroup>

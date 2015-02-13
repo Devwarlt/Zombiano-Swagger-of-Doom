@@ -1,63 +1,61 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
-// http://www.as3sorcerer.com/
-
-//WebMain
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 package {
+import EasterEggs.EasterEggHandler;
+import EasterEggs.EasterEggs.DoubleSunPower;
+import EasterEggs.EasterEggs.EasterEgg;
+import EasterEggs.EasterEggs.EasterEggEvent;
+import EasterEggs.EasterEggs.I_Kissed_A_Girl_EasterEgg;
+import EasterEggs.EasterEggs.RobotUnicornAttack;
+
 import YouTube.YouTubePlayer;
 
 import _05G_._X_G_;
-
 import _0_p._L_y;
-
 import _9u._074;
-
 import _C_5._tt;
-
 import _C__._07U_;
-
 import _G_A_._8P_;
 import _G_A_._F_y;
-
 import _I_j._V_4;
-
 import _R_Q_._0K_S_;
-
 import _T_o._083;
-
 import _U_._K_a;
-
 import _U_5._D_c;
 
 import com.company.assembleegameclient.parameters.Parameters;
-import com.company.util._H_V_;
+import com.company.util.Keys;
 
 import flash.desktop.NativeApplication;
-
 import flash.desktop.SystemIdleMode;
-
+import flash.display.DisplayObject;
 import flash.display.Sprite;
-import flash.display.Stage;
 import flash.display.StageScaleMode;
 import flash.events.*;
 import flash.system.Capabilities;
-import flash.system.Security;
 
 [SWF(width="800", height="600", backgroundColor="#000000", frameRate="60")]
 public class WebMain extends Sprite {
 
-    //public static var sStage:Stage;
-    //public static var sWidth:Number = 1000;
-    //public static var sHeight:Number = 800;
-
     private var context:_L_y;
-
     private var yt:YouTubePlayer;
 
-    public function WebMain() {
-        //Security.allowDomain("*", "www.youtube.com");
-        //Security.allowInsecureDomain("*", "www.youtube.com");
+    private static var currentEasterEgg:DisplayObject;
+    private static var eggs:Vector.<EasterEgg>;
 
+    public function WebMain() {
         if (stage)
         {
             playYt();
@@ -95,7 +93,7 @@ public class WebMain extends Sprite {
     }
 
     private function onKeyDown(event:KeyboardEvent):void {
-        if(event.keyCode == _H_V_.ESCAPE) {
+        if(event.keyCode == Keys.ESCAPE) {
             yt.stop();
         }
     }
@@ -104,6 +102,11 @@ public class WebMain extends Sprite {
         //this keeps the screen active (required for android and ios only)
         NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
         //NativeApplication.nativeApplication.menu = null;
+
+        EasterEggHandler.setup(this);
+        EasterEggHandler.registerEasterEgg(new I_Kissed_A_Girl_EasterEgg(stage));
+        EasterEggHandler.registerEasterEgg(new DoubleSunPower(stage));
+        EasterEggHandler.registerEasterEgg(new RobotUnicornAttack(stage));
 
         if(yt != null) removeChild(yt);
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
@@ -125,7 +128,6 @@ public class WebMain extends Sprite {
             Parameters.save();
         }
     }
-
 }
-}//package 
+}
 

@@ -11,9 +11,15 @@ namespace wServer.realm
     {
         static ILog log = LogManager.GetLogger(typeof(Entity));
 
+        private Dictionary<StatsType, object> m_old_stats;
+        private Dictionary<StatsType, object> m_new_stats;
+
         public RealmManager Manager { get; private set; }
         protected Entity(RealmManager manager, ushort objType)
         {
+            this.m_old_stats = new Dictionary<StatsType, object>();
+            this.m_new_stats = new Dictionary<StatsType, object>();
+
             this.ObjectType = objType;
             Name = "";
             Size = 100;
@@ -66,42 +72,46 @@ namespace wServer.realm
         public int Size { get; set; }
         public ConditionEffects ConditionEffects { get; set; }
 
-
-        protected virtual void ImportStats(StatsType stats, object val)
+        protected virtual void ExportEntityStats()
         {
-            if (stats == StatsType.Name) Name = (string)val;
-            else if (stats == StatsType.Size) Size = (int)val;
-            else if (stats == StatsType.Effects) ConditionEffects = (ConditionEffects)(int)val;
+            ExportStatIfChanged(StatsType.Name, Name ?? "");
+            ExportStatIfChanged(StatsType.Size, Size);
+            ExportStatIfChanged(StatsType.Effects, (int)ConditionEffects);
         }
 
-        protected virtual void ExportStats(IDictionary<StatsType, object> stats)
+        protected void ExportStatIfChanged(StatsType type, object value)
         {
-            stats[StatsType.Name] = Name ?? "";
-            stats[StatsType.Size] = Size;
-            stats[StatsType.Effects] = (int)ConditionEffects;
-        }
-
-        public void FromDefinition(ObjectDef def)
-        {
-            ObjectType = def.ObjectType;
-            ImportStats(def.Stats);
-        }
-        public void ImportStats(ObjectStats stat)
-        {
-            Id = stat.Id;
-            (this is Enemy ? Owner.EnemiesCollision : Owner.PlayersCollision)
-                .Move(this, stat.Position.X, stat.Position.Y);
-            X = stat.Position.X;
-            Y = stat.Position.Y;
-            foreach (var i in stat.Stats)
-                ImportStats(i.Key, i.Value);
-            UpdateCount++;
+            if (value == null) return;
+            if (!this.m_new_stats.ContainsKey(type))
+                this.m_new_stats.Add(type, value);
+            else
+            {
+                if (this.m_new_stats[type] != value)
+                    this.m_new_stats[type] = value;
+            }
         }
 
         public ObjectStats ExportStats()
         {
-            var stats = new Dictionary<StatsType, object>();
-            ExportStats(stats);
+            ExportEntityStats();
+            Dictionary<StatsType, object> stats = new Dictionary<StatsType, object>();
+
+            foreach (var stat in this.m_new_stats)
+            {
+                if (stat.Value == null) continue;
+
+                if (!this.m_old_stats.ContainsKey(stat.Key))
+                {
+                    stats.Add(stat.Key, stat.Value);
+                    this.m_old_stats.Add(stat.Key, stat.Value);
+                }
+                else if (!this.m_old_stats[stat.Key].Equals(stat.Value))
+                {
+                    stats.Add(stat.Key, stat.Value);
+                    this.m_old_stats[stat.Key] = stat.Value;
+                }
+            }
+
             return new ObjectStats()
             {
                 Id = Id,
@@ -296,6 +306,7 @@ namespace wServer.realm
                 case "GuildMerchant":
                     return new SellableObject(manager, id);
 
+                case "VillageRegister":
                 case "CraftingTerminal":
                 case "Forge":
                 case "Door":

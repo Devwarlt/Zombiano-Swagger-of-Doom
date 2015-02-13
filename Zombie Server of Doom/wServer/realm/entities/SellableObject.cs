@@ -24,19 +24,12 @@ namespace wServer.realm.entities
         public CurrencyType Currency { get; set; }
         public int RankReq { get; set; }
 
-        protected override void ExportStats(IDictionary<StatsType, object> stats)
+        protected override void ExportEntityStats()
         {
-            stats[StatsType.SellablePrice] = Price;
-            stats[StatsType.SellablePriceCurrency] = (int)Currency;
-            stats[StatsType.SellableRankRequirement] = RankReq;
-            base.ExportStats(stats);
-        }
-        protected override void ImportStats(StatsType stats, object val)
-        {
-            if (stats == StatsType.SellablePrice) Price = (int)val;
-            else if (stats == StatsType.SellablePriceCurrency) Currency = (CurrencyType)(int)val;
-            else if (stats == StatsType.SellableRankRequirement) RankReq = (int)val;
-            base.ImportStats(stats, val);
+            ExportStatIfChanged(StatsType.SellablePrice, Price);
+            ExportStatIfChanged(StatsType.SellablePriceCurrency, (int)Currency);
+            ExportStatIfChanged(StatsType.SellableRankRequirement, RankReq);
+            base.ExportEntityStats();
         }
 
         protected bool TryDeduct(Player player)

@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //com.company.assembleegameclient.net.PacketManager
@@ -256,7 +270,7 @@ import flash.events.TimerEvent;
         public static const CLIENTSTAT:int = 75;
         public static const CHECKCREDITS:int = 48;
         public static const ESCAPE:int = 42;
-        public static const _02h:int = 55;
+        public static const FILE:int = 55;
         public static const INVITEDTOGUILD:int = 77;
         public static const JOINGUILD:int = 5;
         public static const CHANGEGUILDRANK:int = 40;
@@ -375,7 +389,7 @@ import flash.events.TimerEvent;
             this.serverConn.registerPacket(CLIENTSTAT, _0F_u, this._oA_);
             this.serverConn.registerPacket(CHECKCREDITS, CheckCreditsPacket, null);
             this.serverConn.registerPacket(ESCAPE, EscapePacket, null);
-            this.serverConn.registerPacket(_02h, File, this._J_0);
+            this.serverConn.registerPacket(FILE, File, this._J_0);
             this.serverConn.registerPacket(INVITEDTOGUILD, InvitedToGuild, this._cS_);
             this.serverConn.registerPacket(JOINGUILD, JoinVillagePacket, null);
             this.serverConn.registerPacket(CHANGEGUILDRANK, ChangeVillageRankPacket, null);
@@ -396,11 +410,6 @@ import flash.events.TimerEvent;
         }
         public function connect():void{
             this.gs_.textBox_.addText(Parameters.SendClient, ("Connecting to " + this.server_.name_));
-            if (Parameters.cryptPackets)
-            {
-                //this.serverConn._7s("rc4", _L_2._Z_S_(Parameters.RANDOM1));
-                //this.serverConn._wH_("rc4", _L_2._Z_S_(Parameters.RANDOM2));
-            }
             this.serverConn.connect(this.server_.host_, this.server_.port_);
         }
         public function getNextDamage(_arg1:uint, _arg2:uint):uint{
@@ -494,7 +503,7 @@ import flash.events.TimerEvent;
             _local2.time_ = _arg1;
             this.serverConn.sendPacket(_local2);
         }
-        public function _C_k(_arg1:String):void{
+        public function playerText(_arg1:String):void{
             var _local2:PlayerTextPacket = (this.serverConn.createPacketFromID(PLAYERTEXT) as PlayerTextPacket);
             _local2.text_ = _arg1;
             this.serverConn.sendPacket(_local2);
@@ -1556,10 +1565,10 @@ import flash.events.TimerEvent;
             this.gs_.textBox_.addText(Parameters.SendError, _arg1.errorText_);
             this.gs_.dispatchEvent(new VillageResultEvent(_arg1.success_, _arg1.errorText_));
         }
-        private function _oA_(_arg1:_0F_u):void{
+        private function _oA_(_arg1:_0F_u):void {
             Account._get().reportIntStat(_arg1.name_, _arg1.value_);
         }
-        private function _J_0(_arg1:File):void{
+        private function _J_0(_arg1:File):void {
             new FileReference().save(_arg1.file_, _arg1.filename_);
         }
         private function _cS_(_arg1:InvitedToGuild):void{

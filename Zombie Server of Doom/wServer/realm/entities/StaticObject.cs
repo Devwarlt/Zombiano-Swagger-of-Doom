@@ -31,18 +31,13 @@ namespace wServer.realm.entities
             Hittestable = hittestable;
         }
 
-        protected override void ExportStats(IDictionary<StatsType, object> stats)
+        protected override void ExportEntityStats()
         {
             if (!Vulnerable)
-                stats[StatsType.HP] = int.MaxValue;
+                ExportStatIfChanged(StatsType.HP, int.MaxValue);
             else
-                stats[StatsType.HP] = HP;
-            base.ExportStats(stats);
-        }
-        protected override void ImportStats(StatsType stats, object val)
-        {
-            if (stats == StatsType.HP) HP = (int)val;
-            base.ImportStats(stats, val);
+                ExportStatIfChanged(StatsType.HP, HP);
+            base.ExportEntityStats();
         }
 
         protected bool CheckHP()

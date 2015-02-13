@@ -10,7 +10,7 @@ using wServer.realm;
 
 namespace wServer
 {
-    public class UDPServer
+    public class UDPServer : IServer
     {
         private const int LISTEN_PORT = 2050;
         private UdpClient listener;

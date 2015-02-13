@@ -42,7 +42,7 @@ namespace wServer.realm.entities
 
         internal void HandleHunger(RealmTime time)
         {
-            if (HasConditionEffect(ConditionEffects.Paused)) return;
+            if (HasConditionEffect(ConditionEffects.Paused) || Client.Debug) return;
             if (_hungertime <= 0)
             {
                 Hunger -= 10;

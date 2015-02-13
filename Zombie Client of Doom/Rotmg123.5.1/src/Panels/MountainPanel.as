@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //Panels.PortalPanel
@@ -13,7 +27,7 @@ import com.company.ui.SimpleText;
 import com.company.assembleegameclient.ui._4D_;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.game.GameSprite;
-import com.company.util._H_V_;
+import com.company.util.Keys;
 
 import flash.display.Bitmap;
 import flash.display.Sprite;
@@ -66,7 +80,7 @@ import flash.events.KeyboardEvent;
             this.bitmapSprite.x = 10;
             this.bitmapSprite.y = ((HEIGHT / 2) - (this.bitmapSprite.height / 2));
             stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
-            this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
+            this.gs_.dispatchInteractiveObject("Press [" + Keys.KeyNames[Parameters.data_.interact] + "] to interact.");
 
             this.bitmapSprite.addEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
             this.bitmapSprite.addEventListener(MouseEvent.MOUSE_OUT, this.onMouseOut);

@@ -11,11 +11,18 @@ namespace wServer.networking.handlers
     {
         protected override void HandlePacket(Client client, CreateVillagePacket packet)
         {
-            client.SendPacket(new CreateVillageResultPacket
+            if (client.Player.Village == default(Village))
             {
-                Success = false,
-                ErrorMessage = "Not implemented yet"
-            });
+                
+            }
+            else
+            {
+                client.SendPacket(new CreateVillageResultPacket
+                {
+                    Success = false,
+                    ErrorMessage = "You are already in a village"
+                });
+            }
         }
 
         public override PacketID ID

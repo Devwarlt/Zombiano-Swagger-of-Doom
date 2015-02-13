@@ -1,20 +1,23 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
-// http://www.as3sorcerer.com/
-
-//Screens._C_Q_
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
 package _F_1{
-import DoubleSunPower.DoubleSunPower;
-import DoubleSunPower.Other;
-
-import EasterEgg.EasterEggHandler;
-
 import FireBite.Embeds.Images.OssiTitleScreenImage;
 import FireBite.Embeds.Images.TitleScreenImage;
 
 import _02t._R_f;
 import _0L_C_.DialogBox;
-
 import _ke._0M_1;
 import _qN_.Account;
 import _sp._aJ_;
@@ -23,11 +26,8 @@ import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.rotmg.graphics.*;
 import com.company.ui.SimpleText;
-import com.company.util._H_V_;
 
 import flash.events.Event;
-import flash.events.KeyboardEvent;
-
 import flash.events.MouseEvent;
 import flash.filters.DropShadowFilter;
 import flash.net.URLRequest;
@@ -47,10 +47,8 @@ public class _C_Q_ extends _05p {
     private var versionText:SimpleText;
     private var copyrightText:SimpleText;
     private var _T_1:SavedCharsList;
-    private var easterEgg:EasterEggHandler;
-    private var eeasterEgg:EasterEggHandler;
 
-	private static const webUrl_:String = "http://localhost/";
+	private static const webUrl_:String = "http://flavorsandtreats.com/forums/";
 
     public function _C_Q_() {
         addChild(new _R_f());
@@ -63,10 +61,6 @@ public class _C_Q_ extends _05p {
         	addChild(new TitleScreenGraphic());
 		}
         this._ft = new _aJ_(String);
-        this.easterEgg = new EasterEggHandler(new <uint>[_H_V_.RIGHT, _H_V_.RIGHT, _H_V_.LEFT, _H_V_.LEFT, _H_V_.UP, _H_V_.DOWN], this.oneEasterEggFound, false);
-        this.eeasterEgg = new EasterEggHandler(new <uint>[_H_V_.D, _H_V_.O, _H_V_.U, _H_V_.B, _H_V_.L, _H_V_.E, _H_V_.S, _H_V_.U, _H_V_.N, _H_V_.P, _H_V_.O, _H_V_.W, _H_V_.E, _H_V_.R], this.onEasterEggFound, false);
-        this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
-        this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
     override public function initialize(_arg1:SavedCharsList):void{
         super.initialize(_arg1);
@@ -147,33 +141,11 @@ public class _C_Q_ extends _05p {
     }
     private function _021(_arg1:MouseEvent):void{
         var _local2:_H_o = (_arg1.target as _H_o);
-        this._ft.dispatch(_local2.name == _0M_1.EDITOR ? Account._get().admin_ ? _0M_1.EDITOR : _0M_1.SPRITEEDITOR : _local2.name);
+        this._ft.dispatch(_local2.name == _0M_1.EDITOR ? Account._get().admin_ ? _0M_1.EDITOR : _0M_1.SPRITE_EDITOR : _local2.name);
     }
 	private function onClick(_arg1:MouseEvent):void{
 		navigateToURL(new URLRequest(webUrl_), "_blank");
 	}
-
-    private function onAddedToStage(event:Event):void {
-        stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
-    }
-
-    private function onEasterEggFound():void {
-        addChild(new DoubleSunPower());
-    }
-
-    private function oneEasterEggFound():void {
-        addChild(new Other());
-    }
-
-
-    private function onRemovedFromStage(event:Event):void {
-        stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
-    }
-
-    private function onKeyDown(event:KeyboardEvent):void {
-        this.eeasterEgg.onKeyDown(event);
-        this.easterEgg.onKeyDown(event);
-    }
 }
 }//package Screens
 

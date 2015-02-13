@@ -12,7 +12,7 @@ namespace wServer
 {
     static class Program
     {
-        public static UDPServer Server { get; set; }
+        public static IServer Server { get; set; }
 
         internal static SimpleSettings Settings;
 
@@ -37,7 +37,7 @@ namespace wServer
                 manager.Run();
 
                 //Server = new UDPServer(manager);
-                TCPServer Server = new TCPServer(manager, 2050);
+                Server = new TCPServer(manager, 2050);
                 PolicyServer policy = new PolicyServer();
 
                 Console.CancelKeyPress += (sender, e) => e.Cancel = true;

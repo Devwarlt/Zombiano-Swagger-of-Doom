@@ -8,7 +8,7 @@ using wServer.realm;
 
 namespace wServer
 {
-    class TCPServer
+    public class TCPServer : IServer
     {
         public const string BUILD_VERSION = "1.0.0";
 
@@ -52,6 +52,12 @@ namespace wServer
             foreach (var i in Manager.Clients.Values.ToArray())
                 i.Disconnect();
             Socket.Close();
+        }
+
+
+        public void SendPacket(UdpPacket pkt, Action onCompleted)
+        {
+            throw new InvalidOperationException("Not supported");
         }
     }
 }

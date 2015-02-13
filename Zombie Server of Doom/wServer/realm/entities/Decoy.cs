@@ -42,11 +42,11 @@ namespace wServer.realm.entities
             }
         }
 
-        protected override void ExportStats(IDictionary<StatsType, object> stats)
+        protected override void ExportEntityStats()
         {
-            stats[StatsType.Texture1] = player.Texture1;
-            stats[StatsType.Texture2] = player.Texture2;
-            base.ExportStats(stats);
+            ExportStatIfChanged(StatsType.Texture1, player.Texture1);
+            ExportStatIfChanged(StatsType.Texture2, player.Texture2);
+            base.ExportEntityStats();
         }
 
         bool exploded = false;

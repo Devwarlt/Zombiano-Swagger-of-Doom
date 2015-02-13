@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //Panels.BuyRealmGoldPanel
@@ -6,7 +20,7 @@
 package Panels{
     import _qN_.Account;
 
-import com.company.util._H_V_;
+import com.company.util.Keys;
 
 import flash.events.Event;
     import com.company.assembleegameclient.game.GameSprite;
@@ -28,7 +42,7 @@ import flash.events.Event;
         }
         private function onRemovedFromStage(_arg1:Event):void{
             stage.removeEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
-            this.gs_.dispatchInteractiveObject("Press [" + _H_V_._in[Parameters.data_.interact] + "] to interact.");
+            this.gs_.dispatchInteractiveObject("Press [" + Keys.KeyNames[Parameters.data_.interact] + "] to interact.");
         }
         private function onAddedToStage(_arg1:Event):void{
             stage.addEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);

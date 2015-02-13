@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //com.company.assembleegameclient.objects.Player
@@ -608,8 +622,8 @@ public class Player extends Character {
         var _local1:Square = map_.getSquare(x_, y_);
         if (_local1.props_._rr)
         {
-            _0F_ = Math.min((_0F_ + 1), Parameters._K_5);
-            this._W_V_ = (0.1 + ((1 - (_0F_ / Parameters._K_5)) * (_local1.props_.speed_ - 0.1)));
+            _0F_ = Math.min((_0F_ + 1), Parameters.MAX_SINK_VALUE);
+            this._W_V_ = (0.1 + ((1 - (_0F_ / Parameters.MAX_SINK_VALUE)) * (_local1.props_.speed_ - 0.1)));
         } else
         {
             _0F_ = 0;

@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //com.company.assembleegameclient.util._H_f
@@ -13,6 +27,7 @@ import FireBite.Embeds.CXML.Regions;
 import FireBite.Embeds.CXML.Special;
 import FireBite.Embeds.CXML.Specials2;
 import FireBite.Embeds.CXML.TutorialUI;
+import FireBite.Embeds.CXML.Objects;
 import FireBite.Embeds.CXML.players;
 import FireBite.Embeds.CXML.skins;
 import FireBite.Embeds.CXML.tutorialObjects;
@@ -29,7 +44,7 @@ public class _H_f {
         private static const _84:Class = _T_r;
         private static const _0L_x:Class = players;
         private static const _0F_L_:Class = Special;
-        private static const _h9:Class = _xT_;
+        private static const _h9:Class = Objects;
         private static const _0J_O_:Class = tutorialObjects;
         private static const _xf:Class = _V_E_;
         private static const _bp:Class = _P_0;

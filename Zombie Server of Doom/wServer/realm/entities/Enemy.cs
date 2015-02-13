@@ -22,16 +22,10 @@ namespace wServer.realm.entities
         public WmapTerrain Terrain { get; set; }
 
         public int AltTextureIndex { get; set; }
-        protected override void ExportStats(IDictionary<StatsType, object> stats)
+        protected override void ExportEntityStats()
         {
-            stats[StatsType.AltTextureIndex] = AltTextureIndex;
-            base.ExportStats(stats);
-        }
-        protected override void ImportStats(StatsType stats, object val)
-        {
-            if (stats == StatsType.AltTextureIndex)
-                AltTextureIndex = (int)val;
-            base.ImportStats(stats, val);
+            ExportStatIfChanged(StatsType.AltTextureIndex, AltTextureIndex);
+            base.ExportEntityStats();
         }
 
         Position? pos;

@@ -12,10 +12,11 @@ namespace wServer.networking.cliPackets
         public int KeyTime { get; set; }
         public byte[] Key { get; set; }
         public string MapInfo { get; set; }
-        public string __Rw { get; set; }
-        public string __06U { get; set; }
-        public string __LK { get; set; }
+        public string EntryTag { get; set; }
+        public string GameNetwork { get; set; }
+        public string GameNetworkUserId { get; set; }
         public string PlayPlatform { get; set; }
+        public bool IsDebugClient { get; set; }
 
         public override PacketID ID { get { return PacketID.Hello; } }
         public override Packet CreateInstance() { return new HelloPacket(); }
@@ -31,10 +32,11 @@ namespace wServer.networking.cliPackets
             KeyTime = rdr.ReadInt32();
             Key = rdr.ReadBytes(rdr.ReadInt16());
             MapInfo = rdr.Read32UTF();
-            __Rw = rdr.ReadUTF();
-            __06U = rdr.ReadUTF();
-            __LK = rdr.ReadUTF();
+            EntryTag = rdr.ReadUTF();
+            GameNetwork = rdr.ReadUTF();
+            GameNetworkUserId = rdr.ReadUTF();
             PlayPlatform = rdr.ReadUTF();
+            IsDebugClient = rdr.ReadBoolean();
         }
     }
 }

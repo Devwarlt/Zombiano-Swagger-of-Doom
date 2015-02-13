@@ -1,4 +1,18 @@
-﻿// Decompiled by AS3 Sorcerer 1.99
+﻿// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+// Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
 //com.company.assembleegameclient.ui._rN_
@@ -14,7 +28,7 @@ package com.company.assembleegameclient.ui{
     import flash.events.MouseEvent;
     import com.company.util.MoreColorUtil;
     import com.company.assembleegameclient.parameters.Parameters;
-    import com.company.util._H_V_;
+    import com.company.util.Keys;
 
     public class _rN_ extends Sprite {
 
@@ -67,7 +81,7 @@ package com.company.assembleegameclient.ui{
             this._037(_0A_8);
             if (((!((this.toolTip_ == null))) && (!(stage.contains(this.toolTip_)))))
             {
-                this.toolTip_._02C_(("Hotkey: " + _H_V_._in[Parameters.data_[this._0C_p]]));
+                this.toolTip_._02C_(("Hotkey: " + Keys.KeyNames[Parameters.data_[this._0C_p]]));
                 stage.addChild(this.toolTip_);
             }
         }

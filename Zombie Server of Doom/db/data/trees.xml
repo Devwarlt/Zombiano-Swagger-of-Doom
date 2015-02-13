@@ -1948,8 +1948,8 @@
     <XpMult>0.0</XpMult>
     <OccupySquare />
   </Object>
-  <Object type="0x01df" id="Guild Register">
-    <Class>GuildRegister</Class>
+  <Object type="0x01df" id="Village Register">
+    <Class>VillageRegister</Class>
     <Texture>
       <File>lofiEnvironment2</File>
       <Index>0x55</Index>

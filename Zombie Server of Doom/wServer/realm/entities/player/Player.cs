@@ -41,6 +41,7 @@ namespace wServer.realm.entities
         public int Rank { get; set; }
 
         public Country Nation { get; set; }
+        public Village Village { get; set; }
 
         public string Guild { get; set; }
         public int GuildRank { get; set; }
@@ -59,95 +60,95 @@ namespace wServer.realm.entities
         public int[] Stats { get; private set; }
         public int[] Boost { get; private set; }
 
-        protected override void ExportStats(IDictionary<StatsType, object> stats)
+        protected override void ExportEntityStats()
         {
-            base.ExportStats(stats);
-            stats[StatsType.AccountId] = AccountId;
+            base.ExportEntityStats();
+            ExportStatIfChanged(StatsType.AccountId, AccountId);
 
-            stats[StatsType.Experience] = Experience - GetLevelExp(Level);
-            stats[StatsType.ExperienceGoal] = ExperienceGoal;
-            stats[StatsType.Level] = Level;
+            ExportStatIfChanged(StatsType.Experience, Experience - GetLevelExp(Level));
+            ExportStatIfChanged(StatsType.ExperienceGoal, ExperienceGoal);
+            ExportStatIfChanged(StatsType.Level, Level);
 
-            stats[StatsType.CurrentFame] = CurrentFame;
-            stats[StatsType.Fame] = Kills;
-            stats[StatsType.FameGoal] = KillGoal;
-            stats[StatsType.Rank] = Rank;
+            ExportStatIfChanged(StatsType.CurrentFame, CurrentFame);
+            ExportStatIfChanged(StatsType.Fame, Kills);
+            ExportStatIfChanged(StatsType.FameGoal, KillGoal);
+            ExportStatIfChanged(StatsType.Rank, Rank);
 
-            stats[StatsType.Guild] = Guild;
-            stats[StatsType.GuildRank] = GuildRank;
+            ExportStatIfChanged(StatsType.Guild, Guild);
+            ExportStatIfChanged(StatsType.GuildRank, GuildRank);
 
-            stats[StatsType.Credits] = Credits;
-            stats[StatsType.NameChosen] = NameChosen ? 1 : 0;
-            stats[StatsType.Texture1] = Texture1;
-            stats[StatsType.Texture2] = Texture2;
+            ExportStatIfChanged(StatsType.Credits, Credits);
+            ExportStatIfChanged(StatsType.NameChosen, NameChosen ? 1 : 0);
+            ExportStatIfChanged(StatsType.Texture1, Texture1);
+            ExportStatIfChanged(StatsType.Texture2, Texture2);
 
-            stats[StatsType.Premium] = Premium ? 1 : 0;
-            stats[StatsType.HP] = HP;
-            stats[StatsType.MP] = Hunger;
+            ExportStatIfChanged(StatsType.Premium, Premium ? 1 : 0);
+            ExportStatIfChanged(StatsType.HP, HP);
+            ExportStatIfChanged(StatsType.MP, Hunger);
 
-            stats[StatsType.Inventory0] = (Inventory[0] != null ? Inventory[0].ObjectType : -1);
-            stats[StatsType.Inventory1] = (Inventory[1] != null ? Inventory[1].ObjectType : -1);
-            stats[StatsType.Inventory2] = (Inventory[2] != null ? Inventory[2].ObjectType : -1);
-            stats[StatsType.Inventory3] = (Inventory[3] != null ? Inventory[3].ObjectType : -1);
-            stats[StatsType.Inventory4] = (Inventory[4] != null ? Inventory[4].ObjectType : -1);
-            stats[StatsType.Inventory5] = (Inventory[5] != null ? Inventory[5].ObjectType : -1);
-            stats[StatsType.Inventory6] = (Inventory[6] != null ? Inventory[6].ObjectType : -1);
-            stats[StatsType.Inventory7] = (Inventory[7] != null ? Inventory[7].ObjectType : -1);
-            stats[StatsType.Inventory8] = (Inventory[8] != null ? Inventory[8].ObjectType : -1);
-            stats[StatsType.Inventory9] = (Inventory[9] != null ? Inventory[9].ObjectType : -1);
-            stats[StatsType.Inventory10] = (Inventory[10] != null ? Inventory[10].ObjectType : -1);
-            stats[StatsType.Inventory11] = (Inventory[11] != null ? Inventory[11].ObjectType : -1);
+            ExportStatIfChanged(StatsType.Inventory0, (Inventory[0] != null ? Inventory[0].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory1, (Inventory[1] != null ? Inventory[1].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory2, (Inventory[2] != null ? Inventory[2].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory3, (Inventory[3] != null ? Inventory[3].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory4, (Inventory[4] != null ? Inventory[4].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory5, (Inventory[5] != null ? Inventory[5].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory6, (Inventory[6] != null ? Inventory[6].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory7, (Inventory[7] != null ? Inventory[7].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory8, (Inventory[8] != null ? Inventory[8].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory9, (Inventory[9] != null ? Inventory[9].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory10, (Inventory[10] != null ? Inventory[10].ObjectType : -1));
+            ExportStatIfChanged(StatsType.Inventory11, (Inventory[11] != null ? Inventory[11].ObjectType : -1));
 
-            stats[StatsType.HasBackpack1] = Inventory.Length > 12 ? 1 : 0;
-            stats[StatsType.HasBackpack2] = Inventory.Length > 20 ? 1 : 0;
-            stats[StatsType.Effect] = "Explosion";
+            ExportStatIfChanged(StatsType.HasBackpack1, Inventory.Length > 12 ? 1 : 0);
+            ExportStatIfChanged(StatsType.HasBackpack2, Inventory.Length > 20 ? 1 : 0);
+            ExportStatIfChanged(StatsType.Effect, "Explosion");
             
             if (Inventory.Length > 12)
             {
-                stats[StatsType.Backpack1_0] = (Inventory[12] != null ? Inventory[12].ObjectType : -1);
-                stats[StatsType.Backpack1_1] = (Inventory[13] != null ? Inventory[13].ObjectType : -1);
-                stats[StatsType.Backpack1_2] = (Inventory[14] != null ? Inventory[14].ObjectType : -1);
-                stats[StatsType.Backpack1_3] = (Inventory[15] != null ? Inventory[15].ObjectType : -1);
-                stats[StatsType.Backpack1_4] = (Inventory[16] != null ? Inventory[16].ObjectType : -1);
-                stats[StatsType.Backpack1_5] = (Inventory[17] != null ? Inventory[17].ObjectType : -1);
-                stats[StatsType.Backpack1_6] = (Inventory[18] != null ? Inventory[18].ObjectType : -1);
-                stats[StatsType.Backpack1_7] = (Inventory[19] != null ? Inventory[19].ObjectType : -1);
+                ExportStatIfChanged(StatsType.Backpack1_0, (Inventory[12] != null ? Inventory[12].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack1_1, (Inventory[13] != null ? Inventory[13].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack1_2, (Inventory[14] != null ? Inventory[14].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack1_3, (Inventory[15] != null ? Inventory[15].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack1_4, (Inventory[16] != null ? Inventory[16].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack1_5, (Inventory[17] != null ? Inventory[17].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack1_6, (Inventory[18] != null ? Inventory[18].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack1_7, (Inventory[19] != null ? Inventory[19].ObjectType : -1));
             }
 
             if (Inventory.Length > 20)
             {
-                stats[StatsType.Backpack2_0] = (Inventory[20] != null ? Inventory[20].ObjectType : -1);
-                stats[StatsType.Backpack2_1] = (Inventory[21] != null ? Inventory[21].ObjectType : -1);
-                stats[StatsType.Backpack2_2] = (Inventory[22] != null ? Inventory[22].ObjectType : -1);
-                stats[StatsType.Backpack2_3] = (Inventory[23] != null ? Inventory[23].ObjectType : -1);
-                stats[StatsType.Backpack2_4] = (Inventory[24] != null ? Inventory[24].ObjectType : -1);
-                stats[StatsType.Backpack2_5] = (Inventory[25] != null ? Inventory[25].ObjectType : -1);
-                stats[StatsType.Backpack2_6] = (Inventory[26] != null ? Inventory[26].ObjectType : -1);
-                stats[StatsType.Backpack2_7] = (Inventory[27] != null ? Inventory[27].ObjectType : -1);
+                ExportStatIfChanged(StatsType.Backpack2_0, (Inventory[20] != null ? Inventory[20].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack2_1, (Inventory[21] != null ? Inventory[21].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack2_2, (Inventory[22] != null ? Inventory[22].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack2_3, (Inventory[23] != null ? Inventory[23].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack2_4, (Inventory[24] != null ? Inventory[24].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack2_5, (Inventory[25] != null ? Inventory[25].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack2_6, (Inventory[26] != null ? Inventory[26].ObjectType : -1));
+                ExportStatIfChanged(StatsType.Backpack2_7, (Inventory[27] != null ? Inventory[27].ObjectType : -1));
             }
 
             if (Boost == null) CalculateBoost();
 
-            stats[StatsType.MaximumHP] = Stats[0] + Boost[0];
-            stats[StatsType.MaximumMP] = Stats[1] + Boost[1];
-            stats[StatsType.Attack] = Stats[2] + Boost[2];
-            stats[StatsType.Defense] = Stats[3] + Boost[3];
-            stats[StatsType.Speed] = Stats[4] + Boost[4];
-            stats[StatsType.Vitality] = Stats[5] + Boost[5];
-            stats[StatsType.Wisdom] = Stats[6] + Boost[6];
-            stats[StatsType.Dexterity] = Stats[7] + Boost[7];
+            ExportStatIfChanged(StatsType.MaximumHP, Stats[0] + Boost[0]);
+            ExportStatIfChanged(StatsType.MaximumMP, Stats[1] + Boost[1]);
+            ExportStatIfChanged(StatsType.Attack, Stats[2] + Boost[2]);
+            ExportStatIfChanged(StatsType.Defense, Stats[3] + Boost[3]);
+            ExportStatIfChanged(StatsType.Speed, Stats[4] + Boost[4]);
+            ExportStatIfChanged(StatsType.Vitality, Stats[5] + Boost[5]);
+            ExportStatIfChanged(StatsType.Wisdom, Stats[6] + Boost[6]);
+            ExportStatIfChanged(StatsType.Dexterity, Stats[7] + Boost[7]);
 
-            stats[StatsType.HPBoost] = Boost[0];
-            stats[StatsType.MPBoost] = Boost[1];
-            stats[StatsType.AttackBonus] = Boost[2];
-            stats[StatsType.DefenseBonus] = Boost[3];
-            stats[StatsType.SpeedBonus] = Boost[4];
-            stats[StatsType.VitalityBonus] = Boost[5];
-            stats[StatsType.WisdomBonus] = Boost[6];
-            stats[StatsType.DexterityBonus] = Boost[7];
-            stats[StatsType.AbilityCooldown] = AbilityCooldown;
-            stats[StatsType.SKIN_STAT] = SkinType;
-            stats[StatsType.VisibilityRange] = Visibility.GetVisibility();
+            ExportStatIfChanged(StatsType.HPBoost, Boost[0]);
+            ExportStatIfChanged(StatsType.MPBoost, Boost[1]);
+            ExportStatIfChanged(StatsType.AttackBonus, Boost[2]);
+            ExportStatIfChanged(StatsType.DefenseBonus, Boost[3]);
+            ExportStatIfChanged(StatsType.SpeedBonus, Boost[4]);
+            ExportStatIfChanged(StatsType.VitalityBonus, Boost[5]);
+            ExportStatIfChanged(StatsType.WisdomBonus, Boost[6]);
+            ExportStatIfChanged(StatsType.DexterityBonus, Boost[7]);
+            ExportStatIfChanged(StatsType.AbilityCooldown, AbilityCooldown);
+            ExportStatIfChanged(StatsType.SKIN_STAT, SkinType);
+            ExportStatIfChanged(StatsType.VisibilityRange, Visibility.GetVisibility());
         }
         public void SaveToCharacter()
         {

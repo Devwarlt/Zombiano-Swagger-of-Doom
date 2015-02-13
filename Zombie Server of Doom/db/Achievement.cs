@@ -83,7 +83,6 @@ public struct Achievement : IEnumerable
             this.m_pos = -1;
         }
 
-
         public object Current
         {
             get { return this.m_items.Values.ToArray<Achievement>()[this.m_pos]; }

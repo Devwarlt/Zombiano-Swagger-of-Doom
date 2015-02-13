@@ -109,17 +109,11 @@ namespace wServer.realm.entities
     public class ConnectedObject : StaticObject
     {
         public ConnectionInfo Connection { get; set; }
-        protected override void ImportStats(StatsType stats, object val)
-        {
-            if (stats == StatsType.ObjectConnection)
-                Connection = ConnectionInfo.Infos[(uint)(int)val];
-            base.ImportStats(stats, val);
-        }
-        protected override void ExportStats(IDictionary<StatsType, object> stats)
+        protected override void ExportEntityStats()
         {
             if(Connection != null)
-                stats[StatsType.ObjectConnection] = (int)Connection.Bits;
-            base.ExportStats(stats);
+                ExportStatIfChanged(StatsType.ObjectConnection, (int)Connection.Bits);
+            base.ExportEntityStats();
         }
 
         public ConnectedObject(RealmManager manager, ushort objType)

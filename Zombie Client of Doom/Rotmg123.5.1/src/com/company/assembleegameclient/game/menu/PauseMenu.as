@@ -1,3 +1,17 @@
+// Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.
+// All rights reserved.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+// ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
+
 /**
  * Created by Fabian on 04.01.2015.
  */
@@ -10,7 +24,7 @@ import _05R_.GTween;
 
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.ui.SimpleText;
-import com.company.util._H_V_;
+import com.company.util.Keys;
 
 import flash.display.Sprite;
 import flash.events.Event;
@@ -120,7 +134,7 @@ public class PauseMenu extends Sprite {
 
     private function onKeyDown(event:KeyboardEvent):void {
         switch (event.keyCode) {
-            case _H_V_.J:
+            case Keys.J:
                 if(this.storage["completed"]) {
                     var tween:GTween = new GTween(this.storage["removeButtons"].shift(), 0.2, {"x": -(BUTTON_WIDTH + 2 )});
                     tween.onComplete = fadeNext;
