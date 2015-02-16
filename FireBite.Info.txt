@@ -1,0 +1,24 @@
+---FireBite Productions---
+
+( ) - Not done
+(/) - Work in progress
+(x) - Done
+
+General Stuff:
+-New name  ( )
+-Start Menu (x)
+-Intro          (/)
+
+
+Game Content:
+-Game start = Realm                                                            ( )
+-Tutorial                                                                              (x)
+-Realms = nations (USA, China, Germany etc...)                      ( )
+-One character with different skins that offer different abilities. (/)
+-Teams = Villages (Small groups) // Nations (Large groups)     (/)
+
+Game Menu:
+-Achivments                                                        (x)
+-Packs                                                                (x)
+-Gifts                                                                  (x)
+-Account Menu (New accounts managment system)(x)
