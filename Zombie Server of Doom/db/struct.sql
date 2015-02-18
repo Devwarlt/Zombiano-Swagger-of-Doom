@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 31. Jan 2015 um 15:59
+-- Erstellungszeit: 18. Feb 2015 um 16:26
 -- Server Version: 5.5.16
 -- PHP-Version: 5.3.8
 
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `namechosen` tinyint(1) NOT NULL,
   `verified` tinyint(1) NOT NULL,
   `country` int(11) NOT NULL DEFAULT '-1',
-  `guild` int(11) NOT NULL,
-  `guildRank` int(11) NOT NULL,
+  `village` int(11) NOT NULL,
+  `villageRank` int(11) NOT NULL,
   `vaultCount` int(11) NOT NULL,
   `maxCharSlot` int(11) NOT NULL,
   `craftingRecipes` varchar(535) NOT NULL DEFAULT '1',
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   FULLTEXT KEY `ownedSkins` (`ownedSkins`),
   FULLTEXT KEY `email` (`email`),
   FULLTEXT KEY `craftingRecipes` (`craftingRecipes`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `achievements` (
   `title` text NOT NULL,
   `desc` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `deathTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `totalFame` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -114,6 +114,23 @@ CREATE TABLE IF NOT EXISTS `classstats` (
   `bestFame` int(11) NOT NULL,
   PRIMARY KEY (`accId`,`objType`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `clinews`
+--
+
+CREATE TABLE IF NOT EXISTS `clinews` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `accId` int(11) NOT NULL,
+  `icon` varchar(512) NOT NULL,
+  `title` varchar(512) NOT NULL,
+  `tagline` varchar(512) NOT NULL,
+  `link` varchar(512) NOT NULL,
+  `date` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -166,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `fpcpacks` (
   `contents` text NOT NULL,
   `used` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=313 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=333 ;
 
 -- --------------------------------------------------------
 

@@ -25,6 +25,7 @@ import flash.display.Bitmap;
 import flash.display.DisplayObject;
 import flash.display.GradientType;
 import flash.display.Sprite;
+import flash.errors.IllegalOperationError;
 import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.geom.Matrix;
@@ -48,7 +49,7 @@ public class Achievement extends Sprite {
     private var title:String;
     private var desc:String;
 
-    public function Achievement(gameSprite:GameSprite, title:String, desc:String) {
+    function Achievement(gameSprite:GameSprite, title:String, desc:String) {
         this.gs_ = gameSprite;
         this.title = title;
         this.desc = desc;

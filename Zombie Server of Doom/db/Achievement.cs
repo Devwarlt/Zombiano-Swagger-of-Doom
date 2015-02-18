@@ -111,6 +111,39 @@ public class AchievementGUID
         this.m_guid = guid;
     }
 
+    public override int GetHashCode()
+    {
+        return base.GetHashCode() + this.m_guid.GetHashCode();
+    }
+
+    #region Operators
+
+    public override bool Equals(object obj)
+    {
+        return obj is AchievementGUID && this.m_guid == (obj as AchievementGUID).m_guid;
+    }
+
+    public static bool operator ==(AchievementGUID guid1, string guid2)
+    {
+        return guid1.m_guid == guid2;
+    }
+
+    public static bool operator !=(AchievementGUID guid1, string guid2)
+    {
+        return guid1.m_guid != guid2;
+    }
+
+    public static bool operator ==(AchievementGUID guid1, AchievementGUID guid2)
+    {
+        return guid1.m_guid == guid2.m_guid;
+    }
+
+    public static bool operator !=(AchievementGUID guid1, AchievementGUID guid2)
+    {
+        return guid1.m_guid != guid2.m_guid;
+    }
+    #endregion
+
     public static implicit operator AchievementGUID (string guid)
     {
         return new AchievementGUID(guid);

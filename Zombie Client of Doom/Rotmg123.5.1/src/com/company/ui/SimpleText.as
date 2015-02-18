@@ -36,22 +36,22 @@ import com.company.ui.fonts.*;
         private var font:Font;
 
         public var definedWidth:int;
-        public var _p5:int;
+        public var definedHeight:int;
         public var _c9:int;
         public var _I_x:int;
 
-        public function SimpleText(_arg1:int, _arg2:uint, _arg3:Boolean=false, _arg4:int=0, _arg5:int=0, _arg6:String="Myriad Pro"){
-            this.definedWidth = _arg4;
+        public function SimpleText(size:int, color:uint, editable:Boolean=false, definedWidth:int=0, definedHeight:int=0, fontStyle:String="Myriad Pro"){
+            this.definedWidth = definedWidth;
             if (this.definedWidth != 0)
             {
-                width = _arg4;
+                width = definedWidth;
             }
-            this._p5 = _arg5;
-            if (this._p5 != 0)
+            this.definedHeight = definedHeight;
+            if (this.definedHeight != 0)
             {
-                width = _arg5;
+                height = definedHeight;
             }
-            switch (_arg6) {
+            switch (fontStyle) {
                 case 'Myriad Pro':
                     font = new MyriadPro();
                     break;
@@ -76,21 +76,21 @@ import com.company.ui.fonts.*;
             }
             var _local7:TextFormat = new TextFormat();
             _local7.kerning = true;
-            if (!(_arg6 == null) && !(_arg6 == ""))
+            if (!(fontStyle == null) && !(fontStyle == ""))
             {
                 embedFonts = true; // CHANGED - was true, changed to false so that text shows (there is a problem with embeded fonts)
                 _local7.font = font.fontName;
             }
-            _local7.size = _arg1;
-            _local7.color = _arg2;
+            _local7.size = size;
+            _local7.color = color;
             defaultTextFormat = _local7;
-            if (_arg3)
+            if (editable)
             {
                 selectable = true;
                 mouseEnabled = true;
                 type = TextFieldType.INPUT;
                 border = true;
-                borderColor = _arg2;
+                borderColor = color;
                 addEventListener(Event.CHANGE, this._bR_);
             } else
             {
@@ -149,11 +149,11 @@ import com.company.ui.fonts.*;
                 _local1++;
             }
             width = (((this.definedWidth)==0) ? this._c9 : this.definedWidth);
-            height = (((this._p5)==0) ? this._I_x : this._p5);
+            height = (((this.definedHeight)==0) ? this._I_x : this.definedHeight);
         }
         public function _08S_():void{
             width = (((this.definedWidth)==0) ? (textWidth + 4) : this.definedWidth);
-            height = (((this._p5)==0) ? (textHeight + 4) : this._p5);
+            height = (((this.definedHeight)==0) ? (textHeight + 4) : this.definedHeight);
         }
 
     }

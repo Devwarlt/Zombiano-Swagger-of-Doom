@@ -31,7 +31,7 @@ import _O_6._x9;
 import _T_G_._0E_V_;
 import _qY_._T_7;
 
-import com.company.assembleegameclient.game._07a;
+import com.company.assembleegameclient.game.GameInputManager;
 import com.company.assembleegameclient.parameters.Parameters;
 
 import flash.display.DisplayObjectContainer;

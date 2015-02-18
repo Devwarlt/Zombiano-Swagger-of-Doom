@@ -413,7 +413,7 @@ import flash.events.TimerEvent;
             this.serverConn.connect(this.server_.host_, this.server_.port_);
         }
         public function getNextDamage(_arg1:uint, _arg2:uint):uint{
-            return (this._7G_._0M_K_(_arg1, _arg2));
+            return (this._7G_.next(_arg1, _arg2));
         }
         public function _9G_():void{
             if (this._0l == null)

@@ -30,7 +30,7 @@ package Effects {
             objectId_ = _7y();
             _P_m = false;
         }
-        public static function resolve(_arg1:_D_J_, _arg2:GameObject):Effect{
+        public static function resolve(_arg1:_D_J_, _arg2:GameObject):Effect {
             switch (_arg1.id)
             {
                 case "Healing":
@@ -51,6 +51,8 @@ package Effects {
                     var eff:ParticleEffect = ParticleEffect.create(_arg1, _arg2);
                     eff.cloud_ = true;
                     return eff;
+                case "RainbowParticles":
+                    return new RainbowEffect(_arg2);
             }
             return (null);
         }
