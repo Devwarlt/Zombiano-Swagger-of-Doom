@@ -18,6 +18,8 @@
 //Frames.Frame
 
 package Frames{
+import Abstract.AbstractManager;
+
 import flash.display.Sprite;
 
 import flash.display.IGraphicsData;
@@ -53,7 +55,8 @@ public class Frame extends Sprite {
     private var path1_:GraphicsPath;
     private var path2_:GraphicsPath;
 
-    public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg4:int=288){
+    public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg4:int=288) {
+        AbstractManager.getConfig(Frame).throwOnPureCall(this);
         this._Q_r = new Vector.<TextInput>();
         this._Z_Y_ = new Vector.<TextButton>();
         this._O_n = new GraphicsSolidFill(0x73543F, 1);

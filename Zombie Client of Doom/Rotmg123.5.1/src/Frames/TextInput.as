@@ -16,13 +16,14 @@
  * Created by Fabian on 20.02.2015.
  */
 package Frames {
+import Abstract.AbstractManager;
+
 import com.company.ui.SimpleText;
 
 import flash.display.CapsStyle;
 import flash.display.JointStyle;
 import flash.display.LineScaleMode;
 import flash.display.Sprite;
-import flash.errors.IllegalOperationError;
 import flash.events.Event;
 import flash.events.FocusEvent;
 import flash.events.MouseEvent;
@@ -42,7 +43,7 @@ public class TextInput extends Sprite {
     private var focused:Boolean;
 
     public function TextInput(description:String, displayAsPassword:Boolean, errorText:String) {
-        if(isAbstract()) throw new IllegalOperationError("Class is abstract.\nCall TextInputBig or TextInputSmall instead.");
+        AbstractManager.getConfig(TextInput).throwOnPureCall(this);
 
         this.w_ = 238;
 
@@ -68,10 +69,6 @@ public class TextInput extends Sprite {
         this.errorText_.updateMetrics();
         this.errorText_.filters = [new DropShadowFilter(0, 0, 0)];
         addChild(this.errorText_);
-    }
-
-    private function isAbstract():Boolean {
-        return !(this is TextInputBig || this is TextInputSmall);
     }
 
     public function get HEIGHT():int {

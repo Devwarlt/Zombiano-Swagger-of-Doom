@@ -18,6 +18,8 @@
 //_F_F_._V_2
 
 package _F_F_{
+import Abstract.AbstractManager;
+
 import Language.LanguageManager;
 
 import _F_1._E_r;
@@ -38,6 +40,7 @@ public class _V_2 {
 
     public function execute():void {
         loadEmbeds();
+        AbstractManager.register();
         LanguageManager.load(this.dispatch);
     }
     private function _0E_M_():Sprite{
