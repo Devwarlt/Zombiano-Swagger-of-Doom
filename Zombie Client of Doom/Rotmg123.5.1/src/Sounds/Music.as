@@ -37,7 +37,7 @@ package Sounds{
 		public static var music_:String = "Menu";
 		private static var specialMusicPlaying_:Boolean = false;
 		
-		public static const menuMusic:Vector.<String> = new <String>["sorc", "sorc2", "Menu", "Menu2"];
+		public static const menuMusic:Vector.<String> = new <String>["sorc"];
 		
 		public static function load():void {
             var currentSound:Sound = new Sound();

@@ -18,7 +18,6 @@
 package Abstract {
 import AccountManagement.Frames.ChangePasswordFrame;
 import AccountManagement.Frames.RegisterAccountFrame;
-import AccountManagement.tabHolders.SettingsHolder;
 
 import Frames.CraftingFrame;
 
