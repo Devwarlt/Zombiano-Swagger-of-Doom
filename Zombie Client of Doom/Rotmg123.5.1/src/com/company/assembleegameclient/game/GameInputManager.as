@@ -398,7 +398,8 @@ public class GameInputManager {
                     _local3.attack_ = 100;
                     break;
                 case Keys.H:
-                        this.gs_.stage.addChild(new MysteryBox(this.gs_, null));
+                    this.gs_.stage.addChild(new MysteryBox(this.gs_, null));
+                    //this.gs_.stage.addChild(new TownHallScreen([1,10]));
                     break;
             }
         }
@@ -406,7 +407,7 @@ public class GameInputManager {
         this._B_Q_();
     }
     private var fgt:Battery;
-    private function _H_H_(_arg1:KeyboardEvent):void{
+    private function _H_H_(_arg1:KeyboardEvent):void {
     	var _local3:Player = this.gs_.map_.player_;
         switch (_arg1.keyCode)
         {

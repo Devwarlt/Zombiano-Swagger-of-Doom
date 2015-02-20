@@ -19,8 +19,10 @@
 
 package AccountWebrequests{
     import Frames.Frame;
-    import Frames.TextInput;
-    import Frames._zb;
+import Frames.TextInput;
+import Frames.TextInputBig;
+import Frames.TextInputSmall;
+import Frames._zb;
     
     import _qN_.Account;
     
@@ -47,13 +49,13 @@ package AccountWebrequests{
 
         public function _0L_h(_arg1:Boolean=true){
             super("Register in order to save your progress", "Cancel", "Register");
-            this.username_ = new TextInput("Username", false, "");
+            this.username_ = new TextInputSmall("Username", false, "");
             addTextInput(this.username_);
-			this.email_ = new TextInput("Email", false, "");
+			this.email_ = new TextInputSmall("Email", false, "");
 			addTextInput(this.email_);
-            this.password_ = new TextInput("Password", true, "");
+            this.password_ = new TextInputSmall("Password", true, "");
             addTextInput(this.password_);
-            this.password2_ = new TextInput("Retype Password", true, "");
+            this.password2_ = new TextInputSmall("Retype Password", true, "");
             addTextInput(this.password2_);
             this._8n = new _zb((('I agree to the <font color="#7777EE"><a href="' + Parameters.ToS_Url_) + '" target="_blank">Terms of Use</a></font>.'), false, "");
             _O_1(this._8n);

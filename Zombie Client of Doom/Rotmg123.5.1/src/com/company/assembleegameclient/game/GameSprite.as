@@ -75,13 +75,13 @@ import com.company.assembleegameclient.map._0D_v;
         public var charList_:SavedCharsList;
         public var isNexus_:Boolean = false;
         public var _H_E_:Protip = null;
-        public var _0H_R_:_0H__;
+        public var _0H_R_:IdleManager;
         public var _pg:_0G_h;
         public var _4v:_L_N_;
         public var creditsUI:CreditsUI;
         public var _3c:Boolean;
         public var lastUpdate_:int = 0;
-        public var moveRecords_:_uw;
+        public var moveRecords_:PositionHistoryManager;
         private var _bA_:int = 0;
         private var _qA_:int = 0;
         private var _rz:MapLoadingScreen;
@@ -90,7 +90,7 @@ import com.company.assembleegameclient.map._0D_v;
 
         public function GameSprite(_arg1:Server, _arg2:int, _arg3:Boolean, _arg4:int, _arg5:int, _arg6:ByteArray, _arg7:SavedCharsList, _arg8:String){
             this._on = new _0D_v();
-            this.moveRecords_ = new _uw();
+            this.moveRecords_ = new PositionHistoryManager();
             super();
             this.charList_ = _arg7;
             this.map_ = new _X_l(this);
@@ -101,7 +101,7 @@ import com.company.assembleegameclient.map._0D_v;
             addChild(this.textBox_);
             this._V_1 = new _0B_X_(this, 200, 600);
             addChild(this._V_1);
-            this._0H_R_ = new _0H__();
+            this._0H_R_ = new IdleManager();
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }

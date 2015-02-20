@@ -1652,14 +1652,6 @@ import flash.events.TimerEvent;
 		private function switchMusic(_arg1:SwitchMusic):void{
 			Sounds.Music.reload(_arg1.music_, true);
 		}
-		
-		//public function sendVisibullet(_damage:int, _enemyId:int, _bulletId:int):void {
-		//	var _packet:Visibullet = this.serverConn.createPacketFromID(VISIBULLET) as Visibullet;
-		//	_packet.damage_ = _damage;
-		//	_packet.enemyId_ = _enemyId;
-		//	_packet.bulletId_ = _bulletId;
-		//	this.serverConn.sendPacket(_packet);
-		//}
 
         private function onAchievementUnlock(packet:AchievementUnlockedPacket):void {
             switch (packet.type) {

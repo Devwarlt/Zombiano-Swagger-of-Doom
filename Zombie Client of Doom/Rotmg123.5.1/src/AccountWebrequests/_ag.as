@@ -18,9 +18,11 @@
 //AccountWebrequests._ag
 
 package AccountWebrequests{
-    import Frames.Frame;
-    import Frames.TextInput;
-    import flash.events.MouseEvent;
+import Frames.Frame;
+import Frames.TextInput;
+import Frames.TextInputSmall;
+
+import flash.events.MouseEvent;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import WebRequestEvents.WebRequestSuccessEvent;
@@ -35,11 +37,11 @@ package AccountWebrequests{
 
         public function _ag(){
             super("Change your password", "Cancel", "Submit");
-            this.password_ = new TextInput("Password", true, "");
+            this.password_ = new TextInputSmall("Password", true, "");
             addTextInput(this.password_);
-            this._sY_ = new TextInput("New Password", true, "");
+            this._sY_ = new TextInputSmall("New Password", true, "");
             addTextInput(this._sY_);
-            this._a9 = new TextInput("Retype New Password", true, "");
+            this._a9 = new TextInputSmall("Retype New Password", true, "");
             addTextInput(this._a9);
             Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
             Button2.addEventListener(MouseEvent.CLICK, this._bR_);

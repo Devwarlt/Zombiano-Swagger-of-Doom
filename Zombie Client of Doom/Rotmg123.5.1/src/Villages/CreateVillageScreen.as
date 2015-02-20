@@ -20,6 +20,9 @@ import AccountManagement.ui.FancyTextButton;
 
 import Frames.TextInput;
 
+import Frames.TextInputBig;
+import Frames.TextInputSmall;
+
 import _9R_.VillageResultEvent;
 
 import com.company.assembleegameclient.game.GameSprite;
@@ -57,7 +60,7 @@ public class CreateVillageScreen extends Sprite {
         createNewVillageText.filters = [new DropShadowFilter()];
         addChild(createNewVillageText);
 
-        this.villageNameTextBox = new TextInput("Village Name:", false, "");
+        this.villageNameTextBox = new TextInputSmall("Village Name", false, "");
         this.villageNameTextBox.setWidth(300);
         this.villageNameTextBox.x = (400 - (this.villageNameTextBox.width / 2));
         this.villageNameTextBox.y = createNewVillageText.y + createNewVillageText.height + 20;

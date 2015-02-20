@@ -31,7 +31,7 @@ package Frames{
         public function CreateVillageFrame(_arg1:GameSprite){
             super("Create a new Guild", "Cancel", "Create");
             this.gs_ = _arg1;
-            this.name_ = new TextInput("Guild Name", false, "");
+            this.name_ = new TextInputSmall("Guild Name", false, "");
             this.name_.inputText_.restrict = "A-Za-z ";
             this.name_.inputText_.maxChars = 20;
             addTextInput(this.name_);

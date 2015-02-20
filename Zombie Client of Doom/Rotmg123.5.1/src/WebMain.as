@@ -20,9 +20,16 @@ import EasterEggs.EasterEggs.EasterEggEvent;
 import EasterEggs.EasterEggs.I_Kissed_A_Girl_EasterEgg;
 import EasterEggs.EasterEggs.RobotUnicornAttack;
 
+import Language.LanguageManager;
+
+import WebRequestEvents.WebRequestErrorEvent;
+
 import YouTube.YouTubePlayer;
 
 import _05G_._X_G_;
+
+import _0L_C_.DialogBox;
+
 import _0_p._L_y;
 import _9u._074;
 import _C_5._tt;
@@ -55,7 +62,10 @@ public class WebMain extends Sprite {
     private static var currentEasterEgg:DisplayObject;
     private static var eggs:Vector.<EasterEgg>;
 
+    private static var thisWebMain:WebMain;
+
     public function WebMain() {
+        thisWebMain = this;
         if (stage)
         {
             playYt();
@@ -127,6 +137,10 @@ public class WebMain extends Sprite {
             Parameters.data_.fullscreenMode = false;
             Parameters.save();
         }
+    }
+
+    public static function onLanguageError(event:WebRequestErrorEvent):void {
+        thisWebMain.addChild(new DialogBox("An error has occurred:\nUnable to load language [" + LanguageManager.manager.languageType + "].", "D'oh, this isn't good", "Ok", null));
     }
 }
 }

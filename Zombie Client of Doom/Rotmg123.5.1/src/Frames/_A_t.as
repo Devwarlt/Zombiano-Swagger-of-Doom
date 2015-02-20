@@ -34,7 +34,7 @@ package Frames{
 
         public function _A_t(){
             super("Choose a unique account name", "Cancel", "Choose");
-            this.name_ = new TextInput("Name", false, "");
+            this.name_ = new TextInputSmall("Name", false, "");
             this.name_.inputText_.restrict = "A-Za-z";
             this.name_.inputText_.maxChars = 10;
             addTextInput(this.name_);

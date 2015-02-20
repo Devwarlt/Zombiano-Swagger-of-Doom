@@ -19,6 +19,7 @@
 
 package com.company.assembleegameclient.util{
 import AccountManagement.images.AccountManagementImages;
+
 import Sounds.LocalSounds;
 
 import Effects._0H_Y_;
@@ -124,6 +125,7 @@ import com.company.assembleegameclient.engine3d._B_5;
         UrlSoundEffects.load("no_mana");
         UrlSoundEffects.load("use_key");
         UrlSoundEffects.load("use_potion");
+
         for (_local2 in Embeds.models_)
         {
             _local6 = Embeds.models_[_local2];

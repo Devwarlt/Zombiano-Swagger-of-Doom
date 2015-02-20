@@ -21,8 +21,11 @@ package AccountWebrequests{
 import AccountManagement.AccountEventDispatcher;
 
 import Frames.Frame;
-    import Frames.TextInput;
-    import com.company.assembleegameclient.ui.TextButton;
+import Frames.TextInput;
+import Frames.TextInputBig;
+import Frames.TextInputSmall;
+
+import com.company.assembleegameclient.ui.TextButton;
     import flash.events.MouseEvent;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -41,9 +44,9 @@ import Frames.Frame;
 
         public function _L__(){
             super("Sign in", "Cancel", "Sign in");
-            this._xb = new TextInput("Username", false, "");
+            this._xb = new TextInputSmall("Username", false, "");
             addTextInput(this._xb);
-            this.password_ = new TextInput("Password", true, "");
+            this.password_ = new TextInputSmall("Password", true, "");
             addTextInput(this.password_);
             this._5K_ = new TextButton(12, false, "Forgot your password?  Click here");
             addTextButton(this._5K_);

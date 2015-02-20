@@ -31,7 +31,7 @@ package Frames{
         public function _8x(_arg1:GameSprite){
             super("Choose a unique account name", "Cancel", "Choose");
             this.gs_ = _arg1;
-            this.name_ = new TextInput("Name", false, "");
+            this.name_ = new TextInputSmall("Name", false, "");
             this.name_.inputText_.restrict = "A-Za-z0-9";
             this.name_.inputText_.maxChars = 10;
             addTextInput(this.name_);

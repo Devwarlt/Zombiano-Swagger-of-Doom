@@ -46,12 +46,23 @@ public class MysteryBox extends Sprite {
         graphics.drawRect(0, 0, WIDTH, 30);
         graphics.endFill();
 
-        for(var i:int = 0; i < 4; i++) {
+        var xmlData:XML =
+            <Minigames>
+                    <MysteryBoxes>
+                        <Box id="0"><Title>Box 1</Title><Price amount="1" currency="0" /></Box>
+                        <Box id="1"><Title>Box 2</Title><Price amount="10" currency="1" /></Box>
+                        <Box id="2"><Title>Box 3</Title><Price amount="100" currency="2" /></Box>
+                        <Box id="3"><Title>Box 4</Title><Price amount="200" currency="2" /></Box>
+                    </MysteryBoxes>
+            </Minigames>;
 
-            var of:MysteryBoxOffer = new MysteryBoxOffer(null);
-            of.y = 50 + (50 * i) + (10*i);
+        var i:int = 0;
+        for each(var offerData:XML in xmlData.MysteryBoxes.Box) {
+            var of:MysteryBoxOffer = new MysteryBoxOffer(offerData);
+            of.y = 50 + (50 * i) + (10 * i);
             of.x = 10;
             addChild(of);
+            i++
         }
 
         var closeBtn:FancyTextButton = new FancyTextButton(26, "Close", WIDTH - 20);
@@ -77,12 +88,14 @@ public class MysteryBox extends Sprite {
 }
 }
 
+import Language.LanguageManager;
+
 import MiniGames.MysteryBox.MysteryBox;
 
 import com.company.assembleegameclient.ui.SellableButton;
-import com.company.assembleegameclient.util.Currency;
 import com.company.ui.SimpleText;
 
+import flash.display.Bitmap;
 import flash.display.GradientType;
 import flash.display.Sprite;
 import flash.events.Event;
@@ -95,6 +108,9 @@ class MysteryBoxOffer extends Sprite {
     public static const WIDTH:int = MysteryBox.WIDTH - 20;
     public static const HEIGHT:int = 50;
 
+    [Embed(source="treasure-icon.png")]
+    private static var treasureIcon:Class;
+
     private var buyButton:SellableButton;
     private var title:SimpleText;
     private var oldTime:int;
@@ -106,16 +122,21 @@ class MysteryBoxOffer extends Sprite {
         graphics.drawRect(0, 0, WIDTH, HEIGHT);
         graphics.endFill();
 
+        var icon:Bitmap = new treasureIcon();
+        icon.x = 1;
+        icon.y = 1;
+        addChild(icon);
+
         this.title = new SimpleText(26, 0xffffff);
-        this.title.text = "null";
+        this.title.text = offer.Title;
         this.title.updateMetrics();
-        this.title.x = 10;
+        this.title.x = 50;
         this.title.y = ((HEIGHT / 2) - (this.title.height / 2));
         addChild(this.title);
 
-        this.buyButton = new SellableButton("Buy for ", 21, -1, Currency.GOLD);
+        this.buyButton = new SellableButton(LanguageManager.manager.getValue("buy.Text", "Buy for "), 21, offer.Price.@amount, offer.Price.@currency);
         this.buyButton.x = WIDTH - this.buyButton.width - 10;
-        this.buyButton.y = ((HEIGHT / 2) - (this.buyButton.height / 2)) + 6;
+        this.buyButton.y = ((HEIGHT / 2) - (this.buyButton.height / 2)) + 5;
         addChild(this.buyButton);
 
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);

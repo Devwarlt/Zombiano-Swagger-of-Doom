@@ -78,6 +78,8 @@ import AccountManagement.tabHolders.TabHolder;
 
 import Frames.Frame;
 import Frames.TextInput;
+import Frames.TextInputBig;
+import Frames.TextInputSmall;
 
 import _qN_.Account;
 import WebRequestEvents.WebRequestSuccessEvent;
@@ -98,11 +100,11 @@ class changePasswordFrame extends Frame {
 
     public function changePasswordFrame() {
         super("Change your password", "Cancel", "Submit");
-        this.password_ = new TextInput("Password", true, "");
+        this.password_ = new TextInputSmall("Password", true, "");
         addTextInput(this.password_);
-        this.newPassword = new TextInput("New Password", true, "");
+        this.newPassword = new TextInputSmall("New Password", true, "");
         addTextInput(this.newPassword);
-        this.confirmNewPassword = new TextInput("Retype New Password", true, "");
+        this.confirmNewPassword = new TextInputSmall("Retype New Password", true, "");
         addTextInput(this.confirmNewPassword);
         this._P_V_._gp(0xffffff);
         Button1.addEventListener(MouseEvent.CLICK, this.onCancel);

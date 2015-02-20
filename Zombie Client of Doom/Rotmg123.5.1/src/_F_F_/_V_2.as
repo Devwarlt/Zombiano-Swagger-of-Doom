@@ -18,29 +18,35 @@
 //_F_F_._V_2
 
 package _F_F_{
+import Language.LanguageManager;
+
 import _F_1._E_r;
 
 import _W_D_.Domain;
-    import _U_5._dd;
-    import com.company.assembleegameclient.util.loadEmbeds;
-    import _0I_9._05b;
-    import flash.display.Sprite;
+import _U_5._dd;
 
-    public class _V_2 {
+import com.company.assembleegameclient.util.loadEmbeds;
+import _0I_9._05b;
+import flash.display.Sprite;
 
-        [Inject]
-        public var domain:Domain;
-        [Inject]
-        public var _T__:_dd;
+public class _V_2 {
 
-        public function execute():void{
-            loadEmbeds();
-            this._T__.dispatch(this._0E_M_());
-        }
-        private function _0E_M_():Sprite{
-            return (((this.domain._F_N_()) ? new _E_r() : new _05b()));
-        }
+    [Inject]
+    public var domain:Domain;
+    [Inject]
+    public var _T__:_dd;
 
+    public function execute():void {
+        loadEmbeds();
+        LanguageManager.load(this.dispatch);
     }
+    private function _0E_M_():Sprite{
+        return (((this.domain._F_N_()) ? new _E_r() : new _05b()));
+    }
+
+    private function dispatch():void {
+        this._T__.dispatch(this._0E_M_());
+    }
+}
 }//package _F_F_
 

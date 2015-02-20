@@ -97,7 +97,7 @@ public class Frame extends Sprite {
         addChild(_arg1);
         _arg1.y = (this.h_ - 60);
         _arg1.x = 17;
-        this.h_ = (this.h_ + TextInput.HEIGHT);
+        this.h_ = (this.h_ + _arg1.HEIGHT);
     }
     public function addTextButton(_arg1:TextButton):void{
         this._Z_Y_.push(_arg1);

@@ -103,6 +103,8 @@ import AccountManagement.AccountManagementScreen;
 
 import Frames.Frame;
 import Frames.TextInput;
+import Frames.TextInputBig;
+import Frames.TextInputSmall;
 import Frames._zb;
 
 import _qN_.Account;
@@ -130,13 +132,13 @@ class registerFrame extends Frame {
 
     public function registerFrame(_arg1:Boolean=false){
         super("Register in order to save your progress", "Cancel", "Register");
-        this.username = new TextInput("Username", false, "");
+        this.username = new TextInputSmall("Username", false, "");
         addTextInput(this.username);
-        this.email = new TextInput("Email", false, "");
+        this.email = new TextInputSmall("Email", false, "");
         addTextInput(this.email);
-        this.password = new TextInput("Password", true, "");
+        this.password = new TextInputSmall("Password", true, "");
         addTextInput(this.password);
-        this.confirmPassword = new TextInput("Retype Password", true, "");
+        this.confirmPassword = new TextInputSmall("Retype Password", true, "");
         addTextInput(this.confirmPassword);
         this.tosText = new _zb((('I agree to the <font color="#7777EE"><a href="' + Parameters.ToS_Url_) + '" target="_blank">Terms of Use</a></font>.'), false, "");
         _O_1(this.tosText);

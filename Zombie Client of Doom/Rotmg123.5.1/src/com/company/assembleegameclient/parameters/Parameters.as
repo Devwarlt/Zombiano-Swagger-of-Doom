@@ -18,6 +18,8 @@
 //com.company.assembleegameclient.parameters.Parameters
 
 package com.company.assembleegameclient.parameters{
+import Language.LanguageManager;
+
 import com.company.util._0A_s;
 import com.company.util.Keys;
 
@@ -215,6 +217,7 @@ public class Parameters {
         registerObjectValue("confirmCraftingBox", true);
         registerObjectValue("playAllyShootSound", true);
         registerObjectValue("musicVolume", 1);
+        registerObjectValue("language", LanguageManager.TYPE_EN);
     }
 
 }
