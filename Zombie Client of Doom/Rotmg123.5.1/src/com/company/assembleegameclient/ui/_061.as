@@ -260,9 +260,9 @@ import com.company.assembleegameclient.objects.GameObject;
                     UrlSoundEffects.play("error");
                     return;
                 }
-                var _local5:Container = (this._03f._e9.gs_._V_1._U_T_._dN_ as Container);
+                var _local5:Container = (this._03f._e9.gs_.sideUI._U_T_._dN_ as Container);
                 if (((!((_local5 == null))) && (((((_local5._X_w()) && (_local4))) || ((((_local5.ownerId_ == -1)) && (!(_local4)))))))) {
-                    _local6 = (this._03f._e9.gs_._V_1._U_T_._G_2 as _sc);
+                    _local6 = (this._03f._e9.gs_.sideUI._U_T_._G_2 as _sc);
                     if (((!((_local6 == null))) && (!((_local6.inventory == null))))) {
                         for each (_local7 in _local6.inventory.slots_) {
                             if (_local7.objectType_ == -1) {

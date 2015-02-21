@@ -54,7 +54,7 @@ package Frames{
             if (_arg1._yS_.success_)
             {
                 this.gs_.charList_.name_ = this.name_.text();
-                this.gs_._V_1._02y.setName(this.name_.text());
+                this.gs_.sideUI._02y.setName(this.name_.text());
                 dispatchEvent(new Event(Event.COMPLETE));
             } else
             {

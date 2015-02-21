@@ -310,6 +310,7 @@ public class Options extends Sprite {
         this.registerOption(new SwitchOption("showTradePopup", new <String>["On", "Off"], [true, false], "Show Trade Request Panel", "This toggles whether to show trade requests in the lower-right panel or just in chat.", null));
         this.registerOption(new SwitchOption("confirmCraftingBox", new <String>["On", "Off"], [true, false], "Show Confirm Craft Box", "This toggles the crafting confirm box before you are crafting an item.", null));
         this.registerOption(new SwitchOption("showGuildInvitePopup", new <String>["On", "Off"], [true, false], "Show Guild Invite Panel", "This toggles whether to show guild invites in the lower-right panel or just in chat.", null));
+        this.registerOption(new SwitchOption("showBarsAlways", new <String>["On", "Off"], [true, false], "Toggle HP/Hunger Text", "Always show text values for HP/Hunger/Kills", this.toggleBarTextVisibility));
         if (Capabilities.playerType == "Desktop")
         {
             this.registerOption(new SwitchOption("fullscreenMode", new <String>["On", "Off"], [true, false], "Fullscreen Mode", "This toggles whether the game is run in fullscreen mode.", this._6k));
@@ -396,6 +397,10 @@ public class Options extends Sprite {
         var changeVal:Number = this.scrollBar._Q_D_();
         if(isNaN(changeVal)) return;
         optionsSprite.y = (((-(changeVal) * (this.nextOptionHeight - 400))));
+    }
+
+    private function toggleBarTextVisibility():void {
+        this.gs_.sideUI._02y.setBarsTextVisibility(Parameters.data_.showBarsAlways);
     }
 }
 }//package OptionsStuff

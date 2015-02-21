@@ -217,6 +217,7 @@ public class Parameters {
         registerObjectValue("confirmCraftingBox", true);
         registerObjectValue("playAllyShootSound", true);
         registerObjectValue("musicVolume", 1);
+        registerObjectValue("showBarsAlways", false);
         registerObjectValue("language", LanguageManager.TYPE_EN);
     }
 

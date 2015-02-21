@@ -43,7 +43,7 @@ import com.company.assembleegameclient.map._0D_v;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.tutorial.Tutorial;
     import com.company.assembleegameclient.ui.Protip;
-    import com.company.assembleegameclient.ui._0B_X_;
+    import com.company.assembleegameclient.ui.SideUI;
     import com.company.assembleegameclient.ui.CreditsUI;
     import com.company.assembleegameclient.ui._0G_h;
     import com.company.assembleegameclient.ui._4D_;
@@ -70,7 +70,7 @@ import com.company.assembleegameclient.map._0D_v;
         public var packetManager:PacketManager;
         public var mui_:GameInputManager;
         public var textBox_:_4D_;
-        public var _V_1:_0B_X_;
+        public var sideUI:SideUI;
         public var tutorial_:Tutorial;
         public var charList_:SavedCharsList;
         public var isNexus_:Boolean = false;
@@ -99,8 +99,8 @@ import com.company.assembleegameclient.map._0D_v;
             this.mui_ = new GameInputManager(this);
             this.textBox_ = new _4D_(this, 600, 600);
             addChild(this.textBox_);
-            this._V_1 = new _0B_X_(this, 200, 600);
-            addChild(this._V_1);
+            this.sideUI = new SideUI(this, 200, 600);
+            addChild(this.sideUI);
             this._0H_R_ = new IdleManager();
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
@@ -154,7 +154,7 @@ import com.company.assembleegameclient.map._0D_v;
         }
         public function initialize():void{
             this.map_.initialize();
-            this._V_1.initialize();
+            this.sideUI.initialize();
             this.creditsUI = new CreditsUI(this);
             this.creditsUI.x = 594;
             this.creditsUI.y = 0;
@@ -237,8 +237,8 @@ import com.company.assembleegameclient.map._0D_v;
         public function dispose():void{
             ((contains(this.map_)) && (removeChild(this.map_)));
             this.map_.dispose();
-            removeChild(this._V_1);
-            this._V_1.dispose();
+            removeChild(this.sideUI);
+            this.sideUI.dispose();
             _G_.clear();
             TextureRedrawer.clearCache();
             Projectile.dispose();
@@ -253,8 +253,8 @@ import com.company.assembleegameclient.map._0D_v;
                 return;
             }
             this._2e = true;
-            this._V_1.x = 600;
-            this._V_1.y = 0;
+            this.sideUI.x = 600;
+            this.sideUI.y = 0;
             this.packetManager.connect();
             this._0H_R_.start(this);
             this.lastUpdate_ = getTimer();
@@ -305,7 +305,7 @@ import com.company.assembleegameclient.map._0D_v;
                 this._on._K_g(_local4);
                 this.map_.draw(this._on, _local2);
                 this.creditsUI.draw(_local4.credits_);
-                this._V_1.draw();
+                this.sideUI.draw();
                 if (this.map_.showDisplays_)
                 {
                     this._pg.draw(_local4.rank);
@@ -314,21 +314,21 @@ import com.company.assembleegameclient.map._0D_v;
                 if (_local4.isPaused())
                 {
                     this.map_.filters = [_oj];
-                    this._V_1.filters = [_oj];
+                    this.sideUI.filters = [_oj];
                     this.map_.mouseEnabled = false;
                     this.map_.mouseChildren = false;
-                    this._V_1.mouseEnabled = false;
-                    this._V_1.mouseChildren = false;
+                    this.sideUI.mouseEnabled = false;
+                    this.sideUI.mouseChildren = false;
                 } else
                 {
                     if (this.map_.filters.length > 0)
                     {
                         this.map_.filters = [];
-                        this._V_1.filters = [];
+                        this.sideUI.filters = [];
                         this.map_.mouseEnabled = true;
                         this.map_.mouseChildren = true;
-                        this._V_1.mouseEnabled = true;
-                        this._V_1.mouseChildren = true;
+                        this.sideUI.mouseEnabled = true;
+                        this.sideUI.mouseChildren = true;
                     }
                 }
                 this.moveRecords_._F_5(_local2, _local4.x_, _local4.y_);

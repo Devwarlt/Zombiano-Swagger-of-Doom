@@ -848,7 +848,7 @@ import flash.events.TimerEvent;
 
         private function teleportRequested(_arg1:TeleportRequest):void{
             if(Parameters.data_.showTeleportRequest) {
-                this.gs_._V_1._U_T_._j(new TeleportPanel(this.gs_, _arg1));
+                this.gs_.sideUI._U_T_._j(new TeleportPanel(this.gs_, _arg1));
             }
             this.gs_.textBox_.addText("", ((((_arg1.name_ + " wants to ") + 'teleport to you.  Type "/teleport ') + _arg1.name_) + '" to accept.'));
         }
@@ -856,22 +856,22 @@ import flash.events.TimerEvent;
         private function _G_r(_arg1:_Y_G_):void{
             if (Parameters.data_.showTradePopup)
             {
-                this.gs_._V_1._U_T_._j(new TradePanel(this.gs_, _arg1.name_));
+                this.gs_.sideUI._U_T_._j(new TradePanel(this.gs_, _arg1.name_));
             }
             this.gs_.textBox_.addText("", ((((_arg1.name_ + " wants to ") + 'trade with you.  Type "/trade ') + _arg1.name_) + '" to trade.'));
         }
         private function _47(_arg1:_S_M_):void{
-            this.gs_._V_1._0L_v(_arg1);
+            this.gs_.sideUI._0L_v(_arg1);
         }
         private function _0D_U_(_arg1:_Z_J_):void{
-            this.gs_._V_1._ss(_arg1);
+            this.gs_.sideUI._ss(_arg1);
         }
         private function _2d(_arg1:_A_L_):void{
-            this.gs_._V_1._A_a();
+            this.gs_.sideUI._A_a();
             this.gs_.textBox_.addText("", _arg1.description_);
         }
         private function _087(_arg1:_qe):void{
-            this.gs_._V_1._mH_(_arg1);
+            this.gs_.sideUI._mH_(_arg1);
         }
         private function _lu(_arg1:ObjectStatus):void{
             var _local2:_X_l = this.gs_.map_;
@@ -890,7 +890,7 @@ import flash.events.TimerEvent;
             this._9s(_local4, 0, -1);
             if (((((_local3.props_.static_) && (_local3.props_.occupySquare_))) && (!(_local3.props_._ia))))
             {
-                this.gs_._V_1._F_._0A_R_(_local3.x_, _local3.y_, _local3);
+                this.gs_.sideUI._F_._0A_R_(_local3.x_, _local3.y_, _local3);
             }
         }
         private function _mC_(_arg1:Update):void {
@@ -902,7 +902,7 @@ import flash.events.TimerEvent;
             while (_local3 < _arg1.tiles_.length) {
                 _local4 = _arg1.tiles_[_local3];
                 this.gs_.map_.setGroundTile(_local4.x_, _local4.y_, _local4.type_);
-                this.gs_._V_1._F_.setGroundTile(_local4.x_, _local4.y_, _local4.type_);
+                this.gs_.sideUI._F_.setGroundTile(_local4.x_, _local4.y_, _local4.type_);
                 _local3++;
             }
             _local3 = 0;
@@ -1433,9 +1433,9 @@ import flash.events.TimerEvent;
         }
         private function _v6():void{
             UrlSoundEffects.play("error");
-            this.gs_._V_1._02y._e9.refresh();
-			this.gs_._V_1._02y.equips_.refresh();
-            this.gs_._V_1._U_T_.redraw();
+            this.gs_.sideUI._02y._e9.refresh();
+			this.gs_.sideUI._02y.equips_.refresh();
+            this.gs_.sideUI._U_T_.redraw();
         }
         private function _X_3(_arg1:_8_):void{
             var _local2:_j_ = new _j_(new Server(_arg1.name_, _arg1.host_ != "" ? _arg1.host_ : this.server_.host_, _arg1.host_ != "" ? _arg1.port_ : this.server_.port_), _arg1.gameId_, this._96, this.charId_, _arg1.keyTime_, _arg1.key_);
@@ -1574,7 +1574,7 @@ import flash.events.TimerEvent;
         private function _cS_(_arg1:InvitedToGuild):void{
             if (Parameters.data_.showGuildInvitePopup)
             {
-                this.gs_._V_1._U_T_._j(new InviteGuildPanel(this.gs_, _arg1.name_, _arg1.guildName_));
+                this.gs_.sideUI._U_T_._j(new InviteGuildPanel(this.gs_, _arg1.name_, _arg1.guildName_));
             }
             this.gs_.textBox_.addText("", (((((("You have been invited by " + _arg1.name_) + " to join the guild ") + _arg1.guildName_) + '.\n  If you wish to join type "/join ') + _arg1.guildName_) + '"'));
         }

@@ -12,11 +12,6 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-// Decompiled by AS3 Sorcerer 1.99
-// http://www.as3sorcerer.com/
-
-//com.company.assembleegameclient.game._07a
-
 package com.company.assembleegameclient.game{
 
 import EasterEggs.EasterEggHandler;
@@ -24,8 +19,6 @@ import EasterEggs.EasterEggHandler;
 import Frames.GiftViewFrame;
 
 import MiniGames.MysteryBox.MysteryBox;
-
-import Villages.TownHallScreen;
 
 import _4K_.Stats;
 
@@ -60,10 +53,10 @@ public class GameInputManager {
     private static var _nN_:Boolean = false;
 
     public var gs_:GameSprite;
-    private var _07Q_:Boolean = false;
-    private var _B_y:Boolean = false;
-    private var _0F_e:Boolean = false;
-    private var _00u:Boolean = false;
+    private var moveLeft:Boolean = false;
+    private var moveRight:Boolean = false;
+    private var moveUp:Boolean = false;
+    private var moveDown:Boolean = false;
     private var _0I_:Boolean = false;
     private var _S_T_:Boolean = false;
     private var _08R_:Boolean = false;
@@ -83,12 +76,35 @@ public class GameInputManager {
         this._lD_.addEventListener(TimerEvent.TIMER_COMPLETE, this._0C_J_);
         this.gs_.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         this.gs_.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
+
+        //var accl:Accelerometer;
+        //if (Accelerometer.isSupported)
+        //{
+        //    accl = new Accelerometer();
+        //    accl.addEventListener(AccelerometerEvent.UPDATE, updateAc);
+        //    if(this.gs_.textBox_)
+        //        this.gs_.textBox_.addText("", "Ac supported");
+        //}
+        //function updateAc(event:AccelerometerEvent):void
+        //{
+        //    moveRight = event.accelerationX > 0.2;
+        //    moveLeft = event.accelerationX < -0.2;
+        //    moveUp = event.accelerationY > 0.2;
+        //    moveDown = event.accelerationY < -0.2;
+
+        //    if(gs_.textBox_)
+        //        gs_.textBox_.addText("",
+        //          "moveRight: " +   moveRight.toString() + "\n"
+        //        + "moveLeft: " +    moveLeft.toString() + "\n"
+        //        + "moveUp: " +      moveUp.toString() + "\n"
+        //        + "moveDown: " +    moveDown.toString() );
+        //}
     }
     public function clearInput():void{
-        this._07Q_ = false;
-        this._B_y = false;
-        this._0F_e = false;
-        this._00u = false;
+        this.moveLeft = false;
+        this.moveRight = false;
+        this.moveUp = false;
+        this.moveDown = false;
         this._0I_ = false;
         this._S_T_ = false;
         this._08R_ = false;
@@ -176,14 +192,14 @@ public class GameInputManager {
         this._08R_ = false;
     }
     private function _lb(_arg1:MouseEvent):void{
-        if (((((this.gs_) && (this.gs_._V_1))) && (this.gs_._V_1._F_)))
+        if (((((this.gs_) && (this.gs_.sideUI))) && (this.gs_.sideUI._F_)))
         {
             if (_arg1.delta > 0)
             {
-                this.gs_._V_1._F_._K_r();
+                this.gs_.sideUI._F_._K_r();
             } else
             {
-                this.gs_._V_1._F_._w_();
+                this.gs_.sideUI._F_._w_();
             }
         }
     }
@@ -233,19 +249,19 @@ public class GameInputManager {
         {
             case Parameters.data_.moveUp:
                 doneAction(this.gs_, Tutorial._04m);
-                this._0F_e = true;
+                this.moveUp = true;
                 break;
             case Parameters.data_.moveDown:
                 doneAction(this.gs_, Tutorial._03b);
-                this._00u = true;
+                this.moveDown = true;
                 break;
             case Parameters.data_.moveLeft:
                 doneAction(this.gs_, Tutorial._S_B_);
-                this._07Q_ = true;
+                this.moveLeft = true;
                 break;
             case Parameters.data_.moveRight:
                 doneAction(this.gs_, Tutorial._0A_j);
-                this._B_y = true;
+                this.moveRight = true;
                 break;
             case Parameters.data_.rotateLeft:
                 if (!Parameters.data_.allowRotation) break;
@@ -298,12 +314,12 @@ public class GameInputManager {
                 this.useItem(7);
                 break;
             case Parameters.data_.miniMapZoomOut:
-                if (this.gs_._V_1._F_ == null) break;
-                this.gs_._V_1._F_._w_();
+                if (this.gs_.sideUI._F_ == null) break;
+                this.gs_.sideUI._F_._w_();
                 break;
             case Parameters.data_.miniMapZoomIn:
-                if (this.gs_._V_1._F_ == null) break;
-                this.gs_._V_1._F_._K_r();
+                if (this.gs_.sideUI._F_ == null) break;
+                this.gs_.sideUI._F_._K_r();
                 break;
             case Parameters.data_.togglePerformanceStats:
                 this.togglePerformanceStats();
@@ -333,8 +349,8 @@ public class GameInputManager {
                 }
                 break;
     		case Parameters.data_.switchTabs:
-    			if(this.gs_._V_1._02y == null) break;
-    			this.gs_._V_1._02y.nextTab();
+    			if(this.gs_.sideUI._02y == null) break;
+    			this.gs_.sideUI._02y.nextTab();
     			break;
         }
         if (Parameters._1h)
@@ -412,16 +428,16 @@ public class GameInputManager {
         switch (_arg1.keyCode)
         {
             case Parameters.data_.moveUp:
-                this._0F_e = false;
+                this.moveUp = false;
                 break;
             case Parameters.data_.moveDown:
-                this._00u = false;
+                this.moveDown = false;
                 break;
             case Parameters.data_.moveLeft:
-                this._07Q_ = false;
+                this.moveLeft = false;
                 break;
             case Parameters.data_.moveRight:
-                this._B_y = false;
+                this.moveRight = false;
                 break;
             case Parameters.data_.rotateLeft:
                 this._0I_ = false;
@@ -447,7 +463,7 @@ public class GameInputManager {
         {
             if (this._G_v)
             {
-                _local1._vr((((this._S_T_) ? 1 : 0) - ((this._0I_) ? 1 : 0)), (((this._B_y) ? 1 : 0) - ((this._07Q_) ? 1 : 0)), (((this._00u) ? 1 : 0) - ((this._0F_e) ? 1 : 0)));
+                _local1._vr((((this._S_T_) ? 1 : 0) - ((this._0I_) ? 1 : 0)), (((this.moveRight) ? 1 : 0) - ((this.moveLeft) ? 1 : 0)), (((this.moveDown) ? 1 : 0) - ((this.moveUp) ? 1 : 0)));
             } else
             {
                 _local1._vr(0, 0, 0);
@@ -455,11 +471,11 @@ public class GameInputManager {
         }
     }
     private function useItem(_arg1:int):void{
-        if ((((this.gs_._V_1._02y == null)) || ((this.gs_._V_1._02y._e9 == null))))
+        if ((((this.gs_.sideUI._02y == null)) || ((this.gs_.sideUI._02y._e9 == null))))
         {
             return;
         }
-        this.gs_._V_1._02y._e9.useItem(_arg1);
+        this.gs_.sideUI._02y._e9.useItem(_arg1);
     }
     private function togglePerformanceStats():void{
         if (this.gs_.contains(_086))
@@ -479,11 +495,11 @@ public class GameInputManager {
         Parameters._0F_o = !(Parameters._0F_o);
         if (Parameters._0F_o)
         {
-            this.gs_._V_1.visible = false;
+            this.gs_.sideUI.visible = false;
             this.gs_.textBox_._01P_.visible = false;
         } else
         {
-            this.gs_._V_1.visible = true;
+            this.gs_.sideUI.visible = true;
             this.gs_.textBox_._01P_.visible = true;
         }
     }

@@ -390,6 +390,9 @@ class calendarEvent extends Sprite {
     public static const WIDTH:int = 80;
     public static const HEIGHT:int = 85;
 
+    public static const DIALOG_WIDTH:int = 600;
+    public static const DIALOG_HEIGHT:int = 400;
+
     private var image:Bitmap;
     private var event:PremiumEvent;
 
@@ -428,22 +431,20 @@ class calendarEvent extends Sprite {
     }
 
     private function getInfo():Sprite {
-        var width:Number = 600;
-        var height:Number = 400;
         var sprite:Sprite = new Sprite();
         var title:SimpleText = new SimpleText(18, 0x000000);
-        var eventTitle:SimpleText = new SimpleText(20, 0xffffff, false, 40, 570);
-        var date:SimpleText = new SimpleText(18, 0x9E9E9E, false, 40, 570);
-        var eventDesc:SimpleText = new SimpleText(16, 0xffffff, false, 60, 570);
+        var eventTitle:SimpleText = new SimpleText(20, 0xffffff, false, 570, 40);
+        var date:SimpleText = new SimpleText(18, 0x9E9E9E, false, 570, 40);
+        var eventDesc:SimpleText = new SimpleText(16, 0xffffff, false, 570, 60);
         var closeBtn:FancyTextButton = new FancyTextButton(20, "CLOSE");
         var image:Bitmap = new Bitmap(getImage());
 
         sprite.graphics.beginFill(0x000000, 1.0);
-        sprite.graphics.drawRect(0, 0, width, height);
+        sprite.graphics.drawRect(0, 0, DIALOG_WIDTH, DIALOG_HEIGHT);
         sprite.graphics.endFill();
 
         sprite.graphics.beginFill(0xffffff, 1.0);
-        sprite.graphics.drawRect(0, 0, width, 25);
+        sprite.graphics.drawRect(0, 0, DIALOG_WIDTH, 25);
         sprite.graphics.endFill();
 
         GraphicHelper.createBorder(sprite, 1, 0xffffff);
@@ -451,10 +452,10 @@ class calendarEvent extends Sprite {
         title.boldText(true);
         title.text = "PREMIUM";
         title.updateMetrics();
-        title.x = ((width / 2) - (title.width / 2));
+        title.x = ((DIALOG_WIDTH / 2) - (title.width / 2));
 
-        closeBtn.x = ((width / 2) - (closeBtn.width / 2));
-        closeBtn.y = height - closeBtn.height - 10;
+        closeBtn.x = ((DIALOG_WIDTH / 2) - (closeBtn.width / 2));
+        closeBtn.y = DIALOG_HEIGHT - closeBtn.height - 10;
         closeBtn.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
             var tween:GTween = new GTween(event.target.parent, 0.15, { "scaleX": 0.0, "scaleY": 0.0 });
             tween._bR_ = (parent.parent.parent as PremiumEventCalendar).onChange;
@@ -463,7 +464,7 @@ class calendarEvent extends Sprite {
             };
         });
 
-        image.x = ((width / 2) - (image.width / 2));
+        image.x = ((DIALOG_WIDTH / 2) - (image.width / 2));
         image.y = 25;
 
         eventTitle.x = 15;
@@ -471,7 +472,6 @@ class calendarEvent extends Sprite {
         eventTitle.boldText(true);
         eventTitle.multiline = true;
 
-        date.text = this.event.startDateString + (this.event.endDateString != null ? " - " + this.event.endDateString : "");
         date.x = 15;
         date.y = image.height + 55;
         date.boldText(true);
@@ -484,6 +484,7 @@ class calendarEvent extends Sprite {
 
         eventTitle.text = this.event.title.toUpperCase();
         eventDesc.text = this.event.description;
+        date.text = this.event.startDateString + (this.event.endDateString != null ? " - " + this.event.endDateString : "");
 
         sprite.addChild(title);
         sprite.addChild(image);

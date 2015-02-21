@@ -35,7 +35,7 @@ import flash.events.EventDispatcher;
 
     public class WebRequest extends EventDispatcher {
 
-
+        public static const USER_AGENT:String = "GameClient";
 
         public var _E_v:String;
         private var _009:String = "text";
@@ -67,9 +67,10 @@ import flash.events.EventDispatcher;
             this._04v = this._01V_();
             this._04v.load(this._om);
         }
-        private function _M_z(_arg1:String, _arg2:Object):URLRequest{
+        private function _M_z(_arg1:String, _arg2:Object):URLRequest {
             var _local5:String;
             var _local3:URLRequest = new URLRequest((this._E_v + _arg1));
+            _local3.userAgent = USER_AGENT;
             _local3.method = URLRequestMethod.POST;
             var _local4:URLVariables = new URLVariables();
             for (_local5 in _arg2)

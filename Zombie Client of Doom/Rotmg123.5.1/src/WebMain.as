@@ -111,7 +111,7 @@ public class WebMain extends Sprite {
     private function setup():void{
         //this keeps the screen active (required for android and ios only)
         NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
-        //NativeApplication.nativeApplication.menu = null;
+        NativeApplication.nativeApplication.menu = null;
 
         EasterEggHandler.setup(this);
         EasterEggHandler.registerEasterEgg(new I_Kissed_A_Girl_EasterEgg(stage));

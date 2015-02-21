@@ -102,6 +102,13 @@ namespace server
         {
             try
             {
+                if (context.Request.UserAgent != "GameClient")
+                {
+                    using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))
+                        wtr.Write("<h1>Requests from non clients are disabled in debugging mode</h1>");
+                    context.Response.Close();
+                    return;
+                }
                 log.InfoFormat("Dispatching request '{0}'@{1}",
                     context.Request.Url.LocalPath, context.Request.RemoteEndPoint);
 

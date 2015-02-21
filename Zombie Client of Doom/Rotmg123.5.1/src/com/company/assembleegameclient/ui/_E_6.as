@@ -515,10 +515,10 @@ import com.company.assembleegameclient.net.PacketManager;
             return (this._e9.gs_.map_.player_);
         }
         private function _A_P_():Inventory{
-            return (this._e9.gs_._V_1._02y._e9);
+            return (this._e9.gs_.sideUI._02y._e9);
         }
 		private function equipInv():Inventory{
-			return (this._e9.gs_._V_1._02y.equips_);
+			return (this._e9.gs_.sideUI._02y.equips_);
 		}
 
     }

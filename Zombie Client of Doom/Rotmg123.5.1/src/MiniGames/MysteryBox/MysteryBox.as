@@ -58,7 +58,7 @@ public class MysteryBox extends Sprite {
 
         var i:int = 0;
         for each(var offerData:XML in xmlData.MysteryBoxes.Box) {
-            var of:MysteryBoxOffer = new MysteryBoxOffer(offerData);
+            var of:MysteryBoxOffer = new MysteryBoxOffer(this.gs, offerData);
             of.y = 50 + (50 * i) + (10 * i);
             of.x = 10;
             addChild(of);
@@ -91,6 +91,15 @@ public class MysteryBox extends Sprite {
 import Language.LanguageManager;
 
 import MiniGames.MysteryBox.MysteryBox;
+import MiniGames.MysteryBox.MysteryBoxRequest;
+import MiniGames.MysteryBox.MysteryBoxResultEvent;
+
+import _0L_C_.DialogBox;
+
+import com.company.assembleegameclient.appengine.WebRequest;
+import com.company.assembleegameclient.game.GameSprite;
+import com.company.assembleegameclient.parameters.Parameters;
+import com.company.assembleegameclient.parameters.Parameters;
 
 import com.company.assembleegameclient.ui.SellableButton;
 import com.company.ui.SimpleText;
@@ -101,6 +110,7 @@ import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.geom.Matrix;
+import flash.ui.GameInput;
 import flash.utils.getTimer;
 
 class MysteryBoxOffer extends Sprite {
@@ -115,9 +125,13 @@ class MysteryBoxOffer extends Sprite {
     private var title:SimpleText;
     private var oldTime:int;
     private var over:Boolean;
+    private var data:XML;
+    private var gs:GameSprite;
 
-    public function MysteryBoxOffer(offer:XML) {
+    public function MysteryBoxOffer(gs:GameSprite, offer:XML) {
         this.x = 10;
+        this.data = offer;
+        this.gs = gs;
         graphics.beginFill(0x000000, 1.0);
         graphics.drawRect(0, 0, WIDTH, HEIGHT);
         graphics.endFill();
@@ -137,6 +151,7 @@ class MysteryBoxOffer extends Sprite {
         this.buyButton = new SellableButton(LanguageManager.manager.getValue("buy.Text", "Buy for "), 21, offer.Price.@amount, offer.Price.@currency);
         this.buyButton.x = WIDTH - this.buyButton.width - 10;
         this.buyButton.y = ((HEIGHT / 2) - (this.buyButton.height / 2)) + 5;
+        this.buyButton.addEventListener(MouseEvent.CLICK, this.onBuy);
         addChild(this.buyButton);
 
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
@@ -169,5 +184,17 @@ class MysteryBoxOffer extends Sprite {
 
     private function onMouseOut(event:MouseEvent):void {
         this.over = false;
+    }
+
+    private function onBuy(event:MouseEvent):void {
+        var req:MysteryBoxRequest = new MysteryBoxRequest();
+        req.addEventListener(MysteryBoxResultEvent.MYSTERYBOX_RESULT, this.onResult);
+        req.sendBoxPurchase(this.data.@id);
+    }
+
+    private function onResult(event:MysteryBoxResultEvent):void {
+        if(event.error) {
+            this.gs.stage.addChild(new DialogBox(event.errorMessage, "Failed to purchase", "Ok", null));
+        }
     }
 }
