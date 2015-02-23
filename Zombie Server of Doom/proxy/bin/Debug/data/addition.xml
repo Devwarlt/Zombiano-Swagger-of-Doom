@@ -72,6 +72,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound>weapon/mtar21</OldSound>
   </Object>
   <Object id="SCAR-H" ext="true">
@@ -98,6 +99,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound>weapon/scar-h2</OldSound>
   </Object>
   <Object id="M16A3" ext="true">
@@ -124,6 +126,7 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound>weapon/m16a3</OldSound>
   </Object>
 
@@ -152,9 +155,10 @@
     <BagType>0</BagType>
     <NumProjectiles>1</NumProjectiles>
     <ArcGap>0</ArcGap>
+    <CanBePremiumPackItem />
     <OldSound></OldSound>
   </Object>
-  
+
   <Object id="SCARH Crafting Book" ext="true">
     <DisplayId>Crafting Book</DisplayId>
     <Class>Equipment</Class>
@@ -868,9 +872,14 @@
     </Object>
   </Wall>
   <Object id="crafting" ext="true">
-    <Model>Cessna</Model>
+    <Model>Skyscraper</Model>
     <Class>CraftingTerminal</Class>
-    <Size>1</Size>
+    <Texture>
+      <File>lofiEnvironment2</File>
+      <Index>0x04</Index>
+    </Texture>
+    <Static />
+    <Size>100</Size>
   </Object>
   <Object id="recipe" ext="true">
     <Model>Tower</Model>
@@ -943,4 +952,11 @@
       </Projectile>
     </Object>
   </Lithium>
+
+  <Ossi>
+    <Object id="trade" ext="true">
+      <Class>GameObject</Class>
+      <Model>TradeTent</Model>
+    </Object>
+  </Ossi>
 </Addition>
