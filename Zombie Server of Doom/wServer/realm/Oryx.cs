@@ -28,7 +28,7 @@ namespace wServer.realm
             { WmapTerrain.ShoreSand, Tuple.Create(
                 100, new []
                 {
-                    Tuple.Create("Lithium 1", 0.3)
+                    Tuple.Create("Bonegrind the Butcher", 0.3)
                 })
             },
             { WmapTerrain.ShorePlains, Tuple.Create(

@@ -92,7 +92,9 @@
     <Compile Include="Country.cs" />
     <Compile Include="FireAnalytics.cs" />
     <Compile Include="IServer.cs" />
-    <Compile Include="logic\db\BehaviorDb.Lithium.cs" />
+    <Compile Include="logic\behaviors\NPC_Shoot.cs" />
+    <Compile Include="logic\db\BehaviorDb.ZombiefiedAdmins.cs" />
+    <Compile Include="logic\db\BehaviorDb.Solider.cs" />
     <Compile Include="networking\Client.cs" />
     <Compile Include="networking\cliPackets\ClientPacket.cs" />
     <Compile Include="networking\cliPackets\ChooseNamePacket.cs" />
