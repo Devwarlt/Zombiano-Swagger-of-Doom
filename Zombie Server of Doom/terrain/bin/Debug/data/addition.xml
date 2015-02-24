@@ -901,57 +901,73 @@
     <OccupySquare />
     <Size>15</Size>
   </Object>
+  <Object id="Zombified Fabian" ext="true">
+    <Class>Character</Class>
+    <AnimatedTexture>
+      <File>players</File>
+      <Index>4</Index>
+    </AnimatedTexture>
+    <HitSound>player/wizard_hit</HitSound>
+    <DeathSound>player/wizard_death</DeathSound>
+    <Size>80</Size>
+    <MaxHitPoints>575</MaxHitPoints>
+    <Defense>15</Defense>
+    <Level>1</Level>
+    <XpMult>0</XpMult>
+    <NoArticle />
+    <Projectile id="0">
+      <ObjectId>Blue Missile</ObjectId>
+      <Damage>90</Damage>
+      <Size>100</Size>
+      <Speed>180</Speed>
+      <LifetimeMS>800</LifetimeMS>
+    </Projectile>
+  </Object>
+  <Object id="Zombified BARm" ext="true">
+    <Class>Character</Class>
+    <AnimatedTexture>
+      <File>players</File>
+      <Index>3</Index>
+    </AnimatedTexture>
+    <HitSound>player/wizard_hit</HitSound>
+    <DeathSound>player/wizard_death</DeathSound>
+    <Size>80</Size>
+    <MaxHitPoints>575</MaxHitPoints>
+    <Defense>15</Defense>
+    <Level>1</Level>
+    <XpMult>0</XpMult>
+    <NoArticle />
+    <Projectile id="0">
+      <ObjectId>Blue Missile</ObjectId>
+      <Damage>90</Damage>
+      <Size>100</Size>
+      <Speed>180</Speed>
+      <LifetimeMS>800</LifetimeMS>
+    </Projectile>
+  </Object>
 
-  <Lithium>
-    <Object id="Lithium 1" ext="true">
-      <!-- Low tier zombie
-     Supposed to miss quite often
-     Mid to high damage (for level 2-8)
-      -->
-      <Group>Gods</Group>
-      <Enemy />
-      <Class>Character</Class>
-      <AnimatedTexture>
-        <File>chars16x16dMountains1</File>
-        <Index>0x04</Index>
-      </AnimatedTexture>
-      <HitSound>monster/ents_hit</HitSound>
-      <DeathSound>monster/ents_death</DeathSound>
+  <Object id="Solider" ext="true">
+    <Class>Character</Class>
+    <AnimatedTexture>
+      <File>players</File>
+      <Index>2</Index>
+    </AnimatedTexture>
+    <HitSound>player/wizard_hit</HitSound>
+    <DeathSound>player/wizard_death</DeathSound>
+    <Size>80</Size>
+    <MaxHitPoints>575</MaxHitPoints>
+    <Defense>15</Defense>
+    <Level>1</Level>
+    <XpMult>0</XpMult>
+    <NoArticle />
+    <Projectile id="0">
+      <ObjectId>Blue Missile</ObjectId>
+      <Damage>90</Damage>
       <Size>100</Size>
-      <MaxHitPoints>2000</MaxHitPoints>
-      <Defense>20</Defense>
-      <God />
-      <Projectile id="0">
-        <ObjectId>Fire Bolt</ObjectId>
-        <Damage>70</Damage>
-        <Speed>80</Speed>
-        <LifetimeMS>2000</LifetimeMS>
-        <MultiHit />
-      </Projectile>
-    </Object>
-    <Object id="Lithium2" ext="true">
-      <Group>Gods</Group>
-      <Enemy />
-      <Class>Character</Class>
-      <AnimatedTexture>
-        <File>chars16x16dMountains1</File>
-        <Index>0x04</Index>
-      </AnimatedTexture>
-      <HitSound>monster/ents_hit</HitSound>
-      <DeathSound>monster/ents_death</DeathSound>
-      <Size>100</Size>
-      <MaxHitPoints>2000</MaxHitPoints>
-      <Defense>20</Defense>
-      <God />
-      <Projectile id="0">
-        <ObjectId>Fire Bolt</ObjectId>
-        <Damage>70</Damage>
-        <Speed>80</Speed>
-        <LifetimeMS>2000</LifetimeMS>
-        <MultiHit />
-      </Projectile>
-    </Object>
-  </Lithium>
+      <Speed>180</Speed>
+      <LifetimeMS>800</LifetimeMS>
+    </Projectile>
+  </Object>
 
   <Ossi>
     <Object id="trade" ext="true">
@@ -959,4 +975,5 @@
       <Model>TradeTent</Model>
     </Object>
   </Ossi>
+  
 </Addition>

@@ -125,3 +125,37 @@ F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\projectiles.xml
 F:\Development\C Sharp\Realm of the Mad God\zombie-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\trees.xml
 D:\Users\Fabian\Documents\zombie-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\skins.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\texture\_dark_fire.png
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\texture\_firey_floor.png
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\texture\_fire_mystic_shot.png
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\texture\_forgotten_archmage_of_flame.png
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\texture\_staff_of_the_abyss.png
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\addition.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\dat18.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\skins.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\pets.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\dyes.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\specials2.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\players.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\items.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\tutorial.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\cloths.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\groundTiles.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\specials.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\projectiles.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\data\trees.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\terrain.exe
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\terrain.pdb
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\db.dll
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\GeoAPI.dll
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\Ionic.Zlib.dll
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\NetTopologySuite.dll
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\Newtonsoft.Json.dll
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\PowerCollections.dll
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\log4net.dll
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\db.pdb
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\Newtonsoft.Json.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\bin\Debug\log4net.xml
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\obj\Debug\terrain.csprojResolveAssemblyReference.cache
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\obj\Debug\terrain.exe
+G:\Users\user\Documents\zombiano-swagger-of-doom\Zombie Server of Doom\terrain\obj\Debug\terrain.pdb
