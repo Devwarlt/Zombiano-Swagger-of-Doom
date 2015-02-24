@@ -16,6 +16,7 @@
  * Created by Fabian on 20.02.2015.
  */
 package AccountManagement.Frames {
+import AccountManagement.AccountEvent;
 import AccountManagement.AccountManagementScreen;
 
 import Frames.Frame;
@@ -46,7 +47,7 @@ public class RegisterAccountFrame extends Frame {
     public var tosText:_zb;
     public var login:TextButton;
 
-    public function RegisterAccountFrame(_arg1:Boolean = false) {
+    public function RegisterAccountFrame() {
         super("Register in order to save your progress", "Cancel", "Register");
         this.username = new TextInputSmall("Username", false, "");
         addTextInput(this.username);
@@ -58,17 +59,13 @@ public class RegisterAccountFrame extends Frame {
         addTextInput(this.confirmPassword);
         this.tosText = new _zb((('I agree to the <font color="#7777EE"><a href="' + Parameters.ToS_Url_) + '" target="_blank">Terms of Use</a></font>.'), false, "");
         _O_1(this.tosText);
-        if (_arg1) {
-            this.login = new TextButton(12, false, "Already Registered?  Click here to Sign In");
-            addTextButton(this.login);
-        }
+        this.login = new TextButton(12, false, "Already Registered?  Click here to Sign In");
+        addTextButton(this.login);
         Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
         Button2.addEventListener(MouseEvent.CLICK, this.register);
         this.addEventListener(Event.ADDED_TO_STAGE, this.onAdded);
         this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemoved);
-        if (_arg1) {
-            this.login.addEventListener(MouseEvent.CLICK, this.onLoginClick);
-        }
+        this.login.addEventListener(MouseEvent.CLICK, this.onLoginClick);
     }
 
     private function onCancel(_arg1:MouseEvent):void {
@@ -120,7 +117,7 @@ public class RegisterAccountFrame extends Frame {
     }
 
     private function onLoginClick(_arg1:MouseEvent):void {
-        //dispatchEvent(new _nJ_(_nJ_._2K_));
+        dispatchEvent(new AccountEvent(AccountEvent.SIGN_IN));
     }
 
     private function onAdded(e:Event):void {

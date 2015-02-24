@@ -26,8 +26,8 @@ import _F_1.CurrentCharacterScreen;
 
 import com.company.assembleegameclient.game.GameSprite;
     import _05Z_._D_m;
-    import _U_5._M_d;
-    import _U_5._01W_;
+    import _U_5.CharListResetDispatcher;
+    import _U_5.SpriteTarget;
     import _U_5._dd;
     import _05Z_._08i;
     import _W_D_._0I_H_;
@@ -47,9 +47,9 @@ import flash.events.Event;
         [Inject]
         public var _0H_j:_D_m;
         [Inject]
-        public var _0D_p:_M_d;
+        public var _0D_p:CharListResetDispatcher;
         [Inject]
-        public var _0_b:_01W_;
+        public var _0_b:SpriteTarget;
         [Inject]
         public var _T__:_dd;
         [Inject]

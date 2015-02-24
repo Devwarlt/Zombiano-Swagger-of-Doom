@@ -113,6 +113,7 @@ AND characters.charId=death.chrId;";
                 Admin = false,
                 BeginnerPackageTimeLeft = 0,
                 Converted = false,
+                Guest = true,
                 Credits = 1000,
                 Guild = null,
                 NameChosen = false,
@@ -169,7 +170,8 @@ AND characters.charId=death.chrId;";
                     NextCharSlotPrice = 100,
                     VerifiedEmail = rdr.GetBoolean("verified"),
                     CraftingRecipes = Utils.FromCommaSepString32(rdr.GetString("craftingRecipes")).ToList(),
-                    AchievementData = AchievementUtils.DeserializeFromEncryptedBase64String(rdr.GetString("achievements"))
+                    AchievementData = AchievementUtils.DeserializeFromEncryptedBase64String(rdr.GetString("achievements")),
+                    BanReason = rdr.GetString("banReason")
                 };
             }
             ReadStats(ret);

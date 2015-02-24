@@ -22,12 +22,12 @@ package _W_D_{
 
     public class _0I_H_ {
 
-        public var _T_1:SavedCharsList;
-        public var _34:Boolean;
-        public var _sy:int;
+        public var charList:SavedCharsList;
+        public var isLoaded:Boolean;
+        public var charId:int;
 
         public function _0I_H_(){
-            this._34 = true;
+            this.isLoaded = true;
         }
     }
 }//package _W_D_

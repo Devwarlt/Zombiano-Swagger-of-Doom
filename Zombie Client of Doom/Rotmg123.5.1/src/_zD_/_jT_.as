@@ -57,9 +57,9 @@ import _W_D_._0I_H_;
             var _local9:BitmapData;
             var _local10:BitmapData;
             _local2 = null;
-            for each (_local2 in this._eJ_._T_1.savedChars_)
+            for each (_local2 in this._eJ_.charList.savedChars_)
             {
-                if (this._eJ_._sy == _local2.charId()) break;
+                if (this._eJ_.charId == _local2.charId()) break;
             }
             if (_local2)
             {

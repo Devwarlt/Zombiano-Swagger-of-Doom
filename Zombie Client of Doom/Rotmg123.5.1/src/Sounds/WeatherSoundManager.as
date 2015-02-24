@@ -32,7 +32,9 @@ public class WeatherSoundManager {
 
     public function load(music:String):void {
         var currentSound:Sound = new Sound();
-        currentSound.load(new URLRequest((("http://" + Parameters.musicUrl_) + "/sfx/weather/" + music + ".mp3")));
+        var req:URLRequest = new URLRequest((("http://" + Parameters.musicUrl_) + "/sfx/weather/" + music + ".mp3"));
+        req.userAgent = "GameClient";
+        currentSound.load(req);
         currentSoundTransform = new SoundTransform(0);
         currentSoundChannel = currentSound.play(0, int.MAX_VALUE, currentSoundTransform);
         var tween:GTween = new GTween(this.currentSoundTransform, 5, { "volume": 1.0 });

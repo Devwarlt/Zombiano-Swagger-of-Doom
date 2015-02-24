@@ -48,9 +48,9 @@ import _W_D_._0I_H_;
 import _W_D_._G_J_;
 import _U_5._D_c;
 import _0G__._Y_R_;
-import _U_5._M_d;
+import _U_5.CharListResetDispatcher;
 import _0G__._0H_1;
-import _U_5._01W_;
+import _U_5.SpriteTarget;
 import _0G__._G_b;
 import _U_5._06a;
 import _0G__._05L_;
@@ -100,8 +100,8 @@ import _0I_9._gq;
         }
         private function _ml():void{
             this._1G_.map(_D_c, true)._1N_(_Y_R_);
-            this._1G_.map(_M_d)._1N_(_0H_1);
-            this._1G_.map(_01W_)._1N_(_G_b);
+            this._1G_.map(CharListResetDispatcher)._1N_(_0H_1);
+            this._1G_.map(SpriteTarget)._1N_(_G_b);
             this._1G_.map(_06a)._1N_(_05L_);
         }
         private function _T_u():void{

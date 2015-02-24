@@ -33,7 +33,7 @@ import flash.events.Event;
         public function CharWebRequests(retriesIfFailed:int=0){
             super(Parameters.getAccountServerIP(), "/char", true, retriesIfFailed);
         }
-        public function _H_Q_():void{
+        public function sendCharList():void{
             addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._D_D_);
             var _local1:Object = Account._get().credentials();
             var _local2:Object = {

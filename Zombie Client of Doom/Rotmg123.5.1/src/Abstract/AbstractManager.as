@@ -17,6 +17,8 @@
  */
 package Abstract {
 import AccountManagement.Frames.ChangePasswordFrame;
+import AccountManagement.Frames.ForgotPasswordFrame;
+import AccountManagement.Frames.LoginFrame;
 import AccountManagement.Frames.RegisterAccountFrame;
 
 import Frames.CraftingFrame;
@@ -92,7 +94,7 @@ public class AbstractManager {
 
     public static function register():void {
         AbstractManager.configure(TextInput).extend(TextInputSmall).extend(TextInputBig);
-        AbstractManager.configure(Frame).extend(LearnCraftingRecipeFrame).extend(GiftViewFrame).extend(CreateVillageFrame).extend(CraftingFrame).extend(_A_t).extend(_A_R_).extend(_8x).extend(ChangePasswordFrame).extend(RegisterAccountFrame).extend(_R_c);
+        AbstractManager.configure(Frame).extend(LearnCraftingRecipeFrame).extend(GiftViewFrame).extend(CreateVillageFrame).extend(CraftingFrame).extend(_A_t).extend(_A_R_).extend(_8x).extend(ChangePasswordFrame).extend(RegisterAccountFrame).extend(_R_c).extend(LoginFrame).extend(ForgotPasswordFrame);
     }
 }
 }

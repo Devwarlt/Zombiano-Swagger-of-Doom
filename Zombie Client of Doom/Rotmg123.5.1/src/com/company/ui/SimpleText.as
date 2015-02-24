@@ -18,10 +18,6 @@
 //com.company.ui.SimpleText
 
 package com.company.ui{
-import _0_p._q7;
-
-import _zD_.__else;
-
 import com.company.ui.fonts.*;
 
     import flash.text.Font;

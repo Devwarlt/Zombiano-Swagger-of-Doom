@@ -35,6 +35,8 @@ import OptionsStuff.Options;
 
 public class InventorySide extends Sprite {
 
+    public static const SPACE_BETWEEN_TABS:int = 2;
+
 	private var gs_:GameSprite;
 	private var go_:Player;
 	private var w_:int;
@@ -161,7 +163,7 @@ public class InventorySide extends Sprite {
 		this.tabList_[0] = this.invTab_;
 		this.statTab_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x21), 1);
 		this.statTab_.addEventListener(MouseEvent.CLICK, this.onTabClick);
-		this.statTab_.x = this.invTab_.x + TabButton.WIDTH + 1;
+		this.statTab_.x = this.invTab_.x + TabButton.WIDTH + SPACE_BETWEEN_TABS;
 		this.statTab_.y = 176;
 		addChild(this.statTab_);
 		this.tabList_[1] = this.statTab_;
@@ -183,14 +185,14 @@ public class InventorySide extends Sprite {
 
 		this.backpackTab1_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x22), 2);
 		this.backpackTab1_.addEventListener(MouseEvent.CLICK, this.onTabClick);
-		this.backpackTab1_.x = this.statTab_.x + TabButton.WIDTH + 1;
+		this.backpackTab1_.x = this.statTab_.x + TabButton.WIDTH + SPACE_BETWEEN_TABS;
 		this.backpackTab1_.y = 176;
 		addChild(this.backpackTab1_);
 		this.tabList_[2] = this.backpackTab1_;
 
 		this.backpackTab2_ = new TabButton(AssetLibrary._xK_("lofiInterfaceBig", 0x22), 3);
 		this.backpackTab2_.addEventListener(MouseEvent.CLICK, this.onTabClick);
-		this.backpackTab2_.x = this.backpackTab1_.x + TabButton.WIDTH + 1;
+		this.backpackTab2_.x = this.backpackTab1_.x + TabButton.WIDTH + SPACE_BETWEEN_TABS;
 		this.backpackTab2_.y = 176;
 		var bpNumber:SimpleText = new SimpleText(10, 0xffffff);
 		bpNumber.text = "2";

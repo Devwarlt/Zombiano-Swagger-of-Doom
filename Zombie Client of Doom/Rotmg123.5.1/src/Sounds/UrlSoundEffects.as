@@ -41,6 +41,7 @@ package Sounds{
                 return (_local2);
             }
             var _local3:URLRequest = new URLRequest("http://" + Parameters.musicUrl_ + "/sfx/" + _arg1 + ".mp3");
+            _local3.userAgent = "GameClient";
             _local2 = new Sound();
             _local2.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
             _local2.load(_local3);

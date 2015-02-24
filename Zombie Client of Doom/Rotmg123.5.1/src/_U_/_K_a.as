@@ -21,6 +21,9 @@ package _U_{
 import AccountManagement.AccountEventDispatcher;
 import AccountManagement.AccountManagementScreen;
 
+import Villages.nations.ChooseNationScreen;
+import Villages.nations.NationEventDispatcher;
+
 import _0_p._v;
 
 import _F_1.CreditsScreen;
@@ -112,6 +115,7 @@ import _zD_._xF_;
             this.mediatorMap.map(_05p)._Y_u(_V_M_);
             this.mediatorMap.map(_C_Q_)._Y_u(__for);
             this.mediatorMap.map(AccountManagementScreen)._Y_u(AccountEventDispatcher);
+            this.mediatorMap.map(ChooseNationScreen)._Y_u(NationEventDispatcher);
             this.mediatorMap.map(_3V_)._Y_u(_fy);
             this.mediatorMap.map(_0H_2)._Y_u(_2H_);
             this.mediatorMap.map(_hj)._Y_u(_0D_L_);

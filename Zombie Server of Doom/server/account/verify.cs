@@ -1,4 +1,5 @@
 ﻿using db;
+using System;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -14,6 +15,7 @@ namespace server.account
                 var acc = db.Verify(Query["guid"], Query["password"]);
                 if (acc == null)
                     WriteErrorLine("Bad login");
+                else if (!String.IsNullOrWhiteSpace(acc.BanReason)) WriteErrorLine("AC.BAN{0}", acc.BanReason);
                 else
                 {
                     XmlSerializer serializer = new XmlSerializer(acc.GetType(), new XmlRootAttribute(acc.GetType().Name) { Namespace = "" });

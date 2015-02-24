@@ -78,14 +78,14 @@ package com.company.assembleegameclient.util{
             }
             return (_local9);
         }
-        public static function resize(baseData:BitmapData, mask:BitmapData, size:int, _arg4:Boolean, tex1:int, tex2:int, _arg7:int=5):BitmapData{
+        public static function resize(baseData:BitmapData, mask:BitmapData, size:int, _arg4:Boolean, tex1:int, tex2:int, scaleValue:int=5):BitmapData{
             if (((!((mask == null))) && (((!((tex1 == 0))) || (!((tex2 == 0)))))))
             {
                 baseData = retexture(baseData, mask, tex1, tex2);
                 size = (size / 5);
             }
-            var _local8:Number = ((_arg7 * (size / 100)) * baseData.width);
-            var _local9:Number = ((_arg7 * (size / 100)) * baseData.height);
+            var _local8:Number = ((scaleValue * (size / 100)) * baseData.width);
+            var _local9:Number = ((scaleValue * (size / 100)) * baseData.height);
             var _local10:Matrix = new Matrix();
             _local10.scale((_local8 / baseData.width), (_local9 / baseData.height));
             _local10.translate(12, 12);

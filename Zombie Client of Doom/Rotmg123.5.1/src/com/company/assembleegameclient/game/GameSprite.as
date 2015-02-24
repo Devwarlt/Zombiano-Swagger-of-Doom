@@ -18,7 +18,10 @@
 //com.company.assembleegameclient.game.GameSprite
 
 package com.company.assembleegameclient.game{
-    import ServerPackets.MapInfo;
+import EasterEggs.EasterEggHandler;
+import EasterEggs.EasterEggs.Pretty_Woman_EasterEgg;
+
+import ServerPackets.MapInfo;
     
     import _9R_._B_w;
 
@@ -252,6 +255,7 @@ import com.company.assembleegameclient.map._0D_v;
             {
                 return;
             }
+            EasterEggHandler.registerEasterEgg(new Pretty_Woman_EasterEgg(stage));
             this._2e = true;
             this.sideUI.x = 600;
             this.sideUI.y = 0;

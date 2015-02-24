@@ -49,6 +49,11 @@ namespace server.@char
                 };
                 if (chrs.Account != null)
                 {
+                    if (!String.IsNullOrWhiteSpace(chrs.Account.BanReason))
+                    {
+                        WriteErrorLine("AC.BAN{0}", chrs.Account.BanReason);
+                        return;
+                    }
                     db.GetCharData(chrs.Account, chrs);
                     db.LoadCharacters(chrs.Account, chrs);
                     chrs.News = db.GetNews(Program.GameData, chrs.Account);

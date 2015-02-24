@@ -166,8 +166,8 @@ import flash.utils.Dictionary;
             }
             return (_local2.getTexture());
         }
-        public static function getRedrawnTextureFromType(_arg1:int, _arg2:int, _arg3:Boolean, _arg4:Boolean=true, _arg5:int=5):BitmapData{
-            var _local6:_Z_H_ = _V_a[_arg1];
+        public static function getRedrawnTextureFromType(itemId:int, size:int, outlineGlow:Boolean, _arg4:Boolean=true, _arg5:int=5):BitmapData{
+            var _local6:_Z_H_ = _V_a[itemId];
             var _local7:BitmapData = _local6.getTexture();
             if (_local7 == null)
             {
@@ -176,12 +176,12 @@ import flash.utils.Dictionary;
             var _local8:BitmapData = _local6.mask_;
             if (_local8 == null)
             {
-                return (TextureRedrawer.redraw(_local7, _arg2, _arg3, 0, 0, _arg4, _arg5));
+                return (TextureRedrawer.redraw(_local7, size, outlineGlow, 0, 0, _arg4, _arg5));
             }
-            var _local9:XML = Items[_arg1];
+            var _local9:XML = Items[itemId];
             var _local10:int = ((_local9.hasOwnProperty("Tex1")) ? int(_local9.Tex1) : 0);
             var _local11:int = ((_local9.hasOwnProperty("Tex2")) ? int(_local9.Tex2) : 0);
-            _local7 = TextureRedrawer.resize(_local7, _local8, _arg2, _arg3, _local10, _local11);
+            _local7 = TextureRedrawer.resize(_local7, _local8, size, outlineGlow, _local10, _local11);
             _local7 = TextureRedrawer.outlineGlow(_local7, 0, 0);
             return (_local7);
         }

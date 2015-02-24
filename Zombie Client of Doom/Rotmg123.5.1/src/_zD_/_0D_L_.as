@@ -30,7 +30,7 @@ package _zD_{
         public var _0I_s:_0I_H_;
 
         override public function initialize():void{
-            this.view.initialize(this._0I_s._T_1);
+            this.view.initialize(this._0I_s.charList);
         }
 
     }

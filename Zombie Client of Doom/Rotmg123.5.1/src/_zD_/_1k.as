@@ -23,8 +23,8 @@ package _zD_{
 
 import _F_1.CurrentCharacterScreen;
 
-import _U_5._M_d;
-    import _U_5._01W_;
+import _U_5.CharListResetDispatcher;
+    import _U_5.SpriteTarget;
     import flash.events.Event;
 
     public class _1k extends _cM_ {
@@ -32,9 +32,9 @@ import _U_5._M_d;
         [Inject]
         public var view:_0G_y;
         [Inject]
-        public var _0B_a:_M_d;
+        public var _0B_a:CharListResetDispatcher;
         [Inject]
-        public var _0_b:_01W_;
+        public var _0_b:SpriteTarget;
 
         override public function initialize():void{
             _b6(Event.COMPLETE, this.onComplete);

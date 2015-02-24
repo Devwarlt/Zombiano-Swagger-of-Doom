@@ -55,7 +55,7 @@ package _qN_{
             return (false);
         }
         public function isAdmin():Boolean{
-            return (admin_);
+            return (this.admin_);
         }
         protected function internalLoad(_arg1:Stage, _arg2:Function):void{
         }

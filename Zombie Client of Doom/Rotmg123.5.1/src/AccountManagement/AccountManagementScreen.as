@@ -16,14 +16,9 @@
  * Created by Fabian on 16.12.2014.
  */
 package AccountManagement {
-import AccountManagement.Frames.RegisterAccountFrame;
-
-import _02t._R_f;
-
-import _qN_.Account;
 import _sp._aJ_;
 
-import com.company.assembleegameclient.ui.FrameHolder;
+import com.company.assembleegameclient.appengine.SavedCharsList;
 
 import flash.display.Sprite;
 import flash.events.Event;
@@ -31,7 +26,8 @@ import flash.events.MouseEvent;
 
 public class AccountManagementScreen extends Sprite {
 
-    public var accountXml:XML;
+    private static const NULL_XML:XML = new XML("");
+
     public var eventDispatcher:_aJ_;
 
     public var accountHeader:AccountManagementHeader;
@@ -44,15 +40,16 @@ public class AccountManagementScreen extends Sprite {
     public static const RELOAD:String = "RELOAD";
     public static const LOGOUT:String = "LOGOUT";
 
-    public static var openNext:Boolean = false;
+    private var login:Boolean;
+    private var charList:SavedCharsList;
 
-    public function AccountManagementScreen(accountXml:XML) {
-        this.accountXml = accountXml;
-        openNext = false;
+    public function AccountManagementScreen(login:Boolean=false) {
+        this.login = login;
         this.eventDispatcher = new _aJ_(String);
     }
 
-    public function initialize():void {
+    public function initialize(charList:SavedCharsList):void {
+        this.charList = charList;
         this.accountHeader = new AccountManagementHeader(this);
         this.accountBody = new AccountManagementBody(this);
         this.accountFooter = new AccountManagementFooter(this);
@@ -71,8 +68,11 @@ public class AccountManagementScreen extends Sprite {
             this.accountHeader.switchToTab(this.selectedTab);
         }
 
-        if (!Account._get().isRegistered()) {
-            this.register();
+        if (!accountXml.hasOwnProperty("AccountId") || int(accountXml.AccountId) == 0 || accountXml.hasOwnProperty("Guest")) {
+            var frame:AccountFrameManager = new AccountFrameManager(this.login);
+            frame.addEventListener(Event.COMPLETE, this.onFrameComplete);
+            frame.addEventListener(AccountEvent.SUCCESS, this.onFrameSuccess);
+            addChild(frame);
         }
     }
 
@@ -86,6 +86,11 @@ public class AccountManagementScreen extends Sprite {
         this.accountFooter = null;
     }
 
+    public function get accountXml():XML {
+        if (this.charList == null) return NULL_XML;
+        return XML(this.charList.rawCharList.Account);
+    }
+
     public function dispatchAccountMouseEvent(event:MouseEvent):void {
         eventDispatcher.dispatch(event.target.name);
     }
@@ -94,8 +99,12 @@ public class AccountManagementScreen extends Sprite {
         eventDispatcher.dispatch(eventType);
     }
 
-    private function register():void {
-        addChild(new FrameHolder(new RegisterAccountFrame()));
+    private function onFrameSuccess(event:AccountEvent):void {
+        dispatch(RELOAD);
+    }
+
+    private function onFrameComplete(event:Event):void {
+        dispatch(SHOW_MAIN_SCREEN);
     }
 }
 }

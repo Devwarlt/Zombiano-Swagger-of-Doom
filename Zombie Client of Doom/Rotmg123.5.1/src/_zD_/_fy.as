@@ -28,8 +28,8 @@ import _F_1._U_W_;
 
 import _W_D_._0I_H_;
     import _W_D_._G_J_;
-    import _U_5._M_d;
-    import _U_5._01W_;
+    import _U_5.CharListResetDispatcher;
+    import _U_5.SpriteTarget;
     import com.company.assembleegameclient.appengine.WebRequest;
     import com.company.assembleegameclient.parameters.Parameters;
     import WebRequestEvents.WebRequestSuccessEvent;
@@ -44,9 +44,9 @@ import _W_D_._0I_H_;
         [Inject]
         public var _0K_K_:_G_J_;
         [Inject]
-        public var _0D_p:_M_d;
+        public var _0D_p:CharListResetDispatcher;
         [Inject]
-        public var _T__:_01W_;
+        public var _T__:SpriteTarget;
         private var timespan:String;
         private var _0K_y:WebRequest;
 
@@ -82,7 +82,7 @@ import _W_D_._0I_H_;
             this._qI_();
         }
         private function _qI_():void{
-            var _local1:int = this._eJ_._T_1.accountId_;
+            var _local1:int = this._eJ_.charList.accountId_;
             var _local2:int = ((((!((_local1 == -1))) && (this._0K_K_._sr))) ? this._0K_K_._J_u : -1);
             this._0K_y.sendRequest("list", {
                 "timespan":this.timespan,

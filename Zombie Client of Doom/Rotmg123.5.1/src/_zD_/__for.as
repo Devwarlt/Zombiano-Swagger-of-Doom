@@ -21,7 +21,7 @@ package _zD_{
 import AccountManagement.AccountEventDispatcher;
 import AccountManagement.AccountManagementScreen;
 
-import Villages.ChooseNationScreen;
+import Villages.nations.ChooseNationScreen;
 
 import _0_j._kW_;
 
@@ -62,11 +62,7 @@ import com.company.assembleegameclient.parameters.Parameters;
 
         override public function initialize():void {
             this.view._ft.add(this._F_A_);
-            this.view.initialize(this._eJ_._T_1);
-            if(AccountManagementScreen.openNext && AccountEventDispatcher.logoutWasForced) {
-                AccountEventDispatcher.logoutWasForced = false;
-                this._F_A_(_0M_1.ACCOUNT);
-            }
+            this.view.initialize(this._eJ_.charList);
         }
         override public function destroy():void{
             this.view._ft.remove(this._F_A_);
@@ -109,7 +105,7 @@ import com.company.assembleegameclient.parameters.Parameters;
         private function _04P_():void{
             var _local1:DialogBox;
             var _local2:_07V_;
-            if (((!Parameters.isTesting) && ((this._eJ_._T_1.servers_.length == 0))))
+            if (((!Parameters.isTesting) && ((this._eJ_.charList.servers_.length == 0))))
             {
                 if (Parameters._I_O_())
                 {
@@ -121,13 +117,13 @@ import com.company.assembleegameclient.parameters.Parameters;
                 this.view.stage.addChild(_local1);
                 return;
             }
-            if (((Parameters.data_.needsTutorial) && ((this._eJ_._T_1.nextCharId_ == 1))))
+            if (((Parameters.data_.needsTutorial) && ((this._eJ_.charList.nextCharId_ == 1))))
             {
                 Parameters.data_.playerObjectType = 782;
                 Parameters.save();
                 _local2 = new _07V_();
                 _local2._0_E_ = true;
-                _local2.charId = this._eJ_._T_1.nextCharId_;
+                _local2.charId = this._eJ_.charList.nextCharId_;
                 _local2._f2 = -1;
                 _local2._05d = true;
                 this._D_u.dispatch(_local2);
@@ -143,7 +139,7 @@ import com.company.assembleegameclient.parameters.Parameters;
             this._T__.dispatch(new _01_());
         }
         private function _0A_3():void {
-            this._T__.dispatch(new AccountManagementScreen(XML(this._eJ_._T_1.rawCharList.Account)));
+            this._T__.dispatch(new AccountManagementScreen(XML(this._eJ_.charList.rawCharList.Account)));
         }
         private function _N_E_():void{
             this._T__.dispatch(new _3V_());

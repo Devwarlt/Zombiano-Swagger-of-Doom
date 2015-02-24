@@ -33,7 +33,7 @@ package _K_8{
         public var _o_:_0_D_;
 
         override public function initialize():void{
-            this.view.initialize(this._0I_s._T_1);
+            this.view.initialize(this._0I_s.charList);
             this._o_.dispatch("/textureScreen");
         }
         override public function destroy():void{

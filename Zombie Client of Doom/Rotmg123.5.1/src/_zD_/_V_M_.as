@@ -26,8 +26,8 @@ import _F_1._C_Q_;
 import _W_D_._0I_H_;
     import _U_5._sC_;
     import _U_5._sT_;
-    import _U_5._M_d;
-    import _U_5._01W_;
+    import _U_5.CharListResetDispatcher;
+    import _U_5.SpriteTarget;
     import ToolTips.ToolTip;
     import flash.display.Sprite;
 
@@ -42,9 +42,9 @@ import _W_D_._0I_H_;
         [Inject]
         public var _H_F_:_sT_;
         [Inject]
-        public var _0B_a:_M_d;
+        public var _0B_a:CharListResetDispatcher;
         [Inject]
-        public var _0_b:_01W_;
+        public var _0_b:SpriteTarget;
 
         override public function initialize():void{
             this.view.tooltip.add(this._Y_Y_);

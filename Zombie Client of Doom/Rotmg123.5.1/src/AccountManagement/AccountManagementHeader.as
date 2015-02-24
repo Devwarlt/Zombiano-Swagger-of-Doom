@@ -107,7 +107,7 @@ public class AccountManagementHeader extends Sprite {
         addTab("Achievements (" + managementParent.accountXml.Achievements.@completed + "/" + managementParent.accountXml.Achievements.@total + ")",
                 new AccountManagementImages.achievement_image().bitmapData, new AchievementsHolder(managementParent.accountBody));
         addTab("Settings", new AccountManagementImages.settings2Icon().bitmapData, new SettingsHolder(managementParent.accountBody));
-        addTab("Premium", new premiumRank().bitmapData, new PremiumHolder(managementParent.accountBody, managementParent.accountXml.Premium.text().toLowerCase() == "true"), true);
+        addTab("Premium", new premiumRank().bitmapData, new PremiumHolder(managementParent.accountBody, managementParent.accountXml.Premium.toString().toLowerCase() == "true"), true);
     }
 
     public function switchToTab(name:String):void {

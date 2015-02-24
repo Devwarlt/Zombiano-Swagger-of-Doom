@@ -207,6 +207,7 @@ import FireBite.Embeds.Images._p1;
 import FireBite.Embeds.Images._qd;
 import FireBite.Embeds.Images._tI_;
 import FireBite.Embeds.Images.batteryChargedEmbed;
+import FireBite.Embeds.Models.Embed_Squatty3Side;
 import FireBite.Embeds.Models.Embeds_Tetrahedron;
 import FireBite.Embeds.Models.Embeds_monsterTank1Embed_;
 import FireBite.Embeds.Models.Embeds_monsterTank2Embed_;
@@ -393,6 +394,7 @@ class Embeds {
     /*private*/ internal static var tableEdgeEmbed_:Class = _gO_;
     /*private*/ internal static var signEmbed_:Class = _br;
     /*private*/ internal static var webEmbed_:Class = _0G_4;
+    internal static var squatty3Side:Class = Embed_Squatty3Side;
     public static var models_:Object = {
         "Monster Tank1":new monsterTank1Embed_(),
         "Monster Tank2":new monsterTank2Embed_(),
@@ -418,7 +420,8 @@ class Embeds {
         "Table Edge":new tableEdgeEmbed_(),
         "Sign":new signEmbed_(),
         "Web":new webEmbed_(),
-        "Skyscraper":new skyscaperEmbed_()
+        "Skyscraper":new skyscaperEmbed_(),
+        "Squatty3Side":new squatty3Side()
         //"TradeTent":new tradeTendEmbed_(),
         //"FarmHouse":new farmHouseEmbed_()
     };

@@ -26,14 +26,14 @@ import _qN_.Account;
     import com.company.assembleegameclient.util.GUID;
     import flash.display.Stage;
     import com.company.assembleegameclient.parameters.Parameters;
-    import AccountWebrequests._jz;
+    import AccountManagement.Frames.CurrentAccountButtons;
     import _qN_._9j;
-    import AccountWebrequests._ak;
+    import AccountManagement.AccountFrameManager;
     import flash.display.Sprite;
-    import AccountWebrequests._0A_c;
+    import AccountManagement.Frames._0A_c;
     import com.company.assembleegameclient.appengine._02k;
     import _0L_C_._2k;
-    import AccountWebrequests._02R_;
+    import AccountManagement.Frames._02R_;
 
 public class WebAccount extends Account {
 
@@ -115,7 +115,7 @@ public class WebAccount extends Account {
         override public function reportIntStat(_arg1:String, _arg2:int):void{
         }
         override public function newAccountText():_9j{
-            return (new _jz());
+            return (new CurrentAccountButtons());
         }
         override public function newAccountManagement(accountXml:XML):Sprite{
             return new AccountManagementScreen(accountXml);//(new _ak(false));

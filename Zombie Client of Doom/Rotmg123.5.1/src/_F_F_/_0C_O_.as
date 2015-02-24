@@ -42,7 +42,7 @@ import _W_D_._G_J_;
         public var _T__:_dd;
 
         public function execute():void{
-            if ((((this._0I_s._T_1.accountId_ == -1)) && (this._0K_K_._sr)))
+            if ((((this._0I_s.charList.accountId_ == -1)) && (this._0K_K_._sr)))
             {
                 this._04a();
             } else

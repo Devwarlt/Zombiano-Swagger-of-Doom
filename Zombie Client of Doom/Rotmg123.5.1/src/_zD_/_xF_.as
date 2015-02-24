@@ -28,8 +28,8 @@ import _W_D_._0I_H_;
     import _P_E_._W_2;
     import _0M_m._00V_;
     import _U_5._7e;
-    import _U_5._M_d;
-    import _U_5._01W_;
+    import _U_5.CharListResetDispatcher;
+    import _U_5.SpriteTarget;
     import _U_5._dd;
     import _05Z_._08i;
     import _02b._fn;
@@ -51,9 +51,9 @@ import _W_D_._0I_H_;
         [Inject]
         public var _o_:_7e;
         [Inject]
-        public var _0D_p:_M_d;
+        public var _0D_p:CharListResetDispatcher;
         [Inject]
-        public var _0_b:_01W_;
+        public var _0_b:SpriteTarget;
         [Inject]
         public var _T__:_dd;
         [Inject]
@@ -67,7 +67,7 @@ import _W_D_._0I_H_;
             this.view._1V_.add(this._8b);
             this.view._O_v.add(this._08d);
             this.view._D_u.add(this._I_S_);
-            this.view.initialize(this._eJ_._T_1);
+            this.view.initialize(this._eJ_.charList);
             if (this.beginnersPackage._li())
             {
                 this._n7.dispatch();
@@ -112,8 +112,8 @@ import _W_D_._0I_H_;
             this._0_b.dispatch(new CurrentCharacterScreen());
         }
         private function _I_S_():void{
-            var _local1:SavedCharacter = this._eJ_._T_1.savedChars_[0];
-            this._eJ_._sy = _local1.charId();
+            var _local1:SavedCharacter = this._eJ_.charList.savedChars_[0];
+            this._eJ_.charId = _local1.charId();
             var _local2:_fn = new _fn();
             _local2.category = "character";
             _local2._lC_ = "select";

@@ -42,7 +42,7 @@ import _W_D_._0I_H_;
         public var _ys:_0D_5;
 
         public function execute():void{
-            if (this._0I_s._34)
+            if (this._0I_s.isLoaded)
             {
                 this._qx();
             } else

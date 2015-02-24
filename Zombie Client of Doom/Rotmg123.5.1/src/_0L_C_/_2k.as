@@ -31,7 +31,7 @@ package _0L_C_{
         private function onCancel(_arg1:Event):void{
             parent.removeChild(this);
         }
-        private function _mO_(_arg1:Event):void{
+        private function _mO_(_arg1:Event):void {
             Account._get().showInGameRegister(stage);
             parent.removeChild(this);
         }

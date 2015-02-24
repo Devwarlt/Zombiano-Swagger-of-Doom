@@ -41,7 +41,9 @@ package Sounds{
 		
 		public static function load():void {
             var currentSound:Sound = new Sound();
-            currentSound.load(new URLRequest((("http://" + Parameters.musicUrl_) + "/sfx/music/" + randomMenu() + ".mp3")));
+            var req:URLRequest = new URLRequest((("http://" + Parameters.musicUrl_) + "/sfx/music/" + randomMenu() + ".mp3"));
+            req.userAgent = "GameClient";
+            currentSound.load(req);
             currentSoundTransform = new SoundTransform(Parameters.data_.playMusic ? 0.65 : 0);
             currentSoundChannel = currentSound.play(0, int.MAX_VALUE, currentSoundTransform);
         }

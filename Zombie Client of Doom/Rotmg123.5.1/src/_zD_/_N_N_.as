@@ -37,7 +37,7 @@ import _W_D_._0I_H_;
 
         override public function initialize():void{
             this.view._4s.add(this._G_P_);
-            this.view.initialize(this._eJ_._T_1);
+            this.view.initialize(this._eJ_.charList);
         }
         override public function destroy():void{
             this.view._4s.remove(this._G_P_);

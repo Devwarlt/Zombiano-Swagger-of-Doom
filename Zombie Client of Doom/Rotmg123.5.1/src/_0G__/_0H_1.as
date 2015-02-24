@@ -26,7 +26,7 @@ package _0G__{
         public var _0I_s:_0I_H_;
 
         public function execute():void{
-            this._0I_s._34 = true;
+            this._0I_s.isLoaded = true;
         }
 
     }

@@ -14,6 +14,7 @@
 
 package {
 import EasterEggs.EasterEggHandler;
+import EasterEggs.EasterEggs.BoobyBoobyBoobyEasterEgg;
 import EasterEggs.EasterEggs.DoubleSunPower;
 import EasterEggs.EasterEggs.EasterEgg;
 import EasterEggs.EasterEggs.EasterEggEvent;
@@ -117,6 +118,7 @@ public class WebMain extends Sprite {
         EasterEggHandler.registerEasterEgg(new I_Kissed_A_Girl_EasterEgg(stage));
         EasterEggHandler.registerEasterEgg(new DoubleSunPower(stage));
         EasterEggHandler.registerEasterEgg(new RobotUnicornAttack(stage));
+        EasterEggHandler.registerEasterEgg(new BoobyBoobyBoobyEasterEgg(stage));
 
         if(yt != null) removeChild(yt);
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);

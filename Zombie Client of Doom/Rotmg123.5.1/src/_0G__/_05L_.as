@@ -35,7 +35,7 @@ package _0G__{
         public function execute():void{
             this._0I_s._sr = true;
             this._0I_s.info = this._0K_K_;
-            this._0I_s._Z__ = this._R_g._T_1.accountId_;
+            this._0I_s._Z__ = this._R_g.charList.accountId_;
             this._0I_s._J_u = this._0K_K_.charId_;
             Parameters.data_.needsRandomRealm = false;
             Parameters.save();

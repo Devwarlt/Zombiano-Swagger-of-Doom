@@ -61,8 +61,8 @@ import _W_D_._0I_H_;
             if (this._0K_K_._dA_)
             {
                 this._0K_K_._dA_ = false;
-                this.fame.accountId = this._0I_s._T_1.accountId_;
-                this.fame.charId = this._0I_s._sy;
+                this.fame.accountId = this._0I_s.charList.accountId_;
+                this.fame.charId = this._0I_s.charId;
             } else
             {
                 this.fame.accountId = this._0K_K_._Z__;

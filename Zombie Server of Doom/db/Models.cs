@@ -75,6 +75,10 @@ public class Account
     public string _Admin { get; set; }
     [XmlIgnore]
     public bool Admin { get { return this._Admin != null; } set { this._Admin = value ? "True" : null; } }
+    [XmlIgnore]
+    public string BanReason { get; set; }
+    [XmlIgnore]
+    public bool Banned { get { return !String.IsNullOrWhiteSpace(BanReason); } }
 
     [XmlElement("Gifts")]
     public string _Gifts
@@ -133,7 +137,13 @@ public class Account
     public int Kills { get; set; }
     public int Credits { get; set; }
     public int NextCharSlotPrice { get; set; }
+    public bool Guest { get; set; }
     public int? BeginnerPackageTimeLeft { get; set; }
+
+    public bool ShouldSerializeGuest()
+    {
+        return Guest;
+    }
 
     public VaultData Vault { get; set; }
     public Stats Stats { get; set; }

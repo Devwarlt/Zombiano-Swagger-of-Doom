@@ -29,12 +29,13 @@ import flash.text.TextFieldAutoSize;
 public class MysteryBox extends Sprite {
 
     public static const WIDTH:int = 400;
-    public static const HEIGHT:int = 500;
 
     private var gs:GameSprite;
+    private var _window:Sprite;
 
     public function MysteryBox(gs:GameSprite, data:XML) {
         this.gs = gs;
+        name = "MysteryBox";
 
         var title:SimpleText = new SimpleText(24, 0x000000, false, WIDTH, 30);
         title.boldText(true);
@@ -81,6 +82,14 @@ public class MysteryBox extends Sprite {
         this.y = (300 - (height / 2));
     }
 
+    public function set window(val:Sprite):void {
+        if (this._window) {
+            removeChild(this._window);
+        }
+        this._window = val;
+        addChild(this._window);
+    }
+
     private function onClose(event:MouseEvent):void {
         if (parent)
             parent.removeChild(this);
@@ -93,14 +102,9 @@ import Language.LanguageManager;
 import MiniGames.MysteryBox.MysteryBox;
 import MiniGames.MysteryBox.MysteryBoxRequest;
 import MiniGames.MysteryBox.MysteryBoxResultEvent;
+import MiniGames.MysteryBox.MysteryBoxRoll;
 
-import _0L_C_.DialogBox;
-
-import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.game.GameSprite;
-import com.company.assembleegameclient.parameters.Parameters;
-import com.company.assembleegameclient.parameters.Parameters;
-
 import com.company.assembleegameclient.ui.SellableButton;
 import com.company.ui.SimpleText;
 
@@ -110,7 +114,6 @@ import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.geom.Matrix;
-import flash.ui.GameInput;
 import flash.utils.getTimer;
 
 class MysteryBoxOffer extends Sprite {
@@ -187,6 +190,7 @@ class MysteryBoxOffer extends Sprite {
     }
 
     private function onBuy(event:MouseEvent):void {
+        MysteryBox(this.gs.stage.getChildByName("MysteryBox")).window = getRoll();
         var req:MysteryBoxRequest = new MysteryBoxRequest();
         req.addEventListener(MysteryBoxResultEvent.MYSTERYBOX_RESULT, this.onResult);
         req.sendBoxPurchase(this.data.@id);
@@ -194,7 +198,14 @@ class MysteryBoxOffer extends Sprite {
 
     private function onResult(event:MysteryBoxResultEvent):void {
         if(event.error) {
-            this.gs.stage.addChild(new DialogBox(event.errorMessage, "Failed to purchase", "Ok", null));
+            //this.gs.stage.addChild(new DialogBox(event.errorMessage, "Failed to purchase", "Ok", null));
         }
+        else {
+
+        }
+    }
+
+    private function getRoll():Sprite {
+        return new MysteryBoxRoll(this.gs, this.data);
     }
 }

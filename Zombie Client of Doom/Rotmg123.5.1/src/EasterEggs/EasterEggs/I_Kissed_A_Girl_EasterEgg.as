@@ -29,7 +29,7 @@ public class I_Kissed_A_Girl_EasterEgg extends EasterEgg {
     private static var I_Kissed_A_Girl:Class;
 
     public function I_Kissed_A_Girl_EasterEgg(dispatcher:EventDispatcher) {
-        super(new I_Kissed_A_Girl(), dispatcher, "u r cool");//"I kissed a girl and I liked it the taste of her cherry chapstick");
+        super(new I_Kissed_A_Girl(), dispatcher, "I kissed a girl and I liked it the taste of her cherry chapstick");
     }
 
     override protected function getMovie():DisplayObject {

@@ -159,10 +159,7 @@ package _F_1{
                 addChild(_arg1._Q_j);
             }
         }
-        public function reload():void {
-            _0j(true);
-        }
-        public function _0j(fake:Boolean = false):void {
+        public function _0j():void {
             var _local1:Sprite = Account._get().newAccountManagement(XML(this.charList.rawCharList.Account));
             if (_local1 == null)
             {
@@ -170,10 +167,6 @@ package _F_1{
             }
             _local1.addEventListener(Event.COMPLETE, this.onAccountComplete);
             addChild(_local1);
-
-            if(fake) {
-                _local1.dispatchEvent(new Event(Event.COMPLETE));
-            }
         }
     }
 }//package _F_1

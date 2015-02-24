@@ -43,7 +43,7 @@ import _W_D_._0I_H_;
         override public function initialize():void{
             this.view.play.add(this._fN_);
             this.view.close.add(this._of);
-            this.view.initialize(this._eJ_._T_1);
+            this.view.initialize(this._eJ_.charList);
         }
         override public function destroy():void{
             this.view.play.remove(this._fN_);
@@ -57,7 +57,7 @@ import _W_D_._0I_H_;
             Parameters.save();
             var _local2:_07V_ = new _07V_();
             _local2._0_E_ = true;
-            _local2.charId = this._eJ_._T_1.nextCharId_;
+            _local2.charId = this._eJ_.charList.nextCharId_;
             _local2._f2 = -1;
             this._D_u.dispatch(_local2);
         }

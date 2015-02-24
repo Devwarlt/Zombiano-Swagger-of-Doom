@@ -67,14 +67,14 @@ package _0J_2{
             }
         }
         private function _6s():void{
-            var _local1:Server = ((this.data._0L_9) || (this._0I_s._T_1._04D_()));
+            var _local1:Server = ((this.data._0L_9) || (this._0I_s.charList._04D_()));
             var _local2:int = ((this.data._05d) ? this._0J_t() : this.data._0A_6);
             var _local3:Boolean = this.data._0_E_;
             var _local4:int = this.data.charId;
             var _local5:int = ((this.data._05d) ? -1 : this.data._f2);
             var _local6:ByteArray = this.data.key;
-            var _local7:SavedCharsList = this._0I_s._T_1;
-            this._0I_s._sy = _local4;
+            var _local7:SavedCharsList = this._0I_s.charList;
+            this._0I_s.charId = _local4;
             this._T__.dispatch(new GameSprite(_local1, _local2, _local3, _local4, _local5, _local6, _local7, null));
         }
         private function _0J_t():int{

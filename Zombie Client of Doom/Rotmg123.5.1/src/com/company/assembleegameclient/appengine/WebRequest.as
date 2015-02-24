@@ -23,7 +23,7 @@ import WebRequestEvents.WebRequestRetryEvent;
 import flash.events.EventDispatcher;
     import flash.net.URLRequest;
     import flash.net.URLLoader;
-    import flash.utils.getTimer;
+import flash.utils.getTimer;
     import flash.net.URLRequestMethod;
     import flash.net.URLVariables;
     import flash.events.SecurityErrorEvent;

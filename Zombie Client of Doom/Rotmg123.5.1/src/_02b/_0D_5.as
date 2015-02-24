@@ -46,16 +46,18 @@ package _02b{
             this._J__();
         }
         private function _J__():void{
-            this._0D_b._H_Q_();
+            this._0D_b.sendCharList();
         }
-        private function _ix(_arg1:WebRequestErrorEvent):void{
-            this._08e.dispatch('<p align="center">Load error, retrying</p>');
-            if (_arg1.text_ == "Account credentials not valid")
-            {
-                this._wg();
-            } else
-            {
-                this._5j();
+        private function _ix(_arg1:WebRequestErrorEvent):void {
+            if (_arg1.text_.search("AC.BAN") > -1) {
+                this._08e.dispatch(_arg1.text_);
+            } else {
+                this._08e.dispatch('<p align="center">Load error, retrying</p>');
+                if (_arg1.text_ == "Account credentials not valid") {
+                    this._wg();
+                } else {
+                    this._5j();
+                }
             }
         }
         private function _wg():void{
@@ -71,8 +73,8 @@ package _02b{
             this._J__();
         }
         private function _dM_(_arg1:SavedCharsList):void{
-            this._0I_s._T_1 = new SavedCharsList(_arg1.rawCharList);
-            this._0I_s._34 = false;
+            this._0I_s.charList = new SavedCharsList(_arg1.rawCharList);
+            this._0I_s.isLoaded = false;
             _C_t(true);
             if (this._Z_w != null)
             {

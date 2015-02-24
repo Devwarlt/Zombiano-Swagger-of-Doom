@@ -27,9 +27,12 @@ import _F_1._E_r;
 import _W_D_.Domain;
 import _U_5._dd;
 
+import com.company.assembleegameclient.appengine.WebRequest;
+
 import com.company.assembleegameclient.util.loadEmbeds;
 import _0I_9._05b;
 import flash.display.Sprite;
+import flash.net.URLRequestDefaults;
 
 public class _V_2 {
 
@@ -39,6 +42,7 @@ public class _V_2 {
     public var _T__:_dd;
 
     public function execute():void {
+        URLRequestDefaults.userAgent = WebRequest.USER_AGENT;
         loadEmbeds();
         AbstractManager.register();
         LanguageManager.load(this.dispatch);
