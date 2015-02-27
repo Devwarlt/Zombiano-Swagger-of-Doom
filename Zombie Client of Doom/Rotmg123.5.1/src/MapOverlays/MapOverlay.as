@@ -39,7 +39,7 @@ public class MapOverlay extends Sprite {
 
     public static const Sunny:int = 0;
     public static const Rainy:int = 1;
-    public static const Snowy:int = 2
+    public static const Snowy:int = 2;
     public static const Thunder:int = 3;
 
     public static function _U_q(_arg1:int):MapOverlay {

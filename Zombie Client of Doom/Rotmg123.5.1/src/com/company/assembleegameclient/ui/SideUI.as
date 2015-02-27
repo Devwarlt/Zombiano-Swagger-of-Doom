@@ -132,6 +132,7 @@ public class SideUI extends Sprite {
         this._F_ = new MiniMap(this.gs_.map_, (200 - (2 * _08A_)), (200 - (2 * _08A_)));
         this._F_.x = _08A_;
         this._F_.y = _08A_;
+        this.gs_.map_.loadMapCache();
     }
 
     private function _0J_s():void {

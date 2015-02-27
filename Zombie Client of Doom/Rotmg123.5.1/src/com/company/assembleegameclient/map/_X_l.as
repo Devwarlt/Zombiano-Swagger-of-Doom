@@ -71,6 +71,7 @@ public class _X_l extends MapHandler {
     private var _C_X_:Vector.<int>;
     private var _1K_D_:Boolean = false;
     private var graphicsData_:Vector.<IGraphicsData>;
+    private var mapData:MapCache;
     public var _u2:Array;
     public var _4e:Array;
     public var _fr:Vector.<Square>;
@@ -143,6 +144,10 @@ public class _X_l extends MapHandler {
         var _local1:Square;
         var _local2:GameObject;
         var _local3:BasicObject;
+        if(this.mapData != null) {
+            this.mapData.save();
+            this.mapData = null;
+        }
         this.gs_ = null;
         this.background_ = null;
         this.map_ = null;
@@ -290,6 +295,9 @@ public class _X_l extends MapHandler {
         var _local9:int;
         var _local10:Square;
         var _local4:Square = this.getSquare(_arg1, _arg2);
+        if(this.mapData != null && this.mapData.loaded) {
+            this.mapData.setGroundTile(_arg1, _arg2, _arg3);
+        }
         _local4._bQ_(_arg3);
         var _local5:int = (((_arg1 < (this.width_ - 1))) ? (_arg1 + 1) : _arg1);
         var _local6:int = (((_arg2 < (this.height_ - 1))) ? (_arg2 + 1) : _arg2);
@@ -521,6 +529,17 @@ public class _X_l extends MapHandler {
         this.partyOverlay_.draw(_arg1, _arg2);
     }
 
+    private function loadCache(tile:MapTile):void {
+        setGroundTile(tile.x, tile.y, tile.tileId);
+        this.gs_.sideUI._F_.setGroundTile(tile.x, tile.y, tile.tileId);
+    }
+
+    public function loadMapCache():void {
+        if(this.gs_ != null) {
+            this.mapData = new MapCache(this.gs_.packetManager.gameId_);
+            this.mapData.setTileLoadCallback(this.loadCache);
+        }
+    }
 }
 }//package com.company.assembleegameclient.map
 
