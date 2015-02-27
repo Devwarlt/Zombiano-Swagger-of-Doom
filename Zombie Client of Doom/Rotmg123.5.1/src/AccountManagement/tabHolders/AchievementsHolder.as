@@ -61,7 +61,7 @@ public class AchievementsHolder extends TabHolder {
 
         this.totalHeight = ((Math.floor((nextHeight - 1) / 3) + 1) * achievement.HEIGHT) + ((Math.floor((nextHeight - 1) / 3) + 2) * 10);
 
-        if(this.totalHeight > HEIGHT) {
+        if (this.totalHeight > HEIGHT) {
             this.scrollBar = new ScrollBar(16, HEIGHT - 20, 1);
             this.scrollBar.x = WIDTH - 20;
             this.scrollBar.y = 10;
@@ -74,7 +74,7 @@ public class AchievementsHolder extends TabHolder {
 
     private function onChange(event:Event):void {
         var curPos:Number;
-        if(!isNaN(curPos = this.scrollBar._Q_D_())) {
+        if (!isNaN(curPos = this.scrollBar._Q_D_())) {
             this.achievements.y = 10 + (-curPos * (this.totalHeight - HEIGHT));
         }
     }

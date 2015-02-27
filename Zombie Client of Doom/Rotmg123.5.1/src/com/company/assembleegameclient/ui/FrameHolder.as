@@ -17,35 +17,38 @@
 
 //com.company.assembleegameclient.ui._y3
 
-package com.company.assembleegameclient.ui{
-    import flash.display.Sprite;
-    import flash.display.Shape;
-    import Frames.Frame;
-    import flash.display.Graphics;
-    import flash.events.Event;
+package com.company.assembleegameclient.ui {
+import flash.display.Sprite;
+import flash.display.Shape;
 
-    public class FrameHolder extends Sprite {
+import Frames.Frame;
 
-        private var dimScreen:Shape;
-        private var frame:Frame;
+import flash.display.Graphics;
+import flash.events.Event;
 
-        public function FrameHolder(frame:Frame){
-            this.dimScreen = new Shape();
-            var _local2:Graphics = this.dimScreen.graphics;
-            _local2.clear();
-            _local2.beginFill(0, 0.8);
-            _local2.drawRect(0, 0, 800, 600);
-            _local2.endFill();
-            addChild(this.dimScreen);
-            this.frame = frame;
-            this.frame.addEventListener(Event.COMPLETE, this.onComplete);
-            addChild(this.frame);
-        }
-        private function onComplete(_arg1:Event):void {
-            dispatchEvent(new Event(Event.COMPLETE));
-            parent.removeChild(this);
-        }
+public class FrameHolder extends Sprite {
 
+    private var dimScreen:Shape;
+    private var frame:Frame;
+
+    public function FrameHolder(frame:Frame) {
+        this.dimScreen = new Shape();
+        var _local2:Graphics = this.dimScreen.graphics;
+        _local2.clear();
+        _local2.beginFill(0, 0.8);
+        _local2.drawRect(0, 0, 800, 600);
+        _local2.endFill();
+        addChild(this.dimScreen);
+        this.frame = frame;
+        this.frame.addEventListener(Event.COMPLETE, this.onComplete);
+        addChild(this.frame);
     }
+
+    private function onComplete(_arg1:Event):void {
+        dispatchEvent(new Event(Event.COMPLETE));
+        parent.removeChild(this);
+    }
+
+}
 }//package com.company.assembleegameclient.ui
 

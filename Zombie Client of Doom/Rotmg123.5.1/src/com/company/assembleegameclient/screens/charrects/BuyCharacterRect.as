@@ -17,15 +17,20 @@
 
 //com.company.assembleegameclient.screens.charrects.BuyCharacterRect
 
-package com.company.assembleegameclient.screens.charrects{
+package com.company.assembleegameclient.screens.charrects {
 import com.company.ui.SimpleText;
+
 import flash.display.Bitmap;
 import flash.display.Shape;
 import flash.filters.DropShadowFilter;
+
 import com.company.assembleegameclient.ui.SellableButton;
+
 import flash.display.BitmapData;
+
 import com.company.util.BitmapUtil;
 import com.company.assembleegameclient.appengine.SavedCharsList;
+
 import flash.display.Graphics;
 
 public class BuyCharacterRect extends CharacterRect {
@@ -35,7 +40,7 @@ public class BuyCharacterRect extends CharacterRect {
     private var priceText_:SimpleText;
     private var coin_:Bitmap;
 
-    public function BuyCharacterRect(_arg1:SavedCharsList){
+    public function BuyCharacterRect(_arg1:SavedCharsList) {
         super(0x73543F, 0x6B472E);//0x280700, 0x450c00);
         var _local2:Shape = this.buildIcon();
         _local2.x = 7;
@@ -50,8 +55,7 @@ public class BuyCharacterRect extends CharacterRect {
         this.classNameText_.y = 2;
         addChild(this.classNameText_);
         var _local3:int = (100 - (_arg1.nextCharSlotPrice_ / 10));
-        if (_local3 != 0)
-        {
+        if (_local3 != 0) {
             this.taglineText_ = new SimpleText(14, 0xB3B3B3, false, 0, 0, "Myriad Pro");
             this.taglineText_.text = (("Normally 1000 gold.  Save " + _local3.toString()) + "%!");
             this.taglineText_.updateMetrics();
@@ -75,7 +79,8 @@ public class BuyCharacterRect extends CharacterRect {
         this.coin_.y = 1;
         addChild(this.coin_);
     }
-    private function buildIcon():Shape{
+
+    private function buildIcon():Shape {
         var _local1:Shape = new Shape();
         var _local2:Graphics = _local1.graphics;
         _local2.beginFill(0x52332C);
@@ -91,30 +96,23 @@ public class BuyCharacterRect extends CharacterRect {
         _local2.endFill();
         return (_local1);
     }
-    private function getOrdinalString(_arg1:int):String{
+
+    private function getOrdinalString(_arg1:int):String {
         var _local2:String = _arg1.toString();
         var _local3:int = (_arg1 % 10);
         var _local4:int = (int((_arg1 / 10)) % 10);
-        if (_local4 == 1)
-        {
+        if (_local4 == 1) {
             _local2 = (_local2 + "th");
-        } else
-        {
-            if (_local3 == 1)
-            {
+        } else {
+            if (_local3 == 1) {
                 _local2 = (_local2 + "st");
-            } else
-            {
-                if (_local3 == 2)
-                {
+            } else {
+                if (_local3 == 2) {
                     _local2 = (_local2 + "nd");
-                } else
-                {
-                    if (_local3 == 3)
-                    {
+                } else {
+                    if (_local3 == 3) {
                         _local2 = (_local2 + "rd");
-                    } else
-                    {
+                    } else {
                         _local2 = (_local2 + "th");
                     }
                 }

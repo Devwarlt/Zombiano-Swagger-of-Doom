@@ -48,14 +48,26 @@ public class MysteryBox extends Sprite {
         graphics.endFill();
 
         var xmlData:XML =
-            <Minigames>
+                <Minigames>
                     <MysteryBoxes>
-                        <Box id="0"><Title>Box 1</Title><Price amount="1" currency="0" /></Box>
-                        <Box id="1"><Title>Box 2</Title><Price amount="10" currency="1" /></Box>
-                        <Box id="2"><Title>Box 3</Title><Price amount="100" currency="2" /></Box>
-                        <Box id="3"><Title>Box 4</Title><Price amount="200" currency="2" /></Box>
+                        <Box id="0">
+                            <Title>Box 1</Title>
+                            <Price amount="1" currency="0" />
+                        </Box>
+                        <Box id="1">
+                            <Title>Box 2</Title>
+                            <Price amount="10" currency="1" />
+                        </Box>
+                        <Box id="2">
+                            <Title>Box 3</Title>
+                            <Price amount="100" currency="2" />
+                        </Box>
+                        <Box id="3">
+                            <Title>Box 4</Title>
+                            <Price amount="200" currency="2" />
+                        </Box>
                     </MysteryBoxes>
-            </Minigames>;
+                </Minigames>;
 
         var i:int = 0;
         for each(var offerData:XML in xmlData.MysteryBoxes.Box) {
@@ -197,7 +209,7 @@ class MysteryBoxOffer extends Sprite {
     }
 
     private function onResult(event:MysteryBoxResultEvent):void {
-        if(event.error) {
+        if (event.error) {
             //this.gs.stage.addChild(new DialogBox(event.errorMessage, "Failed to purchase", "Ok", null));
         }
         else {

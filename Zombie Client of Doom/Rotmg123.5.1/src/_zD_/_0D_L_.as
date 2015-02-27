@@ -17,22 +17,28 @@
 
 //_zD_._0D_L_
 
-package _zD_{
-    import _C__._cM_;
-    import _D_d._hj;
-    import _W_D_._0I_H_;
+package _zD_ {
+import Crafting.SavedCraftingRecipes;
 
-    public class _0D_L_ extends _cM_ {
+import _C__._cM_;
 
-        [Inject]
-        public var view:_hj;
-        [Inject]
-        public var _0I_s:_0I_H_;
+import _D_d._hj;
 
-        override public function initialize():void{
-            this.view.initialize(this._0I_s.charList);
-        }
+import _W_D_.CharListHistory;
 
+public class _0D_L_ extends _cM_ {
+
+    [Inject]
+    public var view:_hj;
+    [Inject]
+    public var _0I_s:CharListHistory;
+    [Inject]
+    public var craftingRecipes:SavedCraftingRecipes;
+
+    override public function initialize():void {
+        this.view.initialize(this._0I_s.charList, this.craftingRecipes);
     }
+
+}
 }//package _zD_
 

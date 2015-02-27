@@ -31,16 +31,25 @@ import _05G_._X_G_;
 
 import _0L_C_.DialogBox;
 
-import _0_p._L_y;
+import _0_p.IContext;
+
 import _9u._074;
+
 import _C_5._tt;
+
 import _C__._07U_;
+
 import _G_A_._8P_;
-import _G_A_._F_y;
+import _G_A_.InjectConstruct;
+
 import _I_j._V_4;
+
 import _R_Q_._0K_S_;
+
 import _T_o._083;
-import _U_._K_a;
+
+import InjectMapping.InjectorMapper;
+
 import _U_5._D_c;
 
 import com.company.assembleegameclient.parameters.Parameters;
@@ -57,7 +66,7 @@ import flash.system.Capabilities;
 [SWF(width="800", height="600", backgroundColor="#000000", frameRate="60")]
 public class WebMain extends Sprite {
 
-    private var context:_L_y;
+    private var context:IContext;
     private var yt:YouTubePlayer;
 
     private static var currentEasterEgg:DisplayObject;
@@ -67,16 +76,15 @@ public class WebMain extends Sprite {
 
     public function WebMain() {
         thisWebMain = this;
-        if (stage)
-        {
+        if (stage) {
             playYt();
-        } else
-        {
+        } else {
             addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         }
     }
-    private function onAddedToStage(_arg1:Event):void{
-    	removeEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
+
+    private function onAddedToStage(_arg1:Event):void {
+        removeEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         playYt();
     }
 
@@ -85,8 +93,8 @@ public class WebMain extends Sprite {
         this._i1();
         trace(stage.wmodeGPU);
         stage.scaleMode = StageScaleMode.EXACT_FIT;
-        stage.addEventListener(Event.RESIZE, function(event:Event):void {
-            if(stage.scaleMode != StageScaleMode.EXACT_FIT) {
+        stage.addEventListener(Event.RESIZE, function (event:Event):void {
+            if (stage.scaleMode != StageScaleMode.EXACT_FIT) {
                 stage.scaleMode = StageScaleMode.EXACT_FIT;
             }
         });
@@ -104,12 +112,12 @@ public class WebMain extends Sprite {
     }
 
     private function onKeyDown(event:KeyboardEvent):void {
-        if(event.keyCode == Keys.ESCAPE) {
+        if (event.keyCode == Keys.ESCAPE) {
             yt.stop();
         }
     }
 
-    private function setup():void{
+    private function setup():void {
         //this keeps the screen active (required for android and ios only)
         NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
         NativeApplication.nativeApplication.menu = null;
@@ -120,22 +128,24 @@ public class WebMain extends Sprite {
         EasterEggHandler.registerEasterEgg(new RobotUnicornAttack(stage));
         EasterEggHandler.registerEasterEgg(new BoobyBoobyBoobyEasterEgg(stage));
 
-        if(yt != null) removeChild(yt);
+        if (yt != null) removeChild(yt);
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
         var _local1:_D_c = this.context._O_R_.getInstance(_D_c);
         _local1.dispatch();
         this._06p();
     }
-    private function _4y():void{
+
+    private function _4y():void {
         Parameters.root = stage.root;
     }
-    private function _i1():void{
+
+    private function _i1():void {
         this.context = new _8P_();
-        this.context.extend(_07U_).extend(_083).configure(_F_y).configure(_074).configure(_tt).configure(_K_a).configure(_0K_S_).configure(_V_4).configure(_X_G_).configure(this);
+        this.context.extend(_07U_).extend(_083).configure(InjectConstruct).configure(_074).configure(_tt).configure(InjectorMapper).configure(_0K_S_).configure(_V_4).configure(_X_G_).configure(this);
     }
-    private function _06p():void{
-        if (Capabilities.playerType == "Desktop")
-        {
+
+    private function _06p():void {
+        if (Capabilities.playerType == "Desktop") {
             Parameters.data_.fullscreenMode = false;
             Parameters.save();
         }

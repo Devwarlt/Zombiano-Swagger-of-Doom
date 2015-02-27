@@ -27,7 +27,7 @@ public class Pretty_Woman_EasterEgg extends EasterEgg {
     private static var woman:Class;
 
     public function Pretty_Woman_EasterEgg(dispatcher:EventDispatcher) {
-        super(new woman(), dispatcher, "u r cool");//"I kissed a girl and I liked it the taste of her cherry chapstick");
+        super(new woman(), dispatcher, "pretty woman walking down the street ");
     }
 
     override protected function getMovie():DisplayObject {

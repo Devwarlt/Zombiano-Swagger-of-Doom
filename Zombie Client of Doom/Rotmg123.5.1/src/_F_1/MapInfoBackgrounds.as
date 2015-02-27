@@ -35,7 +35,7 @@ public class MapInfoBackgrounds {
     }
 
     public static function getBackgroundImage(name:String):BitmapData {
-        if(name == null) return null;
+        if (name == null) return null;
         return new data[name]().bitmapData;
     }
 }

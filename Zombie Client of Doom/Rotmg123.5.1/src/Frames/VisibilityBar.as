@@ -19,6 +19,7 @@ package Frames {
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.Player;
 import com.company.assembleegameclient.ui._0M_Y_;
+
 import flash.display.Sprite;
 
 public class VisibilityBar extends Sprite {
@@ -38,8 +39,8 @@ public class VisibilityBar extends Sprite {
         addChild(bar);
     }
 
-    public function draw():void{
-        if(!player.map_.showDisplays_ && this.player.visibilityRange != -1)
+    public function draw():void {
+        if (!player.map_.showDisplays_ && this.player.visibilityRange != -1)
             bar.visible = true;
         else
             bar.visible = false;

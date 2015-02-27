@@ -17,22 +17,23 @@
 
 //_O_._finally
 
-package _O_{
-    import flash.display.DisplayObjectContainer;
-    import _s3._im;
+package _O_ {
+import flash.display.DisplayObjectContainer;
 
-    public class _finally {
+import _s3._im;
 
-        [Inject]
-        public var _fR_:DisplayObjectContainer;
-        [Inject]
-        public var viewManager:_im;
+public class _finally {
 
-        [PostConstruct]
-        public function init():void{
-            this.viewManager._tP_(this._fR_);
-        }
+    [Inject]
+    public var _fR_:DisplayObjectContainer;
+    [Inject]
+    public var viewManager:_im;
 
+    [PostConstruct]
+    public function init():void {
+        this.viewManager._tP_(this._fR_);
     }
+
+}
 }//package _O_
 

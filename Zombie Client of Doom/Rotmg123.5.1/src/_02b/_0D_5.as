@@ -17,76 +17,105 @@
 
 //_02b._0D_5
 
-package _02b{
-    import _4X_._zU_;
-    import _W_D_._0I_H_;
-    import _U_5._bo;
-    import flash.utils.Timer;
-    import com.company.assembleegameclient.appengine.CharWebRequests;
-    import WebRequestEvents.WebRequestErrorEvent;
-    import com.company.assembleegameclient.appengine.SavedCharsList;
-    import _qN_.Account;
-    import flash.events.TimerEvent;
+package _02b {
+import Crafting.CraftingRecipes;
+import Crafting.CraftingRequest;
+import Crafting.SavedCraftingRecipes;
 
-    public class _0D_5 extends _zU_ {
+import _4X_._zU_;
 
-        private static const _W_1:int = 1000;
+import _W_D_.CharListHistory;
 
-        [Inject]
-        public var _0I_s:_0I_H_;
-        [Inject]
-        public var _08e:_bo;
-        private var _Z_w:Timer;
-        private var _0D_b:CharWebRequests;
+import _U_5._bo;
 
-        override protected function startTask():void{
-            this._0D_b = new CharWebRequests();
-            this._0D_b.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
-            this._0D_b.addEventListener(SavedCharsList.SAVED_CHARS_LIST, this._dM_);
-            this._J__();
-        }
-        private function _J__():void{
-            this._0D_b.sendCharList();
-        }
-        private function _ix(_arg1:WebRequestErrorEvent):void {
-            if (_arg1.text_.search("AC.BAN") > -1) {
-                this._08e.dispatch(_arg1.text_);
-            } else {
-                this._08e.dispatch('<p align="center">Load error, retrying</p>');
-                if (_arg1.text_ == "Account credentials not valid") {
-                    this._wg();
-                } else {
-                    this._5j();
-                }
-            }
-        }
-        private function _wg():void{
-            Account._get().clear();
-            this._J__();
-        }
-        private function _5j():void{
-            this._Z_w = new Timer(_W_1, 1);
-            this._Z_w.addEventListener(TimerEvent.TIMER_COMPLETE, this._F_z);
-            this._Z_w.start();
-        }
-        private function _F_z(_arg1:TimerEvent):void{
-            this._J__();
-        }
-        private function _dM_(_arg1:SavedCharsList):void{
-            this._0I_s.charList = new SavedCharsList(_arg1.rawCharList);
-            this._0I_s.isLoaded = false;
-            _C_t(true);
-            if (this._Z_w != null)
-            {
-                this._qv();
-            }
-        }
-        private function _qv():void{
-            this._Z_w.stop();
-            this._Z_w.removeEventListener(TimerEvent.TIMER_COMPLETE, this._F_z);
-            this._Z_w = null;
-        }
+import flash.utils.Timer;
 
+import com.company.assembleegameclient.appengine.CharWebRequests;
+
+import WebRequestEvents.WebRequestErrorEvent;
+
+import com.company.assembleegameclient.appengine.SavedCharsList;
+
+import _qN_.Account;
+
+import flash.events.TimerEvent;
+
+public class _0D_5 extends _zU_ {
+
+    private static const _W_1:int = 1000;
+
+    [Inject]
+    public var _0I_s:CharListHistory;
+    [Inject]
+    public var craftingRecipes:SavedCraftingRecipes;
+    [Inject]
+    public var _08e:_bo;
+    private var _Z_w:Timer;
+    private var _0D_b:CharWebRequests;
+    private var recipeRequest:CraftingRequest;
+
+    override protected function startTask():void {
+        this._0D_b = new CharWebRequests();
+        this._0D_b.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._ix);
+        this._0D_b.addEventListener(SavedCharsList.SAVED_CHARS_LIST, this._dM_);
+
+        this.recipeRequest = new CraftingRequest();
+        this.recipeRequest.addEventListener(CraftingRecipes.CRAFTING_RECIPES, this.onCraftingReceived);
+
+        this._J__();
     }
+
+    private function _J__():void {
+        this._0D_b.sendCharList();
+        this.recipeRequest.sendRecipeRequest();
+    }
+
+    private function _ix(_arg1:WebRequestErrorEvent):void {
+        if (_arg1.text_.search("AC.BAN") > -1) {
+            this._08e.dispatch(_arg1.text_);
+        } else {
+            this._08e.dispatch('<p align="center">Load error, retrying</p>');
+            if (_arg1.text_ == "Account credentials not valid") {
+                this._wg();
+            } else {
+                this._5j();
+            }
+        }
+    }
+
+    private function _wg():void {
+        Account._get().clear();
+        this._J__();
+    }
+
+    private function _5j():void {
+        this._Z_w = new Timer(_W_1, 1);
+        this._Z_w.addEventListener(TimerEvent.TIMER_COMPLETE, this._F_z);
+        this._Z_w.start();
+    }
+
+    private function _F_z(_arg1:TimerEvent):void {
+        this._J__();
+    }
+
+    private function _dM_(_arg1:SavedCharsList):void {
+        this._0I_s.charList = new SavedCharsList(_arg1.rawCharList);
+        this._0I_s.isLoaded = false;
+        _C_t(true);
+        if (this._Z_w != null) {
+            this._qv();
+        }
+    }
+
+    private function _qv():void {
+        this._Z_w.stop();
+        this._Z_w.removeEventListener(TimerEvent.TIMER_COMPLETE, this._F_z);
+        this._Z_w = null;
+    }
+
+    private function onCraftingReceived(event:CraftingRecipes):void {
+        this.craftingRecipes.recipes = new CraftingRecipes(event.recipes);
+    }
+}
 }//package _02b
 

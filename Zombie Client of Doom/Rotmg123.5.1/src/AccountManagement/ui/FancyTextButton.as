@@ -37,7 +37,7 @@ public class FancyTextButton extends Sprite {
         this.text.updateMetrics();
 
         graphics.beginFill(0x000000, 1.0);
-        graphics.drawRect(0, 0, this.w_ = (((definedWidth) !=0 ) ? definedWidth : (this.text.width + 40)), this.text.height + 6);
+        graphics.drawRect(0, 0, this.w_ = (((definedWidth) != 0 ) ? definedWidth : (this.text.width + 40)), this.text.height + 6);
         graphics.endFill();
         GraphicHelper.createBorder(this, 1, 0xE5C100);
 
@@ -58,7 +58,7 @@ public class FancyTextButton extends Sprite {
     }
 
     public function enabled(_arg1:Boolean):void {
-        if(mouseEnabled == _arg1) {
+        if (mouseEnabled == _arg1) {
             return;
         }
         mouseEnabled = _arg1;
@@ -70,7 +70,7 @@ public class FancyTextButton extends Sprite {
     }
 
     private function onRollOver(event:MouseEvent):void {
-        if(!mouseEnabled) return;
+        if (!mouseEnabled) return;
         graphics.clear();
         var gradientMatrix:Matrix = new Matrix();
         gradientMatrix.createGradientBox(this.w_, this.text.height + 6, (Math.PI / 180) * 90, 0, 0);
@@ -81,7 +81,7 @@ public class FancyTextButton extends Sprite {
     }
 
     private function onRollOut(event:MouseEvent):void {
-        if(!mouseEnabled) return;
+        if (!mouseEnabled) return;
         graphics.clear();
         graphics.beginFill(0x000000, 1.0);
         graphics.drawRect(0, 0, this.w_, this.text.height + 6);

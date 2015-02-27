@@ -12,16 +12,20 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package _F_1{
+package _F_1 {
 import FireBite.Embeds.Images.OssiTitleScreenImage;
 import FireBite.Embeds.Images.TitleScreenImage;
 
 import _02t._R_f;
+
 import _0L_C_.DialogBox;
+
 import _ke._0M_1;
+
 import _qN_.Account;
+
 import _sp._aJ_;
-    
+
 import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.rotmg.graphics.*;
@@ -43,26 +47,27 @@ public class _C_Q_ extends _05p {
     private var legendsButton:_H_o;
     private var editorButton:_H_o;
     private var exitButton:_H_o;
-	private var webButton:_H_o;
+    private var webButton:_H_o;
     private var versionText:SimpleText;
     private var copyrightText:SimpleText;
     private var _T_1:SavedCharsList;
 
-	private static const webUrl_:String = "http://flavorsandtreats.com/forums/";
+    private static const webUrl_:String = "http://flavorsandtreats.com/forums/";
 
     public function _C_Q_() {
         addChild(new _R_f());
         super(_C_Q_);
-		if (Parameters._I_O_()) {
-			addChild(new OssiTitleScreenImage());
-			addChild(new TitleScreenGraphic());
-		} else {
+        if (Parameters._I_O_()) {
+            addChild(new OssiTitleScreenImage());
+            addChild(new TitleScreenGraphic());
+        } else {
             addChild(new TitleScreenImage());
-        	addChild(new TitleScreenGraphic());
-		}
+            addChild(new TitleScreenGraphic());
+        }
         this._ft = new _aJ_(String);
     }
-    override public function initialize(_arg1:SavedCharsList):void{
+
+    override public function initialize(_arg1:SavedCharsList):void {
         super.initialize(_arg1);
         this._T_1 = _arg1;
         this.playButton = new _H_o(_0M_1.PLAY, 36, true);
@@ -88,11 +93,11 @@ public class _C_Q_ extends _05p {
         this.exitButton.addEventListener(MouseEvent.CLICK, this._021);
         //this.exitButton.visible = (Capabilities.playerType == "Desktop");
         addChild(this.exitButton);
-		this.webButton = new _H_o(_0M_1.WEBSITE, 22, false);
-		this.webButton.addEventListener(MouseEvent.CLICK, this.onClick);
-		addChild(this.webButton);
+        this.webButton = new _H_o(_0M_1.WEBSITE, 22, false);
+        this.webButton.addEventListener(MouseEvent.CLICK, this.onClick);
+        addChild(this.webButton);
         this.versionText = new SimpleText(12, 0x7F7F7F, false, 0, 0, "Myriad Pro");
-        this.versionText.htmlText = (!Parameters.isTesting ? (Parameters._I_O_() ? "Testing " : "") : '<font color="#ff0000">DEVELOPMENT</font> ') + "v" + Parameters.clientVersion;
+        this.versionText.htmlText = (!Parameters.isTesting ? (Parameters._I_O_() ? "Testing " : "") : '<font color="#ff0000">DEVELOPMENT</font> ') + Parameters.clientVersion;
         this.versionText.updateMetrics();
         this.versionText.filters = [new DropShadowFilter(0, 0, 0)];
         addChild(this.versionText);
@@ -118,8 +123,8 @@ public class _C_Q_ extends _05p {
         this.editorButton.y = 534;
         this.exitButton.x = 124;
         this.exitButton.y = 534;
-		this.webButton.x = 645;
-		this.webButton.y = 534;
+        this.webButton.x = 645;
+        this.webButton.y = 534;
         stage;
         this.versionText.y = (600 - this.versionText.height);
         stage;
@@ -127,25 +132,27 @@ public class _C_Q_ extends _05p {
         stage;
         this.copyrightText.y = (600 - this.copyrightText.height);
 
-        if(_arg1.serverVersion != Parameters.clientVersion) {
-            var _local2:DialogBox = new DialogBox(((("You will not be able to play\n\rClient version: " + Parameters.clientVersion) + "\nServer version: ") + _arg1.serverVersion), "Your Client is outdated", "Ok", null);
-            _local2.addEventListener(DialogBox.BUTTON1_EVENT, function(event:Event):void {
+        if (_arg1.serverVersion != Parameters.clientVersion) {
+            var _local2:DialogBox = new DialogBox(((("You will not be able to play\n\rClient version: <font color='#ff0000'>" + Parameters.clientVersion) + "</font>\nServer version: <font color='#00ff00'>") + _arg1.serverVersion) + "</font>", "Your Client is outdated", "Ok", null);
+            _local2.addEventListener(DialogBox.BUTTON1_EVENT, function (event:Event):void {
                 event.target.parent.removeChild(_local2);
             });
             addChild(_local2);
         }
 
-        if(_arg1.rawCharList.Account.Country == -1 && Account._get().isRegistered()) {
+        if (_arg1.rawCharList.Account.Country == -1 && Account._get().isRegistered()) {
             this._ft.dispatch("ChooseCountry");
         }
     }
-    private function _021(_arg1:MouseEvent):void{
+
+    private function _021(_arg1:MouseEvent):void {
         var _local2:_H_o = (_arg1.target as _H_o);
         this._ft.dispatch(_local2.name == _0M_1.EDITOR ? Account._get().admin_ ? _0M_1.EDITOR : _0M_1.SPRITE_EDITOR : _local2.name);
     }
-	private function onClick(_arg1:MouseEvent):void{
-		navigateToURL(new URLRequest(webUrl_), "_blank");
-	}
+
+    private function onClick(_arg1:MouseEvent):void {
+        navigateToURL(new URLRequest(webUrl_), "_blank");
+    }
 }
 }//package Screens
 

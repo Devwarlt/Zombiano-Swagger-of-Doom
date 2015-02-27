@@ -17,23 +17,21 @@
 
 //_0_P_._0F_7
 
-package _0_P_{
+package _0_P_ {
 
 
+public class _0F_7 {
 
-    public class _0F_7 {
+    public var _20:Vector.<_3Y_>;
 
-        public var _20:Vector.<_3Y_>;
-
-        public function _0F_7(_arg1:XML){
-            var _local2:XML;
-            this._20 = new Vector.<_3Y_>();
-            super();
-            for each (_local2 in _arg1.Animation)
-            {
-                this._20.push(new _3Y_(_local2));
-            }
+    public function _0F_7(_arg1:XML) {
+        var _local2:XML;
+        this._20 = new Vector.<_3Y_>();
+        super();
+        for each (_local2 in _arg1.Animation) {
+            this._20.push(new _3Y_(_local2));
         }
     }
+}
 }//package _0_P_
 

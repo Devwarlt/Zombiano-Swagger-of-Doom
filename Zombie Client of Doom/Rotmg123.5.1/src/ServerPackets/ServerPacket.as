@@ -17,19 +17,21 @@
 
 //ServerPackets.ServerPacket
 
-package ServerPackets{
-    import com.company.net.Packet;
-    import flash.utils.IDataOutput;
+package ServerPackets {
+import com.company.net.Packet;
 
-    public class ServerPacket extends Packet {
+import flash.utils.IDataOutput;
 
-        public function ServerPacket(_arg1:uint){
-            super(_arg1);
-        }
-        final override public function writeToOutput(_arg1:IDataOutput):void{
-            throw (new Error((("Client should not send " + id_) + " messages")));
-        }
+public class ServerPacket extends Packet {
 
+    public function ServerPacket(_arg1:uint) {
+        super(_arg1);
     }
+
+    final override public function writeToOutput(_arg1:IDataOutput):void {
+        throw (new Error((("Client should not send " + id_) + " messages")));
+    }
+
+}
 }//package ServerPackets
 

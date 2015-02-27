@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.assembleegameclient.util
-{
-    import mx.core.*;
-    
-    [Embed(source="TextureRedrawer_textureShaderEmbed_.dat", mimeType="application/octet-stream")]
-    public class TextureRedrawer_textureShaderEmbed_ extends mx.core.ByteArrayAsset
-    {
-        public function TextureRedrawer_textureShaderEmbed_()
-        {
-            super();
+package com.company.assembleegameclient.util {
+import mx.core.*;
 
-        }
+[Embed(source="TextureRedrawer_textureShaderEmbed_.dat", mimeType="application/octet-stream")]
+public class TextureRedrawer_textureShaderEmbed_ extends mx.core.ByteArrayAsset {
+    public function TextureRedrawer_textureShaderEmbed_() {
+        super();
+
     }
+}
 }

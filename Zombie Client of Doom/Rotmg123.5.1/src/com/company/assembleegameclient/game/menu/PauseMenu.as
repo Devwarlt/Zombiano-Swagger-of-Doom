@@ -62,30 +62,30 @@ public class PauseMenu extends Sprite {
         title.autoSize = TextFieldAutoSize.CENTER;
         addChild(title);
 
-        this.addButton("Resume", MouseEvent.CLICK, function(event:MouseEvent):void {
-            if(storage["completed"]) {
+        this.addButton("Resume", MouseEvent.CLICK, function (event:MouseEvent):void {
+            if (storage["completed"]) {
                 var tween:GTween = new GTween(storage["removeButtons"].shift(), 0.2, {"x": -(BUTTON_WIDTH + 2 )});
                 tween.onComplete = fadeNext;
             }
         });
-        this.addButton("Options", MouseEvent.CLICK, function(event:MouseEvent):void {
+        this.addButton("Options", MouseEvent.CLICK, function (event:MouseEvent):void {
             for each (var i:FancyTextButton in storage["buttons"]) {
                 i.enabled(false);
             }
             var options:Options = new Options(gs);
             options.x = 800 - Options.WIDTH;
             options.y = 600 - Options.HEIGHT;
-            options.addEventListener(Event.REMOVED_FROM_STAGE, function(e:Event):void {
+            options.addEventListener(Event.REMOVED_FROM_STAGE, function (e:Event):void {
                 for each (var i:FancyTextButton in storage["buttons"]) {
                     i.enabled(true);
                 }
             });
             addChild(options);
         });
-        this.addButton("Back to Home", MouseEvent.CLICK, function(event:MouseEvent):void {
+        this.addButton("Back to Home", MouseEvent.CLICK, function (event:MouseEvent):void {
             gs.dispatchEvent(new Event(Event.COMPLETE));
         });
-        this.addButton("Quit", MouseEvent.CLICK, function(event:MouseEvent):void {
+        this.addButton("Quit", MouseEvent.CLICK, function (event:MouseEvent):void {
             fscommand("quit");
         });
 
@@ -98,7 +98,7 @@ public class PauseMenu extends Sprite {
         btn.boldText(true);
         btn.x = -BUTTON_WIDTH;
         btn.y = storage["nextButtonHeight"];
-        if(eventType && listener) btn.addEventListener(eventType, listener);
+        if (eventType && listener) btn.addEventListener(eventType, listener);
         addChild(btn);
         this.storage["addButtons"].push(btn);
         this.storage["buttons"].push(btn);
@@ -108,22 +108,22 @@ public class PauseMenu extends Sprite {
     private function onAddedToStage(event:Event):void {
         stage.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);
         var btn:FancyTextButton = this.storage["addButtons"].shift();
-        var tween:GTween = new GTween(btn, 0.2, { "x": 20 });
+        var tween:GTween = new GTween(btn, 0.2, {"x": 20});
         this.storage["removeButtons"].push(btn);
         tween.onComplete = fadeNext;
     }
 
     private function fadeNext(tween:GTween):void {
-        if(this.storage["addButtons"].length != 0) {
+        if (this.storage["addButtons"].length != 0) {
             var btn:FancyTextButton = this.storage["addButtons"].shift();
             tween = new GTween(btn, 0.2, {"x": 20});
-            if(this.storage["addButtons"].length != 0)
+            if (this.storage["addButtons"].length != 0)
                 tween.onComplete = fadeNext;
             else
                 this.storage["completed"] = true;
             this.storage["removeButtons"].push(btn);
         }
-        else if(this.storage["removeButtons"].length != 0) {
+        else if (this.storage["removeButtons"].length != 0) {
             tween = new GTween(this.storage["removeButtons"].shift(), 0.2, {"x": -(BUTTON_WIDTH + 2 )});
             tween.onComplete = fadeNext;
         }
@@ -135,7 +135,7 @@ public class PauseMenu extends Sprite {
     private function onKeyDown(event:KeyboardEvent):void {
         switch (event.keyCode) {
             case Keys.J:
-                if(this.storage["completed"]) {
+                if (this.storage["completed"]) {
                     var tween:GTween = new GTween(this.storage["removeButtons"].shift(), 0.2, {"x": -(BUTTON_WIDTH + 2 )});
                     tween.onComplete = fadeNext;
                     this.storage["completed"] = false;

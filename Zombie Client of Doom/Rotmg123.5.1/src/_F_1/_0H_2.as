@@ -22,6 +22,11 @@ package _F_1 {
 import AccountManagement.ui.FancyTextButton;
 
 import _02t._R_f;
+
+import _F_1.selectChars.CharacterBox;
+
+import _F_1.selectChars.CurrentCharacterScreen;
+
 import _sp._aJ_;
 
 import com.company.assembleegameclient.appengine.SavedCharsList;

@@ -12,16 +12,13 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package FireBite.Embeds.Images
-{
-	import mx.core.BitmapAsset;
-	
-	[Embed(source="data/Zombie Swagger OF DOOM.png")]
-	public class TitleScreenImage extends BitmapAsset
-	{
-		public function TitleScreenImage()
-		{
-			super();
-		}
-	}
+package FireBite.Embeds.Images {
+import mx.core.BitmapAsset;
+
+[Embed(source="data/Zombie Swagger OF DOOM.png")]
+public class TitleScreenImage extends BitmapAsset {
+    public function TitleScreenImage() {
+        super();
+    }
+}
 }

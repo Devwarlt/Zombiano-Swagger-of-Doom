@@ -17,13 +17,13 @@
 
 //_s3._yp
 
-package _s3{
-    import flash.display.DisplayObject;
+package _s3 {
+import flash.display.DisplayObject;
 
-    public interface _yp {
+public interface _yp {
 
-        function _H_3(_arg1:DisplayObject, _arg2:Class):void;
+    function _H_3(_arg1:DisplayObject, _arg2:Class):void;
 
-    }
+}
 }//package _s3
 

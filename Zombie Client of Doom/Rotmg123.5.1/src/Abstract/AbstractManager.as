@@ -61,7 +61,7 @@ public class AbstractManager {
 
     public function isValid(object:*):Boolean {
         var child:Class;
-        if(object is baseClass) {
+        if (object is baseClass) {
             for each (child in this.childs) {
                 if (object is child) return true;
             }
@@ -70,7 +70,7 @@ public class AbstractManager {
     }
 
     public function throwOnPureCall(object:*):void {
-        if(!isValid(object)) {
+        if (!isValid(object)) {
             var errorMessage:String = "Class is abstract.\nValid Classes:\n\n";
             var child:Class;
             for each (child in this.childs)
@@ -81,14 +81,14 @@ public class AbstractManager {
 
     public static function configure(base:Class):AbstractManager {
         if (managers == null) managers = new Dictionary();
-        if(managers[base] == undefined) {
+        if (managers[base] == undefined) {
             return managers[base] = new AbstractManager(base);
         }
         else throw new IllegalOperationError("Class already registered.");
     }
 
     public static function getConfig(base:Class):AbstractManager {
-        if(managers[base] == undefined) throw new IllegalOperationError("Class not registered");
+        if (managers[base] == undefined) throw new IllegalOperationError("Class not registered");
         return managers[base];
     }
 

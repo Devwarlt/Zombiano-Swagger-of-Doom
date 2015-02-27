@@ -148,7 +148,7 @@ public class TownHallShop extends VillageManagementScreenBase {
         if (contains(this.status)) {
             removeChild(this.status);
         }
-        if(getChildByName("OffersMask") != null) {
+        if (getChildByName("OffersMask") != null) {
             removeChild(getChildByName("OffersMask"));
         }
         graphics.clear();
@@ -199,7 +199,7 @@ class shopOffer extends Sprite {
 
         this.offerData = offerData;
 
-        if(this.offerIcon = new shopOffer[offerData.@image]) {
+        if (this.offerIcon = new shopOffer[offerData.@image]) {
             this.offerIcon.x = 10;
             this.offerIcon.y = 15;
             addChild(this.offerIcon);
@@ -234,8 +234,8 @@ class shopOffer extends Sprite {
     }
 
     private function dispatchTooltip(event:MouseEvent):void {
-        if(toolTip) {
-            if(toolTip.parent) {
+        if (toolTip) {
+            if (toolTip.parent) {
                 toolTip.parent.removeChild(toolTip);
             }
         }
@@ -245,8 +245,8 @@ class shopOffer extends Sprite {
     }
 
     private function removeTooltip(event:MouseEvent):void {
-        if(toolTip) {
-            if(toolTip.parent) {
+        if (toolTip) {
+            if (toolTip.parent) {
                 toolTip.parent.removeChild(toolTip);
             }
         }
@@ -269,9 +269,9 @@ class offerInformation extends ToolTip {
         this.objectName.boldText(true);
 
         this.objectName.wordWrap =
-        this.objectInfo.wordWrap =
-        this.objectName.multiline =
-        this.objectInfo.multiline = true;
+                this.objectInfo.wordWrap =
+                        this.objectName.multiline =
+                                this.objectInfo.multiline = true;
 
         this.objectName.text = informationDetails._get(offerType).name;
         this.objectInfo.text = informationDetails._get(offerType).info;
@@ -315,7 +315,7 @@ class informationDetails {
     }
 
     public static function _get(offerType:String):Object {
-        if(!m_details) m_details = new informationDetails();
+        if (!m_details) m_details = new informationDetails();
         return m_details.data[offerType];
     }
 }

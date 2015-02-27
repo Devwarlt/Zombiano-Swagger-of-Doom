@@ -17,12 +17,12 @@
 
 //_0L_C_._tc
 
-package _0L_C_{
-    public class _tc extends DialogBox {
+package _0L_C_ {
+public class _tc extends DialogBox {
 
-        public function _tc(){
-            super(("In order to have more than one character slot, " + "you must be a registered user."), "Not Registered", "Cancel", "Register");
-        }
+    public function _tc() {
+        super(("In order to have more than one character slot, " + "you must be a registered user."), "Not Registered", "Cancel", "Register");
     }
+}
 }//package _0L_C_
 

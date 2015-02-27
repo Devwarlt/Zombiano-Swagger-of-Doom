@@ -17,11 +17,11 @@
 
 //_g2._00d
 
-package _g2{
-    public interface _00d {
+package _g2 {
+public interface _00d {
 
-        function _1N_(_arg1:Class):_028;
+    function _1N_(_arg1:Class):_028;
 
-    }
+}
 }//package _g2
 

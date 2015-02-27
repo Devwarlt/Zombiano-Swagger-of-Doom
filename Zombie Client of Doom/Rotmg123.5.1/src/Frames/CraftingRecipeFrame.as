@@ -172,14 +172,28 @@ public class CraftingRecipeFrame extends Sprite {
         this.bookTitle2.x = (_xCenterRight - (this.bookTitle2.textWidth / 2));
         this.bookTitle2.y = 125;
 
-        this.slot1_.x = (_xCenterLeft - 50);    this.slot2_.x = (_xCenterLeft);         this.slot3_.x = (_xCenterLeft + 50);
-        this.slot1_.y = (_yCenterLeft - 50);    this.slot2_.y = (_yCenterLeft - 50);    this.slot3_.y = (_yCenterLeft - 50);
+        this.slot1_.x = (_xCenterLeft - 50);
+        this.slot2_.x = (_xCenterLeft);
+        this.slot3_.x = (_xCenterLeft + 50);
+        this.slot1_.y = (_yCenterLeft - 50);
+        this.slot2_.y = (_yCenterLeft - 50);
+        this.slot3_.y = (_yCenterLeft - 50);
 
-        this.slot4_.x = (_xCenterLeft - 50);    this.slot5_.x = (_xCenterLeft);         this.slot6_.x = (_xCenterLeft + 50);    this.output_.x = (_xCenterRight - (this.output_.width / 2));
-        this.slot4_.y = (_yCenterLeft);         this.slot5_.y = (_yCenterLeft);         this.slot6_.y = (_yCenterLeft);         this.output_.y = (_yCenterLeft);
+        this.slot4_.x = (_xCenterLeft - 50);
+        this.slot5_.x = (_xCenterLeft);
+        this.slot6_.x = (_xCenterLeft + 50);
+        this.output_.x = (_xCenterRight - (this.output_.width / 2));
+        this.slot4_.y = (_yCenterLeft);
+        this.slot5_.y = (_yCenterLeft);
+        this.slot6_.y = (_yCenterLeft);
+        this.output_.y = (_yCenterLeft);
 
-        this.slot7_.x = (_xCenterLeft - 50);    this.slot8_.x = (_xCenterLeft);         this.slot9_.x = (_xCenterLeft + 50);
-        this.slot7_.y = (_yCenterLeft + 50);    this.slot8_.y = (_yCenterLeft + 50);    this.slot9_.y = (_yCenterLeft + 50);
+        this.slot7_.x = (_xCenterLeft - 50);
+        this.slot8_.x = (_xCenterLeft);
+        this.slot9_.x = (_xCenterLeft + 50);
+        this.slot7_.y = (_yCenterLeft + 50);
+        this.slot8_.y = (_yCenterLeft + 50);
+        this.slot9_.y = (_yCenterLeft + 50);
 
         this.addChild(this.dimScreen);
         this.addChild(this.backgroundBook);
@@ -219,23 +233,23 @@ public class CraftingRecipeFrame extends Sprite {
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown)
     }
 
-    public function onKeyDown(param1:KeyboardEvent):void{
-        if(param1.keyCode == Keys.RIGHT) {
-            if(this.nextButton.mouseEnabled) {
+    public function onKeyDown(param1:KeyboardEvent):void {
+        if (param1.keyCode == Keys.RIGHT) {
+            if (this.nextButton.mouseEnabled) {
                 this.onNextClicked(new MouseEvent(MouseEvent.CLICK));
             }
         }
-        if(param1.keyCode == Keys.LEFT) {
-            if(this.prevButton.mouseEnabled) {
+        if (param1.keyCode == Keys.LEFT) {
+            if (this.prevButton.mouseEnabled) {
                 this.onPrevClicked(new MouseEvent(MouseEvent.CLICK));
             }
         }
     }
 
     public function onEnterFrame(param1:Event):void {
-        if(siteNumber < CraftingTerminal.recipes.length) {
-            var inputItems:Array = CraftingTerminal.recipes[siteNumber].split(';')[0].split(',');
-            var outputItem:int = CraftingTerminal.recipes[siteNumber].split(";")[1];
+        if (siteNumber < this.gs_.craftingRecipes.recipes.recipes.length) {
+            var inputItems:Array = this.gs_.craftingRecipes.recipes.recipes[siteNumber].split(';')[0].split(',');
+            var outputItem:int = this.gs_.craftingRecipes.recipes.recipes[siteNumber].split(";")[1];
 
             this.slot1_.draw(new <int>[inputItems[0] == 0 ? -1 : inputItems[0]]);
             this.slot2_.draw(new <int>[inputItems[1] == 0 ? -1 : inputItems[1]]);
@@ -249,31 +263,31 @@ public class CraftingRecipeFrame extends Sprite {
             this.output_.draw(new <int>[outputItem == 0 ? -1 : outputItem]);
         }
 
-        nextButton.enabled(siteNumber + 1 < CraftingTerminal.recipes.length);
+        nextButton.enabled(siteNumber + 1 < this.gs_.craftingRecipes.recipes.recipes.length);
         prevButton.enabled(siteNumber > 0);
 
         //nextButton.filters = [nextButton.mouseEnabled ? activeGlowFilter : restrictedGlowFilter];
         //prevButton.filters = [prevButton.mouseEnabled ? activeGlowFilter : restrictedGlowFilter];
     }
 
-    public function onClose(param1:MouseEvent) : void {
+    public function onClose(param1:MouseEvent):void {
         dispatchEvent(new Event(Event.COMPLETE));
         this.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         parent.removeChild(this);
     }
 
     public function onPrevClicked(param1:MouseEvent):void {
-        if(siteNumber > 0) siteNumber--;
+        if (siteNumber > 0) siteNumber--;
         updateSiteText(false);
     }
 
     public function onNextClicked(param1:MouseEvent):void {
-        if(siteNumber + 1 < CraftingTerminal.recipes.length) siteNumber++;
+        if (siteNumber + 1 < this.gs_.craftingRecipes.recipes.recipes.length) siteNumber++;
         updateSiteText(true);
     }
 
-    public function updateSiteText(add:Boolean):void{
-        if(add) {
+    public function updateSiteText(add:Boolean):void {
+        if (add) {
             site1 += 2;
             site2 += 2;
         }

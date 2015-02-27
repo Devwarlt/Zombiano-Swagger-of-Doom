@@ -17,7 +17,7 @@
 
 //AccountWebrequests._F_V_
 
-package AccountManagement.Frames{
+package AccountManagement.Frames {
 import AccountManagement.AccountEvent;
 
 import Frames.Frame;
@@ -26,53 +26,60 @@ import Frames.TextInputBig;
 import Frames.TextInputSmall;
 
 import com.company.assembleegameclient.ui.TextButton;
-    import flash.events.MouseEvent;
-    import com.company.assembleegameclient.appengine.WebRequest;
-    import com.company.assembleegameclient.parameters.Parameters;
-    import WebRequestEvents.WebRequestSuccessEvent;
-    import WebRequestEvents.WebRequestErrorEvent;
 
-    public class ForgotPasswordFrame extends Frame {
+import flash.events.MouseEvent;
 
-        public var _xb:TextInput;
-        public var _static:TextButton;
+import com.company.assembleegameclient.appengine.WebRequest;
+import com.company.assembleegameclient.parameters.Parameters;
 
-        public function ForgotPasswordFrame(){
-            super("Forgot your password?  We'll email it.", "Cancel", "Submit");
-            this._xb = new TextInputSmall("Email", false, "");
-            addTextInput(this._xb);
-            this._static = new TextButton(12, false, "New user?  Click here to Register");
-            addTextButton(this._static);
-            Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
-            Button2.addEventListener(MouseEvent.CLICK, this._08Y_);
-            this._static.addEventListener(MouseEvent.CLICK, this._mO_);
-        }
-        private function onCancel(_arg1:MouseEvent):void{
-            dispatchEvent(new AccountEvent(AccountEvent.SIGN_IN));
-        }
-        private function _08Y_(_arg1:MouseEvent):void{
-            if (this._xb.text() == "")
-            {
-                this._xb.setErrorText("Not a valid email address");
-                return;
-            }
-            var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
-            _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._01v);
-            _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._Q_9);
-            _local2.sendRequest("forgotPassword", {"guid":this._xb.text()});
-            lockButtons();
-        }
-        private function _01v(_arg1:WebRequestSuccessEvent):void{
-            dispatchEvent(new AccountEvent(AccountEvent.SIGN_IN));
-        }
-        private function _Q_9(_arg1:WebRequestErrorEvent):void{
-            this._xb.setErrorText(_arg1.text_);
-            releaseButtons();
-        }
-        private function _mO_(_arg1:MouseEvent):void{
-            dispatchEvent(new AccountEvent(AccountEvent.REGISTER));
-        }
+import WebRequestEvents.WebRequestSuccessEvent;
+import WebRequestEvents.WebRequestErrorEvent;
 
+public class ForgotPasswordFrame extends Frame {
+
+    public var _xb:TextInput;
+    public var _static:TextButton;
+
+    public function ForgotPasswordFrame() {
+        super("Forgot your password?  We'll email it.", "Cancel", "Submit");
+        this._xb = new TextInputSmall("Email", false, "");
+        addTextInput(this._xb);
+        this._static = new TextButton(12, false, "New user?  Click here to Register");
+        addTextButton(this._static);
+        Button1.addEventListener(MouseEvent.CLICK, this.onCancel);
+        Button2.addEventListener(MouseEvent.CLICK, this._08Y_);
+        this._static.addEventListener(MouseEvent.CLICK, this._mO_);
     }
+
+    private function onCancel(_arg1:MouseEvent):void {
+        dispatchEvent(new AccountEvent(AccountEvent.SIGN_IN));
+    }
+
+    private function _08Y_(_arg1:MouseEvent):void {
+        if (this._xb.text() == "") {
+            this._xb.setErrorText("Not a valid email address");
+            return;
+        }
+        var _local2:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
+        _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._01v);
+        _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._Q_9);
+        _local2.sendRequest("forgotPassword", {"guid": this._xb.text()});
+        lockButtons();
+    }
+
+    private function _01v(_arg1:WebRequestSuccessEvent):void {
+        dispatchEvent(new AccountEvent(AccountEvent.SIGN_IN));
+    }
+
+    private function _Q_9(_arg1:WebRequestErrorEvent):void {
+        this._xb.setErrorText(_arg1.text_);
+        releaseButtons();
+    }
+
+    private function _mO_(_arg1:MouseEvent):void {
+        dispatchEvent(new AccountEvent(AccountEvent.REGISTER));
+    }
+
+}
 }//package AccountWebrequests
 

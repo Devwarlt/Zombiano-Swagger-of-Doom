@@ -38,7 +38,7 @@ public class Country {
 
     public function Country(id:int) {
         this.id = id;
-        switch(this.id) {
+        switch (this.id) {
             case -1:
                 this.name = "Country not set";
                 this.image = new Bitmap();

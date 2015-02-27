@@ -17,13 +17,19 @@
  */
 package AccountManagement {
 import _C__._cM_;
+
 import _F_1._E_r;
+
 import _U_5.SpriteTarget;
 import _U_5.CharListResetDispatcher;
-import _W_D_._0I_H_;
+
+import _W_D_.CharListHistory;
+
 import _qN_.Account;
+
 import com.company.assembleegameclient.appengine.CharWebRequests;
 import com.company.assembleegameclient.appengine.SavedCharsList;
+
 import flash.events.Event;
 
 public class AccountEventDispatcher extends _cM_ {
@@ -31,7 +37,7 @@ public class AccountEventDispatcher extends _cM_ {
     [Inject]
     public var view:AccountManagementScreen;
     [Inject]
-    public var charList:_0I_H_;
+    public var charList:CharListHistory;
     [Inject]
     public var charListReset:CharListResetDispatcher;
     [Inject]
@@ -43,10 +49,12 @@ public class AccountEventDispatcher extends _cM_ {
         this.view.eventDispatcher.add(this.dispatchEvent);
         this.view.initialize(this.charList.charList);
     }
+
     override public function destroy():void {
         this.view.eventDispatcher.remove(this.dispatchEvent);
         this.view.destroy();
     }
+
     private function dispatchEvent(eventString:String):void {
         switch (eventString) {
             case AccountManagementScreen.SHOW_MAIN_SCREEN:

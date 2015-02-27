@@ -17,20 +17,23 @@
 
 //com.company.assembleegameclient.objects.GuildHallPortal
 
-package com.company.assembleegameclient.objects{
-    import Panels.GuildHallPortalPanel;
-    import com.company.assembleegameclient.game.GameSprite;
-    import Panels.Panel;
+package com.company.assembleegameclient.objects {
+import Panels.GuildHallPortalPanel;
 
-    public class GuildHallPortal extends GameObject implements IPanelProvider {
+import com.company.assembleegameclient.game.GameSprite;
 
-        public function GuildHallPortal(_arg1:XML){
-            super(_arg1);
-        }
-        public function GetPanel(_arg1:GameSprite):Panel{
-            return (new GuildHallPortalPanel(_arg1, this));
-        }
+import Panels.Panel;
 
+public class GuildHallPortal extends GameObject implements IPanelProvider {
+
+    public function GuildHallPortal(_arg1:XML) {
+        super(_arg1);
     }
+
+    public function GetPanel(_arg1:GameSprite):Panel {
+        return (new GuildHallPortalPanel(_arg1, this));
+    }
+
+}
 }//package com.company.assembleegameclient.objects
 

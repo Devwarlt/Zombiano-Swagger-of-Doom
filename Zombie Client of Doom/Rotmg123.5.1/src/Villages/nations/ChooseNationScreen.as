@@ -18,13 +18,13 @@
 package Villages.nations {
 import AccountManagement.ui.FancyTextButton;
 
-import Villages.nations.Country;
-
 import WebRequestEvents.WebRequestErrorEvent;
 import WebRequestEvents.WebRequestSuccessEvent;
 
 import _0L_C_.DialogBox;
-import _F_1._C_Q_;
+
+import _F_1._E_r;
+
 import _qN_.Account;
 
 import _sp._aJ_;
@@ -93,7 +93,7 @@ public class ChooseNationScreen extends Sprite {
         n.onClick = setCurrentNation;
         addChild(n);
 
-        if(id == 0) {
+        if (id == 0) {
             setCurrentNation(n);
         }
 
@@ -102,7 +102,7 @@ public class ChooseNationScreen extends Sprite {
     }
 
     private function setCurrentNation(n:nation):void {
-        if(this.currentNation != null) {
+        if (this.currentNation != null) {
             this.currentNation.setSelected(false);
         }
         this.currentNation = n;
@@ -114,14 +114,14 @@ public class ChooseNationScreen extends Sprite {
     }
 
     private function onChoose(event:MouseEvent):void {
-        if(this.currentNation != null) {
+        if (this.currentNation != null) {
             var dialogBox:DialogBox = new DialogBox("Are you sure you want to join:\n<font color='#00ff00'>" + this.currentNation.nationName + "</font>\n\n<font color='#ff0000'>Please note that this action can NOT be undone.</font>", "Confirm", "I am sure", "I am not sure");
-            dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(event:Event):void {
+            dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function (event:Event):void {
                 chooseNation(currentNation);
                 event.target.parent.removeChild(dialogBox);
             });
 
-            dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function(event:Event):void {
+            dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function (event:Event):void {
                 event.target.parent.removeChild(dialogBox);
             });
             addChild(dialogBox);
@@ -140,7 +140,7 @@ public class ChooseNationScreen extends Sprite {
 
     private function onChooseError(event:WebRequestErrorEvent):void {
         var dialogBox:DialogBox = new DialogBox("Error while choosing nation:\n<font color='#ff0000'>" + event.text_ + "</font>", "Error", "Ok", null);
-        dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e:Event):void {
+        dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function (e:Event):void {
             e.target.parent.removeChild(dialogBox);
         });
         addChild(dialogBox);
@@ -154,7 +154,7 @@ public class ChooseNationScreen extends Sprite {
     }
 
     private function closeScreen(event:Event):void {
-        this.eventDispatcher.dispatch(new _C_Q_());
+        this.eventDispatcher.dispatch();
     }
 }
 }
@@ -208,7 +208,7 @@ class nation extends Sprite {
     }
 
     private function onNationClick(event:MouseEvent):void {
-        if(this.onClick != null) {
+        if (this.onClick != null) {
             this.onClick(this);
         }
     }

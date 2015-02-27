@@ -60,7 +60,7 @@ public class PremiumHolder extends TabHolder {
     }
 
     public override function initialize():void {
-        if(!premiumPurchased) {
+        if (!premiumPurchased) {
             var purchaseText:SimpleText = new SimpleText(46, 0xffffff);
             purchaseText.multiline = true;
             purchaseText.text = "You are not a premium member.";
@@ -87,15 +87,15 @@ public class PremiumHolder extends TabHolder {
             iconSprite.y = 120 + ((320 / 2) - (iconSprite.height / 2));
             addChild(iconSprite);
 
-            iconSprite.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
+            iconSprite.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
                 var dialogBox:DialogBox = new DialogBox("Purchase Premium?", "Continue?", "Ok", "Cancel");
                 addChild(dialogBox);
-                dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e1:Event):void {
+                dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function (e1:Event):void {
                     var webReq:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", false);
-                    webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, function(event:WebRequestSuccessEvent):void {
+                    webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, function (event:WebRequestSuccessEvent):void {
                         var successBox:DialogBox = new DialogBox("You are now a premium member.\nReopen the page to access premium.", "Success", "Ok", null);
                         addChild(successBox);
-                        successBox.addEventListener(DialogBox.BUTTON1_EVENT, function(e1:Event):void {
+                        successBox.addEventListener(DialogBox.BUTTON1_EVENT, function (e1:Event):void {
                             removeChild(successBox);
                         });
                         successBox.y = ((HEIGHT / 2) - (successBox.height / 2));
@@ -103,7 +103,7 @@ public class PremiumHolder extends TabHolder {
                     webReq.sendRequest("purchasePremium", Account._get().credentials());
                     removeChild(dialogBox);
                 });
-                dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function(e2:Event):void {
+                dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function (e2:Event):void {
                     removeChild(dialogBox);
                 });
                 dialogBox.y = ((HEIGHT / 2) - (dialogBox.height / 2));
@@ -124,7 +124,7 @@ public class PremiumHolder extends TabHolder {
     }
 
     public function updateScreen(holder:PremiumTabHolder):void {
-        if(this.tabHolder != null) {
+        if (this.tabHolder != null) {
             if (getChildIndex(this.tabHolder) != -1) {
                 removeChild(this.tabHolder);
             }
@@ -154,7 +154,7 @@ public class PremiumHolder extends TabHolder {
         tabButton.addEventListener(MouseEvent.CLICK, this.onTabClick);
         tabs.push(tabButton);
         tabSprite.addChild(tabButton);
-        if(nextTabId == 0) {
+        if (nextTabId == 0) {
             updateScreen(tabButton.holder as PremiumTabHolder);
         }
 

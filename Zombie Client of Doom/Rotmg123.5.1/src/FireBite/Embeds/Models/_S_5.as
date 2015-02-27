@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package FireBite.Embeds.Models
-{
-    import mx.core.*;
-    
-    [Embed(source="data/_S_5.dat", mimeType="application/octet-stream")]
-    public class _S_5 extends mx.core.ByteArrayAsset
-    {
-        public function _S_5()
-        {
-            super();
+package FireBite.Embeds.Models {
+import mx.core.*;
 
-        }
+[Embed(source="data/_S_5.dat", mimeType="application/octet-stream")]
+public class _S_5 extends mx.core.ByteArrayAsset {
+    public function _S_5() {
+        super();
+
     }
+}
 }

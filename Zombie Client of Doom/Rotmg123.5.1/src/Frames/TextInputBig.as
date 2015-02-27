@@ -16,7 +16,7 @@
  * Created by Fabian on 20.02.2015.
  */
 
-package Frames{
+package Frames {
 
 public class TextInputBig extends TextInput {
 

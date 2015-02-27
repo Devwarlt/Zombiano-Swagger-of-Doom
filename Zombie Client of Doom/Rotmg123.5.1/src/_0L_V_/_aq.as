@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package _0L_V_
-{
-    import mx.core.*;
-    
-    [Embed(source="_aq.png")]
-    public class _aq extends mx.core.BitmapAsset
-    {
-        public function _aq()
-        {
-            super();
+package _0L_V_ {
+import mx.core.*;
 
-        }
+[Embed(source="_aq.png")]
+public class _aq extends mx.core.BitmapAsset {
+    public function _aq() {
+        super();
+
     }
+}
 }

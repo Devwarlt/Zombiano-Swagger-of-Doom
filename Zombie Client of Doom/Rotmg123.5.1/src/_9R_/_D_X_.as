@@ -17,19 +17,19 @@
 
 //_9R_._D_X_
 
-package _9R_{
-    import flash.events.Event;
+package _9R_ {
+import flash.events.Event;
 
-    public class _D_X_ extends Event {
+public class _D_X_ extends Event {
 
-        public static const CLIENT_UPDATE:String = "CLIENT_UPDATE";
+    public static const CLIENT_UPDATE:String = "CLIENT_UPDATE";
 
-        public var newVersion:String;
+    public var newVersion:String;
 
-        public function _D_X_(newVersion:String){
-            super(CLIENT_UPDATE);
-            this.newVersion = newVersion;
-        }
+    public function _D_X_(newVersion:String) {
+        super(CLIENT_UPDATE);
+        this.newVersion = newVersion;
     }
+}
 }//package _9R_
 

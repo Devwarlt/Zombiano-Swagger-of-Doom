@@ -17,9 +17,9 @@
 
 //_0_p._al
 
-package _0_p{
-    public interface _al extends _D_v {
+package _0_p {
+public interface _al extends _D_v {
 
-    }
+}
 }//package _0_p
 

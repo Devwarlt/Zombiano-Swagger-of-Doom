@@ -12,19 +12,16 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.ui.fonts
-{
-	import mx.core.FontAsset;
-	
-	[Embed(source="CHIPSBKI.ttf", fontName="CHIP SBKI", fontFamily="CHIP", embedAsCFF="false", mimeType="application/x-font-truetype")]
-    public class CHIPSBKI extends FontAsset
-    {
-        public function CHIPSBKI()
-        {
-            super();
+package com.company.ui.fonts {
+import mx.core.FontAsset;
 
-        }
+[Embed(source="CHIPSBKI.ttf", fontName="CHIP SBKI", fontFamily="CHIP", embedAsCFF="false", mimeType="application/x-font-truetype")]
+public class CHIPSBKI extends FontAsset {
+    public function CHIPSBKI() {
+        super();
 
-        private static const _U_9:Class=com.company.ui.fonts.CHIPSBKI_CHIPSBKICFF;
     }
+
+    private static const _U_9:Class = com.company.ui.fonts.CHIPSBKI_CHIPSBKICFF;
+}
 }

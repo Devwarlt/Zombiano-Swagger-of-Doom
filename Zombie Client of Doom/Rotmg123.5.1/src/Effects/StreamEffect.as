@@ -17,42 +17,44 @@
 
 //Effects.StreamEffect
 
-package Effects{
-    import flash.geom.Point;
-    import com.company.assembleegameclient.net.messages.data.Position;
+package Effects {
+import flash.geom.Point;
 
-    public class StreamEffect extends Effect {
+import com.company.assembleegameclient.net.messages.data.Position;
 
-        public var start_:Point;
-        public var end_:Point;
-        public var color_:int;
+public class StreamEffect extends Effect {
 
-        public function StreamEffect(_arg1:Position, _arg2:Position, _arg3:int){
-            this.start_ = new Point(_arg1.x_, _arg1.y_);
-            this.end_ = new Point(_arg2.x_, _arg2.y_);
-            this.color_ = _arg3;
-        }
-        override public function update(_arg1:int, _arg2:int):Boolean{
-            var _local5:int;
-            var _local6:StreamParticle;
-            x_ = this.start_.x;
-            y_ = this.start_.y;
-            var _local3:int = 5;
-            var _local4:int;
-            while (_local4 < _local3)
-            {
-                _local5 = ((3 + int((Math.random() * 5))) * 20);
-                _local6 = new StreamParticle(1.85, _local5, this.color_, (1500 + (Math.random() * 3000)), (0.1 + (Math.random() * 0.1)), this.start_, this.end_);
-                map_.addObj(_local6, x_, y_);
-                _local4++;
-            }
-            return (false);
-        }
+    public var start_:Point;
+    public var end_:Point;
+    public var color_:int;
 
+    public function StreamEffect(_arg1:Position, _arg2:Position, _arg3:int) {
+        this.start_ = new Point(_arg1.x_, _arg1.y_);
+        this.end_ = new Point(_arg2.x_, _arg2.y_);
+        this.color_ = _arg3;
     }
+
+    override public function update(_arg1:int, _arg2:int):Boolean {
+        var _local5:int;
+        var _local6:StreamParticle;
+        x_ = this.start_.x;
+        y_ = this.start_.y;
+        var _local3:int = 5;
+        var _local4:int;
+        while (_local4 < _local3) {
+            _local5 = ((3 + int((Math.random() * 5))) * 20);
+            _local6 = new StreamParticle(1.85, _local5, this.color_, (1500 + (Math.random() * 3000)), (0.1 + (Math.random() * 0.1)), this.start_, this.end_);
+            map_.addObj(_local6, x_, y_);
+            _local4++;
+        }
+        return (false);
+    }
+
+}
 }//package Effects
 
 import Effects.Particle;
+
 import flash.geom.Vector3D;
 import flash.geom.Point;
 
@@ -70,7 +72,7 @@ class StreamParticle extends Particle {
     public var yDeflect_:Number;
     public var period_:Number;
 
-    public function StreamParticle(_arg1:Number, _arg2:int, _arg3:int, _arg4:int, _arg5:Number, _arg6:Point, _arg7:Point){
+    public function StreamParticle(_arg1:Number, _arg2:int, _arg3:int, _arg4:int, _arg5:Number, _arg6:Point, _arg7:Point) {
         this.moveVec_ = new Vector3D();
         super(_arg3, _arg1, _arg2);
         this.moveVec_.z = _arg5;
@@ -87,10 +89,10 @@ class StreamParticle extends Particle {
         this.pathY_ = (y_ = this.start_.y);
         this.period_ = (0.25 + (Math.random() * 0.5));
     }
-    override public function update(_arg1:int, _arg2:int):Boolean{
+
+    override public function update(_arg1:int, _arg2:int):Boolean {
         this.timeLeft_ = (this.timeLeft_ - _arg2);
-        if (this.timeLeft_ <= 0)
-        {
+        if (this.timeLeft_ <= 0) {
             return (false);
         }
         this.pathX_ = (this.pathX_ + (this.dx_ * _arg2));

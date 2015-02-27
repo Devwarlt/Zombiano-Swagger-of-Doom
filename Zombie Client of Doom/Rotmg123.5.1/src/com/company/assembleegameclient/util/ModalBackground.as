@@ -27,7 +27,7 @@ public class ModalBackground extends Sprite {
     public static const VERTICAL_DIVISION:String = "VERTICAL_DIVISION";
     private static const BEVEL:int = 4;
 
-    public function draw(_arg1:int, _arg2:int, _arg3:int=0):void{
+    public function draw(_arg1:int, _arg2:int, _arg3:int = 0):void {
         var _local4:_str1119 = new _str1119(_arg1, _arg2, BEVEL);
         var _local5:_str1120 = new _str1120();
         graphics.lineStyle(1, 0xFFFFFF, 1, false, LineScaleMode.NORMAL, CapsStyle.NONE, JointStyle.ROUND, 3);
@@ -61,7 +61,8 @@ public class ModalBackground extends Sprite {
                 break;
         }
     }
-    public function createRectangle(_arg1:String, _arg2:int):void{
+
+    public function createRectangle(_arg1:String, _arg2:int):void {
         switch (_arg1) {
             case HORIZONTAL_DIVISION:
                 this.fillRectHorizontal(_arg2);
@@ -71,14 +72,16 @@ public class ModalBackground extends Sprite {
                 break;
         }
     }
-    private function fillRectHorizontal(_arg_1:int):void{
+
+    private function fillRectHorizontal(_arg_1:int):void {
         graphics.lineStyle();
         graphics.endFill();
         graphics.moveTo(1, _arg_1);
         graphics.beginFill(0x666666, 1);
         graphics.drawRect(1, _arg_1, (width - 2), 2);
     }
-    private function fillRectVertical(_arg_1:int):void{
+
+    private function fillRectVertical(_arg_1:int):void {
         graphics.lineStyle();
         graphics.moveTo(_arg_1, 1);
         graphics.lineStyle(2, 0x666666);

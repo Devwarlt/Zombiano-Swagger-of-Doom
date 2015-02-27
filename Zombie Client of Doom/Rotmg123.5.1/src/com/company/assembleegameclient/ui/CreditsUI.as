@@ -21,14 +21,22 @@ package com.company.assembleegameclient.ui {
 import com.company.assembleegameclient.util.Currency;
 
 import flash.display.Sprite;
+
 import com.company.ui.SimpleText;
+
 import flash.display.Bitmap;
+
 import com.company.assembleegameclient.game.GameSprite;
+
 import flash.filters.DropShadowFilter;
+
 import com.company.util.AssetLibrary;
 import com.company.assembleegameclient.util.TextureRedrawer;
+
 import flash.events.MouseEvent;
+
 import com.company.assembleegameclient.parameters.Parameters;
+
 import _qN_.Account;
 
 public class CreditsUI extends Sprite {

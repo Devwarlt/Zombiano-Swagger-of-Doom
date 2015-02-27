@@ -12,18 +12,16 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package FireBite.Embeds.CXML
-{
+package FireBite.Embeds.CXML {
 import com.company.assembleegameclient.util.*;
-	import mx.core.ByteArrayAsset;
-	
-	[Embed(source="data/skins.dat", mimeType="application/octet-stream")]
-	public class skins extends mx.core.ByteArrayAsset
-	{
-		public function skins()
-		{
-			super();
 
-		}
-	}
+import mx.core.ByteArrayAsset;
+
+[Embed(source="data/skins.dat", mimeType="application/octet-stream")]
+public class skins extends mx.core.ByteArrayAsset {
+    public function skins() {
+        super();
+
+    }
+}
 }

@@ -17,7 +17,7 @@
 
 //com.company.assembleegameclient.screens.charrects.CharacterRect
 
-package com.company.assembleegameclient.screens.charrects{
+package com.company.assembleegameclient.screens.charrects {
 import flash.display.Sprite;
 import flash.display.Shape;
 import flash.events.MouseEvent;
@@ -26,13 +26,13 @@ import flash.display.Graphics;
 public class CharacterRect extends Sprite {
 
     public static const WIDTH:int = 320;
-    public static const HEIGHT:int = 52;
+    public static const HEIGHT:int = 60;
 
     private var color_:uint;
     private var overColor_:uint;
     private var box_:Shape;
 
-    public function CharacterRect(_arg1:uint, _arg2:uint){
+    public function CharacterRect(_arg1:uint, _arg2:uint) {
         this.color_ = _arg1;
         this.overColor_ = _arg2;
         this.box_ = new Shape();
@@ -41,13 +41,16 @@ public class CharacterRect extends Sprite {
         addEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);
         addEventListener(MouseEvent.ROLL_OUT, this.onRollOut);
     }
-    protected function onMouseOver(_arg1:MouseEvent):void{
+
+    protected function onMouseOver(_arg1:MouseEvent):void {
         this.drawBox(true);
     }
-    protected function onRollOut(_arg1:MouseEvent):void{
+
+    protected function onRollOut(_arg1:MouseEvent):void {
         this.drawBox(false);
     }
-    private function drawBox(_arg1:Boolean):void{
+
+    private function drawBox(_arg1:Boolean):void {
         var _local2:Graphics = this.box_.graphics;
         _local2.clear();
         _local2.beginFill(_arg1 ? this.overColor_ : this.color_);

@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.company.rotmg.graphics
-{
-    import flash.display.*;
-    
-    [Embed(source="StackedLogoR.swf", symbol = "com.company.rotmg.graphics.StackedLogoR")]
-    public dynamic class StackedLogoR extends flash.display.MovieClip
-    {
-        public function StackedLogoR()
-        {
-            super();
+package com.company.rotmg.graphics {
+import flash.display.*;
 
-        }
+[Embed(source="StackedLogoR.swf", symbol="com.company.rotmg.graphics.StackedLogoR")]
+public dynamic class StackedLogoR extends flash.display.MovieClip {
+    public function StackedLogoR() {
+        super();
+
     }
+}
 }

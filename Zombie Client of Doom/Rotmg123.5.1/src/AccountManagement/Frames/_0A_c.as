@@ -30,7 +30,7 @@ public class _0A_c extends Sprite {
 
     private var _T_y:Shape;
 
-    public function _0A_c(){
+    public function _0A_c() {
         this._T_y = new Shape();
         var _local1:Graphics = this._T_y.graphics;
         _local1.clear();
@@ -43,7 +43,8 @@ public class _0A_c extends Sprite {
         _local2.addEventListener(AccountEvent.CURRENT, this._0E_C_);
         addChild(_local2);
     }
-    private function _0E_C_(_arg1:Event):void{
+
+    private function _0E_C_(_arg1:Event):void {
         parent.removeChild(this);
     }
 

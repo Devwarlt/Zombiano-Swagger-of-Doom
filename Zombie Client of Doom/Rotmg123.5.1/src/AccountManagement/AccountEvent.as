@@ -17,22 +17,22 @@
 
 //AccountWebrequests._nJ_
 
-package AccountManagement{
-    import flash.events.Event;
+package AccountManagement {
+import flash.events.Event;
 
-    public class AccountEvent extends Event {
+public class AccountEvent extends Event {
 
-        public static const DONE:String = "ACCOUNT_DONE";
-        public static const CURRENT:String = "ACCOUNT_CURRENT";
-        public static const REGISTER:String = "ACCOUNT_REGISTER";
-        public static const SIGN_IN:String = "ACCOUNT_SIGN_IN";
-        public static const FORGOT:String = "ACCOUNT_FORGOT";
-        public static const CHANGE:String = "ACCOUNT_CHANGE";
-        public static const SUCCESS:String = "ACCOUNT_SUCCESS";
+    public static const DONE:String = "ACCOUNT_DONE";
+    public static const CURRENT:String = "ACCOUNT_CURRENT";
+    public static const REGISTER:String = "ACCOUNT_REGISTER";
+    public static const SIGN_IN:String = "ACCOUNT_SIGN_IN";
+    public static const FORGOT:String = "ACCOUNT_FORGOT";
+    public static const CHANGE:String = "ACCOUNT_CHANGE";
+    public static const SUCCESS:String = "ACCOUNT_SUCCESS";
 
-        public function AccountEvent(_arg1:String){
-            super(_arg1);
-        }
+    public function AccountEvent(_arg1:String) {
+        super(_arg1);
     }
+}
 }//package AccountWebrequests
 

@@ -17,7 +17,7 @@
 
 //com.company.ui.fonts.MyriadPro_MyriadProCFF
 
-package com.company.ui.fonts{
+package com.company.ui.fonts {
 import mx.core.FontAsset;
 
 public class BewareoftheHogs_BCFF extends FontAsset {

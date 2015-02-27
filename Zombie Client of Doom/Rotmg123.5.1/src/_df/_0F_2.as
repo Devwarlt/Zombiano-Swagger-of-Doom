@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package _df
-{
-    import mx.core.*;
-    
-    [Embed(source="_0F_2.png")]
-    public class _0F_2 extends mx.core.BitmapAsset
-    {
-        public function _0F_2()
-        {
-            super();
+package _df {
+import mx.core.*;
 
-        }
+[Embed(source="_0F_2.png")]
+public class _0F_2 extends mx.core.BitmapAsset {
+    public function _0F_2() {
+        super();
+
     }
+}
 }

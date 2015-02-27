@@ -156,7 +156,7 @@ class LogItemHolder extends Sprite {
     public var link:String;
     public var baseY:Number;
 
-    public function LogItemHolder(_arg1:Bitmap, _arg2:String, _arg3:String, _arg4:String, _arg5:int){
+    public function LogItemHolder(_arg1:Bitmap, _arg2:String, _arg3:String, _arg4:String, _arg5:int) {
         super();
         this.graphics.beginFill(0x000000, 0.5);
         this.graphics.drawRect(0, 0, WIDTH + 4, HEIGHT);
@@ -194,26 +194,27 @@ class LogItemHolder extends Sprite {
     }
 
     public function setY(value:Number):void {
-        if(isNaN(value)) {
+        if (isNaN(value)) {
             return;
         }
         y = baseY + value;
     }
 
-    protected function onMouseOver(_arg1:MouseEvent):void{
-        this.title._gp(mouseOverColor);
-        this.tagLine._gp(mouseOverColor);
-        this.timeAgo._gp(mouseOverColor);
+    protected function onMouseOver(_arg1:MouseEvent):void {
+        this.title.setColor(mouseOverColor);
+        this.tagLine.setColor(mouseOverColor);
+        this.timeAgo.setColor(mouseOverColor);
     }
-    protected function onRollOut(_arg1:MouseEvent):void{
-        this.title._gp(defaultColor);
-        this.tagLine._gp(defaultColor);
-        this.timeAgo._gp(defaultColor);
+
+    protected function onRollOut(_arg1:MouseEvent):void {
+        this.title.setColor(defaultColor);
+        this.tagLine.setColor(defaultColor);
+        this.timeAgo.setColor(defaultColor);
     }
-    protected function onMouseDown(_arg1:MouseEvent):void{
+
+    protected function onMouseDown(_arg1:MouseEvent):void {
         var _local2:Array = this.link.split(":", 2);
-        switch (_local2[0])
-        {
+        switch (_local2[0]) {
             case "switchTo":
                 dispatchEvent(new SwitchToEvent(_local2[1]));
                 break;
@@ -222,7 +223,8 @@ class LogItemHolder extends Sprite {
                 navigateToURL(new URLRequest(this.link), "_blank");
         }
     }
-    private static function _06P_(_arg1:int):String{
+
+    private static function _06P_(_arg1:int):String {
         var curTime:Number = (new Date().time / 1000);
         var diff:int = (curTime - _arg1);
         if (diff <= 0) {

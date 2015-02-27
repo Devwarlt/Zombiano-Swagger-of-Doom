@@ -50,9 +50,9 @@ public class TabButton extends Sprite {
 
     public function TabButton(text:String, icon:BitmapData, _tabId:int, _selected:Boolean = false) {
         this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-        if(icon != null) {
+        if (icon != null) {
 
-            if(icon.width != 100 || icon.height != 100) {
+            if (icon.width != 100 || icon.height != 100) {
                 throw new IllegalOperationError("Image width and height needs to be 100");
             }
 
@@ -110,7 +110,7 @@ public class TabButton extends Sprite {
     }
 
     public function set holder(tabHolder:VillageManagementScreenBase):void {
-        if(this.holder_ == null) {
+        if (this.holder_ == null) {
             this.holder_ = tabHolder;
             this.holder_.initialize();
         }

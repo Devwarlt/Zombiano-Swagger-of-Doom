@@ -69,10 +69,10 @@ public class NewItemUnlockedScreen extends PopUpScreen {
         this.itemDescText.size = 0;
 
         stage.addChild(unlockText);
-        if(this.sound != null) {
+        if (this.sound != null) {
             LocalSoundEffects.play(this.sound);
         }
-        var tween:GTween = new GTween(this.unlockText, 0.5, { "size": 46 });
+        var tween:GTween = new GTween(this.unlockText, 0.5, {"size": 46});
         tween._bR_ = updateMetrics;
         tween.onComplete = iconFadeIn;
     }
@@ -86,14 +86,14 @@ public class NewItemUnlockedScreen extends PopUpScreen {
 
     private function iconFadeIn(tween:GTween):void {
         stage.addChild(itemIcon);
-        tween = new GTween(this.itemIcon, 0.5, { "scaleX": 0.5, "scaleY": 0.5 });
+        tween = new GTween(this.itemIcon, 0.5, {"scaleX": 0.5, "scaleY": 0.5});
         tween._bR_ = updateMetrics;
         tween.onComplete = itemDescTextFadeIn;
     }
 
     private function itemDescTextFadeIn(tween:GTween):void {
         stage.addChild(itemDescText);
-        tween = new GTween(this.itemDescText, 0.3, { "size": 32 });
+        tween = new GTween(this.itemDescText, 0.3, {"size": 32});
         tween._bR_ = updateMetrics;
         tween.onComplete = waitForFadeOut;
     }
@@ -104,9 +104,9 @@ public class NewItemUnlockedScreen extends PopUpScreen {
     }
 
     private function fadeOut(tween:GTween):void {
-        new GTween(this.itemDescText, 0.3, { "size": 0 });
-        new GTween(this.itemIcon, 0.3, { "scaleX": 0, "scaleY": 0 });
-        var textTween = new GTween(this.unlockText, 0.3, { "size": 0 });
+        new GTween(this.itemDescText, 0.3, {"size": 0});
+        new GTween(this.itemIcon, 0.3, {"scaleX": 0, "scaleY": 0});
+        var textTween = new GTween(this.unlockText, 0.3, {"size": 0});
         textTween._bR_ = updateMetrics;
         textTween.onComplete = remove;
     }

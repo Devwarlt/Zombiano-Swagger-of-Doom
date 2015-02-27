@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.company.rotmg.graphics
-{
-    import flash.display.*;
-    
-    [Embed(source="KabamLogo.swf", symbol = "com.company.rotmg.graphics.KabamLogo")]
-    public dynamic class KabamLogo extends flash.display.MovieClip
-    {
-        public function KabamLogo()
-        {
-            super();
+package com.company.rotmg.graphics {
+import flash.display.*;
 
-        }
+[Embed(source="KabamLogo.swf", symbol="com.company.rotmg.graphics.KabamLogo")]
+public dynamic class KabamLogo extends flash.display.MovieClip {
+    public function KabamLogo() {
+        super();
+
     }
+}
 }

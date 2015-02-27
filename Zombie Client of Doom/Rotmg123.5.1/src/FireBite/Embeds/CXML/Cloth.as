@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package FireBite.Embeds.CXML
-{
-    import mx.core.*;
-    
-    [Embed(source="data/Cloth.dat", mimeType="application/octet-stream")]
-    public class Cloth extends mx.core.ByteArrayAsset
-    {
-        public function Cloth()
-        {
-            super();
+package FireBite.Embeds.CXML {
+import mx.core.*;
 
-        }
+[Embed(source="data/Cloth.dat", mimeType="application/octet-stream")]
+public class Cloth extends mx.core.ByteArrayAsset {
+    public function Cloth() {
+        super();
+
     }
+}
 }

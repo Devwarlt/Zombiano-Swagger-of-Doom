@@ -17,26 +17,27 @@
 
 //_U_5._D_L_
 
-package _U_5{
-    import _sp._aJ_;
-    import ServerPackets.MapInfo;
+package _U_5 {
+import _sp._aJ_;
 
-    public class _D_L_ extends _aJ_ {
+import ServerPackets.MapInfo;
 
-        private static var instance:_D_L_;
+public class _D_L_ extends _aJ_ {
 
-        public function _D_L_(){
-            super(MapInfo);
-            instance = this;
-        }
-        public static function getInstance():_D_L_{
-            if (!instance)
-            {
-                instance = new (_D_L_)();
-            }
-            return (instance);
-        }
+    private static var instance:_D_L_;
 
+    public function _D_L_() {
+        super(MapInfo);
+        instance = this;
     }
+
+    public static function getInstance():_D_L_ {
+        if (!instance) {
+            instance = new (_D_L_)();
+        }
+        return (instance);
+    }
+
+}
 }//package _U_5
 

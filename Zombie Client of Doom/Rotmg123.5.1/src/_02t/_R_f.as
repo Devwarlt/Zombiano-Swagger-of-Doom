@@ -17,29 +17,30 @@
 
 //_02t._R_f
 
-package _02t{
-    import flash.display.Sprite;
-    import flash.display.Shape;
-    import com.company.assembleegameclient.ui.PlaySoundsButton;
+package _02t {
+import flash.display.Sprite;
+import flash.display.Shape;
 
-    public class _R_f extends Sprite {
+import com.company.assembleegameclient.ui.PlaySoundsButton;
 
-        private var map:_pM_;
-        private var mapMask:Shape;
-        private var playSoundsButton:PlaySoundsButton;
+public class _R_f extends Sprite {
 
-        public function _R_f(){
-            this.map = new _pM_();
-            addChild(this.map);
-            this.mapMask = new Shape();
-            this.mapMask.graphics.beginFill(0x2B2B2B, 0.8);
-            this.mapMask.graphics.drawRect(0, 0, 800, 600);
-            this.mapMask.graphics.endFill();
-            addChild(this.mapMask);
-            this.playSoundsButton = new PlaySoundsButton();
-            this.playSoundsButton.x = 2;
-            addChild(this.playSoundsButton);
-        }
+    private var map:_pM_;
+    private var mapMask:Shape;
+    private var playSoundsButton:PlaySoundsButton;
+
+    public function _R_f() {
+        this.map = new _pM_();
+        addChild(this.map);
+        this.mapMask = new Shape();
+        this.mapMask.graphics.beginFill(0x2B2B2B, 0.8);
+        this.mapMask.graphics.drawRect(0, 0, 800, 600);
+        this.mapMask.graphics.endFill();
+        addChild(this.mapMask);
+        this.playSoundsButton = new PlaySoundsButton();
+        this.playSoundsButton.x = 2;
+        addChild(this.playSoundsButton);
     }
+}
 }//package _02t
 

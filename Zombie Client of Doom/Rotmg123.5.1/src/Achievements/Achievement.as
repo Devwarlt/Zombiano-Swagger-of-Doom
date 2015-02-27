@@ -57,7 +57,7 @@ public class Achievement extends Sprite {
         this.y = -(HEIGHT + 1);
         this.x = 1; //x: 1 because the border is 2 so 2 / 2 is 1;
 
-        if(this.gs_.map_.stage != null) {
+        if (this.gs_.map_.stage != null) {
             if (currentAchievement == null) {
                 currentAchievement = this;
                 this.gs_.map_.stage.addChild(this);
@@ -100,15 +100,15 @@ public class Achievement extends Sprite {
     }
 
     protected function fadeIn():void {
-        new GTween(this, 0.5, { "y": 1 }); //Y: 1 because the border is 2 so 2 / 2 is 1;
+        new GTween(this, 0.5, {"y": 1}); //Y: 1 because the border is 2 so 2 / 2 is 1;
         var timer:Timer = new Timer(5 * 1000, 1);
         timer.addEventListener(TimerEvent.TIMER_COMPLETE, this.fadeOut);
         timer.start();
     }
 
     private function fadeOut(event:TimerEvent):void {
-        var gTween:GTween = new GTween(this, 0.5, { "y": -(HEIGHT - 1) });
-        gTween.onComplete = function(tween:GTween):void {
+        var gTween:GTween = new GTween(this, 0.5, {"y": -(HEIGHT - 1)});
+        gTween.onComplete = function (tween:GTween):void {
             parent.removeChild(tween.target as DisplayObject);
         }
     }
@@ -137,7 +137,7 @@ public class Achievement extends Sprite {
     }
 
     protected function onRemovedFromStage(event:Event):void {
-        if(this.gs_.map_.stage != null) {
+        if (this.gs_.map_.stage != null) {
             var nextAchievement:Achievement;
             if ((nextAchievement = CurrentAchievements.shift()) != null) {
                 currentAchievement = nextAchievement;

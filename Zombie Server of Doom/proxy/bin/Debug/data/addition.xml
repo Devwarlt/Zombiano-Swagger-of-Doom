@@ -972,7 +972,7 @@
   <Ossi>
     <Object id="trade" ext="true">
       <Class>GameObject</Class>
-      <Model>TradeTent</Model>
+      <Model>Squatty3Side</Model>
     </Object>
   </Ossi>
   

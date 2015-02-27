@@ -62,7 +62,7 @@ public class _0A_t {
         this._E_B_ = _arg6;
         this.text_ = _arg7;
 
-        if(premium) {
+        if (premium) {
             this.premium = new premiumRank();
             this.premium.filters = [new GlowFilter(0xFFD000)];
         }

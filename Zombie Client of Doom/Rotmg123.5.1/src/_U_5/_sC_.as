@@ -17,15 +17,16 @@
 
 //_U_5._sC_
 
-package _U_5{
-    import _sp._aJ_;
-    import ToolTips.ToolTip;
+package _U_5 {
+import _sp._aJ_;
 
-    public class _sC_ extends _aJ_ {
+import ToolTips.ToolTip;
 
-        public function _sC_(){
-            super(ToolTip);
-        }
+public class _sC_ extends _aJ_ {
+
+    public function _sC_() {
+        super(ToolTip);
     }
+}
 }//package _U_5
 

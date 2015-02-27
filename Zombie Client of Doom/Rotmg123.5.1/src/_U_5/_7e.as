@@ -17,15 +17,16 @@
 
 //_U_5._7e
 
-package _U_5{
-    import _sp._aJ_;
-    import _02b._fn;
+package _U_5 {
+import _sp._aJ_;
 
-    public class _7e extends _aJ_ {
+import _02b._fn;
 
-        public function _7e(){
-            super(_fn);
-        }
+public class _7e extends _aJ_ {
+
+    public function _7e() {
+        super(_fn);
     }
+}
 }//package _U_5
 

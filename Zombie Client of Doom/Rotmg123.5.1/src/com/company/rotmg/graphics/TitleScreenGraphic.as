@@ -12,16 +12,13 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.rotmg.graphics
-{
-    import flash.display.*;
-    
-    [Embed(source="bar.png")]
-    public dynamic class TitleScreenGraphic extends flash.display.Bitmap
-    {
-        public function TitleScreenGraphic()
-        {
-            super();
-        }
+package com.company.rotmg.graphics {
+import flash.display.*;
+
+[Embed(source="bar.png")]
+public dynamic class TitleScreenGraphic extends flash.display.Bitmap {
+    public function TitleScreenGraphic() {
+        super();
     }
+}
 }

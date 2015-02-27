@@ -92,7 +92,7 @@ class MessageType {
     public var freeList_:Vector.<Packet>;
     public var callback_:Function;
 
-    public function MessageType(_arg1:Class, _arg2:Function){
+    public function MessageType(_arg1:Class, _arg2:Function) {
         this.freeList_ = new Vector.<Packet>();
         super();
         this.class_ = _arg1;

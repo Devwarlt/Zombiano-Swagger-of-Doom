@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.assembleegameclient.util
-{
-    import mx.core.*;
-    
-    [Embed(source="_P_0.dat", mimeType="application/octet-stream")]
-    public class _P_0 extends mx.core.ByteArrayAsset
-    {
-        public function _P_0()
-        {
-            super();
+package com.company.assembleegameclient.util {
+import mx.core.*;
 
-        }
+[Embed(source="_P_0.dat", mimeType="application/octet-stream")]
+public class _P_0 extends mx.core.ByteArrayAsset {
+    public function _P_0() {
+        super();
+
     }
+}
 }

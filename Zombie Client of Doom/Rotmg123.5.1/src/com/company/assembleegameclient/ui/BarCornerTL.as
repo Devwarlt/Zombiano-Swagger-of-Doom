@@ -12,16 +12,13 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.assembleegameclient.ui
-{
-	import flash.display.BitmapData;
+package com.company.assembleegameclient.ui {
+import flash.display.BitmapData;
 
-	[Embed(source="cornerPieceL.png", mimeType="image/png")]
-	public class BarCornerTL extends BitmapData
-	{
-		public function BarCornerTL()
-		{
-			super(0, 0);
-		}
-	}
+[Embed(source="cornerPieceL.png", mimeType="image/png")]
+public class BarCornerTL extends BitmapData {
+    public function BarCornerTL() {
+        super(0, 0);
+    }
+}
 }

@@ -17,15 +17,17 @@
 
 //Frames.Frame
 
-package Frames{
+package Frames {
 import Abstract.AbstractManager;
 
 import flash.display.Sprite;
 
 import flash.display.IGraphicsData;
+
 import com.company.util.GraphicHelper;
 import com.company.ui.SimpleText;
 import com.company.assembleegameclient.ui.TextButton;
+
 import flash.display.GraphicsSolidFill;
 import flash.display.GraphicsStroke;
 import flash.display.GraphicsPath;
@@ -55,7 +57,7 @@ public class Frame extends Sprite {
     private var path1_:GraphicsPath;
     private var path2_:GraphicsPath;
 
-    public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg4:int=288) {
+    public function Frame(_arg1:String, _arg2:String, _arg3:String, _arg4:int = 288) {
         AbstractManager.getConfig(Frame).throwOnPureCall(this);
         this._Q_r = new Vector.<TextInput>();
         this._Z_Y_ = new Vector.<TextButton>();
@@ -81,8 +83,7 @@ public class Frame extends Sprite {
 
         addChild(this._P_V_);
         this.Button1 = new TextButton(18, true, _arg2);
-        if (_arg2 != "")
-        {
+        if (_arg2 != "") {
             this.Button1.buttonMode = true;
             this.Button1.x = 109;
             addChild(this.Button1);
@@ -95,27 +96,31 @@ public class Frame extends Sprite {
         addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
     }
-    public function addTextInput(_arg1:TextInput):void{
+
+    public function addTextInput(_arg1:TextInput):void {
         this._Q_r.push(_arg1);
         addChild(_arg1);
         _arg1.y = (this.h_ - 60);
         _arg1.x = 17;
         this.h_ = (this.h_ + _arg1.HEIGHT);
     }
-    public function addTextButton(_arg1:TextButton):void{
+
+    public function addTextButton(_arg1:TextButton):void {
         this._Z_Y_.push(_arg1);
         addChild(_arg1);
         _arg1.y = (this.h_ - 66);
         _arg1.x = 17;
         this.h_ = (this.h_ + 20);
     }
-    public function _W_z(_arg1:DisplayObject, _arg2:int=8):void{
+
+    public function _W_z(_arg1:DisplayObject, _arg2:int = 8):void {
         addChild(_arg1);
         _arg1.y = (this.h_ - 66);
         _arg1.x = _arg2;
         this.h_ = (this.h_ + _arg1.height);
     }
-    public function addTextLine(_arg1:String):void{
+
+    public function addTextLine(_arg1:String):void {
         var _local2:SimpleText;
         _local2 = new SimpleText(12, 0xFFFFFF, false, 0, 0, "Myriad Pro");
         _local2.text = _arg1;
@@ -126,7 +131,8 @@ public class Frame extends Sprite {
         _local2.x = 17;
         this.h_ = (this.h_ + 20);
     }
-    public function _0D_6(_arg1:String):void{
+
+    public function _0D_6(_arg1:String):void {
         var _local2:SimpleText = new SimpleText(20, 0xB2B2B2, false, 0, 0, "Myriad Pro");
         _local2.text = _arg1;
         _local2.boldText(true);
@@ -137,56 +143,58 @@ public class Frame extends Sprite {
         _local2.x = 15;
         this.h_ = (this.h_ + 40);
     }
-    public function _O_1(_arg1:_zb):void{
+
+    public function _O_1(_arg1:_zb):void {
         addChild(_arg1);
         _arg1.y = (this.h_ - 66);
         _arg1.x = 17;
         this.h_ = (this.h_ + 44);
     }
-    public function _mi(_arg1:_mo):void{
+
+    public function _mi(_arg1:_mo):void {
         addChild(_arg1);
         _arg1.y = (this.h_ - 66);
         _arg1.x = 18;
         this.h_ = (this.h_ + _arg1.height);
     }
-    public function _0E_n(_arg1:int):void{
+
+    public function _0E_n(_arg1:int):void {
         this.h_ = (this.h_ + _arg1);
     }
-    public function lockButtons():void{
+
+    public function lockButtons():void {
         var _local1:TextButton;
         mouseEnabled = false;
         mouseChildren = false;
-        for each (_local1 in this._Z_Y_)
-        {
-            _local1._02W_(0xB3B3B3);
+        for each (_local1 in this._Z_Y_) {
+            _local1.setIdleColor(0xB3B3B3);
         }
-        this.Button1._02W_(0xB3B3B3);
-        this.Button2._02W_(0xB3B3B3);
+        this.Button1.setIdleColor(0xB3B3B3);
+        this.Button2.setIdleColor(0xB3B3B3);
     }
-    public function releaseButtons():void{
+
+    public function releaseButtons():void {
         var _local1:TextInput;
         var _local2:TextButton;
         mouseEnabled = true;
         mouseChildren = true;
-        for each (_local1 in this._Q_r)
-        {
+        for each (_local1 in this._Q_r) {
         }
-        for each (var _local5 in this._Z_Y_)
-        {
+        for each (var _local5 in this._Z_Y_) {
             _local2 = _local5;
-            _local2._02W_(0xFFFFFF);
+            _local2.setIdleColor(0xFFFFFF);
         }
-        this.Button1._02W_(0xFFFFFF);
-        this.Button2._02W_(0xFFFFFF);
+        this.Button1.setIdleColor(0xFFFFFF);
+        this.Button2.setIdleColor(0xFFFFFF);
     }
-    public function onAddedToStage(_arg1:Event):void{
+
+    public function onAddedToStage(_arg1:Event):void {
         this.draw();
         stage;
         (x = ((800 / 2) - ((this.w_ - 6) / 2)));
         stage;
         (y = ((600 / 2) - (height / 2)));
-        if (this._Q_r.length > 0)
-        {
+        if (this._Q_r.length > 0) {
             (stage.focus = this._Q_r[0].inputText_);
         }
     }
@@ -195,9 +203,10 @@ public class Frame extends Sprite {
         return this.h_;
     }
 
-    private function onRemovedFromStage(_arg1:Event):void{
+    private function onRemovedFromStage(_arg1:Event):void {
     }
-    public function draw():void{
+
+    public function draw():void {
         this.graphics.clear();
 
         this.graphics.beginFill(0x000000, 1.0);

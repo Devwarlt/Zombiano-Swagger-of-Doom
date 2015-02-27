@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package _0L_V_
-{
-    import mx.core.*;
-    
-    [Embed(source="_R_u.png")]
-    public class _R_u extends mx.core.BitmapAsset
-    {
-        public function _R_u()
-        {
-            super();
+package _0L_V_ {
+import mx.core.*;
 
-        }
+[Embed(source="_R_u.png")]
+public class _R_u extends mx.core.BitmapAsset {
+    public function _R_u() {
+        super();
+
     }
+}
 }

@@ -81,15 +81,15 @@ public class TownHallScreen extends Sprite {
         tab.y = 100 - tab.height;
         addChild(tab);
 
-        if(nextTabId == 0) {
+        if (nextTabId == 0) {
             this.dispatchManagementScreen(tab.holder);
         }
 
-        if(tab.selected) {
+        if (tab.selected) {
             this.selectedTab = tab;
         }
 
-        if(!right) {
+        if (!right) {
             nextTabLeftWidth += (tab.w_ + 5);
         }
         else {
@@ -99,19 +99,19 @@ public class TownHallScreen extends Sprite {
     }
 
     public function dispatchManagementScreen(screen:VillageManagementScreenBase):void {
-        if(this.currentManagementScreen) {
+        if (this.currentManagementScreen) {
             removeChild(this.currentManagementScreen);
         }
         this.currentManagementScreen = screen;
 
-        if(this.currentManagementScreen != null) {
+        if (this.currentManagementScreen != null) {
             this.currentManagementScreen.x = this.currentManagementScreen.y = 100;
             addChild(this.currentManagementScreen);
         }
     }
 
     private function onTabClick(event:MouseEvent):void {
-        if(this.selectedTab) {
+        if (this.selectedTab) {
             this.selectedTab.selected = false;
         }
 

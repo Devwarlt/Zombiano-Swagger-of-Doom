@@ -17,7 +17,7 @@
 
 //Effects._7M_
 
-package Effects{
+package Effects {
 import com.company.assembleegameclient.objects.BasicObject;
 import com.company.util.GraphicHelper;
 import com.company.assembleegameclient.map._0D_v;
@@ -41,6 +41,7 @@ public class _7M_ extends BasicObject {
         this.bitmapData_ = _arg1;
         objectId_ = _7y();
     }
+
     public var _G_n:Number = 0;
     public var _G_m:Number = 0;
     public var _null_:Number;

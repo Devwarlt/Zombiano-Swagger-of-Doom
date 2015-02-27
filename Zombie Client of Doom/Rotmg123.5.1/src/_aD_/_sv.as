@@ -17,14 +17,14 @@
 
 //_aD_._sv
 
-package _aD_{
-    import com.company.assembleegameclient.util.offer.Offer;
+package _aD_ {
+import com.company.assembleegameclient.util.offer.Offer;
 
-    public class _sv {
+public class _sv {
 
-        public var offer:Offer;
-        public var paymentMethod:String;
+    public var offer:Offer;
+    public var paymentMethod:String;
 
-    }
+}
 }//package _aD_
 

@@ -17,15 +17,16 @@
 
 //_U_5._dd
 
-package _U_5{
-    import _sp._aJ_;
-    import flash.display.Sprite;
+package _U_5 {
+import _sp._aJ_;
 
-    public class _dd extends _aJ_ {
+import flash.display.Sprite;
 
-        public function _dd(){
-            super(Sprite);
-        }
+public class _dd extends _aJ_ {
+
+    public function _dd() {
+        super(Sprite);
     }
+}
 }//package _U_5
 

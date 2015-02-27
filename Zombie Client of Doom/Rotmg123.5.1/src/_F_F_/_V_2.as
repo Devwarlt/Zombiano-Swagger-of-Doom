@@ -17,7 +17,7 @@
 
 //_F_F_._V_2
 
-package _F_F_{
+package _F_F_ {
 import Abstract.AbstractManager;
 
 import Language.LanguageManager;
@@ -25,12 +25,15 @@ import Language.LanguageManager;
 import _F_1._E_r;
 
 import _W_D_.Domain;
+
 import _U_5._dd;
 
 import com.company.assembleegameclient.appengine.WebRequest;
 
 import com.company.assembleegameclient.util.loadEmbeds;
+
 import _0I_9._05b;
+
 import flash.display.Sprite;
 import flash.net.URLRequestDefaults;
 
@@ -47,7 +50,8 @@ public class _V_2 {
         AbstractManager.register();
         LanguageManager.load(this.dispatch);
     }
-    private function _0E_M_():Sprite{
+
+    private function _0E_M_():Sprite {
         return (((this.domain._F_N_()) ? new _E_r() : new _05b()));
     }
 

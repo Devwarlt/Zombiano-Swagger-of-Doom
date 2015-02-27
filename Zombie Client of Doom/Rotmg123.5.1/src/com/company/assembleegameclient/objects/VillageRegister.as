@@ -17,21 +17,23 @@
 
 //com.company.assembleegameclient.objects.GuildRegister
 
-package com.company.assembleegameclient.objects{
-    import Panels.VillageCreatorPanel;
-    import com.company.assembleegameclient.game.GameSprite;
-    import Panels.Panel;
+package com.company.assembleegameclient.objects {
+import Panels.VillageCreatorPanel;
 
-    public class VillageRegister extends GameObject implements IPanelProvider {
+import com.company.assembleegameclient.game.GameSprite;
 
-        public function VillageRegister(_arg1:XML){
-            super(_arg1);
-        }
+import Panels.Panel;
 
-        public function GetPanel(_arg1:GameSprite):Panel{
-            return (new VillageCreatorPanel(_arg1));
-        }
+public class VillageRegister extends GameObject implements IPanelProvider {
 
+    public function VillageRegister(_arg1:XML) {
+        super(_arg1);
     }
+
+    public function GetPanel(_arg1:GameSprite):Panel {
+        return (new VillageCreatorPanel(_arg1));
+    }
+
+}
 }//package com.company.assembleegameclient.objects
 

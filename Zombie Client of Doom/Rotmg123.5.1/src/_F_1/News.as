@@ -12,40 +12,34 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Decompiled by AS3 Sorcerer 1.99
-// http://www.as3sorcerer.com/
+package _F_1 {
+import _F_1.selectChars.NewsSprite;
 
-//_F_1.News
+import flash.display.Sprite;
 
-package _F_1{
-    import flash.display.Sprite;
+import com.company.assembleegameclient.appengine.NewsItemStruct;
+import com.company.assembleegameclient.appengine.SavedCharsList;
 
-    import com.company.assembleegameclient.appengine.NewsItem;
-    import com.company.assembleegameclient.appengine.SavedCharsList;
+public class News extends Sprite {
 
+    private var news:Vector.<NewsItem>;
 
-    public class News extends Sprite {
-
-        private var _dL_:Vector.<_0B_m>;
-
-        public function News(_arg1:SavedCharsList){
-            var _local2:NewsItem;
-            this._dL_ = new Vector.<_0B_m>();
-            super();
-            for each (_local2 in _arg1.news_)
-            {
-                if (_local2.icon)
-                {
-                    this._yQ_(new _0B_m(_local2.icon, _local2._O_k, _local2._03P_, _local2._qh, _local2._W_e, _arg1.accountId_));
-                }
+    public function News(_arg1:SavedCharsList) {
+        var _local2:NewsItemStruct;
+        this.news = new Vector.<NewsItem>();
+        super();
+        for each (_local2 in _arg1.news_) {
+            if (_local2.icon) {
+                this._yQ_(new NewsItem(_local2.icon, _local2._O_k, _local2._03P_, _local2._qh, _local2._W_e, _arg1.accountId_));
             }
         }
-        public function _yQ_(_arg1:_0B_m):void{
-            _arg1.y = (4 + (this._dL_.length * (_0B_m.HEIGHT + 4)));
-            this._dL_.push(_arg1);
-            addChild(_arg1);
-        }
-
     }
-}//package _F_1
+
+    public function _yQ_(_arg1:NewsItem):void {
+        _arg1.y = (4 + (this.news.length * (NewsSprite.HEIGHT + 4)));
+        this.news.push(_arg1);
+        addChild(_arg1);
+    }
+}
+}
 

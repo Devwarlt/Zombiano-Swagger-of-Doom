@@ -107,9 +107,9 @@ public class CreateVillageScreen extends Sprite {
     }
 
     private function onCreate(event:Event):void {
-        if(event is KeyboardEvent) {
+        if (event is KeyboardEvent) {
             event.stopImmediatePropagation();
-            if((event as KeyboardEvent).keyCode != Parameters.data_.interact) return;
+            if ((event as KeyboardEvent).keyCode != Parameters.data_.interact) return;
         }
         this.createButton.enabled(false);
         this.gs.addEventListener(VillageResultEvent.VILLAGE_RESULT, this.onVillageResult);
@@ -118,7 +118,7 @@ public class CreateVillageScreen extends Sprite {
 
     private function onVillageResult(event:VillageResultEvent):void {
         this.gs.removeEventListener(VillageResultEvent.VILLAGE_RESULT, this.onVillageResult);
-        if(event.success_) {
+        if (event.success_) {
             parent.removeChild(this);
             return;
         }

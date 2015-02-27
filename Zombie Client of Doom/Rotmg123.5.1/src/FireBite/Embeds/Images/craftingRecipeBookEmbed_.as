@@ -19,7 +19,7 @@ package FireBite.Embeds.Images {
 import mx.core.BitmapAsset;
 
 [Embed(source="data/craftingRecipeBook.png")]
-public class craftingRecipeBookEmbed_ extends BitmapAsset{
+public class craftingRecipeBookEmbed_ extends BitmapAsset {
     public function craftingRecipeBookEmbed_() {
         super();
     }

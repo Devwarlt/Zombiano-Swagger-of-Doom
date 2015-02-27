@@ -43,8 +43,7 @@ public class SettingsHolder extends TabHolder {
 
     public override function initialize():void {
         var emailVerified:Boolean = bodyParent.managementParent.accountXml.hasOwnProperty("VerifiedEmail");
-        if (!emailVerified)
-        {
+        if (!emailVerified) {
             this.sendVerifyEmail = new TextButton(26, false, ("Email not verified.  " + "Click here to resend email."));
             this.sendVerifyEmail.x = 10;
             this.sendVerifyEmail.y = 10;
@@ -59,14 +58,14 @@ public class SettingsHolder extends TabHolder {
         this.changePw = new TextButton(26, false, "Click here to change password");
         this.changePw.x = 10;
         this.changePw.y = 40;
-        this.changePw.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
+        this.changePw.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
             addChild(new FrameHolder(new ChangePasswordFrame()));
         });
         addChild(this.changePw);
         this.notYou = new TextButton(26, false, "Not you?  Click here");
         this.notYou.x = 10;
         this.notYou.y = 70;
-        this.notYou.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
+        this.notYou.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
             bodyParent.managementParent.dispatch(AccountManagementScreen.LOGOUT);
         });
 

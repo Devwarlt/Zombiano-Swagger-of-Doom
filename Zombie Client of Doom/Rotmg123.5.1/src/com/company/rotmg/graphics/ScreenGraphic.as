@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.company.rotmg.graphics
-{
-    import flash.display.*;
-    
-    [Embed(source="bar.png")]
-    public dynamic class ScreenGraphic extends flash.display.Bitmap
-    {
-        public function ScreenGraphic()
-        {
-            super();
+package com.company.rotmg.graphics {
+import flash.display.*;
 
-        }
+[Embed(source="bar.png")]
+public dynamic class ScreenGraphic extends flash.display.Bitmap {
+    public function ScreenGraphic() {
+        super();
+
     }
+}
 }

@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.company.rotmg.graphics
-{
-    import flash.display.*;
-    
-    [Embed(source="FullCharBoxGraphic.png")]
-    public dynamic class FullCharBoxGraphic extends flash.display.Bitmap
-    {
-        public function FullCharBoxGraphic()
-        {
-            super();
+package com.company.rotmg.graphics {
+import flash.display.*;
 
-        }
+[Embed(source="FullCharBoxGraphic.png")]
+public dynamic class FullCharBoxGraphic extends flash.display.Bitmap {
+    public function FullCharBoxGraphic() {
+        super();
+
     }
+}
 }

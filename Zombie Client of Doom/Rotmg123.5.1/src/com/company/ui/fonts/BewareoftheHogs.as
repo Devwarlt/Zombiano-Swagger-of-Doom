@@ -12,19 +12,16 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.ui.fonts
-{
-	import mx.core.FontAsset;
-	
-	[Embed(source="psycho.ttf", fontName="HOGS", fontFamily="HOGS", fontStyle="Regular", embedAsCFF="false", mimeType="application/x-font-truetype")]
-    public class BewareoftheHogs extends FontAsset
-    {
-        public function BewareoftheHogs()
-        {
-            super();
+package com.company.ui.fonts {
+import mx.core.FontAsset;
 
-        }
+[Embed(source="psycho.ttf", fontName="HOGS", fontFamily="HOGS", fontStyle="Regular", embedAsCFF="false", mimeType="application/x-font-truetype")]
+public class BewareoftheHogs extends FontAsset {
+    public function BewareoftheHogs() {
+        super();
 
-        private static const _U_9:Class=com.company.ui.fonts.BewareoftheHogs_BCFF;
     }
+
+    private static const _U_9:Class = com.company.ui.fonts.BewareoftheHogs_BCFF;
+}
 }

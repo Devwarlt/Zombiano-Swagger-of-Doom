@@ -12,19 +12,16 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.company.ui.fonts
-{
-    import mx.core.FontAsset;
+package com.company.ui.fonts {
+import mx.core.FontAsset;
 
-	[Embed(source="MyriadProBold.otf", fontName="Myriad Pro", fontFamily="MyriadPro", fontStyle="Bold", fontWeight="bold", embedAsCFF="false", mimeType="application/x-font")]
-    public class MyriadProBold extends FontAsset
-    {
-        public function MyriadProBold()
-        {
-            super();
+[Embed(source="MyriadProBold.otf", fontName="Myriad Pro", fontFamily="MyriadPro", fontStyle="Bold", fontWeight="bold", embedAsCFF="false", mimeType="application/x-font")]
+public class MyriadProBold extends FontAsset {
+    public function MyriadProBold() {
+        super();
 
-        }
-
-        private static const _0E_X_:Class=com.company.ui.fonts.MyriadProBold_MyriadProBoldCFF;
     }
+
+    private static const _0E_X_:Class = com.company.ui.fonts.MyriadProBold_MyriadProBoldCFF;
+}
 }

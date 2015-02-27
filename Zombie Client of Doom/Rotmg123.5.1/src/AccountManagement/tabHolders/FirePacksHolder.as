@@ -20,6 +20,7 @@ import AccountManagement.AccountManagementBody;
 import AccountManagement.ui.TabButton;
 
 import _05R_.GTween;
+
 import _qN_.Account;
 
 import com.company.assembleegameclient.appengine.WebRequest;
@@ -91,7 +92,7 @@ public class FirePacksHolder extends TabHolder {
             var FirePack:FirePackHolder = new FirePackHolder(pack);
             FirePack.x = nextWidth;
             numberOfPacks++;
-            if(FirePack.button != null) {
+            if (FirePack.button != null) {
                 FirePack.button.addEventListener(MouseEvent.CLICK, this.onOpenClick);
             }
             holderSprite.addChild(FirePack);
@@ -111,7 +112,7 @@ public class FirePacksHolder extends TabHolder {
             packs.push(pack);
         }
 
-        while(packs.length < 5) {
+        while (packs.length < 5) {
             packs.push(null);
         }
 
@@ -119,7 +120,7 @@ public class FirePacksHolder extends TabHolder {
     }
 
     private function onOpenClick(event:MouseEvent):void {
-        if(packInfoScreen == null) {
+        if (packInfoScreen == null) {
             var req:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/account", true);
             var query:Object = Account._get().credentials();
             query["packId"] = (event.target.parent as FirePackHolder).info.id;
@@ -130,7 +131,7 @@ public class FirePacksHolder extends TabHolder {
             info.y = ((HEIGHT / 2) - (info.height / 2));
             addChild(info);
             packInfoScreen = info;
-            var tween:GTween = new GTween(info, 0.15, { "scaleX": 1.0, "scaleY": 1.0 });
+            var tween:GTween = new GTween(info, 0.15, {"scaleX": 1.0, "scaleY": 1.0});
             tween._bR_ = onChange;
         }
     }
@@ -143,7 +144,7 @@ public class FirePacksHolder extends TabHolder {
     }
 
     private function animationCompleted(tween:GTween):void {
-        if(queue.length > 0) {
+        if (queue.length > 0) {
             tween = new GTween(holderSprite, 0.2, {"x": Number(queue.shift())});
             tween.onComplete = animationCompleted;
         }
@@ -153,22 +154,22 @@ public class FirePacksHolder extends TabHolder {
     }
 
     private function onArrowClick(event:MouseEvent):void {
-        if((holderSpritePos + (numberOfPacks * FirePackHolder.WIDTH) <= 760 && event.target is nextArrow) ||
+        if ((holderSpritePos + (numberOfPacks * FirePackHolder.WIDTH) <= 760 && event.target is nextArrow) ||
                 (holderSpritePos >= 0 && event.target is prevArrow)) {
             return;
         }
 
         var oldPos:Number = holderSpritePos;
 
-        if(event.target is nextArrow) {
+        if (event.target is nextArrow) {
             holderSpritePos -= FirePackHolder.WIDTH;
         }
         else {
             holderSpritePos += FirePackHolder.WIDTH;
         }
 
-        if(oldPos != holderSpritePos) {
-            if(completed) {
+        if (oldPos != holderSpritePos) {
+            if (completed) {
                 var animation:GTween = new GTween(holderSprite, 0.2, {"x": holderSpritePos});
                 animation.onComplete = animationCompleted;
                 completed = false;
@@ -215,7 +216,7 @@ class FirePackHolder extends Sprite {
 
         GraphicHelper.createBorder(this, 1, 0xffffff);
 
-        if(info != null) {
+        if (info != null) {
             resolveImage();
 
             image.x = ((WIDTH / 2) - (image.width / 2));
@@ -284,10 +285,10 @@ class FirePackHolder extends Sprite {
 
         closeBtn.x = width - closeBtn.width - 10;
         closeBtn.y = height - closeBtn.height - 10;
-        closeBtn.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
-            var tween:GTween = new GTween(event.target.parent, 0.15, { "scaleX": 0.0, "scaleY": 0.0 });
+        closeBtn.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
+            var tween:GTween = new GTween(event.target.parent, 0.15, {"scaleX": 0.0, "scaleY": 0.0});
             tween._bR_ = (sprite.parent as FirePacksHolder).onChange;
-            tween.onComplete = function(tw:GTween):void {
+            tween.onComplete = function (tw:GTween):void {
                 (sprite.parent as FirePacksHolder).packInfoScreen = null;
                 (sprite.parent as FirePacksHolder).bodyParent.managementParent.dispatch("RELOAD");
                 sprite.parent.removeChild(sprite);
@@ -319,12 +320,12 @@ class FirePackHolder extends Sprite {
 
         for each (var itemId:int in info.contents) {
             var itemXml:XML = ObjectLibrary.Items[itemId];
-            if(itemXml != null) {
+            if (itemXml != null) {
                 holder = new itemHolder(itemXml, firstItem);
                 holder.x = nextImgWidth;
                 holder.y = nextImgHeight;
                 currentHolders.push(holder);
-                holder.addEventListener(MouseEvent.CLICK, function(event:MouseEvent):void {
+                holder.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
                     for each (var iHolder:itemHolder in currentHolders) {
                         iHolder.selected = false;
                     }
@@ -334,7 +335,7 @@ class FirePackHolder extends Sprite {
                     itemDesc.text = String(event.target.itemXml.Description);
                 });
 
-                if(firstItem) {
+                if (firstItem) {
                     itemName.text = String(itemXml.hasOwnProperty("DisplayId") ? itemXml.DisplayId : itemXml.@id).toUpperCase();
                     itemDesc.text = String(XML(itemXml.Description).toString());
                 }
@@ -345,7 +346,7 @@ class FirePackHolder extends Sprite {
                 items++;
                 firstItem = false;
 
-                if(items % 3 == 0) {
+                if (items % 3 == 0) {
                     nextImgWidth = 15;
                     nextImgHeight += itemHolder.HEIGHT;
                     items = 0;
@@ -386,7 +387,7 @@ class itemHolder extends Sprite {
 
     public function set selected(val:Boolean):void {
         _selected = val;
-        if(val) {
+        if (val) {
             var gradientMatrix:Matrix = new Matrix();
             gradientMatrix.createGradientBox(WIDTH, HEIGHT, (Math.PI / 180) * 90, 0, 0);
             graphics.beginGradientFill(GradientType.LINEAR, [0xE5C100, 0x000000], [0.6, 0.0], [0, 200], gradientMatrix);
@@ -412,7 +413,7 @@ class itemHolder extends Sprite {
         graphics.drawRect(0, 0, WIDTH, HEIGHT);
         graphics.endFill();
 
-        if(selected) {
+        if (selected) {
             var gradientMatrix:Matrix = new Matrix();
             gradientMatrix.createGradientBox(WIDTH, HEIGHT, (Math.PI / 180) * 90, 0, 0);
             graphics.beginGradientFill(GradientType.LINEAR, [0xE5C100, 0x000000], [0.6, 0.0], [0, 200], gradientMatrix);
@@ -429,7 +430,7 @@ class itemHolder extends Sprite {
         graphics.drawRect(0, 0, WIDTH, HEIGHT);
         graphics.endFill();
 
-        if(selected) {
+        if (selected) {
             var gradientMatrix:Matrix = new Matrix();
             gradientMatrix.createGradientBox(WIDTH, HEIGHT, (Math.PI / 180) * 90, 0, 0);
             graphics.beginGradientFill(GradientType.LINEAR, [0xE5C100, 0x000000], [0.6, 0.0], [0, 200], gradientMatrix);

@@ -17,15 +17,16 @@
 
 //_U_5._01W_
 
-package _U_5{
-    import _sp._aJ_;
-    import flash.display.Sprite;
+package _U_5 {
+import _sp._aJ_;
 
-    public class SpriteTarget extends _aJ_ {
+import flash.display.Sprite;
 
-        public function SpriteTarget(){
-            super(Sprite);
-        }
+public class SpriteTarget extends _aJ_ {
+
+    public function SpriteTarget() {
+        super(Sprite);
     }
+}
 }//package _U_5
 

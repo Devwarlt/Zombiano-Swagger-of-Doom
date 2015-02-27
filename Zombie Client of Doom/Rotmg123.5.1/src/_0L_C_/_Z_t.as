@@ -17,12 +17,12 @@
 
 //_0L_C_._Z_t
 
-package _0L_C_{
-    public class _Z_t extends DialogBox {
+package _0L_C_ {
+public class _Z_t extends DialogBox {
 
-        public function _Z_t(_arg1:String){
-            super(("An error has occured:\n" + _arg1), "D'oh, this isn't good", "Ok", null);
-        }
+    public function _Z_t(_arg1:String) {
+        super(("An error has occured:\n" + _arg1), "D'oh, this isn't good", "Ok", null);
     }
+}
 }//package _0L_C_
 

@@ -17,19 +17,20 @@
 
 //_0J_k._5W_
 
-package _0J_k{
-    import flash.utils.Dictionary;
-    import _eZ_._08b;
+package _0J_k {
+import flash.utils.Dictionary;
 
-    public class _5W_ {
+import _eZ_._08b;
 
-        public var next:_5W_;
-        public var _jO_:_5W_;
-        public var injectParameters:Dictionary;
+public class _5W_ {
 
-        public function applyInjection(_arg1:Object, _arg2:Class, _arg3:_08b):void{
-        }
+    public var next:_5W_;
+    public var _jO_:_5W_;
+    public var injectParameters:Dictionary;
 
+    public function applyInjection(_arg1:Object, _arg2:Class, _arg3:_08b):void {
     }
+
+}
 }//package _0J_k
 

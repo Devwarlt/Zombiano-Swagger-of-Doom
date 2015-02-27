@@ -17,11 +17,11 @@
 
 //_U_5._M_d
 
-package _U_5{
-    import _sp._aJ_;
+package _U_5 {
+import _sp._aJ_;
 
-    public class CharListResetDispatcher extends _aJ_ {
+public class CharListResetDispatcher extends _aJ_ {
 
-    }
+}
 }//package _U_5
 

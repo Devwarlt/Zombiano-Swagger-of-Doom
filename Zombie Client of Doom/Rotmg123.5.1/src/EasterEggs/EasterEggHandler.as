@@ -43,7 +43,7 @@ public class EasterEggHandler {
     }
 
     public function onKeyDown(event:KeyboardEvent):void {
-        if(!fired || canFireMultipleTimes) {
+        if (!fired || canFireMultipleTimes) {
             if (index >= keysNeeded.length) {
                 index = 0;
                 return;
@@ -52,7 +52,7 @@ public class EasterEggHandler {
             if (event.keyCode == keysNeeded[index]) {
                 if (index == keysNeeded.length - 1) {
                     index = 0;
-                    if(target != null) {
+                    if (target != null) {
                         fired = true;
                         target();
                     }

@@ -17,25 +17,27 @@
 
 //ClientPackets._0A_1
 
-package ClientPackets{
+package ClientPackets {
 
-    import flash.utils.IDataOutput;
+import flash.utils.IDataOutput;
 
 
-    public class ReskinPacket extends ClientPacket {
+public class ReskinPacket extends ClientPacket {
 
-        public var skinId:int;
+    public var skinId:int;
 
-        public function ReskinPacket(_arg1:uint){
-            super(_arg1);
-        }
-        override public function writeToOutput(_arg1:IDataOutput):void{
-            _arg1.writeInt(skinId);
-        }
-        override public function toString():String{
-            return (formatToString("RESKIN", "skinId"));
-        }
-
+    public function ReskinPacket(_arg1:uint) {
+        super(_arg1);
     }
+
+    override public function writeToOutput(_arg1:IDataOutput):void {
+        _arg1.writeInt(skinId);
+    }
+
+    override public function toString():String {
+        return (formatToString("RESKIN", "skinId"));
+    }
+
+}
 }//package ClientPackets
 

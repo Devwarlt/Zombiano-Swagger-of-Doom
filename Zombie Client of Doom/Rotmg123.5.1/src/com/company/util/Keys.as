@@ -128,7 +128,7 @@ public class Keys {
 
     public static function getKeys(val:String):Array {
         var keys:Array = [];
-        for (var i:Number = 0; i < val.length; i++){
+        for (var i:Number = 0; i < val.length; i++) {
             keys.push(KeyNames.indexOf(val.charAt(i).toUpperCase().replace(" ", "Space")));
         }
         return keys;

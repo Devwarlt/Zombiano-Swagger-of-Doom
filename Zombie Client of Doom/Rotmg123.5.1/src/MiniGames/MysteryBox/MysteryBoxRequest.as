@@ -34,7 +34,7 @@ public class MysteryBoxRequest extends WebRequest {
 
     public function sendBoxPurchase(boxId:int):void {
         var query:Object = Account._get().credentials();
-        QueryHelper.mergeQueries(query, { "boxId": boxId });
+        QueryHelper.mergeQueries(query, {"boxId": boxId});
         sendRequest("/purchaseMysteryBox", query);
     }
 

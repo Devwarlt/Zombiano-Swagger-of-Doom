@@ -21,7 +21,6 @@ import com.company.ui.SimpleText;
 import flash.display.Sprite;
 import flash.events.TimerEvent;
 import flash.filters.DropShadowFilter;
-import flash.sampler.getSavedThis;
 import flash.text.TextFieldAutoSize;
 import flash.utils.Timer;
 
@@ -53,15 +52,15 @@ public class InteractiveAction extends Sprite {
     }
 
     private static function onTick(event:TimerEvent):void {
-        if(!obj || !obj.text) return;
+        if (!obj || !obj.text) return;
 
         if (timer.currentCount > int.MAX_VALUE - 100) {
             timer.reset();
             timer.start();
         }
 
-        if(frame <= 0.9 && !grow) grow = true;
-        else if(frame >= 1.0 && grow) grow = false;
+        if (frame <= 0.9 && !grow) grow = true;
+        else if (frame >= 1.0 && grow) grow = false;
 
         frame = frame + (grow ? 0.002 : -0.002);
         obj.text.scaleX = obj.text.scaleY = frame;
@@ -70,7 +69,7 @@ public class InteractiveAction extends Sprite {
     }
 
     public function isEqualTo(text:String):Boolean {
-        if(!this.text) return false;
+        if (!this.text) return false;
         return this.text.text == text;
     }
 }

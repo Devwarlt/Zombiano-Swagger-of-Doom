@@ -12,20 +12,21 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package _0_j{
-    import flash.events.Event;
-    import _4x._0I_y;
+package _0_j {
+import flash.events.Event;
 
-    public class _00K_ extends Event {
+import _4x._0I_y;
 
-        public static const COLOR_EVENT:String = "COLOR_EVENT";
+public class _00K_ extends Event {
 
-        public var _U_d:_0I_y;
+    public static const COLOR_EVENT:String = "COLOR_EVENT";
 
-        public function _00K_(_arg1:_0I_y){
-            super(COLOR_EVENT);
-            this._U_d = _arg1;
-        }
+    public var _U_d:_0I_y;
+
+    public function _00K_(_arg1:_0I_y) {
+        super(COLOR_EVENT);
+        this._U_d = _arg1;
     }
+}
 }
 

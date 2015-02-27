@@ -17,31 +17,34 @@
 
 //_zD_._G_I_
 
-package _zD_{
-    import _C__._cM_;
+package _zD_ {
+import _C__._cM_;
 
 import _F_1._0H_2;
 
 import com.company.assembleegameclient.screens.charrects.CharacterRectList;
-    import _U_5.SpriteTarget;
 
-    public class _G_I_ extends _cM_ {
+import _U_5.SpriteTarget;
 
-        [Inject]
-        public var view:CharacterRectList;
-        [Inject]
-        public var _0_b:SpriteTarget;
+public class _G_I_ extends _cM_ {
 
-        override public function initialize():void{
-            this.view.newCharacter.add(this._8b);
-        }
-        override public function destroy():void{
-            this.view.newCharacter.remove(this._8b);
-        }
-        private function _8b():void{
-            this._0_b.dispatch(new _0H_2());
-        }
+    [Inject]
+    public var view:CharacterRectList;
+    [Inject]
+    public var _0_b:SpriteTarget;
 
+    override public function initialize():void {
+        this.view.newCharacter.add(this._8b);
     }
+
+    override public function destroy():void {
+        this.view.newCharacter.remove(this._8b);
+    }
+
+    private function _8b():void {
+        this._0_b.dispatch(new _0H_2());
+    }
+
+}
 }//package _zD_
 

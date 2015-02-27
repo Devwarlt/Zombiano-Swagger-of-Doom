@@ -23,29 +23,27 @@ public class RainbowEffect extends Effect {
     public var go_:GameObject;
     public var lastUpdate_:int = -1;
 
-    public function RainbowEffect(_arg1:GameObject){
+    public function RainbowEffect(_arg1:GameObject) {
         this.go_ = _arg1;
     }
-    override public function update(_arg1:int, _arg2:int):Boolean{
+
+    override public function update(_arg1:int, _arg2:int):Boolean {
         var _local4:int;
         var _local5:RainbowParticle;
         var _local6:Number;
         var _local7:Number;
         var _local8:Number;
         var _local9:Number;
-        if (this.go_.map_ == null)
-        {
+        if (this.go_.map_ == null) {
             return (false);
         }
-        if (this.lastUpdate_ < 0)
-        {
+        if (this.lastUpdate_ < 0) {
             this.lastUpdate_ = Math.max(0, (_arg1 - 400));
         }
         x_ = this.go_.x_;
         y_ = this.go_.y_;
         var _local3:int = int((this.lastUpdate_ / _03n));
-        while (_local3 < int((_arg1 / _03n)))
-        {
+        while (_local3 < int((_arg1 / _03n))) {
             _local4 = (_local3 * _03n);
             _local5 = (_wW_._B_1(RainbowParticle) as RainbowParticle);
             _local5.restart(_local4, _arg1);
@@ -76,21 +74,24 @@ class RainbowParticle extends Particle {
     public var startTime_:int;
     public var speed_:int;
 
-    public function RainbowParticle(){
+    public function RainbowParticle() {
         var _local1:Number = Math.random();
         super(colors[rand.next(0, colors.length - 1)], 0, (75 + (_local1 * 50)));
         this.speed_ = (2.5 - (_local1 * 1.5));
     }
-    public function restart(_arg1:int, _arg2:int):void{
+
+    public function restart(_arg1:int, _arg2:int):void {
         this.startTime_ = _arg1;
         var timeDif:Number = ((_arg2 - this.startTime_) / 1000);
         z_ = (this.speed_ * timeDif);
     }
-    override public function removeFromMap():void{
+
+    override public function removeFromMap():void {
         super.removeFromMap();
         _wW_._ay(this);
     }
-    override public function update(_arg1:int, _arg2:int):Boolean{
+
+    override public function update(_arg1:int, _arg2:int):Boolean {
         var timeDif:Number = ((_arg1 - this.startTime_) / 1000);
         z_ = (this.speed_ * timeDif);
         return ((z_ < 1));

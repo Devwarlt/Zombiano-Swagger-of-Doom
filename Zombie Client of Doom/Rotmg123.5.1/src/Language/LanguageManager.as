@@ -46,8 +46,8 @@ public class LanguageManager {
         onComplete();
     }
 
-    public function getValue(key:String, defaultValue:String="{KEY}"):String {
-        if(!this.languageXml || !this.languageXml.hasOwnProperty(key)) return defaultValue == "{KEY}" ? key : defaultValue;
+    public function getValue(key:String, defaultValue:String = "{KEY}"):String {
+        if (!this.languageXml || !this.languageXml.hasOwnProperty(key)) return defaultValue == "{KEY}" ? key : defaultValue;
         return this.languageXml.elements(key)[0].toString();
     }
 
@@ -72,7 +72,7 @@ public class LanguageManager {
     }
 
     public static function load(onComplete:Function):void {
-        if(currentMgr != null) throw new IllegalOperationError("Language already loaded\nDouble function call?");
+        if (currentMgr != null) throw new IllegalOperationError("Language already loaded\nDouble function call?");
         currentMgr = new LanguageManager(onComplete);
     }
 }

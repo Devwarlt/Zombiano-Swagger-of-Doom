@@ -10,7 +10,7 @@ using wServer.realm;
 
 namespace wServer
 {
-    public class UDPServer : IServer
+    public class UDPServer : Server
     {
         private const int LISTEN_PORT = 2050;
         private UdpClient listener;
@@ -29,7 +29,7 @@ namespace wServer
             //sendSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         }
 
-        public void Start()
+        public override void Start()
         {
             listener.BeginReceive(listen, null);
         }
@@ -68,7 +68,7 @@ namespace wServer
             }
         }
 
-        public void SendPacket(UdpPacket pkt, Action onCompleted)
+        public override void SendPacket(UdpPacket pkt, Action onCompleted)
         {
             listener.BeginSend(pkt.Data, pkt.Data.Length, pkt.EndPoint, sendCallback, onCompleted);
         }
@@ -85,7 +85,7 @@ namespace wServer
             }
         }
 
-        public void Stop()
+        public override void Stop()
         {
             listener.Close();
         }

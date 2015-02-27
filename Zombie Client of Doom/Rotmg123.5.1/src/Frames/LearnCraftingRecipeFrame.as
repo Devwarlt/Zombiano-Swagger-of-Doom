@@ -17,6 +17,8 @@
  */
 package Frames {
 
+import Crafting.LearnCraftingResultEvent;
+
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.GameObject;
 import com.company.assembleegameclient.objects.ObjectLibrary;
@@ -29,8 +31,6 @@ import flash.events.MouseEvent;
 import flash.filters.GlowFilter;
 
 public class LearnCraftingRecipeFrame extends Frame {
-
-    public static var thisCraftingRecipeFrame:LearnCraftingRecipeFrame;
 
     private var _slot1:Inventory;
     private var _gs:GameSprite;
@@ -49,8 +49,6 @@ public class LearnCraftingRecipeFrame extends Frame {
         this.w_ = 200;
         this._gs = _arg1;
         this._obj = _arg2;
-
-        thisCraftingRecipeFrame = this;
 
         this._0E_n(100);
 
@@ -77,41 +75,41 @@ public class LearnCraftingRecipeFrame extends Frame {
         this.addChild(this._text);
     }
 
-    public override function onAddedToStage(param1:Event):void{
+    public override function onAddedToStage(param1:Event):void {
         super.onAddedToStage(param1);
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
     }
 
-    private function cleanup():void{
+    private function cleanup():void {
         this.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
     }
 
-    private function onEnterFrame(e:Event){
+    private function onEnterFrame(e:Event):void {
         this._slot1.draw(new <int>[this.currentItem_]);
     }
 
-    public function onClose(param1:MouseEvent):void{
-        if(this._playerInvSprite != null){
+    private function onClose(param1:MouseEvent):void {
+        if (this._playerInvSprite != null) {
             stage.removeChild(this._playerInvSprite);
         }
-        thisCraftingRecipeFrame = null;
         dispatchEvent(new Event(Event.COMPLETE));
         cleanup();
     }
 
-    private function learnRecipe(param1:MouseEvent):void{
+    private function learnRecipe(param1:MouseEvent):void {
+        this._gs.addEventListener(LearnCraftingResultEvent.LEARN_CRAFTING_RESULT, this.onLearnResult);
         this._gs.packetManager.learnCraftingRecipe(this.currentItem_, this.slotId_, int(ObjectLibrary.Items[this.currentItem_].Recipe.attribute("id")));
     }
 
-    private function onSlotClicked(param1:MouseEvent):void{
+    private function onSlotClicked(param1:MouseEvent):void {
         stage.addChild(this._playerInvSprite = new _playerInventory(this._gs, this._obj, this));
     }
 
-    public function updateSlot(itemId:int, slotId:int):void{
+    public function updateSlot(itemId:int, slotId:int):void {
         this.currentItem_ = itemId;
         this.slotId_ = slotId;
 
-        if(itemId == -1 || itemId == 0){
+        if (itemId == -1 || itemId == 0) {
             this.updateText("Click on the slot\nto select an item.");
             this._slot1.filters = [];
         }
@@ -131,17 +129,28 @@ public class LearnCraftingRecipeFrame extends Frame {
         this._playerInvSprite = null;
     }
 
-    public function updateText(_arg1:String, error:Boolean = false):void{
+    private function updateText(_arg1:String, error:Boolean = false):void {
         this._text.textColor = error ? 0xFF0000 : 0xFFFFFF;
         this._text.text = _arg1;
         this._text.x = ((this.w_ / 2) - (this._text.textWidth / 2));
         this._text.y = 35;
         this._text.updateMetrics();
     }
+
+    private function onLearnResult(event:LearnCraftingResultEvent):void {
+        this._gs.removeEventListener(LearnCraftingResultEvent.LEARN_CRAFTING_RESULT, this.onLearnResult);
+        if (event.success) {
+            onClose(new MouseEvent(MouseEvent.CLICK));
+        }
+        else {
+            updateText(event.result, true);
+        }
+    }
 }
 }
 
 import Frames.LearnCraftingRecipeFrame;
+
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.GameObject;
 import com.company.assembleegameclient.objects.ObjectLibrary;
@@ -208,7 +217,7 @@ class _playerInventory extends Sprite {
     private var validGlow:GlowFilter = new GlowFilter(0x00FF08);
     private var invalidGlow:GlowFilter = new GlowFilter();
 
-    public function _playerInventory(_arg1:GameSprite, _arg2:GameObject, _arg3:LearnCraftingRecipeFrame){
+    public function _playerInventory(_arg1:GameSprite, _arg2:GameObject, _arg3:LearnCraftingRecipeFrame) {
         this.gs_ = _arg1;
         this.obj_ = _arg2;
         this.learnFrame_ = _arg3;
@@ -243,11 +252,23 @@ class _playerInventory extends Sprite {
         this._slot6.addEventListener(MouseEvent.CLICK, this.onSlotClick);
         this._slot7.addEventListener(MouseEvent.CLICK, this.onSlotClick);
 
-        this._slot0.x = 10;     this._slot1.x = 60;     this._slot2.x = 110;     this._slot3.x = 160;
-        this._slot0.y = 10;     this._slot1.y = 10;     this._slot2.y = 10;      this._slot3.y = 10;
+        this._slot0.x = 10;
+        this._slot1.x = 60;
+        this._slot2.x = 110;
+        this._slot3.x = 160;
+        this._slot0.y = 10;
+        this._slot1.y = 10;
+        this._slot2.y = 10;
+        this._slot3.y = 10;
 
-        this._slot4.x = 10;     this._slot5.x = 60;     this._slot6.x = 110;     this._slot7.x = 160;
-        this._slot4.y = 60;     this._slot5.y = 60;     this._slot6.y = 60;      this._slot7.y = 60;
+        this._slot4.x = 10;
+        this._slot5.x = 60;
+        this._slot6.x = 110;
+        this._slot7.x = 160;
+        this._slot4.y = 60;
+        this._slot5.y = 60;
+        this._slot6.y = 60;
+        this._slot7.y = 60;
 
         this.addChild(this._slot0);
         this.addChild(this._slot1);
@@ -258,7 +279,7 @@ class _playerInventory extends Sprite {
         this.addChild(this._slot6);
         this.addChild(this._slot7);
 
-        if(gs_.map_.player_.backpack1 != null) {
+        if (gs_.map_.player_.backpack1 != null) {
 
             this._slot8 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 8);
             this._slot9 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 9);
@@ -278,11 +299,23 @@ class _playerInventory extends Sprite {
             this._slot14.addEventListener(MouseEvent.CLICK, this.onSlotClick);
             this._slot15.addEventListener(MouseEvent.CLICK, this.onSlotClick);
 
-            this._slot8.x = 10;               this._slot9.x = 60;               this._slot10.x = 110;             this._slot11.x = 160;
-            this._slot8.y = this.h_ + 10;     this._slot9.y = this.h_ + 10;     this._slot10.y = this.h_ + 10;    this._slot11.y = this.h_ + 10;
+            this._slot8.x = 10;
+            this._slot9.x = 60;
+            this._slot10.x = 110;
+            this._slot11.x = 160;
+            this._slot8.y = this.h_ + 10;
+            this._slot9.y = this.h_ + 10;
+            this._slot10.y = this.h_ + 10;
+            this._slot11.y = this.h_ + 10;
 
-            this._slot12.x = 10;              this._slot13.x = 60;              this._slot14.x = 110;             this._slot15.x = 160;
-            this._slot12.y = this.h_ + 60;    this._slot13.y = this.h_ + 60;    this._slot14.y = this.h_ + 60;    this._slot15.y = this.h_ + 60;
+            this._slot12.x = 10;
+            this._slot13.x = 60;
+            this._slot14.x = 110;
+            this._slot15.x = 160;
+            this._slot12.y = this.h_ + 60;
+            this._slot13.y = this.h_ + 60;
+            this._slot14.y = this.h_ + 60;
+            this._slot15.y = this.h_ + 60;
 
             this.addChild(this._slot8);
             this.addChild(this._slot9);
@@ -296,7 +329,7 @@ class _playerInventory extends Sprite {
             this.h_ += 120;
         }
 
-        if(gs_.map_.player_.backpack2 != null) {
+        if (gs_.map_.player_.backpack2 != null) {
 
             this._slot16 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 16);
             this._slot17 = new Inventory(this.gs_, this.obj_, "Backpack", new <int>[Slot.any_], 1, false, 17);
@@ -316,11 +349,23 @@ class _playerInventory extends Sprite {
             this._slot22.addEventListener(MouseEvent.CLICK, this.onSlotClick);
             this._slot23.addEventListener(MouseEvent.CLICK, this.onSlotClick);
 
-            this._slot16.x = 10;                this._slot17.x = 60;                this._slot18.x = 110;               this._slot19.x = 160;
-            this._slot16.y = this.h_ + 10;      this._slot17.y = this.h_ + 10;      this._slot18.y = this.h_ + 10;      this._slot19.y = this.h_ + 10;
+            this._slot16.x = 10;
+            this._slot17.x = 60;
+            this._slot18.x = 110;
+            this._slot19.x = 160;
+            this._slot16.y = this.h_ + 10;
+            this._slot17.y = this.h_ + 10;
+            this._slot18.y = this.h_ + 10;
+            this._slot19.y = this.h_ + 10;
 
-            this._slot20.x = 10;                this._slot21.x = 60;                this._slot22.x = 110;               this._slot23.x = 160;
-            this._slot20.y = this.h_ + 60;      this._slot21.y = this.h_ + 60;      this._slot22.y = this.h_ + 60;      this._slot23.y = this.h_ + 60;
+            this._slot20.x = 10;
+            this._slot21.x = 60;
+            this._slot22.x = 110;
+            this._slot23.x = 160;
+            this._slot20.y = this.h_ + 60;
+            this._slot21.y = this.h_ + 60;
+            this._slot22.y = this.h_ + 60;
+            this._slot23.y = this.h_ + 60;
 
             this.addChild(this._slot16);
             this.addChild(this._slot17);
@@ -334,18 +379,19 @@ class _playerInventory extends Sprite {
             this.h_ += 120;
         }
     }
-    public function onAddedToStage(_arg1:Event):void{
+
+    public function onAddedToStage(_arg1:Event):void {
         this.draw();
         this.x = ((800 / 2) - ((this.w_ - 6) / 2));
         this.y = ((600 / 2) - (this.height / 2));
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
     }
 
-    private function close(param1:Event):void{
+    private function close(param1:Event):void {
         dispatchEvent(new Event(Event.COMPLETE));
     }
 
-    private function onSlotClick(param1:Event):void{
+    private function onSlotClick(param1:Event):void {
         this.learnFrame_.updateSlot((param1.currentTarget as Inventory).slots_[0].objectType_, (param1.currentTarget as Inventory).slots_[0].id_ + 4);
         dispatchEvent(new Event(Event.COMPLETE));
         parent.removeChild(this);
@@ -362,7 +408,7 @@ class _playerInventory extends Sprite {
         this._slot6.draw(new <int>[this.gs_.map_.player_.equipment_[10]]);
         this._slot7.draw(new <int>[this.gs_.map_.player_.equipment_[11]]);
 
-        if(this.gs_.map_.player_.backpack1 != null) {
+        if (this.gs_.map_.player_.backpack1 != null) {
             this._slot8.draw(new <int>[this.gs_.map_.player_.backpack1[0]]);
             this._slot9.draw(new <int>[this.gs_.map_.player_.backpack1[1]]);
             this._slot10.draw(new <int>[this.gs_.map_.player_.backpack1[2]]);
@@ -373,7 +419,7 @@ class _playerInventory extends Sprite {
             this._slot15.draw(new <int>[this.gs_.map_.player_.backpack1[7]]);
         }
 
-        if(this.gs_.map_.player_.backpack2 != null) {
+        if (this.gs_.map_.player_.backpack2 != null) {
             this._slot16.draw(new <int>[this.gs_.map_.player_.backpack2[0]]);
             this._slot17.draw(new <int>[this.gs_.map_.player_.backpack2[1]]);
             this._slot18.draw(new <int>[this.gs_.map_.player_.backpack2[2]]);
@@ -384,7 +430,7 @@ class _playerInventory extends Sprite {
             this._slot23.draw(new <int>[this.gs_.map_.player_.backpack2[7]]);
         }
 
-        if(this._slot0.slots_[0]._X_B_ != null) {
+        if (this._slot0.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot0.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot0.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot0.filters = [invalidGlow];
@@ -393,7 +439,7 @@ class _playerInventory extends Sprite {
                 this._slot0.filters = [validGlow];
             }
         }
-        if(this._slot1.slots_[0]._X_B_ != null) {
+        if (this._slot1.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot1.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot1.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot1.filters = [invalidGlow];
@@ -402,7 +448,7 @@ class _playerInventory extends Sprite {
                 this._slot1.filters = [validGlow];
             }
         }
-        if(this._slot2.slots_[0]._X_B_ != null) {
+        if (this._slot2.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot2.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot2.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot2.filters = [invalidGlow];
@@ -411,7 +457,7 @@ class _playerInventory extends Sprite {
                 this._slot2.filters = [validGlow];
             }
         }
-        if(this._slot3.slots_[0]._X_B_ != null) {
+        if (this._slot3.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot3.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot3.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot3.filters = [invalidGlow];
@@ -420,7 +466,7 @@ class _playerInventory extends Sprite {
                 this._slot3.filters = [validGlow];
             }
         }
-        if(this._slot4.slots_[0]._X_B_ != null) {
+        if (this._slot4.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot4.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot4.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot4.filters = [invalidGlow];
@@ -429,7 +475,7 @@ class _playerInventory extends Sprite {
                 this._slot4.filters = [validGlow];
             }
         }
-        if(this._slot5.slots_[0]._X_B_ != null) {
+        if (this._slot5.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot5.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot5.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot5.filters = [invalidGlow];
@@ -438,7 +484,7 @@ class _playerInventory extends Sprite {
                 this._slot5.filters = [validGlow];
             }
         }
-        if(this._slot6.slots_[0]._X_B_ != null) {
+        if (this._slot6.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot6.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot6.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot6.filters = [invalidGlow];
@@ -447,7 +493,7 @@ class _playerInventory extends Sprite {
                 this._slot6.filters = [validGlow];
             }
         }
-        if(this._slot7.slots_[0]._X_B_ != null) {
+        if (this._slot7.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot7.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                 this._slot7.slots_[0]._X_B_.filters = _E_6._P_r;
                 this._slot7.filters = [invalidGlow];
@@ -456,7 +502,7 @@ class _playerInventory extends Sprite {
                 this._slot7.filters = [validGlow];
             }
         }
-        if(this.gs_.map_.player_.backpack1 != null) {
+        if (this.gs_.map_.player_.backpack1 != null) {
             if (this._slot8.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot8.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                     this._slot8.slots_[0]._X_B_.filters = _E_6._P_r;
@@ -530,7 +576,7 @@ class _playerInventory extends Sprite {
                 }
             }
         }
-        if(this.gs_.map_.player_.backpack2 != null) {
+        if (this.gs_.map_.player_.backpack2 != null) {
             if (this._slot16.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot16.slots_[0].objectType_].hasOwnProperty("Recipe")) {
                     this._slot16.slots_[0]._X_B_.filters = _E_6._P_r;
@@ -606,10 +652,11 @@ class _playerInventory extends Sprite {
         }
     }
 
-    private function onRemovedFromStage(_arg1:Event):void{
+    private function onRemovedFromStage(_arg1:Event):void {
         this.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
     }
-    public function draw():void{
+
+    public function draw():void {
         this.graphics.clear();
         GraphicHelper._0L_6(this.path1_);
         GraphicHelper.drawUI(-6, -6, this.w_, (20 + 12), 4, [1, 1, 0, 0], this.path1_);

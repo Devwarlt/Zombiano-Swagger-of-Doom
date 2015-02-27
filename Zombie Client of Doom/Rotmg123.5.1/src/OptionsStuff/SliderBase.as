@@ -94,18 +94,21 @@ public class SliderBase extends Sprite {
         this._0y.fill = (this._uN_);
         graphics.drawGraphicsData(this.graphicsData_);
     }
+
     public function setValue(val:int, updateKnob:Boolean = true):void {
         this.val = val;
-        if(updateKnob) {
+        if (updateKnob) {
             this.sliderKnob.x = (val / (maximumValue / (WIDTH - 10))) + 5;
         }
         this.setValueText();
         dispatchEvent(new Event(Event.CHANGE));
     }
+
     public function get value():int {
         return ((this.sliderKnob.x - 5) * (maximumValue / (WIDTH - 10)));
     }
-    private function onMouseOver(_arg1:MouseEvent):void{
+
+    private function onMouseOver(_arg1:MouseEvent):void {
         this.over_ = true;
         this.updateDraw();
     }
@@ -131,7 +134,7 @@ public class SliderBase extends Sprite {
         this.updateDraw();
     }
 
-    private function updateDraw():void{
+    private function updateDraw():void {
         this.sliderKnob.graphics.clear();
         this.sliderKnob.graphics.beginFill(this.over_ ? 0xF2FF00 : 0x919191, 1.0);
         this.sliderKnob.graphics.drawCircle(0, 0, 5);
@@ -139,7 +142,7 @@ public class SliderBase extends Sprite {
     }
 
     private function onEnterFrame(event:Event):void {
-        if(this.val != this.value) {
+        if (this.val != this.value) {
             setValue(this.value, false);
         }
     }

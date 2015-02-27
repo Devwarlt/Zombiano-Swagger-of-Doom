@@ -17,7 +17,7 @@
 
 //com.company.assembleegameclient.parameters.Parameters
 
-package com.company.assembleegameclient.parameters{
+package com.company.assembleegameclient.parameters {
 import Language.LanguageManager;
 
 import com.company.util._0A_s;
@@ -32,8 +32,9 @@ import flash.utils.Dictionary;
 public class Parameters {
 
     public static const isTesting:Boolean = true;
-	public static const sendErrors:Boolean = false;
-    public static const clientVersion:String = "1.0.0";
+    public static const sendErrors:Boolean = false;
+    public static const COPYRIGHT:String = "Copyright (c) 2015, FireBite/Aceticsoft Studios Inc.";
+    public static const clientVersion:String = "Indev 0.0.0";
     public static const gamePort:int = 2050;
     public static const _1h:Boolean = false;
     public static const _mg:uint = 10944349;
@@ -54,8 +55,8 @@ public class Parameters {
     public static const TEST_ID:int = -6;
     public static const MAX_SINK_VALUE:Number = 18;
     public static const ToS_Url_:String = "http://www.realmofthemadgod.com/TermsofUse.html";
-	public static const musicUrl_:String = "127.0.0.1";
-	public static const connection:String = getAccountServerIP();
+    public static const musicUrl_:String = "127.0.0.1";
+    public static const connection:String = getAccountServerIP();
     public static const HelpCommand:String = "Help:\n" + "[/pause]: pause the game (until you [/pause] again\n" + "[/who]: list players online\n" + "[/tutorial]: enter the tutorial\n" + "[/yell <message>]: send message to all players in Nexus\n" + "[/tell <player name> <message>]: send a private message to a player\n" + "[/guild <message>]: send a message to your guild\n" + "[/ignore <player name>]: don't show chat messages from player\n" + "[/unignore <player name>]: stop ignoring a player\n" + "[/teleport <player name>]: teleport to a player\n" + "[/trade <player name>]: request a trade with a player\n" + "[/invite <player name>]: invite a player to your guild\n" + "[/join <guild name>]: join a guild (invite necessary\n" + "[/?]: this message";
     public static const RSAKey:String = "-----BEGIN PUBLIC KEY-----\n" + "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzRQGnNw5kEaIpych+U4J" + "ZtuLnMJuQKEyU1FfcyHISNkYhy1jmSMPav+7D3Qg1R6exeeM6LtXvUEQ6Fgris1J" + "UVDr5gjII0ti98LvIsF/hgTk2VOvm2QK/1OpyAxni4RZuR8OE0p0Co0yUwhTVjfN" + "5Ooh4hntfuwVtk1AZEFudA9oOqdUbNwi98M9VIf+9vJWnx2zAx+1r7Ja/JDeM3Fb" + "YW9awMw4d0fpGoN/PfZGqKdgd4jjXLuhatSu13sAU39aPZAI2ku3MQRMQcUBLxDI" + "HyEq1NA+BztASjpYr3w+bX85bWZwPOBN95O3z6hbDTv/FZj5tpkVqaVhxqBeEbaR" + "ywIDAQAB\n" + "-----END PUBLIC KEY-----";
 
@@ -70,10 +71,11 @@ public class Parameters {
     private static var _Z_U_:SharedObject = null;
     private static var validKeys:Dictionary = new Dictionary();
 
-    public static function _02Q_():String{
+    public static function _02Q_():String {
         return (!Parameters.isTesting ? "Production" : "Devel") + " Build #" + Parameters.clientVersion + (_I_O_() ? " Testing" : "");
     }
-    public static function _I_O_():Boolean{
+
+    public static function _I_O_():Boolean {
         return false;
         var _local2:Object;
         var _local3:LocalConnection;
@@ -87,61 +89,62 @@ public class Parameters {
         }
         return (_local1);
     }
-    public static function getAccountServerIP():String{
+
+    public static function getAccountServerIP():String {
         if (_I_O_()) {
             return ("25.185.44.56:80"); // _I_O_() -> TRUE -- Testing Enabled
         }
         return ("192.168.2.100"); // _I_O_() -> FALSE -- Testing Disabled
     }
-	public static function _05w():String{
-		return ("UA-99999999-1");
-	}
-    public static function load():void{
+
+    public static function _05w():String {
+        return ("UA-99999999-1");
+    }
+
+    public static function load():void {
         try {
             _Z_U_ = SharedObject.getLocal("AssembleeGameClientOptions", "/");
             data_ = _Z_U_.data;
-        } catch(error:Error) {
+        } catch (error:Error) {
             data_ = {};
         }
         _fX_();
         save();
     }
-    public static function save():void{
-        try
-        {
-            if (_Z_U_ != null)
-            {
+
+    public static function save():void {
+        try {
+            if (_Z_U_ != null) {
                 _Z_U_.flush();
             }
-        } catch(error:Error)
-        {
+        } catch (error:Error) {
         }
     }
-    private static function registerKeyBind(_arg1:String, _arg2:uint):void{
-        if (!data_.hasOwnProperty(_arg1))
-        {
+
+    private static function registerKeyBind(_arg1:String, _arg2:uint):void {
+        if (!data_.hasOwnProperty(_arg1)) {
             data_[_arg1] = _arg2;
         }
         validKeys[_arg1] = true;
     }
-    public static function setKey(_arg1:String, _arg2:uint):void{
+
+    public static function setKey(_arg1:String, _arg2:uint):void {
         var _local3:String;
-        for (_local3 in validKeys)
-        {
-            if (data_[_local3] == _arg2)
-            {
+        for (_local3 in validKeys) {
+            if (data_[_local3] == _arg2) {
                 data_[_local3] = Keys.UNSET;
             }
         }
         data_[_arg1] = _arg2;
     }
-    private static function registerObjectValue(_arg1:String, _arg2:*):void{
-        if (!data_.hasOwnProperty(_arg1))
-        {
+
+    private static function registerObjectValue(_arg1:String, _arg2:*):void {
+        if (!data_.hasOwnProperty(_arg1)) {
             data_[_arg1] = _arg2;
         }
     }
-    public static function _fX_():void{
+
+    public static function _fX_():void {
         registerKeyBind("moveLeft", Keys.A);
         registerKeyBind("moveRight", Keys.D);
         registerKeyBind("moveUp", Keys.W);
@@ -175,7 +178,7 @@ public class Parameters {
         registerKeyBind("tell", Keys.TAB);
         registerKeyBind("guildChat", Keys.G);
         registerKeyBind("toggleFullscreen", Keys.UNSET);
-		registerKeyBind("switchTabs", Keys.B);
+        registerKeyBind("switchTabs", Keys.B);
         registerKeyBind("openGifts", Keys.P);
         registerObjectValue("playerObjectType", 782);
         registerObjectValue("playMusic", true);
@@ -209,11 +212,11 @@ public class Parameters {
         registerObjectValue("beginnersOfferShowNowTime", 0);
         registerObjectValue("watchForTutorialExit", false);
         registerObjectValue("contextualClick", true);
-		registerObjectValue("inventorySwap", true);
-		registerObjectValue("hidePlayerChat", false);
-		registerObjectValue("chatStarRequirement", 1);
+        registerObjectValue("inventorySwap", true);
+        registerObjectValue("hidePlayerChat", false);
+        registerObjectValue("chatStarRequirement", 1);
         registerObjectValue("clickForGold", false);
-		registerObjectValue("rotationSpeed", 0.003);
+        registerObjectValue("rotationSpeed", 0.003);
         registerObjectValue("confirmCraftingBox", true);
         registerObjectValue("playAllyShootSound", true);
         registerObjectValue("musicVolume", 1);

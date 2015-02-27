@@ -83,7 +83,7 @@ public class AccountManagementHeader extends Sprite {
         this.email.x = 10;
         addChild(this.email);
 
-        if(managementParent.accountXml.Country != -1) {
+        if (managementParent.accountXml.Country != -1) {
             var c:Country = new Country(managementParent.accountXml.Country);
 
             var cText:SimpleText = new SimpleText(18, 0xB3B3B3);
@@ -114,7 +114,7 @@ public class AccountManagementHeader extends Sprite {
         for each (var tab:TabButton in tabs) {
             var text:String = tab.text.text.slice(0, tab.text.text.indexOf("(") == -1 ? tab.text.text.length : tab.text.text.indexOf("(") - 1);
             name = name.slice(0, name.indexOf("(") == -1 ? name.length : name.indexOf("(") - 1);
-            if(text == name) {
+            if (text == name) {
                 tab.dispatchEvent(new MouseEvent(MouseEvent.CLICK));
             }
         }
@@ -129,11 +129,11 @@ public class AccountManagementHeader extends Sprite {
         tabs.push(tab);
         addChild(tab);
 
-        if(tab.selected) {
+        if (tab.selected) {
             managementParent.accountBody.updateScreen(tab.holder);
         }
 
-        if(!right) {
+        if (!right) {
             nextTabLeftWidth += (tab.w_ + 5);
         }
         else {

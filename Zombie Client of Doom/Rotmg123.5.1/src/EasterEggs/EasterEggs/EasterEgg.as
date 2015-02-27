@@ -57,7 +57,7 @@ public class EasterEgg extends EventDispatcher {
     }
 
     private function fire():void {
-        if(EasterEggHandler.isPlaying()) return;
+        if (EasterEggHandler.isPlaying()) return;
         dispatchEvent(new EasterEggEvent(getFinalMovie(), this.loader));
     }
 
@@ -68,13 +68,13 @@ public class EasterEgg extends EventDispatcher {
     public function dispose():void {
         this.parent.removeEventListener(KeyboardEvent.KEY_DOWN, this.handler.onKeyDown);
         this.handler = null;
-        if(this.loader != null)
+        if (this.loader != null)
             this.loader.unloadAndStop(true);
         this.swf = null;
     }
 
-    protected function resizeOnComplete(width:int=int.MIN_VALUE, height:int=int.MIN_VALUE):void {
-        if(this.loader && this.loader.contentLoaderInfo) {
+    protected function resizeOnComplete(width:int = int.MIN_VALUE, height:int = int.MIN_VALUE):void {
+        if (this.loader && this.loader.contentLoaderInfo) {
             this.loader.contentLoaderInfo.addEventListener(Event.COMPLETE, resize);
 
             function resize(event:Event):void {

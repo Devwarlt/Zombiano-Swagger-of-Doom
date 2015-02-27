@@ -17,7 +17,7 @@
 
 //_F_1.CharacterBox
 
-package _F_1{
+package _F_1.selectChars {
 import ToolTips._E_J_;
 import ToolTips.ToolTip;
 
@@ -28,7 +28,7 @@ import com.company.rotmg.graphics.FullCharBoxGraphic;
 import com.company.rotmg.graphics.LockedCharBoxGraphic;
 import com.company.rotmg.graphics.ranks.premiumRank;
 import com.company.ui.SimpleText;
-    
+
 import flash.display.Bitmap;
 import flash.display.DisplayObject;
 import flash.display.Sprite;
@@ -62,19 +62,17 @@ public class CharacterBox extends Sprite {
     public var _P_:int;
     public var _N_K_:int;
 
-	public var selectedOver:Boolean = false;
+    public var selectedOver:Boolean = false;
     public var yBase:Number;
 
-    public function CharacterBox(_arg1:XML, _arg3:SavedCharsList){
+    public function CharacterBox(_arg1:XML, _arg3:SavedCharsList) {
         super();
         this.skinXml_ = _arg1;
         this.charList_ = _arg3;
         this._F_I_ = _E_J_.isAvailable(_arg1, _arg3);
-        if (!this._F_I_)
-        {
+        if (!this._F_I_) {
             this._87 = new LockedCharBoxGraphic();
-        } else
-        {
+        } else {
             this._87 = new FullCharBoxGraphic();
         }
         addChild(this._87);
@@ -91,8 +89,7 @@ public class CharacterBox extends Sprite {
         this.classNameText_.updateMetrics();
         this.classNameText_.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4)];
         addChild(this.classNameText_);
-        if (!this._F_I_)
-        {
+        if (!this._F_I_) {
             this._L_B_ = new SimpleText(14, 0xFF0000, false, 0, 0, "Myriad Pro");
             this._L_B_.htmlText = '<p align="center">Locked</p>';
             this._L_B_.boldText(true);
@@ -103,12 +100,11 @@ public class CharacterBox extends Sprite {
             addChild(this._L_B_);
             this.classNameText_.y = 80 - this.classNameText_.textHeight / 2;
         }
-        else
-        {
+        else {
             this.classNameText_.y = 75 - this.classNameText_.textHeight / 2;
         }
 
-        if(_arg1.hasOwnProperty("PremiumSkin")) {
+        if (_arg1.hasOwnProperty("PremiumSkin")) {
             var premiumIcon:DisplayObject = new premiumRank();
             premiumIcon.x = width - premiumIcon.width - 5;
             premiumIcon.y = 8;
@@ -120,55 +116,54 @@ public class CharacterBox extends Sprite {
         y = yBase + _arg1;
     }
 
-    public function skinType():int{
+    public function skinType():int {
         return (int(this.skinXml_.@type));
     }
-    public function getTooltip():ToolTip{
+
+    public function getTooltip():ToolTip {
         return (new _E_J_(this.skinXml_, this.charList_));
     }
-    public function _P_Y_(_arg1:Boolean):void{
-        if (!this._F_I_)
-        {
+
+    public function _P_Y_(_arg1:Boolean):void {
+        if (!this._F_I_) {
             return;
         }
-        if (_arg1)
-        {
+        if (_arg1) {
             transform.colorTransform = new ColorTransform(1.2, 1.2, 1.2);
-        } else
-        {
+        } else {
             transform.colorTransform = new ColorTransform(1, 1, 1);
         }
     }
-    private function _0A_Y_(_arg1:KeyboardEvent):void{
-        if (_arg1.charCode == Keyboard.ENTER)
-        {
+
+    private function _0A_Y_(_arg1:KeyboardEvent):void {
+        if (_arg1.charCode == Keyboard.ENTER) {
             dispatchEvent(new Event(ENTER_NAME));
             _arg1.stopPropagation();
         }
     }
-    private function onDeleteClick(_arg1:MouseEvent):void{
+
+    private function onDeleteClick(_arg1:MouseEvent):void {
         dispatchEvent(new Event(DELETE_CHAR));
         _arg1.stopPropagation();
     }
-    private function onEnterFrame(_arg1:Event):void{
+
+    private function onEnterFrame(_arg1:Event):void {
         var _local3:Number;
         var _local2:int = getTimer();
-        if (_local2 < (this._6S_ + this._lz))
-        {
+        if (_local2 < (this._6S_ + this._lz)) {
             _local3 = ((_local2 - this._6S_) / this._lz);
             this.setImage(this._P_, this._N_K_, _local3);
-        } else
-        {
+        } else {
             this.setImage(_lJ_.DOWN, _lJ_._sS_, 0);
-            if (Math.random() < 0.005)
-            {
+            if (Math.random() < 0.005) {
                 this._6S_ = _local2;
                 this._P_ = (((Math.random() > 0.5)) ? _lJ_.LEFT : _lJ_.RIGHT);
                 this._N_K_ = _lJ_._E_w;
             }
         }
     }
-    public function setImage(_arg1:int, _arg2:int, _arg3:Number):void{
+
+    public function setImage(_arg1:int, _arg2:int, _arg3:Number):void {
         this.bitmap_.bitmapData = SavedCharacter.getImage(null, this.skinXml_, _arg1, _arg2, _arg3, this._F_I_, false);
         this.bitmap_.x = ((this._87.width / 2) - (this.bitmap_.bitmapData.width / 2));
     }

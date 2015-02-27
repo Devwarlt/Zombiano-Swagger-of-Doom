@@ -8,10 +8,8 @@ using wServer.realm;
 
 namespace wServer
 {
-    public class TCPServer : IServer
+    public class TCPServer : Server
     {
-        public const string BUILD_VERSION = "1.0.0";
-
         static ILog log = LogManager.GetLogger(typeof(TCPServer));
 
         public Socket Socket { get; private set; }
@@ -22,7 +20,7 @@ namespace wServer
             Manager = manager;
         }
 
-        public void Start()
+        public override void Start()
         {
             log.Info("Starting server...");
             Socket.Bind(new IPEndPoint(IPAddress.Any, 2050));
@@ -46,7 +44,7 @@ namespace wServer
             catch (ObjectDisposedException) { }
         }
 
-        public void Stop()
+        public override void Stop()
         {
             log.Info("Stoping server...");
             foreach (var i in Manager.Clients.Values.ToArray())
@@ -55,7 +53,7 @@ namespace wServer
         }
 
 
-        public void SendPacket(UdpPacket pkt, Action onCompleted)
+        public override void SendPacket(UdpPacket pkt, Action onCompleted)
         {
             throw new InvalidOperationException("Not supported");
         }

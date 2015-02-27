@@ -17,31 +17,33 @@
 
 //_zD_._uf
 
-package _zD_{
-    import _C__._cM_;
+package _zD_ {
+import _C__._cM_;
 
 import _F_1._C_Q_;
 import _F_1._E_r;
 
 import _U_5.SpriteTarget;
 
-    public class _uf extends _cM_ {
+public class _uf extends _cM_ {
 
-        [Inject]
-        public var view:_E_r;
-        [Inject]
-        public var _T__:SpriteTarget;
+    [Inject]
+    public var view:_E_r;
+    [Inject]
+    public var _T__:SpriteTarget;
 
-        override public function initialize():void{
-            this.view._J_b.add(this._E_R_);
-        }
-        override public function destroy():void{
-            this.view._J_b.remove(this._E_R_);
-        }
-        private function _E_R_():void{
-            this._T__.dispatch(new _C_Q_());
-        }
-
+    override public function initialize():void {
+        this.view._J_b.add(this._E_R_);
     }
+
+    override public function destroy():void {
+        this.view._J_b.remove(this._E_R_);
+    }
+
+    private function _E_R_():void {
+        this._T__.dispatch(new _C_Q_());
+    }
+
+}
 }//package _zD_
 

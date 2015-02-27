@@ -17,11 +17,13 @@
  */
 package Villages.nations {
 import _C__._cM_;
+
+import _F_1._E_r;
+
 import _U_5.CharListResetDispatcher;
 import _U_5.SpriteTarget;
-import flash.display.Sprite;
 
-public class NationEventDispatcher extends _cM_{
+public class NationEventDispatcher extends _cM_ {
     [Inject]
     public var view:ChooseNationScreen;
     [Inject]
@@ -32,12 +34,14 @@ public class NationEventDispatcher extends _cM_{
     override public function initialize():void {
         this.view.eventDispatcher.add(this.dispatch);
     }
+
     override public function destroy():void {
         this.view.eventDispatcher.remove(this.dispatch);
     }
-    private function dispatch(displayObject:Sprite):void {
+
+    private function dispatch():void {
         this.charListReset.dispatch();
-        this.target.dispatch(displayObject);
+        this.target.dispatch(new _E_r());
     }
 }
 }

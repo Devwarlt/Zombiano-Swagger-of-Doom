@@ -19,7 +19,7 @@ package FireBite.Embeds.Images {
 import flash.display.Bitmap;
 
 [Embed(source="data/batterycharges.png")]
-public class batteryChargedEmbed extends flash.display.Bitmap{
+public class batteryChargedEmbed extends flash.display.Bitmap {
     public function batteryChargedEmbed() {
         super();
     }

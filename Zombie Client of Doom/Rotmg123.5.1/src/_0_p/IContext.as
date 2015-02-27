@@ -15,20 +15,37 @@
 // Decompiled by AS3 Sorcerer 1.99
 // http://www.as3sorcerer.com/
 
-//_W_D_._0I_H_
+//_0_p._L_y
 
-package _W_D_{
-    import com.company.assembleegameclient.appengine.SavedCharsList;
+package _0_p {
+import _eZ_._08b;
 
-    public class _0I_H_ {
+import _qj._pn;
 
-        public var charList:SavedCharsList;
-        public var isLoaded:Boolean;
-        public var charId:int;
+public interface IContext {
 
-        public function _0I_H_(){
-            this.isLoaded = true;
-        }
-    }
-}//package _W_D_
+    function get _O_R_():_08b;
+
+    function get _iL_():_0E_9;
+
+    function get _39():uint;
+
+    function set _39(_arg1:uint):void;
+
+    function extend(..._args):IContext;
+
+    function configure(..._args):IContext;
+
+    function _ty(_arg1:_pn, _arg2:Function):IContext;
+
+    function _0H_4(_arg1:Object):_Q_5;
+
+    function _J_3(_arg1:_fq):IContext;
+
+    function _W_b(..._args):IContext;
+
+    function release(..._args):IContext;
+
+}
+}//package _0_p
 

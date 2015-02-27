@@ -43,7 +43,7 @@ public class AccountManagementScreen extends Sprite {
     private var login:Boolean;
     private var charList:SavedCharsList;
 
-    public function AccountManagementScreen(login:Boolean=false) {
+    public function AccountManagementScreen(login:Boolean = false) {
         this.login = login;
         this.eventDispatcher = new _aJ_(String);
     }
@@ -64,7 +64,7 @@ public class AccountManagementScreen extends Sprite {
         addChild(this.accountHeader);
         addChild(this.accountFooter);
 
-        if(this.selectedTab != null) {
+        if (this.selectedTab != null) {
             this.accountHeader.switchToTab(this.selectedTab);
         }
 

@@ -46,14 +46,14 @@ public class Weather extends MapOverlay {
         var i = 0;
         var l = newAmount - particles_.length;
 
-        if(l < 0) {
-            while(i > l){
+        if (l < 0) {
+            while (i > l) {
                 removeParticle();
                 i--;
             }
         }
         else {
-            while(i < l){
+            while (i < l) {
                 addParticle();
                 i++;
             }
@@ -69,7 +69,7 @@ public class Weather extends MapOverlay {
     }
 
     public function onRemovedFromStage(event:Event):void {
-        if(this.weatherSound != null) {
+        if (this.weatherSound != null) {
             this.weatherSound.stop();
         }
     }

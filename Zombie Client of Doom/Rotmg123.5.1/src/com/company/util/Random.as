@@ -17,50 +17,55 @@
 
 //com.company.util.Random
 
-package com.company.util{
-    public class Random {
+package com.company.util {
+public class Random {
 
-        public var seed:uint;
+    public var seed:uint;
 
-        public function Random(seed:uint=1){
-            this.seed = seed;
-        }
-        public static function _6Z_():uint {
-            return (Math.round(((Math.random() * (uint.MAX_VALUE - 1)) + 1)));
-        }
-
-        public function _ds():uint{
-            return (this.randomSeed());
-        }
-        public function _J_t():Number{
-            return ((this.randomSeed() / 2147483647));
-        }
-        public function nextDouble(_arg1:Number=0, _arg2:Number=1):Number{
-            var _local3:Number = (this.randomSeed() / 2147483647);
-            var _local4:Number = (this.randomSeed() / 2147483647);
-            var _local5:Number = (Math.sqrt((-2 * Math.log(_local3))) * Math.cos(((2 * _local4) * Math.PI)));
-            return ((_arg1 + (_local5 * _arg2)));
-        }
-        public function next(_arg1:uint, _arg2:uint):uint{
-            return ((((_arg1)==_arg2) ? _arg1 : (_arg1 + (this.randomSeed() % (_arg2 - _arg1)))));
-        }
-        public function nextFloat(_arg1:Number, _arg2:Number):Number {
-            return ((_arg1 + ((_arg2 - _arg1) * this._J_t())));
-        }
-        private function randomSeed():uint{
-            var _local1:uint;
-            var _local2:uint;
-            _local2 = (16807 * (this.seed & 0xFFFF));
-            _local1 = (16807 * (this.seed >> 16));
-            _local2 = (_local2 + ((_local1 & 32767) << 16));
-            _local2 = (_local2 + (_local1 >> 15));
-            if (_local2 > 2147483647)
-            {
-                _local2 = (_local2 - 2147483647);
-            }
-            return ((this.seed = _local2));
-        }
-
+    public function Random(seed:uint = 1) {
+        this.seed = seed;
     }
+
+    public static function _6Z_():uint {
+        return (Math.round(((Math.random() * (uint.MAX_VALUE - 1)) + 1)));
+    }
+
+    public function _ds():uint {
+        return (this.randomSeed());
+    }
+
+    public function _J_t():Number {
+        return ((this.randomSeed() / 2147483647));
+    }
+
+    public function nextDouble(_arg1:Number = 0, _arg2:Number = 1):Number {
+        var _local3:Number = (this.randomSeed() / 2147483647);
+        var _local4:Number = (this.randomSeed() / 2147483647);
+        var _local5:Number = (Math.sqrt((-2 * Math.log(_local3))) * Math.cos(((2 * _local4) * Math.PI)));
+        return ((_arg1 + (_local5 * _arg2)));
+    }
+
+    public function next(_arg1:uint, _arg2:uint):uint {
+        return ((((_arg1) == _arg2) ? _arg1 : (_arg1 + (this.randomSeed() % (_arg2 - _arg1)))));
+    }
+
+    public function nextFloat(_arg1:Number, _arg2:Number):Number {
+        return ((_arg1 + ((_arg2 - _arg1) * this._J_t())));
+    }
+
+    private function randomSeed():uint {
+        var _local1:uint;
+        var _local2:uint;
+        _local2 = (16807 * (this.seed & 0xFFFF));
+        _local1 = (16807 * (this.seed >> 16));
+        _local2 = (_local2 + ((_local1 & 32767) << 16));
+        _local2 = (_local2 + (_local1 >> 15));
+        if (_local2 > 2147483647) {
+            _local2 = (_local2 - 2147483647);
+        }
+        return ((this.seed = _local2));
+    }
+
+}
 }//package com.company.util
 

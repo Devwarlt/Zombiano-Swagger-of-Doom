@@ -45,7 +45,7 @@ public class YouTubePlayer extends Sprite {
         //Security.allowDomain("*", "www.youtube.com");
         //Security.allowInsecureDomain("*", "www.youtube.com");
 
-        if(url.indexOf("youtube.com/watch?v=") == -1){
+        if (url.indexOf("youtube.com/watch?v=") == -1) {
             throw new ArgumentError("Invalid url, the url should look like \"http://www.youtube.com/watch?v=HzI1KTZA1Ho\"");
         }
         this.youtubeUrl = url;
@@ -55,13 +55,13 @@ public class YouTubePlayer extends Sprite {
     }
 
     public function play():void {
-        if(this.player != null && "playVideo" in this.player) {
+        if (this.player != null && "playVideo" in this.player) {
             this.player.playVideo();
         }
     }
 
     public function stop():void {
-        if(this.player != null && "stopVideo" in this.player) {
+        if (this.player != null && "stopVideo" in this.player) {
             this.player.stopVideo();
             if (endCallback != null) {
                 endCallback();
@@ -70,7 +70,7 @@ public class YouTubePlayer extends Sprite {
     }
 
     public function pause():void {
-        if(this.player != null && "pauseVideo" in this.player) {
+        if (this.player != null && "pauseVideo" in this.player) {
             this.player.pauseVideo();
         }
     }
@@ -86,7 +86,7 @@ public class YouTubePlayer extends Sprite {
             this.loader.contentLoaderInfo.addEventListener(Event.INIT, onLoaderInit);
         }
         catch (e:Error) {
-            if(error != null) error();
+            if (error != null) error();
         }
     }
 
@@ -100,21 +100,21 @@ public class YouTubePlayer extends Sprite {
             this.player.addEventListener(YouTubePlayerEvent.ERROR, onError);
         }
         catch (e:Error) {
-            if(error != null) error();
+            if (error != null) error();
         }
     }
 
     private function onError(e:Event):void {
         trace(Object(e).data);
-        if(error != null) {
+        if (error != null) {
             error();
         }
     }
 
-    private function onPlayerReady(e:Event):void{
+    private function onPlayerReady(e:Event):void {
         player.setSize(800, 600);
         player.loadVideoById(this.videoId, 0);
-        if(this.autoStart) {
+        if (this.autoStart) {
             play();
         }
 
@@ -124,20 +124,20 @@ public class YouTubePlayer extends Sprite {
         watchOnYoutubeOverlay.graphics.endFill();
         addChild(watchOnYoutubeOverlay);
 
-        if(playerReady != null) {
+        if (playerReady != null) {
             playerReady(this);
         }
     }
 
-    private function onStateChanged(e:Event):void{
-        if(Object(e).data == YouTubePlayerState.ENDED || Object(e).data == YouTubePlayerState.PAUSED) {
-            if(repeat) {
+    private function onStateChanged(e:Event):void {
+        if (Object(e).data == YouTubePlayerState.ENDED || Object(e).data == YouTubePlayerState.PAUSED) {
+            if (repeat) {
                 play();
             }
         }
 
-        if(!repeat && Object(e).data == YouTubePlayerState.ENDED){
-            if(endCallback != null){
+        if (!repeat && Object(e).data == YouTubePlayerState.ENDED) {
+            if (endCallback != null) {
                 endCallback();
             }
         }
@@ -145,8 +145,8 @@ public class YouTubePlayer extends Sprite {
 
     private function buildYouTubeId():void {
         var url:String = youtubeUrl.slice(youtubeUrl.indexOf("v=") + 2);
-        while(url.lastIndexOf("&") > -1) {
-             url = url.replace(url.slice(url.lastIndexOf("&")), "");
+        while (url.lastIndexOf("&") > -1) {
+            url = url.replace(url.slice(url.lastIndexOf("&")), "");
         }
         this.videoId = url;
     }

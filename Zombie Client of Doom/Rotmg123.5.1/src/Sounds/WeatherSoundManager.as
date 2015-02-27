@@ -37,21 +37,21 @@ public class WeatherSoundManager {
         currentSound.load(req);
         currentSoundTransform = new SoundTransform(0);
         currentSoundChannel = currentSound.play(0, int.MAX_VALUE, currentSoundTransform);
-        var tween:GTween = new GTween(this.currentSoundTransform, 5, { "volume": 1.0 });
+        var tween:GTween = new GTween(this.currentSoundTransform, 5, {"volume": 1.0});
         tween._bR_ = update;
     }
 
     public function stop():void {
-        var tween:GTween = new GTween(this.currentSoundTransform, 10, { "volume": 0 });
+        var tween:GTween = new GTween(this.currentSoundTransform, 10, {"volume": 0});
         tween._bR_ = update;
         tween.onComplete = finalStop;
     }
 
-    private function update(tween:GTween):void{
+    private function update(tween:GTween):void {
         currentSoundChannel.soundTransform = currentSoundTransform;
     }
 
-    private function finalStop(tween:GTween):void{
+    private function finalStop(tween:GTween):void {
         currentSoundChannel.stop();
     }
 }

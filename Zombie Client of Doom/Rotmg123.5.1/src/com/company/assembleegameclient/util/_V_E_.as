@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package com.company.assembleegameclient.util
-{
-    import mx.core.*;
-    
-    [Embed(source="_V_E_.dat", mimeType="application/octet-stream")]
-    public class _V_E_ extends mx.core.ByteArrayAsset
-    {
-        public function _V_E_()
-        {
-            super();
+package com.company.assembleegameclient.util {
+import mx.core.*;
 
-        }
+[Embed(source="_V_E_.dat", mimeType="application/octet-stream")]
+public class _V_E_ extends mx.core.ByteArrayAsset {
+    public function _V_E_() {
+        super();
+
     }
+}
 }

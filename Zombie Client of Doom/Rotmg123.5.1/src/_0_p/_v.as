@@ -17,11 +17,11 @@
 
 //_0_p._v
 
-package _0_p{
-    public interface _v {
+package _0_p {
+public interface _v {
 
-        function _K_():void;
+    function _K_():void;
 
-    }
+}
 }//package _0_p
 

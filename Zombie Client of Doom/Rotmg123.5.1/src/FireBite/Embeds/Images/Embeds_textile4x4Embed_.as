@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package FireBite.Embeds.Images
-{
-    import mx.core.*;
-    
-    [Embed(source="data/Embeds_textile4x4Embed_.png")]
-    public class Embeds_textile4x4Embed_ extends mx.core.BitmapAsset
-    {
-        public function Embeds_textile4x4Embed_()
-        {
-            super();
+package FireBite.Embeds.Images {
+import mx.core.*;
 
-        }
+[Embed(source="data/Embeds_textile4x4Embed_.png")]
+public class Embeds_textile4x4Embed_ extends mx.core.BitmapAsset {
+    public function Embeds_textile4x4Embed_() {
+        super();
+
     }
+}
 }

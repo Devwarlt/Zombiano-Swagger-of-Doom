@@ -17,7 +17,7 @@
 
 //com.company.assembleegameclient.objects.Player
 
-package com.company.assembleegameclient.objects{
+package com.company.assembleegameclient.objects {
 
 import PopUps.YouHaveBeenPromotedPopUp;
 
@@ -52,7 +52,7 @@ import com.company.util.MoreColorUtil;
 import com.company.util.PointUtil;
 import com.company.util.Trig;
 import com.company.util._G_;
-    
+
 import flash.display.BitmapData;
 import flash.display.GraphicsPath;
 import flash.display.GraphicsSolidFill;
@@ -149,7 +149,7 @@ public class Player extends Character {
     private var newEff:String = "";
     private var specialSkinEffects:Vector.<Effect> = null;
 
-    public function Player(_arg1:XML){
+    public function Player(_arg1:XML) {
         this._06x = new IntPoint();
         super(_arg1);
         this._X_2 = int(_arg1.Attack.@max);
@@ -163,7 +163,8 @@ public class Player extends Character {
         this.specialSkinEffects = new Vector.<Effect>();
         _qm = new Dictionary();
     }
-    public static function _D_U_(_arg1:String, _arg2:XML):Player{
+
+    public static function _D_U_(_arg1:String, _arg2:XML):Player {
         var _local3:int = int(_arg2.ObjectType);
         var _local4:XML = ObjectLibrary.Items[_local3];
         var _local5:Player = new Player(_local4);
@@ -186,24 +187,19 @@ public class Player extends Character {
         _local5.skinId_ = int(_arg2.Skin);
         return (_local5);
     }
-    private static function _091(_arg1:Number, _arg2:_0D_v):int{
+
+    private static function _091(_arg1:Number, _arg2:_0D_v):int {
         var _local4:int;
         var _local3:Number = Trig._V_r((_arg1 - _arg2.angleRad_));
-        if ((((_local3 > (Math.PI / 4))) && ((_local3 < ((3 * Math.PI) / 4)))))
-        {
+        if ((((_local3 > (Math.PI / 4))) && ((_local3 < ((3 * Math.PI) / 4))))) {
             _local4 = _lJ_.DOWN;
-        } else
-        {
-            if ((((_local3 <= (Math.PI / 4))) && ((_local3 >= (-(Math.PI) / 4)))))
-            {
+        } else {
+            if ((((_local3 <= (Math.PI / 4))) && ((_local3 >= (-(Math.PI) / 4))))) {
                 _local4 = _lJ_.RIGHT;
-            } else
-            {
-                if ((((_local3 < (-(Math.PI) / 4))) && ((_local3 > ((-3 * Math.PI) / 4)))))
-                {
+            } else {
+                if ((((_local3 < (-(Math.PI) / 4))) && ((_local3 > ((-3 * Math.PI) / 4))))) {
                     _local4 = _lJ_.UP;
-                } else
-                {
+                } else {
                     _local4 = _lJ_.LEFT;
                 }
             }
@@ -211,69 +207,66 @@ public class Player extends Character {
         return (_local4);
     }
 
-    public function _vr(_arg1:Number, _arg2:Number, _arg3:Number):void{
+    public function _vr(_arg1:Number, _arg2:Number, _arg3:Number):void {
         var _local4:Number;
-        if (this._D_k == null)
-        {
+        if (this._D_k == null) {
             this._D_k = new Point();
         }
         this._ky = _arg1;
         this._D_k.x = _arg2;
         this._D_k.y = _arg3;
-        if (_8a())
-        {
+        if (_8a()) {
             _local4 = this._D_k.x;
             this._D_k.x = -(this._D_k.y);
             this._D_k.y = -(_local4);
             this._ky = -(this._ky);
         }
     }
-    public function _F_S_(_arg1:int):void{
+
+    public function _F_S_(_arg1:int):void {
         this.credits_ = _arg1;
     }
-    public function _Y_C_(_arg1:String):void{
+
+    public function _Y_C_(_arg1:String):void {
         var _local3:GameObject;
         var _local4:Player;
         var _local5:Boolean;
         this.guildName_ = _arg1;
         var _local2:Player = map_.player_;
-        if (_local2 == this)
-        {
-            for each (_local3 in map_.goDict_)
-            {
+        if (_local2 == this) {
+            for each (_local3 in map_.goDict_) {
                 _local4 = (_local3 as Player);
-                if (((!((_local4 == null))) && (!((_local4 == this)))))
-                {
+                if (((!((_local4 == null))) && (!((_local4 == this))))) {
                     _local4._Y_C_(_local4.guildName_);
                 }
             }
-        } else
-        {
+        } else {
             _local5 = ((((((!((_local2 == null))) && (!((_local2.guildName_ == null))))) && (!((_local2.guildName_ == ""))))) && ((_local2.guildName_ == this.guildName_)));
-            if (_local5 != this._N_n)
-            {
+            if (_local5 != this._N_n) {
                 this._N_n = _local5;
                 _U_g = null;
             }
         }
     }
+
     public function setEffect(eff:String):void {
         this.newEff = eff;
     }
-    public function _0D_X_(_arg1:Player):Boolean{
-        if (((_arg1.isPaused()) || (_arg1._di())))
-        {
+
+    public function _0D_X_(_arg1:Player):Boolean {
+        if (((_arg1.isPaused()) || (_arg1._di()))) {
             return (false);
         }
         return (true);
     }
-    public function _Z_C_():int{
+
+    public function _Z_C_():int {
         var _local1:int = getTimer();
         return (Math.max(0, (this.nextTeleportAt_ - _local1)));
     }
-    public function teleportTo(_arg1:Player):Boolean{
-        if (isPaused())
-        {
+
+    public function teleportTo(_arg1:Player):Boolean {
+        if (isPaused()) {
             map_.gs_.textBox_.addText(Parameters.SendError, "Can not request teleport while paused.");
             return (false);
         }
@@ -286,73 +279,76 @@ public class Player extends Character {
         this.nextTeleportAt_ = (getTimer() + _0G_S_);
         return (true);
     }
-    public function _x1(_arg1:String):void{
+
+    public function _x1(_arg1:String):void {
         this._p7();
         map_.mapOverlay_.addChild(new _O_P_(this, _arg1, 0xFF00, 2000));
     }
-    public function _ut(_arg1:Boolean):void{
+
+    public function _ut(_arg1:Boolean):void {
         UrlSoundEffects.play("level_up");
-        if (_arg1)
-        {
+        if (_arg1) {
             this._x1("New Class Unlocked!");
-        } else
-        {
+        } else {
             this._x1("Level Up!");
         }
     }
-    public function _p7():void{
+
+    public function _p7():void {
         map_.addObj(new LevelUpEffect(this, 0xFF00FF00, 20), x_, y_);
     }
-    public function _oK_():void{
+
+    public function _oK_():void {
         map_.addObj(new _0H_T_(this, 0xFFFFFF), x_, y_);
     }
-    public function _0I_I_(_arg1:int):void{
-        if (level_ == 20)
-        {
+
+    public function _0I_I_(_arg1:int):void {
+        if (level_ == 20) {
             return;
         }
         map_.mapOverlay_.addChild(new _O_P_(this, (("+" + _arg1) + "XP"), 0xFF00, 1000));
     }
-    private function _0I_U_():Merchant{
+
+    private function _0I_U_():Merchant {
         var _local3:Point;
         var _local4:Merchant;
-        var _local1:int = ((((x_ - int(x_)))>0.5) ? 1 : -1);
-        var _local2:int = ((((y_ - int(y_)))>0.5) ? 1 : -1);
-        for each (_local3 in _A_u)
-        {
+        var _local1:int = ((((x_ - int(x_))) > 0.5) ? 1 : -1);
+        var _local2:int = ((((y_ - int(y_))) > 0.5) ? 1 : -1);
+        for each (_local3 in _A_u) {
             this._06x.x_ = (x_ + (_local1 * _local3.x));
             this._06x.y_ = (y_ + (_local2 * _local3.y));
             _local4 = map_.merchLookup_[this._06x];
-            if (_local4 != null)
-            {
+            if (_local4 != null) {
                 return ((((PointUtil._bm(_local4.x_, _local4.y_, x_, y_) < 1)) ? _local4 : null));
             }
         }
         return (null);
     }
+
     public function promote():void {
         new YouHaveBeenPromotedPopUp(this.map_.gs_, this.rank);
     }
-    public function _2(_arg1:Number, _arg2:Number):Boolean{
+
+    public function _2(_arg1:Number, _arg2:Number):Boolean {
         this._u0(_arg1, _arg2, _06g);
         return (this.moveTo(_06g.x, _06g.y));
     }
-    override public function moveTo(_arg1:Number, _arg2:Number):Boolean{
+
+    override public function moveTo(_arg1:Number, _arg2:Number):Boolean {
         var _local3:Boolean = super.moveTo(_arg1, _arg2);
         this._0D_8 = this._0I_U_();
         return (_local3);
     }
-    public function _u0(_arg1:Number, _arg2:Number, _arg3:Point):void{
-        if (_R_7())
-        {
+
+    public function _u0(_arg1:Number, _arg2:Number, _arg3:Point):void {
+        if (_R_7()) {
             _arg3.x = x_;
             _arg3.y = y_;
             return;
         }
         var _local4:Number = (_arg1 - x_);
         var _local5:Number = (_arg2 - y_);
-        if ((((((((_local4 < _Q_a)) && ((_local4 > -(_Q_a))))) && ((_local5 < _Q_a)))) && ((_local5 > -(_Q_a)))))
-        {
+        if ((((((((_local4 < _Q_a)) && ((_local4 > -(_Q_a))))) && ((_local5 < _Q_a)))) && ((_local5 > -(_Q_a))))) {
             this._A_y(_arg1, _arg2, _arg3);
             return;
         }
@@ -362,10 +358,8 @@ public class Player extends Character {
         _arg3.x = x_;
         _arg3.y = y_;
         var _local9:Boolean;
-        while (!(_local9))
-        {
-            if ((_local8 + _local7) >= 1)
-            {
+        while (!(_local9)) {
+            if ((_local8 + _local7) >= 1) {
                 _local7 = (1 - _local8);
                 _local9 = true;
             }
@@ -373,71 +367,59 @@ public class Player extends Character {
             _local8 = (_local8 + _local7);
         }
     }
-    public function _A_y(_arg1:Number, _arg2:Number, _arg3:Point):void{
+
+    public function _A_y(_arg1:Number, _arg2:Number, _arg3:Point):void {
         var _local6:Number;
         var _local7:Number;
         var _local4:Boolean = ((((((x_ % 0.5) == 0)) && (!((_arg1 == x_))))) || (!((int((x_ / 0.5)) == int((_arg1 / 0.5))))));
         var _local5:Boolean = ((((((y_ % 0.5) == 0)) && (!((_arg2 == y_))))) || (!((int((y_ / 0.5)) == int((_arg2 / 0.5))))));
-        if (((((!(_local4)) && (!(_local5)))) || (this._M_S_(_arg1, _arg2))))
-        {
+        if (((((!(_local4)) && (!(_local5)))) || (this._M_S_(_arg1, _arg2)))) {
             _arg3.x = _arg1;
             _arg3.y = _arg2;
             return;
         }
-        if (_local4)
-        {
-            _local6 = (((_arg1)>x_) ? (int((_arg1 * 2)) / 2) : (int((x_ * 2)) / 2));
-            if (int(_local6) > int(x_))
-            {
+        if (_local4) {
+            _local6 = (((_arg1) > x_) ? (int((_arg1 * 2)) / 2) : (int((x_ * 2)) / 2));
+            if (int(_local6) > int(x_)) {
                 _local6 = (_local6 - 0.01);
             }
         }
-        if (_local5)
-        {
-            _local7 = (((_arg2)>y_) ? (int((_arg2 * 2)) / 2) : (int((y_ * 2)) / 2));
-            if (int(_local7) > int(y_))
-            {
+        if (_local5) {
+            _local7 = (((_arg2) > y_) ? (int((_arg2 * 2)) / 2) : (int((y_ * 2)) / 2));
+            if (int(_local7) > int(y_)) {
                 _local7 = (_local7 - 0.01);
             }
         }
-        if (!_local4)
-        {
+        if (!_local4) {
             _arg3.x = _arg1;
             _arg3.y = _local7;
             return;
         }
-        if (!_local5)
-        {
+        if (!_local5) {
             _arg3.x = _local6;
             _arg3.y = _arg2;
             return;
         }
-        var _local8:Number = (((_arg1)>x_) ? (_arg1 - _local6) : (_local6 - _arg1));
-        var _local9:Number = (((_arg2)>y_) ? (_arg2 - _local7) : (_local7 - _arg2));
-        if (_local8 > _local9)
-        {
-            if (this._M_S_(_arg1, _local7))
-            {
+        var _local8:Number = (((_arg1) > x_) ? (_arg1 - _local6) : (_local6 - _arg1));
+        var _local9:Number = (((_arg2) > y_) ? (_arg2 - _local7) : (_local7 - _arg2));
+        if (_local8 > _local9) {
+            if (this._M_S_(_arg1, _local7)) {
                 _arg3.x = _arg1;
                 _arg3.y = _local7;
                 return;
             }
-            if (this._M_S_(_local6, _arg2))
-            {
+            if (this._M_S_(_local6, _arg2)) {
                 _arg3.x = _local6;
                 _arg3.y = _arg2;
                 return;
             }
-        } else
-        {
-            if (this._M_S_(_local6, _arg2))
-            {
+        } else {
+            if (this._M_S_(_local6, _arg2)) {
                 _arg3.x = _local6;
                 _arg3.y = _arg2;
                 return;
             }
-            if (this._M_S_(_arg1, _local7))
-            {
+            if (this._M_S_(_arg1, _local7)) {
                 _arg3.x = _arg1;
                 _arg3.y = _local7;
                 return;
@@ -446,74 +428,53 @@ public class Player extends Character {
         _arg3.x = _local6;
         _arg3.y = _local7;
     }
-    public function _M_S_(_arg1:Number, _arg2:Number):Boolean{
+
+    public function _M_S_(_arg1:Number, _arg2:Number):Boolean {
         var _local3:Square = map_.getSquare(_arg1, _arg2);
-        if (((!((_0H_B_ == _local3))) && ((((_local3 == null)) || (!(_local3._0C_D_()))))))
-        {
+        if (((!((_0H_B_ == _local3))) && ((((_local3 == null)) || (!(_local3._0C_D_())))))) {
             return (false);
         }
         var _local4:Number = (_arg1 - int(_arg1));
         var _local5:Number = (_arg2 - int(_arg2));
-        if (_local4 < 0.5)
-        {
-            if (this._g7((_arg1 - 1), _arg2))
-            {
+        if (_local4 < 0.5) {
+            if (this._g7((_arg1 - 1), _arg2)) {
                 return (false);
             }
-            if (_local5 < 0.5)
-            {
-                if (((this._g7(_arg1, (_arg2 - 1))) || (this._g7((_arg1 - 1), (_arg2 - 1)))))
-                {
+            if (_local5 < 0.5) {
+                if (((this._g7(_arg1, (_arg2 - 1))) || (this._g7((_arg1 - 1), (_arg2 - 1))))) {
                     return (false);
                 }
-            } else
-            {
-                if (_local5 > 0.5)
-                {
-                    if (((this._g7(_arg1, (_arg2 + 1))) || (this._g7((_arg1 - 1), (_arg2 + 1)))))
-                    {
+            } else {
+                if (_local5 > 0.5) {
+                    if (((this._g7(_arg1, (_arg2 + 1))) || (this._g7((_arg1 - 1), (_arg2 + 1))))) {
                         return (false);
                     }
                 }
             }
-        } else
-        {
-            if (_local4 > 0.5)
-            {
-                if (this._g7((_arg1 + 1), _arg2))
-                {
+        } else {
+            if (_local4 > 0.5) {
+                if (this._g7((_arg1 + 1), _arg2)) {
                     return (false);
                 }
-                if (_local5 < 0.5)
-                {
-                    if (((this._g7(_arg1, (_arg2 - 1))) || (this._g7((_arg1 + 1), (_arg2 - 1)))))
-                    {
+                if (_local5 < 0.5) {
+                    if (((this._g7(_arg1, (_arg2 - 1))) || (this._g7((_arg1 + 1), (_arg2 - 1))))) {
                         return (false);
                     }
-                } else
-                {
-                    if (_local5 > 0.5)
-                    {
-                        if (((this._g7(_arg1, (_arg2 + 1))) || (this._g7((_arg1 + 1), (_arg2 + 1)))))
-                        {
+                } else {
+                    if (_local5 > 0.5) {
+                        if (((this._g7(_arg1, (_arg2 + 1))) || (this._g7((_arg1 + 1), (_arg2 + 1))))) {
                             return (false);
                         }
                     }
                 }
-            } else
-            {
-                if (_local5 < 0.5)
-                {
-                    if (this._g7(_arg1, (_arg2 - 1)))
-                    {
+            } else {
+                if (_local5 < 0.5) {
+                    if (this._g7(_arg1, (_arg2 - 1))) {
                         return (false);
                     }
-                } else
-                {
-                    if (_local5 > 0.5)
-                    {
-                        if (this._g7(_arg1, (_arg2 + 1)))
-                        {
+                } else {
+                    if (_local5 > 0.5) {
+                        if (this._g7(_arg1, (_arg2 + 1))) {
                             return (false);
                         }
                     }
@@ -522,33 +483,35 @@ public class Player extends Character {
         }
         return (true);
     }
-    public function _g7(_arg1:Number, _arg2:Number):Boolean{
+
+    public function _g7(_arg1:Number, _arg2:Number):Boolean {
         var _local3:Square = map_.lookupSquare(_arg1, _arg2);
         return ((((((_local3 == null)) || ((_local3.tileType_ == 0xFF)))) || (((!((_local3.obj_ == null))) && (_local3.obj_.props_._4V_)))));
     }
-    override public function update(_arg1:int, _arg2:int):Boolean{
+
+    override public function update(_arg1:int, _arg2:int):Boolean {
         var _local3:Number;
         var _local4:Number;
         var _local5:Number;
         var _local6:int;
 
-        if(this.prevEffect != this.newEff) {
+        if (this.prevEffect != this.newEff) {
             this.prevEffect = this.newEff;
             for each(var _effect:Effect in this.specialSkinEffects) {
                 map_.removeObj(_effect.objectId_);
             }
             this.specialSkinEffects = new Vector.<Effect>();
             var _effXML:XML = XML(this.newEff);
-            if(_effXML.name() == "Effects") {
+            if (_effXML.name() == "Effects") {
                 for each(var _childEff:XML in _effXML.children()) {
                     var _newEff:Effect = Effect.resolve(new _D_J_(_childEff), this);
-                    if(_newEff != null) {
+                    if (_newEff != null) {
                         this.specialSkinEffects.push(_newEff);
                     }
                 }
             } else {
                 var _newEff:Effect = Effect.resolve(new _D_J_(XML(this.newEff)), this);
-                if(_newEff != null) {
+                if (_newEff != null) {
                     this.specialSkinEffects.push(_newEff);
                 }
             }
@@ -557,59 +520,46 @@ public class Player extends Character {
             }
         }
 
-        if (((_00c()) && (!(isPaused()))))
-        {
-            if (this._nE_ == null)
-            {
+        if (((_00c()) && (!(isPaused())))) {
+            if (this._nE_ == null) {
                 this._nE_ = new HealingEffect(this);
                 map_.addObj(this._nE_, x_, y_);
             }
-        } else
-        {
-            if (this._nE_ != null)
-            {
+        } else {
+            if (this._nE_ != null) {
                 map_.removeObj(this._nE_.objectId_);
                 this._nE_ = null;
             }
         }
-        if ((((map_.player_ == this)) && (isPaused())))
-        {
+        if ((((map_.player_ == this)) && (isPaused()))) {
             return (true);
         }
-        if (this._D_k != null)
-        {
+        if (this._D_k != null) {
             _local3 = Parameters.data_.cameraAngle;
-            if (this._ky != 0)
-            {
+            if (this._ky != 0) {
                 _local3 = (_local3 + ((_arg2 * Parameters.data_.rotationSpeed) * this._ky));
                 Parameters.data_.cameraAngle = _local3;
             }
-            if (((!((this._D_k.x == 0))) || (!((this._D_k.y == 0)))))
-            {
+            if (((!((this._D_k.x == 0))) || (!((this._D_k.y == 0))))) {
                 _local4 = this._J_N_();
                 _local5 = Math.atan2(this._D_k.y, this._D_k.x);
                 moveVec_.x = (_local4 * Math.cos((_local3 + _local5)));
                 moveVec_.y = (_local4 * Math.sin((_local3 + _local5)));
-            } else
-            {
+            } else {
                 moveVec_.x = 0;
                 moveVec_.y = 0;
             }
-            if (((!((_0H_B_ == null))) && (_0H_B_.props_.push_)))
-            {
+            if (((!((_0H_B_ == null))) && (_0H_B_.props_.push_))) {
                 moveVec_.x = (moveVec_.x - (_0H_B_.props_.animate_.dx_ / 1000));
                 moveVec_.y = (moveVec_.y - (_0H_B_.props_.animate_.dy_ / 1000));
             }
             this._2((x_ + (_arg2 * moveVec_.x)), (y_ + (_arg2 * moveVec_.y)));
-        } else
-        {
-            if (!super.update(_arg1, _arg2))
-            {
+        } else {
+            if (!super.update(_arg1, _arg2)) {
                 return (false);
             }
         }
-        if ((((((((((map_.player_ == this)) && ((_0H_B_.props_.maxDamage_ > 0)))) && (((_0H_B_.lastDamage_ + 500) < _arg1)))) && (!(_0C_4())))) && ((((_0H_B_.obj_ == null)) || (!(_0H_B_.obj_.props_.protectFromGroundDamage_))))))
-        {
+        if ((((((((((map_.player_ == this)) && ((_0H_B_.props_.maxDamage_ > 0)))) && (((_0H_B_.lastDamage_ + 500) < _arg1)))) && (!(_0C_4())))) && ((((_0H_B_.obj_ == null)) || (!(_0H_B_.obj_.props_.protectFromGroundDamage_)))))) {
             _local6 = map_.gs_.packetManager.getNextDamage(_0H_B_.props_.minDamage_, _0H_B_.props_.maxDamage_);
             damage(-1, _local6, null, (HP_ <= _local6), null);
             map_.gs_.packetManager.groundDamage(_arg1, x_, y_);
@@ -617,28 +567,25 @@ public class Player extends Character {
         }
         return (true);
     }
-    public function _01w():void{
-        if(map_ == null) return;
+
+    public function _01w():void {
+        if (map_ == null) return;
         var _local1:Square = map_.getSquare(x_, y_);
-        if (_local1.props_._rr)
-        {
+        if (_local1.props_._rr) {
             _0F_ = Math.min((_0F_ + 1), Parameters.MAX_SINK_VALUE);
             this._W_V_ = (0.1 + ((1 - (_0F_ / Parameters.MAX_SINK_VALUE)) * (_local1.props_.speed_ - 0.1)));
-        } else
-        {
+        } else {
             _0F_ = 0;
             this._W_V_ = _local1.props_.speed_;
         }
     }
-    override protected function generateNameBitmapData(_arg1:SimpleText):BitmapData{
-        if (this._N_n)
-        {
-            _arg1._gp(Parameters._mg);
-        } else
-        {
-            if (this._hv)
-            {
-                _arg1._gp(Parameters._8T_);
+
+    override protected function generateNameBitmapData(_arg1:SimpleText):BitmapData {
+        if (this._N_n) {
+            _arg1.setColor(Parameters._mg);
+        } else {
+            if (this._hv) {
+                _arg1.setColor(Parameters._8T_);
             }
         }
         var _local2:BitmapData = new BitmapData((_arg1.width + 20), 64, true, 0);
@@ -648,22 +595,20 @@ public class Player extends Character {
         //_local2.draw(_local3, _I_5);
         return (_local2);
     }
-    protected function _071(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void{
+
+    protected function _071(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void {
         var _local8:Number;
         var _local9:Number;
-        if (this._K_Y_ == null)
-        {
+        if (this._K_Y_ == null) {
             this._F_k = new GraphicsSolidFill();
             this._03i = new GraphicsPath(GraphicHelper._H_2, new Vector.<Number>());
             this._Y_e = new GraphicsSolidFill(2542335);
             this._K_Y_ = new GraphicsPath(GraphicHelper._H_2, new Vector.<Number>());
         }
-        if (this._R_4 <= Parameters._E_S_)
-        {
+        if (this._R_4 <= Parameters._E_S_) {
             _local8 = ((Parameters._E_S_ - this._R_4) / Parameters._E_S_);
             this._F_k.color = MoreColorUtil._oH_(0x545454, 0xFF0000, (Math.abs(Math.sin((_arg3 / 300))) * _local8));
-        } else
-        {
+        } else {
             this._F_k.color = 0x545454;
         }
         var _local4:int = 20;
@@ -675,8 +620,7 @@ public class Player extends Character {
         _arg1.push(this._F_k);
         _arg1.push(this._03i);
         _arg1.push(GraphicHelper.END_FILL);
-        if (this._R_4 > 0)
-        {
+        if (this._R_4 > 0) {
             _local7 = this._K_Y_.data;
             _local9 = (((this._R_4 / 100) * 2) * _local4);
             _local7.length = 0;
@@ -686,73 +630,69 @@ public class Player extends Character {
             _arg1.push(GraphicHelper.END_FILL);
         }
     }
-    override public function draw(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void{
+
+    override public function draw(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void {
         super.draw(_arg1, _arg2, _arg3);
         this.abilityCooldownSecGoal = ObjectLibrary.Items[equipment_[1]] == null ? 0 : int(ObjectLibrary.Items[equipment_[1]].MpCost);
-        if (this != map_.player_)
-        {
-            if (!Parameters._0F_o)
-            {
-    			if (this != this.map_.player_ && this.map_.player_.canBeHitBy(this)) {
-    				if (!this._di()) {
-    					_oL_(_arg1, _arg2);
-    				}
-    			} else {
-                	_oL_(_arg1, _arg2);
-    			}
+        if (this != map_.player_) {
+            if (!Parameters._0F_o) {
+                if (this != this.map_.player_ && this.map_.player_.canBeHitBy(this)) {
+                    if (!this._di()) {
+                        _oL_(_arg1, _arg2);
+                    }
+                } else {
+                    _oL_(_arg1, _arg2);
+                }
             }
-        } else
-        {
-            if (this._R_4 >= 0)
-            {
+        } else {
+            if (this._R_4 >= 0) {
                 this._071(_arg1, _arg2, _arg3);
             }
         }
     }
-    private function _J_N_():Number{
-        if (_051())
-        {
+
+    private function _J_N_():Number {
+        if (_051()) {
             return ((_dK_ * this._W_V_));
         }
         var _local1:Number = (_dK_ + ((this.speed_ / 75) * (_T_v - _dK_)));
-        if (_N_4())
-        {
+        if (_N_4()) {
             _local1 = (_local1 * 1.5);
         }
         return ((_local1 * this._W_V_));
     }
-    public function _F_W_():Number{
-        if (_0I_0())
-        {
+
+    public function _F_W_():Number {
+        if (_0I_0()) {
             return (_lU_);
         }
         var _local1:Number = (_lU_ + ((this.dexterity_ / 75) * (_Z_ - _lU_)));
-        if (_L_8())
-        {
+        if (_L_8()) {
             _local1 = (_local1 * 1.5);
         }
         return (_local1);
     }
-    private function _6D_():Number{
-        if (_hQ_())
-        {
+
+    private function _6D_():Number {
+        if (_hQ_()) {
             return (_01b);
         }
         var _local1:Number = (_01b + ((this.attack_ / 75) * (_0J_Q_ - _01b)));
-        if (_07I_())
-        {
+        if (_07I_()) {
             _local1 = (_local1 * 1.5);
         }
         return (_local1);
     }
-    private function _ur():void{
+
+    private function _ur():void {
         var _local1:_Z_H_ = ObjectLibrary._V_a[objectType_];
         texture_ = _local1.texture_;
         mask_ = _local1.mask_;
         _yN_ = _local1._yN_;
         this._7U_ = true;
     }
-    private function _Q_K_():void{
+
+    private function _Q_K_():void {
         var _local1:Vector.<XML> = ObjectLibrary._J_G_;
         var _local2:uint = Math.floor((Math.random() * _local1.length));
         var _local3:int = _local1[_local2].@type;
@@ -762,7 +702,8 @@ public class Player extends Character {
         _yN_ = _local4._yN_;
         this._7U_ = false;
     }
-    override protected function getTexture(_arg1:_0D_v, _arg2:int):BitmapData{
+
+    override protected function getTexture(_arg1:_0D_v, _arg2:int):BitmapData {
         var _local10:int;
         var _local11:Dictionary;
         var _local12:Number;
@@ -770,104 +711,86 @@ public class Player extends Character {
         var _local14:ColorTransform;
         var _local3:Number = 0;
         var _local4:int = _lJ_._sS_;
-        if (_arg2 < (_W_J_ + this._y4))
-        {
+        if (_arg2 < (_W_J_ + this._y4)) {
             _N_V_ = _M_r;
             _local3 = (((_arg2 - _W_J_) % this._y4) / this._y4);
             _local4 = _lJ_._E_w;
-        } else
-        {
-            if (((!((moveVec_.x == 0))) || (!((moveVec_.y == 0)))))
-            {
+        } else {
+            if (((!((moveVec_.x == 0))) || (!((moveVec_.y == 0))))) {
                 _local10 = (3.5 / this._J_N_());
-                if (((!((moveVec_.y == 0))) || (!((moveVec_.x == 0)))))
-                {
+                if (((!((moveVec_.y == 0))) || (!((moveVec_.x == 0))))) {
                     _N_V_ = Math.atan2(moveVec_.y, moveVec_.x);
                 }
                 _local3 = ((_arg2 % _local10) / _local10);
                 _local4 = _lJ_._m1;
             }
         }
-        if (((this._o4()) && (this._7U_)))
-        {
+        if (((this._o4()) && (this._7U_))) {
             this._Q_K_();
         }
-        if (((!(this._o4())) && (!(this._7U_))))
-        {
+        if (((!(this._o4())) && (!(this._7U_)))) {
             this._ur();
         }
         var _local5:_J_H_ = _yN_.imageFromFacing(_N_V_, _arg1, _local4, _local3);
-        if (_arg1._kN_)
-        {
+        if (_arg1._kN_) {
             _local5 = new _J_H_(_1g(), null);
         }
         var _local6:int = tex1Id_;
         var _local7:int = tex2Id_;
         var _local8:BitmapData;
-        if (this._0D_8 != null)
-        {
+        if (this._0D_8 != null) {
             _local11 = _qm[this._0D_8];
-            if (_local11 == null)
-            {
+            if (_local11 == null) {
                 _qm[this._0D_8] = new Dictionary();
-            } else
-            {
+            } else {
                 _local8 = _local11[_local5];
             }
             _local6 = this._0D_8.getTex1Id(tex1Id_);
             _local7 = this._0D_8.getTex2Id(tex2Id_);
-    		this.previewSkin(this._0D_8.getSkinId(skinId_, this));
-        } else
-        {
+            this.previewSkin(this._0D_8.getSkinId(skinId_, this));
+        } else {
             _local8 = _qm[_local5];
-    		this.previewSkin(-1);
+            this.previewSkin(-1);
         }
-        if (_local8 == null)
-        {
+        if (_local8 == null) {
             _local8 = TextureRedrawer.resize(_local5.image_, _local5.mask_, size_, false, _local6, _local7);
-            if (this._0D_8 != null)
-            {
+            if (this._0D_8 != null) {
                 _qm[this._0D_8][_local5] = _local8;
-            } else
-            {
+            } else {
                 _qm[_local5] = _local8;
             }
         }
-        if (HP_ < (maxHP_ * 0.2))
-        {
+        if (HP_ < (maxHP_ * 0.2)) {
             _local12 = (int((Math.abs(Math.sin((_arg2 / 200))) * 10)) / 10);
             _local13 = 128;
             _local14 = new ColorTransform(1, 1, 1, 1, (_local12 * _local13), (-(_local12) * _local13), (-(_local12) * _local13));
             _local8 = _G_._B_2(_local8, _local14);
         }
         var _local9:BitmapData = _qm[_local8];
-        if (_local9 == null)
-        {
+        if (_local9 == null) {
             //_local9 = TextureRedrawer.outlineGlow(_local8, 0, (((this.premium == -1)) ? 0 : 0xFF00FF)); //With Glowing
             _local9 = TextureRedrawer.outlineGlow(_local8, 0, 0);
             _qm[_local8] = _local9;
         }
-        if (((isPaused()) || (_C_H_())))
-        {
+        if (((isPaused()) || (_C_H_()))) {
             _local9 = _G_._R_9(_local9, _oj);
-        } else
-        {
-            if (_di())
-            {
-    			if (this != this.map_.player_ && this.map_.player_.canBeHitBy(this)) {
-    				_local9 = _G_._0C_m(_local9, 0);
-    			} else {
-                	_local9 = _G_._0C_m(_local9, 0.4);
-    			}
+        } else {
+            if (_di()) {
+                if (this != this.map_.player_ && this.map_.player_.canBeHitBy(this)) {
+                    _local9 = _G_._0C_m(_local9, 0);
+                } else {
+                    _local9 = _G_._0C_m(_local9, 0.4);
+                }
             }
         }
         return (_local9);
     }
+
     override public function getPortrait():BitmapData {
         var _local1:_J_H_;
         var _local2:int;
         if (_tm == null) {
-            if(this.skinId_ != -1) {
+            if (this.skinId_ != -1) {
                 var _local3:_Z_H_ = ObjectLibrary._V_a[this.skinId_];
                 var oldTex = this.texture_;
                 var oldMask = this.mask_;
@@ -897,92 +820,81 @@ public class Player extends Character {
         return (_tm);
     }
 
-    public function sprint(_arg1:Boolean):void{
+    public function sprint(_arg1:Boolean):void {
         sprinting = _arg1;
         map_.gs_.packetManager.sprintStart(_arg1);
     }
 
-    public function useAltWeapon(_arg1:Number, _arg2:Number):void{
+    public function useAltWeapon(_arg1:Number, _arg2:Number):void {
         var _local7:XML;
         var _local8:int;
         var _local10:Number;
-        if (map_ == null || isPaused() || (this.map_.gs_.textBox_ != null && this.map_.gs_.textBox_.isOpen))
-        {
+        if (map_ == null || isPaused() || (this.map_.gs_.textBox_ != null && this.map_.gs_.textBox_.isOpen)) {
             return;
         }
         var _local3:int = equipment_[1];
-        if (_local3 == -1)
-        {
+        if (_local3 == -1) {
             return;
         }
         var _local4:XML = ObjectLibrary.Items[_local3];
-        if (_local4 == null || !_local4.hasOwnProperty("Usable"))
-        {
+        if (_local4 == null || !_local4.hasOwnProperty("Usable")) {
             return;
         }
         var _local5:int = int(_local4.MpCost);
-        if (_local5 > this.abilityCooldownSec)
-        {
+        if (_local5 > this.abilityCooldownSec) {
             UrlSoundEffects.play("no_mana");
             return;
         }
         var _local6:Point = map_.pSTopW(_arg1, _arg2);
-        if (_local6 == null)
-        {
+        if (_local6 == null) {
             UrlSoundEffects.play("error");
             return;
         }
-        for each (_local7 in _local4.Activate)
-        {
-            if (_local7.toString() == "Teleport")
-            {
-                if (!this._M_S_(_local6.x, _local6.y))
-                {
+        for each (_local7 in _local4.Activate) {
+            if (_local7.toString() == "Teleport") {
+                if (!this._M_S_(_local6.x, _local6.y)) {
                     UrlSoundEffects.play("error");
                     return;
                 }
             }
         }
         _local8 = getTimer();
-        if (_local8 < this._0m)
-        {
+        if (_local8 < this._0m) {
             UrlSoundEffects.play("error");
             return;
         }
         var _local9 = 500;
-        if (_local4.hasOwnProperty("Cooldown"))
-        {
+        if (_local4.hasOwnProperty("Cooldown")) {
             _local9 = (Number(_local4.Cooldown) * 1000);
         }
         this._0m = (_local8 + _local9);
         map_.gs_.packetManager.useItem(_local8, objectId_, 1, _local3, _local6.x, _local6.y);
-        if (_local4.Activate == "Shoot")
-        {
+        if (_local4.Activate == "Shoot") {
             _local10 = Math.atan2(_arg2, _arg1);
             this._G_Y_(_local8, _local3, _local4, (Parameters.data_.cameraAngle + _local10), false);
         }
     }
-    public function _O_7(_arg1:Number):void{
+
+    public function _O_7(_arg1:Number):void {
         this.shoot(Parameters.data_.cameraAngle + _arg1);
     }
-    override public function setAttack(_arg1:int, _arg2:Number):void{
+
+    override public function setAttack(_arg1:int, _arg2:Number):void {
         var _local3:XML = ObjectLibrary.Items[_arg1];
-        if (_local3 == null || !_local3.hasOwnProperty("RateOfFire"))
-        {
+        if (_local3 == null || !_local3.hasOwnProperty("RateOfFire")) {
             return;
         }
         var _local4:Number = Number(_local3.RateOfFire);
         this._y4 = ((1 / this._F_W_()) * (1 / _local4));
         super.setAttack(_arg1, _arg2);
     }
-    private function shoot(_arg1:Number):void{
-        if (map_ == null || _0I_e() || isPaused())
-        {
+
+    private function shoot(_arg1:Number):void {
+        if (map_ == null || _0I_e() || isPaused()) {
             return;
         }
         var _local2:int = equipment_[0];
-        if (_local2 == -1)
-        {
+        if (_local2 == -1) {
             map_.gs_.textBox_.addText(Parameters.SendError, "You do not have a weapon equipped!");
             return;
         }
@@ -990,8 +902,7 @@ public class Player extends Character {
         var _local4:int = getTimer();
         var _local5:Number = Number(_local3.RateOfFire);
         this._y4 = ((1 / this._F_W_()) * (1 / _local5));
-        if (_local4 < (_W_J_ + this._y4))
-        {
+        if (_local4 < (_W_J_ + this._y4)) {
             return;
         }
         doneAction(map_.gs_, Tutorial._9Z_);
@@ -999,7 +910,8 @@ public class Player extends Character {
         _W_J_ = _local4;
         this._G_Y_(_W_J_, _local2, _local3, _M_r, true);
     }
-    private function _G_Y_(_arg1:int, _arg2:int, _arg3:XML, _arg4:Number, _arg5:Boolean):void{
+
+    private function _G_Y_(_arg1:int, _arg2:int, _arg3:XML, _arg4:Number, _arg5:Boolean):void {
         var _local12:uint;
         var _local13:Projectile;
         var _local14:int;
@@ -1012,8 +924,7 @@ public class Player extends Character {
         var _local9:Number = (_local7 * (_local6 - 1));
         var _local10:Number = (_arg4 - (_local9 / 2));
         var _local11:int;
-        while (_local11 < _local6)
-        {
+        while (_local11 < _local6) {
             _local12 = _true();
             _local13 = (_wW_._B_1(Projectile) as Projectile);
             _local13.reset(_arg2, 0, objectId_, _local12, _local10, _arg1);
@@ -1021,13 +932,11 @@ public class Player extends Character {
             _local15 = int(_local13._ko.maxDamage_);
             _local16 = ((_arg5) ? this._6D_() : 1);
             _local17 = (map_.gs_.packetManager.getNextDamage(_local14, _local15) * _local16);
-            if (_arg1 > (map_.gs_.moveRecords_.lastClearTime_ + 600))
-            {
+            if (_arg1 > (map_.gs_.moveRecords_.lastClearTime_ + 600)) {
                 _local17 = 0;
             }
             _local13._T_j(_local17);
-            if ((((_local11 == 0)) && (!((_local13._P_B_ == null)))))
-            {
+            if ((((_local11 == 0)) && (!((_local13._P_B_ == null))))) {
                 UrlSoundEffects.play(_local13._P_B_, 0.75, false);
             }
             map_.addObj(_local13, (x_ + (Math.cos(_arg4) * 0.3)), (y_ + (Math.sin(_arg4) * 0.3)));
@@ -1036,27 +945,31 @@ public class Player extends Character {
             _local11++;
         }
     }
-    public function _7b():String{
+
+    public function _7b():String {
         return (ObjectLibrary._0D_N_[objectType_]);
     }
-    override public function toString():String{
+
+    override public function toString():String {
         return ("<Char>" + "<Name>" + name_ + "</Name>" + "<ObjectType>" + objectType_ + "</ObjectType>" + "<Level>" + level_ + "</Level>" + "<Exp>" + this.exp_ + "</Exp>" + "<Equipment>" + equipment_ + "</Equipment>" + "<MaxHitPoints>" + maxHP_ + "</MaxHitPoints>" + "<HitPoints>" + HP_ + "</HitPoints>" + "<MaxMagicPoints>" + this.maxMP_ + "</MaxMagicPoints>" + "<MagicPoints>" + this.MP_ + "</MagicPoints>" + "<Attack>" + this.attack_ + "</Attack>" + "<Defense>" + defense_ + "</Defense>" + "<Speed>" + this.speed_ + "</Speed>" + "<HpRegen>" + this.vitality_ + "</HpRegen>" + "<MpRegen>" + this.wisdom_ + "</MpRegen>" + "<Dexterity>" + this.dexterity_ + "</Dexterity>" + "</Char>");
     }
-    protected function _ei():BitmapData{
-        if (this._sd == null)
-        {
+
+    protected function _ei():BitmapData {
+        if (this._sd == null) {
             this._sd = AssetLibrary._xK_("lofiChar8x8", int((Math.random() * 239)));
         }
         return (this._sd);
     }
-    public function _o4():Boolean{
+
+    public function _o4():Boolean {
         return (!(((_9B_ & ConditionEffect._gY_) == 0)));
     }
-    override public function drawShadow(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void{
-    	if(this != this.map_.player_ && this.map_.player_.canBeHitBy(this) && this._di()) {
-    		return;
-    	}
-    	super.drawShadow(_arg1, _arg2, _arg3);
+
+    override public function drawShadow(_arg1:Vector.<IGraphicsData>, _arg2:_0D_v, _arg3:int):void {
+        if (this != this.map_.player_ && this.map_.player_.canBeHitBy(this) && this._di()) {
+            return;
+        }
+        super.drawShadow(_arg1, _arg2, _arg3);
     }
 }
 }//package com.company.assembleegameclient.objects

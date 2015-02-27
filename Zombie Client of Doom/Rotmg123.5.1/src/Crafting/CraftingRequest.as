@@ -15,7 +15,7 @@
 /**
  * Created by Fabian on 18.11.2014.
  */
-package CraftingWebRequests {
+package Crafting {
 import _qN_.Account;
 
 import WebRequestEvents.WebRequestSuccessEvent;
@@ -28,25 +28,20 @@ import flash.events.Event;
 
 public class CraftingRequest extends WebRequest {
 
-    private static var lockRequest:Boolean;
+    public var recipes:Vector.<String>;
 
     public function CraftingRequest() {
-        if(!lockRequest) {
-            lockRequest = true;
-            super(Parameters.getAccountServerIP(), "/crafting", true);
-            init();
-        }
+        super(Parameters.getAccountServerIP(), "/crafting", true);
     }
 
-    private function init():void {
+    public function sendRecipeRequest():void {
         addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.dataReceived);
-        var _local1:Object = Account._get().credentials();
-        sendRequest("getRecipes", _local1);
+        var query:Object = Account._get().credentials();
+        sendRequest("getRecipes", query);
     }
 
-    public function dataReceived(_arg1:WebRequestSuccessEvent):void {
-        CraftingTerminal.recipes = Vector.<String>(_arg1.data_.toString().split("\n"));
-        lockRequest = false;
+    private function dataReceived(_arg1:WebRequestSuccessEvent):void {
+        dispatchEvent(new CraftingRecipes(Vector.<String>(_arg1.data_.toString().split("\n"))));
     }
 }
 }

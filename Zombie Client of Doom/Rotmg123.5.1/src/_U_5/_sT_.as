@@ -17,11 +17,11 @@
 
 //_U_5._sT_
 
-package _U_5{
-    import _sp._aJ_;
+package _U_5 {
+import _sp._aJ_;
 
-    public class _sT_ extends _aJ_ {
+public class _sT_ extends _aJ_ {
 
-    }
+}
 }//package _U_5
 

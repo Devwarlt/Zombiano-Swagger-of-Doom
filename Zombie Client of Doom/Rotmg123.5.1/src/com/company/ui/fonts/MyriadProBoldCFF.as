@@ -12,19 +12,16 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.ui.fonts
-{
-    import mx.core.FontAsset;
-	
-	[Embed(source="MyriadProBold.otf", fontName="MyriadProCFF", fontFamily="MyriadPro", fontStyle="Bold", fontWeight="bold", embedAsCFF="true", mimeType="application/x-font")]
-	public class MyriadProBoldCFF extends FontAsset
-	{
-		public function MyriadProBoldCFF()
-		{
-			super();
+package com.company.ui.fonts {
+import mx.core.FontAsset;
 
-		}
-		
-		private static const _0E_X_:Class=com.company.ui.fonts.MyriadProBold_MyriadProBoldCFF;
-	}
+[Embed(source="MyriadProBold.otf", fontName="MyriadProCFF", fontFamily="MyriadPro", fontStyle="Bold", fontWeight="bold", embedAsCFF="true", mimeType="application/x-font")]
+public class MyriadProBoldCFF extends FontAsset {
+    public function MyriadProBoldCFF() {
+        super();
+
+    }
+
+    private static const _0E_X_:Class = com.company.ui.fonts.MyriadProBold_MyriadProBoldCFF;
+}
 }

@@ -12,18 +12,18 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package _0_j{
+package _0_j {
 
-    import com.company.util.IntPoint;
+import com.company.util.IntPoint;
 
 
-    public class _0G_g extends _2i {
+public class _0G_g extends _2i {
 
-        private static const _M_p:Vector.<IntPoint> = new <IntPoint>[new IntPoint(4, 4), new IntPoint(5, 5), new IntPoint(9, 9), new IntPoint(10, 10)];
+    private static const _M_p:Vector.<IntPoint> = new <IntPoint>[new IntPoint(4, 4), new IntPoint(5, 5), new IntPoint(9, 9), new IntPoint(10, 10)];
 
-        public function _0G_g(){
-            super(_M_p);
-        }
+    public function _0G_g() {
+        super(_M_p);
     }
+}
 }//package _0_j
 

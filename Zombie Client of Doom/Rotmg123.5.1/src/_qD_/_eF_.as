@@ -17,20 +17,20 @@
 
 //_qD_._eF_
 
-package _qD_{
-    import flash.events.Event;
+package _qD_ {
+import flash.events.Event;
 
 
-    public class _eF_ extends Event {
+public class _eF_ extends Event {
 
-        public static const SET_PIXELS_EVENT:String = "SET_PIXELS_EVENT";
+    public static const SET_PIXELS_EVENT:String = "SET_PIXELS_EVENT";
 
-        public var _R_D_:Vector.<_L_e>;
+    public var _R_D_:Vector.<_L_e>;
 
-        public function _eF_(_arg1:Vector.<_L_e>){
-            super(SET_PIXELS_EVENT, true);
-            this._R_D_ = _arg1;
-        }
+    public function _eF_(_arg1:Vector.<_L_e>) {
+        super(SET_PIXELS_EVENT, true);
+        this._R_D_ = _arg1;
     }
+}
 }//package _qD_
 

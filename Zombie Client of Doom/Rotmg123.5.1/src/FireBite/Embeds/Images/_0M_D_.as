@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package FireBite.Embeds.Images
-{
-    import mx.core.*;
-    
-    [Embed(source="data/_0M_D_.png")]
-    public class _0M_D_ extends mx.core.BitmapAsset
-    {
-        public function _0M_D_()
-        {
-            super();
+package FireBite.Embeds.Images {
+import mx.core.*;
 
-        }
+[Embed(source="data/_0M_D_.png")]
+public class _0M_D_ extends mx.core.BitmapAsset {
+    public function _0M_D_() {
+        super();
+
     }
+}
 }

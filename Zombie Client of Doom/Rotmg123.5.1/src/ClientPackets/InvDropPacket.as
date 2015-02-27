@@ -17,25 +17,28 @@
 
 //ClientPackets._0C_G_
 
-package ClientPackets{
-    import com.company.assembleegameclient.net.messages.data.SlotObject;
-    import flash.utils.IDataOutput;
+package ClientPackets {
+import com.company.assembleegameclient.net.messages.data.SlotObject;
 
-    public class InvDropPacket extends ClientPacket {
+import flash.utils.IDataOutput;
 
-        public var slotObject_:SlotObject;
+public class InvDropPacket extends ClientPacket {
 
-        public function InvDropPacket(_arg1:uint){
-            this.slotObject_ = new SlotObject();
-            super(_arg1);
-        }
-        override public function writeToOutput(_arg1:IDataOutput):void{
-            this.slotObject_.writeToOutput(_arg1);
-        }
-        override public function toString():String{
-            return (formatToString("INVDROP", "slotObject_"));
-        }
+    public var slotObject_:SlotObject;
 
+    public function InvDropPacket(_arg1:uint) {
+        this.slotObject_ = new SlotObject();
+        super(_arg1);
     }
+
+    override public function writeToOutput(_arg1:IDataOutput):void {
+        this.slotObject_.writeToOutput(_arg1);
+    }
+
+    override public function toString():String {
+        return (formatToString("INVDROP", "slotObject_"));
+    }
+
+}
 }//package ClientPackets
 

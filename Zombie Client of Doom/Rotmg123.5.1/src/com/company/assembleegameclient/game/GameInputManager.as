@@ -12,7 +12,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// either expressed or implied, of the FreeBSD Project.// either expressed or implied, of the FreeBSD Project.
 
-package com.company.assembleegameclient.game{
+package com.company.assembleegameclient.game {
 
 import EasterEggs.EasterEggHandler;
 
@@ -69,7 +69,7 @@ public class GameInputManager {
     private var _062:Point;
     private var unicornEasterEgg:EasterEggHandler;
 
-    public function GameInputManager(_arg1:GameSprite){
+    public function GameInputManager(_arg1:GameSprite) {
         this.gs_ = _arg1;
         this._lD_ = new Timer(_0_X_, 1);
         this.unicornEasterEgg = new EasterEggHandler(new <uint>[Keys.I, Keys.A, Keys.M, Keys.A, Keys.U, Keys.N, Keys.I, Keys.C, Keys.O, Keys.R, Keys.N], this.onUnicornFound, false);
@@ -100,7 +100,8 @@ public class GameInputManager {
         //        + "moveDown: " +    moveDown.toString() );
         //}
     }
-    public function clearInput():void{
+
+    public function clearInput():void {
         this.moveLeft = false;
         this.moveRight = false;
         this.moveUp = false;
@@ -111,67 +112,69 @@ public class GameInputManager {
         this._wA_ = false;
         this._B_Q_();
     }
-    public function _vB_(_arg1:Boolean):void{
-        if (this._G_v == _arg1)
-        {
+
+    public function _vB_(_arg1:Boolean):void {
+        if (this._G_v == _arg1) {
             return;
         }
         this._G_v = _arg1;
         this.clearInput();
     }
-    private function onAddedToStage(_arg1:Event):void{
+
+    private function onAddedToStage(_arg1:Event):void {
         var _local2:Stage = this.gs_.stage;
         _local2.addEventListener(Event.ACTIVATE, this._G_d);
         _local2.addEventListener(Event.DEACTIVATE, this._nb);
         _local2.addEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
         _local2.addEventListener(KeyboardEvent.KEY_UP, this._H_H_);
         _local2.addEventListener(MouseEvent.MOUSE_WHEEL, this._lb);
-    	this.gs_.map_.addEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
+        this.gs_.map_.addEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
         this.gs_.map_.addEventListener(MouseEvent.MOUSE_MOVE, this.onMouseMove);
-    	this.gs_.map_.addEventListener(MouseEvent.MOUSE_UP, this._0_5);
+        this.gs_.map_.addEventListener(MouseEvent.MOUSE_UP, this._0_5);
         this.gs_.map_.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
     }
-    private function onRemovedFromStage(_arg1:Event):void{
+
+    private function onRemovedFromStage(_arg1:Event):void {
         var _local2:Stage = this.gs_.stage;
         _local2.removeEventListener(Event.ACTIVATE, this._G_d);
         _local2.removeEventListener(Event.DEACTIVATE, this._nb);
         _local2.removeEventListener(KeyboardEvent.KEY_DOWN, this._0A_Y_);
         _local2.removeEventListener(KeyboardEvent.KEY_UP, this._H_H_);
         _local2.removeEventListener(MouseEvent.MOUSE_WHEEL, this._lb);
-    	this.gs_.map_.removeEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
+        this.gs_.map_.removeEventListener(MouseEvent.MOUSE_DOWN, this.onMouseDown);
         this.gs_.map_.removeEventListener(MouseEvent.MOUSE_MOVE, this.onMouseMove);
-    	this.gs_.map_.removeEventListener(MouseEvent.MOUSE_UP, this._0_5);
+        this.gs_.map_.removeEventListener(MouseEvent.MOUSE_UP, this._0_5);
         this.gs_.map_.removeEventListener(Event.ENTER_FRAME, this.onEnterFrame);
     }
-    private function _G_d(_arg1:Event):void{
+
+    private function _G_d(_arg1:Event):void {
     }
-    private function _nb(_arg1:Event):void{
+
+    private function _nb(_arg1:Event):void {
         this.clearInput();
     }
-    private function onMouseMove(_arg1:MouseEvent):void{
+
+    private function onMouseMove(_arg1:MouseEvent):void {
         mouseMoved = true;
     }
-    private function onMouseDown(_arg1:MouseEvent):void{
+
+    private function onMouseDown(_arg1:MouseEvent):void {
         var _local2:Player = this.gs_.map_.player_;
-        if (_local2 == null)
-        {
+        if (_local2 == null) {
             return;
         }
-        if (this._lD_.running == false)
-        {
+        if (this._lD_.running == false) {
             this._Z_W_ = 1;
             this._lD_.start();
-        } else
-        {
+        } else {
             this._Z_W_++;
         }
-        if (!this._G_v)
-        {
+        if (!this._G_v) {
             return;
         }
         //if (_arg1.shiftKey)
         //{
-    	//	_local2.useAltWeapon(_arg1.localX, _arg1.localY);
+        //	_local2.useAltWeapon(_arg1.localX, _arg1.localY);
         //    return;
         //}
         doneAction(this.gs_, Tutorial._9Z_);
@@ -181,49 +184,47 @@ public class GameInputManager {
         _local2._O_7(_local3); // Use this to handle (Unstable) Debuff
         this._08R_ = true;
     }
-    private function _0C_J_(_arg1:TimerEvent):void{
+
+    private function _0C_J_(_arg1:TimerEvent):void {
         var _local2:Point;
-        if (this._Z_W_ > 1)
-        {
+        if (this._Z_W_ > 1) {
             _local2 = this.gs_.map_.pSTopW(this.gs_.map_.mouseX, this.gs_.map_.mouseY);
         }
     }
-    private function _0_5(_arg1:MouseEvent):void{
+
+    private function _0_5(_arg1:MouseEvent):void {
         this._08R_ = false;
     }
-    private function _lb(_arg1:MouseEvent):void{
-        if (((((this.gs_) && (this.gs_.sideUI))) && (this.gs_.sideUI._F_)))
-        {
-            if (_arg1.delta > 0)
-            {
+
+    private function _lb(_arg1:MouseEvent):void {
+        if (((((this.gs_) && (this.gs_.sideUI))) && (this.gs_.sideUI._F_))) {
+            if (_arg1.delta > 0) {
                 this.gs_.sideUI._F_._K_r();
-            } else
-            {
+            } else {
                 this.gs_.sideUI._F_._w_();
             }
         }
     }
-    private function onEnterFrame(_arg1:Event):void{
+
+    private function onEnterFrame(_arg1:Event):void {
         var _local2:Number;
         var _local3:Player;
         doneAction(this.gs_, Tutorial._xX_);
-        if (((this._G_v) && (((this._08R_) || (this._wA_)))))
-        {
+        if (((this._G_v) && (((this._08R_) || (this._wA_))))) {
             _local2 = Math.atan2(mouseMoved ? this.gs_.map_.mouseY : this.gs_.map_.mouseY + (Math.floor(Math.random() * (25 - -25 + 1)) + -25),
                     mouseMoved ? this.gs_.map_.mouseX : this.gs_.map_.mouseX + (Math.floor(Math.random() * (25 - -25 + 1)) + -25));
             _local3 = this.gs_.map_.player_;
-            if (_local3 != null)
-            {
+            if (_local3 != null) {
                 mouseMoved = false;
                 _local3._O_7(_local2);
             }
         }
     }
-    private function _0A_Y_(_arg1:KeyboardEvent):void{
+
+    private function _0A_Y_(_arg1:KeyboardEvent):void {
         var _local4:Square;
         var _local2:Stage = this.gs_.stage;
-        switch (_arg1.keyCode)
-        {
+        switch (_arg1.keyCode) {
             case Keys.F1:
             case Keys.F2:
             case Keys.F3:
@@ -239,14 +240,12 @@ public class GameInputManager {
             case Keys.INSERT:
                 break;
             default:
-                if (_local2.focus != null)
-                {
+                if (_local2.focus != null) {
                     return;
                 }
         }
         var _local3:Player = this.gs_.map_.player_;
-        switch (_arg1.keyCode)
-        {
+        switch (_arg1.keyCode) {
             case Parameters.data_.moveUp:
                 doneAction(this.gs_, Tutorial._04m);
                 this.moveUp = true;
@@ -281,7 +280,7 @@ public class GameInputManager {
                 _local3.useAltWeapon(this.gs_.map_.mouseX, this.gs_.map_.mouseY);
                 break;
             case Parameters.data_.sprintKey:
-                if(!this.sprintKeyDown) {
+                if (!this.sprintKeyDown) {
                     _local3.sprint(true);
                     this.sprintKeyDown = true;
                 }
@@ -341,22 +340,19 @@ public class GameInputManager {
                 this.gs_.pause();
                 break;
             case Parameters.data_.toggleFullscreen:
-                if (Capabilities.playerType == "Desktop")
-                {
+                if (Capabilities.playerType == "Desktop") {
                     Parameters.data_.fullscreenMode = !(Parameters.data_.fullscreenMode);
                     Parameters.save();
                     _local2.displayState = ((Parameters.data_.fullscreenMode) ? "fullScreenInteractive" : StageDisplayState.NORMAL);
                 }
                 break;
-    		case Parameters.data_.switchTabs:
-    			if(this.gs_.sideUI._02y == null) break;
-    			this.gs_.sideUI._02y.nextTab();
-    			break;
+            case Parameters.data_.switchTabs:
+                if (this.gs_.sideUI._02y == null) break;
+                this.gs_.sideUI._02y.nextTab();
+                break;
         }
-        if (Parameters._1h)
-        {
-            switch (_arg1.keyCode)
-            {
+        if (Parameters._1h) {
+            switch (_arg1.keyCode) {
                 case Keys.F2:
                     this._0D_2();
                     break;
@@ -369,20 +365,16 @@ public class GameInputManager {
                     break;
             }
         }
-        if (Parameters.isTesting)
-        {
-            switch (_arg1.keyCode)
-            {
+        if (Parameters.isTesting) {
+            switch (_arg1.keyCode) {
                 case Keys.F6:
                     TextureRedrawer.clearCache();
                     Parameters._Q_b = ((Parameters._Q_b + 1) % 7);
                     this.gs_.textBox_.addText(Parameters.SendError, ("Projectile Color Type: " + Parameters._Q_b));
                     break;
                 case Keys.F7:
-                    for each (_local4 in this.gs_.map_.squares_)
-                    {
-                        if (_local4 != null)
-                        {
+                    for each (_local4 in this.gs_.map_.squares_) {
+                        if (_local4 != null) {
                             _local4.faces_.length = 0;
                         }
                     }
@@ -422,11 +414,12 @@ public class GameInputManager {
         this.unicornEasterEgg.onKeyDown(_arg1);
         this._B_Q_();
     }
+
     private var fgt:Battery;
+
     private function _H_H_(_arg1:KeyboardEvent):void {
-    	var _local3:Player = this.gs_.map_.player_;
-        switch (_arg1.keyCode)
-        {
+        var _local3:Player = this.gs_.map_.player_;
+        switch (_arg1.keyCode) {
             case Parameters.data_.moveUp:
                 this.moveUp = false;
                 break;
@@ -446,59 +439,55 @@ public class GameInputManager {
                 this._S_T_ = false;
                 break;
             case Parameters.data_.sprintKey:
-                if(this.sprintKeyDown) {
+                if (this.sprintKeyDown) {
                     _local3.sprint(false);
                     this.sprintKeyDown = false;
                 }
                 break;
-    		case Parameters.data_.useSpecial:
-    			_local3.useAltWeapon(this.gs_.map_.mouseX, this.gs_.map_.mouseY);
-    			break;
+            case Parameters.data_.useSpecial:
+                _local3.useAltWeapon(this.gs_.map_.mouseX, this.gs_.map_.mouseY);
+                break;
         }
         this._B_Q_();
     }
+
     private function _B_Q_():void {
         var _local1:Player = this.gs_.map_.player_;
-        if (_local1 != null)
-        {
-            if (this._G_v)
-            {
+        if (_local1 != null) {
+            if (this._G_v) {
                 _local1._vr((((this._S_T_) ? 1 : 0) - ((this._0I_) ? 1 : 0)), (((this.moveRight) ? 1 : 0) - ((this.moveLeft) ? 1 : 0)), (((this.moveDown) ? 1 : 0) - ((this.moveUp) ? 1 : 0)));
-            } else
-            {
+            } else {
                 _local1._vr(0, 0, 0);
             }
         }
     }
-    private function useItem(_arg1:int):void{
-        if ((((this.gs_.sideUI._02y == null)) || ((this.gs_.sideUI._02y._e9 == null))))
-        {
+
+    private function useItem(_arg1:int):void {
+        if ((((this.gs_.sideUI._02y == null)) || ((this.gs_.sideUI._02y._e9 == null)))) {
             return;
         }
         this.gs_.sideUI._02y._e9.useItem(_arg1);
     }
-    private function togglePerformanceStats():void{
-        if (this.gs_.contains(_086))
-        {
+
+    private function togglePerformanceStats():void {
+        if (this.gs_.contains(_086)) {
             this.gs_.removeChild(_086);
             this.gs_.removeChild(this.gs_.packetManager._0l);
             this.gs_.packetManager._rT_();
-        } else
-        {
+        } else {
             this.gs_.addChild(_086);
             this.gs_.packetManager._9G_();
             this.gs_.packetManager._0l.y = _086.height;
             this.gs_.addChild(this.gs_.packetManager._0l);
         }
     }
-    private function _0D_2():void{
+
+    private function _0D_2():void {
         Parameters._0F_o = !(Parameters._0F_o);
-        if (Parameters._0F_o)
-        {
+        if (Parameters._0F_o) {
             this.gs_.sideUI.visible = false;
             this.gs_.textBox_._01P_.visible = false;
-        } else
-        {
+        } else {
             this.gs_.sideUI.visible = true;
             this.gs_.textBox_._01P_.visible = true;
         }

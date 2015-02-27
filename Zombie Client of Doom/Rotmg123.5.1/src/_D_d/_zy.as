@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package _D_d
-{
-    import mx.core.*;
-    
-    [Embed(source="_zy.png")]
-    public class _zy extends mx.core.BitmapAsset
-    {
-        public function _zy()
-        {
-            super();
+package _D_d {
+import mx.core.*;
 
-        }
+[Embed(source="_zy.png")]
+public class _zy extends mx.core.BitmapAsset {
+    public function _zy() {
+        super();
+
     }
+}
 }

@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package _zD_
-{
-    import mx.core.*;
-    
-    [Embed(source="_0D_M_.png")]
-    public class _0D_M_ extends mx.core.BitmapAsset
-    {
-        public function _0D_M_()
-        {
-            super();
+package _zD_ {
+import mx.core.*;
 
-        }
+[Embed(source="_0D_M_.png")]
+public class _0D_M_ extends mx.core.BitmapAsset {
+    public function _0D_M_() {
+        super();
+
     }
+}
 }

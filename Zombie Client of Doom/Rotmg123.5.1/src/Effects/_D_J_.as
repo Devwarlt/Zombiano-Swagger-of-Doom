@@ -17,7 +17,7 @@
 
 //Effects._D_J_
 
-package Effects{
+package Effects {
 public class _D_J_ {
 
     public function _D_J_(_arg1:XML) {

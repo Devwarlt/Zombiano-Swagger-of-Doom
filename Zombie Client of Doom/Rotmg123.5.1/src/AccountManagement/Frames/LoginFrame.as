@@ -23,12 +23,17 @@ import Frames.TextInput;
 import Frames.TextInputSmall;
 
 import com.company.assembleegameclient.ui.TextButton;
+
 import flash.events.MouseEvent;
+
 import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.parameters.Parameters;
+
 import WebRequestEvents.WebRequestSuccessEvent;
 import WebRequestEvents.WebRequestErrorEvent;
+
 import _qN_.Account;
+
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 
@@ -56,17 +61,17 @@ public class LoginFrame extends Frame {
         this.addEventListener(Event.ADDED_TO_STAGE, this.onAdded);
         this.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemoved);
     }
-    private function onCancel(_arg1:MouseEvent):void{
+
+    private function onCancel(_arg1:MouseEvent):void {
         dispatchEvent(new AccountEvent(AccountEvent.DONE));
     }
-    private function _q5(_arg1:MouseEvent):void{
-        if (this._xb.text() == "")
-        {
+
+    private function _q5(_arg1:MouseEvent):void {
+        if (this._xb.text() == "") {
             this._xb.setErrorText("Not a valid username");
             return;
         }
-        if (this.password_.text() == "")
-        {
+        if (this.password_.text() == "") {
             this.password_.setErrorText("Password too short");
             return;
         }
@@ -74,33 +79,39 @@ public class LoginFrame extends Frame {
         _local2.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this._G_L_);
         _local2.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this._V_5);
         _local2.sendRequest("verify", {
-            "guid":this._xb.text(),
-            "password":this.password_.text()
+            "guid": this._xb.text(),
+            "password": this.password_.text()
         });
         lockButtons();
     }
-    private function _G_L_(_arg1:WebRequestSuccessEvent):void{
+
+    private function _G_L_(_arg1:WebRequestSuccessEvent):void {
         Account._get().modify(this._xb.text(), this.password_.text(), null);
         dispatchEvent(new AccountEvent(AccountEvent.CURRENT));
     }
-    private function _V_5(_arg1:WebRequestErrorEvent):void{
+
+    private function _V_5(_arg1:WebRequestErrorEvent):void {
         this.password_.setErrorText(_arg1.text_);
         releaseButtons();
     }
-    private function _08Y_(_arg1:MouseEvent):void{
+
+    private function _08Y_(_arg1:MouseEvent):void {
         dispatchEvent(new AccountEvent(AccountEvent.FORGOT));
     }
-    private function _mO_(_arg1:MouseEvent):void{
+
+    private function _mO_(_arg1:MouseEvent):void {
         dispatchEvent(new AccountEvent(AccountEvent.REGISTER));
     }
 
-    private function onAdded(e:Event):void{
+    private function onAdded(e:Event):void {
         this.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyPressed);
     }
-    private function onRemoved(e:Event):void{
+
+    private function onRemoved(e:Event):void {
         this.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyPressed);
     }
-    private function onKeyPressed(e:KeyboardEvent):void{
+
+    private function onKeyPressed(e:KeyboardEvent):void {
         if (e.keyCode == 13) {
             this._q5(null);
         }

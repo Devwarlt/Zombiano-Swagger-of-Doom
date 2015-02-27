@@ -17,7 +17,7 @@
 
 //_F_1._0H_h
 
-package _F_1{
+package _F_1 {
 import FireBite.Embeds.Images.FireBiteLogo;
 
 import Sounds.LocalSounds;
@@ -37,7 +37,9 @@ import flash.display.Bitmap;
 import flash.display.DisplayObject;
 import flash.display.Shape;
 import flash.display.Sprite;
+
 import _sp._aJ_;
+
 import com.company.ui.SimpleText;
 import com.company.rotmg.graphics.ScreenGraphic;
 
@@ -79,17 +81,17 @@ public class CreditsScreen extends Sprite {
     }
 
     private function exited(event:Event):void {
-        if(this.sound != null) {
+        if (this.sound != null) {
             this.sound.stop();
         }
-        if(this.ytvid != null) {
+        if (this.ytvid != null) {
             this.ytvid.stop();
         }
     }
 
     public function timerHandler(event:TimerEvent):void {
         var obj:DisplayObject;
-        if(items[items.length - 1].y + items[items.length - 1].height < -2) {
+        if (items[items.length - 1].y + items[items.length - 1].height < -2) {
             for each (obj in this.items) {
                 obj.y += this.totalHeight;
             }
@@ -99,21 +101,22 @@ public class CreditsScreen extends Sprite {
             obj.y -= 0.5;
         }
 
-        if((event.target as Timer).currentCount >= int.MAX_VALUE - 100) {
+        if ((event.target as Timer).currentCount >= int.MAX_VALUE - 100) {
             (event.target as Timer).reset();
             (event.target as Timer).start();
         }
     }
+
     public function initialize():void {
         var h:int = 530;
 
         for each (var obj:DisplayObject in this.items) {
-            if(obj is SimpleText) {
+            if (obj is SimpleText) {
                 obj.x = (400) - ((obj as SimpleText).textWidth / 2);
                 obj.y = h;
                 h += (obj as SimpleText).textHeight + 10;
 
-                if((obj as SimpleText).text == "|") {
+                if ((obj as SimpleText).text == "|") {
                     (obj as SimpleText).text = "";
                 }
             }
@@ -135,12 +138,15 @@ public class CreditsScreen extends Sprite {
         t.addEventListener(TimerEvent.TIMER, timerHandler);
         t.start();
     }
+
     protected function _W_w(_arg1:Event):void {
         navigateToURL(new URLRequest(_088), "_blank");
     }
+
     protected function _i0(_arg1:Event):void {
         navigateToURL(new URLRequest(_0L_O_), "_blank");
     }
+
     private function _ly(_arg1:Event):void {
         this.close.dispatch();
     }
@@ -148,7 +154,7 @@ public class CreditsScreen extends Sprite {
     public function setCredits(_arg1:WebRequestSuccessEvent):void {
         this.creditsXML = XML(_arg1.data_);
 
-        if(this.creditsXML.hasOwnProperty("@backgroundVideo")) {
+        if (this.creditsXML.hasOwnProperty("@backgroundVideo")) {
             this.ytvid = new YouTubePlayer(this.creditsXML.@backgroundVideo, true);
             this.ytvid.repeat = true;
             addChild(this.ytvid);
@@ -156,7 +162,7 @@ public class CreditsScreen extends Sprite {
         else {
             Music.reload("");
             var sound:Sound = new Sound();
-            if(this.creditsXML.@local) {
+            if (this.creditsXML.@local) {
                 sound.loadCompressedDataFromByteArray(LocalSounds.getSound(creditsXML.@music).data, LocalSounds.getSound(creditsXML.@music).data.length)
             }
             else {
@@ -191,10 +197,10 @@ public class CreditsScreen extends Sprite {
             text.wordWrap = item.hasOwnProperty("WordWrap");
             var filters:Array = [];
 
-            if(item.hasOwnProperty("DropShadowFilter")) {
+            if (item.hasOwnProperty("DropShadowFilter")) {
                 filters.push(new DropShadowFilter());
             }
-            if(item.hasOwnProperty("GlowFilter")){
+            if (item.hasOwnProperty("GlowFilter")) {
                 filters.push(new GlowFilter());
             }
             text.filters = filters;

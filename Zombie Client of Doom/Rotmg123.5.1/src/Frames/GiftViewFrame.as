@@ -84,8 +84,8 @@ public class GiftViewFrame extends Frame {
         giftHolder.addChild(text);
 
         for each (var i:item in items) {
-            if(i.name.substring(0, 1) != lastStart || lastStart == "No Items Found") {
-                if(lastStart != "No Items Found") {
+            if (i.name.substring(0, 1) != lastStart || lastStart == "No Items Found") {
+                if (lastStart != "No Items Found") {
                     while ((nextWidth % 4) != 0) {
                         nextWidth++;
                         nextHeight++;
@@ -128,10 +128,11 @@ public class GiftViewFrame extends Frame {
 
         var reA:RegExp = /[^a-zA-Z]/g;
         var reN:RegExp = /[^0-9]/g;
+
         function sortAlphaNum(a:item, b:item):int {
             var aA:String = a.name.replace(reA, "");
             var bA:String = b.name.replace(reA, "");
-            if(aA === bA) {
+            if (aA === bA) {
                 var aN:int = parseInt(a.name.replace(reN, ""), 10);
                 var bN:int = parseInt(b.name.replace(reN, ""), 10);
                 return aN === bN ? 0 : aN > bN ? 1 : -1;
@@ -151,7 +152,7 @@ public class GiftViewFrame extends Frame {
     //holder region height: 300
 
     private function onGiveClick(event:MouseEvent):void {
-        if(this.selectedHolder != null && charList.gifts.indexOf(this.selectedHolder.itemId) != -1) {
+        if (this.selectedHolder != null && charList.gifts.indexOf(this.selectedHolder.itemId) != -1) {
             gs.packetManager.getGift(this.selectedHolder.itemId, false);
             charList.gifts.splice(charList.gifts.indexOf(this.selectedHolder.itemId), 1);
             dispatchEvent(new Event(Event.COMPLETE));
@@ -160,11 +161,11 @@ public class GiftViewFrame extends Frame {
 
     private function onHolderClick(event:MouseEvent):void {
         var holder:itemHolder = selectedHolder;
-        if(holder != null) {
+        if (holder != null) {
             holder.selected = false;
         }
         holder = (event.target as itemHolder);
-        if(holder != null) {
+        if (holder != null) {
             holder.selected = true;
         }
         selectedHolder = holder;
@@ -176,14 +177,14 @@ public class GiftViewFrame extends Frame {
 
     private function onScroll(event:Event):void {
         var val:Number = ((-(this.scrollBar._Q_D_()) * (this.totalHeight - 300)));
-        if(isNaN(val)) return;
+        if (isNaN(val)) return;
         this.giftHolder.y = 40 + ((-(this.scrollBar._Q_D_()) * (this.totalHeight - 300)));
     }
 
     private function onDelete(e:Event):void {
         e.stopImmediatePropagation();
         var dialogBox:DialogBox = new DialogBox("Are you sure you want to delete this item?", "Confirm", "Delete", "Cancel");
-        dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function(event:Event):void {
+        dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function (event:Event):void {
             gs.stage.removeChild(dialogBox);
             curPos = scrollBar._Q_D_();
             charList.gifts.splice(charList.gifts.indexOf(e.target.itemId), 1);
@@ -194,7 +195,7 @@ public class GiftViewFrame extends Frame {
 
             scrollBar._0D__(curPos);
         });
-        dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function(event:Event):void {
+        dialogBox.addEventListener(DialogBox.BUTTON2_EVENT, function (event:Event):void {
             gs.stage.removeChild(dialogBox);
         });
         gs.stage.addChild(dialogBox);
@@ -218,7 +219,7 @@ class item {
     public var id:int;
 
     public function item(item:XML) {
-        if(item == null) return;
+        if (item == null) return;
         name = item.hasOwnProperty("DisplayId") ? item.DisplayId : item.@id;
         id = item.@type;
     }
@@ -242,7 +243,7 @@ class itemHolder extends Sprite {
         itemId = itemXml.@type;
         this.gs = gs;
         icon = new Bitmap(ObjectLibrary.getRedrawnTextureFromType(itemXml.@type, itemXml.hasOwnProperty("ScaleValue") ?
-            (itemXml.ScaleValue * 10 / 2) + 80 : 80, false, false, itemXml.hasOwnProperty("ScaleValue") ? itemXml.ScaleValue : 5));
+        (itemXml.ScaleValue * 10 / 2) + 80 : 80, false, false, itemXml.hasOwnProperty("ScaleValue") ? itemXml.ScaleValue : 5));
         icon.x = ((WIDTH / 2) - (icon.width / 2));
         icon.y = ((HEIGHT / 2) - (icon.height / 2) - 5);
         addChild(icon);
@@ -252,11 +253,11 @@ class itemHolder extends Sprite {
         this.closeX.y = 2;
         addChild(this.closeX);
 
-        this.addEventListener(MouseEvent.ROLL_OVER, function(event:MouseEvent):void {
+        this.addEventListener(MouseEvent.ROLL_OVER, function (event:MouseEvent):void {
             mouseOver = true;
             draw();
         });
-        this.addEventListener(MouseEvent.ROLL_OUT, function(event:MouseEvent):void {
+        this.addEventListener(MouseEvent.ROLL_OUT, function (event:MouseEvent):void {
             mouseOver = false;
             draw();
         });

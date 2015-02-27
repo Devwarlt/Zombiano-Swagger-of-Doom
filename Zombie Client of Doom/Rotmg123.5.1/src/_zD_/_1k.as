@@ -17,36 +17,40 @@
 
 //_zD_._1k
 
-package _zD_{
-    import _C__._cM_;
-    import _0L_C_._0G_y;
+package _zD_ {
+import _C__._cM_;
 
-import _F_1.CurrentCharacterScreen;
+import _0L_C_._0G_y;
+
+import _F_1.selectChars.CurrentCharacterScreen;
 
 import _U_5.CharListResetDispatcher;
-    import _U_5.SpriteTarget;
-    import flash.events.Event;
+import _U_5.SpriteTarget;
 
-    public class _1k extends _cM_ {
+import flash.events.Event;
 
-        [Inject]
-        public var view:_0G_y;
-        [Inject]
-        public var _0B_a:CharListResetDispatcher;
-        [Inject]
-        public var _0_b:SpriteTarget;
+public class _1k extends _cM_ {
 
-        override public function initialize():void{
-            _b6(Event.COMPLETE, this.onComplete);
-        }
-        override public function destroy():void{
-            _0E_K_(Event.COMPLETE, this.onComplete);
-        }
-        private function onComplete(_arg1:Event):void{
-            this._0B_a.dispatch();
-            this._0_b.dispatch(new CurrentCharacterScreen());
-        }
+    [Inject]
+    public var view:_0G_y;
+    [Inject]
+    public var _0B_a:CharListResetDispatcher;
+    [Inject]
+    public var _0_b:SpriteTarget;
 
+    override public function initialize():void {
+        _b6(Event.COMPLETE, this.onComplete);
     }
+
+    override public function destroy():void {
+        _0E_K_(Event.COMPLETE, this.onComplete);
+    }
+
+    private function onComplete(_arg1:Event):void {
+        this._0B_a.dispatch();
+        this._0_b.dispatch(new CurrentCharacterScreen());
+    }
+
+}
 }//package _zD_
 

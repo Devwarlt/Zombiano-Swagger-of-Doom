@@ -32,6 +32,7 @@ public class MysteryBoxRoll extends Sprite {
 
     private var rand:Random = new Random();
     private var items:Array;
+
     public function MysteryBoxRoll(gs:GameSprite, offer:XML) {
         graphics.beginFill(0x000000, 1.0);
         graphics.drawRect(0, 0, MysteryBox.WIDTH, gs.stage.getChildByName("MysteryBox").height - 1);
@@ -49,7 +50,9 @@ public class MysteryBoxRoll extends Sprite {
     private function onEnterFrame(event:Event):void {
         if (getTimer() % 5 == 0) {
             var item:int = items[rand.next(0, items.length - 1)];
-            while(item == curItem) { item = items[rand.next(0, items.length - 1)]; }
+            while (item == curItem) {
+                item = items[rand.next(0, items.length - 1)];
+            }
             bmp.bitmapData = ObjectLibrary.getRedrawnTextureFromType(item, 100, true, true, 5);
             curItem = item;
         }

@@ -117,7 +117,7 @@ public class SelectSkinFrame extends Sprite {
         var premiumSkins:Vector.<XML> = new Vector.<XML>();
 
         for each(var skinXml:XML in ObjectLibrary.skins) {
-            if(skinXml.hasOwnProperty("PremiumSkin")) {
+            if (skinXml.hasOwnProperty("PremiumSkin")) {
                 premiumSkins.push(skinXml);
             }
             else {
@@ -223,7 +223,7 @@ class SkinRect extends Sprite {
 
         this.available = available;
         this._selected = selected;
-        if(this._selected) {
+        if (this._selected) {
             this.frame.selectedRect = this;
         }
         this.background = new Sprite();
@@ -246,7 +246,7 @@ class SkinRect extends Sprite {
         bmp.x = (HEIGHT / 2) - (bmp.width / 2);
         bmp.y = (HEIGHT / 2) - (bmp.width / 2);
         bmp.filters = [new DropShadowFilter()];
-        if(!available) {
+        if (!available) {
             bmp.transform.colorTransform = new ColorTransform(0, 0, 0, 0.5, 0, 0, 0, 0);
         }
         addChild(bmp);
@@ -260,7 +260,7 @@ class SkinRect extends Sprite {
         skinName.updateMetrics();
         addChild(skinName);
 
-        if(_arg1.hasOwnProperty("PremiumSkin")) {
+        if (_arg1.hasOwnProperty("PremiumSkin")) {
             this._premiumIcon = new premiumRank();
             this._premiumIcon.scaleX = this._premiumIcon.scaleY += 0.1;
             this._premiumIcon.x = (WIDTH - this._premiumIcon.width - 20);
@@ -275,7 +275,7 @@ class SkinRect extends Sprite {
 
     public function set selected(_arg1:Boolean):void {
         _selected = _arg1;
-        if(background != null) {
+        if (background != null) {
             this.fill = new GraphicsSolidFill(_selected ? 0x1E852A : 0x858585, 1);
             this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
             this.graphicsData_ = new <IGraphicsData>[fill, path_, GraphicHelper.END_FILL];
@@ -352,7 +352,7 @@ class SkinInfoScreen extends Sprite {
         this.addChild(skinName);
         var h:Number = (this.skinName.y + this.skinName.textHeight + 10);
 
-        if(_arg1.xml.hasOwnProperty("PremiumSkin")) {
+        if (_arg1.xml.hasOwnProperty("PremiumSkin")) {
             this.premiumIcon = new premiumRank();
             this.premiumIcon.scaleX = this.premiumIcon.scaleY += 0.2;
             this.premiumIcon.x = (WIDTH - this.premiumIcon.width - 10);
@@ -376,12 +376,11 @@ class SkinInfoScreen extends Sprite {
         this.specialText.multiline = true;
         var text:String = "";
         var number:int = 1;
-        for each (var special:XML in _arg1.xml.Specials.Special)
-        {
+        for each (var special:XML in _arg1.xml.Specials.Special) {
             text += number.toString() + ". " + special + "\n";
             number++;
         }
-        if(text == ""){
+        if (text == "") {
             text += "No special ability\nAccessory Item.\n";
         }
         this.specialText.text = text.slice(0, text.lastIndexOf("\n"));
@@ -400,8 +399,7 @@ class SkinInfoScreen extends Sprite {
 
         this.unlockText = new SimpleText(16, 0xB3B3B3, false, 174, 0, "Myriad Pro");
         this.unlockText.boldText(true);
-        if(!_arg1.available)
-        {
+        if (!_arg1.available) {
             this.unlockText.text = "To Unlock:";
             this.unlockText.updateMetrics();
             this.unlockText.filters = [new DropShadowFilter(0, 0, 0)];
@@ -441,7 +439,7 @@ class SkinInfoScreen extends Sprite {
         addChild(this.unlockText);
         h = (this.unlockText.y + this.unlockText.textHeight + 10);
 
-        if(_arg1.xml.hasOwnProperty("ThanksTo")) {
+        if (_arg1.xml.hasOwnProperty("ThanksTo")) {
             this.spacer2 = new _return(100, 0x310800);
             this.spacer2.x = 6;
             this.spacer2.y = h;
@@ -472,7 +470,7 @@ class SkinInfoScreen extends Sprite {
             addChild(this.thanksToText);
         }
 
-        if(!_arg1.selected) {
+        if (!_arg1.selected) {
             selectBtn = new FancyTextButton(20, "Select");
             selectBtn.y = HEIGHT - 50;
             selectBtn.x = (WIDTH / 2) - (selectBtn.w_ / 2);
@@ -494,7 +492,7 @@ class SkinInfoScreen extends Sprite {
 
     private function onEnterFrame(event:Event):void {
         this.spacer1._rs((width - 12), 0x310800);
-        if(spacer2 != null) {
+        if (spacer2 != null) {
             this.spacer2._rs((width - 12), 0x310800);
         }
     }

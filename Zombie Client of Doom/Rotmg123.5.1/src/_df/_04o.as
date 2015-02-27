@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package _df
-{
-    import mx.core.*;
-    
-    [Embed(source="_04o.png")]
-    public class _04o extends mx.core.BitmapAsset
-    {
-        public function _04o()
-        {
-            super();
+package _df {
+import mx.core.*;
 
-        }
+[Embed(source="_04o.png")]
+public class _04o extends mx.core.BitmapAsset {
+    public function _04o() {
+        super();
+
     }
+}
 }

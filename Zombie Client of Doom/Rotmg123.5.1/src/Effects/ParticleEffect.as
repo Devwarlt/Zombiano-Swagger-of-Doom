@@ -17,7 +17,7 @@
 
 //Effects._en
 
-package Effects{
+package Effects {
 import com.company.assembleegameclient.objects.GameObject;
 import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.util.AssetLibrary;

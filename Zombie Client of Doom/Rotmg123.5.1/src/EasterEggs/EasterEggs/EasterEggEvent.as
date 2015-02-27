@@ -44,7 +44,7 @@ public class EasterEggEvent extends Event {
     }
 
     private function onRemovedFromStage(event:Event):void {
-        if(this.loader != null)
+        if (this.loader != null)
             this.loader.unloadAndStop(true);
 
         this.movie.removeEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown);

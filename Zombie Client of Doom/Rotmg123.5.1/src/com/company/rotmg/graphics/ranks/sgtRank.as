@@ -19,7 +19,7 @@ package com.company.rotmg.graphics.ranks {
 import flash.display.Bitmap;
 
 [Embed(source="sgtRank_Embed.png")]
-public class sgtRank extends flash.display.Bitmap{
+public class sgtRank extends flash.display.Bitmap {
     public function sgtRank() {
         super();
         this.scaleX = 0.09;

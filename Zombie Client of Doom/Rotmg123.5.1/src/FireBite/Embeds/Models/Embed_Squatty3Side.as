@@ -12,17 +12,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package FireBite.Embeds.Models
-{
-    import mx.core.*;
-    
-    [Embed(source="data/Terminal.obj", mimeType="application/octet-stream")]
-    public class Embed_Squatty3Side extends mx.core.ByteArrayAsset
-    {
-        public function Embed_Squatty3Side()
-        {
-            super();
+package FireBite.Embeds.Models {
+import mx.core.*;
 
-        }
+[Embed(source="data/Terminal.obj", mimeType="application/octet-stream")]
+public class Embed_Squatty3Side extends mx.core.ByteArrayAsset {
+    public function Embed_Squatty3Side() {
+        super();
+
     }
+}
 }

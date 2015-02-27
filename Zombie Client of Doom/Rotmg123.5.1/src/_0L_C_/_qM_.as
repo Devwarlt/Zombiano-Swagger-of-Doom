@@ -17,22 +17,22 @@
 
 //_0L_C_._qM_
 
-package _0L_C_{
-    import flash.events.Event;
+package _0L_C_ {
+import flash.events.Event;
 
-    public class _qM_ extends DialogBox {
+public class _qM_ extends DialogBox {
 
-        public function _qM_(_arg1:String){
-            super(_arg1, "Debug", "OK", null);
-            addEventListener(DialogBox.BUTTON1_EVENT, this.onDialogComplete);
-        }
-        private function onDialogComplete(_arg1:Event):void{
-            if (this.parent != null)
-            {
-                this.parent.removeChild(this);
-            }
-        }
-
+    public function _qM_(_arg1:String) {
+        super(_arg1, "Debug", "OK", null);
+        addEventListener(DialogBox.BUTTON1_EVENT, this.onDialogComplete);
     }
+
+    private function onDialogComplete(_arg1:Event):void {
+        if (this.parent != null) {
+            this.parent.removeChild(this);
+        }
+    }
+
+}
 }//package _0L_C_
 
