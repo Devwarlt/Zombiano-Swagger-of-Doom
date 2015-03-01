@@ -165,9 +165,12 @@ public class TownHallShop extends VillageManagementScreenBase {
 }
 }
 
+import Language.LanguageKeys;
+import Language.LanguageKeys.LanguageKeys_SellAbleButton;
+
 import ToolTips.ToolTip;
 
-import com.company.assembleegameclient.ui.SellableButton;
+import com.company.assembleegameclient.ui.SellAbleButton;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
@@ -221,7 +224,7 @@ class shopOffer extends Sprite {
         this.description.y = 30;
         addChild(this.description);
 
-        var btn:SellableButton = new SellableButton("Buy for ", 16, offerData.@price, offerData.@currency);
+        var btn:SellAbleButton = new SellAbleButton(LanguageKeys_SellAbleButton.Buy_for, 16, offerData.@price, offerData.@currency);
         btn.x = WIDTH - btn.w_ - 10;
         btn.y = 50 - ((btn.text_.textHeight + 8) / 2);
         addChild(btn);

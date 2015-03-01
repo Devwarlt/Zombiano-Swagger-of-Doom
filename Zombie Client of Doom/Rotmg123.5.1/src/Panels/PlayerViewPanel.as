@@ -29,7 +29,7 @@ import flash.events.MouseEvent;
 import flash.geom.ColorTransform;
 import flash.utils.getTimer;
 
-import _0D_B_._02p;
+import _0D_B_.PlayerMenu;
 
 import ToolTips.PlayerToolTip;
 
@@ -38,7 +38,7 @@ public class PlayerViewPanel extends Panel {
 
     public var _X_T_:Vector.<_gV_>;
     private var toolTip_:PlayerToolTip = null;
-    private var _0G_Y_:_02p = null;
+    private var _0G_Y_:PlayerMenu = null;
     private var _68:Boolean = false;
 
     public function PlayerViewPanel(_arg1:GameSprite) {
@@ -106,7 +106,7 @@ public class PlayerViewPanel extends Panel {
         this._X_S_();
         this._7C_();
         var _local2:_gV_ = (_arg1.target as _gV_);
-        this._0G_Y_ = new _02p(gs_, (_local2.go_ as Player));
+        this._0G_Y_ = new PlayerMenu(gs_, (_local2.go_ as Player));
         stage.addChild(this._0G_Y_);
     }
 

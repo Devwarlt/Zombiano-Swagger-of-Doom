@@ -23,11 +23,11 @@ import com.company.assembleegameclient.appengine.SavedCharsList;
 public class CharListHistory {
 
     public var charList:SavedCharsList;
-    public var isLoaded:Boolean;
+    public var needsReload:Boolean;
     public var charId:int;
 
     public function CharListHistory() {
-        this.isLoaded = true;
+        this.needsReload = true;
     }
 }
 }//package _W_D_

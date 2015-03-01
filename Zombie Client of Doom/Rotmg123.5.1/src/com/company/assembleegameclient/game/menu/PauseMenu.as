@@ -18,6 +18,8 @@
 package com.company.assembleegameclient.game.menu {
 import AccountManagement.ui.FancyTextButton;
 
+import Language.LanguageManager;
+
 import OptionsStuff.Options;
 
 import _05R_.GTween;
@@ -58,7 +60,7 @@ public class PauseMenu extends Sprite {
         var title:SimpleText = new SimpleText(46, 0xffffff, false, 470, 0);
         title.y = 10;
         title.boldText(true);
-        title.htmlText = '<p align="center">Game Paused</p>';
+        title.htmlText = '<p align="center">' + LanguageManager.manager.getValue("game.Paused") + '</p>';
         title.autoSize = TextFieldAutoSize.CENTER;
         addChild(title);
 

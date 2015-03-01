@@ -20,12 +20,9 @@
 package com.company.assembleegameclient.net {
 import Achievements.BasicAchievement;
 
-import Crafting.CraftingRequest;
 import Crafting.CraftingResultEvent;
 import Crafting.LearnCraftingResultEvent;
 
-import Frames.CraftingFrame;
-import Frames.LearnCraftingRecipeFrame;
 import Frames.NotificationBox;
 
 import Panels.CraftingPanel;
@@ -132,12 +129,9 @@ import Effects._pK_;
 
 import _0L_C_._02d;
 import _0L_C_._aZ_;
-import _0L_C_.DialogBox;
 
 import _0M_H_._W_O_;
 import _0M_H_._sN_;
-
-import _0_p._q7;
 
 import _8Q_._1l;
 
@@ -161,20 +155,15 @@ import Sounds.Music;
 
 import _yY_._pz;
 
-import _zD_.__else;
-
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.map._X_l;
 import com.company.assembleegameclient.map._pf;
-import com.company.assembleegameclient.net.messages.data.*;
 import com.company.assembleegameclient.net.messages.data.ObjectStatusData;
 import com.company.assembleegameclient.net.messages.data.StatData;
 import com.company.assembleegameclient.net.messages.data.ObjectStatus;
 import com.company.assembleegameclient.net.messages.data._iZ_;
-import com.company.assembleegameclient.objects.*;
 import com.company.assembleegameclient.objects.Container;
 import com.company.assembleegameclient.objects.GameObject;
-import com.company.assembleegameclient.objects.Merchant;
 import com.company.assembleegameclient.objects.NameChanger;
 import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.objects.Player;
@@ -184,7 +173,6 @@ import com.company.assembleegameclient.objects.SellableObject;
 import com.company.assembleegameclient.objects._T_f;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.ui._B_N_;
-import com.company.assembleegameclient.ui._return;
 import com.company.assembleegameclient.util.Currency;
 import com.company.assembleegameclient.util._wW_;
 import com.company.net.GameServer;
@@ -193,7 +181,6 @@ import com.company.net.UDPServerConnection;
 import com.company.net.Packet;
 import com.company.util.PointUtil;
 import com.company.util.Random;
-import com.company.util._L_2;
 import com.hurlant.crypto.rsa.RSAKey;
 import com.hurlant.util.Base64;
 import com.hurlant.util.der.PEM;
@@ -201,7 +188,6 @@ import com.hurlant.util.der.PEM;
 import flash.display.BitmapData;
 import flash.events.ErrorEvent;
 import flash.events.Event;
-import flash.events.MouseEvent;
 import flash.events.TimerEvent;
 import flash.geom.Point;
 import flash.net.FileReference;
@@ -326,7 +312,7 @@ public class PacketManager {
         this.keyTime_ = _arg6;
         this.key_ = _arg7;
         this._2B_ = _arg8;
-        this.serverConn = _arg2.isUDP ? new UDPServerConnection(false) : new TCPServerConnection(false);
+        this.serverConn = _arg2.isUDP ? new TCPServerConnection(false) : new TCPServerConnection(false);
         this.serverConn.registerPacket(FAILURE, FailurePacket, this._nc);
         this.serverConn.registerPacket(CREATE_SUCCESS, _T_n, this._cw);
         this.serverConn.registerPacket(CREATE, CreatePacket, null);
@@ -1302,7 +1288,7 @@ public class PacketManager {
                     (_arg1 as NameChanger)._Y__(_local4._h);
                     break;
                 case StatData._m0:
-                    (_arg1 as Player)._hv = !((_local4._h == 0));
+                    (_arg1 as Player).nameChosen = !((_local4._h == 0));
                     _arg1._U_g = null;
                     break;
                 case StatData.KILLS:

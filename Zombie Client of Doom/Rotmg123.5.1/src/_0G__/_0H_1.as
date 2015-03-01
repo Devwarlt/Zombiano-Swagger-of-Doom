@@ -26,7 +26,7 @@ public class _0H_1 {
     public var _0I_s:CharListHistory;
 
     public function execute():void {
-        this._0I_s.isLoaded = true;
+        this._0I_s.needsReload = true;
     }
 
 }

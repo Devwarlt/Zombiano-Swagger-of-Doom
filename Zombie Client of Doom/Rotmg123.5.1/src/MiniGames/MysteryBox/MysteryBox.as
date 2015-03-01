@@ -109,6 +109,7 @@ public class MysteryBox extends Sprite {
 }
 }
 
+import Language.LanguageKeys.LanguageKeys_SellAbleButton;
 import Language.LanguageManager;
 
 import MiniGames.MysteryBox.MysteryBox;
@@ -117,7 +118,7 @@ import MiniGames.MysteryBox.MysteryBoxResultEvent;
 import MiniGames.MysteryBox.MysteryBoxRoll;
 
 import com.company.assembleegameclient.game.GameSprite;
-import com.company.assembleegameclient.ui.SellableButton;
+import com.company.assembleegameclient.ui.SellAbleButton;
 import com.company.ui.SimpleText;
 
 import flash.display.Bitmap;
@@ -136,7 +137,7 @@ class MysteryBoxOffer extends Sprite {
     [Embed(source="treasure-icon.png")]
     private static var treasureIcon:Class;
 
-    private var buyButton:SellableButton;
+    private var buyButton:SellAbleButton;
     private var title:SimpleText;
     private var oldTime:int;
     private var over:Boolean;
@@ -163,7 +164,7 @@ class MysteryBoxOffer extends Sprite {
         this.title.y = ((HEIGHT / 2) - (this.title.height / 2));
         addChild(this.title);
 
-        this.buyButton = new SellableButton(LanguageManager.manager.getValue("buy.Text", "Buy for "), 21, offer.Price.@amount, offer.Price.@currency);
+        this.buyButton = new SellAbleButton(LanguageKeys_SellAbleButton.Buy_for, 21, offer.Price.@amount, offer.Price.@currency);
         this.buyButton.x = WIDTH - this.buyButton.width - 10;
         this.buyButton.y = ((HEIGHT / 2) - (this.buyButton.height / 2)) + 5;
         this.buyButton.addEventListener(MouseEvent.CLICK, this.onBuy);

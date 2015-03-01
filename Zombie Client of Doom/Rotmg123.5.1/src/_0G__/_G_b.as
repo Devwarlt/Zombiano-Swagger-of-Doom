@@ -47,7 +47,7 @@ public class _G_b {
     public var _ys:_0D_5;
 
     public function execute():void {
-        if (this._0I_s.isLoaded) {
+        if (this._0I_s.needsReload) {
             this._qx();
         } else {
             this._T__.dispatch(this.view);

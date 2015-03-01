@@ -38,7 +38,7 @@ public class _0K_S_ implements _v {
     public var _Q_l:_0J_r;
 
     public function _K_():void {
-        this.mediatorMap.map(_0F_X_)._Y_u(_iy);
+        this.mediatorMap.map(_0F_X_).setDepencyDispatcher(_iy);
         this.context._iL_._3a(this.init);
     }
 

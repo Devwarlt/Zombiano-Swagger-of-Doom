@@ -87,7 +87,7 @@ public class Player extends Character {
     public var oldRank:int = -1;
     public var rank:int = 0;
     public var _Q_7:int = 0;
-    public var _hv:Boolean = false;
+    public var nameChosen:Boolean = false;
     public var kills:int = 0;
     public var _n8:int = -1;
     public var premium:Boolean = false;
@@ -584,7 +584,7 @@ public class Player extends Character {
         if (this._N_n) {
             _arg1.setColor(Parameters._mg);
         } else {
-            if (this._hv) {
+            if (this.nameChosen) {
                 _arg1.setColor(Parameters._8T_);
             }
         }

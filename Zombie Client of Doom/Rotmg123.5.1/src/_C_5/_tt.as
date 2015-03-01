@@ -47,7 +47,7 @@ public class _tt implements _v {
 
     public function _K_():void {
         this._O_R_.map(_D_m)._hZ_();
-        this.mediatorMap.map(GameSprite)._Y_u(GameSpriteEventDispatcher);
+        this.mediatorMap.map(GameSprite).setDepencyDispatcher(GameSpriteEventDispatcher);
         this._1G_.map(_08i)._1N_(_qQ_);
     }
 

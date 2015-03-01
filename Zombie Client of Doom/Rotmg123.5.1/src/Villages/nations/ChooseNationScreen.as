@@ -18,12 +18,14 @@
 package Villages.nations {
 import AccountManagement.ui.FancyTextButton;
 
+import Language.LanguageManager;
+
 import WebRequestEvents.WebRequestErrorEvent;
 import WebRequestEvents.WebRequestSuccessEvent;
 
 import _0L_C_.DialogBox;
 
-import _F_1._E_r;
+import _F_1.GameLoadingScreen;
 
 import _qN_.Account;
 
@@ -43,34 +45,35 @@ public class ChooseNationScreen extends Sprite {
     [Embed(source="chooseNationBackground.jpg")]
     private static var background:Class;
 
-    public var eventDispatcher:_aJ_;
-
     private var currentNation:nation;
     private var currentNationName:SimpleText;
     private var chooseButton:FancyTextButton;
     private var nW:Number = 0;
     private var nH:Number = 0;
 
+    public var eventDispatcher:_aJ_;
+
     public function ChooseNationScreen() {
-        this.eventDispatcher = new _aJ_(Sprite);
         addChild(new background());
 
+        this.eventDispatcher = new _aJ_();
+
         var text:SimpleText = new SimpleText(62, 0xffffff, false, 800);
-        text.htmlText = '<p align="center">Choose your nation</p>';
+        text.htmlText = '<p align="center">' + LanguageManager.manager.getValue("text.choose_your_nation", "Choose Your Nation") + '</p>';
         text.autoSize = TextFieldAutoSize.CENTER;
         text.filters = [new DropShadowFilter()];
         text.y = 10;
         addChild(text);
 
         this.currentNationName = new SimpleText(46, 0xffffff);
-        this.currentNationName.text = "Unknown Nation";
+        this.currentNationName.text = LanguageManager.manager.getValue("text.unknown_nation", "Unknown Nation");
         this.currentNationName.updateMetrics();
         this.currentNationName.filters = [new DropShadowFilter()];
         this.currentNationName.y = 400;
         this.currentNationName.x = (400 - (this.currentNationName.width / 2));
         addChild(this.currentNationName);
 
-        this.chooseButton = new FancyTextButton(21, "Choose", 250);
+        this.chooseButton = new FancyTextButton(21, LanguageManager.manager.getValue("button.Choose", "Choose"), 250);
         this.chooseButton.y = 500;
         this.chooseButton.x = 275;
         this.chooseButton.addEventListener(MouseEvent.CLICK, this.onChoose);
@@ -86,11 +89,10 @@ public class ChooseNationScreen extends Sprite {
         var w:Number = (100 + (((this.nW % 3) * 200) + ((this.nW % 3) * 10)));
         var country:Country = new Country(id);
 
-        var n:nation = new nation(country.name, country.id, country.image);
+        var n:nation = new nation(country.name, country.id, country.image, this.setCurrentNation);
         n.x = w;
         n.y = h;
         n.filters = [new DropShadowFilter()];
-        n.onClick = setCurrentNation;
         addChild(n);
 
         if (id == 0) {
@@ -172,15 +174,16 @@ class nation extends Sprite {
     private var border:Sprite;
     private var oldTime:int;
     private var color:uint;
+    private var onClick:Function;
 
     public var nationName:String;
     public var nationId:int;
-    public var onClick:Function;
 
-    public function nation(name:String, id:int, image:Bitmap) {
+    public function nation(name:String, id:int, image:Bitmap, onClick:Function) {
         addChild(image);
         this.nationName = name;
         this.nationId = id;
+        this.onClick = onClick;
         this.color = 0xff0000;
 
         this.border = new Sprite();

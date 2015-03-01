@@ -44,7 +44,7 @@ public class _vU_ implements _07T_, _0C_j, _0A_k {
         this._handler = _arg2;
     }
 
-    public function _Y_u(_arg1:Class):_0D_c {
+    public function setDepencyDispatcher(_arg1:Class):_0D_c {
         return (((this._0L_y(_arg1)) || (this._21(_arg1))));
     }
 

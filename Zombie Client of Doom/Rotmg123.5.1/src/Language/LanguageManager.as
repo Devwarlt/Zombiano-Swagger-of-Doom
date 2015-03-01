@@ -48,7 +48,31 @@ public class LanguageManager {
 
     public function getValue(key:String, defaultValue:String = "{KEY}"):String {
         if (!this.languageXml || !this.languageXml.hasOwnProperty(key)) return defaultValue == "{KEY}" ? key : defaultValue;
-        return this.languageXml.elements(key)[0].toString();
+        return formatColor(this.languageXml.elements(key)[0].toString());
+    }
+
+    private function formatColor(text:String):String {
+        text = LanguageColors.replaceColor(text, LanguageColors.RED);
+        text = LanguageColors.replaceColor(text, LanguageColors.BLUE);
+        text = LanguageColors.replaceColor(text, LanguageColors.GREEN);
+        text = LanguageColors.replaceColor(text, LanguageColors.YELLOW);
+        text = LanguageColors.replaceColor(text, LanguageColors.PURPLE);
+        text = LanguageColors.replaceColor(text, LanguageColors.ORANGE);
+        text = LanguageColors.replaceColor(text, LanguageColors.WHITE);
+        text = LanguageColors.replaceColor(text, LanguageColors.BLACK);
+        return LanguageColors.replaceColor(text, LanguageColors.GOLD);
+    }
+
+    public function fillWithParameters(text:String, parameterNames:Vector.<String>, ... parameterValues):String {
+        var ret:String = text;
+        for (var i:int = 0; i < parameterNames.length, i++;) {
+            ret = fillWithParameter(ret, parameterNames[i], parameterValues[i]);
+        }
+        return ret;
+    }
+
+    public function fillWithParameter(text:String, parameterName:String, parameterValue:*):String {
+        return text.replace(parameterName, parameterValue.toString());
     }
 
     public function get languageType():String {

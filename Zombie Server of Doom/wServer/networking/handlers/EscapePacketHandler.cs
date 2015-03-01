@@ -14,7 +14,7 @@ namespace wServer.networking.handlers
             {
                 Host = "",
                 Port = 2050,
-                GameId = -55,
+                GameId = -2,
                 Name = "Berlin",
                 Key = Empty<byte>.Array,
             });

@@ -100,7 +100,7 @@ public class _0D_5 extends _zU_ {
 
     private function _dM_(_arg1:SavedCharsList):void {
         this._0I_s.charList = new SavedCharsList(_arg1.rawCharList);
-        this._0I_s.isLoaded = false;
+        this._0I_s.needsReload = false;
         _C_t(true);
         if (this._Z_w != null) {
             this._qv();

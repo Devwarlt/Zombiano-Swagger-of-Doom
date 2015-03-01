@@ -98,20 +98,24 @@ namespace wServer.realm
 
             foreach (var stat in this.m_new_stats)
             {
-                if (stat.Value == null) continue;
-
-                if (!this.m_old_stats.ContainsKey(stat.Key))
-                {
-                    stats.Add(stat.Key, stat.Value);
-                    this.m_old_stats.Add(stat.Key, stat.Value);
-                }
-                else if (!this.m_old_stats[stat.Key].Equals(stat.Value))
-                {
-                    stats.Add(stat.Key, stat.Value);
-                    this.m_old_stats[stat.Key] = stat.Value;
-                }
+                stats.Add(stat.Key, stat.Value);
+                //if (stat.Value == null) continue;
+                //
+                //if (!this.m_old_stats.ContainsKey(stat.Key))
+                //{
+                //    stats.Add(stat.Key, stat.Value);
+                //    this.m_old_stats.Add(stat.Key, stat.Value);
+                //}
+                //else if (!this.m_old_stats[stat.Key].Equals(stat.Value))
+                //{
+                //    stats.Add(stat.Key, stat.Value);
+                //    this.m_old_stats[stat.Key] = stat.Value;
+                //}
             }
-
+            if (stats.Count > 0)
+            {
+                Console.WriteLine(stats.Count);
+            }
             return new ObjectStats()
             {
                 Id = Id,

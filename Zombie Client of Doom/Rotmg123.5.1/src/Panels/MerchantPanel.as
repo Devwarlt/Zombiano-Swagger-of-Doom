@@ -18,9 +18,11 @@
 //Panels.MerchantPanel
 
 package Panels {
+import Language.LanguageKeys.LanguageKeys_SellAbleButton;
+
 import com.company.assembleegameclient.objects.SellableObject;
 import com.company.ui.SimpleText;
-import com.company.assembleegameclient.ui.SellableButton;
+import com.company.assembleegameclient.ui.SellAbleButton;
 import com.company.util.Keys;
 
 import flash.display.Sprite;
@@ -57,7 +59,7 @@ public class MerchantPanel extends Panel {
 
     private var _iA_:SellableObject;
     private var nameText_:SimpleText;
-    private var _8O_:SellableButton;
+    private var _8O_:SellAbleButton;
     private var _0F_y:Sprite = null;
     private var _0C_:SimpleText = null;
     private var _5U_:Sprite;
@@ -78,7 +80,7 @@ public class MerchantPanel extends Panel {
         addChild(this._5U_);
         this.bitmap_ = new Bitmap(null);
         this._5U_.addChild(this.bitmap_);
-        this._8O_ = new SellableButton("Buy for ", 16, 0, Currency.INVALID);
+        this._8O_ = new SellAbleButton(LanguageKeys_SellAbleButton.Buy_for, 16, 0, Currency.INVALID);
         this._8O_.addEventListener(MouseEvent.CLICK, this._i);
         addChild(this._8O_);
         this._r(_arg2);

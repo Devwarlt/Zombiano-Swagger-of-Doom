@@ -2,8 +2,8 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="WebMain">
     <configurations>
-      <configuration name="WebMain" target-platform="Desktop" pure-as="true" main-class="WebMain" output-file="WebMain.swf" output-folder="$MODULE_DIR$/bin-debug">
-        <dependencies>
+      <configuration name="WebMain" pure-as="true" main-class="WebMain" output-file="WebMain.swf" output-folder="$MODULE_DIR$/bin-debug">
+        <dependencies target-player="16.0">
           <sdk name="air sdk 16" />
         </dependencies>
         <compiler-options>
@@ -12,9 +12,9 @@
             <entry key="compiler.keep-generated-actionscript" value="false" />
             <entry key="compiler.locale" value="" />
           </map>
-          <option name="additionalOptions" value="-default-size 800 600 -default-frame-rate 60 -default-background-color #000000 -static-link-runtime-shared-libraries=true -keep-as3-metadata+=Inject -keep-as3-metadata+=InjectComplete -keep-as3-metadata+=PostConstruct" />
+          <option name="additionalOptions" value="-default-size 800 600 -default-frame-rate 60 -default-background-color #000000 -static-link-runtime-shared-libraries=true -keep-as3-metadata+=Inject -keep-as3-metadata+=PostConstruct" />
         </compiler-options>
-        <packaging-air-desktop package-file-name="WebMain" />
+        <packaging-air-desktop />
         <packaging-android />
         <packaging-ios />
       </configuration>

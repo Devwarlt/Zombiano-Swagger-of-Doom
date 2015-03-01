@@ -18,6 +18,9 @@
 //com.company.assembleegameclient.ui._u5
 
 package com.company.assembleegameclient.ui {
+import Language.LanguageManager;
+import Language.LanguageParameterNames;
+
 import flash.display.GradientType;
 import flash.display.Sprite;
 import flash.display.BitmapData;
@@ -34,7 +37,7 @@ import flash.geom.Matrix;
 import flash.utils.getTimer;
 
 
-public class SellableButton extends Sprite {
+public class SellAbleButton extends Sprite {
 
     private static var goldCoin_:BitmapData = null;
     private static var silverCoin_:BitmapData = null;
@@ -50,7 +53,7 @@ public class SellableButton extends Sprite {
     private var mouseOver:Boolean;
     private var oldTime:int;
 
-    public function SellableButton(text:String, textSize:int, price:int, currency:int) {
+    public function SellAbleButton(text:String, textSize:int, price:int, currency:int) {
         super();
         this._A_2 = text;
         this.text_ = new SimpleText(textSize, 0xFFD700, false, 0, 0, "Myriad Pro");
@@ -94,7 +97,7 @@ public class SellableButton extends Sprite {
         }
         this.price_ = _arg1;
         this.currency_ = _arg2;
-        this.text_.text = (this._A_2 + _arg1);
+        this.text_.text = LanguageManager.manager.fillWithParameter(LanguageManager.manager.getValue(this._A_2), LanguageParameterNames.PRICE, this.price_);
         this.text_.updateMetrics();
         switch (_arg2) {
             case Currency.GOLD:

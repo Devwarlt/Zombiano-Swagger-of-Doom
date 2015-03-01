@@ -22,7 +22,7 @@ import Abstract.AbstractManager;
 
 import Language.LanguageManager;
 
-import _F_1._E_r;
+import _F_1.GameLoadingScreen;
 
 import _W_D_.Domain;
 
@@ -45,14 +45,15 @@ public class _V_2 {
     public var _T__:_dd;
 
     public function execute():void {
-        URLRequestDefaults.userAgent = WebRequest.USER_AGENT;
+
+        //URLRequestDefaults.userAgent = WebRequest.USER_AGENT;
         loadEmbeds();
         AbstractManager.register();
         LanguageManager.load(this.dispatch);
     }
 
     private function _0E_M_():Sprite {
-        return (((this.domain._F_N_()) ? new _E_r() : new _05b()));
+        return (((this.domain._F_N_()) ? new GameLoadingScreen() : new _05b()));
     }
 
     private function dispatch():void {

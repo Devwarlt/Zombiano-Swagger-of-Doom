@@ -102,7 +102,7 @@ namespace server
         {
             try
             {
-                if (context.Request.UserAgent != "GameClient")
+                if (context.Request.UserAgent != "GameClient" && context.Request.UserAgent != "Shockwave Flash")
                 {
                     log.Error(context.Request.UserAgent);
                     using (StreamWriter wtr = new StreamWriter(context.Response.OutputStream))

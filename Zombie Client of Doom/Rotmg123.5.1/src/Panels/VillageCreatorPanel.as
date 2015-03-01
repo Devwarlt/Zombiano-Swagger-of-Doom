@@ -20,13 +20,15 @@
 package Panels {
 import AccountManagement.ui.FancyTextButton;
 
+import Language.LanguageKeys.LanguageKeys_SellAbleButton;
+
 import Villages.CreateVillageScreen;
 
 import com.company.ui.SimpleText;
 
 import flash.display.Sprite;
 
-import com.company.assembleegameclient.ui.SellableButton;
+import com.company.assembleegameclient.ui.SellAbleButton;
 import com.company.assembleegameclient.objects.Player;
 
 import flash.text.TextFieldAutoSize;
@@ -53,7 +55,7 @@ public class VillageCreatorPanel extends Panel {
 
     public function VillageCreatorPanel(_arg1:GameSprite) {
         var _local3:String;
-        var _local4:SellableButton;
+        var _local4:SellAbleButton;
         super(_arg1);
         if ((((gs_.map_ == null)) || ((gs_.map_.player_ == null)))) {
             return;
@@ -79,7 +81,7 @@ public class VillageCreatorPanel extends Panel {
             this.text.htmlText = '<p align="center">Create a Guild</p>';
             this.text.y = 0;
             addChild(this.text);
-            _local4 = new SellableButton("Create ", 16, Parameters.CREATE_VILLAGE_PRICE, Currency.GOLD);
+            _local4 = new SellAbleButton(LanguageKeys_SellAbleButton.Create, 16, Parameters.CREATE_VILLAGE_PRICE, Currency.GOLD);
             _local4.addEventListener(MouseEvent.CLICK, this.onVillageCreate);
             _local4.x = ((WIDTH / 2) - (_local4.w_ / 2));
             _local4.y = ((HEIGHT - (_local4.height / 2)) - 10);

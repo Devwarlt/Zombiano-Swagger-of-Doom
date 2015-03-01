@@ -77,7 +77,7 @@ public class WebRequest extends EventDispatcher {
     private function _M_z(_arg1:String, _arg2:Object):URLRequest {
         var _local5:String;
         var _local3:URLRequest = new URLRequest((this._E_v + _arg1));
-        _local3.userAgent = USER_AGENT;
+        //_local3. = USER_AGENT;
         _local3.method = URLRequestMethod.POST;
         var _local4:URLVariables = new URLVariables();
         for (_local5 in _arg2) {

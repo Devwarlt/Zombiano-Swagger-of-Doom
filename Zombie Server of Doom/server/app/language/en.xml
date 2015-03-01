@@ -1,0 +1,13 @@
+﻿<Language type="en">
+  <!-- UI -->
+  <game.Paused>Game Paused</game.Paused>
+  <!-- END UI -->
+  
+  
+  <!-- SellAbleButton -->
+  <SellAbleButton.Buy_for>Buy for {price}</SellAbleButton.Buy_for>
+  <SellAbleButton.Create>Create {price}</SellAbleButton.Create>
+  <SellAbleButton.Change>Change {price}</SellAbleButton.Change>
+  <!-- End SellAbleButton -->
+  
+</Language>

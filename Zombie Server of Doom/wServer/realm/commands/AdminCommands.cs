@@ -45,6 +45,23 @@ namespace wServer.realm.commands
         }
     }
 
+    class Playertest : Command
+    {
+        public Playertest() : base("pl", permLevel: 1) { }
+
+        protected override bool Process(Player player, RealmTime time, string args)
+        {
+            Client c = new Client(player.Manager, new System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork, System.Net.Sockets.SocketType.Stream, System.Net.Sockets.ProtocolType.Tcp));
+            c.BeginProcess();
+            c.Account = player.Manager.Database.Verify("ossi", "ossimc82");
+            c.Character = player.Client.Character;
+            Player p = new Player(c);
+            p.Move(player.X, player.Y);
+            player.Owner.EnterWorld(p);
+            return true;
+        }
+    }
+
     class t : Command
     {
         public t() : base("t", permLevel: 1) { }

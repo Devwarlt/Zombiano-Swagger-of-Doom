@@ -37,7 +37,8 @@ namespace server
         public void WriteLine(string value, params object[] args)
         {
             using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
-                wtr.WriteLine(value, args);
+                if(args == null || args.Length == 0) wtr.WriteLine(value);
+                else wtr.WriteLine(value, args);
         }
 
         public void WriteErrorLine(string value, params object[] args)

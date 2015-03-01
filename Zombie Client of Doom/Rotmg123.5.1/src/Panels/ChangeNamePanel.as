@@ -20,11 +20,13 @@
 package Panels {
 import AccountManagement.ui.FancyTextButton;
 
+import Language.LanguageKeys.LanguageKeys_SellAbleButton;
+
 import com.company.ui.SimpleText;
 
 import flash.display.Sprite;
 
-import com.company.assembleegameclient.ui.SellableButton;
+import com.company.assembleegameclient.ui.SellAbleButton;
 import com.company.assembleegameclient.objects.Player;
 
 import flash.text.TextFieldAutoSize;
@@ -54,7 +56,7 @@ public class ChangeNamePanel extends Panel {
     private var _ek:Sprite;
 
     public function ChangeNamePanel(_arg1:GameSprite, _arg2:int) {
-        var _local5:SellableButton;
+        var _local5:SellAbleButton;
         var _local6:Sprite;
         var _local7:SimpleText;
         var _local8:Sprite;
@@ -63,7 +65,7 @@ public class ChangeNamePanel extends Panel {
             return;
         }
         var _local3:Player = gs_.map_.player_;
-        this._B_E_ = _local3._hv;
+        this._B_E_ = _local3.nameChosen;
         var _local4:String = gs_.charList_.name_;
         this._O_k = new SimpleText(18, 0xFFFFFF, false, WIDTH, 0, "Myriad Pro");
         this._O_k.boldText(true);
@@ -75,7 +77,7 @@ public class ChangeNamePanel extends Panel {
             this._O_k.htmlText = (('<p align="center">Your name is: \n' + _local4) + "</p>");
             this._O_k.y = 0;
             addChild(this._O_k);
-            _local5 = new SellableButton("Change ", 16, Parameters.NAME_CHANGE_PRICE, Currency.GOLD);
+            _local5 = new SellAbleButton(LanguageKeys_SellAbleButton.Change, 16, Parameters.NAME_CHANGE_PRICE, Currency.GOLD);
             _local5.addEventListener(MouseEvent.CLICK, this.onButtonClick);
             _local5.x = ((WIDTH / 2) - (_local5.w_ / 2));
             _local5.y = ((HEIGHT - (_local5.height / 2)) - 10);

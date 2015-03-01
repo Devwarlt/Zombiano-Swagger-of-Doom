@@ -18,7 +18,7 @@
 package AccountManagement {
 import _C__._cM_;
 
-import _F_1._E_r;
+import _F_1.GameLoadingScreen;
 
 import _U_5.SpriteTarget;
 import _U_5.CharListResetDispatcher;
@@ -60,7 +60,7 @@ public class AccountEventDispatcher extends _cM_ {
             case AccountManagementScreen.SHOW_MAIN_SCREEN:
                 this.view.dispatchEvent(new Event(Event.COMPLETE));
                 this.charListReset.dispatch();
-                this.target.dispatch(new _E_r());
+                this.target.dispatch(new GameLoadingScreen());
                 break;
             case AccountManagementScreen.RELOAD:
                 this.reload();
@@ -69,7 +69,7 @@ public class AccountEventDispatcher extends _cM_ {
                 Account._get().clear();
                 this.view.dispatchEvent(new Event(Event.COMPLETE));
                 this.charListReset.dispatch();
-                this.target.dispatch(new _E_r());
+                this.target.dispatch(new GameLoadingScreen());
                 break;
         }
     }

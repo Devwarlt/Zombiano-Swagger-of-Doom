@@ -13,35 +13,36 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * Created by Fabian on 24.02.2015.
+ * Created by Fabian on 28.02.2015.
  */
 package Villages.nations {
 import _C__._cM_;
 
-import _F_1._E_r;
+import _F_1.GameLoadingScreen;
 
 import _U_5.CharListResetDispatcher;
 import _U_5.SpriteTarget;
 
 public class NationEventDispatcher extends _cM_ {
+
     [Inject]
     public var view:ChooseNationScreen;
     [Inject]
-    public var charListReset:CharListResetDispatcher;
+    public var reset:CharListResetDispatcher;
     [Inject]
     public var target:SpriteTarget;
 
     override public function initialize():void {
-        this.view.eventDispatcher.add(this.dispatch);
+        this.view.eventDispatcher.add(this.close);
     }
 
     override public function destroy():void {
-        this.view.eventDispatcher.remove(this.dispatch);
+        this.view.eventDispatcher.remove(this.close);
     }
 
-    private function dispatch():void {
-        this.charListReset.dispatch();
-        this.target.dispatch(new _E_r());
+    private function close():void {
+        this.reset.dispatch();
+        this.target.dispatch(new GameLoadingScreen());
     }
 }
 }

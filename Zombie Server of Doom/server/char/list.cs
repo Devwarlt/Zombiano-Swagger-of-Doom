@@ -58,10 +58,15 @@ namespace server.@char
                     db.LoadCharacters(chrs.Account, chrs);
                     chrs.News = db.GetNews(Program.GameData, chrs.Account);
                 }
-                else
+                else if (String.IsNullOrWhiteSpace(Query["Password"]))
                 {
                     chrs.Account = Database.CreateGuestAccount(Query["guid"]);
                     chrs.News = db.GetNews(Program.GameData, null);
+                }
+                else
+                {
+                    WriteErrorLine("Account credentials not valid");
+                    return;
                 }
 
                 MemoryStream ms = new MemoryStream();

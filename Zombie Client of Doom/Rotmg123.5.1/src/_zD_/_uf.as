@@ -21,23 +21,23 @@ package _zD_ {
 import _C__._cM_;
 
 import _F_1._C_Q_;
-import _F_1._E_r;
+import _F_1.GameLoadingScreen;
 
 import _U_5.SpriteTarget;
 
 public class _uf extends _cM_ {
 
     [Inject]
-    public var view:_E_r;
+    public var view:GameLoadingScreen;
     [Inject]
     public var _T__:SpriteTarget;
 
     override public function initialize():void {
-        this.view._J_b.add(this._E_R_);
+        this.view.completed.add(this._E_R_);
     }
 
     override public function destroy():void {
-        this.view._J_b.remove(this._E_R_);
+        this.view.completed.remove(this._E_R_);
     }
 
     private function _E_R_():void {

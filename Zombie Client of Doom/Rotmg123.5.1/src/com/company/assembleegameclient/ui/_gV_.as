@@ -57,7 +57,7 @@ public class _gV_ extends Sprite {
         if (this._H_a) {
             this.nameText_ = new SimpleText(13, _arg1, false, 0, 0, "Myriad Pro");
         } else {
-            this.nameText_ = new SimpleText(13, _arg1, false, 66, 20, "Myriad Pro");
+            this.nameText_ = new SimpleText(13, _arg1, false, 100, 20, "Myriad Pro");
             this.nameText_.boldText(true);
         }
         this.nameText_.x = 0;
@@ -82,7 +82,7 @@ public class _gV_ extends Sprite {
             if (_local6._N_n) {
                 _local3 = Parameters._mg;
             } else {
-                if (_local6._hv) {
+                if (_local6.nameChosen) {
                     _local3 = Parameters._8T_;
                 }
             }
