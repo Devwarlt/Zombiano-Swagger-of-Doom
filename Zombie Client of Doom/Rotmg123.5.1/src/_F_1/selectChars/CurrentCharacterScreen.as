@@ -20,6 +20,9 @@
 package _F_1.selectChars {
 import FireBite.Embeds.Models._br;
 
+import Language.LanguageKeys.LanguageKeys_Screen;
+import Language.LanguageKeys.LanguageKeys_TextButton;
+
 import _F_1.*;
 
 import _02t._R_f;
@@ -82,9 +85,9 @@ public class CurrentCharacterScreen extends _05p {
 
     public function CurrentCharacterScreen() {
         addChild(new _R_f());
-        this.playBtn = new _H_o("play", 36, true);
-        this.mainBtn = new _H_o("main", 22, false);
-        this.skinsBtn = new _H_o("skins", 22, false);
+        this.playBtn = new _H_o(LanguageKeys_Screen.PLAY, 36, true);
+        this.mainBtn = new _H_o(LanguageKeys_Screen.MAIN, 22, false);
+        this.skinsBtn = new _H_o(LanguageKeys_Screen.SKINS, 22, false);
         super(CurrentCharacterScreen);
         this._n7 = new _aJ_();
         this.newCharacter = new _aJ_();
@@ -118,7 +121,7 @@ public class CurrentCharacterScreen extends _05p {
         this.creditsUI.x = 800;
         this.creditsUI.y = 20;
         addChild(this.creditsUI);
-        this.charactersButton = new TextButton(18, true, "Characters");
+        this.charactersButton = new TextButton(18, true, LanguageKeys_TextButton.Characters);
         this.charactersButton.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
         this.charactersButton.x = 18;
         this.charactersButton.y = 72;
@@ -126,13 +129,13 @@ public class CurrentCharacterScreen extends _05p {
         this.charactersButton.addEventListener(MouseEvent.CLICK, this.onButtonClick);
         addChild(this.charactersButton);
         this.selectedButton = this.charactersButton;
-        this.graveyardButton = new TextButton(18, true, "Graveyard");
+        this.graveyardButton = new TextButton(18, true, LanguageKeys_TextButton.Graveyard);
         this.graveyardButton.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
         this.graveyardButton.x = this.charactersButton.width + this.charactersButton.x + 15;
         this.graveyardButton.y = 72;
         this.graveyardButton.addEventListener(MouseEvent.CLICK, this.onButtonClick);
         addChild(this.graveyardButton);
-        this.packagesButton = new TextButton(18, true, "Packages");
+        this.packagesButton = new TextButton(18, true, LanguageKeys_TextButton.Packages);
         this.packagesButton.filters = [new DropShadowFilter(0, 0, 0, 1, 8, 8)];
         this.packagesButton.x = this.graveyardButton.width + this.graveyardButton.x + 15;
         this.packagesButton.y = 72;
@@ -202,8 +205,8 @@ public class CurrentCharacterScreen extends _05p {
     }
 
     private function onScrollBarChange(_arg1:Event):void {
-        this.chars.scrollBarScroll((-(this.scrollBar._Q_D_()) * (this.totalHeight - 400)));
-        this.graveyard.scrollBarScroll((-(this.scrollBar._Q_D_()) * (this.totalHeight - 400)));
+        this.chars.scrollBarScroll((-(this.scrollBar.getPositionInPercent()) * (this.totalHeight - 400)));
+        this.graveyard.scrollBarScroll((-(this.scrollBar.getPositionInPercent()) * (this.totalHeight - 400)));
     }
 
     public function _u_():void {
@@ -226,14 +229,14 @@ public class CurrentCharacterScreen extends _05p {
             removeChild(this.currentSprite);
         }
 
-        switch (this.selectedButton.text_.text) {
-            case "Characters":
+        switch (this.selectedButton.name) {
+            case LanguageKeys_TextButton.Characters:
                 this.currentSprite = this.chars;
                 break;
-            case "Graveyard":
+            case LanguageKeys_TextButton.Graveyard:
                 this.currentSprite = this.graveyard;
                 break;
-            case "Packages":
+            case LanguageKeys_TextButton.Packages:
                 this.currentSprite = this.packages;
                 break;
         }

@@ -405,7 +405,7 @@ public class Options extends Sprite {
 
     private function onChange(event:Event):void {
         if (this.scrollBar == null) return;
-        var changeVal:Number = this.scrollBar._Q_D_();
+        var changeVal:Number = this.scrollBar.getPositionInPercent();
         if (isNaN(changeVal)) return;
         optionsSprite.y = (((-(changeVal) * (this.nextOptionHeight - 400))));
     }

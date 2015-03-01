@@ -124,7 +124,7 @@ internal class _03v extends Sprite {
     }
 
     private function _A_E_(_arg1:Event):void {
-        this._M_Z_.y = (-(this._E_k._Q_D_()) * (this._M_Z_.height - 400));
+        this._M_Z_.y = (-(this._E_k.getPositionInPercent()) * (this._M_Z_.height - 400));
     }
 
     private function _L_n(_arg1:Event):void {

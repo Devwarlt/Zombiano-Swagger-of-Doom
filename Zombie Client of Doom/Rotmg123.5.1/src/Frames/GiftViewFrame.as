@@ -176,9 +176,9 @@ public class GiftViewFrame extends Frame {
     }
 
     private function onScroll(event:Event):void {
-        var val:Number = ((-(this.scrollBar._Q_D_()) * (this.totalHeight - 300)));
+        var val:Number = ((-(this.scrollBar.getPositionInPercent()) * (this.totalHeight - 300)));
         if (isNaN(val)) return;
-        this.giftHolder.y = 40 + ((-(this.scrollBar._Q_D_()) * (this.totalHeight - 300)));
+        this.giftHolder.y = 40 + ((-(this.scrollBar.getPositionInPercent()) * (this.totalHeight - 300)));
     }
 
     private function onDelete(e:Event):void {
@@ -186,7 +186,7 @@ public class GiftViewFrame extends Frame {
         var dialogBox:DialogBox = new DialogBox("Are you sure you want to delete this item?", "Confirm", "Delete", "Cancel");
         dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, function (event:Event):void {
             gs.stage.removeChild(dialogBox);
-            curPos = scrollBar._Q_D_();
+            curPos = scrollBar.getPositionInPercent();
             charList.gifts.splice(charList.gifts.indexOf(e.target.itemId), 1);
             removeChild(giftHolder);
             removeChild(scrollBar);

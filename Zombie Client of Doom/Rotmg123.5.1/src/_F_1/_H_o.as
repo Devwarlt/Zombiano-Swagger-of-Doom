@@ -18,6 +18,8 @@
 //_F_1._H_o
 
 package _F_1 {
+import Language.LanguageManager;
+
 import flash.display.Sprite;
 import flash.geom.ColorTransform;
 
@@ -42,15 +44,15 @@ public class _H_o extends Sprite {
     private var _0H_X_:Number;
     private var _N_a:Number;
 
-    public function _H_o(_arg1:String, _arg2:int, _arg3:Boolean, lowercase:Boolean = true) {
-        name = _arg1;
-        this.text_ = new SimpleText(_arg2, 0xFFFFFF, false, 0, 0, "Myriad Pro");
+    public function _H_o(text:String, fontSize:int, animated:Boolean, lowercase:Boolean = false) {
+        name = text;
+        this.text_ = new SimpleText(fontSize, 0xFFFFFF, false, 0, 0, "Myriad Pro");
         this.text_.boldText(true);
-        this.text_.text = lowercase ? _arg1.toLowerCase() : _arg1;
+        this.text_.text = lowercase ? LanguageManager.manager.getValue(text).toLowerCase() : LanguageManager.manager.getValue(text);
         this.text_.updateMetrics();
         this.text_.filters = [new DropShadowFilter(0, 0, 0, 0.5, 12, 12)];
         addChild(this.text_);
-        this._U_r = _arg3;
+        this._U_r = animated;
         this._0H_X_ = width;
         this._N_a = height;
         addEventListener(MouseEvent.MOUSE_OVER, this.onMouseOver);

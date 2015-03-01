@@ -233,7 +233,7 @@ public class _3V_ extends Sprite {
     }
 
     private function _A_E_(_arg1:Event):void {
-        this._0A_z.y = (-(this._E_k._Q_D_()) * (this._0A_z.height - 400));
+        this._0A_z.y = (-(this._E_k.getPositionInPercent()) * (this._0A_z.height - 400));
     }
 
     private function _6P_(_arg1:MouseEvent):void {

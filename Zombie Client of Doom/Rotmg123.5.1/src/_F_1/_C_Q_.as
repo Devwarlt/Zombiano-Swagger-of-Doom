@@ -20,7 +20,7 @@ import _02t._R_f;
 
 import _0L_C_.DialogBox;
 
-import _ke._0M_1;
+import Language.LanguageKeys.LanguageKeys_Screen;
 
 import _qN_.Account;
 
@@ -70,30 +70,30 @@ public class _C_Q_ extends _05p {
     override public function initialize(_arg1:SavedCharsList):void {
         super.initialize(_arg1);
         this._T_1 = _arg1;
-        this.playButton = new _H_o(_0M_1.PLAY, 36, true);
+        this.playButton = new _H_o(LanguageKeys_Screen.PLAY, 36, true);
         this.playButton.addEventListener(MouseEvent.CLICK, this._021);
         addChild(this.playButton);
-        this.serversButton = new _H_o(_0M_1.SERVERS, 22, false);
+        this.serversButton = new _H_o(LanguageKeys_Screen.SERVERS, 22, false);
         this.serversButton.addEventListener(MouseEvent.CLICK, this._021);
         addChild(this.serversButton);
-        this.creditsButton = new _H_o(_0M_1.CREDITS, 22, false);
+        this.creditsButton = new _H_o(LanguageKeys_Screen.CREDITS, 22, false);
         this.creditsButton.addEventListener(MouseEvent.CLICK, this._021);
         addChild(this.creditsButton);
-        this.accountButton = new _H_o(_0M_1.ACCOUNT, 22, false);
+        this.accountButton = new _H_o(LanguageKeys_Screen.ACCOUNT, 22, false);
         this.accountButton.addEventListener(MouseEvent.CLICK, this._021);
         addChild(this.accountButton);
-        this.legendsButton = new _H_o(_0M_1.LEGENDS, 22, false);
+        this.legendsButton = new _H_o(LanguageKeys_Screen.LEGENDS, 22, false);
         this.legendsButton.addEventListener(MouseEvent.CLICK, this._021);
         addChild(this.legendsButton);
-        this.editorButton = new _H_o(_0M_1.EDITOR, 22, false);
+        this.editorButton = new _H_o(LanguageKeys_Screen.EDITOR, 22, false);
         this.editorButton.addEventListener(MouseEvent.CLICK, this._021);
         //this.editorButton.visible = _arg1._V_v;
         addChild(this.editorButton);
-        this.exitButton = new _H_o(_0M_1.QUIT, 22, false);
+        this.exitButton = new _H_o(LanguageKeys_Screen.QUIT, 22, false);
         this.exitButton.addEventListener(MouseEvent.CLICK, this._021);
         //this.exitButton.visible = (Capabilities.playerType == "Desktop");
         addChild(this.exitButton);
-        this.webButton = new _H_o(_0M_1.WEBSITE, 22, false);
+        this.webButton = new _H_o(LanguageKeys_Screen.WEBSITE, 22, false);
         this.webButton.addEventListener(MouseEvent.CLICK, this.onClick);
         addChild(this.webButton);
         this.versionText = new SimpleText(12, 0x7F7F7F, false, 0, 0, "Myriad Pro");
@@ -147,7 +147,7 @@ public class _C_Q_ extends _05p {
 
     private function _021(_arg1:MouseEvent):void {
         var _local2:_H_o = (_arg1.target as _H_o);
-        this._ft.dispatch(_local2.name == _0M_1.EDITOR ? Account._get().admin_ ? _0M_1.EDITOR : _0M_1.SPRITE_EDITOR : _local2.name);
+        this._ft.dispatch(_local2.name == LanguageKeys_Screen.EDITOR ? Account._get().admin_ ? LanguageKeys_Screen.EDITOR : "SPRITE_EDITOR" : _local2.name);
     }
 
     private function onClick(_arg1:MouseEvent):void {

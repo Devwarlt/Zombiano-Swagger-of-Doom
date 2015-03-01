@@ -18,6 +18,8 @@
 //com.company.assembleegameclient.ui._jM_
 
 package com.company.assembleegameclient.ui {
+import Language.LanguageManager;
+
 import flash.display.Sprite;
 
 import com.company.ui.SimpleText;
@@ -35,9 +37,10 @@ public class TextButton extends Sprite {
     public var _S_4:uint = 0xFFFFFF;
 
     public function TextButton(fontSize:int, boldText:Boolean, text:String) {
+        this.name = text;
         this.text_ = new SimpleText(fontSize, 0xFFFFFF, false, 0, 0, "Myriad Pro");
         this.text_.boldText(boldText);
-        this.text_.text = text;
+        this.text_.text = LanguageManager.manager.getValue(text);
         this.text_.updateMetrics();
         addChild(this.text_);
         this.text_.filters = [new DropShadowFilter(0, 0, 0)];

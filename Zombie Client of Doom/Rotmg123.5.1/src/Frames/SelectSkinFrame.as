@@ -158,7 +158,7 @@ public class SelectSkinFrame extends Sprite {
 
     private function onChange(event:Event):void {
         for each (var skinRect:SkinRect in rects) {
-            skinRect.setY(((-(this.scrollbar._Q_D_()) * (this.charsHeight - 500))));
+            skinRect.setY(((-(this.scrollbar.getPositionInPercent()) * (this.charsHeight - 500))));
         }
     }
 

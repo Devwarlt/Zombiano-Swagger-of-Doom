@@ -74,7 +74,7 @@ public class AchievementsHolder extends TabHolder {
 
     private function onChange(event:Event):void {
         var curPos:Number;
-        if (!isNaN(curPos = this.scrollBar._Q_D_())) {
+        if (!isNaN(curPos = this.scrollBar.getPositionInPercent())) {
             this.achievements.y = 10 + (-curPos * (this.totalHeight - HEIGHT));
         }
     }

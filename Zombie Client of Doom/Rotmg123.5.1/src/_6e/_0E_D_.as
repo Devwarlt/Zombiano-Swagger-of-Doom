@@ -120,7 +120,7 @@ internal class _0E_D_ extends Sprite {
     }
 
     private function _A_E_(_arg1:Event):void {
-        this._M_Z_.scrollV = (1 + (this._E_k._Q_D_() * this._M_Z_.maxScrollV));
+        this._M_Z_.scrollV = (1 + (this._E_k.getPositionInPercent() * this._M_Z_.maxScrollV));
     }
 
     private function onCancel(_arg1:Event):void {

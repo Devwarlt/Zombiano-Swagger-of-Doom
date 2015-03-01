@@ -41,7 +41,7 @@ import _U_5._dd;
 
 import _05Z_._08i;
 
-import _ke._0M_1;
+import Language.LanguageKeys.LanguageKeys_Screen;
 
 import _0L_C_.DialogBox;
 
@@ -78,31 +78,31 @@ public class __for extends _cM_ {
 
     public function _F_A_(_arg1:String):void {
         switch (_arg1) {
-            case _0M_1.PLAY:
+            case LanguageKeys_Screen.PLAY:
                 this._04P_();
                 return;
-            case _0M_1.SERVERS:
+            case LanguageKeys_Screen.SERVERS:
                 this._0B_M_();
                 return;
-            case _0M_1.CREDITS:
+            case LanguageKeys_Screen.CREDITS:
                 this._C_0();
                 return;
-            case _0M_1.ACCOUNT:
+            case LanguageKeys_Screen.ACCOUNT:
                 this._0A_3();
                 return;
-            case _0M_1.LEGENDS:
+            case LanguageKeys_Screen.LEGENDS:
                 this._N_E_();
                 return;
-            case _0M_1.EDITOR:
+            case LanguageKeys_Screen.EDITOR:
                 this._0E_r();
                 return;
-            case _0M_1.SPRITE_EDITOR:
+            case "SPRITE_EDITOR":
                 var questionBox:DialogBox = new DialogBox("Open Sprite Editor?", "Enter Sprite Editor", "Open", "Cancel");
                 questionBox.addEventListener(DialogBox.BUTTON1_EVENT, spriteEditor);
                 questionBox.addEventListener(DialogBox.BUTTON2_EVENT, cancelOpen);
                 this.view.addChild(questionBox);
                 return;
-            case _0M_1.QUIT:
+            case LanguageKeys_Screen.QUIT:
                 this._uz();
                 return;
             case "ChooseCountry":

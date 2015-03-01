@@ -160,7 +160,7 @@ public class TownHallShop extends VillageManagementScreenBase {
     }
 
     private function onScroll(event:Event):void {
-        this.offersHolder.y = (-this.scrollBar._Q_D_() * (this.scrollBar.totalHeight - 430));
+        this.offersHolder.y = (-this.scrollBar.getPositionInPercent() * (this.scrollBar.totalHeight - 430));
     }
 }
 }

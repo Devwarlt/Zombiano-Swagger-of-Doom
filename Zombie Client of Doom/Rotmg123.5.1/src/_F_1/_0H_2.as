@@ -197,7 +197,7 @@ public class _0H_2 extends _05p {
     }
 
     private function onChange(event:Event):void {
-        var val = this.scrollBar._Q_D_();
+        var val = this.scrollBar.getPositionInPercent();
         for each (var box:CharacterBox in this._break) {
             box.setY(((-(val) * ((this.charHeight) - 410))));
         }

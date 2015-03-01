@@ -1,4 +1,38 @@
-﻿<Language type="en">
+﻿<!--
+
+#Colors
+  Available Language Colors:
+  
+  {red}red text{/red}
+  {blue}blue text{/blue}
+  {green}green text{/green}
+  {yellow}yellow text{/yellow}
+  {purple}purple text{/purple}
+  {orange}orange text{/orange}
+  {white}white text{/white}
+  {black}black text{/black}
+  {gold}gold text{/gold}
+  
+  
+#Layout
+  Language Layout:
+  <key>language text here</key>
+  
+  
+#Parameters
+  Parameters:
+  <key>my text: {parameter}</key>
+  
+  "{parameter}" will be replaced with a unknown value
+  known parameters:
+
+  {price} //used in sellable objects
+  {level} //used if you die or if you reach level 20
+  {player} //used in many places where you need the player name
+-->
+
+
+<Language type="en">  
   <!-- UI -->
   <game.Paused>Game Paused</game.Paused>
   <!-- END UI -->
@@ -9,5 +43,29 @@
   <SellAbleButton.Create>Create {price}</SellAbleButton.Create>
   <SellAbleButton.Change>Change {price}</SellAbleButton.Change>
   <!-- End SellAbleButton -->
+
+  <!-- Screen -->
+  <Screen.Play>Play</Screen.Play>
+  <Screen.Servers>Servers</Screen.Servers>
+  <Screen.Legends>Legends</Screen.Legends>
+  <Screen.Credits>Credits</Screen.Credits>
+  <Screen.Account>Account</Screen.Account>
+  <Screen.Editor>Editor</Screen.Editor>
+  <Screen.Website>Website</Screen.Website>
+  <Screen.Quit>Quit</Screen.Quit>
+  <Screen.Main>Main</Screen.Main>
+  <Screen.Skins>Skins</Screen.Skins>
+  <!-- End Screen -->
   
+  <!-- TextButton -->
+  <TextButton.Characters>Characters</TextButton.Characters>
+  <TextButton.Graveyard>Graveyard</TextButton.Graveyard>
+  <TextButton.Packages>Packages</TextButton.Packages>
+  <!-- End TextButton -->
+  
+
+
+
+
+
 </Language>

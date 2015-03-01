@@ -127,7 +127,7 @@ internal class _E_m extends Sprite {
     }
 
     protected function _A_E_(_arg1:Event):void {
-        this._Y_i.y = (6 - (this._E_k._Q_D_() * ((this._Y_i.height + 12) - HEIGHT)));
+        this._Y_i.y = (6 - (this._E_k.getPositionInPercent() * ((this._Y_i.height + 12) - HEIGHT)));
     }
 
     protected function onAddedToStage(_arg1:Event):void {

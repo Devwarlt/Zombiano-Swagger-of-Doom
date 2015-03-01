@@ -98,7 +98,7 @@ public class _no extends Sprite {
     }
 
     private function _I_v(_arg1:Event):void {
-        var _local2:Number = this._V__._Q_D_();
+        var _local2:Number = this._V__.getPositionInPercent();
         this._8g.y = ((_local2 * ((this.rect_.height - this._8g.height) - 15)) + 5);
     }
 

@@ -77,7 +77,7 @@ public class ScrollBar extends Sprite {
         _arg3.endFill();
     }
 
-    public function _Q_D_():Number {
+    public function getPositionInPercent():Number {
         return (((this.sliderDrag.y - this._gC_.y) / (this._gC_.height - this.sliderDrag.height)));
     }
 
@@ -99,11 +99,11 @@ public class ScrollBar extends Sprite {
     }
 
     public function _d9():void {
-        this._0D__((this._Q_D_() - this._oI_));
+        this._0D__((this.getPositionInPercent() - this._oI_));
     }
 
     public function _tE_():void {
-        this._0D__((this._Q_D_() + this._oI_));
+        this._0D__((this.getPositionInPercent() + this._oI_));
     }
 
     private function _y9(_arg1:Function):Sprite {

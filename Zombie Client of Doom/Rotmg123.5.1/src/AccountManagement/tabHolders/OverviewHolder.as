@@ -69,7 +69,7 @@ public class OverviewHolder extends TabHolder {
 
     private function onChange(event:Event):void {
         for each (var item:LogItemHolder in this.logItems) {
-            item.setY(((-(this.scrollBar._Q_D_()) * (this.itemsHeight - HEIGHT))));
+            item.setY(((-(this.scrollBar.getPositionInPercent()) * (this.itemsHeight - HEIGHT))));
         }
     }
 

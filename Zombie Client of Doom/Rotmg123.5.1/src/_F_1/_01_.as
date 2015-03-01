@@ -62,7 +62,7 @@ public class _01_ extends _05p {
     }
 
     private function _A_E_(_arg1:Event):void {
-        this._I_d.y = (8 - (this._E_k._Q_D_() * (this._I_d.height - 400)));
+        this._I_d.y = (8 - (this._E_k.getPositionInPercent() * (this._I_d.height - 400)));
     }
 
     override public function initialize(_arg1:SavedCharsList):void {
