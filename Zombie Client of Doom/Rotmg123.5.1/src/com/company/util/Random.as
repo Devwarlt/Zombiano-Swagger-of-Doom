@@ -45,8 +45,8 @@ public class Random {
         return ((_arg1 + (_local5 * _arg2)));
     }
 
-    public function next(_arg1:uint, _arg2:uint):uint {
-        return ((((_arg1) == _arg2) ? _arg1 : (_arg1 + (this.randomSeed() % (_arg2 - _arg1)))));
+    public function next(minValue:uint, maxValue:uint):uint {
+        return ((((minValue) == maxValue) ? minValue : (minValue + (this.randomSeed() % (maxValue - minValue)))));
     }
 
     public function nextFloat(_arg1:Number, _arg2:Number):Number {

@@ -17,26 +17,26 @@
  */
 package MiniGames.MysteryBox {
 
-import com.company.assembleegameclient.game.GameSprite;
+import _0L_C_.DialogBox;
+
 import com.company.assembleegameclient.objects.ObjectLibrary;
+import com.company.assembleegameclient.util.ArrayUtils;
 import com.company.util.Random;
 
 import flash.display.Bitmap;
-import flash.display.Sprite;
 import flash.events.Event;
 import flash.utils.getTimer;
 
-public class MysteryBoxRoll extends Sprite {
+public class MysteryBoxRoll extends MysteryBoxChild {
 
-    var bmp:Bitmap;
+    private var bmp:Bitmap;
 
     private var rand:Random = new Random();
-    private var items:Array;
+    private var items:Vector.<int>;
 
-    public function MysteryBoxRoll(gs:GameSprite, offer:XML) {
-        graphics.beginFill(0x000000, 1.0);
-        graphics.drawRect(0, 0, MysteryBox.WIDTH, gs.stage.getChildByName("MysteryBox").height - 1);
-        graphics.endFill();
+    public function MysteryBoxRoll(offer:XML) {
+        var req:MysteryBoxRequest = new MysteryBoxRequest();
+        req.addEventListener(MysteryBoxResultEvent.MYSTERYBOX_RESULT, this.onResult);
         bmp = new Bitmap();
         bmp.x = 200;
         bmp.y = 200;
@@ -49,21 +49,34 @@ public class MysteryBoxRoll extends Sprite {
 
     private function onEnterFrame(event:Event):void {
         if (getTimer() % 5 == 0) {
-            var item:int = items[rand.next(0, items.length - 1)];
-            while (item == curItem) {
-                item = items[rand.next(0, items.length - 1)];
-            }
-            bmp.bitmapData = ObjectLibrary.getRedrawnTextureFromType(item, 100, true, true, 5);
-            curItem = item;
+            roll();
         }
     }
 
-    private function getKeys():Array {
-        var ret:Array = [];
+    private function getKeys():Vector.<int> {
+        var ret:Vector.<int> = new Vector.<int>();
         for (var key:* in ObjectLibrary.Items) {
             ret.push(key);
         }
         return ret;
+    }
+
+    private function roll():void {
+        var item:int = ArrayUtils.randomElement(items);
+        while (item == curItem) {
+            item = ArrayUtils.randomElement(items);
+        }
+        bmp.bitmapData = ObjectLibrary.getRedrawnTextureFromType(item, 100, true, true, 5);
+        curItem = item;
+    }
+
+    private function onResult(event:MysteryBoxResultEvent):void {
+        if (event.error) {
+            addAdditionalChild(new DialogBox(event.errorMessage, "Failed to purchase", "Ok", null));
+        }
+        else {
+            //this.currentRoll.onSuccess(event);
+        }
     }
 }
 }

@@ -25,8 +25,11 @@ public class MysteryBoxResultEvent extends Event {
     public var items:Array;
     public var errorMessage:String;
 
-    public function MysteryBoxResultEvent() {
+    public function MysteryBoxResultEvent(items:Array=null, error:Boolean=false, errorMessage:String="") {
         super(MYSTERYBOX_RESULT);
+        this.items = items == null ? [] : items;
+        this.error = error;
+        this.errorMessage = errorMessage;
     }
 }
 }

@@ -137,27 +137,27 @@ public class InjectorMapper implements _v {
         this._1G_.map(_06a)._1N_(_0C_O_);
         this._1G_.map(_V_l)._1N_(_E_Z_);
         this._1G_.map(_057)._1N_(_M_y);
-        this.mediatorMap.map(_zf).setDepencyDispatcher(_0D_h);
-        this.mediatorMap.map(GameLoadingScreen).setDepencyDispatcher(_uf);
-        this.mediatorMap.map(_01_).setDepencyDispatcher(_N_N_);
-        this.mediatorMap.map(CreditsScreen).setDepencyDispatcher(_0F_Q_);
-        this.mediatorMap.map(CurrentCharacterScreen).setDepencyDispatcher(_xF_);
-        this.mediatorMap.map(_05p).setDepencyDispatcher(_V_M_);
-        this.mediatorMap.map(_C_Q_).setDepencyDispatcher(__for);
-        this.mediatorMap.map(AccountManagementScreen).setDepencyDispatcher(AccountEventDispatcher);
-        this.mediatorMap.map(ChooseNationScreen).setDepencyDispatcher(NationEventDispatcher);
-        this.mediatorMap.map(_3V_).setDepencyDispatcher(_fy);
-        this.mediatorMap.map(_0H_2).setDepencyDispatcher(_2H_);
-        this.mediatorMap.map(_hj).setDepencyDispatcher(_0D_L_);
-        this.mediatorMap.map(CurrentCharacterRect).setDepencyDispatcher(_9M_);
-        this.mediatorMap.map(CharacterRectList).setDepencyDispatcher(_G_I_);
-        this.mediatorMap.map(_0G_y).setDepencyDispatcher(_1k);
-        this.mediatorMap.map(_Z_t).setDepencyDispatcher(_E_G_);
-        this.mediatorMap.map(_U_W_).setDepencyDispatcher(_09b);
-        this.mediatorMap.map(NewsItem).setDepencyDispatcher(__else);
-        this.mediatorMap.map(_0D_W_).setDepencyDispatcher(_Q_q);
-        this.mediatorMap.map(_s7).setDepencyDispatcher(_G_9);
-        this.mediatorMap.map(MapLoadingScreen).setDepencyDispatcher(_jT_);
+        this.mediatorMap.map(_zf).to(_0D_h);
+        this.mediatorMap.map(GameLoadingScreen).to(_uf);
+        this.mediatorMap.map(_01_).to(_N_N_);
+        this.mediatorMap.map(CreditsScreen).to(_0F_Q_);
+        this.mediatorMap.map(CurrentCharacterScreen).to(_xF_);
+        this.mediatorMap.map(_05p).to(_V_M_);
+        this.mediatorMap.map(_C_Q_).to(__for);
+        this.mediatorMap.map(AccountManagementScreen).to(AccountEventDispatcher);
+        this.mediatorMap.map(ChooseNationScreen).to(NationEventDispatcher);
+        this.mediatorMap.map(_3V_).to(_fy);
+        this.mediatorMap.map(_0H_2).to(_2H_);
+        this.mediatorMap.map(_hj).to(_0D_L_);
+        this.mediatorMap.map(CurrentCharacterRect).to(_9M_);
+        this.mediatorMap.map(CharacterRectList).to(_G_I_);
+        this.mediatorMap.map(_0G_y).to(_1k);
+        this.mediatorMap.map(_Z_t).to(_E_G_);
+        this.mediatorMap.map(_U_W_).to(_09b);
+        this.mediatorMap.map(NewsItem).to(__else);
+        this.mediatorMap.map(_0D_W_).to(_Q_q);
+        this.mediatorMap.map(_s7).to(_G_9);
+        this.mediatorMap.map(MapLoadingScreen).to(_jT_);
         this._m6();
     }
 
@@ -165,8 +165,8 @@ public class InjectorMapper implements _v {
         this._O_R_.map(_sN_)._q3(new _sN_());
         this._O_R_.map(_R_W_)._q3(new _R_W_());
         this._1G_.map(_W_O_)._1N_(_0L_J_);
-        this.mediatorMap.map(_Y_w).setDepencyDispatcher(_yP_);
-        this.mediatorMap.map(InventorySide).setDepencyDispatcher(_B_9);
+        this.mediatorMap.map(_Y_w).to(_yP_);
+        this.mediatorMap.map(InventorySide).to(_B_9);
     }
 
 }

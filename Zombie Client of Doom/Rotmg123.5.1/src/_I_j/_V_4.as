@@ -54,9 +54,9 @@ public class _V_4 implements _v {
     public function _K_():void {
         this._O_R_.map(_j5)._00S_(_0E_v);
         this._O_R_.map(_00V_)._00S_(_E_e);
-        this.mediatorMap.map(_ax).setDepencyDispatcher(_bN_);
-        this.mediatorMap.map(_0F_U_).setDepencyDispatcher(_07N_);
-        this.mediatorMap.map(_O_g).setDepencyDispatcher(_V_y);
+        this.mediatorMap.map(_ax).to(_bN_);
+        this.mediatorMap.map(_0F_U_).to(_07N_);
+        this.mediatorMap.map(_O_g).to(_V_y);
         this._1G_.map(_W_2)._1N_(_I_y);
     }
 

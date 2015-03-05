@@ -128,8 +128,8 @@ public class InjectConstruct implements _v {
         this._Q_l = new _0J_r();
         this.definitions.map(_0J_r)._q3(this._Q_l);
         this._fR_.addChild(this._Q_l);
-        this.mediatorMap.map(WebMain).setDepencyDispatcher(_B_C_);
-        this.mediatorMap.map(_C_6).setDepencyDispatcher(_gq);
+        this.mediatorMap.map(WebMain).to(_B_C_);
+        this.mediatorMap.map(_C_6).to(_gq);
     }
 
     private function init():void {

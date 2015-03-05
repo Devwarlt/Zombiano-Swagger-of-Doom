@@ -40,20 +40,14 @@ public class MysteryBoxRequest extends WebRequest {
 
     private function onError(event:WebRequestErrorEvent):void {
         if (hasEventListener(MysteryBoxResultEvent.MYSTERYBOX_RESULT)) {
-            var result:MysteryBoxResultEvent = new MysteryBoxResultEvent();
-            result.error = true;
-            result.errorMessage = event.text_;
-            result.items = [];
+            var result:MysteryBoxResultEvent = new MysteryBoxResultEvent([], true, event.text_);
             dispatchEvent(result);
         }
     }
 
     private function onSuccess(event:WebRequestSuccessEvent):void {
         if (hasEventListener(MysteryBoxResultEvent.MYSTERYBOX_RESULT)) {
-            var result:MysteryBoxResultEvent = new MysteryBoxResultEvent();
-            result.error = false;
-            result.errorMessage = "";
-            result.items = String(XML(event.data_).Awards).split(",");
+            var result:MysteryBoxResultEvent = new MysteryBoxResultEvent(String(XML(event.data_).Awards).split(","));
             dispatchEvent(result);
         }
     }

@@ -99,7 +99,7 @@ public class Options extends Sprite {
         title.filters = [new DropShadowFilter(0, 0, 0)];
         addChild(title);
         addChild(optionsSprite);
-        this.continueButton = new FancyTextButton(36, "Close Options", 200);
+        this.continueButton = new FancyTextButton(36, "Close Options", 240);
         this.continueButton.boldText(true);
         this.continueButton.addEventListener(MouseEvent.CLICK, this.closeMenu);
         addChild(this.continueButton);

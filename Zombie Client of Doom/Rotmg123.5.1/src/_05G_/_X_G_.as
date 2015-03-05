@@ -32,7 +32,7 @@ public class _X_G_ implements _v {
     public var mediatorMap:_v1;
 
     public function _K_():void {
-        this.mediatorMap.map(_kW_).setDepencyDispatcher(_L_G_);
+        this.mediatorMap.map(_kW_).to(_L_G_);
     }
 
 }

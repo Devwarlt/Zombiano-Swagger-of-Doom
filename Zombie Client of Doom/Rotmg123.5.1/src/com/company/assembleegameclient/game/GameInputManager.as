@@ -20,6 +20,8 @@ import Frames.GiftViewFrame;
 
 import MiniGames.MysteryBox.MysteryBox;
 
+import MiniGames.MysteryBox.SelectMysteryBox;
+
 import _4K_.Stats;
 
 import _qN_.Account;
@@ -406,7 +408,7 @@ public class GameInputManager {
                     _local3.attack_ = 100;
                     break;
                 case Keys.H:
-                    this.gs_.stage.addChild(new MysteryBox(this.gs_, null));
+                    this.gs_.stage.addChild(new MysteryBox(this.gs_));
                     //this.gs_.stage.addChild(new TownHallScreen([1,10]));
                     break;
             }

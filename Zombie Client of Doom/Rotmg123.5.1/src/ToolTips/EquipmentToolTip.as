@@ -36,8 +36,6 @@ import flash.display.BitmapData;
 import flash.filters.DropShadowFilter;
 import flash.text.StyleSheet;
 
-import flashx.textLayout.formats.Float;
-
 public class EquipmentToolTip extends ToolTip {
 
     private static const _be:int = 230;
@@ -601,20 +599,12 @@ public class EquipmentToolTip extends ToolTip {
 
 class Effect {
 
-    /*public var name_:String;
-     public var value_:String;
-
-     public function Effect(_arg1:String, _arg2:String){
-     this.name_ = _arg1;
-     this.value_ = _arg2;
-     }*/
-
     public var name_:String;
     public var value_:String;
 
-    public function Effect(_arg1:String, _arg2:String) {
-        this.name_ = _arg1;
-        this.value_ = _arg2;
+    public function Effect(name:String, value:String) {
+        this.name_ = name;
+        this.value_ = value;
     }
 }
 class Restriction {
