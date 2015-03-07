@@ -303,6 +303,7 @@ public class Item
     public float Cooldown { get; private set; }
     public bool Resurrects { get; private set; }
     public bool InPremiumPack { get; private set; }
+    public SellInfo SellInfo { get; private set; }
 
     public KeyValuePair<int, int>[] StatsBoost { get; private set; }
     public ActivateEffect[] ActivateEffects { get; private set; }
@@ -366,6 +367,9 @@ public class Item
             Cooldown = 0;
 
         InPremiumPack = elem.Element("CanBePremiumPackItem") != null;
+
+        if ((n = elem.Element("SellInfo")) != null)
+            SellInfo = new SellInfo(n);
 
         Resurrects = elem.Element("Resurrects") != null;
 
@@ -624,4 +628,16 @@ public class SkinDesc
             }
         }
     }    
+}
+
+public class SellInfo
+{
+    public int Price { get; private set; }
+    public int Currency { get; private set; }
+
+    public SellInfo(XElement elem)
+    {
+        Price = int.Parse(elem.Attribute("price").Value);
+        Currency = int.Parse(elem.Attribute("currency").Value);
+    }
 }

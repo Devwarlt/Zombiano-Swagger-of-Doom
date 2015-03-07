@@ -18,9 +18,6 @@
 //com.company.assembleegameclient.ui._061
 
 package com.company.assembleegameclient.ui {
-import ClientPackets.CraftPacket;
-
-import Frames.CraftingFrame;
 import Frames.CraftingFrame;
 
 import Panels.CraftingPanel;
@@ -45,8 +42,6 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.geom.Matrix;
 
-import flashx.textLayout.formats.Float;
-
 public class _061 extends Sprite {
 
     private static const _1U_:Matrix = function ():Matrix {
@@ -59,20 +54,20 @@ public class _061 extends Sprite {
 
     public var bitmap_:Bitmap;
     public var _0N_1:int;
-    public var _0M_X_:int;
-    public var _03f:_E_6;
+    public var itemId:int;
+    public var inventory:InventorySlot;
     public var _e:Boolean;
 
-    public function _061(_arg1:int, _arg2:_E_6) {
+    public function _061(_arg1:int, _arg2:InventorySlot) {
         var _local6:SimpleText;
         super();
-        this._0M_X_ = _arg1;
+        this.itemId = _arg1;
         var _local3:XML = ObjectLibrary.Items[_arg1];
         var _local4:int = 5;
         if (_local3.hasOwnProperty("ScaleValue")) {
             _local4 = _local3.ScaleValue;
         }
-        var _local5:BitmapData = ObjectLibrary.getRedrawnTextureFromType(this._0M_X_, 80, true, true, _local4);
+        var _local5:BitmapData = ObjectLibrary.getRedrawnTextureFromType(this.itemId, 80, true, true, _local4);
         if (_local3.hasOwnProperty("Doses")) {
             _local5 = _local5.clone();
             _local6 = new SimpleText(12, 0xFFFFFF, false, 0, 0, "Myriad Pro");
@@ -84,24 +79,30 @@ public class _061 extends Sprite {
         this.bitmap_.x = (-(this.bitmap_.width) / 2);
         this.bitmap_.y = (-(this.bitmap_.height) / 2);
         addChild(this.bitmap_);
-        this._03f = _arg2;
-        addEventListener(MouseEvent.MOUSE_UP, this._0_5);
+        this.inventory = _arg2;
+        addEventListener(MouseEvent.MOUSE_UP, this.releaseItem);
     }
 
-    public function _0_5(_arg1:Event):void {
+    public function releaseItem(_arg1:Event):void {
         if (!this._e) {
             return;
         }
+        InventorySlot.dragging = false;
         stopDrag();
         this._e = false;
         var _local2:DisplayObject = dropTarget;
         while (_local2 != null) {
-            if ((_local2 is _E_6)) {
-                this._08D_((_local2 as _E_6));
+            if ((_local2 is InventorySlot)) {
+                this._08D_((_local2 as InventorySlot));
                 return;
             }
             if ((((_local2 is _X_l)) || ((_local2 is _4D_)))) {
                 this._Y_4();
+                return;
+            }
+            if (_local2 is SellItemContainer) {
+                (_local2 as SellItemContainer).dropItem(this.itemId, this.inventory.slotId, this.bitmap_.bitmapData);
+                this._0K_9();
                 return;
             }
             _local2 = _local2.parent;
@@ -110,126 +111,126 @@ public class _061 extends Sprite {
         UrlSoundEffects.play("error");
     }
 
-    private function _08D_(_arg1:_E_6):void {
-        if (_arg1._e9.gameObject_ is CraftingRecipeBook || this._03f._e9.gameObject_ is CraftingRecipeBook) {
+    private function _08D_(_arg1:InventorySlot):void {
+        if (_arg1._e9.gameObject_ is CraftingRecipeBook || this.inventory._e9.gameObject_ is CraftingRecipeBook) {
             this._0K_9();
             return;
         }
-        if ((((_arg1 == null)) || (!(_arg1._t8(this._0M_X_))))) {
+        if ((((_arg1 == null)) || (!(_arg1._t8(this.itemId))))) {
             this._0K_9();
             UrlSoundEffects.play("error");
             return;
         }
-        if (_arg1 == this._03f) {
+        if (_arg1 == this.inventory) {
             this._0K_9();
             return;
         }
         var _local2:int = _arg1.objectType_;
-        if (((!((_local2 == -1))) && (!(this._03f._t8(_local2))))) {
+        if (((!((_local2 == -1))) && (!(this.inventory._t8(_local2))))) {
             this._0K_9();
             UrlSoundEffects.play("error");
             return;
         }
-        if (_local2 == this._0M_X_) {
+        if (_local2 == this.itemId) {
             this._0K_9();
             return;
         }
-        if ((this._03f._e9.gs_.lastUpdate_ - _0B_w) < 500) {
+        if ((this.inventory._e9.gs_.lastUpdate_ - _0B_w) < 500) {
             this._0K_9();
             return;
         }
-        var _local3:Player = this._03f._e9.gs_.map_.player_;
+        var _local3:Player = this.inventory._e9.gs_.map_.player_;
         if (_local3 == null) {
             this._0K_9();
             return;
         }
         if (_arg1._e9.gameObject_ is CraftingTerminal) {
-            if (!(this._03f._e9.gameObject_ is CraftingTerminal)) {
-                if (this._03f.id_ > 3 && _arg1.id_ != 9) {
-                    CraftingFrame.updateInv(_arg1.id_, this._0M_X_, this._03f.id_);
-                    if (this._03f.id_ > 11 && this._03f.id_ < 20) {
-                        this._03f._e9.gs_.map_.player_.backpack1[this._03f.id_ - 12] = -1;
+            if (!(this.inventory._e9.gameObject_ is CraftingTerminal)) {
+                if (this.inventory.slotId > 3 && _arg1.slotId != 9) {
+                    CraftingFrame.updateInv(_arg1.slotId, this.itemId, this.inventory.slotId);
+                    if (this.inventory.slotId > 11 && this.inventory.slotId < 20) {
+                        this.inventory._e9.gs_.map_.player_.backpack1[this.inventory.slotId - 12] = -1;
                     }
-                    else if (this._03f.id_ > 19) {
-                        this._03f._e9.gs_.map_.player_.backpack2[this._03f.id_ - 20] = -1;
+                    else if (this.inventory.slotId > 19) {
+                        this.inventory._e9.gs_.map_.player_.backpack2[this.inventory.slotId - 20] = -1;
                     }
                     else {
-                        this._03f._e9.gs_.map_.player_.equipment_[this._03f.id_] = -1;
+                        this.inventory._e9.gs_.map_.player_.equipment_[this.inventory.slotId] = -1;
                     }
                 }
             }
             else {
-                if (this._03f.id_ != 9 && _arg1.id_ != 9) {
-                    var item1 = CraftingFrame.items[_arg1.id_];
-                    var item2 = CraftingFrame.items[this._03f.id_];
-                    var p1 = CraftingFrame.playerItems[_arg1.id_];
-                    var p2 = CraftingFrame.playerItems[this._03f.id_];
+                if (this.inventory.slotId != 9 && _arg1.slotId != 9) {
+                    var item1 = CraftingFrame.items[_arg1.slotId];
+                    var item2 = CraftingFrame.items[this.inventory.slotId];
+                    var p1 = CraftingFrame.playerItems[_arg1.slotId];
+                    var p2 = CraftingFrame.playerItems[this.inventory.slotId];
 
                     if (item1 == 0) item1 = -1;
                     if (item2 == 0) item2 = -1;
 
-                    CraftingFrame.updateInv(_arg1.id_, item2, p2);
-                    CraftingFrame.updateInv(this._03f.id_, item1, p1);
+                    CraftingFrame.updateInv(_arg1.slotId, item2, p2);
+                    CraftingFrame.updateInv(this.inventory.slotId, item1, p1);
                 }
             }
             this._0K_9();
             return;
         }
-        else if (this._03f._e9.gameObject_ is CraftingTerminal && _arg1._e9.gameObject_ is Player) {
-            var slotId:int = CraftingFrame.playerItems[this._03f.id_];
-            if (_arg1.id_ > 3 && this._03f.id_ != 9) {
-                if (_arg1.id_ > 11 && _arg1.id_ < 20) {
+        else if (this.inventory._e9.gameObject_ is CraftingTerminal && _arg1._e9.gameObject_ is Player) {
+            var slotId:int = CraftingFrame.playerItems[this.inventory.slotId];
+            if (_arg1.slotId > 3 && this.inventory.slotId != 9) {
+                if (_arg1.slotId > 11 && _arg1.slotId < 20) {
                     if (slotId < 0 || (slotId - 12) > 7) {
                         if ((slotId - 12) > 7) {
-                            this._03f._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this._03f.id_];
+                            this.inventory._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this.inventory.slotId];
                         }
                         else {
-                            this._03f._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this._03f.id_];
+                            this.inventory._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this.inventory.slotId];
                         }
                     }
                     else {
-                        this._03f._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this._03f.id_];
+                        this.inventory._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this.inventory.slotId];
                     }
                 }
-                else if (_arg1.id_ > 19) {
+                else if (_arg1.slotId > 19) {
                     if ((slotId - 20) < 0) {
                         if ((slotId - 12) < 0) {
-                            this._03f._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this._03f.id_];
+                            this.inventory._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this.inventory.slotId];
                         }
                         else {
-                            this._03f._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this._03f.id_];
+                            this.inventory._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this.inventory.slotId];
                         }
                     }
                     else {
-                        this._03f._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this._03f.id_];
+                        this.inventory._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this.inventory.slotId];
                     }
                 }
                 else {
                     if (slotId > 11) {
                         if (slotId - 12 > 7) {
-                            this._03f._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this._03f.id_];
+                            this.inventory._e9.gs_.map_.player_.backpack2[slotId - 20] = CraftingFrame.items[this.inventory.slotId];
                         }
                         else {
-                            this._03f._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this._03f.id_];
+                            this.inventory._e9.gs_.map_.player_.backpack1[slotId - 12] = CraftingFrame.items[this.inventory.slotId];
                         }
                     }
                     else {
-                        this._03f._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this._03f.id_];
+                        this.inventory._e9.gs_.map_.player_.equipment_[slotId] = CraftingFrame.items[this.inventory.slotId];
                     }
                 }
-                CraftingFrame.updateInv(this._03f.id_, -1, this._03f.id_);
+                CraftingFrame.updateInv(this.inventory.slotId, -1, this.inventory.slotId);
             }
             this._0K_9();
             return;
         }
-        if ((((((_arg1._e9.gameObject_ is Player)) && ((_arg1.id_ < 4)))) && (!(ObjectLibrary._S_d(this._0M_X_, (_arg1._e9.gameObject_ as Player)))))) {
+        if ((((((_arg1._e9.gameObject_ is Player)) && ((_arg1.slotId < 4)))) && (!(ObjectLibrary._S_d(this.itemId, (_arg1._e9.gameObject_ as Player)))))) {
             this._0K_9();
             UrlSoundEffects.play("error");
             return;
         }
         if (!CraftingPanel.terminalOpen) {
-            _0B_w = this._03f._e9.gs_.lastUpdate_;
-            this._03f._e9.gs_.packetManager._P_a(_0B_w, _local3.x_, _local3.y_, this._03f._e9.gameObject_.objectId_, this._03f.id_, this._0M_X_, _arg1._e9.gameObject_.objectId_, _arg1.id_, _local2);
+            _0B_w = this.inventory._e9.gs_.lastUpdate_;
+            this.inventory._e9.gs_.packetManager._P_a(_0B_w, _local3.x_, _local3.y_, this.inventory._e9.gameObject_.objectId_, this.inventory.slotId, this.itemId, _arg1._e9.gameObject_.objectId_, _arg1.slotId, _local2);
             UrlSoundEffects.play("inventory_move_item");
         }
         else {
@@ -240,19 +241,19 @@ public class _061 extends Sprite {
     private function _Y_4():void {
         if (!CraftingPanel.terminalOpen) {
             var _local6:_sc;
-            var _local7:_E_6;
-            var _local1:Player = this._03f._e9.gs_.map_.player_;
-            var _local2:GameObject = this._03f._e9.gameObject_;
+            var _local7:InventorySlot;
+            var _local1:Player = this.inventory._e9.gs_.map_.player_;
+            var _local2:GameObject = this.inventory._e9.gameObject_;
             var _local3:Container = (_local2 as Container);
-            var _local4:Boolean = ObjectLibrary._0H_Z_(this._0M_X_);
+            var _local4:Boolean = ObjectLibrary._0H_Z_(this.itemId);
             if (((!((_local2 == _local1))) && ((((((_local3 == null)) || (!((_local3.ownerId_ == _local1.accountId_))))) || (_local4))))) {
                 this._0K_9();
                 UrlSoundEffects.play("error");
                 return;
             }
-            var _local5:Container = (this._03f._e9.gs_.sideUI._U_T_._dN_ as Container);
+            var _local5:Container = (this.inventory._e9.gs_.sideUI._U_T_._dN_ as Container);
             if (((!((_local5 == null))) && (((((_local5._X_w()) && (_local4))) || ((((_local5.ownerId_ == -1)) && (!(_local4)))))))) {
-                _local6 = (this._03f._e9.gs_.sideUI._U_T_._G_2 as _sc);
+                _local6 = (this.inventory._e9.gs_.sideUI._U_T_._G_2 as _sc);
                 if (((!((_local6 == null))) && (!((_local6.inventory == null))))) {
                     for each (_local7 in _local6.inventory.slots_) {
                         if (_local7.objectType_ == -1) {
@@ -262,7 +263,7 @@ public class _061 extends Sprite {
                     }
                 }
             }
-            this._03f._e9.gs_.packetManager._8q(this._03f._e9.gameObject_.objectId_, this._03f.id_, this._0M_X_);
+            this.inventory._e9.gs_.packetManager._8q(this.inventory._e9.gameObject_.objectId_, this.inventory.slotId, this.itemId);
         }
         else {
             this._0K_9();
@@ -270,8 +271,8 @@ public class _061 extends Sprite {
     }
 
     private function _0K_9():void {
-        this._03f.addChild(this);
-        this._03f._0E_J_();
+        this.inventory.addChild(this);
+        this.inventory._0E_J_();
     }
 
 }

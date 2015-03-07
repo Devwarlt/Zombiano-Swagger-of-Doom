@@ -93,7 +93,7 @@ public class AtmosphereHandler extends Sprite {
             var _local1:GTween;
             if (color == uint.MAX_VALUE) {
                 _local1 = new GTween(this.atmOvl, 50, {"alpha": -1.0});
-                _local1._bR_ = endIfAlphaChanged;
+                _local1.onChange = endIfAlphaChanged;
             }
             else {
                 this.atmOvl.graphics.beginFill(color, 1);
@@ -101,7 +101,7 @@ public class AtmosphereHandler extends Sprite {
                 this.atmOvl.graphics.endFill();
                 this.atmOvl.alpha = 0.0;
                 _local1 = new GTween(this.atmOvl, 50, {"alpha": 1.0});
-                _local1._bR_ = endIfAlphaChanged;
+                _local1.onChange = endIfAlphaChanged;
             }
 
             if (_arg1 >= 48000) {
@@ -126,7 +126,7 @@ public class AtmosphereHandler extends Sprite {
             var color = getCurrentAtmosphereColor();
             if (color == uint.MAX_VALUE) {
                 var _local1:GTween = new GTween(this, 50, {"alpha": -1.0});
-                _local1._bR_ = endIfAlphaChanged;
+                _local1.onChange = endIfAlphaChanged;
             }
             else {
                 atmOvl.graphics.beginFill(color, 1);
@@ -134,7 +134,7 @@ public class AtmosphereHandler extends Sprite {
                 atmOvl.graphics.endFill();
                 atmOvl.alpha = 0.0;
                 var _local1:GTween = new GTween(this, 50, {"alpha": 1.0});
-                _local1._bR_ = endIfAlphaChanged;
+                _local1.onChange = endIfAlphaChanged;
             }
         }
     }

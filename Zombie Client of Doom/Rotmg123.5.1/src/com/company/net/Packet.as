@@ -25,8 +25,8 @@ public class Packet {
 
     public var id_:uint;
 
-    public function Packet(_arg1:uint) {
-        this.id_ = _arg1;
+    public function Packet(packetId:uint) {
+        this.id_ = packetId;
     }
 
     public function parseFromInput(_arg1:IDataInput):void {

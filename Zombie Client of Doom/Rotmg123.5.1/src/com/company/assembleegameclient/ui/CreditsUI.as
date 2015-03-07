@@ -18,6 +18,8 @@
 //com.company.assembleegameclient.ui._0B_v
 
 package com.company.assembleegameclient.ui {
+import Merchant.SellItemInformation;
+
 import com.company.assembleegameclient.util.Currency;
 
 import flash.display.Sprite;
@@ -82,7 +84,7 @@ public class CreditsUI extends Sprite {
     }
 
     private function onCreditsDoubleClick(_arg1:MouseEvent):void {
-        if (!this.gs || this.gs.isInSafePlace() || Parameters.data_.clickForGold == true) {
+        if ((!this.gs || this.gs.isInSafePlace() || Parameters.data_.clickForGold == true) && !(this.parent is SellItemInformation)) {
             Account._get().showMoneyManagement(stage);
         }
     }

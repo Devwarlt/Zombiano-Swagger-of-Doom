@@ -64,7 +64,7 @@ public class YouHaveBeenPromotedPopUp extends PopUpScreen {
         UrlSoundEffects.play("promoted", 1, true, true);
         stage.addChild(promotionText);
         var tween:GTween = new GTween(this.promotionText, 0.5, {"size": 46});
-        tween._bR_ = updateMetrics;
+        tween.onChange = updateMetrics;
         tween.onComplete = iconFadeIn;
     }
 
@@ -78,14 +78,14 @@ public class YouHaveBeenPromotedPopUp extends PopUpScreen {
     private function iconFadeIn(tween:GTween):void {
         stage.addChild(rankIcon);
         tween = new GTween(this.rankIcon, 0.5, {"scaleX": 0.5, "scaleY": 0.5});
-        tween._bR_ = updateMetrics;
+        tween.onChange = updateMetrics;
         tween.onComplete = rankTextFadeIn;
     }
 
     private function rankTextFadeIn(tween:GTween):void {
         stage.addChild(rankText);
         tween = new GTween(this.rankText, 0.3, {"size": 32});
-        tween._bR_ = updateMetrics;
+        tween.onChange = updateMetrics;
         tween.onComplete = waitForFadeOut;
     }
 
@@ -98,7 +98,7 @@ public class YouHaveBeenPromotedPopUp extends PopUpScreen {
         var descTween = new GTween(this.rankText, 0.3, {"size": 0});
         var iconTween = new GTween(this.rankIcon, 0.3, {"scaleX": 0, "scaleY": 0});
         var textTween = new GTween(this.promotionText, 0.3, {"size": 0});
-        textTween._bR_ = updateMetrics;
+        textTween.onChange = updateMetrics;
         textTween.onComplete = remove;
     }
 

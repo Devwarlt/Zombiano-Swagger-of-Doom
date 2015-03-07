@@ -18,6 +18,8 @@ import EasterEggs.EasterEggHandler;
 
 import Frames.GiftViewFrame;
 
+import Merchant.SellItemMerchant;
+
 import MiniGames.MysteryBox.MysteryBox;
 
 import MiniGames.MysteryBox.SelectMysteryBox;
@@ -34,6 +36,7 @@ import com.company.assembleegameclient.tutorial.Tutorial;
 import com.company.assembleegameclient.tutorial.doneAction;
 import com.company.assembleegameclient.ui.Battery;
 import com.company.assembleegameclient.ui.FrameHolder;
+import com.company.assembleegameclient.ui.SellItemContainer;
 import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.util.Keys;
 
@@ -408,7 +411,8 @@ public class GameInputManager {
                     _local3.attack_ = 100;
                     break;
                 case Keys.H:
-                    this.gs_.stage.addChild(new MysteryBox(this.gs_));
+                    this.gs_.addChild(new SellItemMerchant(this.gs_));
+                    //this.gs_.stage.addChild(new MysteryBox(this.gs_));
                     //this.gs_.stage.addChild(new TownHallScreen([1,10]));
                     break;
             }

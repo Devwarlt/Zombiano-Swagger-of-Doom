@@ -24,8 +24,8 @@ import flash.utils.IDataInput;
 
 public class ClientPacket extends Packet {
 
-    public function ClientPacket(_arg1:uint) {
-        super(_arg1);
+    public function ClientPacket(packetId:uint) {
+        super(packetId);
     }
 
     final override public function parseFromInput(_arg1:IDataInput):void {

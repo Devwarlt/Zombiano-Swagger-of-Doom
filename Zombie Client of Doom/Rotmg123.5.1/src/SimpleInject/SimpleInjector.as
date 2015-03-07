@@ -16,42 +16,47 @@
  * Created by Fabian on 04.03.2015.
  */
 package SimpleInject {
+
 import flash.errors.IllegalOperationError;
 import flash.utils.describeType;
 
 public class SimpleInjector implements ISimpleInjector {
 
-    protected var map:SimpleInjectMediator;
+    private var mediator:IContext;
 
-    public function SimpleInjector(mediator:SimpleInjectMediator) {
-        this.map = mediator;
-        registerClasses();
+    public function SimpleInjector(mediator:IContext) {
+        this.mediator = mediator;
+        registerClasses(this.mediator);
     }
 
     public function getIdentifier():String {
         throw new IllegalOperationError("You need to override this method, its abstract");
     }
 
-    public function getMapper():SimpleInjectMediator {
-        return map;
+    public final function getMediatorMap():IContext {
+        return mediator;
     }
 
-    public function registerClasses():void {
+    public function registerClasses(context:IContext):void {
         throw new IllegalOperationError("You need to override this method, its abstract");
     }
 
     public function disposeInjector():void {
-        this.map = null;
+        this.mediator = null;
     }
 
-    public function injectInto(obj:*):void {
+    public function injectInto(instance:*):void {
         var curVar:XML;
         var curMeta:XML;
-        for each (curVar in describeType(Object(obj).constructor).factory.variable) {
+        for each (curVar in describeType(Object(instance).constructor).factory.variable) {
             for each (curMeta in curVar.metadata) {
                 if (curMeta.@name == "Inject")
-                    obj[curVar.@name] = getMapper().getValueForType(curVar.@type);
+                    instance[curVar.@name] = getMediatorMap().getValueForType(curVar.@type);
             }
+        }
+
+        if ("initialize" in instance) {
+            instance.initialize();
         }
     }
 }

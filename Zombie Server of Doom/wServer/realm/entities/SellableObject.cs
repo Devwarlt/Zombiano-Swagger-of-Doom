@@ -38,20 +38,20 @@ namespace wServer.realm.entities
             Manager.Database.ReadStats(acc);
             if (!player.NameChosen) return false;
 
-            if (Currency == CurrencyType.Fame)
-            {
-                if (acc.Stats.Fame < Price) return false;
-                player.CurrentFame = acc.Stats.Fame = Manager.Database.UpdateFame(acc, -Price);
-                player.UpdateCount++;
-                return true;
-            }
-            else
-            {
+            //if (Currency == CurrencyType.Fame)
+            //{
+            //    if (acc.Stats.Fame < Price) return false;
+            //    player.CurrentFame = acc.Stats.Fame = Manager.Database.UpdateFame(acc, -Price);
+            //    player.UpdateCount++;
+            //    return true;
+            //}
+            //else
+            //{
                 if (acc.Credits < Price) return false;
                 player.Credits = acc.Credits = Manager.Database.UpdateCredit(acc, -Price);
                 player.UpdateCount++;
                 return true;
-            }
+            //}
         }
 
         public virtual void Buy(Player player)

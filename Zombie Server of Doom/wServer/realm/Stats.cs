@@ -1,13 +1,15 @@
 ﻿
+
+public enum CurrencyType
+{
+    Invalid = -1,
+    Gold = 0,
+    Silver = 1,
+    Copper = 2
+}
+
 namespace wServer.realm
 {
-    public enum CurrencyType
-    {
-        Gold = 0,
-        Fame = 1,
-        GuildFame = 2
-    }
-
     public enum StatsType : byte
     {
         MaximumHP = 0,

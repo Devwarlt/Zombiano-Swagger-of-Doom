@@ -18,8 +18,8 @@
 package SimpleInject {
 public interface ISimpleInjector {
     function getIdentifier():String;
-    function getMapper():SimpleInjectMediator;
-    function registerClasses():void;
+    function getMediatorMap():IContext;
+    function registerClasses(context:IContext):void;
     function disposeInjector():void;
     function injectInto(obj:*):void;
 }

@@ -32,6 +32,7 @@ public class BuyResult extends ServerPacket {
     public static const _0I_C_:int = 6;
     public static const craft:int = 7;
     public static const learnCrafting:int = 8;
+    public static const sellItemResult:int = 9;
 
     public var result_:int;
     public var resultString_:String;

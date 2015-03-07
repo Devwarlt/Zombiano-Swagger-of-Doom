@@ -37,12 +37,15 @@ public class FancyTextButton extends Sprite {
         this.text.updateMetrics();
 
         graphics.beginFill(0x000000, 1.0);
-        graphics.drawRect(0, 0, this.w_ = (((definedWidth) != 0 ) ? definedWidth : (this.text.width + 40)), this.text.height + 6);
+        graphics.drawRect(0, 0, this.w_ = (((definedWidth) != 0 ) ? definedWidth : (this.text.width + 40)), this.text.textHeight + 8);
         graphics.endFill();
-        GraphicHelper.createBorder(this, 1, 0xE5C100);
+
+        graphics.lineStyle(1, 0xE5C100, 1.0);
+        graphics.drawRect(0, 0, this.w_ = (((definedWidth) != 0 ) ? definedWidth : (this.text.width + 40)), this.text.textHeight + 8);
+        graphics.endFill();
 
         this.text.x = ((this.w_ / 2) - (this.text.width / 2) - 2);
-        this.text.y = ((height / 2) - (this.text.height / 2) - 2);
+        this.text.y = 1;
         addChild(this.text);
 
         this.addEventListener(MouseEvent.ROLL_OVER, this.onRollOver);
@@ -64,29 +67,38 @@ public class FancyTextButton extends Sprite {
         mouseEnabled = _arg1;
         graphics.clear();
         graphics.beginFill(_arg1 ? 0x000000 : 0x2E2E2E, 1.0);
-        graphics.drawRect(0, 0, this.w_, this.text.height + 6);
+        graphics.drawRect(0, 0, this.w_, this.text.textHeight + 8);
         graphics.endFill();
-        GraphicHelper.createBorder(this, 1, _arg1 ? 0xE5C100 : 0xffffff);
+
+        graphics.lineStyle(1, _arg1 ? 0xE5C100 : 0xffffff, 1.0);
+        graphics.drawRect(0, 0, (this.w_ != 0) ? (this.w_) : (this.text.width + 40), this.text.textHeight + 8);
+        graphics.endFill();
     }
 
     private function onRollOver(event:MouseEvent):void {
         if (!mouseEnabled) return;
         graphics.clear();
         var gradientMatrix:Matrix = new Matrix();
-        gradientMatrix.createGradientBox(this.w_, this.text.height + 6, (Math.PI / 180) * 90, 0, 0);
-        graphics.beginGradientFill(GradientType.LINEAR, [0xffffff, 0x000000], [0.6, 1.0], [0, 200], gradientMatrix);
-        graphics.drawRect(0, 0, this.w_, this.text.height + 6);
+        gradientMatrix.createGradientBox(this.w_, this.text.textHeight + 8, (Math.PI / 180) * 90, 0, 0);
+        graphics.beginGradientFill(GradientType.LINEAR, [0xA8A8A8, 0x000000], [1.0, 1.0], [0, 200], gradientMatrix);
+        graphics.drawRect(0, 0, this.w_, this.text.textHeight + 8);
         graphics.endFill();
-        GraphicHelper.createBorder(this, 1, 0xE5C100);
+
+        graphics.lineStyle(1, 0xE5C100, 1.0);
+        graphics.drawRect(0, 0, (this.w_ != 0) ? (this.w_) : (this.text.width + 40), this.text.textHeight + 8);
+        graphics.endFill();
     }
 
     private function onRollOut(event:MouseEvent):void {
         if (!mouseEnabled) return;
         graphics.clear();
         graphics.beginFill(0x000000, 1.0);
-        graphics.drawRect(0, 0, this.w_, this.text.height + 6);
+        graphics.drawRect(0, 0, this.w_, this.text.textHeight + 8);
         graphics.endFill();
-        GraphicHelper.createBorder(this, 1, 0xE5C100);
+
+        graphics.lineStyle(1, 0xE5C100, 1.0);
+        graphics.drawRect(0, 0, (this.w_ != 0) ? (this.w_) : (this.text.width + 40), this.text.textHeight + 8);
+        graphics.endFill();
     }
 }
 }

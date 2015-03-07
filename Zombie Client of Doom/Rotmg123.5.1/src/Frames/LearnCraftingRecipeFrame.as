@@ -156,7 +156,7 @@ import com.company.assembleegameclient.objects.GameObject;
 import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.ui.Inventory;
 import com.company.assembleegameclient.ui.Slot;
-import com.company.assembleegameclient.ui._E_6;
+import com.company.assembleegameclient.ui.InventorySlot;
 import com.company.util.GraphicHelper;
 
 import flash.display.CapsStyle;
@@ -392,7 +392,7 @@ class _playerInventory extends Sprite {
     }
 
     private function onSlotClick(param1:Event):void {
-        this.learnFrame_.updateSlot((param1.currentTarget as Inventory).slots_[0].objectType_, (param1.currentTarget as Inventory).slots_[0].id_ + 4);
+        this.learnFrame_.updateSlot((param1.currentTarget as Inventory).slots_[0].objectType_, (param1.currentTarget as Inventory).slots_[0].slotId + 4);
         dispatchEvent(new Event(Event.COMPLETE));
         parent.removeChild(this);
     }
@@ -432,7 +432,7 @@ class _playerInventory extends Sprite {
 
         if (this._slot0.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot0.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot0.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot0.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot0.filters = [invalidGlow];
             }
             else {
@@ -441,7 +441,7 @@ class _playerInventory extends Sprite {
         }
         if (this._slot1.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot1.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot1.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot1.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot1.filters = [invalidGlow];
             }
             else {
@@ -450,7 +450,7 @@ class _playerInventory extends Sprite {
         }
         if (this._slot2.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot2.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot2.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot2.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot2.filters = [invalidGlow];
             }
             else {
@@ -459,7 +459,7 @@ class _playerInventory extends Sprite {
         }
         if (this._slot3.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot3.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot3.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot3.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot3.filters = [invalidGlow];
             }
             else {
@@ -468,7 +468,7 @@ class _playerInventory extends Sprite {
         }
         if (this._slot4.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot4.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot4.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot4.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot4.filters = [invalidGlow];
             }
             else {
@@ -477,7 +477,7 @@ class _playerInventory extends Sprite {
         }
         if (this._slot5.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot5.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot5.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot5.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot5.filters = [invalidGlow];
             }
             else {
@@ -486,7 +486,7 @@ class _playerInventory extends Sprite {
         }
         if (this._slot6.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot6.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot6.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot6.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot6.filters = [invalidGlow];
             }
             else {
@@ -495,7 +495,7 @@ class _playerInventory extends Sprite {
         }
         if (this._slot7.slots_[0]._X_B_ != null) {
             if (!ObjectLibrary.Items[this._slot7.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                this._slot7.slots_[0]._X_B_.filters = _E_6._P_r;
+                this._slot7.slots_[0]._X_B_.filters = InventorySlot._P_r;
                 this._slot7.filters = [invalidGlow];
             }
             else {
@@ -505,7 +505,7 @@ class _playerInventory extends Sprite {
         if (this.gs_.map_.player_.backpack1 != null) {
             if (this._slot8.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot8.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot8.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot8.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot8.filters = [invalidGlow];
                 }
                 else {
@@ -514,7 +514,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot9.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot9.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot9.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot9.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot9.filters = [invalidGlow];
                 }
                 else {
@@ -523,7 +523,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot10.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot10.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot10.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot10.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot10.filters = [invalidGlow];
                 }
                 else {
@@ -532,7 +532,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot11.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot11.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot11.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot11.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot11.filters = [invalidGlow];
                 }
                 else {
@@ -541,7 +541,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot12.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot12.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot12.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot12.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot12.filters = [invalidGlow];
                 }
                 else {
@@ -550,7 +550,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot13.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot13.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot13.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot13.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot13.filters = [invalidGlow];
                 }
                 else {
@@ -559,7 +559,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot14.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot14.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot14.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot14.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot14.filters = [invalidGlow];
                 }
                 else {
@@ -568,7 +568,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot15.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot15.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot15.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot15.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot15.filters = [invalidGlow];
                 }
                 else {
@@ -579,7 +579,7 @@ class _playerInventory extends Sprite {
         if (this.gs_.map_.player_.backpack2 != null) {
             if (this._slot16.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot16.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot16.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot16.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot16.filters = [invalidGlow];
                 }
                 else {
@@ -588,7 +588,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot17.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot17.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot17.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot17.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot17.filters = [invalidGlow];
                 }
                 else {
@@ -597,7 +597,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot18.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot18.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot18.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot18.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot18.filters = [invalidGlow];
                 }
                 else {
@@ -606,7 +606,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot19.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot19.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot19.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot19.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot19.filters = [invalidGlow];
                 }
                 else {
@@ -615,7 +615,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot20.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot20.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot20.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot20.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot20.filters = [invalidGlow];
                 }
                 else {
@@ -624,7 +624,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot21.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot21.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot21.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot21.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot21.filters = [invalidGlow];
                 }
                 else {
@@ -633,7 +633,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot22.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot22.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot22.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot22.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot22.filters = [invalidGlow];
                 }
                 else {
@@ -642,7 +642,7 @@ class _playerInventory extends Sprite {
             }
             if (this._slot23.slots_[0]._X_B_ != null) {
                 if (!ObjectLibrary.Items[this._slot23.slots_[0].objectType_].hasOwnProperty("Recipe")) {
-                    this._slot23.slots_[0]._X_B_.filters = _E_6._P_r;
+                    this._slot23.slots_[0]._X_B_.filters = InventorySlot._P_r;
                     this._slot23.filters = [invalidGlow];
                 }
                 else {

@@ -38,12 +38,12 @@ public class WeatherSoundManager {
         currentSoundTransform = new SoundTransform(0);
         currentSoundChannel = currentSound.play(0, int.MAX_VALUE, currentSoundTransform);
         var tween:GTween = new GTween(this.currentSoundTransform, 5, {"volume": 1.0});
-        tween._bR_ = update;
+        tween.onChange = update;
     }
 
     public function stop():void {
         var tween:GTween = new GTween(this.currentSoundTransform, 10, {"volume": 0});
-        tween._bR_ = update;
+        tween.onChange = update;
         tween.onComplete = finalStop;
     }
 

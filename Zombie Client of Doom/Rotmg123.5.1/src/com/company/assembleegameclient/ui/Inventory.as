@@ -48,7 +48,7 @@ public class Inventory extends Sprite {
     public var gameObject_:GameObject;
     public var _A_H_:String;
     public var invsize_:int;
-    public var slots_:Vector.<_E_6>;
+    public var slots_:Vector.<InventorySlot>;
     public var equipment_:Boolean;
 
     protected var fill_:GraphicsSolidFill;
@@ -56,8 +56,8 @@ public class Inventory extends Sprite {
     private var graphicsData_:Vector.<IGraphicsData>;
 
     public function Inventory(_arg1:GameSprite, _arg2:GameObject, _arg3:String, _arg4:Vector.<int>, _arg5:int, _arg6:Boolean, _offset:int = 0, _equipment:Boolean = false):void {
-        var _local8:_E_6;
-        this.slots_ = new Vector.<_E_6>();
+        var _local8:InventorySlot;
+        this.slots_ = new Vector.<InventorySlot>();
         this.fill_ = new GraphicsSolidFill(0x473224);//0x5C4434);//0x4A260F);//0x73543F);
         this.path_ = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
         this.graphicsData_ = new <IGraphicsData>[this.fill_, this.path_, GraphicHelper.END_FILL];
@@ -74,7 +74,7 @@ public class Inventory extends Sprite {
         var _local10:int;
         while (_local7 < _arg5) {
             _local10 = _local7 + _offset;
-            _local8 = new _E_6(this, _local10, _arg4[_local7], ((_arg6) ? (_local10 - 3) : -1), _ls[_arg4.length][_local7], _equipment);
+            _local8 = new InventorySlot(this, _local10, _arg4[_local7], ((_arg6) ? (_local10 - 3) : -1), _ls[_arg4.length][_local7], _equipment);
             _local8.x = (int((_local7 % 4)) * (Slot.WIDTH + 4));
             _local8.y = (int((_local7 / 4)) * (Slot.HEIGHT + 4));
             this.slots_.push(_local8);
@@ -84,7 +84,7 @@ public class Inventory extends Sprite {
     }
 
     public function draw(_arg1:Vector.<int>):void {
-        var _local3:_E_6;
+        var _local3:InventorySlot;
         var _local2:int;
         if (this.equipment_) {
             GraphicHelper._0L_6(this.path_);
@@ -100,7 +100,7 @@ public class Inventory extends Sprite {
     }
 
     public function refresh():void {
-        var _local1:_E_6;
+        var _local1:InventorySlot;
         for each (_local1 in this.slots_) {
             _local1.refresh();
         }
@@ -114,7 +114,7 @@ public class Inventory extends Sprite {
     }
 
     public function _mK_():Boolean {
-        var _local3:_E_6;
+        var _local3:InventorySlot;
         if (!this.gs_) {
             return (false);
         }

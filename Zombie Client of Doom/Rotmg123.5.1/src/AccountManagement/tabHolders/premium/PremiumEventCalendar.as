@@ -287,7 +287,7 @@ public class PremiumEventCalendar extends PremiumTabHolder {
             value.scaleX = value.scaleY = 0.0;
             addChild(value);
             var tween:GTween = new GTween(value, 0.15, {"scaleX": 1.0, "scaleY": 1.0});
-            tween._bR_ = onChange;
+            tween.onChange = onChange;
         }
         _info = value;
     }
@@ -485,7 +485,7 @@ class calendarEvent extends Sprite {
         closeBtn.y = DIALOG_HEIGHT - closeBtn.height - 10;
         closeBtn.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
             var tween:GTween = new GTween(event.target.parent, 0.15, {"scaleX": 0.0, "scaleY": 0.0});
-            tween._bR_ = (parent.parent.parent as PremiumEventCalendar).onChange;
+            tween.onChange = (parent.parent.parent as PremiumEventCalendar).onChange;
             tween.onComplete = function (tw:GTween):void {
                 (parent.parent.parent as PremiumEventCalendar).info = null;
             };

@@ -14,6 +14,7 @@
     <Soulbound/>
     <BagType>2</BagType>
     <OldSound>use_potion</OldSound>
+    <SellInfo price="50" currency="1" />
     <ThanksTo>ossimc82</ThanksTo>
   </Object>
   <Object id="Night Vision Goggles" ext="true">

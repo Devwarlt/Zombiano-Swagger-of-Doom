@@ -66,7 +66,7 @@ public class GTween extends EventDispatcher {
     public var _0M_W_:Boolean;
     public var _C_c:Boolean;
     public var onComplete:Function;
-    public var _bR_:Function;
+    public var onChange:Function;
     public var _mc:Function;
 
     {
@@ -237,8 +237,8 @@ public class GTween extends EventDispatcher {
             if (this._C_c) {
                 this._S_R_("change");
             }
-            if (this._bR_ != null) {
-                this._bR_(this);
+            if (this.onChange != null) {
+                this.onChange(this);
             }
         }
         if (_local3) {

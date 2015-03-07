@@ -211,7 +211,7 @@ public class MerchantPanel extends Panel {
                 }
             } else {
                 this._8O_.setPrice(this._iA_.price_, this._iA_.currency_);
-                this._8O_._A_w((gs_.packetManager.outstandingBuy_ == null));
+                this._8O_.enabled((gs_.packetManager.outstandingBuy_ == null));
                 this._8O_.x = ((WIDTH / 2) - (this._8O_.w_ / 2));
                 this._8O_.y = ((HEIGHT - (this._8O_.height / 2)) - this._00e);
                 if (!contains(this._8O_)) {

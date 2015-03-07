@@ -110,6 +110,7 @@
     <Compile Include="networking\cliPackets\GotoAckPacket.cs" />
     <Compile Include="networking\cliPackets\LearnCraftingRecipePacket.cs" />
     <Compile Include="networking\cliPackets\ReskinPacket.cs" />
+    <Compile Include="networking\cliPackets\SellItemPacket.cs" />
     <Compile Include="networking\cliPackets\SprintPacket.cs" />
     <Compile Include="networking\cliPackets\TeleportPacket.cs" />
     <Compile Include="networking\cliPackets\PlayerTextPacket.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="networking\handlers\GotoAckPacketHandler.cs" />
     <Compile Include="networking\handlers\LearnCraftingRecipePacketHandler.cs" />
     <Compile Include="networking\handlers\ReskinHandler.cs" />
+    <Compile Include="networking\handlers\SellItemHandler.cs" />
     <Compile Include="networking\handlers\SprintPacketHandler.cs" />
     <Compile Include="networking\handlers\TeleportPacketHandler.cs" />
     <Compile Include="networking\handlers\UsePortalPacketHandler.cs" />

@@ -22,6 +22,7 @@ import Language.LanguageManager;
 import Language.LanguageParameterNames;
 
 import flash.display.GradientType;
+import flash.display.Shape;
 import flash.display.Sprite;
 import flash.display.BitmapData;
 import flash.display.Bitmap;
@@ -52,8 +53,9 @@ public class SellAbleButton extends Sprite {
 
     private var mouseOver:Boolean;
     private var oldTime:int;
+    private var iconMask:Shape;
 
-    public function SellAbleButton(text:String, textSize:int, price:int, currency:int) {
+    public function SellAbleButton(text:String, textSize:int=16, price:int=-1, currency:int=-1) {
         super();
         this._A_2 = text;
         this.text_ = new SimpleText(textSize, 0xFFD700, false, 0, 0, "Myriad Pro");
@@ -114,13 +116,21 @@ public class SellAbleButton extends Sprite {
         }
         this._5U_.x = (this.text_.width - 3);
         this._5U_.y = -7;
+        if(this.iconMask == null) {
+            this.iconMask = new Shape();
+            this.iconMask.graphics.beginFill(0x000000, 0.0);
+            this.iconMask.graphics.drawRect(this.text_.width, 0, 25, 25);
+            this.iconMask.graphics.endFill();
+            addChild(this.iconMask);
+            this._5U_.mask = this.iconMask;
+        }
         this.text_.x = ((((this.text_.width + 12) / 2) - (this.text_.textWidth / 2)) - 2);
         this.text_.y = 1;
         this.w_ = ((this.text_.width + this._5U_.width) - 6);
         this.draw(false);
     }
 
-    public function _A_w(_arg1:Boolean):void {
+    public function enabled(_arg1:Boolean):void {
         if (_arg1 == mouseEnabled) {
             return;
         }
@@ -151,6 +161,14 @@ public class SellAbleButton extends Sprite {
             graphics.lineStyle(1, 0xFFD700, 1.0);
             graphics.drawRect(0, 0, this.w_, this.text_.textHeight + 8);
         }
+    }
+
+    public override function get width():Number {
+        return this.w_ * this.scaleX;
+    }
+
+    public override function get height():Number {
+        return (this.text_.textHeight + 8) * this.scaleY;
     }
 
     private function onEnterFrame(event:Event):void {

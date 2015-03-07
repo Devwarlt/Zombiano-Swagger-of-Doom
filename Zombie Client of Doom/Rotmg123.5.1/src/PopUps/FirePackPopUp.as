@@ -78,7 +78,7 @@ public class FirePackPopUp extends PopUpScreen {
     protected override function init():void {
         stage.addChild(packName);
         var tween:GTween = new GTween(this.packName, 0.5, {"size": 32});
-        tween._bR_ = updateMetrics;
+        tween.onChange = updateMetrics;
         tween.onComplete = packIconFadeIn;
         if (this.sound != null) {
             LocalSoundEffects.play(this.sound);
@@ -94,7 +94,7 @@ public class FirePackPopUp extends PopUpScreen {
     private function packIconFadeIn(tween:GTween):void {
         stage.addChild(packIcon);
         tween = new GTween(this.packIcon, 0.3, {"scaleX": 1.0, "scaleY": 1.0});
-        tween._bR_ = updateMetrics;
+        tween.onChange = updateMetrics;
         tween.onComplete = waitForFadeOut;
     }
 
@@ -106,7 +106,7 @@ public class FirePackPopUp extends PopUpScreen {
     private function fadeOut(tween:GTween):void {
         new GTween(this.packName, 0.3, {"size": 0});
         var iconTween = new GTween(this.packIcon, 0.3, {"scaleX": 0, "scaleY": 0});
-        iconTween._bR_ = updateMetrics;
+        iconTween.onChange = updateMetrics;
         iconTween.onComplete = remove;
     }
 

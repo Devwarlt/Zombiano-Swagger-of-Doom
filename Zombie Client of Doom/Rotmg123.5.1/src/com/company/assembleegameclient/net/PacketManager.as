@@ -25,6 +25,8 @@ import Crafting.LearnCraftingResultEvent;
 
 import Frames.NotificationBox;
 
+import Merchant.ItemSellResultEvent;
+
 import Panels.CraftingPanel;
 import Panels.TeleportPanel;
 
@@ -279,6 +281,7 @@ public class PacketManager {
     public static const UNLOCK:int = 89;
     public static const GETGIFT:int = 90;
     public static const ACHIEVEMENTUNLOCKED:int = 91;
+    public static const SELLITEM:int = 92;
     private static const _vb:Vector.<uint> = new <uint>[14802908, 0xFFFFFF, 0x545454];
     private static const _Z_y:Vector.<uint> = new <uint>[5644060, 16549442, 13484223];
     private static const _0A_F_:Vector.<uint> = new <uint>[2493110, 61695, 13880567];
@@ -395,6 +398,7 @@ public class PacketManager {
         this.serverConn.registerPacket(UNLOCK, UnlockedPacket, this.unlockedSomething);
         this.serverConn.registerPacket(GETGIFT, GetGiftPacket, null);
         this.serverConn.registerPacket(ACHIEVEMENTUNLOCKED, AchievementUnlockedPacket, this.onAchievementUnlock);
+        this.serverConn.registerPacket(SELLITEM, SellItemPacket, null);
         this.serverConn.addEventListener(Event.CONNECT, this._ux);
         this.serverConn.addEventListener(Event.CLOSE, this._of);
         this.serverConn.addEventListener(ErrorEvent.ERROR, this.onError);
@@ -719,6 +723,12 @@ public class PacketManager {
         _local3.name_ = _arg1;
         _local3.guildRank_ = _arg2;
         this.serverConn.sendPacket(_local3);
+    }
+
+    public function sellItem(slotId:int):void {
+        var packet:SellItemPacket = (this.serverConn.createPacketFromID(SELLITEM) as SellItemPacket);
+        packet.slotId = slotId;
+        this.serverConn.sendPacket(packet);
     }
 
     private function _J_X_(_arg1:String):String {
@@ -1508,6 +1518,9 @@ public class PacketManager {
                 return;
             case BuyResult.learnCrafting:
                 this.gs_.dispatchEvent(new LearnCraftingResultEvent(_arg1.resultString_));
+                return;
+            case BuyResult.sellItemResult:
+                this.gs_.dispatchEvent(new ItemSellResultEvent(_arg1.resultString_));
                 return;
             default:
                 this.gs_.textBox_.addText((((_arg1.result_ == BuyResult._dV_)) ? Parameters.SendInfo : Parameters.SendError), _arg1.resultString_);

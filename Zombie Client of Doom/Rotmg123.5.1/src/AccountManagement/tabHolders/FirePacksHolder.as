@@ -132,7 +132,7 @@ public class FirePacksHolder extends TabHolder {
             addChild(info);
             packInfoScreen = info;
             var tween:GTween = new GTween(info, 0.15, {"scaleX": 1.0, "scaleY": 1.0});
-            tween._bR_ = onChange;
+            tween.onChange = onChange;
         }
     }
 
@@ -287,7 +287,7 @@ class FirePackHolder extends Sprite {
         closeBtn.y = height - closeBtn.height - 10;
         closeBtn.addEventListener(MouseEvent.CLICK, function (event:MouseEvent):void {
             var tween:GTween = new GTween(event.target.parent, 0.15, {"scaleX": 0.0, "scaleY": 0.0});
-            tween._bR_ = (sprite.parent as FirePacksHolder).onChange;
+            tween.onChange = (sprite.parent as FirePacksHolder).onChange;
             tween.onComplete = function (tw:GTween):void {
                 (sprite.parent as FirePacksHolder).packInfoScreen = null;
                 (sprite.parent as FirePacksHolder).bodyParent.managementParent.dispatch("RELOAD");

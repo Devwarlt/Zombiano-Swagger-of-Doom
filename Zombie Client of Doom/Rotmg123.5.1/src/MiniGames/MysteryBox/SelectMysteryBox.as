@@ -31,8 +31,6 @@ public class SelectMysteryBox extends MysteryBoxChild {
 
     public static const WIDTH:int = 400;
 
-    private var _window:Sprite;
-
     public function SelectMysteryBox() {
         name = "MysteryBox";
 
@@ -56,14 +54,17 @@ public class SelectMysteryBox extends MysteryBoxChild {
                         <Box id="1">
                             <Title>Box 2</Title>
                             <Price amount="10" currency="1" />
+                            <Contents>-1</Contents>
                         </Box>
                         <Box id="2">
                             <Title>Box 3</Title>
                             <Price amount="100" currency="2" />
+                            <Contents>-1;-1</Contents>
                         </Box>
                         <Box id="3">
                             <Title>Box 4</Title>
                             <Price amount="200" currency="2" />
+                            <Contents>-1;-1;-1</Contents>
                         </Box>
                     </MysteryBoxes>
                 </Minigames>;
@@ -92,14 +93,6 @@ public class SelectMysteryBox extends MysteryBoxChild {
 
         this.x = 100;
         this.y = (300 - (height / 2));
-    }
-
-    public function set window(val:Sprite):void {
-        if (this._window) {
-            removeChild(this._window);
-        }
-        this._window = val;
-        addChild(this._window);
     }
 
     private function onClose(event:MouseEvent):void {

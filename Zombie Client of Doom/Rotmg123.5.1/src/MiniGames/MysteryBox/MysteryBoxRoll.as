@@ -29,54 +29,95 @@ import flash.utils.getTimer;
 
 public class MysteryBoxRoll extends MysteryBoxChild {
 
-    private var bmp:Bitmap;
-
-    private var rand:Random = new Random();
-    private var items:Vector.<int>;
+    [ArrayElementType(elementType="flash.display.Bitmap")]
+    private var bitmaps:Array;
+    [ArrayElementType(elementType="int")]
+    private var curItems:Array;
+    [ArrayElementType(elementType="int")]
+    private var items:Array;
 
     public function MysteryBoxRoll(offer:XML) {
         var req:MysteryBoxRequest = new MysteryBoxRequest();
         req.addEventListener(MysteryBoxResultEvent.MYSTERYBOX_RESULT, this.onResult);
-        bmp = new Bitmap();
-        bmp.x = 200;
-        bmp.y = 200;
-        addChild(bmp);
+        //req.sendBoxPurchase(0);
+
+        switch (String(offer.Contents).split(";").length - 1) {
+            case 0:
+                bitmaps = [new Bitmap()];
+                bitmaps[0].x = 290;
+                bitmaps[0].y = 290;
+                addChild(bitmaps[0]);
+                curItems = [-1];
+                break;
+            case 1:
+                bitmaps = [new Bitmap(), new Bitmap()];
+                bitmaps[0].x = 250;
+                bitmaps[0].y = 290;
+                addChild(bitmaps[0]);
+                bitmaps[1].x = 340;
+                bitmaps[1].y = 290;
+                addChild(bitmaps[1]);
+                curItems = [-1, -1];
+                break;
+            case 2:
+                bitmaps = [new Bitmap(), new Bitmap(), new Bitmap()];
+                bitmaps[0].x = 200;
+                bitmaps[0].y = 290;
+                addChild(bitmaps[0]);
+                bitmaps[1].x = 290;
+                bitmaps[1].y = 290;
+                addChild(bitmaps[1]);
+                bitmaps[2].x = 390;
+                bitmaps[2].y = 290;
+                addChild(bitmaps[2]);
+                curItems = [-1, -1, -1];
+                break;
+        }
+
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
         items = getKeys();
     }
 
-    private var curItem:int = -1;
-
     private function onEnterFrame(event:Event):void {
         if (getTimer() % 5 == 0) {
-            roll();
+            reRoll();
         }
     }
 
-    private function getKeys():Vector.<int> {
-        var ret:Vector.<int> = new Vector.<int>();
+    [ArrayElementType(elementType="int")]
+    private function getKeys():Array {
+        var ret:Array = [];
         for (var key:* in ObjectLibrary.Items) {
             ret.push(key);
         }
         return ret;
     }
 
-    private function roll():void {
-        var item:int = ArrayUtils.randomElement(items);
-        while (item == curItem) {
-            item = ArrayUtils.randomElement(items);
+    private function reRoll():void {
+        for (var i:int = 0; i < bitmaps.length; i++) {
+            var item:int = ArrayUtils.randomElement(items);
+            while (item == curItems[i]) {
+                item = ArrayUtils.randomElement(items);
+            }
+            bitmaps[i].bitmapData = ObjectLibrary.getRedrawnTextureFromType(item, 100, true, true, ObjectLibrary.Items[item].hasOwnProperty("ScaleValue") ? ObjectLibrary.Items[item].ScaleValue : 5);
+            curItems[i] = item;
         }
-        bmp.bitmapData = ObjectLibrary.getRedrawnTextureFromType(item, 100, true, true, 5);
-        curItem = item;
     }
 
     private function onResult(event:MysteryBoxResultEvent):void {
         if (event.error) {
-            addAdditionalChild(new DialogBox(event.errorMessage, "Failed to purchase", "Ok", null));
+            var dialogBox:DialogBox = new DialogBox(event.errorMessage, "Failed to purchase", "Ok", null);
+            dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, this.onButton1Click);
+            setNewChild(MysteryBox.NAME_SELECT_MYSTERY_BOX);
+            addAdditionalChild(dialogBox);
         }
         else {
             //this.currentRoll.onSuccess(event);
         }
+    }
+
+    private function onButton1Click(event:Event):void {
+        (event.target as DialogBox).parent.removeChild(event.target as DialogBox);
     }
 }
 }

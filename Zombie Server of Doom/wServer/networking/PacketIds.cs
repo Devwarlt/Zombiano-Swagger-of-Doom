@@ -155,6 +155,7 @@ namespace wServer.networking
         Reskin = 88,
         Unlock = 89,
         GetGift = 90,
-        AchievementUnlocked = 91
+        AchievementUnlocked = 91,
+        SellItem = 92
     }
 }

@@ -16,7 +16,8 @@
  * Created by Fabian on 05.03.2015.
  */
 package MiniGames.MysteryBox {
-import SimpleInject.SimpleInjectMediator;
+import SimpleInject.IContext;
+import SimpleInject.SimpleInjectMediatorMapper;
 import SimpleInject.SimpleInjector;
 
 import com.company.assembleegameclient.game.GameSprite;
@@ -27,16 +28,16 @@ public class MysteryBoxInjector extends SimpleInjector {
 
     public function MysteryBoxInjector(box:MysteryBox) {
         this.box = box;
-        super(new SimpleInjectMediator(this));
+        super(new SimpleInjectMediatorMapper(this));
     }
 
     public override function getIdentifier():String {
         return "MysteryBox";
     }
 
-    public override function registerClasses():void {
-        this.map.map(GameSprite).to(this.box.gs);
-        this.map.map(MysteryBox).to(this.box);
+    public override function registerClasses(context:IContext):void {
+        context.map(GameSprite).to(this.box.gs);
+        context.map(MysteryBox).to(this.box);
     }
 
     public override function disposeInjector():void {

@@ -91,4 +91,15 @@ public static class Utils
         if (String.IsNullOrWhiteSpace(x)) return new ushort[0];
         return x.Split(',').Select(_ => (ushort)FromString(_.Trim())).ToArray();
     }
+
+    public static int PriceToCopper(int price, int currency)
+    {
+        switch (currency)
+        {
+            case 0: return price * 10000; //Gold
+            case 1: return price * 100; //Silver
+            case 2: return price; //Copper
+            default: throw new ArgumentException("Invalid currency");
+        }
+    }
 }
