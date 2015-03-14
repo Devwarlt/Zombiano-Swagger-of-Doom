@@ -18,7 +18,7 @@
 package com.company.assembleegameclient.game {
 import _K_D_._p0;
 
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.ui.MiniMap;
 import com.company.util.Keys;
 
@@ -30,7 +30,7 @@ import flash.utils.ByteArray;
 
 public class FoundVillageScreen extends Sprite {
 
-    private var realMap:_X_l;
+    private var realMap:GameMap;
     private var minimap:MiniMap;
     private var mapPoint:Point;
 
@@ -38,7 +38,7 @@ public class FoundVillageScreen extends Sprite {
     private static var _map:Class;
 
     public function FoundVillageScreen() {
-        this.realMap = new _X_l(null);
+        this.realMap = new GameMap(null);
         this.addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
     }
@@ -84,7 +84,7 @@ import _02t._final;
 import _K_D_._p0;
 
 import com.company.assembleegameclient.map._0D_v;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.util.IntPoint;
 
 import flash.display.Sprite;
@@ -103,7 +103,7 @@ class typeMap extends Sprite {
     private static const _06B_:Number = (1 / 1000);//0.001
     private static const _01N_:Class = _final;
 
-    public var map:_X_l;
+    public var map:GameMap;
     private static var _sl:IntPoint;
     private static var _jJ_:Number;
     private static var _U_b:Number;
@@ -162,7 +162,7 @@ class typeMap extends Sprite {
         }
     }
 
-    private function _P_i():_X_l {
+    private function _P_i():GameMap {
         var _local1:ByteArray = new _01N_();
         var _local2:String = _local1.readUTFBytes(_local1.length);
         return _p0._0L_k(_local2);

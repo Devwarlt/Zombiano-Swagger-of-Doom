@@ -18,9 +18,9 @@
 //_0M_H_._W_O_
 
 package _0M_H_ {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _W_O_ extends _aJ_ {
+public class _W_O_ extends Signal {
 
     public static var instance:_W_O_;
 

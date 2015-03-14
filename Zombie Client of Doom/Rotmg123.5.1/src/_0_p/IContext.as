@@ -18,13 +18,13 @@
 //_0_p._L_y
 
 package _0_p {
-import _eZ_._08b;
+import _eZ_.Injector;
 
-import _qj._pn;
+import _qj.IMatcher;
 
 public interface IContext {
 
-    function get _O_R_():_08b;
+    function get injector():Injector;
 
     function get _iL_():_0E_9;
 
@@ -36,7 +36,7 @@ public interface IContext {
 
     function configure(..._args):IContext;
 
-    function _ty(_arg1:_pn, _arg2:Function):IContext;
+    function _ty(_arg1:IMatcher, _arg2:Function):IContext;
 
     function _0H_4(_arg1:Object):_Q_5;
 

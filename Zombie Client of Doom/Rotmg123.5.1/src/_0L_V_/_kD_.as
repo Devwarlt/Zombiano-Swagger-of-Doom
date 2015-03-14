@@ -20,7 +20,7 @@
 package _0L_V_ {
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import _S_K_._u3;
 
@@ -31,7 +31,7 @@ public class _kD_ extends Sprite {
     public static var _dC_:Class = _00I_;
 
     private var _0G_2:Sprite;
-    public var close:_aJ_;
+    public var close:Signal;
 
     public function _kD_() {
         this._bt();

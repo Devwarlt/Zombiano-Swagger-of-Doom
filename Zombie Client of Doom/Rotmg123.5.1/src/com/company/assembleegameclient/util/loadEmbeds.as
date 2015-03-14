@@ -86,6 +86,9 @@ public function loadEmbeds():void {
     AssetLibrary._05q("weapons40x40", new Embeds.weaponsEmbed40x40_().bitmapData, 40, 40);
     AssetLibrary._05q("craftingBook", new Embeds.craftingBookEmbed_().bitmapData, 40, 40);
     AssetLibrary._05q("batteryCharges", new Embeds.batteryChargedEmbed_().bitmapData, 16, 16);
+    AssetLibrary._05q("customEffects8x8", new Embeds.customEffects8x8().bitmapData, 8, 8);
+    AssetLibrary._05q("customEffects16x16", new Embeds.customEffects16x16().bitmapData, 16, 16);
+    AssetLibrary._05q("essences", new Embeds.essences().bitmapData, 8, 8);
     AssetLibrary._05q("anna", new Embeds.testImage().bitmapData, 640, 480);
     AssetLibrary._05q("carbonFibre", new Embeds.carbon().bitmapData, 256, 256);
     AssetLibrary._05q("openFirePacks", new AccountManagementImages.openFirePacks().bitmapData, 80, 80);
@@ -149,6 +152,9 @@ public function loadEmbeds():void {
 }
 }
 
+import FireBite.Embeds.Images.EmbeddedAssets_customEffects16x16Embed_;
+import FireBite.Embeds.Images.EmbeddedAssets_customEffects8x8Embed_;
+import FireBite.Embeds.Images.EmbeddedAssets_essencesEmbed_;
 import FireBite.Embeds.Images.Embeds_Coins;
 import FireBite.Embeds.Images.Embeds_chars16x16dEncounters2Embed_;
 import FireBite.Embeds.Images.Embeds_chars16x16dEncountersEmbed_;
@@ -501,6 +507,10 @@ class Embeds {
     public static var testImage:Class = com.embeds.EmbeddedAssets_testImageEmbed_;
     public static var carbon:Class = com.embeds.carbonEmbed;
     public static var coins:Class = Embeds_Coins;
+    public static var customEffects8x8:Class = EmbeddedAssets_customEffects8x8Embed_;
+    public static var customEffects16x16:Class = EmbeddedAssets_customEffects16x16Embed_;
+    public static var essences:Class = EmbeddedAssets_essencesEmbed_;
+
 
 
     /*private*/

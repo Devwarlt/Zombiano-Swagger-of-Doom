@@ -18,21 +18,21 @@
 //_G_A_._8P_
 
 package _G_A_ {
-import _03T_._03;
+import _03T_.Context;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
-public class _8P_ extends _03 {
+public class _8P_ extends Context {
 
-    public static var _O_R_:_08b;
+    public static var _O_R_:Injector;
 
     public function _8P_() {
         if (!_8P_._O_R_) {
-            _8P_._O_R_ = this._O_R_;
+            _8P_._O_R_ = this.injector;
         }
     }
 
-    public static function _V_O_():_08b {
+    public static function _V_O_():Injector {
         return (_O_R_);
     }
 

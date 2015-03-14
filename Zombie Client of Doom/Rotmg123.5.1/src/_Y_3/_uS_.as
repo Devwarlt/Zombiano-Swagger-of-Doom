@@ -18,7 +18,7 @@
 //_Y_3._uS_
 
 package _Y_3 {
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.utils.Dictionary;
 
@@ -34,20 +34,20 @@ import _0J_k._tv;
 public class _uS_ implements _5d {
 
     private var _2h:Class;
-    private var _00_:_08b;
+    private var _00_:Injector;
     private var _H_w:Object;
     private var _0M_:Boolean;
 
-    public function _uS_(_arg1:Class, _arg2:_08b) {
+    public function _uS_(_arg1:Class, _arg2:Injector) {
         this._2h = _arg1;
         this._00_ = _arg2;
     }
 
-    public function apply(_arg1:Class, _arg2:_08b, _arg3:Dictionary):Object {
+    public function apply(_arg1:Class, _arg2:Injector, _arg3:Dictionary):Object {
         return ((this._H_w = ((this._H_w) || (this._hw(this._00_)))));
     }
 
-    private function _hw(_arg1:_08b):Object {
+    private function _hw(_arg1:Injector):Object {
         if (this._0M_) {
             throw (new _N_p(("Forbidden usage of unmapped singleton provider for type " + getQualifiedClassName(this._2h))));
         }

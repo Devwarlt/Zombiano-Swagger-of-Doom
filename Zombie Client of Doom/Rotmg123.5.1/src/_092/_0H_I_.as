@@ -19,7 +19,7 @@
 
 package _092 {
 import _qj._0K_d;
-import _qj._pn;
+import _qj.IMatcher;
 import _qj.Description;
 
 public class _0H_I_ extends _0K_d {
@@ -31,7 +31,7 @@ public class _0H_I_ extends _0K_d {
     }
 
     override protected function matchesOrDescribesMismatch(_arg1:Object, _arg2:Description):Boolean {
-        var _local3:_pn;
+        var _local3:IMatcher;
         for each (_local3 in this._Z_1) {
             if (!_local3.matches(_arg1)) {
                 _arg2._ka(_local3).appendText(" ")._zW_(_local3, _arg1);

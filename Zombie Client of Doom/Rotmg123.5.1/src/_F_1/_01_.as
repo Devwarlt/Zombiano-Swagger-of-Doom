@@ -27,7 +27,7 @@ import flash.display.Sprite;
 
 import com.company.assembleegameclient.ui.ScrollBar;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import _02t._R_f;
 
@@ -49,14 +49,14 @@ public class _01_ extends _05p {
     private var _cc:Sprite;
     private var _I_d:_0M_L_;
     private var _E_k:ScrollBar;
-    public var _4s:_aJ_;
+    public var _4s:Signal;
 
     private static var protocolInfo:Sprite;
     private static var thisObject:_01_;
 
     public function _01_() {
         addChild(new _R_f());
-        this._4s = new _aJ_();
+        this._4s = new Signal();
         super(_C_Q_);
         thisObject = this;
     }

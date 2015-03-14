@@ -18,14 +18,14 @@
 //_zD_.__for
 
 package _zD_ {
-import AccountManagement.AccountEventDispatcher;
+import AccountManagement.AccountManagementScreenMediator;
 import AccountManagement.AccountManagementScreen;
 
 import Villages.nations.ChooseNationScreen;
 
 import _0_j._kW_;
 
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1.CreditsScreen;
 
@@ -56,7 +56,7 @@ import _D_d._hj;
 import flash.events.Event;
 import flash.system.fscommand;
 
-public class __for extends _cM_ {
+public class __for extends Mediator {
 
     [Inject]
     public var view:_C_Q_;

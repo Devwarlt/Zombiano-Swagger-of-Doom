@@ -18,7 +18,7 @@
 //_0D_B_._06M_
 
 package _0D_B_ {
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 
 import com.company.assembleegameclient.objects.Player;
 import com.company.assembleegameclient.ui._return;
@@ -33,13 +33,13 @@ import flash.events.Event;
 
 public class _06M_ extends Menu {
 
-    public var map_:_X_l;
+    public var map_:GameMap;
     public var _nC_:Vector.<Player>;
     public var _X_n:_0K_G_;
     public var _6t:_return;
     private var _o2:Vector.<_gV_>;
 
-    public function _06M_(_arg1:_X_l, _arg2:Vector.<Player>) {
+    public function _06M_(_arg1:GameMap, _arg2:Vector.<Player>) {
         var _local4:Player;
         var _local5:_gV_;
         this._o2 = new Vector.<_gV_>();

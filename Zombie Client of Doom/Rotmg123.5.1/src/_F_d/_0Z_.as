@@ -18,13 +18,13 @@
 //_F_d._0Z_
 
 package _F_d {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
 import _0_p.IContext;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _0_p._Q_5;
 
@@ -37,12 +37,12 @@ import _s3._im;
 import _9W_._J_6;
 import _9W_._we;
 
-public class _0Z_ implements _D_v {
+public class _0Z_ implements IExtension {
 
     private const _ul:String = _078.create(_0Z_);
 
     private var _rA_:IContext;
-    private var _vz:_08b;
+    private var _vz:Injector;
     private var _eo:_Q_5;
     private var _eW_:Boolean;
     private var _extends:Boolean;
@@ -54,7 +54,7 @@ public class _0Z_ implements _D_v {
 
     public function extend(_arg1:IContext):void {
         this._rA_ = _arg1;
-        this._vz = _arg1._O_R_;
+        this._vz = _arg1.injector;
         this._eo = _arg1._0H_4(this);
         this._rA_._iL_._8u(this._8u);
     }

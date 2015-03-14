@@ -21,7 +21,7 @@ package _K_D_ {
 import _0D_n._throw;
 import _0D_n._P_I_;
 
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.ui.MiniMap;
 import com.company.rotmg.graphics.ranks.pfcRank;
 import com.company.util.IntPoint;
@@ -43,7 +43,7 @@ public class _p0 {
 
     public static function loadMapWithMiniMap(_arg1:String, width:int, height:int):Object {
         var _local2:Object = _N_G_.parse(_arg1);
-        var _local3:_X_l = new _X_l(null);
+        var _local3:GameMap = new GameMap(null);
         var music:Vector.<String> = new Vector.<String>();
         music.push("Menu");
         _local3.setProps(_local2["width"], _local2["height"], _local2["name"], _local2["back"], false, false, music, 0, -1);
@@ -53,9 +53,9 @@ public class _p0 {
         return {"RealMap": _local3, "MiniMap": miniMap};
     }
 
-    public static function _0L_k(_arg1:String):_X_l {
+    public static function _0L_k(_arg1:String):GameMap {
         var _local2:Object = _N_G_.parse(_arg1);
-        var _local3:_X_l = new _X_l(null);
+        var _local3:GameMap = new GameMap(null);
         var music:Vector.<String> = new Vector.<String>();
         music.push("Menu");
         _local3.setProps(_local2["width"], _local2["height"], _local2["name"], _local2["back"], false, false, music, 0, -1);
@@ -64,7 +64,7 @@ public class _p0 {
         return (_local3);
     }
 
-    public static function _T_6(_arg1:String, _arg2:_X_l, _arg3:int, _arg4:int, miniMap:MiniMap = null):void {
+    public static function _T_6(_arg1:String, _arg2:GameMap, _arg3:int, _arg4:int, miniMap:MiniMap = null):void {
         var _local5:Object = _N_G_.parse(_arg1);
         _4q(_local5, _arg2, _arg3, _arg4, miniMap);
     }
@@ -74,7 +74,7 @@ public class _p0 {
         return (new IntPoint(_local2["width"], _local2["height"]));
     }
 
-    private static function _4q(_arg1:Object, _arg2:_X_l, _arg3:int, _arg4:int, miniMap:MiniMap):void {
+    private static function _4q(_arg1:Object, _arg2:GameMap, _arg3:int, _arg4:int, miniMap:MiniMap):void {
         var _local7:int;
         var _local8:int;
         var _local9:Object;

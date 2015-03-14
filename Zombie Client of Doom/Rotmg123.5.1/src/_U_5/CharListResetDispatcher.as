@@ -18,9 +18,9 @@
 //_U_5._M_d
 
 package _U_5 {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class CharListResetDispatcher extends _aJ_ {
+public class CharListResetDispatcher extends Signal {
 
 }
 }//package _U_5

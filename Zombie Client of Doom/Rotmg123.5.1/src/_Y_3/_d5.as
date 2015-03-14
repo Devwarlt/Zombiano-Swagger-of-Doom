@@ -18,7 +18,7 @@
 //_Y_3._d5
 
 package _Y_3 {
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.utils.Dictionary;
 
@@ -30,7 +30,7 @@ public class _d5 implements _5d {
         this.provider = _arg1;
     }
 
-    public function apply(_arg1:Class, _arg2:_08b, _arg3:Dictionary):Object {
+    public function apply(_arg1:Class, _arg2:Injector, _arg3:Dictionary):Object {
         return (this.provider.apply(_arg1, _arg2, _arg3));
     }
 

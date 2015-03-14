@@ -18,13 +18,13 @@
 //_C_5._tt
 
 package _C_5 {
-import _0_p._v;
+import _0_p.IConfig;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _A_G_._v1;
 
-import _E_E_._U_A_;
+import _E_E_.ISignalCommandMap;
 
 import _05Z_._D_m;
 
@@ -36,19 +36,19 @@ import _05Z_._08i;
 
 import _0J_2._qQ_;
 
-public class _tt implements _v {
+public class _tt implements IConfig {
 
     [Inject]
-    public var _O_R_:_08b;
+    public var _O_R_:Injector;
     [Inject]
     public var mediatorMap:_v1;
     [Inject]
-    public var _1G_:_U_A_;
+    public var _1G_:ISignalCommandMap;
 
-    public function _K_():void {
-        this._O_R_.map(_D_m)._hZ_();
-        this.mediatorMap.map(GameSprite).to(GameSpriteEventDispatcher);
-        this._1G_.map(_08i)._1N_(_qQ_);
+    public function configure():void {
+        this._O_R_.map(_D_m).asSingleton();
+        this.mediatorMap.map(GameSprite).toMediator(GameSpriteEventDispatcher);
+        this._1G_.map(_08i).toCommand(_qQ_);
     }
 
 }

@@ -38,7 +38,7 @@ import _nA_._ax;
 
 import _qN_.Account;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.ui.TextButton;
@@ -56,12 +56,12 @@ import flash.filters.DropShadowFilter;
 
 public class CurrentCharacterScreen extends _05p {
 
-    public var close:_aJ_;
-    public var _n7:_aJ_;
-    public var newCharacter:_aJ_;
-    public var _1V_:_aJ_;
-    public var _O_v:_aJ_;
-    public var _D_u:_aJ_;
+    public var close:Signal;
+    public var _n7:Signal;
+    public var newCharacter:Signal;
+    public var _1V_:Signal;
+    public var _O_v:Signal;
+    public var _D_u:Signal;
     private var charList:SavedCharsList;
     private var nameText_:SimpleText;
     private var chooseNameButton:TextButton;
@@ -89,12 +89,12 @@ public class CurrentCharacterScreen extends _05p {
         this.mainBtn = new _H_o(LanguageKeys_Screen.MAIN, 22, false);
         this.skinsBtn = new _H_o(LanguageKeys_Screen.SKINS, 22, false);
         super(CurrentCharacterScreen);
-        this._n7 = new _aJ_();
-        this.newCharacter = new _aJ_();
+        this._n7 = new Signal();
+        this.newCharacter = new Signal();
         this.close = new _u3(this.mainBtn, MouseEvent.CLICK);
         this._1V_ = new _u3(this.skinsBtn, MouseEvent.CLICK);
-        this._O_v = new _aJ_();
-        this._D_u = new _aJ_();
+        this._O_v = new Signal();
+        this._D_u = new Signal();
     }
 
     override public function initialize(_arg1:SavedCharsList):void {

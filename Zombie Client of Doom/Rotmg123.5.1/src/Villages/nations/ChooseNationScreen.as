@@ -29,7 +29,7 @@ import _F_1.GameLoadingScreen;
 
 import _qN_.Account;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -51,12 +51,12 @@ public class ChooseNationScreen extends Sprite {
     private var nW:Number = 0;
     private var nH:Number = 0;
 
-    public var eventDispatcher:_aJ_;
+    public var eventDispatcher:Signal;
 
     public function ChooseNationScreen() {
         addChild(new background());
 
-        this.eventDispatcher = new _aJ_();
+        this.eventDispatcher = new Signal();
 
         var text:SimpleText = new SimpleText(62, 0xffffff, false, 800);
         text.htmlText = '<p align="center">' + LanguageManager.manager.getValue("text.choose_your_nation", "Choose Your Nation") + '</p>';

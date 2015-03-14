@@ -18,7 +18,7 @@
 //_zD_._V_M_
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1._05p;
 import _F_1._C_Q_;
@@ -34,7 +34,7 @@ import ToolTips.ToolTip;
 
 import flash.display.Sprite;
 
-public class _V_M_ extends _cM_ {
+public class _V_M_ extends Mediator {
 
     [Inject]
     public var view:_05p;

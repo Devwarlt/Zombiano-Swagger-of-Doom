@@ -18,7 +18,7 @@
 //_fh._nt
 
 package _fh {
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 
 import flash.utils.getTimer;
 import flash.events.MouseEvent;
@@ -38,9 +38,9 @@ import com.company.assembleegameclient.map._0D_v;
 
 public class _nt extends _rB_ {
 
-    public var map_:_X_l;
+    public var map_:GameMap;
 
-    public function _nt(_arg1:_X_l) {
+    public function _nt(_arg1:GameMap) {
         super(16352321, 12919330, true);
         this.map_ = _arg1;
     }

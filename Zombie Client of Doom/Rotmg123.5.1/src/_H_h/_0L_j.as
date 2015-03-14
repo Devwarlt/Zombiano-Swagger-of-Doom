@@ -18,11 +18,11 @@
 //_H_h._0L_j
 
 package _H_h {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _A_G_._v1;
 
@@ -39,17 +39,17 @@ import _0_p.IContext;
 
 import _s3._yp;
 
-public class _0L_j implements _D_v {
+public class _0L_j implements IExtension {
 
     private const _ul:String = _078.create(_0L_j);
 
-    private var _vz:_08b;
+    private var _vz:Injector;
     private var _R_j:_v1;
     private var _yv:_im;
     private var _60:_zu;
 
     public function extend(_arg1:IContext):void {
-        this._vz = _arg1._O_R_;
+        this._vz = _arg1.injector;
         this._vz.map(_07A_)._00S_(_x9);
         this._vz.map(_v1)._00S_(_Q_6);
         _arg1._iL_._8u(this._8u);
@@ -81,10 +81,10 @@ public class _0L_j implements _D_v {
 
     private function _kf():void {
         if (this._vz._d6(_v1)) {
-            this._vz._1Y_(_v1);
+            this._vz.unmap(_v1);
         }
         if (this._vz._d6(_07A_)) {
-            this._vz._1Y_(_07A_);
+            this._vz.unmap(_07A_);
         }
     }
 

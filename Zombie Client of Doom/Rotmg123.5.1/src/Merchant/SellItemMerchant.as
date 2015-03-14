@@ -20,18 +20,18 @@ package Merchant {
 import SimpleInject.ISimpleInjector;
 
 import com.company.assembleegameclient.game.GameSprite;
-
 import com.company.assembleegameclient.ui.SellItemContainer;
 
 import flash.display.Bitmap;
 import flash.display.DisplayObject;
+import flash.display.Shape;
 import flash.display.Sprite;
 import flash.events.Event;
 
 public class SellItemMerchant extends Sprite {
 
-    [Embed(source="imback.png")]
-    private static var bg:Class;
+    [Embed(source="bg.png")]
+    public static var bg:Class;
 
     private var itemContainer:SellItemContainer;
     private var itemInformation:SellItemInformation;
@@ -46,9 +46,15 @@ public class SellItemMerchant extends Sprite {
 
         this.injector = new SellItemMerchantInjector(this);
 
+        var bgMask:Shape = new Shape();
+        bgMask.graphics.beginFill(0x000000, 0.0);
+        bgMask.graphics.drawRect(0, 0, 600, 800);
+        bgMask.graphics.endFill();
+        addChild(bgMask);
+
         var background:Bitmap = new bg();
-        background.width = 600;
-        background.height = 600;
+        background.x = -100;
+        background.mask = bgMask;
         addChild(background);
 
         this.itemContainer = new SellItemContainer();

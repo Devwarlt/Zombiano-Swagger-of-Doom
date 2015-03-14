@@ -18,9 +18,9 @@
 //_U_5._0K_2
 
 package _U_5 {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _0K_2 extends _aJ_ {
+public class _0K_2 extends Signal {
 
 }
 }//package _U_5

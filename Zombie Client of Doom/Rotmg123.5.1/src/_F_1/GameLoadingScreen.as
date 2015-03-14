@@ -22,7 +22,7 @@ import flash.display.Sprite;
 
 import com.company.ui.SimpleText;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.rotmg.graphics.ScreenGraphic;
 
@@ -35,7 +35,7 @@ import _qN_.Account;
 public class GameLoadingScreen extends Sprite {
 
     private var statusText:SimpleText;
-    public var completed:_aJ_;
+    public var completed:Signal;
 
     public function GameLoadingScreen() {
         addChild(new ScreenGraphic());
@@ -47,7 +47,7 @@ public class GameLoadingScreen extends Sprite {
         this.statusText.filters = [new DropShadowFilter(0, 0, 0, 1, 4, 4)];
         addChild(this.statusText);
         addEventListener(Event.ADDED_TO_STAGE, this.onAddedToStage);
-        this.completed = new _aJ_();
+        this.completed = new Signal();
     }
 
     protected function onAddedToStage(_arg1:Event):void {

@@ -26,7 +26,7 @@ public interface Description {
 
     function _ka(_arg1:_0D_D_):Description;
 
-    function _zW_(_arg1:_pn, _arg2:*):Description;
+    function _zW_(_arg1:IMatcher, _arg2:*):Description;
 
     function _B_U_(_arg1:Object):Description;
 

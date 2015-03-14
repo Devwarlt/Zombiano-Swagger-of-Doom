@@ -18,7 +18,7 @@
 //_zD_._fy
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1.selectChars.CurrentCharacterScreen;
 import _F_1._3V_;
@@ -38,7 +38,7 @@ import com.company.assembleegameclient.parameters.Parameters;
 import WebRequestEvents.WebRequestSuccessEvent;
 import WebRequestEvents.WebRequestErrorEvent;
 
-public class _fy extends _cM_ {
+public class _fy extends Mediator {
 
     [Inject]
     public var view:_3V_;

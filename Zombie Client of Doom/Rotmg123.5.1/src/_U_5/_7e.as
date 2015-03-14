@@ -18,11 +18,11 @@
 //_U_5._7e
 
 package _U_5 {
-import _sp._aJ_;
+import _sp.Signal;
 
 import _02b._fn;
 
-public class _7e extends _aJ_ {
+public class _7e extends Signal {
 
     public function _7e() {
         super(_fn);

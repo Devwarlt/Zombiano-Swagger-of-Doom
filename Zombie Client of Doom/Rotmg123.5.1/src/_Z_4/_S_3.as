@@ -28,7 +28,7 @@ public interface _S_3 {
 
     function _00S_(_arg1:Class):_0C_Z_;
 
-    function _hZ_():_0C_Z_;
+    function asSingleton():_0C_Z_;
 
     function _0x(_arg1:_5d):_0C_Z_;
 

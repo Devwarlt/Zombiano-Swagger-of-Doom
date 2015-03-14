@@ -24,7 +24,7 @@ import com.company.util.PointUtil;
 
 import Sounds.UrlSoundEffects;
 
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 
 import Panels._sc;
 
@@ -52,7 +52,7 @@ public class Container extends GameObject implements IPanelProvider {
         return ((map_.player_.accountId_ == this.ownerId_));
     }
 
-    override public function addTo(_arg1:_X_l, _arg2:Number, _arg3:Number):Boolean {
+    override public function addTo(_arg1:GameMap, _arg2:Number, _arg3:Number):Boolean {
         if (!super.addTo(_arg1, _arg2, _arg3)) {
             return (false);
         }

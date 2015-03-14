@@ -24,7 +24,7 @@ import _E_x._K_T_;
 
 import _T_G_._9P_;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.events.Event;
 
@@ -33,11 +33,11 @@ public class _gW_ {
     private var _C_U_:_00J_;
     private var _0K_E_:Vector.<_K_T_>;
     private var _H__:_9P_;
-    private var _vz:_08b;
+    private var _vz:Injector;
     private var _1j:Class;
     private var _factory:_06l;
 
-    public function _gW_(_arg1:_00J_, _arg2:_9P_, _arg3:_08b, _arg4:Class) {
+    public function _gW_(_arg1:_00J_, _arg2:_9P_, _arg3:Injector, _arg4:Class) {
         this._C_U_ = _arg1;
         this._H__ = _arg2;
         this._vz = _arg3._E_1();
@@ -68,9 +68,9 @@ public class _gW_ {
     }
 
     private function _gi(_arg1:Class):void {
-        this._vz._1Y_(Event);
+        this._vz.unmap(Event);
         if (this._0B_W_(_arg1)) {
-            this._vz._1Y_(((this._1j) || (_arg1)));
+            this._vz.unmap(((this._1j) || (_arg1)));
         }
     }
 

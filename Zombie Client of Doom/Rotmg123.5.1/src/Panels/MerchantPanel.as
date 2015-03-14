@@ -44,7 +44,7 @@ import com.company.assembleegameclient.util._07E_;
 
 import flash.events.KeyboardEvent;
 
-import com.company.assembleegameclient.ui._4D_;
+import com.company.assembleegameclient.ui.ChatBox;
 import com.company.assembleegameclient.parameters.Parameters;
 
 import _qN_.Account;
@@ -171,7 +171,7 @@ public class MerchantPanel extends Panel {
     }
 
     private function _0A_Y_(_arg1:KeyboardEvent):void {
-        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(_4D_._0G_B_)))) {
+        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(ChatBox._0G_B_)))) {
             this._iO_();
         }
     }

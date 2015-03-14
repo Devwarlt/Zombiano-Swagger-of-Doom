@@ -20,13 +20,13 @@
 package _zD_ {
 import Crafting.SavedCraftingRecipes;
 
-import _C__._cM_;
+import _C__.Mediator;
 
 import _D_d._hj;
 
 import _W_D_.CharListHistory;
 
-public class _0D_L_ extends _cM_ {
+public class _0D_L_ extends Mediator {
 
     [Inject]
     public var view:_hj;

@@ -18,9 +18,9 @@
 //_4X_._0D_l
 
 package _4X_ {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _0D_l extends _aJ_ {
+public class _0D_l extends Signal {
 
     public function _0D_l() {
         super(_zU_);

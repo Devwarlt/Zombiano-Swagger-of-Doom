@@ -80,6 +80,12 @@ public static class Utils
         return ret.ToString();
     }
 
+    public static string[] FromCommaSepString(string x)
+    {
+        if (String.IsNullOrWhiteSpace(x)) return new string[0];
+        return x.Split(',').Select(_ => _.Trim()).ToArray();
+    }
+
     public static int[] FromCommaSepString32(string x)
     {
         if (String.IsNullOrWhiteSpace(x)) return new int[0];

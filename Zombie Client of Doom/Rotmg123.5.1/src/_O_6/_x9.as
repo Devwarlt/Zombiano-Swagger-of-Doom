@@ -24,7 +24,7 @@ import _A_G_._07A_;
 
 import flash.utils.Dictionary;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _A_G_._08I_;
 
@@ -40,9 +40,9 @@ public class _x9 extends EventDispatcher implements _07A_ {
 
     private const _09p:Dictionary = new Dictionary();
 
-    private var _vz:_08b;
+    private var _vz:Injector;
 
-    public function _x9(_arg1:_08b) {
+    public function _x9(_arg1:Injector) {
         this._vz = _arg1;
     }
 
@@ -100,7 +100,7 @@ public class _x9 extends EventDispatcher implements _07A_ {
             _local3 = this._vz.getInstance(_arg2._T_X_);
             this._vz.map(_arg2._T_X_)._q3(_local3);
             applyHooks(_arg2._7w, this._vz);
-            this._vz._1Y_(_arg2._T_X_);
+            this._vz.unmap(_arg2._T_X_);
             this._B_W_(_local3, _arg1, _arg2);
         }
         return (_local3);
@@ -127,7 +127,7 @@ public class _x9 extends EventDispatcher implements _07A_ {
         var _local5:Vector.<Class> = this._pN_(_arg1, _arg2);
         for each (_local4 in _local5) {
             if (this._vz._d6(_local4)) {
-                this._vz._1Y_(_local4);
+                this._vz.unmap(_local4);
             }
         }
     }

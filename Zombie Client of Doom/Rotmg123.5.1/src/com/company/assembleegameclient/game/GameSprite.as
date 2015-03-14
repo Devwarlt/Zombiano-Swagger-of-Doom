@@ -40,7 +40,7 @@ import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.appengine.WebRequest;
 import com.company.assembleegameclient.game.menu.PauseMenu;
 import com.company.assembleegameclient.map._0D_v;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.net.PacketManager;
 import com.company.assembleegameclient.net.Server;
 import com.company.assembleegameclient.objects.Player;
@@ -51,7 +51,7 @@ import com.company.assembleegameclient.ui.CreditsUI;
 import com.company.assembleegameclient.ui.Protip;
 import com.company.assembleegameclient.ui.SideUI;
 import com.company.assembleegameclient.ui._0G_h;
-import com.company.assembleegameclient.ui._4D_;
+import com.company.assembleegameclient.ui.ChatBox;
 import com.company.assembleegameclient.ui._L_N_;
 import com.company.assembleegameclient.util.TextureRedrawer;
 import com.company.util.MoreColorUtil;
@@ -76,11 +76,11 @@ public class GameSprite extends Sprite {
         super();
         this.charList_ = _arg7;
         this.craftingRecipes = _arg8;
-        this.map_ = new _X_l(this);
+        this.map_ = new GameMap(this);
         addChild(this.map_);
         this.packetManager = new PacketManager(this, _arg1, _arg2, _arg3, _arg4, _arg5, _arg6, _arg9);
         this.mui_ = new GameInputManager(this);
-        this.textBox_ = new _4D_(this, 600, 600);
+        this.textBox_ = new ChatBox(this, 600, 600);
         addChild(this.textBox_);
         this.sideUI = new SideUI(this, 200, 600);
         addChild(this.sideUI);
@@ -92,7 +92,7 @@ public class GameSprite extends Sprite {
     public var _on:_0D_v;
     public var packetManager:PacketManager;
     public var mui_:GameInputManager;
-    public var textBox_:_4D_;
+    public var textBox_:ChatBox;
     public var sideUI:SideUI;
     public var tutorial_:Tutorial;
     public var charList_:SavedCharsList;
@@ -106,18 +106,18 @@ public class GameSprite extends Sprite {
     public var _3c:Boolean;
     public var lastUpdate_:int = 0;
     public var moveRecords_:PositionHistoryManager;
-    private var map:_X_l;
+    private var map:GameMap;
     private var _bA_:int = 0;
     private var _qA_:int = 0;
     private var _rz:MapLoadingScreen;
     private var interactiveText:InteractiveAction;
     private var _2e:Boolean;
 
-    public function get map_():_X_l {
+    public function get map_():GameMap {
         return (this.map);
     }
 
-    public function set map_(_arg1:_X_l):void {
+    public function set map_(_arg1:GameMap):void {
         this.map = _arg1;
     }
 

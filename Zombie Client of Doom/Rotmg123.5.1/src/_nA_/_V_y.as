@@ -18,11 +18,11 @@
 //_nA_._V_y
 
 package _nA_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import flash.display.Stage;
 
-public class _V_y extends _cM_ {
+public class _V_y extends Mediator {
 
     [Inject]
     public var view:_O_g;

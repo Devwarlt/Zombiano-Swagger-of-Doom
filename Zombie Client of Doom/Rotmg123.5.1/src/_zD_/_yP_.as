@@ -18,7 +18,7 @@
 //_zD_._yP_
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _0M_H_._sN_;
 import _0M_H_._R_W_;
@@ -27,7 +27,7 @@ import _U_5._zz;
 
 import _8Q_._1l;
 
-public class _yP_ extends _cM_ {
+public class _yP_ extends Mediator {
 
     [Inject]
     public var view:_Y_w;

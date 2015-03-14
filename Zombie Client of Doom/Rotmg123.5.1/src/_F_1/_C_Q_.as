@@ -24,7 +24,7 @@ import Language.LanguageKeys.LanguageKeys_Screen;
 
 import _qN_.Account;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.parameters.Parameters;
@@ -39,7 +39,7 @@ import flash.net.navigateToURL;
 
 public class _C_Q_ extends _05p {
 
-    public var _ft:_aJ_;
+    public var _ft:Signal;
     private var playButton:_H_o;
     private var serversButton:_H_o;
     private var creditsButton:_H_o;
@@ -64,7 +64,7 @@ public class _C_Q_ extends _05p {
             addChild(new TitleScreenImage());
             addChild(new TitleScreenGraphic());
         }
-        this._ft = new _aJ_(String);
+        this._ft = new Signal(String);
     }
 
     override public function initialize(_arg1:SavedCharsList):void {

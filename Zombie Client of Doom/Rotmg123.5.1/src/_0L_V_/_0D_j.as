@@ -20,7 +20,7 @@
 package _0L_V_ {
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import _0I_J_._0J_v;
 
@@ -32,11 +32,11 @@ public class _0D_j extends Sprite {
 
     public static var _1J_:Class = _R_u;
 
-    public var close:_aJ_;
+    public var close:Signal;
     public var select:_0J_v;
 
     public function _0D_j() {
-        this.close = new _aJ_();
+        this.close = new Signal();
         this.select = new _0J_v(MouseEvent.CLICK, String);
         this._044();
         this._Q_G_();

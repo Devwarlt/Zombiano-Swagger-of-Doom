@@ -18,7 +18,7 @@
 //_zD_._G_9
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _0L_C_._s7;
 
@@ -33,7 +33,7 @@ import _U_5.SpriteTarget;
 
 import _4X_._zU_;
 
-public class _G_9 extends _cM_ {
+public class _G_9 extends Mediator {
 
     [Inject]
     public var view:_s7;

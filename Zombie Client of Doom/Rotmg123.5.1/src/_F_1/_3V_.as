@@ -27,7 +27,7 @@ import flash.display.Shape;
 
 import com.company.assembleegameclient.ui.ScrollBar;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import _02t._R_f;
 
@@ -66,17 +66,17 @@ public class _3V_ extends Sprite {
     private var _0A_z:Sprite;
     private var accountId_:int;
     private var charId_:int;
-    public var close:_aJ_;
-    public var _8m:_aJ_;
-    public var _T_c:_aJ_;
+    public var close:Signal;
+    public var _8m:Signal;
+    public var _T_c:Signal;
 
     public function _3V_() {
         var _local4:_00A_;
         this.cache_ = {};
         this._C_F_ = new Vector.<_00A_>();
         super();
-        this._8m = new _aJ_();
-        this._T_c = new _aJ_();
+        this._8m = new Signal();
+        this._T_c = new Signal();
         addChild(new _R_f());
         this._P_V_ = new SimpleText(32, 0xB3B3B3, false, 0, 0, "Myriad Pro");
         this._P_V_.boldText(true);

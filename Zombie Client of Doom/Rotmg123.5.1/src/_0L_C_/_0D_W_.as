@@ -20,7 +20,7 @@
 package _0L_C_ {
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import flash.events.Event;
 
@@ -30,12 +30,12 @@ public class _0D_W_ extends Sprite {
     private const _0K_r:String = DialogBox.BUTTON1_EVENT;
     private const _M_4:String = DialogBox.BUTTON2_EVENT;
 
-    public var deleteCharacter:_aJ_;
-    public var cancel:_aJ_;
+    public var deleteCharacter:Signal;
+    public var cancel:Signal;
 
     public function _0D_W_() {
-        this.deleteCharacter = new _aJ_();
-        this.cancel = new _aJ_();
+        this.deleteCharacter = new Signal();
+        this.cancel = new Signal();
     }
 
     public function _02C_(_arg1:String, _arg2:String):void {

@@ -18,14 +18,14 @@
 //_j1._X_y
 
 package _j1 {
-import _g2._00d;
-import _g2._06n;
+import _g2.ICommandMapper;
+import _g2.ICommandUnmapper;
 
 public interface _X_y {
 
-    function map(_arg1:String, _arg2:Class = null):_00d;
+    function map(_arg1:String, _arg2:Class = null):ICommandMapper;
 
-    function _1Y_(_arg1:String, _arg2:Class = null):_06n;
+    function _1Y_(_arg1:String, _arg2:Class = null):ICommandUnmapper;
 
 }
 }//package _j1

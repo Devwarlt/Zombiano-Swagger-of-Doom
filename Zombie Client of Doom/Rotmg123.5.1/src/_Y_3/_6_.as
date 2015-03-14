@@ -20,7 +20,7 @@
 package _Y_3 {
 import _4u.SsInternal;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.utils.Dictionary;
 
@@ -32,7 +32,7 @@ public class _6_ implements _5d {
         this._2h = _arg1;
     }
 
-    public function apply(_arg1:Class, _arg2:_08b, _arg3:Dictionary):Object {
+    public function apply(_arg1:Class, _arg2:Injector, _arg3:Dictionary):Object {
         return (_arg2.SsInternal::_0I_F_(this._2h));
     }
 

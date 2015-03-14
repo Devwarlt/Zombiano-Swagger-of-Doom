@@ -18,14 +18,14 @@
 //_T_G_._8z
 
 package _T_G_ {
-import _g2._06n;
+import _g2.ICommandUnmapper;
 
-public class _8z implements _06n {
+public class _8z implements ICommandUnmapper {
 
-    public function _f0(_arg1:Class):void {
+    public function fromCommand(_arg1:Class):void {
     }
 
-    public function _cp():void {
+    public function fromAll():void {
     }
 
 }

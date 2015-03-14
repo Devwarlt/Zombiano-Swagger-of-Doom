@@ -20,7 +20,7 @@
 package _0J_k {
 import flash.utils.Dictionary;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _Y_3._5d;
 
@@ -47,7 +47,7 @@ public class _Z_T_ extends _5W_ {
         this.injectParameters = _arg5;
     }
 
-    override public function applyInjection(_arg1:Object, _arg2:Class, _arg3:_08b):void {
+    override public function applyInjection(_arg1:Object, _arg2:Class, _arg3:Injector):void {
         var _local4:Array = this._fx(_arg1, _arg2, _arg3);
         if (_local4.length >= this._mm) {
             (_arg1[this._0C_V_] as Function).apply(_arg1, _local4);
@@ -55,7 +55,7 @@ public class _Z_T_ extends _5W_ {
         _local4.length = 0;
     }
 
-    protected function _fx(_arg1:Object, _arg2:Class, _arg3:_08b):Array {
+    protected function _fx(_arg1:Object, _arg2:Class, _arg3:Injector):Array {
         var _local7:String;
         var _local8:_5d;
         var _local4:int = this._C_d.length;

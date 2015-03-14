@@ -20,7 +20,7 @@
 package _F_1 {
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import flash.display.Bitmap;
 
@@ -39,7 +39,7 @@ public class NewsItem extends Sprite {
     public static const _3Q_:uint = 0xB3B3B3;
     public static const _00O_:uint = 0xFFC800;
 
-    public var _H_r:_aJ_;
+    public var _H_r:Signal;
     public var _5U_:Bitmap;
     public var _P_V_:SimpleText;
     public var taglineText_:SimpleText;
@@ -48,7 +48,7 @@ public class NewsItem extends Sprite {
     public var accountId:int;
 
     public function NewsItem(_arg1:BitmapData, _arg2:String, _arg3:String, _arg4:String, _arg5:int, _arg6:int) {
-        this._H_r = new _aJ_(int);
+        this._H_r = new Signal(int);
         super();
         this.link = _arg4;
         this.accountId = _arg6;

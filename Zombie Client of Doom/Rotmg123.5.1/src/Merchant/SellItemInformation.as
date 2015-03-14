@@ -20,6 +20,8 @@ import AccountManagement.ui.FancyTextButton;
 
 import _05R_.GTween;
 
+import _0L_C_.DialogBox;
+
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.objects.Player;
@@ -54,6 +56,7 @@ public class SellItemInformation extends Sprite {
     public function SellItemInformation(event:ItemSellCandidateEvent) {
         this.currentEvent = event;
         this.addEventListener(Event.ENTER_FRAME, this.onEnterFrame);
+        addChild(new SellItemMerchant.bg());
     }
 
     public function initialize():void {
@@ -65,7 +68,7 @@ public class SellItemInformation extends Sprite {
             this.closeButton.scaleX = this.closeButton.scaleY = 2;
 
             this.sellButton.x = 50;
-            this.closeButton.x = 550 - this.sellButton.width;
+            this.closeButton.x = 750 - this.sellButton.width;
 
             this.sellButton.y = 600 - this.sellButton.height - 10;
             this.closeButton.y = this.sellButton.y;
@@ -79,22 +82,21 @@ public class SellItemInformation extends Sprite {
         else {
             this.closeButton = new FancyTextButton(16, "Close");
             this.closeButton.scaleX = this.closeButton.scaleY = 2;
-            this.closeButton.x = 300 - (this.closeButton.width / 2);
+            this.closeButton.x = 400 - (this.closeButton.width / 2);
             this.closeButton.y = 600 - this.closeButton.height - 10;
             this.closeButton.addEventListener(MouseEvent.CLICK, this.onComplete);
             addChild(this.closeButton);
         }
 
-
         var icon:Bitmap = new Bitmap(this.currentEvent.graphicsData);
         icon.scaleX = icon.scaleY = 2;
-        icon.x = 300 - (icon.width / 2);
+        icon.x = 400 - (icon.width / 2);
         icon.y = 300 - (icon.height / 2);
         addChild(icon);
 
         if(!this.currentEvent.sellAble) {
-            var errorText:SimpleText = new SimpleText(21, 0xffffff, false, 600);
-            errorText.htmlText = "Error, this item is not sellable.";
+            var errorText:SimpleText = new SimpleText(21, 0xffffff, false, 800);
+            errorText.htmlText = "This item is not sellable.";
             errorText.boldText(true);
             errorText.filters = [new DropShadowFilter(0, 0, 0, 1.0, 5.0, 5.0, 10.0)];
             errorText.y = icon.y + icon.width;
@@ -102,7 +104,7 @@ public class SellItemInformation extends Sprite {
             addChild(errorText);
         }
 
-        var title:SimpleText = new SimpleText(56, 0xffffff, false, 600);
+        var title:SimpleText = new SimpleText(56, 0xffffff, false, 800);
         title.htmlText = '<p align="center">' + ObjectLibrary.Items[this.currentEvent.itemId].@id + '</p>';
         title.boldText(true);
         title.filters = [new DropShadowFilter(0, 0, 0, 1.0, 5.0, 5.0, 10.0)];
@@ -111,7 +113,7 @@ public class SellItemInformation extends Sprite {
         addChild(title);
 
         this.creditsUI = new CreditsUI(this.gs);
-        this.creditsUI.x = 600;
+        this.creditsUI.x = 800;
         addChild(this.creditsUI);
     }
 
@@ -132,21 +134,26 @@ public class SellItemInformation extends Sprite {
     private function onSellResult(event:ItemSellResultEvent):void {
         this.gs.removeEventListener(ItemSellResultEvent.SELL_RESULT, this.onSellResult);
         if(event.sellSuccess) {
-            this.closeButton.x = 300 - (this.closeButton.width / 2);
+            this.closeButton.x = 400 - (this.closeButton.width / 2);
             this.closeButton.y = 600 - this.closeButton.height - 10;
             removeChild(this.sellButton);
 
             var soldIcon:Bitmap = new itemSoldIcon();
             soldIcon.scaleX = soldIcon.scaleY = 5;
-            soldIcon.x = 300 - (soldIcon.width / 2);
+            soldIcon.x = 400 - (soldIcon.width / 2);
             soldIcon.y = 300 - (soldIcon.height / 2);
             addChild(soldIcon);
 
             var tween:GTween = new GTween(soldIcon, 0.4, { "scaleX": 0.5, "scaleY": 0.5});
             tween.onChange = function(t:GTween):void {
-                soldIcon.x = 300 - (soldIcon.width / 2);
+                soldIcon.x = 400 - (soldIcon.width / 2);
                 soldIcon.y = 300 - (soldIcon.height / 2);
             }
+        }
+        else {
+            var dialogBox:DialogBox = new DialogBox(event.errorMessage, "Error while selling item.", "Ok", null);
+            dialogBox.addEventListener(DialogBox.BUTTON1_EVENT, this.onComplete);
+            addChild(dialogBox);
         }
     }
 }

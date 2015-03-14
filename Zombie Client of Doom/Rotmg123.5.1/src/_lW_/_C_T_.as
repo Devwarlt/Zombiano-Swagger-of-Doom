@@ -18,7 +18,7 @@
 //_lW_._C_T_
 
 package _lW_ {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
@@ -28,11 +28,11 @@ import flash.display.DisplayObjectContainer;
 
 import _0_p._Q_5;
 
-import _g3.instanceOf;
+import _g3.instanceOfType;
 
 import flash.events.Event;
 
-public class _C_T_ implements _D_v {
+public class _C_T_ implements IExtension {
 
     private const _ul:String = _078.create(_C_T_);
 
@@ -43,7 +43,7 @@ public class _C_T_ implements _D_v {
     public function extend(_arg1:IContext):void {
         this._rA_ = _arg1;
         this._eo = _arg1._0H_4(this);
-        this._rA_._ty(instanceOf(DisplayObjectContainer), this._uI_);
+        this._rA_._ty(instanceOfType(DisplayObjectContainer), this._uI_);
     }
 
     public function toString():String {

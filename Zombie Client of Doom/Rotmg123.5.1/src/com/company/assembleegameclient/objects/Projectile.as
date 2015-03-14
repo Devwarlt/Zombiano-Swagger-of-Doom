@@ -21,7 +21,7 @@ package com.company.assembleegameclient.objects {
 import com.company.assembleegameclient.engine3d._0I_4;
 import com.company.assembleegameclient.map.Square;
 import com.company.assembleegameclient.map._0D_v;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.tutorial.Tutorial;
 import com.company.assembleegameclient.tutorial.doneAction;
@@ -134,7 +134,7 @@ public class Projectile extends BasicObject {
         this.damage_ = _arg1;
     }
 
-    override public function addTo(_arg1:_X_l, _arg2:Number, _arg3:Number):Boolean {
+    override public function addTo(_arg1:GameMap, _arg2:Number, _arg3:Number):Boolean {
         var _local4:Player;
         this._R_i = _arg2;
         this._J_Y_ = _arg3;

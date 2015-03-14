@@ -18,7 +18,7 @@
 //_nA_._07N_
 
 package _nA_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _05Z_._D_m;
 
@@ -38,7 +38,7 @@ import _W_D_._0I_z;
 
 import _0L_C_._2k;
 
-public class _07N_ extends _cM_ {
+public class _07N_ extends Mediator {
 
     private static const _y:String = "In order to buy the Beginners package, you must be a registered user.";
 

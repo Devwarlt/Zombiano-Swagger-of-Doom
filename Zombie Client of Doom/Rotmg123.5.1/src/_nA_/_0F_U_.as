@@ -20,7 +20,7 @@
 package _nA_ {
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import _0L_V_._0B_3;
 import _0L_V_._kD_;
@@ -28,13 +28,13 @@ import _0L_V_._0D_j;
 
 public class _0F_U_ extends Sprite {
 
-    public var buy:_aJ_;
-    public var _hz:_aJ_;
+    public var buy:Signal;
+    public var _hz:Signal;
     private var _T_S_:Sprite;
 
     public function _0F_U_() {
-        this.buy = new _aJ_();
-        this._hz = new _aJ_(String);
+        this.buy = new Signal();
+        this._hz = new Signal(String);
         tabChildren = false;
         tabEnabled = false;
         addChild(new _O_g());

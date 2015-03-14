@@ -18,7 +18,7 @@
 //_I_V_._2l
 
 package _I_V_ {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
@@ -28,12 +28,12 @@ import _01o._xy;
 
 import _0_p.IContext;
 
-public class _2l implements _D_v {
+public class _2l implements IExtension {
 
     private const _ul:String = _078.create(_2l);
 
     public function extend(_arg1:IContext):void {
-        _arg1._O_R_.map(_Q_5)._0x(new _xy(_arg1));
+        _arg1.injector.map(_Q_5)._0x(new _xy(_arg1));
     }
 
     public function toString():String {

@@ -18,13 +18,13 @@
 //_03T_.ObjectProcessor
 
 package _03T_ {
-import _qj._pn;
+import _qj.IMatcher;
 
 public class ObjectProcessor {
 
     private const _handlers:Array = [];
 
-    public function _K_j(_arg1:_pn, _arg2:Function):void {
+    public function _K_j(_arg1:IMatcher, _arg2:Function):void {
         this._handlers.push(new ObjectHandler(_arg1, _arg2));
     }
 
@@ -38,16 +38,16 @@ public class ObjectProcessor {
 }
 }//package _03T_
 
-import _qj._pn;
+import _qj.IMatcher;
 
 class ObjectHandler {
 
     /*private*/
-    internal var _matcher:_pn;
+    internal var _matcher:IMatcher;
     /*private*/
     internal var _handler:Function;
 
-    public function ObjectHandler(_arg1:_pn, _arg2:Function) {
+    public function ObjectHandler(_arg1:IMatcher, _arg2:Function) {
         this._matcher = _arg1;
         this._handler = _arg2;
     }

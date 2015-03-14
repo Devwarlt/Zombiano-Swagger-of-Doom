@@ -24,7 +24,7 @@ import _05R_.GTween;
 
 import _S_K_._u3;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import Sounds.UrlSoundEffects;
 
@@ -53,7 +53,7 @@ public class _U_W_ extends Sprite {
     private static const _R_b:String = "killed on ${DATE} by ${KILLER}";
     private static const _V_u:String = "died ${DATE}";
 
-    public var _0M_S_:_aJ_;
+    public var _0M_S_:Signal;
     private var _9N_:DisplayObjectContainer;
     private var _0M_g:DisplayObjectContainer;
     private var title:SimpleText;

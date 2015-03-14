@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using db;
+using log4net;
 using Mono.Game;
 using System;
 using System.Collections.Generic;
@@ -101,7 +102,7 @@ namespace wServer.realm.entities
 
             ExportStatIfChanged(StatsType.HasBackpack1, Inventory.Length > 12 ? 1 : 0);
             ExportStatIfChanged(StatsType.HasBackpack2, Inventory.Length > 20 ? 1 : 0);
-            ExportStatIfChanged(StatsType.Effect, "RainbowParticles");
+            ExportStatIfChanged(StatsType.Effect, UnusualEffects.GetXML("Premium Stars"));
             
             if (Inventory.Length > 12)
             {

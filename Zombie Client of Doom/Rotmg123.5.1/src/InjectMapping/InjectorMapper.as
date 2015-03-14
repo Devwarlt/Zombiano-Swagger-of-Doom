@@ -18,13 +18,13 @@
 //InjectMapping._K_a
 
 package InjectMapping {
-import AccountManagement.AccountEventDispatcher;
+import AccountManagement.AccountManagementScreenMediator;
 import AccountManagement.AccountManagementScreen;
 
 import Villages.nations.ChooseNationScreen;
-import Villages.nations.NationEventDispatcher;
+import Villages.nations.ChooseNationScreenMediator;
 
-import _0_p._v;
+import _0_p.IConfig;
 
 import _F_1.CreditsScreen;
 
@@ -42,13 +42,13 @@ import _F_1.GameLoadingScreen;
 import _F_1._U_W_;
 import _F_1._zf;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _0I_9._0J_r;
 
 import _A_G_._v1;
 
-import _E_E_._U_A_;
+import _E_E_.ISignalCommandMap;
 
 import _U_5._D_c;
 
@@ -69,10 +69,10 @@ import _0G__._M_y;
 import _zD_._09b;
 
 import _zD_._0D_h;
-import _zD_._0F_Q_;
+import _zD_.CreditsScreenMediator;
 import _zD_._N_N_;
-import _zD_._uf;
-import _zD_._xF_;
+import _zD_.GameLoadingScreenMediator;
+import _zD_.CurrentCharacterScreenMediator;
 import _zD_._V_M_;
 import _zD_.__for;
 import _zD_._fy;
@@ -84,11 +84,11 @@ import _zD_._0D_L_;
 
 import com.company.assembleegameclient.screens.charrects.CurrentCharacterRect;
 
-import _zD_._9M_;
+import _zD_.CurrentCharacterRectMediator;
 
 import com.company.assembleegameclient.screens.charrects.CharacterRectList;
 
-import _zD_._G_I_;
+import _zD_.CharacterRectListMediator;
 
 import _0L_C_._0G_y;
 
@@ -97,7 +97,7 @@ import _zD_._1k;
 import _0L_C_._Z_t;
 
 import _zD_._E_G_;
-import _zD_.__else;
+import _zD_.NewsItemMediator;
 
 import _0L_C_._0D_W_;
 
@@ -106,7 +106,7 @@ import _zD_._Q_q;
 import _0L_C_._s7;
 
 import _zD_._G_9;
-import _zD_._jT_;
+import _zD_.MapLoadingScreenMediator;
 
 import _0M_H_._sN_;
 import _0M_H_._R_W_;
@@ -121,52 +121,52 @@ import com.company.assembleegameclient.ui.InventorySide;
 
 import _zD_._B_9;
 
-public class InjectorMapper implements _v {
+public class InjectorMapper implements IConfig {
 
     [Inject]
-    public var _O_R_:_08b;
+    public var _O_R_:Injector;
     [Inject]
     public var _Q_l:_0J_r;
     [Inject]
     public var mediatorMap:_v1;
     [Inject]
-    public var _1G_:_U_A_;
+    public var _1G_:ISignalCommandMap;
 
-    public function _K_():void {
-        this._1G_.map(_D_c, false)._1N_(_V_2);
-        this._1G_.map(_06a)._1N_(_0C_O_);
-        this._1G_.map(_V_l)._1N_(_E_Z_);
-        this._1G_.map(_057)._1N_(_M_y);
-        this.mediatorMap.map(_zf).to(_0D_h);
-        this.mediatorMap.map(GameLoadingScreen).to(_uf);
-        this.mediatorMap.map(_01_).to(_N_N_);
-        this.mediatorMap.map(CreditsScreen).to(_0F_Q_);
-        this.mediatorMap.map(CurrentCharacterScreen).to(_xF_);
-        this.mediatorMap.map(_05p).to(_V_M_);
-        this.mediatorMap.map(_C_Q_).to(__for);
-        this.mediatorMap.map(AccountManagementScreen).to(AccountEventDispatcher);
-        this.mediatorMap.map(ChooseNationScreen).to(NationEventDispatcher);
-        this.mediatorMap.map(_3V_).to(_fy);
-        this.mediatorMap.map(_0H_2).to(_2H_);
-        this.mediatorMap.map(_hj).to(_0D_L_);
-        this.mediatorMap.map(CurrentCharacterRect).to(_9M_);
-        this.mediatorMap.map(CharacterRectList).to(_G_I_);
-        this.mediatorMap.map(_0G_y).to(_1k);
-        this.mediatorMap.map(_Z_t).to(_E_G_);
-        this.mediatorMap.map(_U_W_).to(_09b);
-        this.mediatorMap.map(NewsItem).to(__else);
-        this.mediatorMap.map(_0D_W_).to(_Q_q);
-        this.mediatorMap.map(_s7).to(_G_9);
-        this.mediatorMap.map(MapLoadingScreen).to(_jT_);
+    public function configure():void {
+        this._1G_.map(_D_c, false).toCommand(_V_2);
+        this._1G_.map(_06a).toCommand(_0C_O_);
+        this._1G_.map(_V_l).toCommand(_E_Z_);
+        this._1G_.map(_057).toCommand(_M_y);
+        this.mediatorMap.map(_zf).toMediator(_0D_h);
+        this.mediatorMap.map(GameLoadingScreen).toMediator(GameLoadingScreenMediator);
+        this.mediatorMap.map(_01_).toMediator(_N_N_);
+        this.mediatorMap.map(CreditsScreen).toMediator(CreditsScreenMediator);
+        this.mediatorMap.map(CurrentCharacterScreen).toMediator(CurrentCharacterScreenMediator);
+        this.mediatorMap.map(_05p).toMediator(_V_M_);
+        this.mediatorMap.map(_C_Q_).toMediator(__for);
+        this.mediatorMap.map(AccountManagementScreen).toMediator(AccountManagementScreenMediator);
+        this.mediatorMap.map(ChooseNationScreen).toMediator(ChooseNationScreenMediator);
+        this.mediatorMap.map(_3V_).toMediator(_fy);
+        this.mediatorMap.map(_0H_2).toMediator(_2H_);
+        this.mediatorMap.map(_hj).toMediator(_0D_L_);
+        this.mediatorMap.map(CurrentCharacterRect).toMediator(CurrentCharacterRectMediator);
+        this.mediatorMap.map(CharacterRectList).toMediator(CharacterRectListMediator);
+        this.mediatorMap.map(_0G_y).toMediator(_1k);
+        this.mediatorMap.map(_Z_t).toMediator(_E_G_);
+        this.mediatorMap.map(_U_W_).toMediator(_09b);
+        this.mediatorMap.map(NewsItem).toMediator(NewsItemMediator);
+        this.mediatorMap.map(_0D_W_).toMediator(_Q_q);
+        this.mediatorMap.map(_s7).toMediator(_G_9);
+        this.mediatorMap.map(MapLoadingScreen).toMediator(MapLoadingScreenMediator);
         this._m6();
     }
 
     private function _m6():void {
         this._O_R_.map(_sN_)._q3(new _sN_());
         this._O_R_.map(_R_W_)._q3(new _R_W_());
-        this._1G_.map(_W_O_)._1N_(_0L_J_);
-        this.mediatorMap.map(_Y_w).to(_yP_);
-        this.mediatorMap.map(InventorySide).to(_B_9);
+        this._1G_.map(_W_O_).toCommand(_0L_J_);
+        this.mediatorMap.map(_Y_w).toMediator(_yP_);
+        this.mediatorMap.map(InventorySide).toMediator(_B_9);
     }
 
 }

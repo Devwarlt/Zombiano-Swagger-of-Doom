@@ -18,9 +18,9 @@
 //_05Z_._D_m
 
 package _05Z_ {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _D_m extends _aJ_ {
+public class _D_m extends Signal {
 
     public function _D_m() {
         super(Boolean);

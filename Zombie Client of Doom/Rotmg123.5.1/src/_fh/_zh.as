@@ -20,7 +20,7 @@
 package _fh {
 import flash.display.Sprite;
 
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 
 import com.company.assembleegameclient.objects._ez;
 
@@ -32,11 +32,11 @@ import com.company.assembleegameclient.map._0D_v;
 
 public class _zh extends Sprite {
 
-    public var map_:_X_l;
+    public var map_:GameMap;
     public var _gh:Vector.<_A_p> = null;
     public var questArrow_:_nt;
 
-    public function _zh(_arg1:_X_l) {
+    public function _zh(_arg1:GameMap) {
         var _local3:_A_p;
         super();
         this.map_ = _arg1;

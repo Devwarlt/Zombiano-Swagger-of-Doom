@@ -18,7 +18,7 @@
 //com.company.assembleegameclient.objects.BasicObject
 
 package com.company.assembleegameclient.objects {
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.map.Square;
 
 import flash.display.IGraphicsData;
@@ -32,7 +32,7 @@ public class BasicObject {
 
     private static var _D_p:int = 0;
 
-    public var map_:_X_l;
+    public var map_:GameMap;
     public var _0H_B_:Square;
     public var objectId_:int;
     public var x_:Number;
@@ -94,7 +94,7 @@ public class BasicObject {
         this.sortVal_ = this._bY_[1];
     }
 
-    public function addTo(_arg1:_X_l, _arg2:Number, _arg3:Number):Boolean {
+    public function addTo(_arg1:GameMap, _arg2:Number, _arg3:Number):Boolean {
         this.map_ = _arg1;
         this._0H_B_ = this.map_.getSquare(_arg2, _arg3);
         if (this._0H_B_ == null) {

@@ -18,7 +18,7 @@
 //_K_8._L_G_
 
 package _K_8 {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _0_j._kW_;
 
@@ -26,7 +26,7 @@ import _W_D_.CharListHistory;
 
 import _U_5._0_D_;
 
-public class _L_G_ extends _cM_ {
+public class _L_G_ extends Mediator {
 
     [Inject]
     public var view:_kW_;

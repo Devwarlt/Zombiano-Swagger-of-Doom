@@ -29,7 +29,7 @@ import com.company.assembleegameclient.game.GameSprite;
 import flash.events.MouseEvent;
 import flash.events.KeyboardEvent;
 
-import com.company.assembleegameclient.ui._4D_;
+import com.company.assembleegameclient.ui.ChatBox;
 import com.company.assembleegameclient.parameters.Parameters;
 
 public class BuyRealmGoldPanel extends SimpleButtonPanel {
@@ -55,7 +55,7 @@ public class BuyRealmGoldPanel extends SimpleButtonPanel {
     }
 
     private function _0A_Y_(_arg1:KeyboardEvent):void {
-        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(_4D_._0G_B_)))) {
+        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(ChatBox._0G_B_)))) {
             Account._get().showMoneyManagement(stage);
         }
     }

@@ -18,9 +18,9 @@
 //_03T_.applyHooks
 
 package _03T_ {
-import _eZ_._08b;
+import _eZ_.Injector;
 
-public function applyHooks(_arg1:Array, _arg2:_08b = null):void {
+public function applyHooks(_arg1:Array, _arg2:Injector = null):void {
     var _local3:Object;
     for each (_local3 in _arg1) {
         if ((_local3 is Function)) {

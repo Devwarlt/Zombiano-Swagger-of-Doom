@@ -20,7 +20,7 @@
 package _4X_ {
 import flash.errors.IllegalOperationError;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 public class _zU_ {
 
@@ -67,7 +67,7 @@ public class _zU_ {
         ((this._v8) && (this._v8.dispatch(this, _arg1, _arg2)));
     }
 
-    final public function get _04K_():_aJ_ {
+    final public function get _04K_():Signal {
         return ((this._ce = ((this._ce) || (new _0D_l()))));
     }
 

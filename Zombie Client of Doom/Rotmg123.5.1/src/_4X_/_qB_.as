@@ -18,9 +18,9 @@
 //_4X_._qB_
 
 package _4X_ {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _qB_ extends _aJ_ {
+public class _qB_ extends Signal {
 
     public function _qB_() {
         super(_zU_, Boolean, String);

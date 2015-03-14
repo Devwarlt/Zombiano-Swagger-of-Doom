@@ -33,7 +33,7 @@ import _F_1._H_o;
 
 import _S_K_._u3;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import _zm._01c;
 
@@ -68,7 +68,7 @@ public class _0K_V_ extends _05p {
     public static const _086:Stats = new Stats();
     private static const _N_G_:_throw = _P_I_._dJ_();
 
-    public var close:_aJ_;
+    public var close:Signal;
     public var backButton:_H_o;
     public var _kg:_H_4;
     private var _G_T_:_03X_;

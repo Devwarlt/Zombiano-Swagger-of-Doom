@@ -19,14 +19,14 @@
 
 package _092 {
 import _qj._8y;
-import _qj._pn;
+import _qj.IMatcher;
 import _qj.Description;
 
 public class _L_ extends _8y {
 
-    private var _matcher:_pn;
+    private var _matcher:IMatcher;
 
-    public function _L_(_arg1:_pn) {
+    public function _L_(_arg1:IMatcher) {
         this._matcher = _arg1;
     }
 

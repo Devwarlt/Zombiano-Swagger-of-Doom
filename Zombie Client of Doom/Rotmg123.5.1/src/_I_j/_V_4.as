@@ -18,13 +18,13 @@
 //_I_j._V_4
 
 package _I_j {
-import _0_p._v;
+import _0_p.IConfig;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _A_G_._v1;
 
-import _E_E_._U_A_;
+import _E_E_.ISignalCommandMap;
 
 import _0M_m._j5;
 import _0M_m._0E_v;
@@ -42,22 +42,22 @@ import _P_E_._W_2;
 
 import _R_S_._I_y;
 
-public class _V_4 implements _v {
+public class _V_4 implements IConfig {
 
     [Inject]
-    public var _O_R_:_08b;
+    public var _O_R_:Injector;
     [Inject]
     public var mediatorMap:_v1;
     [Inject]
-    public var _1G_:_U_A_;
+    public var _1G_:ISignalCommandMap;
 
-    public function _K_():void {
+    public function configure():void {
         this._O_R_.map(_j5)._00S_(_0E_v);
         this._O_R_.map(_00V_)._00S_(_E_e);
-        this.mediatorMap.map(_ax).to(_bN_);
-        this.mediatorMap.map(_0F_U_).to(_07N_);
-        this.mediatorMap.map(_O_g).to(_V_y);
-        this._1G_.map(_W_2)._1N_(_I_y);
+        this.mediatorMap.map(_ax).toMediator(_bN_);
+        this.mediatorMap.map(_0F_U_).toMediator(_07N_);
+        this.mediatorMap.map(_O_g).toMediator(_V_y);
+        this._1G_.map(_W_2).toCommand(_I_y);
     }
 
 }

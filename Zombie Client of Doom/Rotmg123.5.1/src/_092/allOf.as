@@ -18,9 +18,9 @@
 //_092.allOf
 
 package _092 {
-import _qj._pn;
+import _qj.IMatcher;
 
-public function allOf(..._args):_pn {
+public function allOf(..._args):IMatcher {
     var _local2:Array = _args;
     if ((((_args.length == 1)) && ((_args[0] is Array)))) {
         _local2 = _args[0];

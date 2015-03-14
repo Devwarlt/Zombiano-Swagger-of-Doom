@@ -18,7 +18,7 @@
 //_nA_._bN_
 
 package _nA_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _0I_9._0J_r;
 
@@ -26,7 +26,7 @@ import _P_E_._W_2;
 
 import _0M_m._00V_;
 
-public class _bN_ extends _cM_ {
+public class _bN_ extends Mediator {
 
     [Inject]
     public var view:_ax;

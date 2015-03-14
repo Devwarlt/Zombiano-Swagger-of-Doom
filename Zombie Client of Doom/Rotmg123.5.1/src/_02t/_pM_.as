@@ -25,7 +25,7 @@ import _K_D_._p0;
 import Sounds.Music;
 
 import com.company.assembleegameclient.map._0D_v;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.util.IntPoint;
 
 import flash.display.Sprite;
@@ -42,7 +42,7 @@ public class _pM_ extends Sprite {
     private static const _06B_:Number = (1 / 1000);//0.001
     private static const _01N_:Class = _final;
 
-    private static var _I_k:_X_l;
+    private static var _I_k:GameMap;
     private static var _sl:IntPoint;
     private static var _jJ_:Number;
     private static var _U_b:Number;
@@ -79,14 +79,14 @@ public class _pM_ extends Sprite {
         this._7n = this.time;
     }
 
-    private function _P_i():_X_l {
+    private function _P_i():GameMap {
         var _local1:ByteArray = new _01N_();
         var _local2:String = _local1.readUTFBytes(_local1.length);
         _sl = _p0._0M_t(_local2);
         _jJ_ = BORDER;
         _U_b = (BORDER + int(((_sl.y_ - (2 * BORDER)) * Math.random())));
         _0F_q = new _0D_v();
-        var _local3:_X_l = new _X_l(null);
+        var _local3:GameMap = new GameMap(null);
         var music:Vector.<String> = new Vector.<String>();
         music.push("Menu");
         _local3.setProps((_sl.x_ + (2 * BORDER)), _sl.y_, "MapOverlay Map", MapOverlay._0H_W_, false, false, music, 0, -1);

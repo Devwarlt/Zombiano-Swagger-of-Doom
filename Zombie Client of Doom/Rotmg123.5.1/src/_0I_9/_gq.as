@@ -18,14 +18,14 @@
 //_0I_9._gq
 
 package _0I_9 {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _U_5._dd;
 import _U_5._6J_;
 
 import flash.display.Sprite;
 
-public class _gq extends _cM_ {
+public class _gq extends Mediator {
 
     [Inject]
     public var view:_C_6;

@@ -22,7 +22,7 @@ import _Y_3._5d;
 
 import _0_p.IContext;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.utils.Dictionary;
 
@@ -34,7 +34,7 @@ public class _xy implements _5d {
         this._rA_ = _arg1;
     }
 
-    public function apply(_arg1:Class, _arg2:_08b, _arg3:Dictionary):Object {
+    public function apply(_arg1:Class, _arg2:Injector, _arg3:Dictionary):Object {
         return (this._rA_._0H_4(_arg1));
     }
 

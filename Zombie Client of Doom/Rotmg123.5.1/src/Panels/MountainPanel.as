@@ -24,7 +24,7 @@ import ToolTips.ToolTip;
 
 import com.company.assembleegameclient.objects.Mountain;
 import com.company.ui.SimpleText;
-import com.company.assembleegameclient.ui._4D_;
+import com.company.assembleegameclient.ui.ChatBox;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.game.GameSprite;
 import com.company.util.Keys;
@@ -104,7 +104,7 @@ public class MountainPanel extends Panel {
     }
 
     private function onKeyDown(_arg1:KeyboardEvent):void {
-        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(_4D_._0G_B_)))) {
+        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(ChatBox._0G_B_)))) {
             this.enterPortal();
         }
     }

@@ -20,7 +20,7 @@
 package _mY_ {
 public interface _07T_ {
 
-    function to(_arg1:Class):_0D_c;
+    function toMediator(_arg1:Class):_0D_c;
 
 }
 }//package _mY_

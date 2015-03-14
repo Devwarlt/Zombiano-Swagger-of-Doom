@@ -29,7 +29,7 @@ import flash.display.BitmapData;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.map._pf;
 import com.company.assembleegameclient.map.Square;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.util.AssetLibrary;
 import com.company.util.BitmapUtil;
 import com.company.assembleegameclient.map._C_O_;
@@ -190,7 +190,7 @@ public class _V_m {
         var _local6:int;
         var _local7:Square;
         var _local2:ByteArray = new ByteArray();
-        var _local3:_X_l = _arg1.map_;
+        var _local3:GameMap = _arg1.map_;
         var _local4:uint = _arg1.tileType_;
         var _local5:int = (_arg1.y_ - 1);
         while (_local5 <= (_arg1.y_ + 1)) {
@@ -242,7 +242,7 @@ public class _V_m {
         var _local17:Square;
         var _local2:ByteArray = new ByteArray();
         _local2.length = 4;
-        var _local3:_X_l = _arg1.map_;
+        var _local3:GameMap = _arg1.map_;
         var _local4:int = _arg1.x_;
         var _local5:int = _arg1.y_;
         var _local6:Square = _local3.lookupSquare(_local4, (_local5 - 1));
@@ -323,7 +323,7 @@ public class _V_m {
         var _local8:Square;
         var _local9:Boolean;
         var _local2:ByteArray = new ByteArray();
-        var _local3:_X_l = _arg1.map_;
+        var _local3:GameMap = _arg1.map_;
         var _local4:Boolean;
         var _local5:Boolean = _arg1.props_._M_e;
         var _local6:int = (_arg1.y_ - 1);

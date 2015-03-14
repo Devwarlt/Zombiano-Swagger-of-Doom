@@ -16,7 +16,7 @@
  * Created by Fabian on 16.12.2014.
  */
 package AccountManagement {
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.appengine.SavedCharsList;
 
@@ -28,7 +28,7 @@ public class AccountManagementScreen extends Sprite {
 
     private static const NULL_XML:XML = new XML("");
 
-    public var eventDispatcher:_aJ_;
+    public var eventDispatcher:Signal;
 
     public var accountHeader:AccountManagementHeader;
     public var accountBody:AccountManagementBody;
@@ -45,7 +45,7 @@ public class AccountManagementScreen extends Sprite {
 
     public function AccountManagementScreen(login:Boolean = false) {
         this.login = login;
-        this.eventDispatcher = new _aJ_(String);
+        this.eventDispatcher = new Signal(String);
     }
 
     public function initialize(charList:SavedCharsList):void {

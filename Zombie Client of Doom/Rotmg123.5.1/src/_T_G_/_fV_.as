@@ -18,18 +18,18 @@
 //_T_G_._fV_
 
 package _T_G_ {
-import _g2._00d;
-import _g2._06n;
+import _g2.ICommandMapper;
+import _g2.ICommandUnmapper;
 
 import flash.utils.Dictionary;
 
 import _E_x._00J_;
 
-import _g2._028;
+import _g2.ICommandConfigurator;
 
 import _E_x._K_T_;
 
-public class _fV_ implements _00d, _06n {
+public class _fV_ implements ICommandMapper, ICommandUnmapper {
 
     private const _0K_E_:Dictionary = new Dictionary();
 
@@ -39,17 +39,17 @@ public class _fV_ implements _00d, _06n {
         this._C_U_ = _arg1;
     }
 
-    public function _1N_(_arg1:Class):_028 {
+    public function toCommand(_arg1:Class):ICommandConfigurator {
         return (((this._D_t(this._0K_E_[_arg1])) || (this._21(_arg1))));
     }
 
-    public function _f0(_arg1:Class):void {
+    public function fromCommand(_arg1:Class):void {
         var _local2:_K_T_ = this._0K_E_[_arg1];
         ((_local2) && (this._C_U_._0A_W_(_local2)));
         delete this._0K_E_[_arg1];
     }
 
-    public function _cp():void {
+    public function fromAll():void {
         var _local1:_K_T_;
         for each (_local1 in this._0K_E_) {
             this._C_U_._0A_W_(_local1);

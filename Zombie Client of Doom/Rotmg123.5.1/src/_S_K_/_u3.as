@@ -22,7 +22,7 @@ import flash.events.IEventDispatcher;
 import flash.utils.getQualifiedClassName;
 import flash.events.Event;
 
-import _sp._09K_;
+import _sp.SlotList;
 
 public class _u3 extends _u1 {
 
@@ -114,7 +114,7 @@ public class _u3 extends _u1 {
     override protected function onNativeEvent(_arg1:Event):void {
         var _local4:Array;
         var _local2:Object = this._0o(_arg1);
-        var _local3:_09K_ = _01p;
+        var _local3:SlotList = _01p;
         if ((_local2 is Array)) {
             if ((((valueClasses.length == 1)) && ((valueClasses[0] == Array)))) {
                 while (_local3.nonEmpty) {

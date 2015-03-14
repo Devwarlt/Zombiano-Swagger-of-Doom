@@ -18,13 +18,13 @@
 //_jV_._oR_
 
 package _jV_ {
-import _0H_p._0F_H_;
+import _0H_p.IEventMap;
 
 import flash.events.IEventDispatcher;
 import flash.events.Event;
 
 
-public class _oR_ implements _0F_H_ {
+public class _oR_ implements IEventMap {
 
     private const _N_O_:Vector.<_07L_> = new Vector.<_07L_>();
     private const _jG_:Vector.<_07L_> = new Vector.<_07L_>();
@@ -80,7 +80,7 @@ public class _oR_ implements _0F_H_ {
         }
     }
 
-    public function _0I_p():void {
+    public function unmapListeners():void {
         var _local2:_07L_;
         var _local3:IEventDispatcher;
         var _local1:Vector.<_07L_> = ((this._0G_u) ? this._jG_ : this._N_O_);

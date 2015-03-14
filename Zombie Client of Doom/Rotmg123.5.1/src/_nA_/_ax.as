@@ -20,7 +20,7 @@
 package _nA_ {
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.ui.SimpleText;
 
@@ -42,7 +42,7 @@ public class _ax extends Sprite {
 
     private static const _Y_J_:int = 18;
 
-    public var _bF_:_aJ_;
+    public var _bF_:Signal;
     private var _056:SimpleText;
     private var _F_c:Bitmap;
     private var _08t:int = -1;

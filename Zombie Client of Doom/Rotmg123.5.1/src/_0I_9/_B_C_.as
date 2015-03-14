@@ -18,7 +18,7 @@
 //_0I_9._B_C_
 
 package _0I_9 {
-import _C__._cM_;
+import _C__.Mediator;
 
 import flash.display.DisplayObjectContainer;
 import flash.display.LoaderInfo;
@@ -28,7 +28,7 @@ import com.company.assembleegameclient.appengine.ClientError;
 
 import flash.events.ErrorEvent;
 
-public class _B_C_ extends _cM_ {
+public class _B_C_ extends Mediator {
 
     private const _Y_1:String = "uncaughtErrorEvents";
     private const _04:String = "uncaughtError";

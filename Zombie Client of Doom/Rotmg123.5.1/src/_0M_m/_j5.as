@@ -20,7 +20,7 @@
 package _0M_m {
 import com.company.assembleegameclient.util.offer.Offers;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 public interface _j5 {
 
@@ -28,7 +28,7 @@ public interface _j5 {
 
     function _U_t():Offers;
 
-    function get _Z_8():_aJ_;
+    function get _Z_8():Signal;
 
 }
 }//package _0M_m

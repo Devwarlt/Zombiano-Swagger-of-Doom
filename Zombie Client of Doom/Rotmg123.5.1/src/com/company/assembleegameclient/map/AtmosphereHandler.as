@@ -43,11 +43,11 @@ public class AtmosphereHandler extends Sprite {
     public var OldAtmosphereString:String;
 
     private var gs_:GameSprite;
-    private var map_:_X_l;
+    private var map_:GameMap;
 
     private var atmOvl:Sprite;
 
-    public function AtmosphereHandler(_arg1:GameSprite, map:_X_l) {
+    public function AtmosphereHandler(_arg1:GameSprite, map:GameMap) {
         this.gs_ = _arg1;
         this.map_ = map;
         this.atmOvl = new Sprite();

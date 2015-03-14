@@ -25,7 +25,7 @@ import Panels._sc;
 
 import Sounds.UrlSoundEffects;
 
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.objects.Container;
 import com.company.assembleegameclient.objects.CraftingRecipeBook;
 import com.company.assembleegameclient.objects.CraftingTerminal;
@@ -96,8 +96,8 @@ public class _061 extends Sprite {
                 this._08D_((_local2 as InventorySlot));
                 return;
             }
-            if ((((_local2 is _X_l)) || ((_local2 is _4D_)))) {
-                this._Y_4();
+            if ((((_local2 is GameMap)) || ((_local2 is ChatBox)))) {
+                this.dropItemInWorld();
                 return;
             }
             if (_local2 is SellItemContainer) {
@@ -161,10 +161,10 @@ public class _061 extends Sprite {
             }
             else {
                 if (this.inventory.slotId != 9 && _arg1.slotId != 9) {
-                    var item1 = CraftingFrame.items[_arg1.slotId];
-                    var item2 = CraftingFrame.items[this.inventory.slotId];
-                    var p1 = CraftingFrame.playerItems[_arg1.slotId];
-                    var p2 = CraftingFrame.playerItems[this.inventory.slotId];
+                    var item1:int = CraftingFrame.items[_arg1.slotId];
+                    var item2:int = CraftingFrame.items[this.inventory.slotId];
+                    var p1:int = CraftingFrame.playerItems[_arg1.slotId];
+                    var p2:int = CraftingFrame.playerItems[this.inventory.slotId];
 
                     if (item1 == 0) item1 = -1;
                     if (item2 == 0) item2 = -1;
@@ -238,7 +238,7 @@ public class _061 extends Sprite {
         }
     }
 
-    private function _Y_4():void {
+    private function dropItemInWorld():void {
         if (!CraftingPanel.terminalOpen) {
             var _local6:_sc;
             var _local7:InventorySlot;

@@ -18,14 +18,14 @@
 //_4X_._03L_
 
 package _4X_ {
-import _sp._aJ_;
+import _sp.Signal;
 
 public class _03L_ extends _zU_ {
 
-    private var _xA_:_aJ_;
+    private var _xA_:Signal;
     private var _5g:Array;
 
-    public function _03L_(_arg1:_aJ_, ..._args) {
+    public function _03L_(_arg1:Signal, ..._args) {
         this._xA_ = _arg1;
         this._5g = _args;
     }

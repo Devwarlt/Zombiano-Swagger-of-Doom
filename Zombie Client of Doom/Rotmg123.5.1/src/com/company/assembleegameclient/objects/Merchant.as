@@ -31,7 +31,7 @@ import ToolTips.ToolTip;
 import _ke._U_c;
 
 import com.company.assembleegameclient.map._0D_v;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.ui.SimpleText;
 import com.company.util.IntPoint;
 
@@ -79,7 +79,7 @@ public class Merchant extends SellableObject implements IPanelProvider {
         this._z5 = 0;
     }
 
-    override public function addTo(_arg1:_X_l, _arg2:Number, _arg3:Number):Boolean {
+    override public function addTo(_arg1:GameMap, _arg2:Number, _arg3:Number):Boolean {
         if (!super.addTo(_arg1, _arg2, _arg3)) {
             return (false);
         }

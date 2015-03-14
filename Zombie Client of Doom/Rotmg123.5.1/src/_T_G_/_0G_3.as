@@ -20,13 +20,13 @@
 package _T_G_ {
 import _E_x._K_T_;
 
-import _g2._028;
+import _g2.ICommandConfigurator;
 
 import _03T_._04O_;
 
 import _E_x._0D_Y_;
 
-public class _0G_3 implements _K_T_, _028 {
+public class _0G_3 implements _K_T_, ICommandConfigurator {
 
     private var _zw:Class;
     private var _0B_R_:Array;
@@ -54,13 +54,13 @@ public class _0G_3 implements _K_T_, _028 {
         return (this._K_1);
     }
 
-    public function _k2(..._args):_028 {
+    public function withGuards(..._args):ICommandConfigurator {
         ((this._3F_) && (this._3F_._09y(_args)));
         this._0B_R_ = this._0B_R_.concat.apply(null, _args);
         return (this);
     }
 
-    public function _U_w(..._args):_028 {
+    public function withHooks(..._args):ICommandConfigurator {
         ((this._3F_) && (this._3F_._H_l(_args)));
         this._K_1 = this._K_1.concat.apply(null, _args);
         return (this);
@@ -70,7 +70,7 @@ public class _0G_3 implements _K_T_, _028 {
         return (this._once);
     }
 
-    public function once(_arg1:Boolean = true):_028 {
+    public function once(_arg1:Boolean = true):ICommandConfigurator {
         ((((this._3F_) && (!(this._once)))) && (this._9f((("You attempted to change an existing mapping for " + this._zw) + " by setting once(). Please unmap first."))));
         this._once = _arg1;
         return (this);

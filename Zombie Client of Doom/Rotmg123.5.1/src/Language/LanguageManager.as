@@ -33,9 +33,11 @@ public class LanguageManager {
 
     private var languageXml:XML;
     private var onComplete:Function;
+    private var onError:Function;
 
-    function LanguageManager(onComplete:Function) {
+    function LanguageManager(onComplete:Function, onError:Function) {
         this.onComplete = onComplete;
+        this.onError = onError;
         initialize();
     }
 
@@ -86,7 +88,7 @@ public class LanguageManager {
     private function initialize():void {
         var req:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/app");
         req.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, register);
-        req.addEventListener(WebRequestErrorEvent.TEXT_ERROR, WebMain.onLanguageError);
+        req.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);
         req.sendRequest("/getLanguageStrings", {"languageType": Parameters.data_.language});
     }
 
@@ -95,9 +97,9 @@ public class LanguageManager {
         return currentMgr;
     }
 
-    public static function load(onComplete:Function):void {
+    public static function load(onComplete:Function, onError:Function):void {
         if (currentMgr != null) throw new IllegalOperationError("Language already loaded\nDouble function call?");
-        currentMgr = new LanguageManager(onComplete);
+        currentMgr = new LanguageManager(onComplete, onError);
     }
 }
 }

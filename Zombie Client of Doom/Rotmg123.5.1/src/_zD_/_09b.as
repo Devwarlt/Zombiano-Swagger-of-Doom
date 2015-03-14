@@ -18,7 +18,7 @@
 //_zD_._09b
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1._3V_;
 
@@ -35,7 +35,7 @@ import _02b._Y_p;
 
 import _4X_._zU_;
 
-public class _09b extends _cM_ {
+public class _09b extends Mediator {
 
     [Inject]
     public var view:_U_W_;

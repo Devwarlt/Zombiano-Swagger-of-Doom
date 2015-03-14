@@ -18,9 +18,9 @@
 //_9u._074
 
 package _9u {
-import _0_p._v;
+import _0_p.IConfig;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _W_D_._B_d;
 
@@ -30,14 +30,14 @@ import _W_D_._0I_z;
 
 import _aD_._G_a;
 
-public class _074 implements _v {
+public class _074 implements IConfig {
 
     [Inject]
-    public var _O_R_:_08b;
+    public var _O_R_:Injector;
     [Inject]
     public var _0K_y:_B_d;
 
-    public function _K_():void {
+    public function configure():void {
         this._O_R_.map(_09h)._02g(this._085());
     }
 

@@ -24,12 +24,12 @@ import com.company.assembleegameclient.objects.GameObject;
 
 public class Quest {
 
-    public var map_:_X_l;
+    public var map_:GameMap;
     public var objectId_:int = -1;
     private var _F_2:int = 0;
     private var _vx:int = 0;
 
-    public function Quest(_arg1:_X_l) {
+    public function Quest(_arg1:GameMap) {
         this.map_ = _arg1;
     }
 

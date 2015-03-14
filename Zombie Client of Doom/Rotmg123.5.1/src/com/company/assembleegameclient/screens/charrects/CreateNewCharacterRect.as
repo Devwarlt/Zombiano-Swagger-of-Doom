@@ -29,7 +29,7 @@ import flash.display.DisplayObject;
 import flash.display.Sprite;
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.objects.ObjectLibrary;
 import com.company.assembleegameclient.appengine.SavedCharacter;
@@ -53,7 +53,7 @@ public class CreateNewCharacterRect extends CharacterRect {
     private var classNameText_:SimpleText;
     private var taglineIcon_:DisplayObject;
     private var taglineText_:SimpleText;
-    public var newCharacter:_aJ_;
+    public var newCharacter:Signal;
 
     public function CreateNewCharacterRect(_arg1:SavedCharsList) {
         super(0x73543F, 0x6B472E);

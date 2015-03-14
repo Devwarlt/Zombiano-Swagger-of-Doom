@@ -18,13 +18,13 @@
 //_0I_J_._0J_v
 
 package _0I_J_ {
-import _sp._aJ_;
+import _sp.Signal;
 
 import flash.utils.Dictionary;
 import flash.events.IEventDispatcher;
 import flash.events.Event;
 
-public class _0J_v extends _aJ_ {
+public class _0J_v extends Signal {
 
     private var _S_b:String;
     private var _1S_:Dictionary;

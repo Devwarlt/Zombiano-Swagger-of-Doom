@@ -18,11 +18,11 @@
 //_U_5._01W_
 
 package _U_5 {
-import _sp._aJ_;
+import _sp.Signal;
 
 import flash.display.Sprite;
 
-public class SpriteTarget extends _aJ_ {
+public class SpriteTarget extends Signal {
 
     public function SpriteTarget() {
         super(Sprite);

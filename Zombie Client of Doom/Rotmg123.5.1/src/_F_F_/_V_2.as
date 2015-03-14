@@ -22,6 +22,10 @@ import Abstract.AbstractManager;
 
 import Language.LanguageManager;
 
+import WebRequestEvents.WebRequestErrorEvent;
+
+import _0L_C_.DialogBox;
+
 import _F_1.GameLoadingScreen;
 
 import _W_D_.Domain;
@@ -34,6 +38,8 @@ import com.company.assembleegameclient.util.loadEmbeds;
 
 import _0I_9._05b;
 
+import flash.display.DisplayObjectContainer;
+
 import flash.display.Sprite;
 import flash.net.URLRequestDefaults;
 
@@ -43,13 +49,15 @@ public class _V_2 {
     public var domain:Domain;
     [Inject]
     public var _T__:_dd;
+    [Inject]
+    public var container:DisplayObjectContainer;
 
     public function execute():void {
 
-        //URLRequestDefaults.userAgent = WebRequest.USER_AGENT;
+        URLRequestDefaults.userAgent = WebRequest.USER_AGENT;
         loadEmbeds();
         AbstractManager.register();
-        LanguageManager.load(this.dispatch);
+        LanguageManager.load(this.dispatch, this.onError);
     }
 
     private function _0E_M_():Sprite {
@@ -58,6 +66,10 @@ public class _V_2 {
 
     private function dispatch():void {
         this._T__.dispatch(this._0E_M_());
+    }
+
+    private function onError(event:WebRequestErrorEvent):void {
+        this.container.addChild(new DialogBox("An error has occurred:\nUnable to load language [" + LanguageManager.manager.languageType + "].", "D'oh, this isn't good", "Ok", null));
     }
 }
 }//package _F_F_

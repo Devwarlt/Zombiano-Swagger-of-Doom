@@ -18,14 +18,14 @@
 //_6r._iy
 
 package _6r {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _U_5._sC_;
 import _U_5._sT_;
 
 import ToolTips.ToolTip;
 
-public class _iy extends _cM_ {
+public class _iy extends Mediator {
 
     [Inject]
     public var view:_0F_X_;

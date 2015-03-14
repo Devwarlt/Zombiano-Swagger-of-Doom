@@ -37,7 +37,7 @@ import _9u._074;
 
 import _C_5._tt;
 
-import _C__._07U_;
+import _C__.MVCSBundle;
 
 import _G_A_._8P_;
 import _G_A_.InjectConstruct;
@@ -46,7 +46,7 @@ import _I_j._V_4;
 
 import _R_Q_._0K_S_;
 
-import _T_o._083;
+import _T_o.SignalCommandMapExtension;
 
 import InjectMapping.InjectorMapper;
 
@@ -69,13 +69,7 @@ public class WebMain extends Sprite {
     private var context:IContext;
     private var yt:YouTubePlayer;
 
-    private static var currentEasterEgg:DisplayObject;
-    private static var eggs:Vector.<EasterEgg>;
-
-    private static var thisWebMain:WebMain;
-
     public function WebMain() {
-        thisWebMain = this;
         if (stage) {
             playYt();
         } else {
@@ -130,7 +124,7 @@ public class WebMain extends Sprite {
 
         if (yt != null) removeChild(yt);
         stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-        var _local1:_D_c = this.context._O_R_.getInstance(_D_c);
+        var _local1:_D_c = this.context.injector.getInstance(_D_c);
         _local1.dispatch();
         this._06p();
     }
@@ -141,7 +135,7 @@ public class WebMain extends Sprite {
 
     private function _i1():void {
         this.context = new _8P_();
-        this.context.extend(_07U_).extend(_083).configure(InjectConstruct).configure(_074).configure(_tt).configure(InjectorMapper).configure(_0K_S_).configure(_V_4).configure(_X_G_).configure(this);
+        this.context.extend(MVCSBundle).extend(SignalCommandMapExtension).configure(InjectConstruct).configure(_074).configure(_tt).configure(InjectorMapper).configure(_0K_S_).configure(_V_4).configure(_X_G_).configure(this);
     }
 
     private function _06p():void {
@@ -149,10 +143,6 @@ public class WebMain extends Sprite {
             Parameters.data_.fullscreenMode = false;
             Parameters.save();
         }
-    }
-
-    public static function onLanguageError(event:WebRequestErrorEvent):void {
-        thisWebMain.addChild(new DialogBox("An error has occurred:\nUnable to load language [" + LanguageManager.manager.languageType + "].", "D'oh, this isn't good", "Ok", null));
     }
 }
 }

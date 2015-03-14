@@ -18,9 +18,9 @@
 //_U_5._6J_
 
 package _U_5 {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _6J_ extends _aJ_ {
+public class _6J_ extends Signal {
 
 }
 }//package _U_5

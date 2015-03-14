@@ -18,7 +18,7 @@
 //_M_T_._O_N_
 
 package _M_T_ {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
@@ -27,7 +27,7 @@ import flash.events.EventDispatcher;
 
 import _0_p.IContext;
 
-public class _O_N_ implements _D_v {
+public class _O_N_ implements IExtension {
 
     private const _ul:String = _078.create(_O_N_);
 
@@ -38,7 +38,7 @@ public class _O_N_ implements _D_v {
     }
 
     public function extend(_arg1:IContext):void {
-        _arg1._O_R_.map(IEventDispatcher)._q3(this._eventDispatcher);
+        _arg1.injector.map(IEventDispatcher)._q3(this._eventDispatcher);
     }
 
     public function toString():String {

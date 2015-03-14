@@ -17,7 +17,7 @@ import ServerPackets.NotificationBoxPacket;
 
 import _05R_.GTween;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import Sounds.UrlSoundEffects;
 
@@ -45,7 +45,7 @@ public class NotificationBox extends Sprite {
 
     private const closeButton:xButton = ObjectLibrary.createButton(NotificationBox.WIDTH);
 
-    public var event:_aJ_;
+    public var event:Signal;
     public var open:Boolean;
 
     public var gs_:GameSprite;

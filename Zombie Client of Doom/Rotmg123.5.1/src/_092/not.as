@@ -18,13 +18,13 @@
 //_092.not
 
 package _092 {
-import _qj._pn;
+import _qj.IMatcher;
 
 import _g3.equalTo;
 
-public function not(_arg1:Object):_pn {
-    if ((_arg1 is _pn)) {
-        return (new _L_((_arg1 as _pn)));
+public function not(_arg1:Object):IMatcher {
+    if ((_arg1 is IMatcher)) {
+        return (new _L_((_arg1 as IMatcher)));
     }
     return (not(equalTo(_arg1)));
 }

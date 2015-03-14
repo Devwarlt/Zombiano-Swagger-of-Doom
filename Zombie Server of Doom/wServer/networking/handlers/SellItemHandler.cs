@@ -11,6 +11,11 @@ namespace wServer.networking.handlers
     {
         protected override void HandlePacket(Client client, SellItemPacket packet)
         {
+            client.Manager.Logic.AddPendingAction(t => Handle(client, packet));
+        }
+
+        private void Handle(Client client, SellItemPacket packet)
+        {
             if (packet.SlotId == -1)
             {
                 client.SendPacket(new BuyResultPacket
@@ -21,7 +26,7 @@ namespace wServer.networking.handlers
                 return;
             }
 
-            if(packet.SlotId < client.Player.Inventory.Length)
+            if (packet.SlotId < client.Player.Inventory.Length)
             {
                 var item = client.Player.Inventory[packet.SlotId];
 
@@ -40,7 +45,7 @@ namespace wServer.networking.handlers
                     client.SendPacket(new BuyResultPacket
                     {
                         Result = BuyResultPacket.SELL_ITEM_RESULT,
-                        Message = "This item is not sell able"
+                        Message = "This item is not sellable"
                     });
                     return;
                 }

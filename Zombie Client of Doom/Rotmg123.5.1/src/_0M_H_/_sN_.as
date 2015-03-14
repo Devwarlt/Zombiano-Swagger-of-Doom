@@ -18,11 +18,11 @@
 //_0M_H_._sN_
 
 package _0M_H_ {
-import _sp._aJ_;
+import _sp.Signal;
 
 import _8Q_._1l;
 
-public class _sN_ extends _aJ_ {
+public class _sN_ extends Signal {
 
     public static var instance:_sN_;
 

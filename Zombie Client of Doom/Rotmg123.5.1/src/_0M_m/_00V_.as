@@ -18,7 +18,7 @@
 //_0M_m._00V_
 
 package _0M_m {
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.util.offer.Offer;
 
@@ -32,7 +32,7 @@ public interface _00V_ {
 
     function _03K_():void;
 
-    function get _J_1():_aJ_;
+    function get _J_1():Signal;
 
     function _tT_():int;
 
@@ -40,7 +40,7 @@ public interface _00V_ {
 
     function _xh():void;
 
-    function get _Q_o():_aJ_;
+    function get _Q_o():Signal;
 
 }
 }//package _0M_m

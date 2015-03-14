@@ -18,16 +18,16 @@
 //_sp.Slot
 
 package _sp {
-public class Slot implements _xN_ {
+public class Slot implements ISlot {
 
-    protected var _signal:_F_6;
+    protected var _signal:IOnceSignal;
     protected var _Q_n:Boolean = true;
     protected var _0M_e:Function;
     protected var _once:Boolean = false;
     protected var _07M_:int = 0;
     protected var _51:Array;
 
-    public function Slot(_arg1:Function, _arg2:_F_6, _arg3:Boolean = false, _arg4:int = 0) {
+    public function Slot(_arg1:Function, _arg2:IOnceSignal, _arg3:Boolean = false, _arg4:int = 0) {
         this._0M_e = _arg1;
         this._once = _arg3;
         this._signal = _arg2;

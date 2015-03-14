@@ -18,7 +18,7 @@
 //_zD_._Q_q
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _0L_C_._0D_W_;
 
@@ -26,7 +26,7 @@ import com.company.assembleegameclient.appengine.SavedCharacter;
 
 import _U_5._057;
 
-public class _Q_q extends _cM_ {
+public class _Q_q extends Mediator {
 
     [Inject]
     public var view:_0D_W_;

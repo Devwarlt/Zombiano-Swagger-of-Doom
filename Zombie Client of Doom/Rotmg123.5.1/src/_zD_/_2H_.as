@@ -18,7 +18,7 @@
 //_zD_._2H_
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1.selectChars.CurrentCharacterScreen;
 import _F_1._0H_2;
@@ -33,7 +33,7 @@ import com.company.assembleegameclient.parameters.Parameters;
 
 import _04w._07V_;
 
-public class _2H_ extends _cM_ {
+public class _2H_ extends Mediator {
 
     [Inject]
     public var view:_0H_2;

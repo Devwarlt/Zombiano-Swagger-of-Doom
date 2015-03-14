@@ -38,7 +38,7 @@ import flash.display.DisplayObject;
 import flash.display.Shape;
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.ui.SimpleText;
 import com.company.rotmg.graphics.ScreenGraphic;
@@ -62,7 +62,7 @@ public class CreditsScreen extends Sprite {
     private static const _088:String = "http://www.wildshadow.com/";
     private static const _0L_O_:String = "http://www.kabam.com/";
 
-    public var close:_aJ_;
+    public var close:Signal;
 
     private var creditsXML:XML;
     private var _045:_H_o;
@@ -73,7 +73,7 @@ public class CreditsScreen extends Sprite {
     private var ytvid:YouTubePlayer;
 
     public function CreditsScreen() {
-        this.close = new _aJ_();
+        this.close = new Signal();
         var webReq:WebRequest = new WebRequest(Parameters.getAccountServerIP(), "/credits", true);
         webReq.addEventListener(WebRequestSuccessEvent.GENERIC_DATA, this.setCredits);
         webReq.addEventListener(WebRequestErrorEvent.TEXT_ERROR, this.onError);

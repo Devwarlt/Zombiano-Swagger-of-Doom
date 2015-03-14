@@ -27,9 +27,9 @@ import _qN_.Account;
 import _qN_._9j;
 import _qN_._F_m;
 
-import _sp._aJ_;
+import _sp.Signal;
 
-import _zD_._xF_;
+import _zD_.CurrentCharacterScreenMediator;
 
 import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.ui._0G_h;
@@ -41,8 +41,8 @@ import flash.events.MouseEvent;
 
 public class _05p extends Sprite {
 
-    public var tooltip:_aJ_;
-    public var _03I_:_aJ_;
+    public var tooltip:Signal;
+    public var _03I_:Signal;
     private var _dS_:Sprite;
     private var _tW_:Sprite;
     private var _wi:Sprite;
@@ -57,8 +57,8 @@ public class _05p extends Sprite {
     private var charList:SavedCharsList;
 
     public function _05p(_arg1:Class) {
-        this.tooltip = new _aJ_();
-        this._03I_ = new _aJ_(Class);
+        this.tooltip = new Signal();
+        this._03I_ = new Signal(Class);
         this._H_W_ = _arg1;
         this._0H_D_();
         this._fQ_();

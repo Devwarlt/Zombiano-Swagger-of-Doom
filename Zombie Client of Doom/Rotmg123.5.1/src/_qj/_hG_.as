@@ -32,7 +32,7 @@ public class _hG_ implements Description {
         return (this);
     }
 
-    public function _zW_(_arg1:_pn, _arg2:*):Description {
+    public function _zW_(_arg1:IMatcher, _arg2:*):Description {
         return (this);
     }
 

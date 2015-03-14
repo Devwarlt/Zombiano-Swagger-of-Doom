@@ -20,7 +20,7 @@
 package _0J_k {
 import flash.utils.Dictionary;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 public class _N_D_ extends _Z_T_ {
 
@@ -28,7 +28,7 @@ public class _N_D_ extends _Z_T_ {
         super("ctor", _arg1, _arg2, false, _arg3);
     }
 
-    public function createInstance(_arg1:Class, _arg2:_08b):Object {
+    public function createInstance(_arg1:Class, _arg2:Injector):Object {
         var _local4:Object;
         var _local3:Array = _fx(_arg1, _arg1, _arg2);
         switch (_local3.length) {

@@ -18,13 +18,13 @@
 //_1O_._06h
 
 package _1O_ {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _lo._t5;
 
 import _03T_._078;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _s3._im;
 
@@ -32,17 +32,17 @@ import _lo._5u;
 
 import _0_p.IContext;
 
-public class _06h implements _D_v {
+public class _06h implements IExtension {
 
     private static var _mT_:_t5;
 
     private const _ul:String = _078.create(_06h);
 
-    private var _vz:_08b;
+    private var _vz:Injector;
     private var _yv:_im;
 
     public function extend(_arg1:IContext):void {
-        this._vz = _arg1._O_R_;
+        this._vz = _arg1.injector;
         _mT_ = ((_mT_) || (new _t5()));
         this._vz.map(_t5)._q3(_mT_);
         this._vz.map(_im)._00S_(_5u);
@@ -60,8 +60,8 @@ public class _06h implements _D_v {
 
     private function _kf():void {
         this._yv._F_P_();
-        this._vz._1Y_(_im);
-        this._vz._1Y_(_t5);
+        this._vz.unmap(_im);
+        this._vz.unmap(_t5);
     }
 
 }

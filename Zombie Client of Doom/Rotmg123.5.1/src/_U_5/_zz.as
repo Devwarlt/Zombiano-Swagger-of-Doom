@@ -18,9 +18,9 @@
 //_U_5._zz
 
 package _U_5 {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _zz extends _aJ_ {
+public class _zz extends Signal {
 
     public static var instance:_zz;
 

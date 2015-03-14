@@ -18,13 +18,13 @@
 //_zD_._0D_h
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1._zf;
 
 import _U_5._bo;
 
-public class _0D_h extends _cM_ {
+public class _0D_h extends Mediator {
 
     [Inject]
     public var view:_zf;

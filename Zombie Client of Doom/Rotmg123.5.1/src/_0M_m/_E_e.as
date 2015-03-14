@@ -18,7 +18,7 @@
 //_0M_m._E_e
 
 package _0M_m {
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.appengine.WebRequest;
@@ -41,8 +41,8 @@ public class _E_e implements _00V_ {
     public var _0J_E_:_j5;
     private var _08t:int;
     private var _0H_C_:Boolean;
-    private var _0B_8:_aJ_;
-    private var _0e:_aJ_;
+    private var _0B_8:Signal;
+    private var _0e:Signal;
 
     public function isAvailable():Boolean {
         return ((this._tT_() > 0));
@@ -71,8 +71,8 @@ public class _E_e implements _00V_ {
         this._J_1.dispatch();
     }
 
-    public function get _J_1():_aJ_ {
-        return ((this._0B_8 = ((this._0B_8) || (new _aJ_()))));
+    public function get _J_1():Signal {
+        return ((this._0B_8 = ((this._0B_8) || (new Signal()))));
     }
 
     public function _tT_():int {
@@ -99,8 +99,8 @@ public class _E_e implements _00V_ {
         ((this._0e) && (this._0e.dispatch()));
     }
 
-    public function get _Q_o():_aJ_ {
-        return ((this._0e = ((this._0e) || (new _aJ_()))));
+    public function get _Q_o():Signal {
+        return ((this._0e = ((this._0e) || (new Signal()))));
     }
 
 }

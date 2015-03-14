@@ -52,6 +52,8 @@ public class Effect extends GameObject {
                 var eff:ParticleEffect = ParticleEffect.create(_arg1, _arg2);
                 eff.cloud_ = true;
                 return eff;
+            case "Orbiting":
+                return OrbitEffect.createEffect(_arg1, _arg2);
             case "RainbowParticles":
                 return new RainbowEffect(_arg2);
         }

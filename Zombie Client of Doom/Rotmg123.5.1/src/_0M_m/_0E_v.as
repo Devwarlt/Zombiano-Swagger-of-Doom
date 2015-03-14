@@ -20,7 +20,7 @@
 package _0M_m {
 import com.company.assembleegameclient.util.offer.Offers;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.util.offer.Offer;
 import com.company.assembleegameclient.appengine._02k;
@@ -36,7 +36,7 @@ public class _0E_v implements _j5 {
     private static const _Q_3:int = 2600;
 
     private var _0J_E_:Offers;
-    private var _U_k:_aJ_;
+    private var _U_k:Signal;
     private var _Z_r:Offer;
 
     public function _002():void {
@@ -47,8 +47,8 @@ public class _0E_v implements _j5 {
         return (this._0J_E_);
     }
 
-    public function get _Z_8():_aJ_ {
-        return ((this._U_k = ((this._U_k) || (new _aJ_()))));
+    public function get _Z_8():Signal {
+        return ((this._U_k = ((this._U_k) || (new Signal()))));
     }
 
     private function _y6(_arg1:WebRequestSuccessEvent):void {

@@ -22,7 +22,7 @@ import _03T_._078;
 
 import _0_p._Q_5;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.display.DisplayObjectContainer;
 
@@ -33,13 +33,13 @@ public class _we {
     private const _ul:String = _078.create(_we);
 
     private var _eo:_Q_5;
-    private var _vz:_08b;
+    private var _vz:Injector;
     private var _sz:DisplayObjectContainer;
     private var _xO_:IContext;
 
     public function _we(_arg1:IContext, _arg2:DisplayObjectContainer) {
         this._eo = _arg1._0H_4(this);
-        this._vz = _arg1._O_R_;
+        this._vz = _arg1.injector;
         this._sz = _arg2;
         _arg1._iL_._kf(this.destroy);
         this.init();
@@ -59,7 +59,7 @@ public class _we {
         this._sz.removeEventListener(ModularContextEvent._qb, this._R_);
         if (this._xO_) {
             this._eo.debug("Unlinking parent injector for child context {0}", [this._xO_]);
-            this._xO_._O_R_._k = null;
+            this._xO_.injector._k = null;
         }
     }
 
@@ -67,7 +67,7 @@ public class _we {
         _arg1.stopImmediatePropagation();
         this._xO_ = _arg1.context;
         this._eo.debug("Context existence event caught. Configuring child context {0}", [this._xO_]);
-        this._xO_._O_R_._k = this._vz;
+        this._xO_.injector._k = this._vz;
     }
 
 }

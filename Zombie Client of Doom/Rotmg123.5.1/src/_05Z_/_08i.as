@@ -18,11 +18,11 @@
 //_05Z_._08i
 
 package _05Z_ {
-import _sp._aJ_;
+import _sp.Signal;
 
 import _04w._07V_;
 
-public class _08i extends _aJ_ {
+public class _08i extends Signal {
 
     public function _08i() {
         super(_07V_);

@@ -18,12 +18,12 @@
 //_S_K_._j3
 
 package _S_K_ {
-import _sp._L_A_;
+import _sp.IPrioritySignal;
 
 import flash.events.IEventDispatcher;
 import flash.events.Event;
 
-public interface _j3 extends _L_A_ {
+public interface _j3 extends IPrioritySignal {
 
     function get _S_b():String;
 

@@ -21,7 +21,7 @@ package com.company.assembleegameclient.ui {
 import flash.display.Sprite;
 import flash.utils.Dictionary;
 
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 
 import flash.geom.Rectangle;
 import flash.geom.Point;
@@ -63,7 +63,7 @@ public class MiniMap extends Sprite {
 
     private static var _H_L_:Dictionary = new Dictionary();
 
-    public var map_:_X_l;
+    public var map_:GameMap;
     public var w_:int;
     public var h_:int;
     public var _Q_B_:Number = 0;
@@ -84,7 +84,7 @@ public class MiniMap extends Sprite {
     private var _nC_:Vector.<Player>;
     private var _0B_:Point;
 
-    public function MiniMap(_arg1:_X_l, _arg2:int, _arg3:int) {
+    public function MiniMap(_arg1:GameMap, _arg2:int, _arg3:int) {
         var _local6:Bitmap;
         this._M_R_ = new Vector.<Number>();
         this._6q = new Matrix();

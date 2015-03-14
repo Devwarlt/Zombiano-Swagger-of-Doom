@@ -18,7 +18,7 @@
 //_zD_._N_N_
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1._01_;
 import _F_1._C_Q_;
@@ -27,7 +27,7 @@ import _W_D_.CharListHistory;
 
 import _U_5._dd;
 
-public class _N_N_ extends _cM_ {
+public class _N_N_ extends Mediator {
 
     [Inject]
     public var view:_01_;

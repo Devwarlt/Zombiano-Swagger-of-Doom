@@ -37,7 +37,7 @@ public class Square {
     public static const _cr:Vector.<Number> = new <Number>[0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0];
     private static const _Z_3:Vector.<int> = new <int>[26171, 44789, 20333, 70429, 98257, 59393, 33961];
 
-    public var map_:_X_l;
+    public var map_:GameMap;
     public var x_:int;
     public var y_:int;
     public var tileType_:uint = 0xFF;
@@ -53,7 +53,7 @@ public class Square {
     public var baseTexMatrix_:TextureMatrix = null;
     public var _P_k:int;
 
-    public function Square(_arg1:_X_l, _arg2:int, _arg3:int) {
+    public function Square(_arg1:GameMap, _arg2:int, _arg3:int) {
         this.props_ = _pf._w8;
         this.faces_ = new Vector.<_ik>();
         super();

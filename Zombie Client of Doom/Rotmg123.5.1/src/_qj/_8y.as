@@ -20,7 +20,7 @@
 package _qj {
 import flash.errors.IllegalOperationError;
 
-public class _8y implements _pn {
+public class _8y implements IMatcher {
 
     public function matches(_arg1:Object):Boolean {
         throw (new IllegalOperationError("BaseMatcher#matches must be override by subclass"));

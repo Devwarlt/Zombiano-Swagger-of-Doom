@@ -18,7 +18,7 @@
 //_05G_._X_G_
 
 package _05G_ {
-import _0_p._v;
+import _0_p.IConfig;
 
 import _A_G_._v1;
 
@@ -26,13 +26,13 @@ import _0_j._kW_;
 
 import _K_8._L_G_;
 
-public class _X_G_ implements _v {
+public class _X_G_ implements IConfig {
 
     [Inject]
     public var mediatorMap:_v1;
 
-    public function _K_():void {
-        this.mediatorMap.map(_kW_).to(_L_G_);
+    public function configure():void {
+        this.mediatorMap.map(_kW_).toMediator(_L_G_);
     }
 
 }

@@ -18,11 +18,11 @@
 //_zD_._B_9
 
 package _zD_ {
-import _C__._cM_;
+import _C__.Mediator;
 
 import com.company.assembleegameclient.ui.InventorySide;
 
-public class _B_9 extends _cM_ {
+public class _B_9 extends Mediator {
 
     [Inject]
     public var view:InventorySide;

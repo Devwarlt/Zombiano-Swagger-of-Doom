@@ -18,7 +18,7 @@
 //_F_1._kd
 
 package _F_1 {
-import _sp._aJ_;
+import _sp.Signal;
 
 import mx.core.MovieClipAsset;
 
@@ -29,13 +29,13 @@ import flash.events.Event;
 
 public class _kd {
 
-    private var _ready:_aJ_;
+    private var _ready:Signal;
     private var _oT_:MovieClipAsset;
     private var _content:MovieClip;
 
     public function _kd(_arg1:Class) {
         this._oT_ = new (_arg1)();
-        this._ready = new _aJ_(_kd);
+        this._ready = new Signal(_kd);
         var _local2:Loader = Loader(this._oT_.getChildAt(0));
         var _local3:LoaderInfo = _local2.contentLoaderInfo;
         _local3.addEventListener(Event.COMPLETE, this._set_);
@@ -52,7 +52,7 @@ public class _kd {
         return (this._content);
     }
 
-    public function get ready():_aJ_ {
+    public function get ready():Signal {
         return (this._ready);
     }
 

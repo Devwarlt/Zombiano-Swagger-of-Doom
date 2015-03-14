@@ -27,7 +27,7 @@ import _F_1.selectChars.CharacterBox;
 
 import _F_1.selectChars.CurrentCharacterScreen;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.appengine.SavedCharsList;
 import com.company.assembleegameclient.objects.ObjectLibrary;
@@ -48,8 +48,8 @@ public class _0H_2 extends _05p {
     private var _p6:_H_o;
     private var _H_t:CreditsUI;
     private var _break:Object;
-    public var close:_aJ_;
-    public var play:_aJ_;
+    public var close:Signal;
+    public var play:Signal;
     public var scrollBar:ScrollBar;
 
     public var charBoxHolder:Sprite;
@@ -61,8 +61,8 @@ public class _0H_2 extends _05p {
         this._break = {};
         addChild(new _R_f());
         super(CurrentCharacterScreen);
-        this.play = new _aJ_(int);
-        this.close = new _aJ_();
+        this.play = new Signal(int);
+        this.close = new Signal();
     }
 
     override public function initialize(_arg1:SavedCharsList):void {

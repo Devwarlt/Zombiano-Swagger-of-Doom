@@ -24,7 +24,7 @@ import flash.display.Sprite;
 
 import com.company.assembleegameclient.appengine.SavedCharsList;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.appengine.SavedCharacter;
 
@@ -49,8 +49,8 @@ public class CharacterRectList extends Sprite {
 
     private var charList_:SavedCharsList;
     private var screen_:_05p;
-    public var newCharacter:_aJ_;
-    public var deleteCharacter:_aJ_;
+    public var newCharacter:Signal;
+    public var deleteCharacter:Signal;
 
     public function CharacterRectList(_arg1:SavedCharsList, _arg2:_05p) {
         var _local5:SavedCharacter;
@@ -61,7 +61,7 @@ public class CharacterRectList extends Sprite {
         super();
         this.charList_ = _arg1;
         this.screen_ = _arg2;
-        this.newCharacter = new _aJ_();
+        this.newCharacter = new Signal();
         var _local3:int = 4;
         var _local4:int = 4;
         for each (_local5 in _arg1.savedChars_) {

@@ -18,30 +18,30 @@
 //_1O_._pj
 
 package _1O_ {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _lo._L_W_;
 
 import _03T_._078;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _0_p.IContext;
 
 import _lo._t5;
 
-public class _pj implements _D_v {
+public class _pj implements IExtension {
 
     private static var _H_0:_L_W_;
     private static var _8B_:uint;
 
     private const _ul:String = _078.create(_pj);
 
-    private var _vz:_08b;
+    private var _vz:Injector;
 
     public function extend(_arg1:IContext):void {
         _8B_++;
-        this._vz = _arg1._O_R_;
+        this._vz = _arg1.injector;
         _arg1._iL_._0C_t(this._0C_t);
         _arg1._iL_._kf(this._kf);
     }

@@ -18,14 +18,14 @@
 //_E_x._F_B_
 
 package _E_x {
-import _g2._00d;
-import _g2._06n;
+import _g2.ICommandMapper;
+import _g2.ICommandUnmapper;
 
 public interface _F_B_ {
 
-    function map(_arg1:_00J_):_00d;
+    function map(_arg1:_00J_):ICommandMapper;
 
-    function _1Y_(_arg1:_00J_):_06n;
+    function _1Y_(_arg1:_00J_):ICommandUnmapper;
 
 }
 }//package _E_x

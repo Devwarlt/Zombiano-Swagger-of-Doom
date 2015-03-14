@@ -20,7 +20,7 @@
 package _R_e {
 import _0L_C_.DialogBox;
 
-import _C__._cM_;
+import _C__.Mediator;
 
 import _F_1.selectChars.CurrentCharacterScreen;
 
@@ -46,7 +46,7 @@ import _9R_._D_X_;
 
 import _04w._07V_;
 
-public class GameSpriteEventDispatcher extends _cM_ {
+public class GameSpriteEventDispatcher extends Mediator {
 
     [Inject]
     public var view:GameSprite;
@@ -69,16 +69,16 @@ public class GameSpriteEventDispatcher extends _cM_ {
 
     override public function initialize():void {
         this._0H_j.add(this._n4);
-        _b6(Event.COMPLETE, this.onComplete);
-        _b6(_j_.RECONNECT, this._X_3);
-        _b6(_D_X_.CLIENT_UPDATE, this._Y_z);
+        addViewListener(Event.COMPLETE, this.onComplete);
+        addViewListener(_j_.RECONNECT, this._X_3);
+        addViewListener(_D_X_.CLIENT_UPDATE, this._Y_z);
     }
 
     override public function destroy():void {
         this._0H_j.remove(this._n4);
-        _0E_K_(Event.COMPLETE, this.onComplete);
-        _0E_K_(_D_X_.CLIENT_UPDATE, this._Y_z);
-        _0E_K_(_j_.RECONNECT, this._X_3);
+        removeViewListener(Event.COMPLETE, this.onComplete);
+        removeViewListener(_D_X_.CLIENT_UPDATE, this._Y_z);
+        removeViewListener(_j_.RECONNECT, this._X_3);
         this.view.dispose();
     }
 

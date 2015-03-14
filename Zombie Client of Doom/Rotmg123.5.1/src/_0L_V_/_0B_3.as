@@ -20,7 +20,7 @@
 package _0L_V_ {
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.ui.SimpleText;
 
@@ -34,8 +34,8 @@ public class _0B_3 extends Sprite {
 
     public static var _099:Class = _aq;
 
-    public var close:_aJ_;
-    public var buy:_aJ_;
+    public var close:Signal;
+    public var buy:Signal;
     private var _w2:SimpleText;
 
     public function _0B_3() {

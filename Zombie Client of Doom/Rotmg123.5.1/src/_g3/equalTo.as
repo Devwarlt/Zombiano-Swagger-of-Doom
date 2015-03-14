@@ -18,9 +18,9 @@
 //_g3.equalTo
 
 package _g3 {
-import _qj._pn;
+import _qj.IMatcher;
 
-public function equalTo(_arg1:Object):_pn {
+public function equalTo(_arg1:Object):IMatcher {
     return (new _0I_6(_arg1));
 }
 }//package _g3

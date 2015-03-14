@@ -28,7 +28,7 @@ import _M_Q_._B_h;
 
 import flash.utils.getQualifiedClassName;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 public class _0J_f extends _5W_ {
 
@@ -43,7 +43,7 @@ public class _0J_f extends _5W_ {
         this.injectParameters = _arg4;
     }
 
-    override public function applyInjection(_arg1:Object, _arg2:Class, _arg3:_08b):void {
+    override public function applyInjection(_arg1:Object, _arg2:Class, _arg3:Injector):void {
         var _local4:_5d = _arg3.SsInternal::_L_E_(this._08c);
         if (!_local4) {
             if (this._K_W_) {

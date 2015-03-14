@@ -24,7 +24,7 @@ import com.company.assembleegameclient.game.GameSprite;
 import com.company.assembleegameclient.objects.GuildHallPortal;
 import com.company.assembleegameclient.objects.Player;
 import com.company.assembleegameclient.parameters.Parameters;
-import com.company.assembleegameclient.ui._4D_;
+import com.company.assembleegameclient.ui.ChatBox;
 import com.company.assembleegameclient.ui.boxButton;
 import com.company.ui.SimpleText;
 import com.company.util.Keys;
@@ -91,7 +91,7 @@ public class GuildHallPortalPanel extends Panel {
     }
 
     private function _0A_Y_(_arg1:KeyboardEvent):void {
-        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(_4D_._0G_B_)))) {
+        if ((((_arg1.keyCode == Parameters.data_.interact)) && (!(ChatBox._0G_B_)))) {
             this.enterPortal();
         }
     }

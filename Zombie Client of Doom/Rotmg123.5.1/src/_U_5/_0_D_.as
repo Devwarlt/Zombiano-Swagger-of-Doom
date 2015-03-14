@@ -18,9 +18,9 @@
 //_U_5._0_D_
 
 package _U_5 {
-import _sp._aJ_;
+import _sp.Signal;
 
-public class _0_D_ extends _aJ_ {
+public class _0_D_ extends Signal {
 
     public function _0_D_() {
         super(String);

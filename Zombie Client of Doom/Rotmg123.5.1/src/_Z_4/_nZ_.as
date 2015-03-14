@@ -18,7 +18,7 @@
 //_Z_4._nZ_
 
 package _Z_4 {
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _Y_3._6_;
 import _Y_3._uS_;
@@ -39,15 +39,15 @@ public class _nZ_ implements _S_3, _0C_Z_ {
     private var _0E_h:Class;
     private var _name:String;
     private var _08c:String;
-    private var _00_:_08b;
+    private var _00_:Injector;
     private var _9X_:Boolean;
-    private var _3W_:_08b;
+    private var _3W_:Injector;
     private var _G_e:Boolean;
     private var _cy:Boolean;
     private var _05g:Boolean;
     private var _A_8:Object;
 
-    public function _nZ_(_arg1:_08b, _arg2:Class, _arg3:String, _arg4:String) {
+    public function _nZ_(_arg1:Injector, _arg2:Class, _arg3:String, _arg4:String) {
         this._00_ = _arg1;
         this._0E_h = _arg2;
         this._name = _arg3;
@@ -56,7 +56,7 @@ public class _nZ_ implements _S_3, _0C_Z_ {
         this._af(new _6_(_arg2));
     }
 
-    public function _hZ_():_0C_Z_ {
+    public function asSingleton():_0C_Z_ {
         this._00S_(this._0E_h);
         return (this);
     }
@@ -152,7 +152,7 @@ public class _nZ_ implements _S_3, _0C_Z_ {
         return (_local1);
     }
 
-    public function _0B_6(_arg1:_08b):_nZ_ {
+    public function _0B_6(_arg1:Injector):_nZ_ {
         ((this._05g) && (this._D_o()));
         if (_arg1 == this._3W_) {
             return (this);

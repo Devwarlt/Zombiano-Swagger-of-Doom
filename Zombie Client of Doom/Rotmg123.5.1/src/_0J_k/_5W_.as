@@ -20,7 +20,7 @@
 package _0J_k {
 import flash.utils.Dictionary;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 public class _5W_ {
 
@@ -28,7 +28,7 @@ public class _5W_ {
     public var _jO_:_5W_;
     public var injectParameters:Dictionary;
 
-    public function applyInjection(_arg1:Object, _arg2:Class, _arg3:_08b):void {
+    public function applyInjection(_arg1:Object, _arg2:Class, _arg3:Injector):void {
     }
 
 }

@@ -18,7 +18,7 @@
 //_3b._2Y_
 
 package _3b {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
@@ -28,12 +28,12 @@ import _0K_._C_v;
 
 import _0_p.IContext;
 
-public class _2Y_ implements _D_v {
+public class _2Y_ implements IExtension {
 
     private const _ul:String = _078.create(_2Y_);
 
     public function extend(_arg1:IContext):void {
-        _arg1._O_R_.map(_X_y)._00S_(_C_v);
+        _arg1.injector.map(_X_y)._00S_(_C_v);
     }
 
     public function toString():String {

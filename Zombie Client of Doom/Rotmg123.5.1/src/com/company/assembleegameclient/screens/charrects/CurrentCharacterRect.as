@@ -31,7 +31,7 @@ import com.company.ui.SimpleText;
 
 import flash.display.Sprite;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.objects.ObjectLibrary;
 
@@ -69,8 +69,8 @@ public class CurrentCharacterRect extends CharacterRect {
     private var taglineIcon:DisplayObject;
     private var taglineText:SimpleText;
     private var deleteButton:Sprite;
-    public var selected:_aJ_;
-    public var deleteCharacter:_aJ_;
+    public var selected:Signal;
+    public var deleteCharacter:Signal;
 
     public function CurrentCharacterRect(_arg1:String, _arg2:SavedCharacter, _arg3:SavedCharsList) {
         super(0x73543F, 0x6B472E);

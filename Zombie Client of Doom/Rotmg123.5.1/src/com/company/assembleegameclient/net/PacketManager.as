@@ -158,7 +158,7 @@ import Sounds.Music;
 import _yY_._pz;
 
 import com.company.assembleegameclient.game.GameSprite;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.map._pf;
 import com.company.assembleegameclient.net.messages.data.ObjectStatusData;
 import com.company.assembleegameclient.net.messages.data.StatData;
@@ -771,7 +771,7 @@ public class PacketManager {
 
     private function _0A_K_(_arg1:Damage):void {
         var _local5:int;
-        var _local2:_X_l = this.gs_.map_;
+        var _local2:GameMap = this.gs_.map_;
         var _local3:Projectile;
         if ((((_arg1.objectId_ >= 0)) && ((_arg1.bulletId_ > 0)))) {
             _local5 = Projectile._61(_arg1.objectId_, _arg1.bulletId_);
@@ -905,7 +905,7 @@ public class PacketManager {
     }
 
     private function _lu(_arg1:ObjectStatus):void {
-        var _local2:_X_l = this.gs_.map_;
+        var _local2:GameMap = this.gs_.map_;
         var _local3:GameObject = ObjectLibrary._075(_arg1.objectType_);
         if (_local3 == null) {
             return;
@@ -988,7 +988,7 @@ public class PacketManager {
             this._0l._06m();
         }
         this.gs_.map_.atmosphere_.tick(_arg1.dateTime_);
-        var _local2:_X_l = this.gs_.map_;
+        var _local2:GameMap = this.gs_.map_;
         this.move(_arg1.tickId_, _local2.player_);
         for each (_local3 in _arg1.statuses_) {
             this._9s(_local3, _arg1.tickTime_, _arg1.tickId_);
@@ -1001,7 +1001,7 @@ public class PacketManager {
         var _local4:Effect;
         var _local5:Point;
         var _local6:Point;
-        var _local2:_X_l = this.gs_.map_;
+        var _local2:GameMap = this.gs_.map_;
         switch (_arg1.effectType_) {
             case ShowEffect._x0:
                 _local3 = _local2.goDict_[_arg1.targetObjectId_];
@@ -1358,7 +1358,7 @@ public class PacketManager {
         var _local8:int;
         var _local9:int;
         var _local10:Array;
-        var _local4:_X_l = this.gs_.map_;
+        var _local4:GameMap = this.gs_.map_;
         var _local5:GameObject = _local4.goDict_[_arg1.objectId_];
         if (_local5 == null) {
             return;

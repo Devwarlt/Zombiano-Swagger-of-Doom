@@ -24,7 +24,7 @@ import com.company.assembleegameclient.engine3d._B_5;
 import com.company.assembleegameclient.engine3d._uZ_;
 import com.company.assembleegameclient.map.Square;
 import com.company.assembleegameclient.map._0D_v;
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 import com.company.assembleegameclient.net.messages.data.Position;
 import com.company.assembleegameclient.parameters.Parameters;
 import com.company.assembleegameclient.util.ConditionEffect;
@@ -505,7 +505,7 @@ public class GameObject extends BasicObject {
         return (Math.sqrt(((_local2 * _local2) + (_local3 * _local3))));
     }
 
-    override public function addTo(_arg1:_X_l, _arg2:Number, _arg3:Number):Boolean {
+    override public function addTo(_arg1:GameMap, _arg2:Number, _arg3:Number):Boolean {
         map_ = _arg1;
         this._Z_M_.x = (this._52.x = _arg2);
         this._Z_M_.y = (this._52.y = _arg3);

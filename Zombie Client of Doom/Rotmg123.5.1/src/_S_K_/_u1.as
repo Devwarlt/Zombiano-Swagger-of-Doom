@@ -18,16 +18,16 @@
 //_S_K_._u1
 
 package _S_K_ {
-import _sp._aJ_;
+import _sp.Signal;
 
 import flash.events.IEventDispatcher;
 import flash.events.Event;
 
-import _sp._xN_;
-import _sp._09K_;
+import _sp.ISlot;
+import _sp.SlotList;
 import _sp.Slot;
 
-public class _u1 extends _aJ_ implements _j3 {
+public class _u1 extends Signal implements _j3 {
 
     protected var _R_d:IEventDispatcher;
     protected var _bC_:String;
@@ -75,25 +75,25 @@ public class _u1 extends _aJ_ implements _j3 {
         this.eventClass = ((((_arg1) && ((_arg1.length > 0)))) ? _arg1[0] : null);
     }
 
-    override public function add(_arg1:Function):_xN_ {
-        return (this._z(_arg1));
+    override public function add(_arg1:Function):ISlot {
+        return (this.addWithPriority(_arg1));
     }
 
-    override public function addOnce(_arg1:Function):_xN_ {
-        return (this._J_E_(_arg1));
+    override public function addOnce(_arg1:Function):ISlot {
+        return (this.addOnceWithPriority(_arg1));
     }
 
-    public function _z(_arg1:Function, _arg2:int = 0):_xN_ {
+    public function addWithPriority(_arg1:Function, _arg2:int = 0):ISlot {
         return (this._0C_w(_arg1, false, _arg2));
     }
 
-    public function _J_E_(_arg1:Function, _arg2:int = 0):_xN_ {
+    public function addOnceWithPriority(_arg1:Function, _arg2:int = 0):ISlot {
         return (this._0C_w(_arg1, true, _arg2));
     }
 
-    override public function remove(_arg1:Function):_xN_ {
+    override public function remove(_arg1:Function):ISlot {
         var _local2:Boolean = _01p.nonEmpty;
-        var _local3:_xN_ = super.remove(_arg1);
+        var _local3:ISlot = super.remove(_arg1);
         if (_local2 != _01p.nonEmpty) {
             this.target.removeEventListener(this._S_b, this.onNativeEvent);
         }
@@ -134,19 +134,19 @@ public class _u1 extends _aJ_ implements _j3 {
     }
 
     protected function onNativeEvent(_arg1:Event):void {
-        var _local2:_09K_ = _01p;
+        var _local2:SlotList = _01p;
         while (_local2.nonEmpty) {
             _local2._G_W_.execute1(_arg1);
             _local2 = _local2._U_H_;
         }
     }
 
-    protected function _0C_w(_arg1:Function, _arg2:Boolean = false, _arg3:int = 0):_xN_ {
+    protected function _0C_w(_arg1:Function, _arg2:Boolean = false, _arg3:int = 0):ISlot {
         if (!this.target) {
             throw (new ArgumentError("Target object cannot be null."));
         }
         var _local4:Boolean = _01p.nonEmpty;
-        var _local5:_xN_;
+        var _local5:ISlot;
         if (_L_l(_arg1, _arg2)) {
             _local5 = new Slot(_arg1, this, _arg2, _arg3);
             _01p = _01p.insertWithPriority(_local5);

@@ -22,9 +22,9 @@ import _E_x._00J_;
 
 import _E_x._K_T_;
 
-import _sp._08P_;
+import _sp.ISignal;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.utils.Dictionary;
 import flash.utils.describeType;
@@ -37,14 +37,14 @@ public class _02O_ implements _00J_ {
 
     private const _0K_E_:Vector.<_K_T_> = new Vector.<_K_T_>();
 
-    private var _signal:_08P_;
+    private var _signal:ISignal;
     private var _6I_:Class;
     private var _once:Boolean;
-    protected var _vz:_08b;
+    protected var _vz:Injector;
     protected var _T_Z_:Dictionary;
     protected var _0G_i:Dictionary;
 
-    public function _02O_(_arg1:_08b, _arg2:Class, _arg3:Boolean = false) {
+    public function _02O_(_arg1:Injector, _arg2:Class, _arg3:Boolean = false) {
         this._vz = _arg1;
         this._6I_ = _arg2;
         this._once = _arg3;
@@ -80,17 +80,17 @@ public class _02O_ implements _00J_ {
         this._0G_i[mapping.commandClass] = true;
     }
 
-    protected function _wJ_(_arg1:_08P_, _arg2:Array, _arg3:Class, _arg4:Boolean):void {
+    protected function _wJ_(_arg1:ISignal, _arg2:Array, _arg3:Class, _arg4:Boolean):void {
         var _local6:_K_T_;
         var _local7:Object;
         var _local5:Vector.<_K_T_> = this._0K_E_.concat();
         for each (_local6 in _local5) {
             if (guardsApprove(_local6._0_R_, this._vz)) {
                 ((this._once) && (this._0A_W_(_local6)));
-                this._vz.map(_local6.commandClass)._hZ_();
+                this._vz.map(_local6.commandClass).asSingleton();
                 _local7 = this._Y_(_arg1.valueClasses, _arg2, _local6.commandClass);
                 applyHooks(_local6._7w, this._vz);
-                this._vz._1Y_(_local6.commandClass);
+                this._vz.unmap(_local6.commandClass);
                 _local7.execute();
                 this._5v(_arg1.valueClasses, _arg2);
             }
@@ -111,7 +111,7 @@ public class _02O_ implements _00J_ {
     protected function _5v(_arg1:Array, _arg2:Array):void {
         var _local3:uint;
         while (_local3 < _arg1.length) {
-            this._vz._1Y_(_arg1[_local3]);
+            this._vz.unmap(_arg1[_local3]);
             _local3++;
         }
     }
@@ -121,7 +121,7 @@ public class _02O_ implements _00J_ {
         return (this._vz.getInstance(_arg3));
     }
 
-    protected function _T_z(_arg1:_08P_, _arg2:Class):Boolean {
+    protected function _T_z(_arg1:ISignal, _arg2:Class):Boolean {
         var _local3:Dictionary = this._T_Z_[_arg1];
         if (_local3 == null) {
             return (false);

@@ -18,13 +18,13 @@
 //_aD_._09h
 
 package _aD_ {
-import _sp._aJ_;
+import _sp.Signal;
 
 public interface _09h {
 
     function _U_Z_(_arg1:_sv):void;
 
-    function get complete():_aJ_;
+    function get complete():Signal;
 
 }
 }//package _aD_

@@ -18,7 +18,7 @@
 //com.company.assembleegameclient.objects._ez
 
 package com.company.assembleegameclient.objects {
-import com.company.assembleegameclient.map._X_l;
+import com.company.assembleegameclient.map.GameMap;
 
 import flash.utils.Dictionary;
 
@@ -33,13 +33,13 @@ public class _ez {
     private static const _h_:Array = [(Array.NUMERIC | Array.DESCENDING), Array.NUMERIC, Array.NUMERIC];
     private static const _1b:int = (50 * 50);//2500
 
-    public var map_:_X_l;
+    public var map_:GameMap;
     public var _X_e:Array;
     private var lastUpdate_:int = -2147483648;
     private var starred_:Dictionary;
     private var _0M_w:Dictionary;
 
-    public function _ez(_arg1:_X_l) {
+    public function _ez(_arg1:GameMap) {
         this._X_e = [];
         this.starred_ = new Dictionary(true);
         this._0M_w = new Dictionary(true);

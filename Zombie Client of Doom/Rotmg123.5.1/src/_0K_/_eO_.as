@@ -26,7 +26,7 @@ import _T_G_._9P_;
 
 import flash.events.IEventDispatcher;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import flash.utils.describeType;
 
@@ -40,7 +40,7 @@ public class _eO_ implements _00J_ {
     private var _0E_h:String;
     private var _S_r:_gW_;
 
-    public function _eO_(_arg1:_08b, _arg2:IEventDispatcher, _arg3:String, _arg4:Class = null) {
+    public function _eO_(_arg1:Injector, _arg2:IEventDispatcher, _arg3:String, _arg4:Class = null) {
         this._0L_4 = _arg2;
         this._0E_h = _arg3;
         this._S_r = new _gW_(this, this._H__, _arg1, _arg4);

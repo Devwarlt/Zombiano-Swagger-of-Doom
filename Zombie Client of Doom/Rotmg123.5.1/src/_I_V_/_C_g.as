@@ -18,7 +18,7 @@
 //_I_V_._C_g
 
 package _I_V_ {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
@@ -26,7 +26,7 @@ import _T_Y_._4A_;
 
 import _0_p.IContext;
 
-public class _C_g implements _D_v {
+public class _C_g implements IExtension {
 
     private const _ul:String = _078.create(_C_g);
 

@@ -18,31 +18,31 @@
 //_08G_._kB_
 
 package _08G_ {
-import _0_p._D_v;
+import _0_p.IExtension;
 
 import _03T_._078;
 
-import _eZ_._08b;
+import _eZ_.Injector;
 
 import _0_p._Q_5;
 
-import _g3.instanceOf;
+import _g3.instanceOfType;
 
 import flash.display.DisplayObjectContainer;
 
 import _0_p.IContext;
 
-public class _kB_ implements _D_v {
+public class _kB_ implements IExtension {
 
     private const _ul:String = _078.create(_kB_);
 
-    private var _vz:_08b;
+    private var _vz:Injector;
     private var _eo:_Q_5;
 
     public function extend(_arg1:IContext):void {
-        this._vz = _arg1._O_R_;
+        this._vz = _arg1.injector;
         this._eo = _arg1._0H_4(this);
-        _arg1._ty(instanceOf(DisplayObjectContainer), this._uI_);
+        _arg1._ty(instanceOfType(DisplayObjectContainer), this._uI_);
     }
 
     public function toString():String {

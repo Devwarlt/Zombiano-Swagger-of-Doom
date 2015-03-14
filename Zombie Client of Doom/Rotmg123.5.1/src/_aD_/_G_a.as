@@ -20,7 +20,7 @@
 package _aD_ {
 import _0M_m._j5;
 
-import _sp._aJ_;
+import _sp.Signal;
 
 import com.company.assembleegameclient.util._zR_;
 import com.company.assembleegameclient.util.offer.Offers;
@@ -33,7 +33,7 @@ public class _G_a implements _09h {
 
     [Inject]
     public var _iq:_j5;
-    private var _0G_z:_aJ_;
+    private var _0G_z:Signal;
 
     public function _U_Z_(_arg1:_sv):void {
         var _local3:_zR_;
@@ -46,8 +46,8 @@ public class _G_a implements _09h {
         this.complete.dispatch();
     }
 
-    public function get complete():_aJ_ {
-        return ((this._0G_z = ((this._0G_z) || (new _aJ_()))));
+    public function get complete():Signal {
+        return ((this._0G_z = ((this._0G_z) || (new Signal()))));
     }
 
 }
