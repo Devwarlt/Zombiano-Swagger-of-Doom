@@ -1,0 +1,71 @@
+﻿<!--
+
+#Colors
+  Available Language Colors:
+  
+  {red}red text{/red}
+  {blue}blue text{/blue}
+  {green}green text{/green}
+  {yellow}yellow text{/yellow}
+  {purple}purple text{/purple}
+  {orange}orange text{/orange}
+  {white}white text{/white}
+  {black}black text{/black}
+  {gold}gold text{/gold}
+  
+  
+#Layout
+  Language Layout:
+  <key>language text here</key>
+  
+  
+#Parameters
+  Parameters:
+  <key>my text: {parameter}</key>
+  
+  "{parameter}" will be replaced with a unknown value
+  known parameters:
+
+  {price} //used in sellable objects
+  {level} //used if you die or if you reach level 20
+  {player} //used in many places where you need the player name
+-->
+
+
+<Language type="he">  
+  <!-- UI -->
+  <game.Paused>משחק מושהה</game.Paused>
+  <!-- END UI -->
+  
+  
+  <!-- SellAbleButton -->
+  <SellAbleButton.Buy_for>קנה ב {price}</SellAbleButton.Buy_for>
+  <SellAbleButton.Create>צור {price}</SellAbleButton.Create>
+  <SellAbleButton.Change>שנה {price}</SellAbleButton.Change>
+  <!-- End SellAbleButton -->
+
+  <!-- Screen -->
+  <Screen.Play>שחק</Screen.Play>
+  <Screen.Servers>סרברים</Screen.Servers>
+  <Screen.Legends>אגדות</Screen.Legends>
+  <Screen.Credits>קרדיטס</Screen.Credits>
+  <Screen.Account>חשבון</Screen.Account>
+  <Screen.Editor>עורך</Screen.Editor>
+  <Screen.Website>אתר</Screen.Website>
+  <Screen.Quit>סגור</Screen.Quit>
+  <Screen.Main>ראשי</Screen.Main>
+  <Screen.Skins>סקינס</Screen.Skins>
+  <!-- End Screen -->
+  
+  <!-- TextButton -->
+  <TextButton.Characters>שחקנים</TextButton.Characters>
+  <TextButton.Graveyard>בית קברות</TextButton.Graveyard>
+  <TextButton.Packages>חבילות</TextButton.Packages>
+  <!-- End TextButton -->
+  
+
+
+
+
+
+</Language>
